@@ -1,0 +1,312 @@
+<!-- ========== SIDEBAR CONTENT ========== -->
+      <!-- ========== CHƯƠNG 1 ========== -->
+      <div class="nav-item">
+        <button class="nav-btn" onclick="togSub(this)"><span class="icon" style="color:var(--ch1)">①</span>Chương 1. Tĩnh học<span class="arrow">▶</span></button>
+        <div class="sub-menu">
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-1');return false">I. Các khái niệm cơ bản<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-1-1');return false">1. Vật rắn tuyệt đối</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-2');return false">2. Trạng thái cân bằng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-3');return false">3. Lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-4');return false">4. Mô men</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-5');return false">5. Hệ lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-6');return false">6. Ngẫu lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-7');return false">7. Vật tự do và vật không tự do</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-8');return false">8. Lực liên kết, lực hoạt động, phản lực liên kết</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-2');return false">II. Hệ tiên đề tĩnh học<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-2-1');return false">1. Tiên đề 1: Cặp lực cân bằng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-2');return false">2. Tiên đề 2: Thêm hay bớt cặp lực cân bằng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-3');return false">3. Tiên đề 3: Hình bình hành lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-4');return false">4. Tiên đề 4: Lực tương tác</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-5');return false">5. Tiên đề 5: Tiên đề hóa rắn</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-6');return false">6. Tiên đề 6: Giải phóng liên kết</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-3');return false">III. Phản lực liên kết thường gặp<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-3-1');return false">1. Liên kết tựa</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-2');return false">2. Liên kết dây mềm, thẳng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-3');return false">3. Liên kết bản lề</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-4');return false">4. Liên kết gối</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-5');return false">5. Liên kết gối cầu</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-6');return false">6. Liên kết ngàm</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-7');return false">7. Liên kết thanh</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-4');return false">IV. Đặc trưng cơ bản của hệ lực<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-4-1');return false">1. Véc tơ chính</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-4-2');return false">2. Mô men chính</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-4-3');return false">3. Các dạng cơ bản</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-5');return false">V. Điều kiện cân bằng<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-5-1');return false">1. Điều kiện CB hệ lực bất kỳ trong KG</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-5-2');return false">2. Điều kiện CB hệ lực đặc biệt</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-6');return false">VI. Ma sát<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-6-1');return false">1. Khái niệm</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-6-2');return false">2. Phân loại ma sát</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-7');return false">VII. Trọng tâm<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-7-1');return false">1. Khái niệm</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-7-2');return false">2. Công thức tính trọng tâm</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-7-3');return false">3. Tính chất và trọng tâm một số vật</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-8');return false">VIII. Bài tập<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-8-1');return false">1. Phương pháp giải bài toán cân bằng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-8-2');return false">2. Bài tập có hướng dẫn</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-8-3');return false">3. Bài tập tự làm</a>
+            </div>
+          </div>
+          <a href="#" class="l2" onclick="loadPage('ch1-rev');return false">❓ Câu hỏi ôn tập</a>
+          <a href="#" class="l2" onclick="loadPage('ch1-quiz');return false">✅ Ôn tập trắc nghiệm</a>
+        </div>
+      </div>
+      <!-- ========== CHƯƠNG 2 ========== -->
+      <div class="nav-item">
+        <button class="nav-btn" onclick="togSub(this)"><span class="icon" style="color:var(--ch2)">②</span>Chương 2. Động học<span class="arrow">▶</span></button>
+        <div class="sub-menu">
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-1');return false">I. Chuyển động của chất điểm<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-1-1');return false">1. Khảo sát bằng véc tơ</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-1-2');return false">2. Khảo sát bằng tọa độ Đề các</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-1-3');return false">3. Khảo sát bằng tọa độ tự nhiên</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-1-4');return false">4. Các dạng chuyển động đặc biệt</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-2');return false">II. Chuyển động cơ bản của vật rắn<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-2-1');return false">1. Chuyển động tịnh tiến</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-2-2');return false">2. Chuyển động quay quanh trục cố định</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-3');return false">III. Truyền động đơn giản<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-3-1');return false">1. Vị trí truyền động</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-3-2');return false">2. Một số loại truyền động</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-4');return false">IV. Hợp chuyển động điểm<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-4-1');return false">1. Định nghĩa các loại chuyển động</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-4-2');return false">2. Định lý hợp vận tốc và gia tốc</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-5');return false">V. Chuyển động song phẳng<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-5-1');return false">1. Khái niệm và mô hình</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-5-2');return false">2. Khảo sát chuyển động vật rắn</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-5-3');return false">3. Khảo sát chuyển động các điểm</a>
+            </div>
+          </div>
+          <a href="#" class="l2" onclick="loadPage('ch2-6');return false">VI. Chuyển động quay quanh 1 điểm cố định</a>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-7');return false">VII. Bài tập<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-7-1');return false">1. Tóm tắt lý thuyết</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-7-2');return false">2. Bài tập có hướng dẫn</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-7-3');return false">3. Bài tập tự làm</a>
+            </div>
+          </div>
+          <a href="#" class="l2" onclick="loadPage('ch2-rev');return false">❓ Câu hỏi ôn tập</a>
+          <a href="#" class="l2" onclick="loadPage('ch2-quiz');return false">✅ Ôn tập trắc nghiệm</a>
+        </div>
+      </div>
+      <!-- ========== CHƯƠNG 3 ========== -->
+      <div class="nav-item">
+        <button class="nav-btn" onclick="togSub(this)"><span class="icon" style="color:var(--ch3)">③</span>Chương 3. Động lực học<span class="arrow">▶</span></button>
+        <div class="sub-menu">
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-1');return false">I. Các khái niệm cơ bản<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-1-1');return false">1. Vật thể</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-1-2');return false">2. Lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-1-3');return false">3. Hệ quy chiếu quán tính</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-2');return false">II. Các định luật cơ bản<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-2-1');return false">1. ĐL quán tính</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-2-2');return false">2. ĐL cơ bản ĐLH</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-2-3');return false">3. ĐL tác dụng & phản tác dụng</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-2-4');return false">4. ĐL tính độc lập giữa tác dụng lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-2-5');return false">5. Tiên đề giải phóng liên kết</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-3');return false">III. Phương trình vi phân chuyển động<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-3-1');return false">1. Dạng véc tơ</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-3-2');return false">2. Dạng tọa độ Đề các</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-4');return false">IV. Hai bài toán cơ bản của ĐLH<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-4-1');return false">1. Bài toán thuận</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-4-2');return false">2. Bài toán ngược</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-5');return false">V. Các định lý tổng quát<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-5-1');return false">1. Định lý chuyển động khối tâm</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-5-2');return false">2. Định lý động lượng</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-5-3');return false">3. Định lý mô men động lượng</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-5-4');return false">4. Định lý động năng</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-6');return false">VI. Lý thuyết va chạm<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-6-1');return false">1. Đặc điểm và giả thiết</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-6-2');return false">2. Các định lý tổng quát áp dụng</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-6-3');return false">3. Hai bài toán cơ bản</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-7');return false">VII. Bài tập<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-7-1');return false">1. Tóm tắt lý thuyết</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-7-2');return false">2. Bài tập có hướng dẫn</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-7-3');return false">3. Bài tập tự làm</a>
+            </div>
+          </div>
+          <a href="#" class="l2" onclick="loadPage('ch3-rev');return false">❓ Câu hỏi ôn tập</a>
+          <a href="#" class="l2" onclick="loadPage('ch3-quiz');return false">✅ Ôn tập trắc nghiệm</a>
+        </div>
+      </div>
+
+
+// ===== PAGE_ORDER =====
+const PAGE_ORDER = [
+  'home', 'lnd', 'ch1', 'ch1-1', 'ch1-1-1', 'ch1-1-2', 'ch1-1-3', 'ch1-1-4',
+  'ch1-1-5', 'ch1-1-6', 'ch1-1-7', 'ch1-1-8', 'ch1-2', 'ch1-2-1', 'ch1-2-2', 'ch1-2-3',
+  'ch1-2-4', 'ch1-2-5', 'ch1-2-6', 'ch1-3', 'ch1-3-1', 'ch1-3-2', 'ch1-3-3', 'ch1-3-4',
+  'ch1-3-5', 'ch1-3-6', 'ch1-3-7', 'ch1-4', 'ch1-4-1', 'ch1-4-2', 'ch1-4-3', 'ch1-5',
+  'ch1-5-1', 'ch1-5-2', 'ch1-6', 'ch1-6-1', 'ch1-6-2', 'ch1-7', 'ch1-7-1', 'ch1-7-2',
+  'ch1-7-3', 'ch1-8', 'ch1-8-1', 'ch1-8-2', 'ch1-8-3', 'ch1-rev', 'ch1-quiz', 'ch2',
+  'ch2-1', 'ch2-1-1', 'ch2-1-2', 'ch2-1-3', 'ch2-1-4', 'ch2-2', 'ch2-2-1', 'ch2-2-2',
+  'ch2-3', 'ch2-3-1', 'ch2-3-2', 'ch2-4', 'ch2-4-1', 'ch2-4-2', 'ch2-5', 'ch2-5-1',
+  'ch2-5-2', 'ch2-5-3', 'ch2-6', 'ch2-7', 'ch2-7-1', 'ch2-7-2', 'ch2-7-3', 'ch2-rev',
+  'ch2-quiz', 'ch3', 'ch3-1', 'ch3-1-1', 'ch3-1-2', 'ch3-1-3', 'ch3-2', 'ch3-2-1',
+  'ch3-2-2', 'ch3-2-3', 'ch3-2-4', 'ch3-2-5', 'ch3-3', 'ch3-3-1', 'ch3-3-2', 'ch3-4',
+  'ch3-4-1', 'ch3-4-2', 'ch3-5', 'ch3-5-1', 'ch3-5-2', 'ch3-5-3', 'ch3-5-4', 'ch3-6',
+  'ch3-6-1', 'ch3-6-2', 'ch3-6-3', 'ch3-7', 'ch3-7-1', 'ch3-7-2', 'ch3-7-3', 'ch3-rev',
+  'ch3-quiz', 'authors', 'refs'
+];
+
+// ===== BC (breadcrumb) =====
+const BC = {
+  'home': 'Trang chủ',
+  'lnd': 'Lời nói đầu',
+  'authors': 'Tác giả',
+  'refs': 'Tài liệu tham khảo',
+  'ch1': 'Chương 1 › Tĩnh học',
+  'ch1-1': 'Chương 1 › I. Các khái niệm cơ bản',
+  'ch1-1-1': 'Chương 1 › I › 1. Vật rắn tuyệt đối',
+  'ch1-1-2': 'Chương 1 › I › 2. Trạng thái cân bằng',
+  'ch1-1-3': 'Chương 1 › I › 3. Lực',
+  'ch1-1-4': 'Chương 1 › I › 4. Mô men',
+  'ch1-1-5': 'Chương 1 › I › 5. Hệ lực',
+  'ch1-1-6': 'Chương 1 › I › 6. Ngẫu lực',
+  'ch1-1-7': 'Chương 1 › I › 7. Vật tự do và vật không tự do',
+  'ch1-1-8': 'Chương 1 › I › 8. Lực liên kết, lực hoạt động, phản l',
+  'ch1-2': 'Chương 1 › II. Hệ tiên đề tĩnh học',
+  'ch1-2-1': 'Chương 1 › II › 1. Tiên đề 1: Cặp lực cân bằng',
+  'ch1-2-2': 'Chương 1 › II › 2. Tiên đề 2: Thêm hay bớt cặp lực cân',
+  'ch1-2-3': 'Chương 1 › II › 3. Tiên đề 3: Hình bình hành lực',
+  'ch1-2-4': 'Chương 1 › II › 4. Tiên đề 4: Lực tương tác',
+  'ch1-2-5': 'Chương 1 › II › 5. Tiên đề 5: Tiên đề hóa rắn',
+  'ch1-2-6': 'Chương 1 › II › 6. Tiên đề 6: Giải phóng liên kết',
+  'ch1-3': 'Chương 1 › III. Phản lực liên kết thường gặp',
+  'ch1-3-1': 'Chương 1 › III › 1. Liên kết tựa',
+  'ch1-3-2': 'Chương 1 › III › 2. Liên kết dây mềm, thẳng',
+  'ch1-3-3': 'Chương 1 › III › 3. Liên kết bản lề',
+  'ch1-3-4': 'Chương 1 › III › 4. Liên kết gối',
+  'ch1-3-5': 'Chương 1 › III › 5. Liên kết gối cầu',
+  'ch1-3-6': 'Chương 1 › III › 6. Liên kết ngàm',
+  'ch1-3-7': 'Chương 1 › III › 7. Liên kết thanh',
+  'ch1-4': 'Chương 1 › IV. Đặc trưng cơ bản của hệ lực',
+  'ch1-4-1': 'Chương 1 › IV › 1. Véc tơ chính',
+  'ch1-4-2': 'Chương 1 › IV › 2. Mô men chính',
+  'ch1-4-3': 'Chương 1 › IV › 3. Các dạng cơ bản',
+  'ch1-5': 'Chương 1 › V. Điều kiện cân bằng',
+  'ch1-5-1': 'Chương 1 › V › 1. Điều kiện CB hệ lực bất kỳ trong KG',
+  'ch1-5-2': 'Chương 1 › V › 2. Điều kiện CB hệ lực đặc biệt',
+  'ch1-6': 'Chương 1 › VI. Ma sát',
+  'ch1-6-1': 'Chương 1 › VI › 1. Khái niệm',
+  'ch1-6-2': 'Chương 1 › VI › 2. Phân loại ma sát',
+  'ch1-7': 'Chương 1 › VII. Trọng tâm',
+  'ch1-7-1': 'Chương 1 › VII › 1. Khái niệm',
+  'ch1-7-2': 'Chương 1 › VII › 2. Công thức tính trọng tâm',
+  'ch1-7-3': 'Chương 1 › VII › 3. Tính chất và trọng tâm một số vật',
+  'ch1-8': 'Chương 1 › VIII. Bài tập',
+  'ch1-8-1': 'Chương 1 › VIII › 1. Phương pháp giải bài toán cân bằng',
+  'ch1-8-2': 'Chương 1 › VIII › 2. Bài tập có hướng dẫn',
+  'ch1-8-3': 'Chương 1 › VIII › 3. Bài tập tự làm',
+  'ch1-rev': 'Chương 1 › Câu hỏi ôn tập',
+  'ch1-quiz': 'Chương 1 › Ôn tập trắc nghiệm',
+  'ch2': 'Chương 2 › Động học',
+  'ch2-1': 'Chương 2 › I. Chuyển động của chất điểm',
+  'ch2-1-1': 'Chương 2 › I › 1. Khảo sát bằng véc tơ',
+  'ch2-1-2': 'Chương 2 › I › 2. Khảo sát bằng tọa độ Đề các',
+  'ch2-1-3': 'Chương 2 › I › 3. Khảo sát bằng tọa độ tự nhiên',
+  'ch2-1-4': 'Chương 2 › I › 4. Các dạng chuyển động đặc biệt',
+  'ch2-2': 'Chương 2 › II. Chuyển động cơ bản của vật rắn',
+  'ch2-2-1': 'Chương 2 › II › 1. Chuyển động tịnh tiến',
+  'ch2-2-2': 'Chương 2 › II › 2. Chuyển động quay quanh trục cố định',
+  'ch2-3': 'Chương 2 › III. Truyền động đơn giản',
+  'ch2-3-1': 'Chương 2 › III › 1. Vị trí truyền động',
+  'ch2-3-2': 'Chương 2 › III › 2. Một số loại truyền động',
+  'ch2-4': 'Chương 2 › IV. Hợp chuyển động điểm',
+  'ch2-4-1': 'Chương 2 › IV › 1. Định nghĩa các loại chuyển động',
+  'ch2-4-2': 'Chương 2 › IV › 2. Định lý hợp vận tốc và gia tốc',
+  'ch2-5': 'Chương 2 › V. Chuyển động song phẳng',
+  'ch2-5-1': 'Chương 2 › V › 1. Khái niệm và mô hình',
+  'ch2-5-2': 'Chương 2 › V › 2. Khảo sát chuyển động vật rắn',
+  'ch2-5-3': 'Chương 2 › V › 3. Khảo sát chuyển động các điểm',
+  'ch2-6': 'Chương 2 › VI. Chuyển động quay quanh 1 điểm cố định',
+  'ch2-7': 'Chương 2 › VII. Bài tập',
+  'ch2-7-1': 'Chương 2 › VII › 1. Tóm tắt lý thuyết',
+  'ch2-7-2': 'Chương 2 › VII › 2. Bài tập có hướng dẫn',
+  'ch2-7-3': 'Chương 2 › VII › 3. Bài tập tự làm',
+  'ch2-rev': 'Chương 2 › Câu hỏi ôn tập',
+  'ch2-quiz': 'Chương 2 › Ôn tập trắc nghiệm',
+  'ch3': 'Chương 3 › Động lực học',
+  'ch3-1': 'Chương 3 › I. Các khái niệm cơ bản',
+  'ch3-1-1': 'Chương 3 › I › 1. Vật thể',
+  'ch3-1-2': 'Chương 3 › I › 2. Lực',
+  'ch3-1-3': 'Chương 3 › I › 3. Hệ quy chiếu quán tính',
+  'ch3-2': 'Chương 3 › II. Các định luật cơ bản',
+  'ch3-2-1': 'Chương 3 › II › 1. ĐL quán tính',
+  'ch3-2-2': 'Chương 3 › II › 2. ĐL cơ bản ĐLH',
+  'ch3-2-3': 'Chương 3 › II › 3. ĐL tác dụng & phản tác dụng',
+  'ch3-2-4': 'Chương 3 › II › 4. ĐL tính độc lập giữa tác dụng lực',
+  'ch3-2-5': 'Chương 3 › II › 5. Tiên đề giải phóng liên kết',
+  'ch3-3': 'Chương 3 › III. Phương trình vi phân chuyển động',
+  'ch3-3-1': 'Chương 3 › III › 1. Dạng véc tơ',
+  'ch3-3-2': 'Chương 3 › III › 2. Dạng tọa độ Đề các',
+  'ch3-4': 'Chương 3 › IV. Hai bài toán cơ bản của ĐLH',
+  'ch3-4-1': 'Chương 3 › IV › 1. Bài toán thuận',
+  'ch3-4-2': 'Chương 3 › IV › 2. Bài toán ngược',
+  'ch3-5': 'Chương 3 › V. Các định lý tổng quát',
+  'ch3-5-1': 'Chương 3 › V › 1. Định lý chuyển động khối tâm',
+  'ch3-5-2': 'Chương 3 › V › 2. Định lý động lượng',
+  'ch3-5-3': 'Chương 3 › V › 3. Định lý mô men động lượng',
+  'ch3-5-4': 'Chương 3 › V › 4. Định lý động năng',
+  'ch3-6': 'Chương 3 › VI. Lý thuyết va chạm',
+  'ch3-6-1': 'Chương 3 › VI › 1. Đặc điểm và giả thiết',
+  'ch3-6-2': 'Chương 3 › VI › 2. Các định lý tổng quát áp dụng',
+  'ch3-6-3': 'Chương 3 › VI › 3. Hai bài toán cơ bản',
+  'ch3-7': 'Chương 3 › VII. Bài tập',
+  'ch3-7-1': 'Chương 3 › VII › 1. Tóm tắt lý thuyết',
+  'ch3-7-2': 'Chương 3 › VII › 2. Bài tập có hướng dẫn',
+  'ch3-7-3': 'Chương 3 › VII › 3. Bài tập tự làm',
+  'ch3-rev': 'Chương 3 › Câu hỏi ôn tập',
+  'ch3-quiz': 'Chương 3 › Ôn tập trắc nghiệm',
+};

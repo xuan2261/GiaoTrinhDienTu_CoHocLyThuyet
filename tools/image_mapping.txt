@@ -1,0 +1,159 @@
+IMAGE MAPPING: DOCX → HTML
+============================================================
+
+
+============================================================
+CHƯƠNG 1 (8 images)
+============================================================
+
+  #001 | images/ch1/img-001.png
+       Section: .8
+       Hình ref: 1.4
+       Context:  | Hình 1.4. Lực liên kết và phản lực liên kết | II. HỆ TIÊN ĐỀ TĨNH HỌC
+
+  #002 | images/ch1/img-002.png
+       Section: II.6
+       Hình ref: 1.10
+       Context:  | Hình 1.10. Giải phóng liên kết | III. MỘT SỐ PHẢN LỰC LIÊN KẾT THƯỜNG GẶP
+
+  #003 | images/ch1/img-003.png
+       Section: VI.2
+       Hình ref: 1.23
+       Context:  | Hình 1.23. Phân loại ma sát
+
+  #004 | images/ch1/img-004.png
+       Section: VI.2
+       Hình ref: 1.23
+       Context:  | Hình 1.23. Phân loại ma sát | + Ma sát trượt tĩnh: , s là hệ số ma sát trượt tĩnh.
+
+  #005 | images/ch1/img-005.png
+       Section: VI.2
+       Hình ref: 1.23
+       Context:  | Hình 1.23. Phân loại ma sát | + Ma sát trượt tĩnh: , s là hệ số ma sát trượt tĩnh.
+
+  #006 | images/ch1/img-006.png
+       Section: VI.2
+       Hình ref: 1.24
+       Context:  | Hình 1.24 | Điều kiện để vật lăn không trượt:
+
+  #007 | images/ch1/img-007.png
+       Section: VI.2
+       Hình ref: 1.24
+       Context:  | Hình 1.24 | Điều kiện để vật lăn không trượt:
+
+  #008 | images/ch1/img-008.png
+       Section: VII.2
+       Hình ref: 1.25
+       Context:  | Hình 1.25 | - Điểm hình học C gọi là tâm của hệ lực song song được xác định bởi công thức (Tọa độ trọng tâm):
+
+============================================================
+CHƯƠNG 2 (15 images)
+============================================================
+
+  #009 | images/ch2/img-009.png
+       Section: I.3
+       Hình ref: 2.5
+       Context:  | Hình 2.5 | Theo phương pháp này để xác định chuyển động của điểm phải biết được:
+
+  #010 | images/ch2/img-010.emf
+       Section: I.3
+       Hình ref: 2.5
+       Context:  | Hình 2.5 | Theo phương pháp này để xác định chuyển động của điểm phải biết được:
+
+  #011 | images/ch2/img-011.png
+       Section: I.4
+       Hình ref: 2.6
+       Context:  | Hình 2.6 | Qui luật chuyển động của điểm: s = s(t)
+
+  #012 | images/ch2/img-012.png
+       Section: I.4
+       Hình ref: 2.7
+       Context:  | Hình 2.7
+
+  #013 | images/ch2/img-013.png
+       Section: II.2
+       Hình ref: (none)
+       Context: ❖Chuyển động quay biến đổi đều: Đặc trưng bởi  =  = const
+
+  #014 | images/ch2/img-014.png
+       Section: .
+       Hình ref: (none)
+       Context:  | * Vận tốc các điểm | Theo công thức trong hệ tọa độ tự nhiên:
+
+  #015 | images/ch2/img-015.png
+       Section: .
+       Hình ref: (none)
+       Context: * Gia tốc các điểm | Điểm M chuyển động tròn nên trong trường hợp tổng quát, gia tốc của nó có hai thành phần: gia tốc p
+
+  #016 | images/ch2/img-016.png
+       Section: .
+       Hình ref: (none)
+       Context: Gia tốc toàn phần của điểm M tạo với MI một góc α mà: | Còn trị số của nó:
+
+  #017 | images/ch2/img-017.png
+       Section: III.1
+       Hình ref: (none)
+       Context:  | 2. Một số loại truyền động đơn giản
+
+  #018 | images/ch2/img-018.png
+       Section: III.2
+       Hình ref: (none)
+       Context:  | ⁕ Cặp bánh răng ăn khớp ngoài: | ⁕ Cặp bánh răng ăn khớp trong:
+
+  #019 | images/ch2/img-019.png
+       Section: III.2
+       Hình ref: (none)
+       Context:  | ⁕ Cặp bánh răng ăn khớp ngoài: | ⁕ Cặp bánh răng ăn khớp trong:
+
+  #020 | images/ch2/img-020.png
+       Section: III.2
+       Hình ref: (none)
+       Context:  | ⁕ Cặp bánh răng ăn khớp ngoài: | ⁕ Cặp bánh răng ăn khớp trong:
+
+  #021 | images/ch2/img-021.png
+       Section: III.2
+       Hình ref: (none)
+       Context:  | c) Truyền động bằng cơ cấu cam | Để truyền chuyển động tính tiến thành chuyển động tịnh tiến hoặc chuyển động quay th
+
+  #022 | images/ch2/img-022.png
+       Section: III.2
+       Hình ref: (none)
+       Context:  | c) Truyền động bằng cơ cấu cam | Để truyền chuyển động tính tiến thành chuyển động tịnh tiến hoặc chuyển động quay th
+
+  #023 | images/ch2/img-023.png
+       Section: VI.1
+       Hình ref: (none)
+       Context: Chuyển động của vật rắn quay quanh một điểm cố định là mỗi điểm thuộc vật chuyển động trên một mặt cầu mà tâm là điểm cố
+
+============================================================
+CHƯƠNG 3 (5 images)
+============================================================
+
+  #024 | images/ch3/img-024.png
+       Section: .
+       Hình ref: 3.3
+       Context:  | Hình 3.3 | Chiếu phương trình lên hệ trục tọa độ Đề các, ta có:
+
+  #025 | images/ch3/img-025.png
+       Section: .
+       Hình ref: (none)
+       Context:  | Hướng dẫn | Hệ khảo sát gồm có xe cát và viên đạn cho nên ta khử được lực sinh ra khi viên đạn va chạm vào xe.
+
+  #026 | images/ch3/img-026.png
+       Section: .3
+       Hình ref: 3.4
+       Context:  | Hình 3.4 | Momen động lượng ma dấu (+) nếu từ điểm ngọn của trục z ta thấy m quay quanh trục z ngược chiều kim đồng h
+
+  #027 | images/ch3/img-027.png
+       Section: .3
+       Hình ref: 3.5
+       Context:  | Hình 3.5 | Khi vật quay quanh trục z thì giá trị của vận tốc vk=rk. Mặt khác véc tơ động lượng  lại vuông góc với  và
+
+  #028 | images/ch3/img-028.png
+       Section: .3
+       Hình ref: (none)
+       Context:  | Cho nên: | 4. Định lý động năng
+
+============================================================
+OTHER (0 images)
+============================================================

@@ -1,0 +1,3626 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Giáo trình điện tử – Cơ Học Lý Thuyết | Học viện Hải quân</title>
+  <style>
+    html {
+      font-size: clamp(15px, 1.1vw, 20px);
+    }
+
+    :root,
+    [data-theme="dark"] {
+      --bg: #091a33;
+      --nav: #0d2447;
+      --nav2: #142e56;
+      --gold: #c9963a;
+      --gold-l: #dbb36a;
+      --tx: #e8ecf1;
+      --tx2: #8ea0b8;
+      --bdr: rgba(201, 150, 58, .12);
+      --ch1: #2980b9;
+      --ch2: #27ae60;
+      --ch3: #8e44ad;
+      --sw: clamp(250px, 18vw, 320px);
+      --th: 52px;
+      --r: 8px;
+    }
+
+    [data-theme="light"] {
+      --bg: #f0f2f5;
+      --nav: #ffffff;
+      --nav2: #f8f9fb;
+      --gold: #8b6914;
+      --gold-l: #6b5010;
+      --tx: #1a1a2e;
+      --tx2: #555;
+      --bdr: rgba(0, 0, 0, .1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--tx);
+      line-height: 1.7;
+      transition: background .3s, color .3s;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--th);
+      background: var(--nav);
+      border-bottom: 1px solid var(--bdr);
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      z-index: 200;
+      gap: .6rem;
+    }
+
+    .topbar button {
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 1.45rem;
+      cursor: pointer;
+      padding: 3px 7px;
+      border-radius: 4px;
+      transition: background .2s;
+    }
+
+    .topbar button:hover {
+      background: rgba(201, 150, 58, .12);
+    }
+
+    .brand {
+      font-weight: 700;
+      color: var(--gold);
+      font-size: .95rem;
+    }
+
+    .brand span {
+      color: var(--tx2);
+      font-weight: 400;
+      font-size: .95rem;
+      margin-left: .4rem;
+    }
+
+    .bc {
+      margin-left: auto;
+      font-size: .92rem;
+      color: var(--tx2);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 350px;
+    }
+
+    .bc b {
+      color: var(--gold-l);
+    }
+
+    /* SEARCH */
+    .search {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--nav2);
+      border: 1px solid var(--bdr);
+      border-radius: 6px;
+      padding: .3rem .6rem;
+      margin: 0 .5rem;
+      flex: 0 1 280px;
+      transition: border-color .2s;
+    }
+
+    .search:focus-within {
+      border-color: var(--gold);
+    }
+
+    .search svg {
+      flex-shrink: 0;
+      color: var(--tx2);
+    }
+
+    .search input {
+      border: none;
+      background: none;
+      color: var(--tx);
+      font-size: .95rem;
+      width: 100%;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .search input::placeholder {
+      color: var(--tx2);
+      opacity: .7;
+    }
+
+    .kbd {
+      font-size: .72rem;
+      color: var(--tx2);
+      background: var(--bg);
+      border: 1px solid var(--bdr);
+      border-radius: 3px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+
+    .sr {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav);
+      border: 1px solid var(--bdr);
+      border-radius: 0 0 var(--r) var(--r);
+      max-height: 260px;
+      overflow-y: auto;
+      display: none;
+      z-index: 300;
+    }
+
+    .sr.show {
+      display: block;
+    }
+
+    .sr a {
+      display: block;
+      padding: .45rem .8rem;
+      font-size: .8rem;
+      color: var(--tx);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, .03);
+      cursor: pointer;
+    }
+
+    .sr a:hover,
+    .sr a.hl {
+      background: rgba(201, 150, 58, .1);
+      color: var(--gold);
+    }
+
+    .sr .cat {
+      font-size: .72rem;
+      color: var(--tx2);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: .3rem .8rem;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: fixed;
+      top: var(--th);
+      left: 0;
+      bottom: 0;
+      width: var(--sw);
+      background: var(--nav);
+      border-right: 1px solid var(--bdr);
+      overflow-y: auto;
+      z-index: 150;
+      transition: transform .3s;
+      padding-top: .3rem;
+      scrollbar-width: thin;
+    }
+
+    .sidebar.closed {
+      transform: translateX(-100%);
+    }
+
+    .sh1 {
+      padding: .8rem 1rem .3rem;
+      text-align: center;
+    }
+
+    .sh1 .lt {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--tx2);
+    }
+
+    .sh1 h3 {
+      font-size: .95rem;
+      color: var(--gold);
+      margin-top: .1rem;
+    }
+
+    .nav-item {
+      border-bottom: 1px solid rgba(255, 255, 255, .03);
+    }
+
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: .55rem 1rem;
+      background: none;
+      border: none;
+      color: var(--tx);
+      font-size: .95rem;
+      cursor: pointer;
+      text-align: left;
+      gap: .45rem;
+      transition: all .2s;
+      font-family: inherit;
+    }
+
+    .nav-btn:hover {
+      background: rgba(201, 150, 58, .08);
+      color: var(--gold-l);
+    }
+
+    .nav-btn.active {
+      background: rgba(201, 150, 58, .12);
+      color: var(--gold);
+      border-left: 3px solid var(--gold);
+    }
+
+    .nav-btn .icon {
+      font-size: .95rem;
+      width: 18px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .nav-btn .arrow {
+      margin-left: auto;
+      font-size: .55rem;
+      transition: transform .25s;
+      color: var(--tx2);
+    }
+
+    .nav-btn.open .arrow {
+      transform: rotate(90deg);
+    }
+
+    .sub-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s;
+      background: rgba(0, 0, 0, .1);
+    }
+
+    .sub-menu.open {
+      max-height: 2000px;
+    }
+
+    .sub-menu .l2 {
+      display: flex;
+      align-items: center;
+      padding: .35rem .8rem .35rem 2.4rem;
+      font-size: .92rem;
+      color: var(--tx2);
+      text-decoration: none;
+      transition: all .15s;
+      border-left: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .sub-menu .l2:hover {
+      color: var(--gold-l);
+      background: rgba(201, 150, 58, .05);
+      border-left-color: var(--gold);
+    }
+
+    .sub-menu .l2.active {
+      color: var(--gold);
+      border-left-color: var(--gold);
+      font-weight: 600;
+    }
+
+    .l2 .l2a {
+      margin-left: auto;
+      font-size: .5rem;
+      transition: transform .2s;
+      color: var(--tx2);
+    }
+
+    .l2.open .l2a {
+      transform: rotate(90deg);
+    }
+
+    .l2-group {}
+
+    .l3-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s;
+      background: rgba(0, 0, 0, .08);
+    }
+
+    .l3-menu.open {
+      max-height: 600px;
+    }
+
+    .l3-menu .l3 {
+      display: block;
+      padding: .25rem .6rem .25rem 3.4rem;
+      font-size: .8rem;
+      color: var(--tx2);
+      text-decoration: none;
+      transition: all .15s;
+      cursor: pointer;
+      opacity: .8;
+    }
+
+    .l3-menu .l3:hover {
+      color: var(--gold-l);
+      opacity: 1;
+    }
+
+    /* MAIN */
+    .main {
+      margin-left: var(--sw);
+      margin-top: var(--th);
+      min-height: calc(100vh - var(--th));
+      transition: margin-left .3s;
+    }
+
+    .sidebar.closed~.main {
+      margin-left: 0;
+    }
+
+    .content-area {
+      max-width: clamp(680px, 55vw, 900px);
+      margin: 0 auto;
+      padding: 1.5rem 2rem 3rem;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .sh2 {
+      margin-bottom: 1.2rem;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .sh2 h2 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: .82rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: .2rem .7rem;
+      border-radius: 50px;
+      margin-bottom: .4rem;
+      color: #fff;
+    }
+
+    .ch1-hero {
+      background: var(--ch1);
+    }
+
+    .ch2-hero {
+      background: var(--ch2);
+    }
+
+    .ch3-hero {
+      background: var(--ch3);
+    }
+
+    .cl {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cl li {
+      padding: .4rem 0 .4rem 1.3rem;
+      font-size: .95rem;
+      position: relative;
+      border-bottom: 1px solid rgba(127, 127, 127, .08);
+    }
+
+    .cl li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: .4;
+      transform: translateY(-50%);
+    }
+
+    .cl li:last-child {
+      border-bottom: none;
+    }
+
+    .chapter-hero {
+      padding: 2rem;
+      text-align: center;
+      border-radius: var(--r);
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chapter-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .3);
+    }
+
+    .chapter-hero * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .chapter-hero .cn {
+      font-size: .7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .chapter-hero h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      margin-top: .2rem;
+    }
+
+    .ch1-hero {
+      background: linear-gradient(135deg, #1a5276, #2980b9, #3498db);
+    }
+
+    .ch2-hero {
+      background: linear-gradient(135deg, #145a32, #27ae60, #2ecc71);
+    }
+
+    .ch3-hero {
+      background: linear-gradient(135deg, #4a235a, #8e44ad, #a569bd);
+    }
+
+    .ov-sec {
+      margin-bottom: .8rem;
+      padding: .8rem 1rem;
+      background: var(--nav);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      border-left: 3px solid var(--gold);
+    }
+
+    .ov-sec h3 {
+      font-size: .95rem;
+      color: var(--gold-l);
+      margin-bottom: .3rem;
+    }
+
+    /* Home */
+    .hh {
+      text-align: center;
+      padding: 2.5rem 1.5rem 1rem;
+    }
+
+    .hh .hbadge {
+      display: inline-block;
+      padding: .25rem .8rem;
+      border: 1px solid rgba(201, 150, 58, .3);
+      border-radius: 50px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .hh h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: .2rem;
+    }
+
+    .hh .hsub {
+      font-size: .95rem;
+      color: var(--tx2);
+    }
+
+    .hh .htgt {
+      margin-top: .6rem;
+      font-size: .8rem;
+      color: var(--tx2);
+      font-style: italic;
+    }
+
+    .sg {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .8rem;
+      margin: 1.2rem 0;
+    }
+
+    .sc {
+      background: var(--nav);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: .8rem;
+      text-align: center;
+    }
+
+    .sc:hover {
+      border-color: var(--gold);
+    }
+
+    .sc .sn {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .sc .sl {
+      font-size: .72rem;
+      color: var(--tx2);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: .1rem;
+    }
+
+    .cg {
+      display: flex;
+      gap: .6rem;
+      margin: 1.2rem 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .chip {
+      padding: .4rem 1rem;
+      border-radius: 50px;
+      font-size: .8rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid;
+      transition: all .3s;
+      text-decoration: none;
+    }
+
+    .chip.c1 {
+      color: var(--ch1);
+      border-color: var(--ch1);
+    }
+
+    .chip.c1:hover {
+      background: var(--ch1);
+      color: #fff;
+    }
+
+    .chip.c2 {
+      color: var(--ch2);
+      border-color: var(--ch2);
+    }
+
+    .chip.c2:hover {
+      background: var(--ch2);
+      color: #fff;
+    }
+
+    .chip.c3 {
+      color: var(--ch3);
+      border-color: var(--ch3);
+    }
+
+    .chip.c3:hover {
+      background: var(--ch3);
+      color: #fff;
+    }
+
+    /* LND */
+    .lnd p {
+      margin-bottom: .8rem;
+      text-align: justify;
+      text-indent: 2rem;
+      font-size: .95rem;
+    }
+
+    .lnd .sign {
+      text-align: right;
+      text-indent: 0;
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: var(--tx2);
+    }
+
+    .lnd .sn {
+      text-align: right;
+      text-indent: 0;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .pq {
+      border-left: 4px solid var(--gold);
+      background: rgba(201, 150, 58, .06);
+      padding: .8rem 1.2rem;
+      margin: 1.2rem 0;
+      border-radius: 0 var(--r) var(--r) 0;
+      font-size: .95rem;
+      color: var(--gold-l);
+      font-style: italic;
+    }
+
+    /* Authors */
+    .ag2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: .8rem;
+      margin-top: 1rem;
+    }
+
+    .ac2 {
+      background: var(--nav);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .ac2:hover {
+      border-color: var(--gold);
+    }
+
+    .ac2.chief {
+      border-color: rgba(201, 150, 58, .3);
+    }
+
+    .av2 {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--nav2);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto .6rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .ac2 .rl {
+      font-size: .7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .ac2 .nm {
+      font-size: .95rem;
+      font-weight: 700;
+      margin: .2rem 0;
+    }
+
+    .ac2 .rk {
+      font-size: .8rem;
+      color: var(--tx2);
+    }
+
+    .ac2 .un {
+      font-size: .82rem;
+      color: var(--tx2);
+      opacity: .7;
+    }
+
+    .ri {
+      padding: .6rem .8rem;
+      margin-bottom: .4rem;
+      background: var(--nav);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      display: flex;
+      gap: .5rem;
+      font-size: .84rem;
+    }
+
+    .ri:hover {
+      border-color: rgba(201, 150, 58, .2);
+    }
+
+    .rn2 {
+      font-size: .7rem;
+      color: var(--gold);
+      background: rgba(201, 150, 58, .1);
+      padding: .1rem .35rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+      font-weight: 600;
+      font-family: monospace;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid var(--bdr);
+      font-size: .82rem;
+      color: var(--tx2);
+    }
+
+    footer b {
+      color: var(--gold);
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .5);
+      z-index: 140;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    @media(max-width:768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+
+      .sidebar.om {
+        transform: translateX(0);
+      }
+
+      .main {
+        margin-left: 0 !important;
+      }
+
+      .content-area {
+        padding: 1rem;
+      }
+
+      .sg {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hh h1 {
+        font-size: 1.55rem;
+      }
+
+      .search {
+        flex: 1;
+      }
+    }
+
+    /* Responsive: HiDPI / 4K / Large screens */
+    @media (min-resolution: 144dpi) and (max-width: 1920px) {
+      html {
+        font-size: clamp(16px, 1.2vw, 21px);
+      }
+    }
+
+    @media (min-width: 2000px) {
+      html {
+        font-size: clamp(17px, 1vw, 22px);
+      }
+
+      :root {
+        --sw: clamp(280px, 16vw, 360px);
+      }
+
+      .content-area {
+        max-width: clamp(750px, 48vw, 960px);
+      }
+
+      .hh h1 {
+        font-size: 2.6rem;
+      }
+    }
+
+    @media (min-width: 2560px) {
+      html {
+        font-size: clamp(18px, 0.85vw, 24px);
+      }
+
+      :root {
+        --sw: clamp(300px, 14vw, 400px);
+      }
+
+      .content-area {
+        max-width: clamp(800px, 42vw, 1080px);
+      }
+    }
+
+    /* Small laptops (1366x768 common) */
+    @media (max-width: 1400px) {
+      html {
+        font-size: clamp(14px, 1.15vw, 17px);
+      }
+
+      :root {
+        --sw: clamp(230px, 20vw, 280px);
+      }
+    }
+
+    @media print {
+
+      .sidebar,
+      .topbar,
+      .overlay {
+        display: none !important;
+      }
+
+      .main {
+        margin: 0 !important;
+      }
+
+      body {
+        background: #fff;
+        color: #111;
+      }
+    }
+
+    .l3-content {
+      padding: 1.5rem;
+      background: var(--nav);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      border-left: 3px solid var(--gold);
+    }
+
+    .l3-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold-l);
+      margin-bottom: .8rem;
+    }
+
+    .l3-placeholder {
+      color: var(--tx2);
+      font-size: .95rem;
+    }
+
+    .l3-menu .l3.active {
+      color: var(--gold);
+      opacity: 1;
+      font-weight: 600;
+    }
+
+    /* Page Nav Buttons */
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--bdr);
+      gap: 1rem;
+    }
+
+    .pn-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .65rem 1.4rem;
+      border-radius: var(--r);
+      font-size: .88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .25s;
+      border: 1.5px solid var(--bdr);
+      color: var(--tx);
+      background: var(--nav);
+      font-family: inherit;
+    }
+
+    .pn-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201, 150, 58, .06);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 12px rgba(201, 150, 58, .12);
+    }
+
+    .pn-btn .pn-arrow {
+      font-size: 1.1rem;
+      transition: transform .2s;
+    }
+
+    .pn-btn:hover .pn-arrow.prev {
+      transform: translateX(-3px);
+    }
+
+    .pn-btn:hover .pn-arrow.next {
+      transform: translateX(3px);
+    }
+
+    .pn-btn .pn-label {
+      font-size: .68rem;
+      color: var(--tx2);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      display: block;
+      font-weight: 400;
+    }
+
+    .pn-btn .pn-title {
+      display: block;
+      max-width: 220px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pn-btn.prev {
+      text-align: left;
+    }
+
+    .pn-btn.next {
+      text-align: right;
+      margin-left: auto;
+    }
+
+    .pn-spacer {
+      flex: 1;
+    }
+
+
+    /* Font Zoom Controls */
+    .font-zoom {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: .3rem;
+    }
+
+    .font-zoom button {
+      background: var(--nav2);
+      border: 1px solid var(--bdr);
+      color: var(--tx2);
+      font-size: .7rem;
+      font-weight: 700;
+      width: 26px;
+      height: 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+      font-family: inherit;
+    }
+
+    .font-zoom button:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Quiz Styles */
+    .quiz-container {
+      max-width: 800px;
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .quiz-score {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .quiz-score .qs-item {
+      background: var(--nav);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: .4rem .8rem;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+
+    .quiz-score .qs-correct {
+      color: #22c55e;
+    }
+
+    .quiz-score .qs-wrong {
+      color: #ef4444;
+    }
+
+    .quiz-score .qs-total {
+      color: var(--gold);
+    }
+
+    .quiz-reset {
+      padding: .45rem 1rem;
+      border: 1.5px solid var(--bdr);
+      border-radius: var(--r);
+      background: var(--nav);
+      color: var(--tx);
+      font-size: .8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      font-family: inherit;
+    }
+
+    .quiz-reset:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .q-card {
+      background: var(--nav);
+      border: 1px solid var(--bdr);
+      border-radius: var(--r);
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1rem;
+      transition: border-color .3s;
+    }
+
+    .q-card.answered-correct {
+      border-color: #22c55e;
+    }
+
+    .q-card.answered-wrong {
+      border-color: #ef4444;
+    }
+
+    .q-num {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: .5rem;
+    }
+
+    .q-text {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--tx);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .q-options {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .q-opt {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .6rem .9rem;
+      border: 1.5px solid var(--bdr);
+      border-radius: var(--r);
+      cursor: pointer;
+      transition: all .25s;
+      font-size: .88rem;
+      line-height: 1.4;
+    }
+
+    .q-opt:hover:not(.disabled) {
+      border-color: var(--gold);
+      background: rgba(201, 150, 58, .04);
+    }
+
+    .q-opt .q-label {
+      min-width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      border: 2px solid var(--bdr);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .72rem;
+      flex-shrink: 0;
+      transition: all .25s;
+    }
+
+    .q-opt:hover:not(.disabled) .q-label {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .q-opt.selected .q-label {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+    }
+
+    .q-opt.correct {
+      border-color: #22c55e;
+      background: rgba(34, 197, 94, .06);
+    }
+
+    .q-opt.correct .q-label {
+      background: #22c55e;
+      border-color: #22c55e;
+      color: #fff;
+    }
+
+    .q-opt.wrong {
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, .06);
+    }
+
+    .q-opt.wrong .q-label {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: #fff;
+    }
+
+    .q-opt.disabled {
+      cursor: default;
+      opacity: .7;
+    }
+
+    .q-opt.correct-reveal {
+      border-color: #22c55e;
+    }
+
+    .q-opt.correct-reveal .q-label {
+      border-color: #22c55e;
+      color: #22c55e;
+    }
+
+    .q-feedback {
+      margin-top: .7rem;
+      padding: .6rem .9rem;
+      border-radius: var(--r);
+      font-size: .82rem;
+      font-weight: 500;
+      display: none;
+    }
+
+    .q-feedback.show {
+      display: block;
+    }
+
+    .q-feedback.correct {
+      background: rgba(34, 197, 94, .08);
+      color: #22c55e;
+      border: 1px solid rgba(34, 197, 94, .2);
+    }
+
+    .q-feedback.wrong {
+      background: rgba(239, 68, 68, .08);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, .2);
+    }
+  
+/* Simulation Styles */
+.sim-container{background:var(--nav);border:1px solid var(--bdr);border-radius:var(--r);padding:1.2rem;margin:1.2rem 0;}
+.sim-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;}
+.sim-title{font-size:.95rem;font-weight:700;color:var(--gold);}
+.sim-badge{font-size:.65rem;background:rgba(201,150,58,.15);color:var(--gold);padding:.2rem .5rem;border-radius:50px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.sim-canvas-wrap{position:relative;background:var(--bg);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-bottom:.8rem;}
+.sim-canvas-wrap canvas{display:block;width:100%;cursor:grab;}
+.sim-canvas-wrap canvas:active{cursor:grabbing;}
+.sim-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.5rem;}
+.sim-info-card{background:var(--nav2);border:1px solid var(--bdr);border-radius:var(--r);padding:.5rem .7rem;text-align:center;}
+.sim-info-card .sim-label{font-size:.65rem;color:var(--tx2);text-transform:uppercase;letter-spacing:1px;margin-bottom:.15rem;}
+.sim-info-card .sim-value{font-size:1.1rem;font-weight:700;}
+.sim-info-card.f1 .sim-value{color:#e74c3c;}.sim-info-card.f2 .sim-value{color:#2980b9;}.sim-info-card.result .sim-value{color:#27ae60;}.sim-info-card.angle .sim-value{color:var(--gold);}
+.sim-hint{font-size:.75rem;color:var(--tx2);text-align:center;margin-top:.5rem;font-style:italic;}
+.sim-controls{display:flex;gap:.5rem;flex-wrap:wrap;}
+.sim-btn{padding:.3rem .7rem;border:1px solid var(--bdr);border-radius:var(--r);background:var(--nav2);color:var(--tx);font-size:.75rem;cursor:pointer;font-family:inherit;transition:all .2s;}
+.sim-btn:hover{border-color:var(--gold);color:var(--gold);}
+</style>
+</head>
+
+<body>
+  <div class="topbar">
+    <button onclick="tSB()" title="Menu">&#9776;</button>
+    <div class="brand">Cơ Học Lý Thuyết<span>📖</span></div>
+    <div class="search" role="search" style="position:relative">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M21 21l-4.3-4.3m1.3-5.2a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round"></path>
+      </svg>
+      <input id="si" type="search" placeholder='Tìm chương/mục… (ví dụ: "tiên đề")' autocomplete="off"
+        oninput="doSearch(this.value)" onfocus="doSearch(this.value)" onkeydown="skn(event)">
+      <span class="kbd">Ctrl K</span>
+      <div class="sr" id="sr"></div>
+    </div>
+    <button onclick="togTheme()" title="Sáng/Tối" id="themeBtn">🌙</button>
+    <div class="font-zoom"><button onclick="zoomFont(-1)" title="Thu nhỏ chữ">A−</button><button onclick="zoomFont(0)"
+        title="Mặc định">A</button><button onclick="zoomFont(1)" title="Phóng to chữ">A+</button></div>
+    <div class="bc" id="bc">Trang chủ</div>
+  </div>
+  <div class="overlay" id="ov" onclick="tSB()"></div>
+  <nav class="sidebar" id="sb">
+    <div class="sh1">
+      <div class="lt">Học viện Hải quân</div>
+      <h3>Giáo trình điện tử</h3>
+    </div>
+    <div>
+      <div class="nav-item"><button class="nav-btn active" onclick="showPage('home');setNav(this)"><span
+            class="icon">🏠</span>Trang chủ</button></div>
+      <div class="nav-item"><button class="nav-btn" onclick="showPage('lnd');setNav(this)"><span
+            class="icon">📖</span>Lời nói đầu</button></div>
+      <div class="nav-item">
+        <button class="nav-btn" onclick="togSub(this)"><span class="icon" style="color:var(--ch1)">①</span>Chương 1.
+          Tĩnh học<span class="arrow">▶</span></button>
+        <div class="sub-menu">
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch1-1');return false">I.
+              Các khái niệm cơ bản<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch1-1-1');return false">1. Vật rắn tuyệt
+                đối</a><a href="#" class="l3" onclick="showPage('ch1-1-2');return false">2. Trạng thái cân bằng</a><a
+                href="#" class="l3" onclick="showPage('ch1-1-3');return false">3. Lực</a><a href="#" class="l3"
+                onclick="showPage('ch1-1-4');return false">4. Mô men</a><a href="#" class="l3"
+                onclick="showPage('ch1-1-5');return false">5. Hệ lực</a><a href="#" class="l3"
+                onclick="showPage('ch1-1-6');return false">6. Ngẫu lực</a><a href="#" class="l3"
+                onclick="showPage('ch1-1-7');return false">7. Vật tự do và vật không tự do</a><a href="#" class="l3"
+                onclick="showPage('ch1-1-8');return false">8. Lực liên kết, lực hoạt động, phản lực liên kết</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch1-2');return false">II.
+              Hệ tiên đề tĩnh học<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch1-2-1');return false">1. Tiên đề 1: Cặp lực
+                cân bằng</a><a href="#" class="l3" onclick="showPage('ch1-2-2');return false">2. Tiên đề 2: Thêm hay bớt
+                cặp lực cân bằng</a><a href="#" class="l3" onclick="showPage('ch1-2-3');return false">3. Tiên đề 3: Hình
+                bình hành lực</a><a href="#" class="l3" onclick="showPage('ch1-2-4');return false">4. Tiên đề 4: Lực
+                tương tác</a><a href="#" class="l3" onclick="showPage('ch1-2-5');return false">5. Tiên đề 5: Tiên đề hóa
+                rắn</a><a href="#" class="l3" onclick="showPage('ch1-2-6');return false">6. Tiên đề 6: Giải phóng liên
+                kết</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch1-3');return false">III.
+              Phản lực liên kết thường gặp<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch1-3-1');return false">1. Liên kết tựa</a><a
+                href="#" class="l3" onclick="showPage('ch1-3-2');return false">2. Liên kết dây mềm, thẳng</a><a href="#"
+                class="l3" onclick="showPage('ch1-3-3');return false">3. Liên kết bản lề</a><a href="#" class="l3"
+                onclick="showPage('ch1-3-4');return false">4. Liên kết gối</a><a href="#" class="l3"
+                onclick="showPage('ch1-3-5');return false">5. Liên kết gối cầu</a><a href="#" class="l3"
+                onclick="showPage('ch1-3-6');return false">6. Liên kết ngàm</a><a href="#" class="l3"
+                onclick="showPage('ch1-3-7');return false">7. Liên kết thanh</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch1-4');return false">IV.
+              Đặc trưng cơ bản của hệ lực<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch1-4-1');return false">1. Véc tơ chính của
+                hệ lực không gian</a><a href="#" class="l3" onclick="showPage('ch1-4-2');return false">2. Mô men chính
+                của hệ lực không gian với một tâm</a><a href="#" class="l3"
+                onclick="showPage('ch1-4-3');return false">3. Các dạng cơ bản của hệ lực không gian</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch1-5');return false">V.
+              Điều kiện cân bằng<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch1-5-1');return false">1. Điều kiện và
+                phương trình cân bằng hệ lực bất kỳ trong không gian</a><a href="#" class="l3"
+                onclick="showPage('ch1-5-2');return false">2. Điều kiện và phương trình cân bằng hệ lực đặc biệt</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch1-6');return false">VI.
+              Bài tập<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch1-6-1');return false">1. Phương pháp giải
+                bài toán cân bằng vật rắn</a><a href="#" class="l3" onclick="showPage('ch1-6-2');return false">2. Bài
+                tập có hướng dẫn</a><a href="#" class="l3" onclick="showPage('ch1-6-3');return false">3. Bài tập tự
+                làm</a></div>
+          </div>
+          <a href="#" class="l2" onclick="showPage('ch1-rev');return false">❓ Câu hỏi ôn tập</a>
+          <a href="#" class="l2" onclick="showPage('ch1-quiz');return false">✅ Ôn tập trắc nghiệm</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-btn" onclick="togSub(this)"><span class="icon" style="color:var(--ch2)">②</span>Chương 2.
+          Động học<span class="arrow">▶</span></button>
+        <div class="sub-menu">
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch2-1');return false">I.
+              Chuyển động của chất điểm<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch2-1-1');return false">1. Khảo sát chuyển
+                động bằng véc tơ</a><a href="#" class="l3" onclick="showPage('ch2-1-2');return false">2. Khảo sát chuyển
+                động bằng tọa độ Đề các</a><a href="#" class="l3" onclick="showPage('ch2-1-3');return false">3. Khảo sát
+                chuyển động bằng tọa độ tự nhiên</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch2-2');return false">II.
+              Chuyển động của vật rắn<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch2-2-1');return false">1. Chuyển động tịnh
+                tuyến của vật rắn</a><a href="#" class="l3" onclick="showPage('ch2-2-2');return false">2. Chuyển động
+                quay quanh một trục cố định của vật rắn</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch2-3');return false">III.
+              Hợp chuyển động điểm<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch2-3-1');return false">1. Định nghĩa và các
+                loại chuyển động</a><a href="#" class="l3" onclick="showPage('ch2-3-2');return false">2. Các định lý về
+                hợp vận tốc và hợp gia tốc</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch2-4');return false">IV.
+              Chuyển động song phẳng<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch2-4-1');return false">1. Khái niệm và mô
+                hình chuyển động song phẳng</a><a href="#" class="l3" onclick="showPage('ch2-4-2');return false">2. Khảo
+                sát chuyển động của vật rắn</a><a href="#" class="l3" onclick="showPage('ch2-4-3');return false">3. Khảo
+                sát chuyển động của các điểm thuộc vật</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch2-5');return false">V.
+              Chuyển động quay quanh một điểm cố định<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch2-5-1');return false">1. Khái niệm</a><a
+                href="#" class="l3" onclick="showPage('ch2-5-2');return false">2. Phân tích chuyển động</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch2-6');return false">VI.
+              Bài tập<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch2-6-1');return false">1. Tóm tắt lý
+                thuyết</a><a href="#" class="l3" onclick="showPage('ch2-6-2');return false">2. Bài tập có hướng
+                dẫn</a><a href="#" class="l3" onclick="showPage('ch2-6-3');return false">3. Bài tập tự làm</a></div>
+          </div>
+          <a href="#" class="l2" onclick="showPage('ch2-rev');return false">❓ Câu hỏi ôn tập</a>
+          <a href="#" class="l2" onclick="showPage('ch2-quiz');return false">✅ Ôn tập trắc nghiệm</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-btn" onclick="togSub(this)"><span class="icon" style="color:var(--ch3)">③</span>Chương 3.
+          Động lực học<span class="arrow">▶</span></button>
+        <div class="sub-menu">
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch3-1');return false">I.
+              Các khái niệm cơ bản<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch3-1-1');return false">1. Vật thể</a><a
+                href="#" class="l3" onclick="showPage('ch3-1-2');return false">2. Lực</a><a href="#" class="l3"
+                onclick="showPage('ch3-1-3');return false">3. Hệ quy chiếu quán tính</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch3-2');return false">II.
+              Các định luật cơ bản<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch3-2-1');return false">1. Tiên đề 1 – Định
+                luật quán tính</a><a href="#" class="l3" onclick="showPage('ch3-2-2');return false">2. Tiên đề 2 – Định
+                luật cơ bản của động lực học</a><a href="#" class="l3" onclick="showPage('ch3-2-3');return false">3.
+                Tiên đề 3 – Định luật tác dụng và phản tác dụng</a><a href="#" class="l3"
+                onclick="showPage('ch3-2-4');return false">4. Tiên đề 4 – Định luật tính độc lập giữa tác dụng lực</a><a
+                href="#" class="l3" onclick="showPage('ch3-2-5');return false">5. Tiên đề 5 – Giải phóng liên kết</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch3-3');return false">III.
+              Phương trình vi phân chuyển động<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch3-3-1');return false">1. Dạng véc tơ</a><a
+                href="#" class="l3" onclick="showPage('ch3-3-2');return false">2. Dạng tọa độ Đề các</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch3-4');return false">IV.
+              Hai bài toán cơ bản của ĐLH<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch3-4-1');return false">1. Bài toán
+                thuận</a><a href="#" class="l3" onclick="showPage('ch3-4-2');return false">2. Bài toán ngược</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch3-5');return false">V.
+              Các định lý tổng quát<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch3-5-1');return false">1. Định lý chuyển
+                động khối tâm</a><a href="#" class="l3" onclick="showPage('ch3-5-2');return false">2. Định lý động
+                lượng</a><a href="#" class="l3" onclick="showPage('ch3-5-3');return false">3. Định lý mô men động
+                lượng</a><a href="#" class="l3" onclick="showPage('ch3-5-4');return false">4. Định lý động năng</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch3-6');return false">VI.
+              Lý thuyết va chạm<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch3-6-1');return false">1. Các đặc điểm và
+                giả thiết về va chạm</a><a href="#" class="l3" onclick="showPage('ch3-6-2');return false">2. Các định lý
+                tổng quát áp dụng vào va chạm</a><a href="#" class="l3" onclick="showPage('ch3-6-3');return false">3.
+                Hai bài toán cơ bản về va chạm</a></div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);showPage('ch3-7');return false">VII.
+              Bài tập<span class="l2a">▶</span></a>
+            <div class="l3-menu"><a href="#" class="l3" onclick="showPage('ch3-7-1');return false">1. Tóm tắt lý
+                thuyết</a><a href="#" class="l3" onclick="showPage('ch3-7-2');return false">2. Bài tập có hướng
+                dẫn</a><a href="#" class="l3" onclick="showPage('ch3-7-3');return false">3. Bài tập tự làm</a></div>
+          </div>
+          <a href="#" class="l2" onclick="showPage('ch3-rev');return false">❓ Câu hỏi ôn tập</a>
+          <a href="#" class="l2" onclick="showPage('ch3-quiz');return false">✅ Ôn tập trắc nghiệm</a>
+        </div>
+      </div>
+      <div class="nav-item"><button class="nav-btn" onclick="showPage('authors');setNav(this)"><span
+            class="icon">👤</span>Tác giả</button></div>
+      <div class="nav-item"><button class="nav-btn" onclick="showPage('refs');setNav(this)"><span
+            class="icon">📚</span>Tài liệu tham khảo</button></div>
+    </div>
+  </nav>
+  <div class="main" id="mn">
+
+    <div class="page active" id="page-home">
+      <div class="content-area">
+        <div class="hh">
+          <div class="hbadge">★ Giáo trình điện tử ★</div>
+          <h1>CƠ HỌC LÝ THUYẾT</h1>
+          <p class="hsub">Đề cương chi tiết giáo trình</p>
+          <p class="htgt">Dùng cho đào tạo học viên sĩ quan cấp phân đội trình độ đại học</p>
+        </div>
+        <div class="sg">
+          <div class="sc">
+            <div class="sn">3</div>
+            <div class="sl">Chương</div>
+          </div>
+          <div class="sc">
+            <div class="sn">16</div>
+            <div class="sl">Phần</div>
+          </div>
+          <div class="sc">
+            <div class="sn">60+</div>
+            <div class="sl">Tiểu mục</div>
+          </div>
+          <div class="sc">
+            <div class="sn">4</div>
+            <div class="sl">Tài liệu tham khảo</div>
+          </div>
+        </div>
+        <div class="cg"><a class="chip c1" href="#" onclick="showPage('ch1');return false">Chương 1 – Tĩnh học</a><a
+            class="chip c2" href="#" onclick="showPage('ch2');return false">Chương 2 – Động học</a><a class="chip c3"
+            href="#" onclick="showPage('ch3');return false">Chương 3 – Động lực học</a></div>
+      </div>
+    </div>
+
+    <div class="page" id="page-lnd">
+      <div class="content-area">
+        <h2 style="text-align:center;color:var(--gold);margin-bottom:1.2rem;font-size:1.55rem;">Lời nói đầu</h2>
+        <div class="lnd">
+          <p>Cơ học lý thuyết là một trong những môn khoa học cơ sở quan trọng trong chương trình đào tạo kỹ sư, sĩ quan
+            kỹ thuật tại các trường đại học nói chung và các học viện, nhà trường quân đội nói riêng.</p>
+          <div class="pq">"Giáo trình được biên soạn nhằm đáp ứng yêu cầu giảng dạy và học tập cho học viên sĩ quan cấp
+            phân đội trình độ đại học tại Học viện Hải quân, bám sát chương trình đào tạo đã được phê duyệt."</div>
+          <p>Giáo trình được cấu trúc thành <strong>03 chương</strong>: <strong>Tĩnh học</strong> – <strong>Động
+              học</strong> – <strong>Động lực học</strong>.</p>
+          <p>Mỗi chương đều có <strong>tóm tắt lý thuyết</strong>, <strong>bài tập có hướng dẫn</strong>, <strong>bài
+              tập tự làm</strong>, <strong>câu hỏi ôn tập</strong> và <strong>ôn tập trắc nghiệm</strong>.</p>
+          <p>Tập thể tác giả rất mong nhận được sự góp ý để giáo trình ngày càng hoàn thiện.</p>
+          <p class="sign">Khánh Hòa, năm 2026</p>
+          <p class="sn">Tập thể tác giả</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-ch1">
+      <div class="content-area">
+        <div class="chapter-hero ch1-hero">
+          <div class="cn">Chương 1</div>
+          <h2>Tĩnh học</h2>
+        </div>
+        <div class="ov-sec">
+          <h3>I. Các khái niệm cơ bản</h3>
+          <ul class="cl">
+            <li>Vật rắn tuyệt đối</li>
+            <li>Trạng thái cân bằng</li>
+            <li>Lực</li>
+            <li>Mô men</li>
+            <li>Hệ lực</li>
+            <li>Ngẫu lực</li>
+            <li>Vật tự do và vật không tự do</li>
+            <li>Lực liên kết, lực hoạt động, phản lực liên kết</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>II. Hệ tiên đề tĩnh học</h3>
+          <ul class="cl">
+            <li>Tiên đề 1: Cặp lực cân bằng</li>
+            <li>Tiên đề 2: Thêm hay bớt cặp lực cân bằng</li>
+            <li>Tiên đề 3: Hình bình hành lực</li>
+            <li>Tiên đề 4: Lực tương tác</li>
+            <li>Tiên đề 5: Tiên đề hóa rắn</li>
+            <li>Tiên đề 6: Giải phóng liên kết</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>III. Một số phản lực liên kết thường gặp</h3>
+          <ul class="cl">
+            <li>Liên kết tựa</li>
+            <li>Liên kết dây mềm, thẳng</li>
+            <li>Liên kết bản lề</li>
+            <li>Liên kết gối</li>
+            <li>Liên kết gối cầu</li>
+            <li>Liên kết ngàm</li>
+            <li>Liên kết thanh</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>IV. Đặc trưng cơ bản của hệ lực</h3>
+          <ul class="cl">
+            <li>Véc tơ chính của hệ lực không gian</li>
+            <li>Mô men chính của hệ lực không gian với một tâm</li>
+            <li>Các dạng cơ bản của hệ lực không gian</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>V. Điều kiện cân bằng</h3>
+          <ul class="cl">
+            <li>Điều kiện và phương trình cân bằng của hệ lực bất kỳ trong không gian</li>
+            <li>Điều kiện và phương trình cân bằng của hệ lực đặc biệt</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>VI. Bài tập</h3>
+          <ul class="cl">
+            <li>Phương pháp giải bài toán cân bằng vật rắn</li>
+            <li>Bài tập có hướng dẫn</li>
+            <li>Bài tập tự làm</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>Câu hỏi ôn tập</h3>
+          <ul class="cl">
+            <li><em>(Nội dung sẽ được cập nhật)</em></li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>Ôn tập trắc nghiệm</h3>
+          <ul class="cl">
+            <li><em>(Nội dung sẽ được cập nhật)</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <ul class="cl">
+          <li>Vật rắn tuyệt đối</li>
+          <li>Trạng thái cân bằng</li>
+          <li>Lực</li>
+          <li>Mô men</li>
+          <li>Hệ lực</li>
+          <li>Ngẫu lực</li>
+          <li>Vật tự do và vật không tự do</li>
+          <li>Lực liên kết, lực hoạt động, phản lực liên kết</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>II. Hệ tiên đề tĩnh học</h2>
+        </div>
+        <ul class="cl">
+          <li>Tiên đề 1: Cặp lực cân bằng</li>
+          <li>Tiên đề 2: Thêm hay bớt cặp lực cân bằng</li>
+          <li>Tiên đề 3: Hình bình hành lực</li>
+          <li>Tiên đề 4: Lực tương tác</li>
+          <li>Tiên đề 5: Tiên đề hóa rắn</li>
+          <li>Tiên đề 6: Giải phóng liên kết</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>III. Một số phản lực liên kết thường gặp</h2>
+        </div>
+        <ul class="cl">
+          <li>Liên kết tựa</li>
+          <li>Liên kết dây mềm, thẳng</li>
+          <li>Liên kết bản lề</li>
+          <li>Liên kết gối</li>
+          <li>Liên kết gối cầu</li>
+          <li>Liên kết ngàm</li>
+          <li>Liên kết thanh</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-4">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>IV. Đặc trưng cơ bản của hệ lực</h2>
+        </div>
+        <ul class="cl">
+          <li>Véc tơ chính của hệ lực không gian</li>
+          <li>Mô men chính của hệ lực không gian với một tâm</li>
+          <li>Các dạng cơ bản của hệ lực không gian</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-5">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>V. Điều kiện cân bằng</h2>
+        </div>
+        <ul class="cl">
+          <li>Điều kiện và phương trình cân bằng của hệ lực bất kỳ trong không gian</li>
+          <li>Điều kiện và phương trình cân bằng của hệ lực đặc biệt</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-6">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>VI. Bài tập</h2>
+        </div>
+        <ul class="cl">
+          <li>Phương pháp giải bài toán cân bằng vật rắn</li>
+          <li>Bài tập có hướng dẫn</li>
+          <li>Bài tập tự làm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-rev">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>Câu hỏi ôn tập</h2>
+        </div>
+        <ul class="cl">
+          <li><em>(Nội dung sẽ được cập nhật)</em></li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-quiz">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>Ôn tập trắc nghiệm</h2>
+        </div>
+        <p style="color:var(--tx2);margin-bottom:1.2rem;font-size:.88rem;">Chọn đáp án đúng cho mỗi câu hỏi. Kết quả
+          được kiểm tra ngay lập tức.</p>
+        <div class="quiz-container" id="quiz-ch1">
+          <div class="quiz-header">
+            <div class="quiz-score"><span class="qs-item qs-correct" id="ch1-correct">✅ 0</span><span
+                class="qs-item qs-wrong" id="ch1-wrong">❌ 0</span><span class="qs-item qs-total" id="ch1-total">📝
+                0/5</span></div><button class="quiz-reset" onclick="resetQuiz('ch1')">🔄 Làm lại</button>
+          </div>
+          <div class="q-card" data-quiz="ch1" data-correct="1">
+            <div class="q-num">Câu 1</div>
+            <div class="q-text">Vật rắn tuyệt đối là vật thể mà khoảng cách giữa hai điểm bất kỳ thuộc vật luôn luôn:
+            </div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,1,0,'ch1')" data-idx="0"><span
+                  class="q-label">A</span><span>Thay đổi theo thời gian</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,1,'ch1')" data-idx="1"><span
+                  class="q-label">B</span><span>Không thay đổi</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,2,'ch1')" data-idx="2"><span class="q-label">C</span><span>Phụ
+                  thuộc vào lực tác dụng</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,3,'ch1')" data-idx="3"><span
+                  class="q-label">D</span><span>Tăng dần</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Vật rắn tuyệt đối có khoảng cách giữa hai điểm bất kỳ luôn
+              không đổi.</div>
+            <div class="q-feedback wrong">❌ Sai! Vật rắn tuyệt đối có khoảng cách giữa hai điểm bất kỳ luôn không đổi.
+            </div>
+          </div>
+          <div class="q-card" data-quiz="ch1" data-correct="1">
+            <div class="q-num">Câu 2</div>
+            <div class="q-text">Theo tiên đề hình bình hành lực, hợp lực của hai lực đồng quy là:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,1,0,'ch1')" data-idx="0"><span
+                  class="q-label">A</span><span>Tổng đại số của hai lực</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,1,'ch1')" data-idx="1"><span
+                  class="q-label">B</span><span>Đường chéo hình bình hành</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,2,'ch1')" data-idx="2"><span
+                  class="q-label">C</span><span>Hiệu của hai lực</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,3,'ch1')" data-idx="3"><span
+                  class="q-label">D</span><span>Tích của hai lực</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Hợp lực = đường chéo hình bình hành xây dựng trên hai lực thành
+              phần.</div>
+            <div class="q-feedback wrong">❌ Sai! Hợp lực = đường chéo hình bình hành xây dựng trên hai lực thành phần.
+            </div>
+          </div>
+          <div class="q-card" data-quiz="ch1" data-correct="1">
+            <div class="q-num">Câu 3</div>
+            <div class="q-text">Ngẫu lực là hệ gồm:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,1,0,'ch1')" data-idx="0"><span class="q-label">A</span><span>Hai
+                  lực song song, cùng chiều, cùng độ lớn</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,1,'ch1')" data-idx="1"><span class="q-label">B</span><span>Hai
+                  lực song song, ngược chiều, cùng độ lớn</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,2,'ch1')" data-idx="2"><span class="q-label">C</span><span>Ba
+                  lực đồng phẳng</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,3,'ch1')" data-idx="3"><span class="q-label">D</span><span>Hai
+                  lực vuông góc</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Ngẫu lực gồm hai lực song song, ngược chiều, cùng cường độ.
+            </div>
+            <div class="q-feedback wrong">❌ Sai! Ngẫu lực gồm hai lực song song, ngược chiều, cùng cường độ.</div>
+          </div>
+          <div class="q-card" data-quiz="ch1" data-correct="0">
+            <div class="q-num">Câu 4</div>
+            <div class="q-text">Mô men của lực F đối với một điểm O bằng:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,0,0,'ch1')" data-idx="0"><span class="q-label">A</span><span>F
+                  nhân khoảng cách từ O đến giá của lực</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,1,'ch1')" data-idx="1"><span class="q-label">B</span><span>F
+                  nhân bình phương khoảng cách</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,2,'ch1')" data-idx="2"><span class="q-label">C</span><span>F
+                  chia khoảng cách</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,3,'ch1')" data-idx="3"><span class="q-label">D</span><span>F
+                  cộng khoảng cách</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! M₀(F) = F × d, với d là khoảng cách từ O đến giá của lực.</div>
+            <div class="q-feedback wrong">❌ Sai! M₀(F) = F × d, với d là khoảng cách từ O đến giá của lực.</div>
+          </div>
+          <div class="q-card" data-quiz="ch1" data-correct="2">
+            <div class="q-num">Câu 5</div>
+            <div class="q-text">Phản lực liên kết tại gối cầu có bao nhiêu thành phần?</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,2,0,'ch1')" data-idx="0"><span
+                  class="q-label">A</span><span>1</span></div>
+              <div class="q-opt" onclick="checkAns(this,2,1,'ch1')" data-idx="1"><span
+                  class="q-label">B</span><span>2</span></div>
+              <div class="q-opt" onclick="checkAns(this,2,2,'ch1')" data-idx="2"><span
+                  class="q-label">C</span><span>3</span></div>
+              <div class="q-opt" onclick="checkAns(this,2,3,'ch1')" data-idx="3"><span
+                  class="q-label">D</span><span>4</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Gối cầu hạn chế chuyển động theo 3 phương (X, Y, Z) nên có 3
+              thành phần phản lực.</div>
+            <div class="q-feedback wrong">❌ Sai! Gối cầu hạn chế chuyển động theo 3 phương (X, Y, Z) nên có 3 thành phần
+              phản lực.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-ch2">
+      <div class="content-area">
+        <div class="chapter-hero ch2-hero">
+          <div class="cn">Chương 2</div>
+          <h2>Động học</h2>
+        </div>
+        <div class="ov-sec">
+          <h3>I. Chuyển động của chất điểm</h3>
+          <ul class="cl">
+            <li>Khảo sát chuyển động bằng véc tơ</li>
+            <li>Khảo sát chuyển động bằng tọa độ Đề các</li>
+            <li>Khảo sát chuyển động bằng tọa độ tự nhiên</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>II. Chuyển động của vật rắn</h3>
+          <ul class="cl">
+            <li>Chuyển động tịnh tuyến của vật rắn</li>
+            <li>Chuyển động quay quanh một trục cố định</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>III. Hợp chuyển động điểm</h3>
+          <ul class="cl">
+            <li>Định nghĩa và các loại chuyển động</li>
+            <li>Các định lý về hợp vận tốc và hợp gia tốc</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>IV. Chuyển động song phẳng</h3>
+          <ul class="cl">
+            <li>Khái niệm và mô hình chuyển động song phẳng</li>
+            <li>Khảo sát chuyển động của vật rắn</li>
+            <li>Khảo sát chuyển động của các điểm thuộc vật</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>V. Chuyển động của vật rắn quay quanh một điểm cố định</h3>
+          <ul class="cl">
+            <li>Khái niệm</li>
+            <li>Phân tích chuyển động</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>VI. Bài tập</h3>
+          <ul class="cl">
+            <li>Tóm tắt lý thuyết</li>
+            <li>Bài tập có hướng dẫn</li>
+            <li>Bài tập tự làm</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>Câu hỏi ôn tập</h3>
+          <ul class="cl">
+            <li><em>(Nội dung sẽ được cập nhật)</em></li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>Ôn tập trắc nghiệm</h3>
+          <ul class="cl">
+            <li><em>(Nội dung sẽ được cập nhật)</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>I. Chuyển động của chất điểm</h2>
+        </div>
+        <ul class="cl">
+          <li>Khảo sát chuyển động bằng véc tơ</li>
+          <li>Khảo sát chuyển động bằng tọa độ Đề các</li>
+          <li>Khảo sát chuyển động bằng tọa độ tự nhiên</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>II. Chuyển động của vật rắn</h2>
+        </div>
+        <ul class="cl">
+          <li>Chuyển động tịnh tuyến của vật rắn</li>
+          <li>Chuyển động quay quanh một trục cố định</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>III. Hợp chuyển động điểm</h2>
+        </div>
+        <ul class="cl">
+          <li>Định nghĩa và các loại chuyển động</li>
+          <li>Các định lý về hợp vận tốc và hợp gia tốc</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-4">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>IV. Chuyển động song phẳng</h2>
+        </div>
+        <ul class="cl">
+          <li>Khái niệm và mô hình chuyển động song phẳng</li>
+          <li>Khảo sát chuyển động của vật rắn</li>
+          <li>Khảo sát chuyển động của các điểm thuộc vật</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-5">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>V. Chuyển động của vật rắn quay quanh một điểm cố định</h2>
+        </div>
+        <ul class="cl">
+          <li>Khái niệm</li>
+          <li>Phân tích chuyển động</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-6">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>VI. Bài tập</h2>
+        </div>
+        <ul class="cl">
+          <li>Tóm tắt lý thuyết</li>
+          <li>Bài tập có hướng dẫn</li>
+          <li>Bài tập tự làm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-6-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>VI. Bài tập</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Tóm tắt lý thuyết</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-6-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>VI. Bài tập</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Bài tập có hướng dẫn</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-6-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>VI. Bài tập</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Bài tập tự làm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-rev">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>Câu hỏi ôn tập</h2>
+        </div>
+        <ul class="cl">
+          <li><em>(Nội dung sẽ được cập nhật)</em></li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-quiz">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>Ôn tập trắc nghiệm</h2>
+        </div>
+        <p style="color:var(--tx2);margin-bottom:1.2rem;font-size:.88rem;">Chọn đáp án đúng cho mỗi câu hỏi. Kết quả
+          được kiểm tra ngay lập tức.</p>
+        <div class="quiz-container" id="quiz-ch2">
+          <div class="quiz-header">
+            <div class="quiz-score"><span class="qs-item qs-correct" id="ch2-correct">✅ 0</span><span
+                class="qs-item qs-wrong" id="ch2-wrong">❌ 0</span><span class="qs-item qs-total" id="ch2-total">📝
+                0/5</span></div><button class="quiz-reset" onclick="resetQuiz('ch2')">🔄 Làm lại</button>
+          </div>
+          <div class="q-card" data-quiz="ch2" data-correct="0">
+            <div class="q-num">Câu 1</div>
+            <div class="q-text">Vận tốc tức thời của chất điểm được xác định bằng:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,0,0,'ch2')" data-idx="0"><span class="q-label">A</span><span>Đạo
+                  hàm bậc nhất véc tơ vị trí theo thời gian</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,1,'ch2')" data-idx="1"><span class="q-label">B</span><span>Đạo
+                  hàm bậc hai véc tơ vị trí</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,2,'ch2')" data-idx="2"><span
+                  class="q-label">C</span><span>Tích phân gia tốc theo quãng đường</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,3,'ch2')" data-idx="3"><span
+                  class="q-label">D</span><span>Hiệu tọa độ chia thời gian</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! v = dr/dt — đạo hàm bậc nhất véc tơ vị trí theo thời gian.
+            </div>
+            <div class="q-feedback wrong">❌ Sai! v = dr/dt — đạo hàm bậc nhất véc tơ vị trí theo thời gian.</div>
+          </div>
+          <div class="q-card" data-quiz="ch2" data-correct="1">
+            <div class="q-num">Câu 2</div>
+            <div class="q-text">Gia tốc pháp tuyến đặc trưng cho sự thay đổi của:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,1,0,'ch2')" data-idx="0"><span class="q-label">A</span><span>Độ
+                  lớn vận tốc</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,1,'ch2')" data-idx="1"><span
+                  class="q-label">B</span><span>Phương của vận tốc</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,2,'ch2')" data-idx="2"><span class="q-label">C</span><span>Gia
+                  tốc tiếp tuyến</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,3,'ch2')" data-idx="3"><span class="q-label">D</span><span>Quỹ
+                  đạo</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Gia tốc pháp tuyến đặc trưng cho sự thay đổi phương của vận
+              tốc.</div>
+            <div class="q-feedback wrong">❌ Sai! Gia tốc pháp tuyến đặc trưng cho sự thay đổi phương của vận tốc.</div>
+          </div>
+          <div class="q-card" data-quiz="ch2" data-correct="0">
+            <div class="q-num">Câu 3</div>
+            <div class="q-text">Trong chuyển động quay quanh trục cố định, vận tốc góc ω liên hệ với góc quay φ bởi:
+            </div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,0,0,'ch2')" data-idx="0"><span class="q-label">A</span><span>ω =
+                  dφ/dt</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,1,'ch2')" data-idx="1"><span class="q-label">B</span><span>ω =
+                  d²φ/dt²</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,2,'ch2')" data-idx="2"><span class="q-label">C</span><span>ω =
+                  φ/t</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,3,'ch2')" data-idx="3"><span class="q-label">D</span><span>ω =
+                  φ × t</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Vận tốc góc ω = dφ/dt.</div>
+            <div class="q-feedback wrong">❌ Sai! Vận tốc góc ω = dφ/dt.</div>
+          </div>
+          <div class="q-card" data-quiz="ch2" data-correct="1">
+            <div class="q-num">Câu 4</div>
+            <div class="q-text">Chuyển động tịnh tiến của vật rắn là chuyển động mà:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,1,0,'ch2')" data-idx="0"><span class="q-label">A</span><span>Mọi
+                  điểm đều chuyển động tròn</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,1,'ch2')" data-idx="1"><span
+                  class="q-label">B</span><span>Đường thẳng nối hai điểm bất kỳ luôn song song với chính nó</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,2,'ch2')" data-idx="2"><span class="q-label">C</span><span>Vật
+                  quay quanh trục</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,3,'ch2')" data-idx="3"><span
+                  class="q-label">D</span><span>Trọng tâm đứng yên</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Chuyển động tịnh tiến: mọi đoạn thẳng gắn với vật luôn song
+              song với vị trí ban đầu.</div>
+            <div class="q-feedback wrong">❌ Sai! Chuyển động tịnh tiến: mọi đoạn thẳng gắn với vật luôn song song với vị
+              trí ban đầu.</div>
+          </div>
+          <div class="q-card" data-quiz="ch2" data-correct="0">
+            <div class="q-num">Câu 5</div>
+            <div class="q-text">Trong hợp chuyển động điểm, vận tốc tuyệt đối bằng:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,0,0,'ch2')" data-idx="0"><span
+                  class="q-label">A</span><span>Tổng véc tơ vận tốc tương đối và vận tốc kéo theo</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,1,'ch2')" data-idx="1"><span
+                  class="q-label">B</span><span>Hiệu vận tốc tương đối và kéo theo</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,2,'ch2')" data-idx="2"><span
+                  class="q-label">C</span><span>Tích vận tốc tương đối và kéo theo</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,3,'ch2')" data-idx="3"><span class="q-label">D</span><span>Vận
+                  tốc tương đối nhân 2</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Định lý hợp vận tốc: vₐ = vᵣ + vₑ.</div>
+            <div class="q-feedback wrong">❌ Sai! Định lý hợp vận tốc: vₐ = vᵣ + vₑ.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-ch3">
+      <div class="content-area">
+        <div class="chapter-hero ch3-hero">
+          <div class="cn">Chương 3</div>
+          <h2>Động lực học</h2>
+        </div>
+        <div class="ov-sec">
+          <h3>I. Các khái niệm cơ bản</h3>
+          <ul class="cl">
+            <li>Vật thể</li>
+            <li>Lực</li>
+            <li>Hệ quy chiếu quán tính</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>II. Các định luật cơ bản</h3>
+          <ul class="cl">
+            <li>Tiên đề 1 – Định luật quán tính</li>
+            <li>Tiên đề 2 – Định luật cơ bản của động lực học</li>
+            <li>Tiên đề 3 – Định luật tác dụng và phản tác dụng</li>
+            <li>Tiên đề 4 – Định luật tính độc lập giữa tác dụng của lực</li>
+            <li>Tiên đề 5 – Tiên đề giải phóng liên kết</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>III. Phương trình vi phân chuyển động của chất điểm và cơ hệ</h3>
+          <ul class="cl">
+            <li>Dạng véc tơ</li>
+            <li>Dạng tọa độ Đề các</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>IV. Hai bài toán cơ bản của động lực học</h3>
+          <ul class="cl">
+            <li>Bài toán thuận</li>
+            <li>Bài toán ngược</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>V. Các định lý tổng quát</h3>
+          <ul class="cl">
+            <li>Định lý chuyển động khối tâm</li>
+            <li>Định lý động lượng</li>
+            <li>Định lý mô men động lượng</li>
+            <li>Định lý động năng</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>VI. Lý thuyết va chạm</h3>
+          <ul class="cl">
+            <li>Các đặc điểm và giả thiết về va chạm</li>
+            <li>Các định lý tổng quát áp dụng vào va chạm</li>
+            <li>Hai bài toán cơ bản về va chạm</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>VII. Bài tập</h3>
+          <ul class="cl">
+            <li>Tóm tắt lý thuyết</li>
+            <li>Bài tập có hướng dẫn</li>
+            <li>Bài tập tự làm</li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>Câu hỏi ôn tập</h3>
+          <ul class="cl">
+            <li><em>(Nội dung sẽ được cập nhật)</em></li>
+          </ul>
+        </div>
+        <div class="ov-sec">
+          <h3>Ôn tập trắc nghiệm</h3>
+          <ul class="cl">
+            <li><em>(Nội dung sẽ được cập nhật)</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <ul class="cl">
+          <li>Vật thể</li>
+          <li>Lực</li>
+          <li>Hệ quy chiếu quán tính</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>II. Các định luật cơ bản</h2>
+        </div>
+        <ul class="cl">
+          <li>Tiên đề 1 – Định luật quán tính</li>
+          <li>Tiên đề 2 – Định luật cơ bản của động lực học</li>
+          <li>Tiên đề 3 – Định luật tác dụng và phản tác dụng</li>
+          <li>Tiên đề 4 – Định luật tính độc lập giữa tác dụng của lực</li>
+          <li>Tiên đề 5 – Tiên đề giải phóng liên kết</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>III. Phương trình vi phân chuyển động của chất điểm và cơ hệ</h2>
+        </div>
+        <ul class="cl">
+          <li>Dạng véc tơ</li>
+          <li>Dạng tọa độ Đề các</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-4">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>IV. Hai bài toán cơ bản của động lực học</h2>
+        </div>
+        <ul class="cl">
+          <li>Bài toán thuận</li>
+          <li>Bài toán ngược</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-5">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>V. Các định lý tổng quát</h2>
+        </div>
+        <ul class="cl">
+          <li>Định lý chuyển động khối tâm</li>
+          <li>Định lý động lượng</li>
+          <li>Định lý mô men động lượng</li>
+          <li>Định lý động năng</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-6">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>VI. Lý thuyết va chạm</h2>
+        </div>
+        <ul class="cl">
+          <li>Các đặc điểm và giả thiết về va chạm</li>
+          <li>Các định lý tổng quát áp dụng vào va chạm</li>
+          <li>Hai bài toán cơ bản về va chạm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-7">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>VII. Bài tập</h2>
+        </div>
+        <ul class="cl">
+          <li>Tóm tắt lý thuyết</li>
+          <li>Bài tập có hướng dẫn</li>
+          <li>Bài tập tự làm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-rev">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>Câu hỏi ôn tập</h2>
+        </div>
+        <ul class="cl">
+          <li><em>(Nội dung sẽ được cập nhật)</em></li>
+        </ul>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-quiz">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>Ôn tập trắc nghiệm</h2>
+        </div>
+        <p style="color:var(--tx2);margin-bottom:1.2rem;font-size:.88rem;">Chọn đáp án đúng cho mỗi câu hỏi. Kết quả
+          được kiểm tra ngay lập tức.</p>
+        <div class="quiz-container" id="quiz-ch3">
+          <div class="quiz-header">
+            <div class="quiz-score"><span class="qs-item qs-correct" id="ch3-correct">✅ 0</span><span
+                class="qs-item qs-wrong" id="ch3-wrong">❌ 0</span><span class="qs-item qs-total" id="ch3-total">📝
+                0/5</span></div><button class="quiz-reset" onclick="resetQuiz('ch3')">🔄 Làm lại</button>
+          </div>
+          <div class="q-card" data-quiz="ch3" data-correct="1">
+            <div class="q-num">Câu 1</div>
+            <div class="q-text">Theo định luật II Newton, hợp lực tác dụng lên vật bằng:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,1,0,'ch3')" data-idx="0"><span
+                  class="q-label">A</span><span>Khối lượng nhân vận tốc</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,1,'ch3')" data-idx="1"><span
+                  class="q-label">B</span><span>Khối lượng nhân gia tốc</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,2,'ch3')" data-idx="2"><span
+                  class="q-label">C</span><span>Khối lượng nhân quãng đường</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,3,'ch3')" data-idx="3"><span
+                  class="q-label">D</span><span>Khối lượng chia thời gian</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! F = ma — Định luật cơ bản của động lực học.</div>
+            <div class="q-feedback wrong">❌ Sai! F = ma — Định luật cơ bản của động lực học.</div>
+          </div>
+          <div class="q-card" data-quiz="ch3" data-correct="0">
+            <div class="q-num">Câu 2</div>
+            <div class="q-text">Động lượng của chất điểm được định nghĩa là:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,0,0,'ch3')" data-idx="0"><span
+                  class="q-label">A</span><span>Tích khối lượng và vận tốc</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,1,'ch3')" data-idx="1"><span
+                  class="q-label">B</span><span>Tích khối lượng và gia tốc</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,2,'ch3')" data-idx="2"><span class="q-label">C</span><span>Tỉ
+                  số lực và gia tốc</span></div>
+              <div class="q-opt" onclick="checkAns(this,0,3,'ch3')" data-idx="3"><span
+                  class="q-label">D</span><span>Tích lực và thời gian</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Động lượng p = mv.</div>
+            <div class="q-feedback wrong">❌ Sai! Động lượng p = mv.</div>
+          </div>
+          <div class="q-card" data-quiz="ch3" data-correct="1">
+            <div class="q-num">Câu 3</div>
+            <div class="q-text">Định lý động năng phát biểu rằng:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,1,0,'ch3')" data-idx="0"><span
+                  class="q-label">A</span><span>Động năng luôn bảo toàn</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,1,'ch3')" data-idx="1"><span
+                  class="q-label">B</span><span>Biến thiên động năng bằng tổng công các lực</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,2,'ch3')" data-idx="2"><span
+                  class="q-label">C</span><span>Động năng bằng thế năng</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,3,'ch3')" data-idx="3"><span
+                  class="q-label">D</span><span>Động năng tỉ lệ với vận tốc</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! ΔT = ΣA — biến thiên động năng bằng tổng công các lực tác dụng.
+            </div>
+            <div class="q-feedback wrong">❌ Sai! ΔT = ΣA — biến thiên động năng bằng tổng công các lực tác dụng.</div>
+          </div>
+          <div class="q-card" data-quiz="ch3" data-correct="1">
+            <div class="q-num">Câu 4</div>
+            <div class="q-text">Hệ số phục hồi k trong va chạm có giá trị:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,1,0,'ch3')" data-idx="0"><span class="q-label">A</span><span>k >
+                  1</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,1,'ch3')" data-idx="1"><span class="q-label">B</span><span>0 ≤
+                  k ≤ 1</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,2,'ch3')" data-idx="2"><span class="q-label">C</span><span>k <
+                    0</span>
+              </div>
+              <div class="q-opt" onclick="checkAns(this,1,3,'ch3')" data-idx="3"><span class="q-label">D</span><span>k =
+                  2</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Hệ số phục hồi k nằm trong khoảng [0, 1]: k=0 va chạm mềm, k=1
+              va chạm đàn hồi.</div>
+            <div class="q-feedback wrong">❌ Sai! Hệ số phục hồi k nằm trong khoảng [0, 1]: k=0 va chạm mềm, k=1 va chạm
+              đàn hồi.</div>
+          </div>
+          <div class="q-card" data-quiz="ch3" data-correct="1">
+            <div class="q-num">Câu 5</div>
+            <div class="q-text">Mô men động lượng đối với một trục là đại lượng đặc trưng cho:</div>
+            <div class="q-options">
+              <div class="q-opt" onclick="checkAns(this,1,0,'ch3')" data-idx="0"><span
+                  class="q-label">A</span><span>Chuyển động thẳng</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,1,'ch3')" data-idx="1"><span
+                  class="q-label">B</span><span>Chuyển động quay</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,2,'ch3')" data-idx="2"><span
+                  class="q-label">C</span><span>Chuyển động dao động</span></div>
+              <div class="q-opt" onclick="checkAns(this,1,3,'ch3')" data-idx="3"><span
+                  class="q-label">D</span><span>Chuyển động rơi tự do</span></div>
+            </div>
+            <div class="q-feedback correct">✅ Chính xác! Mô men động lượng đặc trưng cho cường độ chuyển động quay.
+            </div>
+            <div class="q-feedback wrong">❌ Sai! Mô men động lượng đặc trưng cho cường độ chuyển động quay.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="page" id="page-authors">
+      <div class="content-area">
+        <h2 style="text-align:center;color:var(--gold);margin-bottom:.2rem;font-size:1.45rem;">Tác giả</h2>
+        <p style="text-align:center;color:var(--tx2);margin-bottom:1rem;font-size:.92rem;">Khoa KTCS – Học viện Hải quân
+        </p>
+        <div class="ag2">
+          <div class="ac2 chief">
+            <div class="av2">V</div>
+            <div class="rl">Chủ biên</div>
+            <div class="nm">Nguyễn Lê Văn</div>
+            <div class="rk">Đại tá, TS</div>
+            <div class="un">CNK, Khoa KTCS</div>
+          </div>
+          <div class="ac2">
+            <div class="av2">T</div>
+            <div class="rl">Biên soạn</div>
+            <div class="nm">Đinh Văn Tứ</div>
+            <div class="rk">Thiếu tá, ThS</div>
+            <div class="un">GV, Khoa KTCS</div>
+          </div>
+          <div class="ac2">
+            <div class="av2">X</div>
+            <div class="rl">Biên soạn</div>
+            <div class="nm">Bùi Thanh Xuân</div>
+            <div class="rk">Đại úy, ThS</div>
+            <div class="un">GV, Khoa KTCS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-refs">
+      <div class="content-area">
+        <h2 style="text-align:center;color:var(--gold);margin-bottom:1rem;font-size:1.45rem;">Tài liệu tham khảo</h2>
+        <div class="ri"><span class="rn2">[1]</span><span>Nguyễn Phong Điền, <em>Bài tập Cơ học kỹ thuật</em>, NXB Bách
+            khoa HN, 2023.</span></div>
+        <div class="ri"><span class="rn2">[2]</span><span>Nguyễn Văn Khang, <em>Cơ học kỹ thuật</em>, NXB Bách khoa HN,
+            2024.</span></div>
+        <div class="ri"><span class="rn2">[3]</span><span>Đỗ Sanh, <em>Cơ học kỹ thuật tập 1, 2</em>, NXB Bách khoa HN,
+            2024.</span></div>
+        <div class="ri"><span class="rn2">[4]</span><span>Đỗ Sanh, <em>Bài tập Cơ học kỹ thuật tập 1, 2</em>, NXB Bách
+            khoa HN, 2025.</span></div>
+      </div>
+    </div>
+
+    <div class="page" id="page-ch1-1-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Vật rắn tuyệt đối</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-1-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Trạng thái cân bằng</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-1-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Lực</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-1-4">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">4. Mô men</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-1-5">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">5. Hệ lực</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-1-6">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">6. Ngẫu lực</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-1-7">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">7. Vật tự do và vật không tự do</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-1-8">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">8. Lực liên kết, lực hoạt động, phản lực liên kết</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-2-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>II. Hệ tiên đề tĩnh học</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Tiên đề 1: Cặp lực cân bằng</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-2-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>II. Hệ tiên đề tĩnh học</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Tiên đề 2: Thêm hay bớt cặp lực cân bằng</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-2-3">
+      <div class="content-area"><div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span><h2>3. Tiên đề 3: Hình bình hành lực</h2></div><div class="l3-content"><p style="margin-bottom:1rem;font-size:.92rem;line-height:1.7;text-align:justify;"><strong>Phát biểu:</strong> Hai lực đặt tại một điểm có thể thu gọn thành một lực duy nhất gọi là <em>hợp lực</em>, được biểu diễn bởi <strong>đường chéo của hình bình hành</strong> mà hai cạnh là hai lực thành phần.</p><p style="margin-bottom:1rem;font-size:.92rem;line-height:1.7;text-align:justify;">Công thức: <strong>R = F₁ + F₂</strong> (phép cộng véc tơ). Độ lớn: <strong>R = √(F₁² + F₂² + 2·F₁·F₂·cos α)</strong>, với α là góc giữa hai lực.</p><div class="sim-container" id="sim-parallelogram">
+<div class="sim-header"><span class="sim-title">🔬 Mô phỏng: Tiên đề hình bình hành lực</span><div class="sim-controls"><span class="sim-badge">Tương tác</span><button class="sim-btn" onclick="resetSim()">🔄 Đặt lại</button></div></div>
+<div class="sim-canvas-wrap"><canvas id="simCanvas" width="760" height="440"></canvas></div>
+<div class="sim-info">
+<div class="sim-info-card f1"><div class="sim-label">Lực F₁</div><div class="sim-value" id="sim-f1">150 N</div></div>
+<div class="sim-info-card f2"><div class="sim-label">Lực F₂</div><div class="sim-value" id="sim-f2">120 N</div></div>
+<div class="sim-info-card result"><div class="sim-label">Hợp lực R</div><div class="sim-value" id="sim-r">— N</div></div>
+<div class="sim-info-card angle"><div class="sim-label">Góc (F₁,F₂)</div><div class="sim-value" id="sim-angle">—°</div></div>
+</div>
+<div class="sim-hint">💡 Kéo các đầu mũi tên đỏ (F₁) và xanh (F₂) để thay đổi lực. Hình bình hành và hợp lực R sẽ cập nhật tự động.</div>
+</div></div></div>
+    </div>
+
+<div class="page" id="page-ch1-2-4">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>II. Hệ tiên đề tĩnh học</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">4. Tiên đề 4: Lực tương tác</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-2-5">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>II. Hệ tiên đề tĩnh học</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">5. Tiên đề 5: Tiên đề hóa rắn</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-2-6">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>II. Hệ tiên đề tĩnh học</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">6. Tiên đề 6: Giải phóng liên kết</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-3-1">
+      <div class="content-area"><div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span><h2>1. Liên kết tựa</h2></div><div class="l3-content"><p style="margin-bottom:1rem;font-size:.92rem;line-height:1.7;text-align:justify;"><strong>Liên kết tựa</strong> là loại liên kết mà vật tựa lên bề mặt nhẵn. Phản lực liên kết có <em>phương vuông góc</em> với bề mặt tựa tại điểm tiếp xúc.</p><p style="margin-bottom:1rem;font-size:.92rem;line-height:1.7;text-align:justify;">Dầm AB chịu lực P tác dụng. Phản lực R_A và R_B được tính từ phương trình cân bằng: <strong>ΣF = 0</strong> và <strong>ΣM = 0</strong>.</p><div class="sim-container" id="sim-beam">
+<div class="sim-header"><span class="sim-title">🔬 Mô phỏng: Phản lực liên kết dầm đơn giản</span><div class="sim-controls"><span class="sim-badge">Tương tác</span><button class="sim-btn" onclick="resetBeam()">🔄 Đặt lại</button></div></div>
+<div class="sim-canvas-wrap"><canvas id="beamCanvas" width="760" height="380"></canvas></div>
+<div class="sim-info">
+<div class="sim-info-card f1"><div class="sim-label">Lực P</div><div class="sim-value" id="beam-p">100 N</div></div>
+<div class="sim-info-card f2"><div class="sim-label">Vị trí a</div><div class="sim-value" id="beam-a">2.0 m</div></div>
+<div class="sim-info-card result"><div class="sim-label">Phản lực R_A</div><div class="sim-value" id="beam-ra">— N</div></div>
+<div class="sim-info-card angle"><div class="sim-label">Phản lực R_B</div><div class="sim-value" id="beam-rb">— N</div></div>
+</div>
+<div style="background:var(--nav2);border:1px solid var(--bdr);border-radius:var(--r);padding:.6rem .8rem;margin-top:.5rem;font-size:.78rem;color:var(--tx2);line-height:1.6;">
+<strong style="color:var(--gold);">Phương trình cân bằng:</strong><br>
+<span id="beam-eq1">ΣF_y = 0: R_A + R_B − P = 0</span><br>
+<span id="beam-eq2">ΣM_A = 0: R_B·L − P·a = 0 → R_B = P·a/L</span>
+</div>
+<div class="sim-hint">💡 Kéo mũi tên đỏ lên/xuống để thay đổi lực P. Kéo ngang để thay đổi vị trí đặt lực trên dầm.</div>
+</div></div></div>
+    </div>
+
+<div class="page" id="page-ch1-3-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>III. Một số phản lực liên kết thường gặp</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Liên kết dây mềm, thẳng</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-3-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>III. Một số phản lực liên kết thường gặp</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Liên kết bản lề</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-3-4">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>III. Một số phản lực liên kết thường gặp</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">4. Liên kết gối</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-3-5">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>III. Một số phản lực liên kết thường gặp</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">5. Liên kết gối cầu</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-3-6">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>III. Một số phản lực liên kết thường gặp</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">6. Liên kết ngàm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-3-7">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>III. Một số phản lực liên kết thường gặp</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">7. Liên kết thanh</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-4-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>IV. Đặc trưng cơ bản của hệ lực</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Véc tơ chính của hệ lực không gian</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-4-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>IV. Đặc trưng cơ bản của hệ lực</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Mô men chính của hệ lực không gian với một tâm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-4-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>IV. Đặc trưng cơ bản của hệ lực</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Các dạng cơ bản của hệ lực không gian</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-5-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>V. Điều kiện cân bằng</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Điều kiện và phương trình cân bằng của hệ lực bất kỳ trong không gian</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-5-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>V. Điều kiện cân bằng</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Điều kiện và phương trình cân bằng của hệ lực đặc biệt</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-6-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>VI. Bài tập</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Phương pháp giải bài toán cân bằng vật rắn</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-6-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>VI. Bài tập</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Bài tập có hướng dẫn</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch1-6-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch1-hero">Chương 1 – Tĩnh học</span>
+          <h2>VI. Bài tập</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Bài tập tự làm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-1-1">
+      <div class="content-area"><div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span><h2>1. Khảo sát chuyển động bằng véc tơ</h2></div><div class="l3-content"><p style="margin-bottom:1rem;font-size:.92rem;line-height:1.7;text-align:justify;"><strong>Véc tơ vị trí</strong> r(t) xác định vị trí chất điểm. <strong>Vận tốc</strong> v = dr/dt tiếp tuyến quỹ đạo. <strong>Gia tốc</strong> a = dv/dt gồm thành phần tiếp tuyến aτ và pháp tuyến aₙ.</p><p style="margin-bottom:1rem;font-size:.92rem;line-height:1.7;text-align:justify;">Gia tốc pháp tuyến: <strong>aₙ = v²/ρ</strong> (hướng tâm cong). Gia tốc tiếp tuyến: <strong>aτ = dv/dt</strong> (thay đổi tốc độ).</p><div class="sim-container" id="sim-particle">
+<div class="sim-header"><span class="sim-title">🔬 Mô phỏng: Chuyển động chất điểm trên quỹ đạo</span><div class="sim-controls"><span class="sim-badge">Animation</span><button class="sim-btn" id="partPlayBtn" onclick="toggleParticle()">⏸ Dừng</button><button class="sim-btn" onclick="resetParticle()">🔄 Đặt lại</button></div></div>
+<div class="sim-canvas-wrap"><canvas id="particleCanvas" width="760" height="400"></canvas></div>
+<div class="sim-info">
+<div class="sim-info-card f1"><div class="sim-label">Vận tốc |v|</div><div class="sim-value" id="part-v">— m/s</div></div>
+<div class="sim-info-card f2"><div class="sim-label">Gia tốc tiếp |aτ|</div><div class="sim-value" id="part-at">— m/s²</div></div>
+<div class="sim-info-card result"><div class="sim-label">Gia tốc pháp |aₙ|</div><div class="sim-value" id="part-an">— m/s²</div></div>
+<div class="sim-info-card angle"><div class="sim-label">Bán kính cong ρ</div><div class="sim-value" id="part-rho">— m</div></div>
+</div>
+<div style="display:flex;gap:.8rem;margin-top:.5rem;flex-wrap:wrap;align-items:center;">
+<label style="font-size:.78rem;color:var(--tx2);display:flex;align-items:center;gap:.3rem;">Tốc độ: <input type="range" id="partSpeed" min="0.5" max="4" step="0.5" value="1.5" oninput="partSpeedVal=parseFloat(this.value)" style="width:100px;"></label>
+<label style="font-size:.78rem;color:var(--tx2);display:flex;align-items:center;gap:.3rem;">Quỹ đạo: <select id="partPath" onchange="changePartPath(this.value)" style="background:var(--nav2);color:var(--tx);border:1px solid var(--bdr);border-radius:4px;padding:2px 5px;font-size:.78rem;font-family:inherit;">
+<option value="ellipse">Elip</option><option value="circle">Tròn</option><option value="figure8">Số 8</option></select></label>
+</div>
+<div class="sim-hint">💡 Chất điểm di chuyển trên quỹ đạo. Véc tơ vận tốc v (đỏ) tiếp tuyến, gia tốc pháp aₙ (xanh) hướng tâm, gia tốc tiếp aτ (cam).</div>
+</div></div></div>
+    </div>
+
+<div class="page" id="page-ch2-1-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>I. Chuyển động của chất điểm</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Khảo sát chuyển động bằng tọa độ Đề các</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-1-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>I. Chuyển động của chất điểm</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Khảo sát chuyển động bằng tọa độ tự nhiên</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-2-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>II. Chuyển động của vật rắn</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Chuyển động tịnh tuyến của vật rắn</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-2-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>II. Chuyển động của vật rắn</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Chuyển động quay quanh một trục cố định</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-3-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>III. Hợp chuyển động điểm</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Định nghĩa và các loại chuyển động</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-3-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>III. Hợp chuyển động điểm</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Các định lý về hợp vận tốc và hợp gia tốc</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-4-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>IV. Chuyển động song phẳng</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Khái niệm và mô hình chuyển động song phẳng</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-4-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>IV. Chuyển động song phẳng</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Khảo sát chuyển động của vật rắn</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-4-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>IV. Chuyển động song phẳng</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Khảo sát chuyển động của các điểm thuộc vật</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-5-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>V. Chuyển động của vật rắn quay quanh một điểm cố định</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Khái niệm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch2-5-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch2-hero">Chương 2 – Động học</span>
+          <h2>V. Chuyển động của vật rắn quay quanh một điểm cố định</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Phân tích chuyển động</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-ch3-1-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Vật thể</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-1-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Lực</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-1-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>I. Các khái niệm cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Hệ quy chiếu quán tính</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-2-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>II. Các định luật cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Tiên đề 1 – Định luật quán tính</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-2-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>II. Các định luật cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Tiên đề 2 – Định luật cơ bản của động lực học</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-2-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>II. Các định luật cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Tiên đề 3 – Định luật tác dụng và phản tác dụng</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-2-4">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>II. Các định luật cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">4. Tiên đề 4 – Định luật tính độc lập giữa tác dụng của lực</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-2-5">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>II. Các định luật cơ bản</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">5. Tiên đề 5 – Tiên đề giải phóng liên kết</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-3-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>III. Phương trình vi phân chuyển động của chất điểm và cơ hệ</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Dạng véc tơ</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-3-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>III. Phương trình vi phân chuyển động của chất điểm và cơ hệ</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Dạng tọa độ Đề các</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-4-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>IV. Hai bài toán cơ bản của động lực học</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Bài toán thuận</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-4-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>IV. Hai bài toán cơ bản của động lực học</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Bài toán ngược</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-5-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>V. Các định lý tổng quát</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Định lý chuyển động khối tâm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-5-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>V. Các định lý tổng quát</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Định lý động lượng</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-5-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>V. Các định lý tổng quát</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Định lý mô men động lượng</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-5-4">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>V. Các định lý tổng quát</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">4. Định lý động năng</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-6-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>VI. Lý thuyết va chạm</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Các đặc điểm và giả thiết về va chạm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-6-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>VI. Lý thuyết va chạm</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Các định lý tổng quát áp dụng vào va chạm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-6-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>VI. Lý thuyết va chạm</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Hai bài toán cơ bản về va chạm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-7-1">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>VII. Bài tập</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">1. Tóm tắt lý thuyết</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-7-2">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>VII. Bài tập</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">2. Bài tập có hướng dẫn</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="page-ch3-7-3">
+      <div class="content-area">
+        <div class="sh2"><span class="badge ch3-hero">Chương 3 – Động lực học</span>
+          <h2>VII. Bài tập</h2>
+        </div>
+        <div class="l3-content">
+          <div class="l3-title">3. Bài tập tự làm</div>
+          <p class="l3-placeholder"><em>(Nội dung chi tiết sẽ được cập nhật)</em></p>
+        </div>
+      </div>
+    </div>
+    <footer><b>Học viện Hải quân</b> — Khoa KTCS · Giáo trình điện tử Cơ Học Lý Thuyết © 2026</footer>
+  </div>
+
+  <script>
+    const BC = {};
+    function initBC() { BC['home'] = 'Trang chủ'; BC['lnd'] = 'Lời nói đầu'; BC['authors'] = 'Tác giả'; BC['refs'] = 'Tài liệu tham khảo'; BC['ch1'] = 'Chương 1 › Tĩnh học'; BC['ch2'] = 'Chương 2 › Động học'; BC['ch3'] = 'Chương 3 › Động lực học'; document.querySelectorAll('.sub-menu .l2').forEach(a => { const m = a.getAttribute('onclick'); if (m) { const r = m.match(/showPage\('([^']+)'\)/); if (r && !BC[r[1]]) { const ch = r[1].startsWith('ch1') ? 'Chương 1 › ' : r[1].startsWith('ch2') ? 'Chương 2 › ' : 'Chương 3 › '; BC[r[1]] = ch + a.textContent.replace('▶', '').trim(); } } }); document.querySelectorAll('.sub-menu .l3').forEach(a => { const m = a.getAttribute('onclick'); if (m) { const r = m.match(/showPage\('([^']+)'\)/); if (r && !BC[r[1]]) { const ch = r[1].startsWith('ch1') ? 'Chương 1 › ' : r[1].startsWith('ch2') ? 'Chương 2 › ' : 'Chương 3 › '; const grp = a.closest('.l2-group'); let parentL2 = ''; if (grp) { const l2a = grp.querySelector('.l2.has-sub'); if (l2a) { let t = l2a.textContent.replace('▶', '').trim(); const rm = t.match(/^([IVXLC]+)\./); parentL2 = (rm ? rm[1] : t) + ' › '; } } BC[r[1]] = ch + parentL2 + a.textContent.trim(); } } }); }
+    function showPage(id) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); const pg = document.getElementById('page-' + id); if (pg) pg.classList.add('active'); document.getElementById('bc').innerHTML = BC[id] || 'Trang chủ'; document.querySelectorAll('.sub-menu .l2, .sub-menu .l3').forEach(a => { const m = a.getAttribute('onclick'); if (m) { const r = m.match(/showPage\('([^']+)'\)/); a.classList.toggle('active', r && r[1] === id); } }); if (window.innerWidth <= 768) { document.getElementById('sb').classList.remove('om'); document.getElementById('ov').classList.remove('show'); } window.scrollTo({ top: 0, behavior: 'smooth' }); closeSR(); }
+    function setNav(b) { document.querySelectorAll('.nav-btn').forEach(x => x.classList.remove('active')); b.classList.add('active'); }
+    function togSub(b) { b.classList.toggle('open'); b.nextElementSibling.classList.toggle('open'); }
+    function togL3(a) { a.classList.toggle('open'); a.closest('.l2-group').querySelector('.l3-menu').classList.toggle('open'); }
+    function tSB() { const s = document.getElementById('sb'), o = document.getElementById('ov'); if (window.innerWidth <= 768) { s.classList.toggle('om'); o.classList.toggle('show'); } else s.classList.toggle('closed'); }
+
+    // Theme
+    function togTheme() { const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', t); document.getElementById('themeBtn').textContent = t === 'dark' ? '🌙' : '☀️'; localStorage.setItem('theme', t); }
+    (function () { const t = localStorage.getItem('theme'); if (t) { document.documentElement.setAttribute('data-theme', t); document.getElementById('themeBtn').textContent = t === 'dark' ? '🌙' : '☀️'; } })();
+
+    // Search
+    const SDB = [];
+    function buildSDB() { document.querySelectorAll('.sub-menu .l2, .sub-menu .l3').forEach(a => { const m = a.getAttribute('onclick'); if (m) { const r = m.match(/showPage\('([^']+)'\)/); if (r) SDB.push({ id: r[1], text: a.textContent.replace('▶', '').trim(), el: a }); } }); SDB.push({ id: 'home', text: 'Trang chủ' }, { id: 'lnd', text: 'Lời nói đầu' }, { id: 'authors', text: 'Tác giả' }, { id: 'refs', text: 'Tài liệu tham khảo' }); }
+    let srIdx = -1;
+    function doSearch(q) { const sr = document.getElementById('sr'); if (!q || q.length < 1) { sr.innerHTML = ''; sr.classList.remove('show'); srIdx = -1; return; } const lq = q.toLowerCase(); const hits = SDB.filter(s => s.text.toLowerCase().includes(lq)).slice(0, 12); if (!hits.length) { sr.innerHTML = '<div class="cat" style="padding:.5rem .8rem;color:var(--tx2)">Không tìm thấy</div>'; sr.classList.add('show'); return; } sr.innerHTML = hits.map((h, i) => `<a data-i="${i}" onclick="showPage('${h.id}');closeSR()">${h.text}</a>`).join(''); sr.classList.add('show'); srIdx = -1; }
+    function closeSR() { document.getElementById('sr').classList.remove('show'); document.getElementById('si').value = ''; srIdx = -1; }
+    function skn(e) { const sr = document.getElementById('sr'); const items = sr.querySelectorAll('a'); if (!items.length) return; if (e.key === 'ArrowDown') { e.preventDefault(); srIdx = Math.min(srIdx + 1, items.length - 1); items.forEach((a, i) => a.classList.toggle('hl', i === srIdx)); } else if (e.key === 'ArrowUp') { e.preventDefault(); srIdx = Math.max(srIdx - 1, 0); items.forEach((a, i) => a.classList.toggle('hl', i === srIdx)); } else if (e.key === 'Enter' && srIdx >= 0) { e.preventDefault(); items[srIdx].click(); } else if (e.key === 'Escape') closeSR(); }
+    document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('si').focus(); } });
+    document.addEventListener('click', e => { if (!e.target.closest('.search')) closeSR(); });
+    initBC(); buildSDB();
+
+    // Page Navigation (Next/Previous) - Fixed order
+    function getPageOrder() {
+      return ['home', 'lnd', 'ch1-1', 'ch1-1-1', 'ch1-1-2', 'ch1-1-3', 'ch1-1-4', 'ch1-1-5', 'ch1-1-6', 'ch1-1-7', 'ch1-1-8', 'ch1-2', 'ch1-2-1', 'ch1-2-2', 'ch1-2-3', 'ch1-2-4', 'ch1-2-5', 'ch1-2-6', 'ch1-3', 'ch1-3-1', 'ch1-3-2', 'ch1-3-3', 'ch1-3-4', 'ch1-3-5', 'ch1-3-6', 'ch1-3-7', 'ch1-4', 'ch1-4-1', 'ch1-4-2', 'ch1-4-3', 'ch1-5', 'ch1-5-1', 'ch1-5-2', 'ch1-6', 'ch1-6-1', 'ch1-6-2', 'ch1-6-3', 'ch1-rev', 'ch1-quiz', 'ch2-1', 'ch2-1-1', 'ch2-1-2', 'ch2-1-3', 'ch2-2', 'ch2-2-1', 'ch2-2-2', 'ch2-3', 'ch2-3-1', 'ch2-3-2', 'ch2-4', 'ch2-4-1', 'ch2-4-2', 'ch2-4-3', 'ch2-5', 'ch2-5-1', 'ch2-5-2', 'ch2-6', 'ch2-6-1', 'ch2-6-2', 'ch2-6-3', 'ch2-rev', 'ch2-quiz', 'ch3-1', 'ch3-1-1', 'ch3-1-2', 'ch3-1-3', 'ch3-2', 'ch3-2-1', 'ch3-2-2', 'ch3-2-3', 'ch3-2-4', 'ch3-2-5', 'ch3-3', 'ch3-3-1', 'ch3-3-2', 'ch3-4', 'ch3-4-1', 'ch3-4-2', 'ch3-5', 'ch3-5-1', 'ch3-5-2', 'ch3-5-3', 'ch3-5-4', 'ch3-6', 'ch3-6-1', 'ch3-6-2', 'ch3-6-3', 'ch3-7', 'ch3-7-1', 'ch3-7-2', 'ch3-7-3', 'ch3-rev', 'ch3-quiz', 'authors', 'refs'];
+    }
+    function addPageNav() {
+      const order = getPageOrder();
+      // Remove any existing nav buttons first
+      document.querySelectorAll('.page-nav').forEach(n => n.remove());
+      order.forEach((id, i) => {
+        const pg = document.getElementById('page-' + id);
+        if (!pg) return;
+        const ca = pg.querySelector('.content-area');
+        if (!ca) return;
+        const nav = document.createElement('div');
+        nav.className = 'page-nav';
+        let prevBtn = '', nextBtn = '';
+        if (i > 0) {
+          const pid = order[i - 1];
+          const pname = BC[pid] || pid;
+          prevBtn = `<a class="pn-btn prev" onclick="showPage('${pid}');return false" href="#"><span class="pn-arrow prev">←</span><span><span class="pn-label">Trước</span><span class="pn-title">${pname}</span></span></a>`;
+        }
+        if (i < order.length - 1) {
+          const nid = order[i + 1];
+          const nname = BC[nid] || nid;
+          nextBtn = `<a class="pn-btn next" onclick="showPage('${nid}');return false" href="#"><span><span class="pn-label">Tiếp theo</span><span class="pn-title">${nname}</span></span><span class="pn-arrow next">→</span></a>`;
+        }
+        if (!prevBtn && !nextBtn) return;
+        if (!prevBtn) prevBtn = '<div class="pn-spacer"></div>';
+        if (!nextBtn) nextBtn = '<div class="pn-spacer"></div>';
+        nav.innerHTML = prevBtn + nextBtn;
+        ca.appendChild(nav);
+      });
+    }
+    addPageNav();
+
+
+    // Quiz Logic
+    function checkAns(el, correct, picked, chId) {
+      const card = el.closest('.q-card');
+      if (card.classList.contains('answered-correct') || card.classList.contains('answered-wrong')) return;
+      const opts = card.querySelectorAll('.q-opt');
+      opts.forEach(o => o.classList.add('disabled'));
+      el.classList.add('selected');
+      if (picked === correct) {
+        el.classList.add('correct');
+        card.classList.add('answered-correct');
+        card.querySelector('.q-feedback.correct').classList.add('show');
+      } else {
+        el.classList.add('wrong');
+        opts[correct].classList.add('correct-reveal');
+        card.classList.add('answered-wrong');
+        card.querySelector('.q-feedback.wrong').classList.add('show');
+      }
+      updateScore(chId);
+    }
+    function updateScore(chId) {
+      const cards = document.querySelectorAll('.q-card[data-quiz="' + chId + '"]');
+      let c = 0, w = 0, t = cards.length;
+      cards.forEach(card => {
+        if (card.classList.contains('answered-correct')) c++;
+        if (card.classList.contains('answered-wrong')) w++;
+      });
+      const ce = document.getElementById(chId + '-correct');
+      const we = document.getElementById(chId + '-wrong');
+      const te = document.getElementById(chId + '-total');
+      if (ce) ce.textContent = '✅ ' + c;
+      if (we) we.textContent = '❌ ' + w;
+      if (te) te.textContent = '📝 ' + (c + w) + '/' + t;
+    }
+    function resetQuiz(chId) {
+      const cards = document.querySelectorAll('.q-card[data-quiz="' + chId + '"]');
+      cards.forEach(card => {
+        card.classList.remove('answered-correct', 'answered-wrong');
+        card.querySelectorAll('.q-opt').forEach(o => {
+          o.classList.remove('selected', 'correct', 'wrong', 'disabled', 'correct-reveal');
+        });
+        card.querySelectorAll('.q-feedback').forEach(f => f.classList.remove('show'));
+      });
+      updateScore(chId);
+    }
+
+
+    // Font Zoom
+    let fontZoomLevel = parseInt(localStorage.getItem('fontZoom') || '0');
+    function zoomFont(dir) {
+      if (dir === 0) { fontZoomLevel = 0; }
+      else { fontZoomLevel = Math.max(-3, Math.min(5, fontZoomLevel + dir)); }
+      applyFontZoom();
+      localStorage.setItem('fontZoom', fontZoomLevel);
+    }
+    function applyFontZoom() {
+      const base = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      // Reset to clamp default first, then apply offset
+      document.documentElement.style.fontSize = '';
+      if (fontZoomLevel !== 0) {
+        const current = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        document.documentElement.style.fontSize = (current + fontZoomLevel * 1.5) + 'px';
+      }
+    }
+    if (fontZoomLevel !== 0) applyFontZoom();
+
+  
+// Parallelogram Law Simulation
+(function(){
+const cvs=document.getElementById('simCanvas');
+if(!cvs)return;
+const ctx=cvs.getContext('2d');
+const W=760,H=440;
+const O={x:200,y:300}; // Origin point
+let F1={x:350,y:180}; // F1 endpoint
+let F2={x:380,y:300}; // F2 endpoint
+let dragging=null;
+let isDark=()=>document.documentElement.getAttribute('data-theme')==='dark';
+
+function drawArrow(fx,fy,tx,ty,color,lw){
+  const a=Math.atan2(ty-fy,tx-fx);
+  const hl=14,hw=6;
+  ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);
+  ctx.strokeStyle=color;ctx.lineWidth=lw;ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(tx,ty);
+  ctx.lineTo(tx-hl*Math.cos(a-Math.PI/7),ty-hl*Math.sin(a-Math.PI/7));
+  ctx.lineTo(tx-hl*Math.cos(a+Math.PI/7),ty-hl*Math.sin(a+Math.PI/7));
+  ctx.closePath();ctx.fillStyle=color;ctx.fill();
+}
+
+function drawDot(x,y,r,color){
+  ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();
+}
+
+function drawDashed(fx,fy,tx,ty,color){
+  ctx.beginPath();ctx.setLineDash([6,4]);ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);
+  ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.globalAlpha=.4;ctx.stroke();
+  ctx.setLineDash([]);ctx.globalAlpha=1;
+}
+
+function drawAngleArc(cx,cy,a1,a2,radius,color){
+  ctx.beginPath();ctx.arc(cx,cy,radius,a1,a2,a2<a1);
+  ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();
+}
+
+function render(){
+  ctx.clearRect(0,0,W,H);
+  // Background grid
+  const gridC=isDark()?'rgba(255,255,255,.04)':'rgba(0,0,0,.06)';
+  ctx.strokeStyle=gridC;ctx.lineWidth=1;
+  for(let x=0;x<W;x+=30){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=0;y<H;y+=30){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+
+  // Resultant
+  const R={x:F1.x+F2.x-O.x,y:F1.y+F2.y-O.y};
+
+  // Parallelogram fill
+  ctx.beginPath();ctx.moveTo(O.x,O.y);ctx.lineTo(F1.x,F1.y);ctx.lineTo(R.x,R.y);ctx.lineTo(F2.x,F2.y);ctx.closePath();
+  ctx.fillStyle=isDark()?'rgba(39,174,96,.08)':'rgba(39,174,96,.12)';ctx.fill();
+  ctx.strokeStyle=isDark()?'rgba(39,174,96,.25)':'rgba(39,174,96,.35)';ctx.lineWidth=1;ctx.stroke();
+
+  // Dashed lines (parallelogram sides)
+  drawDashed(F1.x,F1.y,R.x,R.y,'#2980b9');
+  drawDashed(F2.x,F2.y,R.x,R.y,'#e74c3c');
+
+  // Force vectors
+  drawArrow(O.x,O.y,F1.x,F1.y,'#e74c3c',3);
+  drawArrow(O.x,O.y,F2.x,F2.y,'#2980b9',3);
+  drawArrow(O.x,O.y,R.x,R.y,'#27ae60',3.5);
+
+  // Angle arc
+  const a1=Math.atan2(F1.y-O.y,F1.x-O.x);
+  const a2=Math.atan2(F2.y-O.y,F2.x-O.x);
+  drawAngleArc(O.x,O.y,a1,a2,35,isDark()?'rgba(201,150,58,.6)':'rgba(139,105,20,.6)');
+
+  // Labels
+  const tc=isDark()?'#e8ecf1':'#1a1a2e';
+  ctx.font='bold 14px "Segoe UI"';
+  ctx.fillStyle='#e74c3c';ctx.fillText('F₁',(O.x+F1.x)/2-20,(O.y+F1.y)/2-8);
+  ctx.fillStyle='#2980b9';ctx.fillText('F₂',(O.x+F2.x)/2+10,(O.y+F2.y)/2+18);
+  ctx.fillStyle='#27ae60';ctx.fillText('R',(O.x+R.x)/2+8,(O.y+R.y)/2-8);
+  ctx.fillStyle=isDark()?'rgba(201,150,58,.8)':'rgba(139,105,20,.8)';
+  const am=(a1+a2)/2;
+  ctx.font='12px "Segoe UI"';ctx.fillText('α',O.x+45*Math.cos(am)-4,O.y+45*Math.sin(am)+4);
+
+  // Origin dot
+  drawDot(O.x,O.y,5,tc);
+  ctx.font='bold 12px "Segoe UI"';ctx.fillStyle=tc;ctx.fillText('O',O.x-15,O.y+5);
+
+  // Drag handles
+  drawDot(F1.x,F1.y,8,'#e74c3c');
+  drawDot(F2.x,F2.y,8,'#2980b9');
+  // White center on handles
+  drawDot(F1.x,F1.y,3,'#fff');
+  drawDot(F2.x,F2.y,3,'#fff');
+
+  // Update info
+  const scale=1; // 1px = 1N for simplicity
+  const f1Mag=Math.sqrt((F1.x-O.x)**2+(F1.y-O.y)**2)*scale;
+  const f2Mag=Math.sqrt((F2.x-O.x)**2+(F2.y-O.y)**2)*scale;
+  const rMag=Math.sqrt((R.x-O.x)**2+(R.y-O.y)**2)*scale;
+  let angleDeg=Math.abs(a2-a1)*180/Math.PI;
+  if(angleDeg>180)angleDeg=360-angleDeg;
+
+  document.getElementById('sim-f1').textContent=Math.round(f1Mag)+' N';
+  document.getElementById('sim-f2').textContent=Math.round(f2Mag)+' N';
+  document.getElementById('sim-r').textContent=Math.round(rMag)+' N';
+  document.getElementById('sim-angle').textContent=Math.round(angleDeg)+'°';
+}
+
+function getMousePos(e){
+  const rect=cvs.getBoundingClientRect();
+  const sx=W/rect.width;
+  return{x:(e.clientX-rect.left)*sx,y:(e.clientY-rect.top)*(H/rect.height)};
+}
+
+function dist(a,b){return Math.sqrt((a.x-b.x)**2+(a.y-b.y)**2);}
+
+cvs.addEventListener('mousedown',function(e){
+  const p=getMousePos(e);
+  if(dist(p,F1)<15)dragging='f1';
+  else if(dist(p,F2)<15)dragging='f2';
+});
+
+cvs.addEventListener('mousemove',function(e){
+  if(!dragging)return;
+  const p=getMousePos(e);
+  if(dragging==='f1'){F1.x=p.x;F1.y=p.y;}
+  else{F2.x=p.x;F2.y=p.y;}
+  render();
+});
+
+cvs.addEventListener('mouseup',function(){dragging=null;});
+cvs.addEventListener('mouseleave',function(){dragging=null;});
+
+// Touch support
+cvs.addEventListener('touchstart',function(e){
+  e.preventDefault();
+  const t=e.touches[0];const p=getMousePos(t);
+  if(dist(p,F1)<25)dragging='f1';
+  else if(dist(p,F2)<25)dragging='f2';
+},{passive:false});
+cvs.addEventListener('touchmove',function(e){
+  e.preventDefault();
+  if(!dragging)return;
+  const t=e.touches[0];const p=getMousePos(t);
+  if(dragging==='f1'){F1.x=p.x;F1.y=p.y;}
+  else{F2.x=p.x;F2.y=p.y;}
+  render();
+},{passive:false});
+cvs.addEventListener('touchend',function(){dragging=null;});
+
+window.resetSim=function(){
+  F1={x:350,y:180};F2={x:380,y:300};render();
+};
+
+// Re-render on theme change
+const obs=new MutationObserver(()=>render());
+obs.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+render();
+})();
+
+
+// Beam Reaction Simulation
+(function(){
+const cvs=document.getElementById('beamCanvas');
+if(!cvs)return;
+const ctx=cvs.getContext('2d');
+const W=760,H=380;
+const beamY=200,beamL=500,beamX0=130;
+const L=5; // beam length in meters
+let P=100,forceX=beamX0+200,forceY=beamY-80;
+let draggingBeam=false;
+let isDark=()=>document.documentElement.getAttribute('data-theme')==='dark';
+
+function pxToM(px){return ((px-beamX0)/beamL*L);}
+function mToPx(m){return beamX0+m/L*beamL;}
+
+function drawArrowB(fx,fy,tx,ty,color,lw){
+  const a=Math.atan2(ty-fy,tx-fx),hl=12,hw=5;
+  ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);
+  ctx.strokeStyle=color;ctx.lineWidth=lw;ctx.stroke();
+  ctx.beginPath();ctx.moveTo(tx,ty);
+  ctx.lineTo(tx-hl*Math.cos(a-Math.PI/7),ty-hl*Math.sin(a-Math.PI/7));
+  ctx.lineTo(tx-hl*Math.cos(a+Math.PI/7),ty-hl*Math.sin(a+Math.PI/7));
+  ctx.closePath();ctx.fillStyle=color;ctx.fill();
+}
+
+function drawTriangle(cx,cy,size,color){
+  ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx-size,cy+size*1.5);ctx.lineTo(cx+size,cy+size*1.5);ctx.closePath();
+  ctx.fillStyle=color;ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.stroke();
+}
+
+function renderBeam(){
+  ctx.clearRect(0,0,W,H);
+  const tc=isDark()?'#e8ecf1':'#1a1a2e';
+  const gc=isDark()?'rgba(255,255,255,.04)':'rgba(0,0,0,.06)';
+  // Grid
+  ctx.strokeStyle=gc;ctx.lineWidth=1;
+  for(let x=0;x<W;x+=30){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=0;y<H;y+=30){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+
+  // Ground
+  ctx.fillStyle=isDark()?'rgba(255,255,255,.05)':'rgba(0,0,0,.05)';
+  ctx.fillRect(beamX0-20,beamY+25,beamL+40,H-beamY-25);
+  for(let i=0;i<beamL+40;i+=15){
+    ctx.beginPath();ctx.moveTo(beamX0-20+i,beamY+25);ctx.lineTo(beamX0-30+i,beamY+40);
+    ctx.strokeStyle=isDark()?'rgba(255,255,255,.1)':'rgba(0,0,0,.12)';ctx.lineWidth=1;ctx.stroke();
+  }
+
+  // Beam
+  ctx.fillStyle=isDark()?'rgba(201,150,58,.15)':'rgba(201,150,58,.2)';
+  ctx.fillRect(beamX0,beamY-6,beamL,12);
+  ctx.strokeStyle=isDark()?'rgba(201,150,58,.5)':'rgba(139,105,20,.5)';
+  ctx.lineWidth=2;ctx.strokeRect(beamX0,beamY-6,beamL,12);
+
+  // Supports
+  const supColor=isDark()?'#3498db':'#2471a3';
+  drawTriangle(beamX0,beamY+6,12,supColor);   // Pin A
+  // Roller B (circle)
+  const bx=beamX0+beamL;
+  ctx.beginPath();ctx.arc(bx,beamY+18,8,0,Math.PI*2);ctx.fillStyle=supColor;ctx.fill();
+  drawTriangle(bx,beamY+6,12,supColor);
+
+  // Labels A, B
+  ctx.font='bold 13px "Segoe UI"';ctx.fillStyle=supColor;
+  ctx.fillText('A',beamX0-8,beamY+48);ctx.fillText('B',bx-4,beamY+48);
+
+  // Length markers
+  ctx.font='11px "Segoe UI"';ctx.fillStyle=tc;
+  ctx.fillText('L = '+L+' m',(beamX0+bx)/2-20,beamY+65);
+  // a marker
+  const a_m=pxToM(forceX);
+  const clampedA=Math.max(0,Math.min(L,a_m));
+  ctx.setLineDash([4,3]);ctx.beginPath();ctx.moveTo(beamX0,beamY+30);ctx.lineTo(forceX,beamY+30);
+  ctx.strokeStyle='rgba(231,76,60,.4)';ctx.lineWidth=1.5;ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='#e74c3c';ctx.fillText('a = '+clampedA.toFixed(1)+' m',(beamX0+forceX)/2-20,beamY+28);
+
+  // Applied force P (arrow pointing down)
+  const clampedFx=Math.max(beamX0,Math.min(beamX0+beamL,forceX));
+  const pScale=Math.abs(forceY-beamY)/1.0;
+  const pMag=Math.max(10,Math.round(pScale));
+  drawArrowB(clampedFx,forceY,clampedFx,beamY-6,'#e74c3c',3);
+  ctx.font='bold 13px "Segoe UI"';ctx.fillStyle='#e74c3c';
+  ctx.fillText('P = '+pMag+' N',clampedFx+8,forceY+5);
+  // Drag handle
+  ctx.beginPath();ctx.arc(clampedFx,forceY,8,0,Math.PI*2);ctx.fillStyle='#e74c3c';ctx.fill();
+  ctx.beginPath();ctx.arc(clampedFx,forceY,3,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+
+  // Calculate reactions
+  const aVal=Math.max(0,Math.min(L,pxToM(clampedFx)));
+  const RB=pMag*aVal/L;
+  const RA=pMag-RB;
+
+  // Draw reaction arrows (pointing up)
+  const raLen=Math.max(15,RA*0.6);
+  const rbLen=Math.max(15,RB*0.6);
+  drawArrowB(beamX0,beamY+55,beamX0,beamY+55-raLen,'#27ae60',2.5);
+  drawArrowB(bx,beamY+55,bx,beamY+55-rbLen,'#27ae60',2.5);
+  ctx.font='bold 12px "Segoe UI"';ctx.fillStyle='#27ae60';
+  ctx.fillText('R_A='+Math.round(RA)+'N',beamX0-25,beamY+70);
+  ctx.fillText('R_B='+Math.round(RB)+'N',bx-25,beamY+70);
+
+  // Update info
+  document.getElementById('beam-p').textContent=pMag+' N';
+  document.getElementById('beam-a').textContent=aVal.toFixed(1)+' m';
+  document.getElementById('beam-ra').textContent=Math.round(RA)+' N';
+  document.getElementById('beam-rb').textContent=Math.round(RB)+' N';
+  document.getElementById('beam-eq1').textContent='ΣF_y = 0: '+Math.round(RA)+' + '+Math.round(RB)+' − '+pMag+' = 0';
+  document.getElementById('beam-eq2').textContent='ΣM_A = 0: R_B·'+L+' − '+pMag+'·'+aVal.toFixed(1)+' = 0 → R_B = '+Math.round(RB)+' N';
+}
+
+function getMP(e){const r=cvs.getBoundingClientRect();const sx=W/r.width;return{x:(e.clientX-r.left)*sx,y:(e.clientY-r.top)*(H/r.height)};}
+function dist2(a,b){return Math.sqrt((a.x-b.x)**2+(a.y-b.y)**2);}
+
+cvs.addEventListener('mousedown',function(e){
+  const p=getMP(e);const fx=Math.max(beamX0,Math.min(beamX0+beamL,forceX));
+  if(dist2(p,{x:fx,y:forceY})<20)draggingBeam=true;
+});
+cvs.addEventListener('mousemove',function(e){
+  if(!draggingBeam)return;const p=getMP(e);
+  forceX=Math.max(beamX0,Math.min(beamX0+beamL,p.x));
+  forceY=Math.min(beamY-20,Math.max(20,p.y));
+  renderBeam();
+});
+cvs.addEventListener('mouseup',function(){draggingBeam=false;});
+cvs.addEventListener('mouseleave',function(){draggingBeam=false;});
+cvs.addEventListener('touchstart',function(e){e.preventDefault();const p=getMP(e.touches[0]);const fx=Math.max(beamX0,Math.min(beamX0+beamL,forceX));if(dist2(p,{x:fx,y:forceY})<30)draggingBeam=true;},{passive:false});
+cvs.addEventListener('touchmove',function(e){e.preventDefault();if(!draggingBeam)return;const p=getMP(e.touches[0]);forceX=Math.max(beamX0,Math.min(beamX0+beamL,p.x));forceY=Math.min(beamY-20,Math.max(20,p.y));renderBeam();},{passive:false});
+cvs.addEventListener('touchend',function(){draggingBeam=false;});
+
+window.resetBeam=function(){forceX=beamX0+200;forceY=beamY-80;renderBeam();};
+const obs2=new MutationObserver(()=>renderBeam());
+obs2.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+renderBeam();
+})();
+
+
+// Particle Motion Simulation
+(function(){
+const cvs=document.getElementById('particleCanvas');
+if(!cvs)return;
+const ctx=cvs.getContext('2d');
+const W=760,H=400;
+let t=0,running=true;
+let partSpeedVal=1.5;
+window.partSpeedVal=partSpeedVal;
+let pathType='ellipse';
+let isDark=()=>document.documentElement.getAttribute('data-theme')==='dark';
+const CX=380,CY=200;
+
+function getPos(t){
+  if(pathType==='circle'){return{x:CX+140*Math.cos(t),y:CY+140*Math.sin(t)};}
+  if(pathType==='figure8'){return{x:CX+160*Math.sin(t),y:CY+100*Math.sin(2*t)};}
+  return{x:CX+180*Math.cos(t),y:CY+110*Math.sin(t)};
+}
+
+function drawArrowP(fx,fy,tx,ty,color,lw){
+  const a=Math.atan2(ty-fy,tx-fx),hl=10;
+  ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.strokeStyle=color;ctx.lineWidth=lw;ctx.stroke();
+  ctx.beginPath();ctx.moveTo(tx,ty);
+  ctx.lineTo(tx-hl*Math.cos(a-Math.PI/7),ty-hl*Math.sin(a-Math.PI/7));
+  ctx.lineTo(tx-hl*Math.cos(a+Math.PI/7),ty-hl*Math.sin(a+Math.PI/7));
+  ctx.closePath();ctx.fillStyle=color;ctx.fill();
+}
+
+function renderParticle(){
+  ctx.clearRect(0,0,W,H);
+  const tc=isDark()?'#e8ecf1':'#1a1a2e';
+  const gc=isDark()?'rgba(255,255,255,.04)':'rgba(0,0,0,.06)';
+  for(let x=0;x<W;x+=30){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.strokeStyle=gc;ctx.lineWidth=1;ctx.stroke();}
+  for(let y=0;y<H;y+=30){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+
+  // Draw trajectory
+  ctx.beginPath();
+  for(let i=0;i<=200;i++){const p=getPos(i*Math.PI*2/200);if(i===0)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);}
+  if(pathType!=='figure8')ctx.closePath();
+  ctx.strokeStyle=isDark()?'rgba(255,255,255,.15)':'rgba(0,0,0,.12)';ctx.lineWidth=2;ctx.setLineDash([5,3]);ctx.stroke();ctx.setLineDash([]);
+
+  // Trail
+  ctx.beginPath();
+  for(let i=0;i<30;i++){const p=getPos(t-i*0.03);if(i===0)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);}
+  ctx.strokeStyle=isDark()?'rgba(231,76,60,.3)':'rgba(231,76,60,.25)';ctx.lineWidth=3;ctx.stroke();
+
+  const pos=getPos(t);
+  const dt=0.001;
+  const p1=getPos(t+dt),p0=getPos(t-dt);
+  // Velocity (first derivative)
+  const vx=(p1.x-p0.x)/(2*dt),vy=(p1.y-p0.y)/(2*dt);
+  const vMag=Math.sqrt(vx*vx+vy*vy);
+  // Acceleration (second derivative)
+  const p2=getPos(t+2*dt);
+  const ax=(p2.x-2*p1.x+pos.x)/(dt*dt)*0.5;
+  const ay=(p2.y-2*p1.y+pos.y)/(dt*dt)*0.5;
+
+  // Tangent unit vector
+  const tx2=vx/vMag,ty2=vy/vMag;
+  // Tangential acceleration
+  const aT=(ax*tx2+ay*ty2);
+  // Normal acceleration
+  const aNx=ax-aT*tx2,aNy=ay-aT*ty2;
+  const aN=Math.sqrt(aNx*aNx+aNy*aNy);
+  // Radius of curvature
+  const rho=aN>0.01?vMag*vMag/aN:9999;
+
+  // Draw velocity vector (red)
+  const vScale=0.6;
+  drawArrowP(pos.x,pos.y,pos.x+vx*vScale,pos.y+vy*vScale,'#e74c3c',2.5);
+  ctx.font='bold 12px "Segoe UI"';ctx.fillStyle='#e74c3c';
+  ctx.fillText('v',pos.x+vx*vScale+5,pos.y+vy*vScale-5);
+
+  // Draw normal acceleration (blue)
+  const anScale=0.15;
+  if(aN>0.5){
+    drawArrowP(pos.x,pos.y,pos.x+aNx*anScale,pos.y+aNy*anScale,'#2980b9',2.5);
+    ctx.fillStyle='#2980b9';ctx.fillText('aₙ',pos.x+aNx*anScale+5,pos.y+aNy*anScale);
+  }
+
+  // Draw tangential acceleration (orange)
+  const atScale=0.15;
+  if(Math.abs(aT)>0.5){
+    drawArrowP(pos.x,pos.y,pos.x+aT*tx2*atScale,pos.y+aT*ty2*atScale,'#e67e22',2);
+    ctx.fillStyle='#e67e22';ctx.fillText('aτ',pos.x+aT*tx2*atScale+5,pos.y+aT*ty2*atScale-5);
+  }
+
+  // Particle dot
+  ctx.beginPath();ctx.arc(pos.x,pos.y,7,0,Math.PI*2);
+  ctx.fillStyle='#e74c3c';ctx.fill();
+  ctx.beginPath();ctx.arc(pos.x,pos.y,3,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+
+  // Origin
+  ctx.beginPath();ctx.arc(CX,CY,3,0,Math.PI*2);ctx.fillStyle=tc;ctx.fill();
+  ctx.font='11px "Segoe UI"';ctx.fillStyle=tc;ctx.fillText('O',CX-12,CY+4);
+
+  // Update info
+  const sF=0.5;
+  document.getElementById('part-v').textContent=(vMag*sF).toFixed(1)+' m/s';
+  document.getElementById('part-at').textContent=Math.abs(aT*sF*sF).toFixed(1)+' m/s²';
+  document.getElementById('part-an').textContent=(aN*sF*sF).toFixed(1)+' m/s²';
+  document.getElementById('part-rho').textContent=rho<9000?(rho*0.01).toFixed(1)+' m':'∞';
+}
+
+function animate(){
+  if(running){t+=0.02*window.partSpeedVal;renderParticle();}
+  requestAnimationFrame(animate);
+}
+
+window.toggleParticle=function(){
+  running=!running;
+  document.getElementById('partPlayBtn').textContent=running?'⏸ Dừng':'▶ Chạy';
+};
+window.resetParticle=function(){t=0;running=true;document.getElementById('partPlayBtn').textContent='⏸ Dừng';};
+window.changePartPath=function(v){pathType=v;t=0;};
+
+const obs3=new MutationObserver(()=>renderParticle());
+obs3.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+animate();
+})();
+
+</script>
+</body>
+
+</html>

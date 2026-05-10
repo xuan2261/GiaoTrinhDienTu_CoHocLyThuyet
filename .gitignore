@@ -1,0 +1,9 @@
+node_modules/
+.venv*/
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+test-results/
+repomix-output.xml
+backups/

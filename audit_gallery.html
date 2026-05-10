@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<title>Image Audit Gallery</title>
+<style>
+body { background: #1a1a2e; color: #eee; font-family: system-ui; padding: 20px; }
+h1 { color: #e94560; text-align: center; }
+.controls { text-align: center; margin: 20px; }
+.controls button { padding: 10px 20px; margin: 5px; border: none; border-radius: 8px; 
+  cursor: pointer; font-size: 14px; font-weight: bold; }
+.btn-remove { background: #e94560; color: white; }
+.btn-keep { background: #0f3460; color: white; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+.card { background: #16213e; border-radius: 12px; padding: 10px; position: relative;
+  transition: all 0.3s; border: 3px solid transparent; }
+.card.marked { border-color: #e94560; opacity: 0.5; }
+.card img { max-width: 100%; max-height: 200px; display: block; margin: 0 auto;
+  background: white; border-radius: 8px; cursor: pointer; }
+.card .info { font-size: 11px; color: #aaa; text-align: center; margin-top: 5px; }
+.card .tag { position: absolute; top: 5px; right: 5px; padding: 2px 8px;
+  border-radius: 12px; font-size: 10px; font-weight: bold; }
+.tag.formula { background: #e94560; }
+.tag.diagram { background: #0f3460; }
+#output { margin-top: 20px; background: #0a0a1a; padding: 15px; border-radius: 8px;
+  white-space: pre-wrap; font-family: monospace; font-size: 12px; display: none; }
+.stats { text-align: center; color: #e94560; font-size: 18px; margin: 10px; }
+</style>
+</head><body>
+<h1>🖼️ Image Audit Gallery — 229 Images</h1>
+<p style="text-align:center;color:#aaa">Click on an image to mark it as FORMULA (to remove). Click again to unmark.</p>
+<div class="stats">
+  <span id="marked-count">0</span> marked for removal / <span id="total">229</span> total
+</div>
+<div class="controls">
+  <button class="btn-remove" onclick="generateList()">📋 Generate Removal List</button>
+  <button class="btn-keep" onclick="resetAll()">🔄 Reset All</button>
+</div>
+<div class="gallery">
+  <div class="card" data-path="images/ch1/hinh-001.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-001.png" alt="images/ch1/hinh-001.png">
+    <div class="info">images/ch1/hinh-001.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-002.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-002.png" alt="images/ch1/hinh-002.png">
+    <div class="info">images/ch1/hinh-002.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-003.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-003.png" alt="images/ch1/hinh-003.png">
+    <div class="info">images/ch1/hinh-003.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-004.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-004.png" alt="images/ch1/hinh-004.png">
+    <div class="info">images/ch1/hinh-004.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-007.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-007.png" alt="images/ch1/hinh-007.png">
+    <div class="info">images/ch1/hinh-007.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-008.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-008.png" alt="images/ch1/hinh-008.png">
+    <div class="info">images/ch1/hinh-008.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-009.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-009.png" alt="images/ch1/hinh-009.png">
+    <div class="info">images/ch1/hinh-009.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-011.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-011.png" alt="images/ch1/hinh-011.png">
+    <div class="info">images/ch1/hinh-011.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-013.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-013.png" alt="images/ch1/hinh-013.png">
+    <div class="info">images/ch1/hinh-013.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-016.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-016.png" alt="images/ch1/hinh-016.png">
+    <div class="info">images/ch1/hinh-016.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-018.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-018.png" alt="images/ch1/hinh-018.png">
+    <div class="info">images/ch1/hinh-018.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-044.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-044.png" alt="images/ch1/hinh-044.png">
+    <div class="info">images/ch1/hinh-044.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-046.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-046.png" alt="images/ch1/hinh-046.png">
+    <div class="info">images/ch1/hinh-046.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-047.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-047.png" alt="images/ch1/hinh-047.png">
+    <div class="info">images/ch1/hinh-047.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-048.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-048.png" alt="images/ch1/hinh-048.png">
+    <div class="info">images/ch1/hinh-048.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-052.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-052.png" alt="images/ch1/hinh-052.png">
+    <div class="info">images/ch1/hinh-052.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-053.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-053.png" alt="images/ch1/hinh-053.png">
+    <div class="info">images/ch1/hinh-053.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-058.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-058.png" alt="images/ch1/hinh-058.png">
+    <div class="info">images/ch1/hinh-058.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-061.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-061.png" alt="images/ch1/hinh-061.png">
+    <div class="info">images/ch1/hinh-061.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-064.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-064.png" alt="images/ch1/hinh-064.png">
+    <div class="info">images/ch1/hinh-064.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-065.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-065.png" alt="images/ch1/hinh-065.png">
+    <div class="info">images/ch1/hinh-065.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-066.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-066.png" alt="images/ch1/hinh-066.png">
+    <div class="info">images/ch1/hinh-066.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-067.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-067.png" alt="images/ch1/hinh-067.png">
+    <div class="info">images/ch1/hinh-067.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-069.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-069.png" alt="images/ch1/hinh-069.png">
+    <div class="info">images/ch1/hinh-069.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-076.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-076.png" alt="images/ch1/hinh-076.png">
+    <div class="info">images/ch1/hinh-076.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-077.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-077.png" alt="images/ch1/hinh-077.png">
+    <div class="info">images/ch1/hinh-077.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-078.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-078.png" alt="images/ch1/hinh-078.png">
+    <div class="info">images/ch1/hinh-078.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-081.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-081.png" alt="images/ch1/hinh-081.png">
+    <div class="info">images/ch1/hinh-081.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-083.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-083.png" alt="images/ch1/hinh-083.png">
+    <div class="info">images/ch1/hinh-083.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-084.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-084.png" alt="images/ch1/hinh-084.png">
+    <div class="info">images/ch1/hinh-084.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-087.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-087.png" alt="images/ch1/hinh-087.png">
+    <div class="info">images/ch1/hinh-087.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-092.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-092.png" alt="images/ch1/hinh-092.png">
+    <div class="info">images/ch1/hinh-092.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-021.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-021.png" alt="images/ch1/hinh-021.png">
+    <div class="info">images/ch1/hinh-021.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-022.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-022.png" alt="images/ch1/hinh-022.png">
+    <div class="info">images/ch1/hinh-022.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-024.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-024.png" alt="images/ch1/hinh-024.png">
+    <div class="info">images/ch1/hinh-024.png<br>from: muc-II-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-026.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-026.png" alt="images/ch1/hinh-026.png">
+    <div class="info">images/ch1/hinh-026.png<br>from: muc-II-5.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-028.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-028.png" alt="images/ch1/hinh-028.png">
+    <div class="info">images/ch1/hinh-028.png<br>from: muc-II-6.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-030.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-030.png" alt="images/ch1/hinh-030.png">
+    <div class="info">images/ch1/hinh-030.png<br>from: muc-III-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-033.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-033.png" alt="images/ch1/hinh-033.png">
+    <div class="info">images/ch1/hinh-033.png<br>from: muc-III-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-034.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-034.png" alt="images/ch1/hinh-034.png">
+    <div class="info">images/ch1/hinh-034.png<br>from: muc-III-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-035.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-035.png" alt="images/ch1/hinh-035.png">
+    <div class="info">images/ch1/hinh-035.png<br>from: muc-III-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-037.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-037.png" alt="images/ch1/hinh-037.png">
+    <div class="info">images/ch1/hinh-037.png<br>from: muc-III-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-038.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-038.png" alt="images/ch1/hinh-038.png">
+    <div class="info">images/ch1/hinh-038.png<br>from: muc-III-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-040.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-040.png" alt="images/ch1/hinh-040.png">
+    <div class="info">images/ch1/hinh-040.png<br>from: muc-III-5.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-041.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-041.png" alt="images/ch1/hinh-041.png">
+    <div class="info">images/ch1/hinh-041.png<br>from: muc-III-6.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-043.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-043.png" alt="images/ch1/hinh-043.png">
+    <div class="info">images/ch1/hinh-043.png<br>from: muc-III-7.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-093.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-093.png" alt="images/ch1/hinh-093.png">
+    <div class="info">images/ch1/hinh-093.png<br>from: muc-V-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-098.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-098.png" alt="images/ch1/hinh-098.png">
+    <div class="info">images/ch1/hinh-098.png<br>from: muc-V-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-104.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-104.png" alt="images/ch1/hinh-104.png">
+    <div class="info">images/ch1/hinh-104.png<br>from: muc-V-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-105.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-105.png" alt="images/ch1/hinh-105.png">
+    <div class="info">images/ch1/hinh-105.png<br>from: muc-V-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-114.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-114.png" alt="images/ch1/hinh-114.png">
+    <div class="info">images/ch1/hinh-114.png<br>from: muc-V-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-115.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-115.png" alt="images/ch1/hinh-115.png">
+    <div class="info">images/ch1/hinh-115.png<br>from: muc-VI-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-116.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-116.png" alt="images/ch1/hinh-116.png">
+    <div class="info">images/ch1/hinh-116.png<br>from: muc-VI-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-117.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-117.png" alt="images/ch1/hinh-117.png">
+    <div class="info">images/ch1/hinh-117.png<br>from: muc-VI-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-118.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-118.png" alt="images/ch1/hinh-118.png">
+    <div class="info">images/ch1/hinh-118.png<br>from: muc-VI-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-119.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-119.png" alt="images/ch1/hinh-119.png">
+    <div class="info">images/ch1/hinh-119.png<br>from: muc-VI-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-120.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-120.png" alt="images/ch1/hinh-120.png">
+    <div class="info">images/ch1/hinh-120.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-121.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-121.png" alt="images/ch1/hinh-121.png">
+    <div class="info">images/ch1/hinh-121.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-122.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-122.png" alt="images/ch1/hinh-122.png">
+    <div class="info">images/ch1/hinh-122.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-123.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-123.png" alt="images/ch1/hinh-123.png">
+    <div class="info">images/ch1/hinh-123.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-124.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-124.png" alt="images/ch1/hinh-124.png">
+    <div class="info">images/ch1/hinh-124.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-125.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-125.png" alt="images/ch1/hinh-125.png">
+    <div class="info">images/ch1/hinh-125.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-126.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-126.png" alt="images/ch1/hinh-126.png">
+    <div class="info">images/ch1/hinh-126.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-127.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-127.png" alt="images/ch1/hinh-127.png">
+    <div class="info">images/ch1/hinh-127.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-128.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-128.png" alt="images/ch1/hinh-128.png">
+    <div class="info">images/ch1/hinh-128.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-129.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-129.png" alt="images/ch1/hinh-129.png">
+    <div class="info">images/ch1/hinh-129.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-138.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-138.png" alt="images/ch1/hinh-138.png">
+    <div class="info">images/ch1/hinh-138.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-139.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-139.png" alt="images/ch1/hinh-139.png">
+    <div class="info">images/ch1/hinh-139.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-140.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-140.png" alt="images/ch1/hinh-140.png">
+    <div class="info">images/ch1/hinh-140.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-141.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-141.png" alt="images/ch1/hinh-141.png">
+    <div class="info">images/ch1/hinh-141.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-144.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-144.png" alt="images/ch1/hinh-144.png">
+    <div class="info">images/ch1/hinh-144.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-145.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-145.png" alt="images/ch1/hinh-145.png">
+    <div class="info">images/ch1/hinh-145.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-146.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-146.png" alt="images/ch1/hinh-146.png">
+    <div class="info">images/ch1/hinh-146.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-149.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-149.png" alt="images/ch1/hinh-149.png">
+    <div class="info">images/ch1/hinh-149.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-150.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-150.png" alt="images/ch1/hinh-150.png">
+    <div class="info">images/ch1/hinh-150.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-151.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-151.png" alt="images/ch1/hinh-151.png">
+    <div class="info">images/ch1/hinh-151.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-152.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-152.png" alt="images/ch1/hinh-152.png">
+    <div class="info">images/ch1/hinh-152.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-153.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-153.png" alt="images/ch1/hinh-153.png">
+    <div class="info">images/ch1/hinh-153.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-154.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-154.png" alt="images/ch1/hinh-154.png">
+    <div class="info">images/ch1/hinh-154.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-155.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-155.png" alt="images/ch1/hinh-155.png">
+    <div class="info">images/ch1/hinh-155.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-157.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-157.png" alt="images/ch1/hinh-157.png">
+    <div class="info">images/ch1/hinh-157.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-158.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-158.png" alt="images/ch1/hinh-158.png">
+    <div class="info">images/ch1/hinh-158.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-159.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-159.png" alt="images/ch1/hinh-159.png">
+    <div class="info">images/ch1/hinh-159.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-160.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-160.png" alt="images/ch1/hinh-160.png">
+    <div class="info">images/ch1/hinh-160.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-161.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-161.png" alt="images/ch1/hinh-161.png">
+    <div class="info">images/ch1/hinh-161.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-165.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-165.png" alt="images/ch1/hinh-165.png">
+    <div class="info">images/ch1/hinh-165.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-166.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-166.png" alt="images/ch1/hinh-166.png">
+    <div class="info">images/ch1/hinh-166.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-167.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-167.png" alt="images/ch1/hinh-167.png">
+    <div class="info">images/ch1/hinh-167.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-174.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-174.png" alt="images/ch1/hinh-174.png">
+    <div class="info">images/ch1/hinh-174.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-182.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-182.png" alt="images/ch1/hinh-182.png">
+    <div class="info">images/ch1/hinh-182.png<br>from: muc-VIII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-186.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-186.png" alt="images/ch1/hinh-186.png">
+    <div class="info">images/ch1/hinh-186.png<br>from: muc-VIII-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-187.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-187.png" alt="images/ch1/hinh-187.png">
+    <div class="info">images/ch1/hinh-187.png<br>from: muc-VIII-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-189.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-189.png" alt="images/ch1/hinh-189.png">
+    <div class="info">images/ch1/hinh-189.png<br>from: muc-VIII-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch1/hinh-191.png" onclick="toggleMark(this)">
+    <img src="images/ch1/hinh-191.png" alt="images/ch1/hinh-191.png">
+    <div class="info">images/ch1/hinh-191.png<br>from: muc-VIII-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-133.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-133.png" alt="images/ch2/hinh-133.png">
+    <div class="info">images/ch2/hinh-133.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-134.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-134.png" alt="images/ch2/hinh-134.png">
+    <div class="info">images/ch2/hinh-134.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-136.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-136.png" alt="images/ch2/hinh-136.png">
+    <div class="info">images/ch2/hinh-136.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-137.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-137.png" alt="images/ch2/hinh-137.png">
+    <div class="info">images/ch2/hinh-137.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-138.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-138.png" alt="images/ch2/hinh-138.png">
+    <div class="info">images/ch2/hinh-138.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-140.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-140.png" alt="images/ch2/hinh-140.png">
+    <div class="info">images/ch2/hinh-140.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-141.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-141.png" alt="images/ch2/hinh-141.png">
+    <div class="info">images/ch2/hinh-141.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-147.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-147.png" alt="images/ch2/hinh-147.png">
+    <div class="info">images/ch2/hinh-147.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-149.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-149.png" alt="images/ch2/hinh-149.png">
+    <div class="info">images/ch2/hinh-149.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-155.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-155.png" alt="images/ch2/hinh-155.png">
+    <div class="info">images/ch2/hinh-155.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-003.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-003.png" alt="images/ch2/hinh-003.png">
+    <div class="info">images/ch2/hinh-003.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-005.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-005.png" alt="images/ch2/hinh-005.png">
+    <div class="info">images/ch2/hinh-005.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-011.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-011.png" alt="images/ch2/hinh-011.png">
+    <div class="info">images/ch2/hinh-011.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-013.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-013.png" alt="images/ch2/hinh-013.png">
+    <div class="info">images/ch2/hinh-013.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-015.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-015.png" alt="images/ch2/hinh-015.png">
+    <div class="info">images/ch2/hinh-015.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-016.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-016.png" alt="images/ch2/hinh-016.png">
+    <div class="info">images/ch2/hinh-016.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-019.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-019.png" alt="images/ch2/hinh-019.png">
+    <div class="info">images/ch2/hinh-019.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-021.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-021.png" alt="images/ch2/hinh-021.png">
+    <div class="info">images/ch2/hinh-021.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-022.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-022.png" alt="images/ch2/hinh-022.png">
+    <div class="info">images/ch2/hinh-022.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-025.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-025.png" alt="images/ch2/hinh-025.png">
+    <div class="info">images/ch2/hinh-025.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-026.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-026.png" alt="images/ch2/hinh-026.png">
+    <div class="info">images/ch2/hinh-026.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-028.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-028.png" alt="images/ch2/hinh-028.png">
+    <div class="info">images/ch2/hinh-028.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-031.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-031.png" alt="images/ch2/hinh-031.png">
+    <div class="info">images/ch2/hinh-031.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-032.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-032.png" alt="images/ch2/hinh-032.png">
+    <div class="info">images/ch2/hinh-032.png<br>from: muc-I-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-036.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-036.png" alt="images/ch2/hinh-036.png">
+    <div class="info">images/ch2/hinh-036.png<br>from: muc-I-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-039.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-039.png" alt="images/ch2/hinh-039.png">
+    <div class="info">images/ch2/hinh-039.png<br>from: muc-I-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-040.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-040.png" alt="images/ch2/hinh-040.png">
+    <div class="info">images/ch2/hinh-040.png<br>from: muc-I-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-044.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-044.png" alt="images/ch2/hinh-044.png">
+    <div class="info">images/ch2/hinh-044.png<br>from: muc-I-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-045.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-045.png" alt="images/ch2/hinh-045.png">
+    <div class="info">images/ch2/hinh-045.png<br>from: muc-I-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-054.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-054.png" alt="images/ch2/hinh-054.png">
+    <div class="info">images/ch2/hinh-054.png<br>from: muc-I-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-055.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-055.png" alt="images/ch2/hinh-055.png">
+    <div class="info">images/ch2/hinh-055.png<br>from: muc-I-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-059.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-059.png" alt="images/ch2/hinh-059.png">
+    <div class="info">images/ch2/hinh-059.png<br>from: muc-I-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-062.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-062.png" alt="images/ch2/hinh-062.png">
+    <div class="info">images/ch2/hinh-062.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-065.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-065.png" alt="images/ch2/hinh-065.png">
+    <div class="info">images/ch2/hinh-065.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-069.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-069.png" alt="images/ch2/hinh-069.png">
+    <div class="info">images/ch2/hinh-069.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-071.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-071.png" alt="images/ch2/hinh-071.png">
+    <div class="info">images/ch2/hinh-071.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-082.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-082.png" alt="images/ch2/hinh-082.png">
+    <div class="info">images/ch2/hinh-082.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-085.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-085.png" alt="images/ch2/hinh-085.png">
+    <div class="info">images/ch2/hinh-085.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-092.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-092.png" alt="images/ch2/hinh-092.png">
+    <div class="info">images/ch2/hinh-092.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-095.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-095.png" alt="images/ch2/hinh-095.png">
+    <div class="info">images/ch2/hinh-095.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-096.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-096.png" alt="images/ch2/hinh-096.png">
+    <div class="info">images/ch2/hinh-096.png<br>from: muc-II-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-101.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-101.png" alt="images/ch2/hinh-101.png">
+    <div class="info">images/ch2/hinh-101.png<br>from: muc-III-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-103.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-103.png" alt="images/ch2/hinh-103.png">
+    <div class="info">images/ch2/hinh-103.png<br>from: muc-III-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-104.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-104.png" alt="images/ch2/hinh-104.png">
+    <div class="info">images/ch2/hinh-104.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-105.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-105.png" alt="images/ch2/hinh-105.png">
+    <div class="info">images/ch2/hinh-105.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-106.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-106.png" alt="images/ch2/hinh-106.png">
+    <div class="info">images/ch2/hinh-106.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-107.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-107.png" alt="images/ch2/hinh-107.png">
+    <div class="info">images/ch2/hinh-107.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-108.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-108.png" alt="images/ch2/hinh-108.png">
+    <div class="info">images/ch2/hinh-108.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-110.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-110.png" alt="images/ch2/hinh-110.png">
+    <div class="info">images/ch2/hinh-110.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-113.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-113.png" alt="images/ch2/hinh-113.png">
+    <div class="info">images/ch2/hinh-113.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-114.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-114.png" alt="images/ch2/hinh-114.png">
+    <div class="info">images/ch2/hinh-114.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-121.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-121.png" alt="images/ch2/hinh-121.png">
+    <div class="info">images/ch2/hinh-121.png<br>from: muc-IV-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-127.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-127.png" alt="images/ch2/hinh-127.png">
+    <div class="info">images/ch2/hinh-127.png<br>from: muc-IV-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-158.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-158.png" alt="images/ch2/hinh-158.png">
+    <div class="info">images/ch2/hinh-158.png<br>from: muc-V-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-159.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-159.png" alt="images/ch2/hinh-159.png">
+    <div class="info">images/ch2/hinh-159.png<br>from: muc-V-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-161.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-161.png" alt="images/ch2/hinh-161.png">
+    <div class="info">images/ch2/hinh-161.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-167.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-167.png" alt="images/ch2/hinh-167.png">
+    <div class="info">images/ch2/hinh-167.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-168.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-168.png" alt="images/ch2/hinh-168.png">
+    <div class="info">images/ch2/hinh-168.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-169.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-169.png" alt="images/ch2/hinh-169.png">
+    <div class="info">images/ch2/hinh-169.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-172.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-172.png" alt="images/ch2/hinh-172.png">
+    <div class="info">images/ch2/hinh-172.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-173.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-173.png" alt="images/ch2/hinh-173.png">
+    <div class="info">images/ch2/hinh-173.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-175.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-175.png" alt="images/ch2/hinh-175.png">
+    <div class="info">images/ch2/hinh-175.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-180.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-180.png" alt="images/ch2/hinh-180.png">
+    <div class="info">images/ch2/hinh-180.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-184.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-184.png" alt="images/ch2/hinh-184.png">
+    <div class="info">images/ch2/hinh-184.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-187.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-187.png" alt="images/ch2/hinh-187.png">
+    <div class="info">images/ch2/hinh-187.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-188.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-188.png" alt="images/ch2/hinh-188.png">
+    <div class="info">images/ch2/hinh-188.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-190.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-190.png" alt="images/ch2/hinh-190.png">
+    <div class="info">images/ch2/hinh-190.png<br>from: muc-V-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-192.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-192.png" alt="images/ch2/hinh-192.png">
+    <div class="info">images/ch2/hinh-192.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-196.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-196.png" alt="images/ch2/hinh-196.png">
+    <div class="info">images/ch2/hinh-196.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-197.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-197.png" alt="images/ch2/hinh-197.png">
+    <div class="info">images/ch2/hinh-197.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-198.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-198.png" alt="images/ch2/hinh-198.png">
+    <div class="info">images/ch2/hinh-198.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-200.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-200.png" alt="images/ch2/hinh-200.png">
+    <div class="info">images/ch2/hinh-200.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-211.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-211.png" alt="images/ch2/hinh-211.png">
+    <div class="info">images/ch2/hinh-211.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-215.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-215.png" alt="images/ch2/hinh-215.png">
+    <div class="info">images/ch2/hinh-215.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-219.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-219.png" alt="images/ch2/hinh-219.png">
+    <div class="info">images/ch2/hinh-219.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-221.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-221.png" alt="images/ch2/hinh-221.png">
+    <div class="info">images/ch2/hinh-221.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-223.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-223.png" alt="images/ch2/hinh-223.png">
+    <div class="info">images/ch2/hinh-223.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-230.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-230.png" alt="images/ch2/hinh-230.png">
+    <div class="info">images/ch2/hinh-230.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-231.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-231.png" alt="images/ch2/hinh-231.png">
+    <div class="info">images/ch2/hinh-231.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-232.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-232.png" alt="images/ch2/hinh-232.png">
+    <div class="info">images/ch2/hinh-232.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-237.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-237.png" alt="images/ch2/hinh-237.png">
+    <div class="info">images/ch2/hinh-237.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-243.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-243.png" alt="images/ch2/hinh-243.png">
+    <div class="info">images/ch2/hinh-243.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-245.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-245.png" alt="images/ch2/hinh-245.png">
+    <div class="info">images/ch2/hinh-245.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch2/hinh-247.png" onclick="toggleMark(this)">
+    <img src="images/ch2/hinh-247.png" alt="images/ch2/hinh-247.png">
+    <div class="info">images/ch2/hinh-247.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-008.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-008.png" alt="images/ch3/hinh-008.png">
+    <div class="info">images/ch3/hinh-008.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-009.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-009.png" alt="images/ch3/hinh-009.png">
+    <div class="info">images/ch3/hinh-009.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-010.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-010.png" alt="images/ch3/hinh-010.png">
+    <div class="info">images/ch3/hinh-010.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-011.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-011.png" alt="images/ch3/hinh-011.png">
+    <div class="info">images/ch3/hinh-011.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-012.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-012.png" alt="images/ch3/hinh-012.png">
+    <div class="info">images/ch3/hinh-012.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-013.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-013.png" alt="images/ch3/hinh-013.png">
+    <div class="info">images/ch3/hinh-013.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-014.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-014.png" alt="images/ch3/hinh-014.png">
+    <div class="info">images/ch3/hinh-014.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-018.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-018.png" alt="images/ch3/hinh-018.png">
+    <div class="info">images/ch3/hinh-018.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-021.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-021.png" alt="images/ch3/hinh-021.png">
+    <div class="info">images/ch3/hinh-021.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-024.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-024.png" alt="images/ch3/hinh-024.png">
+    <div class="info">images/ch3/hinh-024.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-033.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-033.png" alt="images/ch3/hinh-033.png">
+    <div class="info">images/ch3/hinh-033.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-034.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-034.png" alt="images/ch3/hinh-034.png">
+    <div class="info">images/ch3/hinh-034.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-035.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-035.png" alt="images/ch3/hinh-035.png">
+    <div class="info">images/ch3/hinh-035.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-036.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-036.png" alt="images/ch3/hinh-036.png">
+    <div class="info">images/ch3/hinh-036.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-037.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-037.png" alt="images/ch3/hinh-037.png">
+    <div class="info">images/ch3/hinh-037.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-038.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-038.png" alt="images/ch3/hinh-038.png">
+    <div class="info">images/ch3/hinh-038.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-048.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-048.png" alt="images/ch3/hinh-048.png">
+    <div class="info">images/ch3/hinh-048.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-055.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-055.png" alt="images/ch3/hinh-055.png">
+    <div class="info">images/ch3/hinh-055.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-056.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-056.png" alt="images/ch3/hinh-056.png">
+    <div class="info">images/ch3/hinh-056.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-057.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-057.png" alt="images/ch3/hinh-057.png">
+    <div class="info">images/ch3/hinh-057.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-061.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-061.png" alt="images/ch3/hinh-061.png">
+    <div class="info">images/ch3/hinh-061.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-062.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-062.png" alt="images/ch3/hinh-062.png">
+    <div class="info">images/ch3/hinh-062.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-070.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-070.png" alt="images/ch3/hinh-070.png">
+    <div class="info">images/ch3/hinh-070.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-073.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-073.png" alt="images/ch3/hinh-073.png">
+    <div class="info">images/ch3/hinh-073.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-078.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-078.png" alt="images/ch3/hinh-078.png">
+    <div class="info">images/ch3/hinh-078.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-083.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-083.png" alt="images/ch3/hinh-083.png">
+    <div class="info">images/ch3/hinh-083.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-085.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-085.png" alt="images/ch3/hinh-085.png">
+    <div class="info">images/ch3/hinh-085.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-087.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-087.png" alt="images/ch3/hinh-087.png">
+    <div class="info">images/ch3/hinh-087.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-090.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-090.png" alt="images/ch3/hinh-090.png">
+    <div class="info">images/ch3/hinh-090.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-091.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-091.png" alt="images/ch3/hinh-091.png">
+    <div class="info">images/ch3/hinh-091.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-092.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-092.png" alt="images/ch3/hinh-092.png">
+    <div class="info">images/ch3/hinh-092.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-100.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-100.png" alt="images/ch3/hinh-100.png">
+    <div class="info">images/ch3/hinh-100.png<br>from: index.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-002.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-002.png" alt="images/ch3/hinh-002.png">
+    <div class="info">images/ch3/hinh-002.png<br>from: muc-I-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-003.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-003.png" alt="images/ch3/hinh-003.png">
+    <div class="info">images/ch3/hinh-003.png<br>from: muc-I-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-004.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-004.png" alt="images/ch3/hinh-004.png">
+    <div class="info">images/ch3/hinh-004.png<br>from: muc-I-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-025.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-025.png" alt="images/ch3/hinh-025.png">
+    <div class="info">images/ch3/hinh-025.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-026.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-026.png" alt="images/ch3/hinh-026.png">
+    <div class="info">images/ch3/hinh-026.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-027.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-027.png" alt="images/ch3/hinh-027.png">
+    <div class="info">images/ch3/hinh-027.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-028.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-028.png" alt="images/ch3/hinh-028.png">
+    <div class="info">images/ch3/hinh-028.png<br>from: muc-IV-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-050.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-050.png" alt="images/ch3/hinh-050.png">
+    <div class="info">images/ch3/hinh-050.png<br>from: muc-V-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-051.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-051.png" alt="images/ch3/hinh-051.png">
+    <div class="info">images/ch3/hinh-051.png<br>from: muc-V-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-053.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-053.png" alt="images/ch3/hinh-053.png">
+    <div class="info">images/ch3/hinh-053.png<br>from: muc-V-1.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-112.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-112.png" alt="images/ch3/hinh-112.png">
+    <div class="info">images/ch3/hinh-112.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-126.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-126.png" alt="images/ch3/hinh-126.png">
+    <div class="info">images/ch3/hinh-126.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-127.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-127.png" alt="images/ch3/hinh-127.png">
+    <div class="info">images/ch3/hinh-127.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-130.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-130.png" alt="images/ch3/hinh-130.png">
+    <div class="info">images/ch3/hinh-130.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-131.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-131.png" alt="images/ch3/hinh-131.png">
+    <div class="info">images/ch3/hinh-131.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-132.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-132.png" alt="images/ch3/hinh-132.png">
+    <div class="info">images/ch3/hinh-132.png<br>from: muc-VII-2.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-141.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-141.png" alt="images/ch3/hinh-141.png">
+    <div class="info">images/ch3/hinh-141.png<br>from: muc-VII-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-159.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-159.png" alt="images/ch3/hinh-159.png">
+    <div class="info">images/ch3/hinh-159.png<br>from: muc-VII-3.html</div>
+  </div>
+  <div class="card" data-path="images/ch3/hinh-178.png" onclick="toggleMark(this)">
+    <img src="images/ch3/hinh-178.png" alt="images/ch3/hinh-178.png">
+    <div class="info">images/ch3/hinh-178.png<br>from: muc-VII-3.html</div>
+  </div>
+</div>
+<div id="output"></div>
+<script>
+function toggleMark(card) {
+  card.classList.toggle('marked');
+  updateCount();
+}
+function updateCount() {
+  document.getElementById('marked-count').textContent = 
+    document.querySelectorAll('.card.marked').length;
+}
+function resetAll() {
+  document.querySelectorAll('.card.marked').forEach(c => c.classList.remove('marked'));
+  updateCount();
+}
+function generateList() {
+  const marked = [...document.querySelectorAll('.card.marked')].map(c => c.dataset.path);
+  const kept = [...document.querySelectorAll('.card:not(.marked)')].map(c => c.dataset.path);
+  const out = document.getElementById('output');
+  out.style.display = 'block';
+  out.textContent = `FORMULA IMAGES TO REMOVE (${marked.length}):\n` + 
+    marked.join('\n') + '\n\nDIAGRAM IMAGES TO KEEP (' + kept.length + '):\n' + 
+    kept.join('\n');
+}
+</script>
+</body></html>

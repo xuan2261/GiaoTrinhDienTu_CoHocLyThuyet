@@ -1,0 +1,482 @@
+{
+  "input": "D:\\NCKH_2025\\GiaoTrinhDienTu_CoHocLyThuyet\\CoHocLyThuyet_Full_New.docx",
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "Tĩnh học",
+      "sections": [
+        {
+          "section": 1,
+          "roman": "I",
+          "title": "KHÁI NIỆM CƠ BẢN",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Vật rắn tuyệt đối"
+            },
+            {
+              "subsection": 2,
+              "title": "Cân bằng"
+            },
+            {
+              "subsection": 3,
+              "title": "Lực"
+            },
+            {
+              "subsection": 4,
+              "title": "Mô men"
+            },
+            {
+              "subsection": 5,
+              "title": "Hệ lực"
+            },
+            {
+              "subsection": 6,
+              "title": "Ngẫu lực"
+            },
+            {
+              "subsection": 7,
+              "title": "Vật tự do và vật không tự do"
+            },
+            {
+              "subsection": 8,
+              "title": "Lực liên kết, lực hoạt động, phản lực liên kết"
+            }
+          ]
+        },
+        {
+          "section": 2,
+          "roman": "II",
+          "title": "CÁC ĐỊNH LUẬT TĨNH HỌC",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Định luật hai lực cân bằng"
+            },
+            {
+              "subsection": 2,
+              "title": "Định luật thêm bớt hai lực cân bằng"
+            },
+            {
+              "subsection": 3,
+              "title": "Định luật hình bình hành lực"
+            },
+            {
+              "subsection": 4,
+              "title": "Định luật tác dụng và phản tác dụng"
+            },
+            {
+              "subsection": 5,
+              "title": "Định luật hóa rắn"
+            },
+            {
+              "subsection": 6,
+              "title": "Định luật về giải phóng liên kết"
+            }
+          ]
+        },
+        {
+          "section": 3,
+          "roman": "III",
+          "title": "MỘT SỐ LIÊN KẾT THƯỜNG GẶP",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Liên kết tựa"
+            },
+            {
+              "subsection": 2,
+              "title": "Liên kết dây mềm, thẳng"
+            },
+            {
+              "subsection": 3,
+              "title": "Liên kết bản lề"
+            },
+            {
+              "subsection": 4,
+              "title": "Liên kết gối"
+            },
+            {
+              "subsection": 5,
+              "title": "Liên kết gối cầu"
+            },
+            {
+              "subsection": 6,
+              "title": "Liên kết ngàm"
+            },
+            {
+              "subsection": 7,
+              "title": "Liên kết thanh"
+            }
+          ]
+        },
+        {
+          "section": 4,
+          "roman": "IV",
+          "title": "HỆ LỰC KHÔNG GIAN",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Véc tơ chính của hệ lực không gian"
+            },
+            {
+              "subsection": 2,
+              "title": "Mô men chính của hệ lực không gian đối với một tâm"
+            },
+            {
+              "subsection": 3,
+              "title": "Các dạng cơ bản của hệ lực không gian"
+            },
+            {
+              "subsection": 4,
+              "title": "Điều kiện cân bằng và phương trình cân bằng của hệ lực không gian"
+            },
+            {
+              "subsection": 5,
+              "title": "Điều kiện cân bằng và phương trình cân bằng của hệ lực đặc biệt"
+            }
+          ]
+        },
+        {
+          "section": 5,
+          "roman": "V",
+          "title": "MA SÁT",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Khái niệm"
+            },
+            {
+              "subsection": 2,
+              "title": "Phân loại ma sát"
+            },
+            {
+              "subsection": 3,
+              "title": "Định luật ma sát"
+            },
+            {
+              "subsection": 4,
+              "title": "Hiện tượng tự hãm"
+            }
+          ]
+        },
+        {
+          "section": 6,
+          "roman": "VI",
+          "title": "TRỌNG TÂM",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Khái niệm"
+            },
+            {
+              "subsection": 2,
+              "title": "Công thức tính trọng tâm"
+            },
+            {
+              "subsection": 3,
+              "title": "Tính chất và trọng tâm một số vật"
+            }
+          ]
+        },
+        {
+          "section": 7,
+          "roman": "VII",
+          "title": "BÀI TẬP",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Hướng dẫn giải bài tập"
+            },
+            {
+              "subsection": 2,
+              "title": "Bài tập"
+            },
+            {
+              "subsection": 3,
+              "title": "Câu hỏi ôn tập"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "title": "Động học",
+      "sections": [
+        {
+          "section": 1,
+          "roman": "I",
+          "title": "KHẢO SÁT CHUYỂN ĐỘNG CỦA CHẤT ĐIỂM",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Phương pháp véc tơ"
+            },
+            {
+              "subsection": 2,
+              "title": "Phương pháp tọa độ Đề các"
+            },
+            {
+              "subsection": 3,
+              "title": "Phương pháp tọa độ tự nhiên"
+            },
+            {
+              "subsection": 4,
+              "title": "Các dạng chuyển động đặc biệt"
+            }
+          ]
+        },
+        {
+          "section": 2,
+          "roman": "II",
+          "title": "CHUYỂN ĐỘNG CƠ BẢN CỦA VẬT RẮN",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Chuyển động tịnh tiến"
+            },
+            {
+              "subsection": 2,
+              "title": "Chuyển động quay quanh một trục cố định"
+            }
+          ]
+        },
+        {
+          "section": 3,
+          "roman": "III",
+          "title": "TRUYỀN ĐỘNG ĐƠN GIẢN",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Khái niệm"
+            },
+            {
+              "subsection": 2,
+              "title": "Một số loại truyền động đơn giản"
+            }
+          ]
+        },
+        {
+          "section": 4,
+          "roman": "IV",
+          "title": "HỢP CHUYỂN ĐỘNG ĐIỂM",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Bài toán"
+            },
+            {
+              "subsection": 2,
+              "title": "Định nghĩa các chuyển động"
+            },
+            {
+              "subsection": 3,
+              "title": "Định lý về hợp vận tốc"
+            },
+            {
+              "subsection": 4,
+              "title": "Định lý về hợp gia tốc"
+            }
+          ]
+        },
+        {
+          "section": 5,
+          "roman": "V",
+          "title": "CHUYỂN ĐỘNG SONG PHẲNG",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Khái niệm và mô hình"
+            },
+            {
+              "subsection": 2,
+              "title": "Khảo sát chuyển động của vật rắn"
+            },
+            {
+              "subsection": 3,
+              "title": "Khảo sát chuyển động của các điểm thuộc vật rắn"
+            }
+          ]
+        },
+        {
+          "section": 6,
+          "roman": "VI",
+          "title": "CHUYỂN ĐỘNG CỦA VẬT RẮN QUAY QUANH 1 ĐIỂM CỐ ĐỊNH",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Khái niệm"
+            },
+            {
+              "subsection": 2,
+              "title": "Phân tích chuyển động"
+            }
+          ]
+        },
+        {
+          "section": 7,
+          "roman": "VII",
+          "title": "BÀI TẬP",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Hướng dẫn giải bài tập"
+            },
+            {
+              "subsection": 2,
+              "title": "Bài tập"
+            },
+            {
+              "subsection": 3,
+              "title": "Câu hỏi ôn tập"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "title": "Động lực học",
+      "sections": [
+        {
+          "section": 1,
+          "roman": "I",
+          "title": "CÁC KHÁI NIỆM",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Vật thể"
+            },
+            {
+              "subsection": 2,
+              "title": "Lực"
+            },
+            {
+              "subsection": 3,
+              "title": "Hệ quy chiếu quán tính"
+            }
+          ]
+        },
+        {
+          "section": 2,
+          "roman": "II",
+          "title": "CÁC ĐỊNH LUẬT CƠ BẢN",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Định luật quán tính"
+            },
+            {
+              "subsection": 2,
+              "title": "Định luật cơ bản của động lực học"
+            },
+            {
+              "subsection": 3,
+              "title": "Định luật tác dụng và phản tác dụng"
+            },
+            {
+              "subsection": 4,
+              "title": "Định luật về tính độc lập giữa tác dụng của lực"
+            },
+            {
+              "subsection": 5,
+              "title": "Định luật giải phóng liên kết"
+            }
+          ]
+        },
+        {
+          "section": 3,
+          "roman": "III",
+          "title": "PHƯƠNG TRÌNH VI PHÂN CHUYỂN ĐỘNG",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Phương trình vi phân chuyển động của chất điểm"
+            },
+            {
+              "subsection": 2,
+              "title": "Phương trình vi phân chuyển động của cơ hệ"
+            }
+          ]
+        },
+        {
+          "section": 4,
+          "roman": "IV",
+          "title": "HAI BÀI TOÁN CƠ BẢN CỦA ĐỘNG LỰC HỌC",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Bài toán thuận"
+            },
+            {
+              "subsection": 2,
+              "title": "Bài toán ngược"
+            }
+          ]
+        },
+        {
+          "section": 5,
+          "roman": "V",
+          "title": "CÁC ĐỊNH LÝ TỔNG QUÁT",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Định lý chuyển động khối tâm"
+            },
+            {
+              "subsection": 2,
+              "title": "Định lý động lượng"
+            },
+            {
+              "subsection": 3,
+              "title": "Định lý mô men động lượng"
+            },
+            {
+              "subsection": 4,
+              "title": "Định lý động năng"
+            }
+          ]
+        },
+        {
+          "section": 6,
+          "roman": "VI",
+          "title": "LÝ THUYẾT VA CHẠM",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Các đặc điểm và giả thiết về va chạm"
+            },
+            {
+              "subsection": 2,
+              "title": "Các định lý tổng quát của động lực học áp dụng vào va chạm"
+            },
+            {
+              "subsection": 3,
+              "title": "Hai bài toán cơ bản về va chạm"
+            }
+          ]
+        },
+        {
+          "section": 7,
+          "roman": "VII",
+          "title": "BÀI TẬP",
+          "subsections": [
+            {
+              "subsection": 1,
+              "title": "Hướng dẫn giải bài tập"
+            },
+            {
+              "subsection": 2,
+              "title": "Bài tập"
+            },
+            {
+              "subsection": 3,
+              "title": "Câu hỏi ôn tập"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "co-hoc-ly-thuyet-static-reader",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Dev-only QA scripts for the offline mechanics textbook reader.",
+  "scripts": {
+    "test:sim:unit": "node -e \"const fs=require('fs'),path=require('path'),cp=require('child_process');const files=[];function walk(dir){for(const name of fs.readdirSync(dir)){const p=path.join(dir,name);const s=fs.statSync(p);if(s.isDirectory())walk(p);else if(p.endsWith('.js'))files.push(p);}}walk('js');for(const file of files.sort()){const r=cp.spawnSync(process.execPath,['--check',file],{stdio:'inherit'});if(r.status!==0)process.exit(r.status===null?1:r.status);}console.log('node --check: '+files.length+' JS files PASS');\" && node tests/simulation-physics.test.js && node tests/simulation-runtime-regressions.test.js",
+    "test:sim:architecture": "python tools/test_simulation_architecture.py",
+    "test:sim:quality:baseline": "python tools/smoke_simulation_manifest.py --require-routes 58 --require-objectives && python tools/audit_simulation_quality.py --baseline",
+    "test:sim:quality": "python tools/smoke_simulation_manifest.py --require-routes 58 --require-objectives --require-direct && python tools/audit_simulation_quality.py --all --max-js-lines 220",
+    "test:sim:browser": "playwright test tests/simulation-browser.spec.js tests/simulation-interaction-engine.spec.js",
+    "test:sim:visual-quality": "playwright test tests/simulation-visual-quality.spec.js",
+    "test:sim:browser:install": "playwright install chromium",
+    "test:sim:browser:baseline": "playwright test tests/simulation-browser.spec.js --grep @baseline",
+    "test:sim:browser:route-mount": "playwright test tests/simulation-browser.spec.js --grep @route-mount",
+    "test:sim:scene-identity": "python tools/smoke_simulation_scene_catalog.py --strict --require-routes 58 && playwright test tests/simulation-visual-quality.spec.js --grep @scene-identity",
+    "test:sim:renderer-contract": "python tools/smoke_simulation_renderer_contract.py --strict --require-routes 58 && playwright test tests/simulation-visual-quality.spec.js --grep @renderer-contract",
+    "test:sim:semantic": "npm run test:sim:scene-identity",
+    "test:sim:release": "npm run test:sim:unit && npm run test:sim:quality && npm run test:sim:semantic && npm run test:sim:visual-quality && python -m compileall -q tools && python tools/audit.py && python tools/audit.py --strict-equations && python tools/validate_equation_mapping.py --input data/equation_mapping.json --strict --katex && python tools/smoke_simulation_routes.py --require-p1 && python tools/smoke_simulation_runtime.py --expect-globals SimCore,SimMath,SimRender,SimInteractions,SimLabUI,SimProfessionalLab,SimRouteRenderers,SimRouteBehaviors --expect-runtime-routes 58 --check-mount-rollback --check-listener-cleanup && python tools/test_simulation_architecture.py && python tools/test_simulation_qa_tools.py && npm run test:sim:browser"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
+  }
+}

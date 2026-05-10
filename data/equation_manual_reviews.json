@@ -1,0 +1,346 @@
+[
+  {
+    "hash": "0489ad7358372e7ad220de620a2c451d7daf4b1d6e76ed299cb1734c6cfb7f38",
+    "latex": "\\left\\{\\begin{aligned}\\sum F_z&=N_A+N_B+N_C-P=0\\\\\\sum m_x(F_i)&=-0{,}5P+1{,}5N_C=0\\\\\\sum m_y(F_i)&=-0{,}5N_A+0{,}5N_B=0\\end{aligned}\\right.",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "1378ab0d8169267609860a257c749eb7da93b7218bd6b6d8e1b1f48584fdea60",
+    "latex": "\\bar{\\varepsilon}\\ne0",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "1503e6820e81a3a62f37d62fb436b08c267f6846b08c6bcd7545a926f990e5f7",
+    "latex": "\\bar{\\omega}\\cdot\\bar{\\varepsilon}>0",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "1749f17eebcd8adbe124e19673efc7118462a0f4b0d9be9e67e344227bd5cab6",
+    "latex": "\\bar{\\omega}=\\mathrm{const}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "18066d6fa0638c715393c010722f6a5531527a9e133b979ceb3628703405ec9c",
+    "latex": "\\vec{v}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "1a0b31d1ef648caabc9159503a5ac4277ae40549db1ba1fd9203d2088b6d05db",
+    "latex": "\\vec{a}_{tb}=\\frac{\\Delta\\vec{v}}{\\Delta t}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "1a74574726217e5d975afc399ad03907fa42c9a30205fb0d5e5d74f96020798b",
+    "latex": "\\bar{\\varepsilon}=0",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "1a7be7706ac74713ce7ccd53ba5a9d886771f8f9316f113106da315e54d4e3fa",
+    "latex": "\\eta=\\frac{DT}{T_1}=(1-k^2)\\frac{m_2}{m_1+m_2}",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "1d1c4b7ece39577cb06ebd62f09a006eb53798b6733f4d448b8db36f7dd111fe",
+    "latex": "\\omega^2=(\\bar{\\omega})^2",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "1ee50acd4054a21d11a324ab1fc43b6c9a86e37e6fa3f12a8730c43fb3caf3d1",
+    "latex": "|F_{ms}|\\le \\mu N",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "28eb42e25241c559dff3a52a23088f214e142f38a5bc02e2095d1aec5fc8c2c0",
+    "latex": "\\frac{m_2}{m_1+m_2}\\approx1\\rightarrow DT",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet; following text supplies qualifier."
+  },
+  {
+    "hash": "32ce250f350c21aeedd09bc59ac621fdef21cecd6c0b847a4f62f217b6c9af7d",
+    "latex": "\\vec{L}_O=\\sum_{k=1}^{n}\\vec{l}_{Ok}=\\sum_{k=1}^{n}\\vec{r}_k\\times m_k\\vec{v}_k",
+    "source": "manual-review",
+    "notes": "Manual review from context and equation image."
+  },
+  {
+    "hash": "39eb4e47ef36565264f32eedaac3493c8a11c3060c23dbed63a71faa17cc03a5",
+    "artifact": "figure",
+    "alt": "Sơ đồ hệ lực phân bố trên dầm",
+    "source": "manual-review:artifact-figure",
+    "notes": "Triaged as beam load diagram, not semantic equation; keep as figure."
+  },
+  {
+    "hash": "4b3658552c489a3ef16a228bbd863344faf1297144846d43262edaf6212c0d46",
+    "latex": "(\\mathrm{R})\\quad\\bar{\\varphi}=\\bar{\\varphi}_0+\\bar{\\omega}_0t",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "4c46916694aff3ff1daeec1ad7ca0ba68454c5e6fed3ee1e856ca1b8fb61fbc9",
+    "latex": "\\vec{R}",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "558d7be6acbb63666305493d7f7e0d386f55af28f61e75a298e329ee4424a241",
+    "latex": "\\vec{P}_1+\\vec{N}_1+\\vec{T}_1=m_1\\vec{a}_1",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "56ed3337ab67e9006eef9d8022e12137beb3244e2175edad041ddcb471a48e08",
+    "latex": "|\\bar{\\omega}|=\\omega",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "5a80277264a3a1e745bd0e467830fe2d8b8c458ab39759301885e8e79108688d",
+    "latex": "N_1=P_1\\cos\\alpha",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "5aface7f1d346c55d7b5db63857f683881ef6684885362e8a54994b697f483af",
+    "latex": "a_2=2a_1",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "64c279b7abed5f8febdc6d0f8c34e7bb3298b71c629cc8991c3988377b42e914",
+    "latex": "\\delta",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "6df997fbd6e1800356277d7b54d4037d28c209703789f859728d871d4c45cb0a",
+    "latex": "\\vec{M}_O=\\sum_{k=1}^{n}\\vec{M}_O(\\vec{F}_k)=\\lim\\sum q(x'_k)x_k\\Delta x_k=\\int_0^l q(x)x\\,dx",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "7596a26711a962b2722f16ab120abe35247a221ec1c30128246f6e6b142da964",
+    "latex": "P_2-T_2=m_2a_2\\quad(2)",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "7c75f23ed43eb7d68bad478145a3adfac995d1ecdc092d916d2409a8eb0ffe86",
+    "latex": "\\vec{P}_1+\\vec{T}_1=m_1\\vec{a}_1",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "7c961e750800c602f31f745542e8b01fc7a3af951a028477eb2a4681abe2888a",
+    "latex": "T_1-P_1\\sin\\alpha=m_1a_1\\quad(1)",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "7d544ad28f1607e400cb46486ec4428dcbcc1573524725574cb66973fde4da21",
+    "latex": "\\Delta\\vec{v}=\\vec{v}_1-\\vec{v}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "7f513d6e6a412754ce6100b1637262e6d1f1695ba084b2d765e445e53825ed63",
+    "latex": "\\bar{\\omega}=\\dot{\\bar{\\varphi}}>0",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "8021705e33b9c336143486da461a11a0aeae27ce264e1a39961b05ff0f2d8ff5",
+    "latex": "\\bar{\\varepsilon}=\\frac{d\\bar{\\omega}}{dt}=\\frac{d^2\\bar{\\varphi}}{dt^2}=\\ddot{\\bar{\\varphi}}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "89b08807034c8b63ef9712a47145938b0e62a9c1e3ceaac2f72f5bbb60364d19",
+    "latex": "a=\\frac{g(m_2-m_1\\sin\\alpha)}{m_1+m_2}=1\\,\\mathrm{m/s^2}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "8a28a1e639ca9e8ee65aa29f2c514bb87a99b67ca91badfd0b815047ecb2df99",
+    "latex": "\\vec{P}_1+\\vec{N}_1+\\vec{T}_1+\\vec{F}_{ms}=m_1\\vec{a}_1",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "8d57e0f1a4722a2aa3143a23a24978e135560e9498cce7c774aa11f0b3a08c42",
+    "latex": "T_1=2T_2",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "9088fbbb8d4d61c51773a74aeb5f9888d7002fb335fe9685112a0de80d3e1a59",
+    "latex": "\\vec{r}=\\overrightarrow{OM}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "90e5f633031f0dd212a8fef0e04e10559418538153311f6bebe976368603f996",
+    "latex": "\\vec{v}\\wedge\\vec{a}\\equiv\\vec{0}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "9656da603eac9e6e2605a82d0c29e52029d7d55f516e47e8f6ee00650fae1c26",
+    "artifact": "figure",
+    "alt": "Sơ đồ gia tốc pháp tuyến",
+    "source": "manual-review:artifact-figure",
+    "notes": "Triaged as acceleration vector diagram, not semantic equation; keep as figure."
+  },
+  {
+    "hash": "9ad5285a93a3a86219190b67bbea5cf28247cedf5fa0af9ea638fc33cbb37c54",
+    "latex": "\\vec{\\omega}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "9eb8354da6bbdea80c7e101b5663a14168c83c1b4a7baef24b0b34946d49c100",
+    "latex": "\\vec{R}_x",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "9efc46f87bb340e4d033a249590cb48b48ba35536310e56e8264e1272e0ea0ae",
+    "latex": "N_1-P_1\\cos\\alpha=0\\rightarrow N_1=P_1\\cos\\alpha\\quad(4)",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "a2549004a4c7906ff91be465b18d771ed8513a0cc340eb9524ce3df043367625",
+    "latex": "\\overrightarrow{MM_1}=\\vec{r}_1-\\vec{r}=\\Delta\\vec{r}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "a3d89fd5d55d932adb00b70e02bb9c97c7a7fe96049afc1b59871eaf62316185",
+    "latex": "\\vec{r}_B",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "aa6ea410de37eb2535a48be8c01b7f439b5ad86edb2bd0758b5caa104045d0dd",
+    "latex": "t=\\sqrt{\\frac{2S}{a}}=4\\,\\mathrm{s}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "aec8f3b96eddd35c2aaf67a3132d6e0bec9a7c278c96ad4c22dbe2dec9443cdf",
+    "latex": "\\mu=\\frac{1}{\\sqrt{3}}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "b0da1ef57b6ea60f12434791ab1010885121b2f691b098e4c81dc85dee4442ed",
+    "latex": "\\vec{v}\\cdot\\vec{a}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "b7bfa9c37c75ac9cb743bef1bdae5515ad4dff779cbee30e45e5f6b9c1970799",
+    "latex": "N_1-P_1\\cos\\alpha=0\\rightarrow N_1=P_1\\cos\\alpha",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "b8d5d1f04586be21b53e36da3c46939a28d513af84219b242d8090f544157e17",
+    "latex": "\\vec{v}_{tb}=\\frac{\\Delta\\vec{r}}{\\Delta t}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "b963fecb3a1165b07c110b6565babaf6ebaf1bb94e1c637a89dbfd75f902855d",
+    "latex": "\\vec{F}",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "ba96a7a2f821a1b2f6be07088c3b312aff6eae654fbb49f8fe6db2af99c94df6",
+    "latex": "T_1-P_1\\sin\\alpha-F_{ms}=0\\quad(3)",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "bf35d970bffa5ca85d1e3fa532cd7a4f61d4cb4074b6a7c65a070c6a67877946",
+    "latex": "\\vec{P}_2+\\vec{T}_2=m_2\\vec{a}_2",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "cb665d560727845eac2344da4cfced9d9f4722272142219bc660f8a716916b86",
+    "latex": "\\vec{F}=m\\vec{a}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "cd4057ea8b53426686a17cb702d0450d4d7209def84063351b9f007cb447f148",
+    "latex": "\\frac{m_2}{m_1+m_2}\\ll1\\rightarrow DT",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet; following text supplies qualifier."
+  },
+  {
+    "hash": "cec19ccb7aef59d30cbd3d2212729951e49709f9488e1be6fd91161d3d3a05eb",
+    "artifact": "blank",
+    "source": "manual-review:artifact-blank",
+    "notes": "Triaged as blank OLE placeholder; render nothing."
+  },
+  {
+    "hash": "d15f588d295902b737396b9eef14835fa7db9464501940ed61496e4204bcee25",
+    "latex": "\\Delta\\vec{v}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "d67e62ba8e3479d3b039f445ad632b21143333078672b95d1ef8a2eb20b42372",
+    "latex": "\\vec{r}_1=\\overrightarrow{OM_1}",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "dbc0a8e9e8fd46826d11a6907ecccaa9e0c84e86352f6d1cdfb010cbbbdf508a",
+    "latex": "\\left\\{\\begin{aligned}T_1-P_1&=m_1a_1\\\\T_2-P_2&=m_2a_2\\end{aligned}\\right.",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "dcfaa1621867e6c9fbaba1be5235fe57370706e19baea57188fb77a89d5a3be1",
+    "latex": "\\frac{d^2\\bar{\\varphi}}{dt^2}=\\bar{\\varepsilon}=\\bar{\\varepsilon}_0=\\mathrm{const};\\quad \\bar{\\omega}=\\bar{\\omega}_0+\\bar{\\varepsilon}_0t",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "dd52f16eb9e1e125f1703cf2a46cca0f48c769d13573d1ceb3e3f145716b0c4c",
+    "latex": "\\sum_{k=1}^{n}\\vec{M}_{kx}=0;\\quad\\sum_{k=1}^{n}\\vec{M}_{ky}=0;\\quad\\sum_{k=1}^{n}\\vec{M}_{kz}=0",
+    "source": "manual-review",
+    "notes": "Manual review from equation image/contact sheet."
+  },
+  {
+    "hash": "e0a089becfad57e6ceb44a06d3a8fef992e786cdc8f666616539d3c986644d7a",
+    "latex": "\\bar{\\omega}\\cdot\\bar{\\varepsilon}<0",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  },
+  {
+    "hash": "e1b10ca0262224a071ffc9bd448b156c20e5012a37d1c22adb3f95d87c1c08d4",
+    "artifact": "blank",
+    "source": "manual-review:artifact-blank",
+    "notes": "Triaged as blank OLE placeholder; render nothing."
+  },
+  {
+    "hash": "e766ca445035562b04f0cd6cd41eb1910d2310740bc6d8fbb6172c7953624c13",
+    "latex": "S=v_0t+\\frac{1}{2}at^2",
+    "source": "manual-review",
+    "notes": "Manual review from raster equation image."
+  }
+]

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Giáo trình điện tử – Cơ Học Lý Thuyết | Học viện Hải quân</title>
+  <meta name="description" content="Giáo trình điện tử Cơ Học Lý Thuyết dùng cho đào tạo học viên sĩ quan cấp phân đội trình độ đại học tại Học viện Hải quân.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- KaTeX: local first, CDN fallback -->
+  <link rel="stylesheet" href="lib/katex/katex.min.css"
+    onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css'">
+</head>
+
+<body>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <button onclick="tSB()" title="Menu">&#9776;</button>
+    <div class="brand">Cơ Học Lý Thuyết<span>📖</span></div>
+    <div class="search" role="search" style="position:relative">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M21 21l-4.3-4.3m1.3-5.2a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round"></path>
+      </svg>
+      <input id="si" type="search" placeholder='Tìm chương/mục… (ví dụ: "tiên đề")' autocomplete="off"
+        oninput="doSearch(this.value)" onfocus="doSearch(this.value)" onkeydown="skn(event)">
+      <span class="kbd">Ctrl K</span>
+      <div class="sr" id="sr"></div>
+    </div>
+    <button onclick="togTheme()" title="Sáng/Tối" id="themeBtn">🌙</button>
+    <div class="font-zoom">
+      <button onclick="zoomFont(-1)" title="Thu nhỏ chữ">A−</button>
+      <button onclick="zoomFont(0)" title="Mặc định">A</button>
+      <button onclick="zoomFont(1)" title="Phóng to chữ">A+</button>
+    </div>
+    <div class="bc" id="bc">Trang chủ</div>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="ov" onclick="tSB()"></div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sb">
+    <div class="sh1">
+      <div class="lt">Học viện Hải quân</div>
+      <h3>Giáo trình điện tử</h3>
+    </div>
+    <div>
+      <!-- Trang chủ -->
+      <div class="nav-item"><button class="nav-btn active" onclick="loadPage('home');setNav(this)"><span class="icon">🏠</span>Trang chủ</button></div>
+      <!-- Lời nói đầu -->
+      <div class="nav-item"><button class="nav-btn" onclick="loadPage('lnd');setNav(this)"><span class="icon">📖</span>Lời nói đầu</button></div>
+
+      <!-- ========== CHƯƠNG 1 ========== -->
+      <div class="nav-item">
+        <button class="nav-btn" onclick="togSub(this)"><span class="icon" style="color:var(--ch1)">①</span>Chương 1. Tĩnh học<span class="arrow">▶</span></button>
+        <div class="sub-menu">
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-1');return false">I. KHÁI NIỆM CƠ BẢN<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-1-1');return false">1. Vật rắn tuyệt đối</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-2');return false">2. Cân bằng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-3');return false">3. Lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-4');return false">4. Mô men</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-5');return false">5. Hệ lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-6');return false">6. Ngẫu lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-7');return false">7. Vật tự do và vật không tự do</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-1-8');return false">8. Lực liên kết, lực hoạt động, phản lực liên kết</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-2');return false">II. CÁC ĐỊNH LUẬT TĨNH HỌC<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-2-1');return false">1. Định luật hai lực cân bằng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-2');return false">2. Định luật thêm bớt hai lực cân bằng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-3');return false">3. Định luật hình bình hành lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-4');return false">4. Định luật tác dụng và phản tác dụng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-5');return false">5. Định luật hóa rắn</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-2-6');return false">6. Định luật về giải phóng liên kết</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-3');return false">III. MỘT SỐ LIÊN KẾT THƯỜNG GẶP<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-3-1');return false">1. Liên kết tựa</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-2');return false">2. Liên kết dây mềm, thẳng</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-3');return false">3. Liên kết bản lề</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-4');return false">4. Liên kết gối</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-5');return false">5. Liên kết gối cầu</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-6');return false">6. Liên kết ngàm</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-3-7');return false">7. Liên kết thanh</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-4');return false">IV. HỆ LỰC KHÔNG GIAN<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-4-1');return false">1. Véc tơ chính của hệ lực không gian</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-4-2');return false">2. Mô men chính của hệ lực không gian đối với một tâm</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-4-3');return false">3. Các dạng cơ bản của hệ lực không gian</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-4-4');return false">4. Điều kiện cân bằng và phương trình cân bằng của hệ lực không gian</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-4-5');return false">5. Điều kiện cân bằng và phương trình cân bằng của hệ lực đặc biệt</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-5');return false">V. MA SÁT<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-5-1');return false">1. Khái niệm</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-5-2');return false">2. Phân loại ma sát</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-5-3');return false">3. Định luật ma sát</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-5-4');return false">4. Hiện tượng tự hãm</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-6');return false">VI. TRỌNG TÂM<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-6-1');return false">1. Khái niệm</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-6-2');return false">2. Công thức tính trọng tâm</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-6-3');return false">3. Tính chất và trọng tâm một số vật</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch1-7');return false">VII. BÀI TẬP<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch1-7-1');return false">1. Hướng dẫn giải bài tập</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-7-2');return false">2. Bài tập</a>
+              <a href="#" class="l3" onclick="loadPage('ch1-7-3');return false">3. Câu hỏi ôn tập</a>
+            </div>
+          </div>
+          <a href="#" class="l2" onclick="loadPage('ch1-rev');return false">❓ Câu hỏi ôn tập</a>
+          <a href="#" class="l2" onclick="loadPage('ch1-quiz');return false">✅ Ôn tập trắc nghiệm</a>
+        </div>
+      </div>
+
+      <!-- ========== CHƯƠNG 2 ========== -->
+      <div class="nav-item">
+        <button class="nav-btn" onclick="togSub(this)"><span class="icon" style="color:var(--ch2)">②</span>Chương 2. Động học<span class="arrow">▶</span></button>
+        <div class="sub-menu">
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-1');return false">I. KHẢO SÁT CHUYỂN ĐỘNG CỦA CHẤT ĐIỂM<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-1-1');return false">1. Phương pháp véc tơ</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-1-2');return false">2. Phương pháp tọa độ Đề các</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-1-3');return false">3. Phương pháp tọa độ tự nhiên</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-1-4');return false">4. Các dạng chuyển động đặc biệt</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-2');return false">II. CHUYỂN ĐỘNG CƠ BẢN CỦA VẬT RẮN<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-2-1');return false">1. Chuyển động tịnh tiến</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-2-2');return false">2. Chuyển động quay quanh một trục cố định</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-3');return false">III. TRUYỀN ĐỘNG ĐƠN GIẢN<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-3-1');return false">1. Khái niệm</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-3-2');return false">2. Một số loại truyền động đơn giản</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-4');return false">IV. HỢP CHUYỂN ĐỘNG ĐIỂM<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-4-1');return false">1. Bài toán</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-4-2');return false">2. Định nghĩa các chuyển động</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-4-3');return false">3. Định lý về hợp vận tốc</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-4-4');return false">4. Định lý về hợp gia tốc</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-5');return false">V. CHUYỂN ĐỘNG SONG PHẲNG<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-5-1');return false">1. Khái niệm và mô hình</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-5-2');return false">2. Khảo sát chuyển động của vật rắn</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-5-3');return false">3. Khảo sát chuyển động của các điểm thuộc vật rắn</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-6');return false">VI. CHUYỂN ĐỘNG CỦA VẬT RẮN QUAY QUANH 1 ĐIỂM CỐ ĐỊNH<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-6-1');return false">1. Khái niệm</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-6-2');return false">2. Phân tích chuyển động</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch2-7');return false">VII. BÀI TẬP<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch2-7-1');return false">1. Hướng dẫn giải bài tập</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-7-2');return false">2. Bài tập</a>
+              <a href="#" class="l3" onclick="loadPage('ch2-7-3');return false">3. Câu hỏi ôn tập</a>
+            </div>
+          </div>
+          <a href="#" class="l2" onclick="loadPage('ch2-rev');return false">❓ Câu hỏi ôn tập</a>
+          <a href="#" class="l2" onclick="loadPage('ch2-quiz');return false">✅ Ôn tập trắc nghiệm</a>
+        </div>
+      </div>
+
+      <!-- ========== CHƯƠNG 3 ========== -->
+      <div class="nav-item">
+        <button class="nav-btn" onclick="togSub(this)"><span class="icon" style="color:var(--ch3)">③</span>Chương 3. Động lực học<span class="arrow">▶</span></button>
+        <div class="sub-menu">
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-1');return false">I. CÁC KHÁI NIỆM<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-1-1');return false">1. Vật thể</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-1-2');return false">2. Lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-1-3');return false">3. Hệ quy chiếu quán tính</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-2');return false">II. CÁC ĐỊNH LUẬT CƠ BẢN<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-2-1');return false">1. Định luật quán tính</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-2-2');return false">2. Định luật cơ bản của động lực học</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-2-3');return false">3. Định luật tác dụng và phản tác dụng</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-2-4');return false">4. Định luật về tính độc lập giữa tác dụng của lực</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-2-5');return false">5. Định luật giải phóng liên kết</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-3');return false">III. PHƯƠNG TRÌNH VI PHÂN CHUYỂN ĐỘNG<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-3-1');return false">1. Phương trình vi phân chuyển động của chất điểm</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-3-2');return false">2. Phương trình vi phân chuyển động của cơ hệ</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-4');return false">IV. HAI BÀI TOÁN CƠ BẢN CỦA ĐỘNG LỰC HỌC<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-4-1');return false">1. Bài toán thuận</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-4-2');return false">2. Bài toán ngược</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-5');return false">V. CÁC ĐỊNH LÝ TỔNG QUÁT<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-5-1');return false">1. Định lý chuyển động khối tâm</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-5-2');return false">2. Định lý động lượng</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-5-3');return false">3. Định lý mô men động lượng</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-5-4');return false">4. Định lý động năng</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-6');return false">VI. LÝ THUYẾT VA CHẠM<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-6-1');return false">1. Các đặc điểm và giả thiết về va chạm</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-6-2');return false">2. Các định lý tổng quát của động lực học áp dụng vào va chạm</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-6-3');return false">3. Hai bài toán cơ bản về va chạm</a>
+            </div>
+          </div>
+          <div class="l2-group"><a href="#" class="l2 has-sub" onclick="togL3(this);loadPage('ch3-7');return false">VII. BÀI TẬP<span class="l2a">▶</span></a>
+            <div class="l3-menu">
+              <a href="#" class="l3" onclick="loadPage('ch3-7-1');return false">1. Hướng dẫn giải bài tập</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-7-2');return false">2. Bài tập</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-7-3');return false">3. Câu hỏi ôn tập</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-7-4');return false">4. Hệ số phục hồi</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-7-5');return false">5. Ảnh hưởng hệ số e</a>
+              <a href="#" class="l3" onclick="loadPage('ch3-7-6');return false">6. Bài tập thực hành</a>
+            </div>
+          </div>
+          <a href="#" class="l2" onclick="loadPage('ch3-rev');return false">❓ Câu hỏi ôn tập</a>
+          <a href="#" class="l2" onclick="loadPage('ch3-quiz');return false">✅ Ôn tập trắc nghiệm</a>
+        </div>
+      </div>
+
+      <!-- Tác giả & TLTK -->
+      <div class="nav-item"><button class="nav-btn" onclick="loadPage('authors');setNav(this)"><span class="icon">👤</span>Tác giả</button></div>
+      <div class="nav-item"><button class="nav-btn" onclick="loadPage('refs');setNav(this)"><span class="icon">📚</span>Tài liệu tham khảo</button></div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="main" id="mn">
+    <!-- Home page (embedded, not lazy-loaded) -->
+    <template id="page-home-content">
+      <div class="hh">
+        <div class="hbadge">★ Giáo trình điện tử ★</div>
+        <h1>CƠ HỌC LÝ THUYẾT</h1>
+        <p class="hsub">Giáo trình đầy đủ với nội dung tương tác</p>
+        <p class="htgt">Dùng cho đào tạo học viên sĩ quan cấp phân đội trình độ đại học</p>
+      </div>
+      <div class="sg">
+        <div class="sc"><div class="sn">3</div><div class="sl">Chương</div></div>
+        <div class="sc"><div class="sn">21</div><div class="sl">Phần</div></div>
+        <div class="sc"><div class="sn">78</div><div class="sl">Tiểu mục</div></div>
+        <div class="sc"><div class="sn">150</div><div class="sl">Câu trắc nghiệm</div></div>
+      </div>
+      <div class="cg">
+        <a class="chip c1" href="#" onclick="loadPage('ch1');return false">Chương 1 – Tĩnh học</a>
+        <a class="chip c2" href="#" onclick="loadPage('ch2');return false">Chương 2 – Động học</a>
+        <a class="chip c3" href="#" onclick="loadPage('ch3');return false">Chương 3 – Động lực học</a>
+      </div>
+    </template>
+
+    <div class="content-area" id="content-area">
+      <!-- Home content rendered on load -->
+      <div class="hh">
+        <div class="hbadge">★ Giáo trình điện tử ★</div>
+        <h1>CƠ HỌC LÝ THUYẾT</h1>
+        <p class="hsub">Giáo trình đầy đủ với nội dung tương tác</p>
+        <p class="htgt">Dùng cho đào tạo học viên sĩ quan cấp phân đội trình độ đại học</p>
+      </div>
+      <div class="sg">
+        <div class="sc"><div class="sn">3</div><div class="sl">Chương</div></div>
+        <div class="sc"><div class="sn">21</div><div class="sl">Phần</div></div>
+        <div class="sc"><div class="sn">78</div><div class="sl">Tiểu mục</div></div>
+        <div class="sc"><div class="sn">150</div><div class="sl">Câu trắc nghiệm</div></div>
+      </div>
+      <div class="cg">
+        <a class="chip c1" href="#" onclick="loadPage('ch1');return false">Chương 1 – Tĩnh học</a>
+        <a class="chip c2" href="#" onclick="loadPage('ch2');return false">Chương 2 – Động học</a>
+        <a class="chip c3" href="#" onclick="loadPage('ch3');return false">Chương 3 – Động lực học</a>
+      </div>
+    </div>
+
+    <footer><b>Học viện Hải quân</b> — Khoa KTCS · Giáo trình điện tử Cơ Học Lý Thuyết © 2026</footer>
+  </div>
+
+  <!-- KaTeX: local first, CDN fallback -->
+  <script src="lib/katex/katex.min.js"></script>
+  <script>if(typeof katex==='undefined'){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';s.onload=function(){window.dispatchEvent(new Event('sim:katex-ready'))};document.head.appendChild(s)}</script>
+  <script src="lib/katex/auto-render.min.js"></script>
+  <script>if(typeof renderMathInElement==='undefined'){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';document.head.appendChild(s)}</script>
+  <script src="js/app.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/glossary.js"></script>
+  <script src="js/notes.js"></script>
+  <!-- New Simulation Architecture V2 -->
+  <script src="lib/matter.min.js"></script>
+  <script src="lib/chart.umd.js"></script>
+  <script src="js/simulations.js"></script>
+  <script src="js/sim-v2-foundation.js"></script>
+  <script src="js/sim-engine-v2.js"></script>
+  <script src="js/sim-ui-v2.js"></script>
+  <!-- Pilot Routes -->
+  <script src="js/routes/pilot-ch1-parallelogram.js"></script>
+  <script src="js/routes/pilot-ch2-particle-motion.js"></script>
+  <script src="js/routes/pilot-ch3-collision-solver.js"></script>
+</body>
+
+</html>

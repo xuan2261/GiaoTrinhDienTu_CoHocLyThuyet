@@ -1,0 +1,79 @@
+[
+  {
+    "hash": "0489ad7358372e7ad220de620a2c451d7daf4b1d6e76ed299cb1734c6cfb7f38",
+    "media": "image108.wmf",
+    "ole": "embeddings/oleObject96.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<!-- ERROR: undefined method `xpath' for nil -->"
+  },
+  {
+    "hash": "1a7be7706ac74713ce7ccd53ba5a9d886771f8f9316f113106da315e54d4e3fa",
+    "media": "image734.wmf",
+    "ole": "embeddings/oleObject668.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<!-- ERROR: undefined method `xpath' for nil -->"
+  },
+  {
+    "hash": "28eb42e25241c559dff3a52a23088f214e142f38a5bc02e2095d1aec5fc8c2c0",
+    "media": "image737.wmf",
+    "ole": "embeddings/oleObject670.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<!-- ERROR: undefined method `xpath' for nil -->"
+  },
+  {
+    "hash": "32ce250f350c21aeedd09bc59ac621fdef21cecd6c0b847a4f62f217b6c9af7d",
+    "media": "image651.wmf",
+    "ole": "embeddings/oleObject595.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<!-- ERROR: undefined method `xpath' for nil -->"
+  },
+  {
+    "hash": "4b3658552c489a3ef16a228bbd863344faf1297144846d43262edaf6212c0d46",
+    "media": "image346.wmf",
+    "ole": "embeddings/oleObject307.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<!-- ERROR: undefined method `xpath' for nil -->"
+  },
+  {
+    "hash": "6df997fbd6e1800356277d7b54d4037d28c209703789f859728d871d4c45cb0a",
+    "media": "image82.wmf",
+    "ole": "embeddings/oleObject75.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<!-- ERROR: undefined method `xpath' for nil -->"
+  },
+  {
+    "hash": "cd4057ea8b53426686a17cb702d0450d4d7209def84063351b9f007cb447f148",
+    "media": "image735.wmf",
+    "ole": "embeddings/oleObject669.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<!-- ERROR: undefined method `xpath' for nil -->"
+  },
+  {
+    "hash": "cec19ccb7aef59d30cbd3d2212729951e49709f9488e1be6fd91161d3d3a05eb",
+    "media": "image65.wmf",
+    "ole": "embeddings/oleObject56.bin",
+    "prog_id": "Equation.3",
+    "reason": "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <math xmlns=\"http://www.w3.org/1998/Math/MathML\"/>"
+  },
+  {
+    "hash": "dcfaa1621867e6c9fbaba1be5235fe57370706e19baea57188fb77a89d5a3be1",
+    "media": "image349.wmf",
+    "ole": "embeddings/oleObject309.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<!-- ERROR: undefined method `xpath' for nil -->"
+  },
+  {
+    "hash": "dd52f16eb9e1e125f1703cf2a46cca0f48c769d13573d1ceb3e3f145716b0c4c",
+    "media": "image105.wmf",
+    "ole": "embeddings/oleObject94.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<!-- ERROR: undefined method `xpath' for nil -->"
+  },
+  {
+    "hash": "e1b10ca0262224a071ffc9bd448b156c20e5012a37d1c22adb3f95d87c1c08d4",
+    "media": "image9.wmf",
+    "ole": "embeddings/oleObject9.bin",
+    "prog_id": "Equation.DSMT4",
+    "reason": "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <math xmlns=\"http://www.w3.org/1998/Math/MathML\"/>"
+  }
+]

@@ -1,0 +1,2630 @@
+[
+  {
+    "route": "ch1-1-3",
+    "animationChanged": false,
+    "title": "ch1-1-3 - Cấu tạo véc tơ lực",
+    "routeChip": "ch1-1-3",
+    "rendererId": "ch1-1-3-force-vector-anatomy-renderer",
+    "behaviorId": "ch1-1-3-force-vector-anatomy-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 8127,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| phân tích: 78N",
+      "Góc lực: 18deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-1-3 | |F|: 78.0N | Fx/Fy: 18.0 | chế độ=Chuẩn | điểm kéo=(145; 248) | góc α=18° | Phân tích véc tơ lực thành điểm đặt, phương chiều và thành phần.",
+    "feedback": "Phản hồiPhân tích véc tơ lực thành điểm đặt, phương chiều và thành phần.",
+    "formula": "Công thứcFx = F cos alpha; Fy = F sin alpha",
+    "textLength": 683,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-1-4",
+    "animationChanged": false,
+    "title": "ch1-1-4 - Cánh tay đòn mô men",
+    "routeChip": "ch1-1-4",
+    "rendererId": "ch1-1-4-moment-arm-renderer",
+    "behaviorId": "ch1-1-4-moment-arm-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 10910,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| mô men: 85N",
+      "Tay đòn: 18deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-1-4 | MO: -14.0 | d: 22.0 | chế độ=Chuẩn | điểm kéo=(163; 230) | góc α=22° | Quan sát mô men của lực theo cánh tay đòn và chiều quay.",
+    "feedback": "Phản hồiQuan sát mô men của lực theo cánh tay đòn và chiều quay.",
+    "formula": "Công thứcMO = r x F = F.d",
+    "textLength": 638,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-1-5",
+    "animationChanged": false,
+    "title": "ch1-1-5 - Thu gọn hệ lực phẳng",
+    "routeChip": "ch1-1-5",
+    "rendererId": "ch1-1-5-force-system-reducer-renderer",
+    "behaviorId": "ch1-1-5-force-system-reducer-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 19232,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|R| quy đổi: 50N",
+      "Tải quy đổi: 106N"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo đầu lực để |R| nằm trong vùng đọc được.",
+      "2. Đọc mô men quanh O từ vị trí hiện tại.",
+      "3. Kéo điểm đặt lực trên cảnh.",
+      "4. Kiểm tra alpha trên bảng thông số sau thao tác.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-1-5 | |R|: 50.0N | MO: 106.0 | chế độ=Chuẩn | điểm kéo=(181; 212) | góc α=26° | Thu gọn hệ lực phẳng về véc tơ chính và mô men tại O.",
+    "feedback": "Phản hồiThu gọn hệ lực phẳng về véc tơ chính và mô men tại O.",
+    "formula": "Công thứcR = ΣF; MO = Σ(r x F)",
+    "textLength": 646,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-1-6",
+    "animationChanged": false,
+    "title": "ch1-1-6 - Mô men ngẫu lực tự do",
+    "routeChip": "ch1-1-6",
+    "rendererId": "ch1-1-6-couple-free-vector-renderer",
+    "behaviorId": "ch1-1-6-couple-free-vector-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 35525,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 331,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| ngẫu lực: 99N",
+      "Khoảng cách a: 18deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-1-6 | M ngẫu lực: -60.4 | a: 18.0 | chế độ=Chuẩn | điểm kéo=(199; 248) | góc α=18° | Nhận biết ngẫu lực như mô men tự do không phụ thuộc điểm đặt.",
+    "feedback": "Phản hồiNhận biết ngẫu lực như mô men tự do không phụ thuộc điểm đặt.",
+    "formula": "Công thứcM = F.a",
+    "textLength": 661,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-1-8",
+    "animationChanged": false,
+    "title": "ch1-1-8 - Lực chủ động và phản lực",
+    "routeChip": "ch1-1-8",
+    "rendererId": "ch1-1-8-constraint-release-renderer",
+    "behaviorId": "ch1-1-8-constraint-release-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 18216,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| chủ động: 106N",
+      "Khóa bậc tự do: 18deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-1-8 | Phản lực: 106.0 | Bậc tự do: 22.0 | chế độ=Chuẩn | điểm kéo=(217; 230) | góc α=22° | Liên hệ bậc tự do bị khóa với hướng phản lực liên kết.",
+    "feedback": "Phản hồiLiên hệ bậc tự do bị khóa với hướng phản lực liên kết.",
+    "formula": "Công thứcBậc tự do khóa -> hướng phản lực",
+    "textLength": 666,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-2-1",
+    "animationChanged": false,
+    "title": "ch1-2-1 - Cân bằng vật chịu hai lực",
+    "routeChip": "ch1-2-1",
+    "rendererId": "ch1-2-1-two-force-body-renderer",
+    "behaviorId": "ch1-2-1-two-force-body-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 19970,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| cặp lực: 113N",
+      "Độ thẳng hàng: 18deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-2-1 | Cân bằng: 113.0 | Đường tác dụng: 26.0 | chế độ=Chuẩn | điểm kéo=(235; 212) | góc α=26° | Kiểm tra điều kiện cân bằng của vật chịu hai lực.",
+    "feedback": "Phản hồiKiểm tra điều kiện cân bằng của vật chịu hai lực.",
+    "formula": "Công thứcF1 + F2 = 0; cùng đường tác dụng",
+    "textLength": 667,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-2-3",
+    "animationChanged": false,
+    "title": "ch1-2-3 - Quy tắc hình bình hành lực",
+    "routeChip": "ch1-2-3",
+    "rendererId": "ch1-2-3-parallelogram-law-renderer",
+    "behaviorId": "ch1-2-3-parallelogram-law-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 9374,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 339,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 81
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F1|: 120N",
+      "Góc F2: 18deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-2-3 | |R|: 120.0N | Đường chéo: 18.0 | chế độ=Chuẩn | điểm kéo=(253; 248) | góc α=18° | Dựng hợp lực theo quy tắc hình bình hành.",
+    "feedback": "Phản hồiDựng hợp lực theo quy tắc hình bình hành.",
+    "formula": "Công thứcR = F1 + F2",
+    "textLength": 585,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-2-6",
+    "animationChanged": false,
+    "title": "ch1-2-6 - Dựng sơ đồ vật thể tự do",
+    "routeChip": "ch1-2-6",
+    "rendererId": "ch1-2-6-fbd-builder-renderer",
+    "behaviorId": "ch1-2-6-fbd-builder-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 21026,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 339,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 107
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| sơ đồ: 127N",
+      "Chọn phản lực: 146N"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển vật/lực để dựng sơ đồ vật thể tự do.",
+      "2. Đọc hướng phản lực sau khi đặt điểm điều khiển.",
+      "3. Kiểm tra độ lớn véc tơ đang đặt.",
+      "4. Đọc mô men để phát hiện thiếu hoặc dư phản lực.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-2-6 | Phương trình: 127.0 | MO: 146.0 | chế độ=Chuẩn | điểm kéo=(271; 230) | góc α=22° | Dựng sơ đồ vật thể tự do bằng cách thay liên kết bởi phản lực.",
+    "feedback": "Phản hồiDựng sơ đồ vật thể tự do bằng cách thay liên kết bởi phản lực.",
+    "formula": "Công thứcThay liên kết bằng phản lực",
+    "textLength": 717,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-3-1",
+    "animationChanged": false,
+    "title": "ch1-3-1 - Phản lực pháp tuyến tựa trơn",
+    "routeChip": "ch1-3-1",
+    "rendererId": "ch1-3-1-smooth-support-normal-renderer",
+    "behaviorId": "ch1-3-1-smooth-normal-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 13586,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|N|: 76N",
+      "Góc tiếp tuyến: 20deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-3-1 | N: 76.0 | alpha: 19.0 | chế độ=Chuẩn | điểm kéo=(145; 246) | góc α=19° | Xác định phản lực pháp tuyến của liên kết tựa trơn.",
+    "feedback": "Phản hồiXác định phản lực pháp tuyến của liên kết tựa trơn.",
+    "formula": "Công thứcN vuông góc tiếp tuyến",
+    "textLength": 630,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-3-2",
+    "animationChanged": false,
+    "title": "ch1-3-2 - Lực căng dây mềm",
+    "routeChip": "ch1-3-2",
+    "rendererId": "ch1-3-2-cable-tension-renderer",
+    "behaviorId": "ch1-3-2-cable-tension-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 9344,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|T|: 81N",
+      "Hướng dây: 20deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-3-2 | Lực căng: 81.0 | Dây: 23.0 | chế độ=Chuẩn | điểm kéo=(173; 226) | góc α=23° | Xác định lực căng dây theo phương dây mềm.",
+    "feedback": "Phản hồiXác định lực căng dây theo phương dây mềm.",
+    "formula": "Công thứcT dọc theo dây mềm",
+    "textLength": 587,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-3-3",
+    "animationChanged": false,
+    "title": "ch1-3-3 - Thành phần phản lực bản lề",
+    "routeChip": "ch1-3-3",
+    "rendererId": "ch1-3-3-hinge-reaction-components-renderer",
+    "behaviorId": "ch1-3-3-hinge-components-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 14908,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|R| bản lề: 86N",
+      "Chọn loại: 98N"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-3-3 | Rx/Ry: 86.0 | Loại liên kết: 98.0 | chế độ=Chuẩn | điểm kéo=(201; 206) | góc α=27° | So sánh các loại liên kết và phản lực tương ứng.",
+    "feedback": "Phản hồiSo sánh các loại liên kết và phản lực tương ứng.",
+    "formula": "Công thứcA: Ax, Ay",
+    "textLength": 647,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-3-4",
+    "animationChanged": false,
+    "title": "ch1-3-4 - Gối di động và gối cố định",
+    "routeChip": "ch1-3-4",
+    "rendererId": "ch1-3-4-roller-pin-builder-renderer",
+    "behaviorId": "ch1-3-4-roller-pin-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 20026,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|R| liên kết: 91N",
+      "Góc gối di động: 20deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-3-4 | Phản lực R: 91.0 | Chế độ: 31.0 | chế độ=Chuẩn | điểm kéo=(229; 186) | góc α=31° | Phân biệt gối di động và gối cố định qua thành phần phản lực.",
+    "feedback": "Phản hồiPhân biệt gối di động và gối cố định qua thành phần phản lực.",
+    "formula": "Công thứcGối di động: N; bản lề: Ax, Ay",
+    "textLength": 684,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-3-6",
+    "animationChanged": false,
+    "title": "ch1-3-6 - Phản lực tại ngàm",
+    "routeChip": "ch1-3-6",
+    "rendererId": "ch1-3-6-fixed-support-renderer",
+    "behaviorId": "ch1-3-6-fixed-support-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 22495,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|R| ngàm: 96N",
+      "Mô men ngàm: 116N"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-3-6 | MA: -70.9 | Rx/Ry: 116.0 | chế độ=Chuẩn | điểm kéo=(257; 246) | góc α=19° | Nhận diện lực và mô men phản lực của ngàm.",
+    "feedback": "Phản hồiNhận diện lực và mô men phản lực của ngàm.",
+    "formula": "Công thứcNgàm: Rx, Ry, MA",
+    "textLength": 598,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-3-7",
+    "animationChanged": false,
+    "title": "ch1-3-7 - Thanh hai lực theo trục",
+    "routeChip": "ch1-3-7",
+    "rendererId": "ch1-3-7-two-force-member-renderer",
+    "behaviorId": "ch1-3-7-two-force-member-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 9376,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|N| dọc trục: 101N",
+      "Trục thanh: 20deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-3-7 | N dọc trục: 101.0 | Đường trục: 23.0 | chế độ=Chuẩn | điểm kéo=(145; 226) | góc α=23° | Kiểm tra lực dọc trục trong thanh hai lực.",
+    "feedback": "Phản hồiKiểm tra lực dọc trục trong thanh hai lực.",
+    "formula": "Công thứcN dọc trục thanh",
+    "textLength": 611,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-4-1",
+    "animationChanged": false,
+    "title": "ch1-4-1 - Hợp lực không gian",
+    "routeChip": "ch1-4-1",
+    "rendererId": "ch1-4-1-spatial-resultant-renderer",
+    "behaviorId": "ch1-4-1-spatial-resultant-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 9892,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|R| 3D: 106N",
+      "Tỉ lệ Fz: 134N"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-4-1 | Rxyz: 106.0 | Hình chiếu: 134.0 | chế độ=Chuẩn | điểm kéo=(173; 206) | góc α=27° | Thu gọn hệ lực không gian trong biểu diễn 2.5D.",
+    "feedback": "Phản hồiThu gọn hệ lực không gian trong biểu diễn 2.5D.",
+    "formula": "Công thứcR = ΣFx i + ΣFy j + ΣFz k",
+    "textLength": 643,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-4-2",
+    "animationChanged": false,
+    "title": "ch1-4-2 - Hình chiếu mô men không gian",
+    "routeChip": "ch1-4-2",
+    "rendererId": "ch1-4-2-spatial-moment-projection-renderer",
+    "behaviorId": "ch1-4-2-spatial-moment-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 10045,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| theo trục: 111N",
+      "Góc trục: 20deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-4-2 | M_axis: 24.8 | MO: 31.0 | chế độ=Chuẩn | điểm kéo=(201; 186) | góc α=31° | Đọc véc tơ chính và mô men chính theo trục chiếu.",
+    "feedback": "Phản hồiĐọc véc tơ chính và mô men chính theo trục chiếu.",
+    "formula": "Công thứcMO = r x F; M_axis = MO.e",
+    "textLength": 651,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-4-4",
+    "animationChanged": false,
+    "title": "ch1-4-4 - Bảng cân bằng không gian",
+    "routeChip": "ch1-4-4",
+    "rendererId": "ch1-4-4-spatial-equilibrium-board-renderer",
+    "behaviorId": "ch1-4-4-spatial-equilibrium-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 11031,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 7,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|R| cân bằng: 116N",
+      "Tải phương trình: 152N"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-4-4 | ΣF: 116.0 | ΣM: 152.0 | chế độ=Chuẩn | điểm kéo=(229; 246) | góc α=19° | Tính phản lực dầm từ cân bằng lực và mô men.",
+    "feedback": "Phản hồiTính phản lực dầm từ cân bằng lực và mô men.",
+    "formula": "Công thứcΣFx=ΣFy=ΣFz=ΣMx=ΣMy=ΣMz=0",
+    "textLength": 749,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-5-1",
+    "animationChanged": false,
+    "title": "ch1-5-1 - Phân tích lực tiếp xúc",
+    "routeChip": "ch1-5-1",
+    "rendererId": "ch1-5-1-contact-force-decomposition-renderer",
+    "behaviorId": "ch1-5-1-contact-force-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 15617,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|R| tiếp xúc: 82N",
+      "Hệ số ma sát: 0.35"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-5-1 | N/Fms: 82.0 | mu: 0.35 | chế độ=Chuẩn | điểm kéo=(150; 238) | góc α=20° | Tách phản lực tiếp tuyến và pháp tuyến trong bài toán ma sát.",
+    "feedback": "Phản hồiTách phản lực tiếp tuyến và pháp tuyến trong bài toán ma sát.",
+    "formula": "Công thứcR = N + Fms",
+    "textLength": 648,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-5-2",
+    "animationChanged": false,
+    "title": "ch1-5-2 - Ma sát tĩnh - trượt - lăn",
+    "routeChip": "ch1-5-2",
+    "rendererId": "ch1-5-2-friction-mode-tabs-renderer",
+    "behaviorId": "ch1-5-2-friction-mode-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 17834,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|Fms|: 88N",
+      "Chế độ ma sát: 0.38"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-5-2 | Fms: 88.0 | Chế độ: 0.38 | chế độ=Chuẩn | điểm kéo=(182; 220) | góc α=24° | Phân biệt ma sát tĩnh, trượt và lăn theo mô hình lực cản.",
+    "feedback": "Phản hồiPhân biệt ma sát tĩnh, trượt và lăn theo mô hình lực cản.",
+    "formula": "Công thứcFms <= mu N; cản lăn",
+    "textLength": 637,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-5-3",
+    "animationChanged": false,
+    "title": "ch1-5-3 - Nón ma sát trên mặt nghiêng",
+    "routeChip": "ch1-5-3",
+    "rendererId": "ch1-5-3-friction-cone-incline-renderer",
+    "behaviorId": "ch1-5-3-friction-cone-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 12476,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 325,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| mặt nghiêng: 94N",
+      "Ngưỡng bám mu: 0.7"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo vật để alpha khoảng 30°.",
+      "2. Điều chỉnh để vật còn đứng yên.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-5-3 | alpha: 17.0 | Trạng thái trượt: 0.70 | chế độ=Chuẩn | điểm kéo=(214; 255) | góc α=17° | So sánh góc nghiêng với góc ma sát để xác định sắp trượt.",
+    "feedback": "Phản hồiSo sánh góc nghiêng với góc ma sát để xác định sắp trượt.",
+    "formula": "Công thứctan alpha <= mu",
+    "textLength": 591,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-5-4",
+    "animationChanged": false,
+    "title": "ch1-5-4 - Nêm tự hãm",
+    "routeChip": "ch1-5-4",
+    "rendererId": "ch1-5-4-self-locking-wedge-renderer",
+    "behaviorId": "ch1-5-4-self-locking-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 21009,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| nêm: 100N",
+      "Biên phi: 0.43999999999999995"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-5-4 | phi: 100.0 | alpha: 0.44 | chế độ=Chuẩn | điểm kéo=(246; 238) | góc α=20° | Kiểm tra điều kiện tự hãm alpha nhỏ hơn hoặc bằng phi.",
+    "feedback": "Phản hồiKiểm tra điều kiện tự hãm alpha nhỏ hơn hoặc bằng phi.",
+    "formula": "Công thứcalpha <= phi = arctan(mu)",
+    "textLength": 638,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-6-2",
+    "animationChanged": false,
+    "title": "ch1-6-2 - Trọng tâm diện tích ghép",
+    "routeChip": "ch1-6-2",
+    "rendererId": "ch1-6-2-centroid-composite-renderer",
+    "behaviorId": "ch1-6-2-centroid-composite-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 30378,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Con trỏ diện tích: 82%",
+      "Tỉ lệ diện tích: 85N"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-6-2 | xC/yC: 82.0 | Diện tích: 85.00 | chế độ=Chuẩn | điểm kéo=(150; 238) | góc α=20° | Xác định trọng tâm từ phân bố khối lượng.",
+    "feedback": "Phản hồiXác định trọng tâm từ phân bố khối lượng.",
+    "formula": "Công thứcxC = ΣSi xi / ΣSi",
+    "textLength": 609,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-6-3",
+    "animationChanged": false,
+    "title": "ch1-6-3 - Trọng tâm khi có lỗ khoét",
+    "routeChip": "ch1-6-3",
+    "rendererId": "ch1-6-3-centroid-hole-shift-renderer",
+    "behaviorId": "ch1-6-3-centroid-hole-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 39391,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Con trỏ lỗ khoét: 88%",
+      "Kích thước lỗ: 93N"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-6-3 | Dịch xC: 88.0 | Lỗ khoét: 93.00 | chế độ=Chuẩn | điểm kéo=(182; 220) | góc α=24° | Tìm trọng tâm hình ghép khi có lỗ khoét.",
+    "feedback": "Phản hồiTìm trọng tâm hình ghép khi có lỗ khoét.",
+    "formula": "Công thứcxC = (ΣS+x - Shole xh)/(ΣS - Shole)",
+    "textLength": 630,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-7-1",
+    "animationChanged": false,
+    "title": "ch1-7-1 - Chuỗi giải tĩnh học",
+    "routeChip": "ch1-7-1",
+    "rendererId": "ch1-7-1-guided-equilibrium-solver-renderer",
+    "behaviorId": "ch1-7-1-guided-solver-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 17051,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 15,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|F| từng bước: 82N",
+      "Bước: 1"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-7-1 | Bước: 82.0 | Sai lệch: 1.00 | chế độ=0 | điểm kéo=(150; 238) | góc α=20° | Giải bài tĩnh học theo chuỗi bước cân bằng.",
+    "feedback": "Phản hồiGiải bài tĩnh học theo chuỗi bước cân bằng.",
+    "formula": "Công thứcSơ đồ -> ΣF=0 -> ΣM=0 -> nghiệm",
+    "textLength": 900,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch1-7-2",
+    "animationChanged": false,
+    "title": "ch1-7-2 - Kiểm tra số liệu tĩnh học",
+    "routeChip": "ch1-7-2",
+    "rendererId": "ch1-7-2-statics-numeric-checker-renderer",
+    "behaviorId": "ch1-7-2-numeric-checker-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 19462,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 6,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "|R| số liệu: 88N",
+      "Bước: 1"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch1-7-2 | RA/RB: 88.0 | Sai số: 1.00 | chế độ=0 | điểm kéo=(182; 220) | góc α=24° | Kiểm tra số liệu tĩnh học bằng phản lực và mô men.",
+    "feedback": "Phản hồiKiểm tra số liệu tĩnh học bằng phản lực và mô men.",
+    "formula": "Công thứcKiểm RA, RB, MO theo cân bằng",
+    "textLength": 841,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-1-1",
+    "animationChanged": true,
+    "title": "ch2-1-1 - Quỹ đạo chất điểm",
+    "routeChip": "ch2-1-1",
+    "rendererId": "ch2-1-1-trajectory-renderer",
+    "behaviorId": "ch2-1-1-trajectory-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 11737,
+      "minX": 0,
+      "minY": 10,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 43,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Góc quay: 0°"
+    ],
+    "presetButtonCount": 3,
+    "presetButtons": [
+      "Tròn",
+      "Elip",
+      "Parabol"
+    ],
+    "allButtons": [
+      "Tròn",
+      "Elip",
+      "Parabol",
+      "1. Chọn quỹ đạo Elip.",
+      "2. Kéo điểm M tới vùng t khoảng 1.5 rad.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-1-1 | |v|: 224.61 | speed: 224.61 | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Liên hệ quỹ đạo chất điểm với véc tơ vận tốc và gia tốc.",
+    "feedback": "Phản hồiLiên hệ quỹ đạo chất điểm với véc tơ vận tốc và gia tốc.",
+    "formula": "Công thứcv = dr/dt; a = dv/dt",
+    "textLength": 594,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-1-2",
+    "animationChanged": true,
+    "title": "ch2-1-2 - Đồ thị x(t) v(t) a(t)",
+    "routeChip": "ch2-1-2",
+    "rendererId": "ch2-1-2-motion-graphs-renderer",
+    "behaviorId": "ch2-1-2-graph-cursor-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 12604,
+      "minX": 17,
+      "minY": 10,
+      "maxX": 542,
+      "maxY": 339,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 18
+    },
+    "overlayCount": 3,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Con trỏ t: 0"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-1-2 | x(t): chưa có | v(t): chưa có | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Đọc chuyển động Đề các từ đồ thị tọa độ theo thời gian.",
+    "feedback": "Phản hồiĐọc chuyển động Đề các từ đồ thị tọa độ theo thời gian.",
+    "formula": "Công thứcv = dx/dt; a = dv/dt",
+    "textLength": 673,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-1-3",
+    "animationChanged": true,
+    "title": "ch2-1-3 - Tọa độ tự nhiên",
+    "routeChip": "ch2-1-3",
+    "rendererId": "ch2-1-3-natural-coords-renderer",
+    "behaviorId": "ch2-1-3-natural-coords-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 9248,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Bán kính cong: 30"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-1-3 | a_t: 0.00 | a_n: 216.00 | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Nhận biết tiếp tuyến, pháp tuyến và độ cong trong tọa độ tự nhiên.",
+    "feedback": "Phản hồiNhận biết tiếp tuyến, pháp tuyến và độ cong trong tọa độ tự nhiên.",
+    "formula": "Công thứca = at*tau + an*n",
+    "textLength": 707,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-1-4",
+    "animationChanged": true,
+    "title": "ch2-1-4 - Các dạng chuyển động",
+    "routeChip": "ch2-1-4",
+    "rendererId": "ch2-1-4-motion-presets-renderer",
+    "behaviorId": "ch2-1-4-motion-presets-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 11920,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 1,
+    "sliderLabels": [
+      "omega: 1.5rad/s"
+    ],
+    "presetButtonCount": 3,
+    "presetButtons": [
+      "Thẳng",
+      "Tròn",
+      "Parabol"
+    ],
+    "allButtons": [
+      "Thẳng",
+      "Tròn",
+      "Parabol",
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-1-4 | x: chưa có | v: chưa có | chế độ=Thẳng | điểm kéo=(190; 255) | góc α=17° | So sánh các mẫu thiết lập chuyển động qua dòng thời gian và đồ thị.",
+    "feedback": "Phản hồiSo sánh các mẫu thiết lập chuyển động qua dòng thời gian và đồ thị.",
+    "formula": "Công thứcđều, biến đổi, bài tập",
+    "textLength": 673,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-2-2",
+    "animationChanged": true,
+    "title": "ch2-2-2 - Quay quanh trục cố định",
+    "routeChip": "ch2-2-2",
+    "rendererId": "ch2-2-2-fixed-axis-rotation-renderer",
+    "behaviorId": "ch2-2-2-fixed-axis-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 10052,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 3,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Omega ban đầu: 0rad/s²"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-2-2 | phi: 1.40 | omega: 1.50 | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Khảo sát chuyển động quay quanh trục cố định.",
+    "feedback": "Phản hồiKhảo sát chuyển động quay quanh trục cố định.",
+    "formula": "Công thứcphi = omega0*t + ½alpha*t²",
+    "textLength": 689,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-3-2",
+    "animationChanged": true,
+    "title": "ch2-3-2 - Truyền động bánh răng",
+    "routeChip": "ch2-3-2",
+    "rendererId": "ch2-3-2-belt-gear-transmission-renderer",
+    "behaviorId": "ch2-3-2-belt-gear-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 14206,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 3,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Omega vào: 50px"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-3-2 | omega2: 0.83 | v: chưa có | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Kiểm tra quan hệ truyền động không trượt giữa bánh và dây.",
+    "feedback": "Phản hồiKiểm tra quan hệ truyền động không trượt giữa bánh và dây.",
+    "formula": "Công thứcomega1*r1 = omega2*r2",
+    "textLength": 759,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-4-1",
+    "animationChanged": true,
+    "title": "ch2-4-1 - Hợp chuyển động",
+    "routeChip": "ch2-4-1",
+    "rendererId": "ch2-4-1-velocity-composition-renderer",
+    "behaviorId": "ch2-4-1-velocity-composition-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 8525,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Vận tốc Euler: [object Object]"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-4-1 | va: đã đặt | va=ve+vr: chưa có | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Phân tích chuyển động hợp thành trong hệ quy chiếu chuyển động.",
+    "feedback": "Phản hồiPhân tích chuyển động hợp thành trong hệ quy chiếu chuyển động.",
+    "formula": "Công thứcv_a = v_e + v_r",
+    "textLength": 691,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-4-2",
+    "animationChanged": true,
+    "title": "ch2-4-2 - Ba loại vận tốc",
+    "routeChip": "ch2-4-2",
+    "rendererId": "ch2-4-2-absolute-relative-transport-renderer",
+    "behaviorId": "ch2-4-2-absolute-relative-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 11775,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Chế độ: tuyệt đối"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-4-2 | label: chưa có | value: chưa có | chế độ=tuyệt đối | điểm kéo=(190; 255) | góc α=17° | Phân biệt chuyển động tuyệt đối, tương đối và kéo theo.",
+    "feedback": "Phản hồiPhân biệt chuyển động tuyệt đối, tương đối và kéo theo.",
+    "formula": "Công thứcv_a, v_r, v_e",
+    "textLength": 676,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-4-3",
+    "animationChanged": true,
+    "title": "ch2-4-3 - Tam giác vận tốc",
+    "routeChip": "ch2-4-3",
+    "rendererId": "ch2-4-3-velocity-triangle-renderer",
+    "behaviorId": "ch2-4-3-velocity-triangle-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 6394,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 3,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Góc pha: 0°"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-4-3 | va: đã đặt | phi: 1.60 | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Dựng tam giác vận tốc cho bài toán hợp chuyển động.",
+    "feedback": "Phản hồiDựng tam giác vận tốc cho bài toán hợp chuyển động.",
+    "formula": "Công thứcva = ve + vr",
+    "textLength": 686,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-4-4",
+    "animationChanged": true,
+    "title": "ch2-4-4 - Gia tốc Coriolis",
+    "routeChip": "ch2-4-4",
+    "rendererId": "ch2-4-4-coriolis-acceleration-renderer",
+    "behaviorId": "ch2-4-4-coriolis-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 8825,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 339,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 12
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Omega đĩa: 30m/s"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-4-4 | a_c: chưa có | a_e: chưa có | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Nhận diện gia tốc Coriolis trong chuyển động tương đối.",
+    "feedback": "Phản hồiNhận diện gia tốc Coriolis trong chuyển động tương đối.",
+    "formula": "Công thứca_c = 2*omega x v_r",
+    "textLength": 687,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-5-1",
+    "animationChanged": true,
+    "title": "ch2-5-1 - Tịnh tiến + quay phẳng",
+    "routeChip": "ch2-5-1",
+    "rendererId": "ch2-5-1-plane-translation-rotation-renderer",
+    "behaviorId": "ch2-5-1-plane-motion-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 20750,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Omega thanh: 0°"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-5-1 | v_A: chưa có | v_B: chưa có | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Mô tả chuyển động phẳng của vật rắn qua tịnh tiến và quay.",
+    "feedback": "Phản hồiMô tả chuyển động phẳng của vật rắn qua tịnh tiến và quay.",
+    "formula": "Công thứcv_B = v_A + omega x AB",
+    "textLength": 713,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-5-2",
+    "animationChanged": true,
+    "title": "ch2-5-2 - Tâm vận tốc tức thời",
+    "routeChip": "ch2-5-2",
+    "rendererId": "ch2-5-2-instant-center-renderer",
+    "behaviorId": "ch2-5-2-instant-center-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 8506,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 3,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Omega điều khiển: 0°"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo P vào vùng mục tiêu bên trái thanh.",
+      "2. Giữ omega gần 1.2 rad/s để đọc hướng vận tốc.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-5-2 | IC_x: 280.00 | IC_y: 184.00 | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Dùng tâm vận tốc tức thời để suy ra hướng vận tốc các điểm.",
+    "feedback": "Phản hồiDùng tâm vận tốc tức thời để suy ra hướng vận tốc các điểm.",
+    "formula": "Công thứcv_P = omega x r_P/IC",
+    "textLength": 671,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-5-3",
+    "animationChanged": true,
+    "title": "ch2-5-3 - Phân bố vận tốc",
+    "routeChip": "ch2-5-3",
+    "rendererId": "ch2-5-3-velocity-distribution-renderer",
+    "behaviorId": "ch2-5-3-velocity-distribution-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 8343,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 339,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 24
+    },
+    "overlayCount": 3,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Omega thanh: 220px"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-5-3 | v_A: chưa có | v_B: chưa có | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Đọc phân bố vận tốc của cơ cấu tay quay con trượt.",
+    "feedback": "Phản hồiĐọc phân bố vận tốc của cơ cấu tay quay con trượt.",
+    "formula": "Công thứcv_B = v_A + omega x AB",
+    "textLength": 689,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-7-1",
+    "animationChanged": true,
+    "title": "ch2-7-1 - Giải bài động học",
+    "routeChip": "ch2-7-1",
+    "rendererId": "ch2-7-1-kinematics-guided-checker-renderer",
+    "behaviorId": "ch2-7-1-kinematics-solver-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 32017,
+      "minX": 17,
+      "minY": 0,
+      "maxX": 542,
+      "maxY": 339,
+      "edgeLeft": 0,
+      "edgeTop": 10,
+      "edgeRight": 0,
+      "edgeBottom": 18
+    },
+    "overlayCount": 8,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Bước: 0"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-7-1 | result: 1.00 | verify: chưa có | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Giải bài động học theo checkpoint đồ thị và véc tơ.",
+    "feedback": "Phản hồiGiải bài động học theo checkpoint đồ thị và véc tơ.",
+    "formula": "Công thứcv = dx/dt; a = dv/dt",
+    "textLength": 843,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch2-7-2",
+    "animationChanged": true,
+    "title": "ch2-7-2 - Kiểm tra số liệu x(t)",
+    "routeChip": "ch2-7-2",
+    "rendererId": "ch2-7-2-kinematics-numeric-verifier-renderer",
+    "behaviorId": "ch2-7-2-numeric-verifier-behavior",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 22775,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 5,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "omega: 1.5rad/s",
+      "Điều kiện đầu: 5m"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch2-7-2 | error: chưa có | status: OK | chế độ=Chuẩn | điểm kéo=(190; 255) | góc α=17° | Kiểm tra số liệu động học từ x(t), v(t), a(t).",
+    "feedback": "Phản hồiKiểm tra số liệu động học từ x(t), v(t), a(t).",
+    "formula": "Công thứcdv/dt = a, dx/dt = v",
+    "textLength": 674,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-1-2",
+    "animationChanged": true,
+    "title": "ch3-1-2 - Lực tổng → gia tốc",
+    "routeChip": "ch3-1-2",
+    "rendererId": "ch3-1-2-force-acceleration-renderer",
+    "behaviorId": "ch3-behavior-ch3-1-2",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 13114,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "m: 5kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-1-2 | a: 0.00m/s² | v: 9.11m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Liên hệ lực tổng với gia tốc của chất điểm.",
+    "feedback": "Phản hồiLiên hệ lực tổng với gia tốc của chất điểm.",
+    "formula": "Công thứcF = ma",
+    "textLength": 580,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-1-3",
+    "animationChanged": true,
+    "title": "ch3-1-3 - Hệ quy chiếu quán tính",
+    "routeChip": "ch3-1-3",
+    "rendererId": "ch3-1-3-inertial-frames-renderer",
+    "behaviorId": "ch3-behavior-ch3-1-3",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 15083,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "a: 2m/s²"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-1-3 | a: 0.00m/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | So sánh hệ quy chiếu quán tính và phi quán tính.",
+    "feedback": "Phản hồiSo sánh hệ quy chiếu quán tính và phi quán tính.",
+    "formula": "Công thứcF* = -ma",
+    "textLength": 626,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-2-1",
+    "animationChanged": true,
+    "title": "ch3-2-1 - Định luật quán tính",
+    "routeChip": "ch3-2-1",
+    "rendererId": "ch3-2-1-inertia-law-renderer",
+    "behaviorId": "ch3-behavior-ch3-2-1",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 13283,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "Góc: 0deg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-2-1 | a: 0.00m/s² | v: 9.03m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Kiểm tra định luật quán tính khi tổng lực bằng không.",
+    "feedback": "Phản hồiKiểm tra định luật quán tính khi tổng lực bằng không.",
+    "formula": "Công thứcF=0 → v=const",
+    "textLength": 607,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-2-2",
+    "animationChanged": true,
+    "title": "ch3-2-2 - Định luật Newton II",
+    "routeChip": "ch3-2-2",
+    "rendererId": "ch3-2-2-newton-second-renderer",
+    "behaviorId": "ch3-behavior-ch3-2-2",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 16449,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "m: 5kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-2-2 | a: 0.00m/s² | v: 9.17m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Khảo sát định luật Newton II bằng lực, khối lượng và gia tốc.",
+    "feedback": "Phản hồiKhảo sát định luật Newton II bằng lực, khối lượng và gia tốc.",
+    "formula": "Công thứcF = ma",
+    "textLength": 639,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-2-3",
+    "animationChanged": true,
+    "title": "ch3-2-3 - Định luật Newton III",
+    "routeChip": "ch3-2-3",
+    "rendererId": "ch3-2-3-newton-third-renderer",
+    "behaviorId": "ch3-behavior-ch3-2-3",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 17676,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "m: 5kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-2-3 | a: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Nhận diện cặp lực tác dụng và phản tác dụng.",
+    "feedback": "Phản hồiNhận diện cặp lực tác dụng và phản tác dụng.",
+    "formula": "Công thứcF_AB = -F_BA",
+    "textLength": 617,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-2-5",
+    "animationChanged": true,
+    "title": "ch3-2-5 - Sơ đồ FBD động lực",
+    "routeChip": "ch3-2-5",
+    "rendererId": "ch3-2-5-dynamic-fbd-renderer",
+    "behaviorId": "ch3-behavior-ch3-2-5",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 15898,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "m: 5kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-2-5 | a: 0.00m/s² | v: 9.28m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Dựng sơ đồ vật thể tự do động lực học với lực quán tính hoặc ma.",
+    "feedback": "Phản hồiDựng sơ đồ vật thể tự do động lực học với lực quán tính hoặc ma.",
+    "formula": "Công thứcF + F* = 0",
+    "textLength": 654,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-3-1",
+    "animationChanged": true,
+    "title": "ch3-3-1 - Tích phân phương trình vi phân",
+    "routeChip": "ch3-3-1",
+    "rendererId": "ch3-3-1-ode-solver-renderer",
+    "behaviorId": "ch3-behavior-ch3-3-1",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 13022,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 3,
+    "sliderCount": 3,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "k: 20N/m",
+      "m: 5kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo con trỏ đồ thị tới t khoảng 4.2s.",
+      "2. Đặt k = 0 để so sánh gia tốc không đổi.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-3-1 | a: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Tích phân số phương trình vi phân chuyển động chất điểm.",
+    "feedback": "Phản hồiTích phân số phương trình vi phân chuyển động chất điểm.",
+    "formula": "Công thứcx″ + k/m·x = 0",
+    "textLength": 588,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-3-2",
+    "animationChanged": true,
+    "title": "ch3-3-2 - Cơ hệ 2 khối nối lò xo",
+    "routeChip": "ch3-3-2",
+    "rendererId": "ch3-3-2-coupled-springs-renderer",
+    "behaviorId": "ch3-behavior-ch3-3-2",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 15806,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 3,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "k: 20N/m",
+      "m: 5kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-3-2 | a: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Khảo sát cơ hệ hai khối nối lò xo bằng phương trình vi phân.",
+    "feedback": "Phản hồiKhảo sát cơ hệ hai khối nối lò xo bằng phương trình vi phân.",
+    "formula": "Công thứcx1″ = k(x2-x1)/m1",
+    "textLength": 750,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-4-1",
+    "animationChanged": true,
+    "title": "ch3-4-1 - Cân bằng động D’Alembert",
+    "routeChip": "ch3-4-1",
+    "rendererId": "ch3-4-1-dalembert-equilibrium-renderer",
+    "behaviorId": "ch3-behavior-ch3-4-1",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 12763,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 4,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "m: 5kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-4-1 | a: 0.00m/s² | v: 9.40m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Áp dụng nguyên lý D Alembert trong cân bằng động.",
+    "feedback": "Phản hồiÁp dụng nguyên lý D Alembert trong cân bằng động.",
+    "formula": "Công thứcF + F* = 0",
+    "textLength": 671,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-4-2",
+    "animationChanged": true,
+    "title": "ch3-4-2 - Ngược từ chuyển động suy lực",
+    "routeChip": "ch3-4-2",
+    "rendererId": "ch3-4-2-inverse-dynamics-renderer",
+    "behaviorId": "ch3-behavior-ch3-4-2",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 10172,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 4,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "m: 5kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-4-2 | a: 0.00m/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Từ chuyển động cho trước suy ra lực cần thiết.",
+    "feedback": "Phản hồiTừ chuyển động cho trước suy ra lực cần thiết.",
+    "formula": "Công thứca → F",
+    "textLength": 645,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-5-1",
+    "animationChanged": true,
+    "title": "ch3-5-1 - Định lý khối tâm",
+    "routeChip": "ch3-5-1",
+    "rendererId": "ch3-5-1-center-of-mass-renderer",
+    "behaviorId": "ch3-behavior-ch3-5-1",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 11046,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 2,
+    "sliderCount": 3,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "m1: 1kg",
+      "m2: 1kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-5-1 | a: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Quan sát định lý chuyển động khối tâm của hệ.",
+    "feedback": "Phản hồiQuan sát định lý chuyển động khối tâm của hệ.",
+    "formula": "Công thứcm·a_CM = ΣF_ext",
+    "textLength": 636,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-5-2",
+    "animationChanged": true,
+    "title": "ch3-5-2 - Xung lượng - động lượng",
+    "routeChip": "ch3-5-2",
+    "rendererId": "ch3-5-2-impulse-momentum-renderer",
+    "behaviorId": "ch3-behavior-ch3-5-2",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 21007,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 1,
+    "sliderCount": 3,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "J: 20N·s",
+      "m: 5kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-5-2 | a: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Kiểm tra xung lượng và động lượng trước sau tác dụng lực.",
+    "feedback": "Phản hồiKiểm tra xung lượng và động lượng trước sau tác dụng lực.",
+    "formula": "Công thứcJ = Δp",
+    "textLength": 617,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-5-3",
+    "animationChanged": true,
+    "title": "ch3-5-3 - Mô men động lượng",
+    "routeChip": "ch3-5-3",
+    "rendererId": "ch3-5-3-angular-momentum-renderer",
+    "behaviorId": "ch3-behavior-ch3-5-3",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 14727,
+      "minX": 0,
+      "minY": 0,
+      "maxX": 542,
+      "maxY": 339,
+      "edgeLeft": 321,
+      "edgeTop": 148,
+      "edgeRight": 0,
+      "edgeBottom": 350
+    },
+    "overlayCount": 5,
+    "sliderCount": 3,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "I: 1kg·m²",
+      "ω: 2rad/s"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-5-3 | L: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Khảo sát mô men động lượng theo bán kính và vận tốc.",
+    "feedback": "Phản hồiKhảo sát mô men động lượng theo bán kính và vận tốc.",
+    "formula": "Công thứcL = Iω",
+    "textLength": 713,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-5-4",
+    "animationChanged": true,
+    "title": "ch3-5-4 - Định lý động năng",
+    "routeChip": "ch3-5-4",
+    "rendererId": "ch3-5-4-work-energy-renderer",
+    "behaviorId": "ch3-behavior-ch3-5-4",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 8230,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 5,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "v0: 3m/s"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-5-4 | a: chưa cóm/s² | v: -2.91m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Liên hệ công và động năng trong chuyển động.",
+    "feedback": "Phản hồiLiên hệ công và động năng trong chuyển động.",
+    "formula": "Công thứcA = ΔT",
+    "textLength": 668,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-6-2",
+    "animationChanged": true,
+    "title": "ch3-6-2 - Va chạm 2D",
+    "routeChip": "ch3-6-2",
+    "rendererId": "ch3-6-2-collision-2d-renderer",
+    "behaviorId": "ch3-behavior-ch3-6-2",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 10441,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 559,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 64,
+      "edgeBottom": 0
+    },
+    "overlayCount": 4,
+    "sliderCount": 4,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "e: 1",
+      "m1: 1kg",
+      "m2: 1kg"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo bi 1 tới vị trí bắn chéo.",
+      "2. Giữ e = 1 cho va chạm đàn hồi.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-6-2 | a: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Thiết lập va chạm 2D và đọc hệ số phục hồi.",
+    "feedback": "Phản hồiThiết lập va chạm 2D và đọc hệ số phục hồi.",
+    "formula": "Công thứcp_1+p_2=const",
+    "textLength": 517,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-6-3",
+    "animationChanged": true,
+    "title": "ch3-6-3 - Giải bài va chạm",
+    "routeChip": "ch3-6-3",
+    "rendererId": "ch3-6-3-collision-solver-renderer",
+    "behaviorId": "ch3-behavior-ch3-6-3",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 16158,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 4,
+    "sliderCount": 4,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "v1: 5m/s",
+      "v2: -3m/s",
+      "e: 1"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-6-3 | a: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Giải bài va chạm bằng bảo toàn động lượng và hệ số phục hồi.",
+    "feedback": "Phản hồiGiải bài va chạm bằng bảo toàn động lượng và hệ số phục hồi.",
+    "formula": "Công thứcbảo toàn p, e",
+    "textLength": 721,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-7-1",
+    "animationChanged": true,
+    "title": "ch3-7-1 - Chọn định lý phù hợp",
+    "routeChip": "ch3-7-1",
+    "rendererId": "ch3-7-1-theorem-selector-renderer",
+    "behaviorId": "ch3-behavior-ch3-7-1",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 12329,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 9,
+    "sliderCount": 2,
+    "sliderLabels": [
+      "Lực F: 50N",
+      "Bài toán: 0"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-7-1 | a: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Chọn định lý động lực học phù hợp với điều kiện bài toán.",
+    "feedback": "Phản hồiChọn định lý động lực học phù hợp với điều kiện bài toán.",
+    "formula": "Công thứcI/M, W/E, L",
+    "textLength": 743,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  },
+  {
+    "route": "ch3-7-2",
+    "animationChanged": true,
+    "title": "ch3-7-2 - Kiểm tra số liệu động lực",
+    "routeChip": "ch3-7-2",
+    "rendererId": "ch3-7-2-numeric-checker-renderer",
+    "behaviorId": "ch3-behavior-ch3-7-2",
+    "canvas": {
+      "width": 560,
+      "height": 340,
+      "cssWidth": 560,
+      "cssHeight": 340
+    },
+    "ink": {
+      "ink": 11555,
+      "minX": 17,
+      "minY": 17,
+      "maxX": 542,
+      "maxY": 322,
+      "edgeLeft": 0,
+      "edgeTop": 0,
+      "edgeRight": 0,
+      "edgeBottom": 0
+    },
+    "overlayCount": 9,
+    "sliderCount": 1,
+    "sliderLabels": [
+      "Lực F: 50N"
+    ],
+    "presetButtonCount": 0,
+    "presetButtons": [],
+    "allButtons": [
+      "1. Kéo điểm điều khiển của cảnh tới vùng mục tiêu rồi đọc trạng thái.",
+      "2. Đọc alpha sau khi thao tác trực tiếp.",
+      "3. Kiểm tra độ lớn véc tơ trên bảng thông số.",
+      "Đặt lại điểm kiểm tra"
+    ],
+    "info": "Mô phỏng ch3-7-2 | a: chưa cóm/s² | v: 0.00m/s | chế độ=Chuẩn | điểm kéo=(190; 255) | Kiểm tra số liệu động lực học bằng các định lý cơ bản.",
+    "feedback": "Phản hồiKiểm tra số liệu động lực học bằng các định lý cơ bản.",
+    "formula": "Công thứcverify theorems",
+    "textLength": 716,
+    "hasUndefined": false,
+    "hasEnglishLeak": false
+  }
+]

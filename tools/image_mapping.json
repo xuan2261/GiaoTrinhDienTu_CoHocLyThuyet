@@ -1,0 +1,4180 @@
+{
+  "saved": [
+    {
+      "chapter": 1,
+      "media": "image1.wmf",
+      "output": "images/ch1/hinh-001.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image2.png",
+      "output": "images/ch1/hinh-002.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image3.wmf",
+      "output": "images/ch1/hinh-003.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image4.wmf",
+      "output": "images/ch1/hinh-004.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image5.wmf",
+      "output": "images/ch1/hinh-005.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image6.wmf",
+      "output": "images/ch1/hinh-006.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image7.wmf",
+      "output": "images/ch1/hinh-007.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image8.wmf",
+      "output": "images/ch1/hinh-008.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image9.wmf",
+      "output": "images/ch1/hinh-009.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image10.wmf",
+      "output": "images/ch1/hinh-010.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image11.wmf",
+      "output": "images/ch1/hinh-011.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image12.wmf",
+      "output": "images/ch1/hinh-012.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image13.png",
+      "output": "images/ch1/hinh-013.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image14.wmf",
+      "output": "images/ch1/hinh-014.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image15.wmf",
+      "output": "images/ch1/hinh-015.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image16.wmf",
+      "output": "images/ch1/hinh-016.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image17.png",
+      "output": "images/ch1/hinh-017.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image18.wmf",
+      "output": "images/ch1/hinh-018.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image19.png",
+      "output": "images/ch1/hinh-019.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image20.png",
+      "output": "images/ch1/hinh-020.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image21.wmf",
+      "output": "images/ch1/hinh-021.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image22.wmf",
+      "output": "images/ch1/hinh-022.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image23.wmf",
+      "output": "images/ch1/hinh-023.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image24.wmf",
+      "output": "images/ch1/hinh-024.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image25.wmf",
+      "output": "images/ch1/hinh-025.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image26.png",
+      "output": "images/ch1/hinh-026.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image27.wmf",
+      "output": "images/ch1/hinh-027.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image28.wmf",
+      "output": "images/ch1/hinh-028.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image29.wmf",
+      "output": "images/ch1/hinh-029.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image30.wmf",
+      "output": "images/ch1/hinh-030.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image31.png",
+      "output": "images/ch1/hinh-031.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image32.png",
+      "output": "images/ch1/hinh-032.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image33.png",
+      "output": "images/ch1/hinh-033.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image34.png",
+      "output": "images/ch1/hinh-034.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image35.png",
+      "output": "images/ch1/hinh-035.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image36.png",
+      "output": "images/ch1/hinh-036.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image37.wmf",
+      "output": "images/ch1/hinh-037.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image38.png",
+      "output": "images/ch1/hinh-038.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image39.wmf",
+      "output": "images/ch1/hinh-039.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image40.wmf",
+      "output": "images/ch1/hinh-040.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image41.wmf",
+      "output": "images/ch1/hinh-041.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image42.png",
+      "output": "images/ch1/hinh-042.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image43.png",
+      "output": "images/ch1/hinh-043.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image44.png",
+      "output": "images/ch1/hinh-044.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image45.png",
+      "output": "images/ch1/hinh-045.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image46.png",
+      "output": "images/ch1/hinh-046.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image47.wmf",
+      "output": "images/ch1/hinh-047.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image48.wmf",
+      "output": "images/ch1/hinh-048.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image49.wmf",
+      "output": "images/ch1/hinh-049.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image50.png",
+      "output": "images/ch1/hinh-050.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image51.wmf",
+      "output": "images/ch1/hinh-051.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image52.wmf",
+      "output": "images/ch1/hinh-052.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image53.wmf",
+      "output": "images/ch1/hinh-053.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image54.wmf",
+      "output": "images/ch1/hinh-054.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image55.wmf",
+      "output": "images/ch1/hinh-055.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image56.png",
+      "output": "images/ch1/hinh-056.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image57.wmf",
+      "output": "images/ch1/hinh-057.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image58.wmf",
+      "output": "images/ch1/hinh-058.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image59.wmf",
+      "output": "images/ch1/hinh-059.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image60.wmf",
+      "output": "images/ch1/hinh-060.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image61.wmf",
+      "output": "images/ch1/hinh-061.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image62.wmf",
+      "output": "images/ch1/hinh-062.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image63.wmf",
+      "output": "images/ch1/hinh-063.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image64.wmf",
+      "output": "images/ch1/hinh-064.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image65.wmf",
+      "output": "images/ch1/hinh-065.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image66.wmf",
+      "output": "images/ch1/hinh-066.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image67.wmf",
+      "output": "images/ch1/hinh-067.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image68.wmf",
+      "output": "images/ch1/hinh-068.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image69.wmf",
+      "output": "images/ch1/hinh-069.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image70.wmf",
+      "output": "images/ch1/hinh-070.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image71.wmf",
+      "output": "images/ch1/hinh-071.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image72.wmf",
+      "output": "images/ch1/hinh-072.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image73.wmf",
+      "output": "images/ch1/hinh-073.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image74.wmf",
+      "output": "images/ch1/hinh-074.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image75.wmf",
+      "output": "images/ch1/hinh-075.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image76.wmf",
+      "output": "images/ch1/hinh-076.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image77.wmf",
+      "output": "images/ch1/hinh-077.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image78.png",
+      "output": "images/ch1/hinh-078.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image79.wmf",
+      "output": "images/ch1/hinh-079.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image80.wmf",
+      "output": "images/ch1/hinh-080.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image81.wmf",
+      "output": "images/ch1/hinh-081.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image82.wmf",
+      "output": "images/ch1/hinh-082.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image83.wmf",
+      "output": "images/ch1/hinh-083.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image84.wmf",
+      "output": "images/ch1/hinh-084.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image85.wmf",
+      "output": "images/ch1/hinh-085.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image86.png",
+      "output": "images/ch1/hinh-086.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image87.wmf",
+      "output": "images/ch1/hinh-087.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image88.wmf",
+      "output": "images/ch1/hinh-088.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image89.wmf",
+      "output": "images/ch1/hinh-089.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image90.png",
+      "output": "images/ch1/hinh-090.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image91.wmf",
+      "output": "images/ch1/hinh-091.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image92.wmf",
+      "output": "images/ch1/hinh-092.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image93.wmf",
+      "output": "images/ch1/hinh-093.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image94.wmf",
+      "output": "images/ch1/hinh-094.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image95.wmf",
+      "output": "images/ch1/hinh-095.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image96.wmf",
+      "output": "images/ch1/hinh-096.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image97.wmf",
+      "output": "images/ch1/hinh-097.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image98.wmf",
+      "output": "images/ch1/hinh-098.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image99.wmf",
+      "output": "images/ch1/hinh-099.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image100.png",
+      "output": "images/ch1/hinh-100.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image101.wmf",
+      "output": "images/ch1/hinh-101.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image102.wmf",
+      "output": "images/ch1/hinh-102.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image103.wmf",
+      "output": "images/ch1/hinh-103.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image104.wmf",
+      "output": "images/ch1/hinh-104.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image105.wmf",
+      "output": "images/ch1/hinh-105.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image106.wmf",
+      "output": "images/ch1/hinh-106.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image107.png",
+      "output": "images/ch1/hinh-107.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image108.wmf",
+      "output": "images/ch1/hinh-108.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image109.wmf",
+      "output": "images/ch1/hinh-109.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image110.wmf",
+      "output": "images/ch1/hinh-110.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image111.wmf",
+      "output": "images/ch1/hinh-111.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image112.wmf",
+      "output": "images/ch1/hinh-112.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image113.png",
+      "output": "images/ch1/hinh-113.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image114.png",
+      "output": "images/ch1/hinh-114.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image115.wmf",
+      "output": "images/ch1/hinh-115.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image116.wmf",
+      "output": "images/ch1/hinh-116.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image118.png",
+      "output": "images/ch1/hinh-117.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image119.png",
+      "output": "images/ch1/hinh-118.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image120.png",
+      "output": "images/ch1/hinh-119.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image121.png",
+      "output": "images/ch1/hinh-120.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image122.png",
+      "output": "images/ch1/hinh-121.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image123.png",
+      "output": "images/ch1/hinh-122.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image124.wmf",
+      "output": "images/ch1/hinh-123.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image125.wmf",
+      "output": "images/ch1/hinh-124.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image126.wmf",
+      "output": "images/ch1/hinh-125.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image127.wmf",
+      "output": "images/ch1/hinh-126.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image128.png",
+      "output": "images/ch1/hinh-127.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image129.wmf",
+      "output": "images/ch1/hinh-128.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image130.wmf",
+      "output": "images/ch1/hinh-129.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image131.wmf",
+      "output": "images/ch1/hinh-130.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image132.wmf",
+      "output": "images/ch1/hinh-131.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image133.png",
+      "output": "images/ch1/hinh-132.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image134.png",
+      "output": "images/ch1/hinh-133.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image135.wmf",
+      "output": "images/ch1/hinh-134.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image136.wmf",
+      "output": "images/ch1/hinh-135.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image137.png",
+      "output": "images/ch1/hinh-136.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image138.wmf",
+      "output": "images/ch1/hinh-137.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image139.png",
+      "output": "images/ch1/hinh-138.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image140.wmf",
+      "output": "images/ch1/hinh-139.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image141.wmf",
+      "output": "images/ch1/hinh-140.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image142.wmf",
+      "output": "images/ch1/hinh-141.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image143.wmf",
+      "output": "images/ch1/hinh-142.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image144.wmf",
+      "output": "images/ch1/hinh-143.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image145.wmf",
+      "output": "images/ch1/hinh-144.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image146.wmf",
+      "output": "images/ch1/hinh-145.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image147.png",
+      "output": "images/ch1/hinh-146.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image148.wmf",
+      "output": "images/ch1/hinh-147.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image149.wmf",
+      "output": "images/ch1/hinh-148.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image150.png",
+      "output": "images/ch1/hinh-149.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image151.wmf",
+      "output": "images/ch1/hinh-150.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image152.wmf",
+      "output": "images/ch1/hinh-151.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image153.wmf",
+      "output": "images/ch1/hinh-152.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image154.wmf",
+      "output": "images/ch1/hinh-153.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image155.wmf",
+      "output": "images/ch1/hinh-154.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image156.wmf",
+      "output": "images/ch1/hinh-155.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image157.png",
+      "output": "images/ch1/hinh-156.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image158.wmf",
+      "output": "images/ch1/hinh-157.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image159.wmf",
+      "output": "images/ch1/hinh-158.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image160.wmf",
+      "output": "images/ch1/hinh-159.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image161.wmf",
+      "output": "images/ch1/hinh-160.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image162.png",
+      "output": "images/ch1/hinh-161.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image163.wmf",
+      "output": "images/ch1/hinh-162.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image164.wmf",
+      "output": "images/ch1/hinh-163.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image165.wmf",
+      "output": "images/ch1/hinh-164.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image166.wmf",
+      "output": "images/ch1/hinh-165.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image167.wmf",
+      "output": "images/ch1/hinh-166.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image168.wmf",
+      "output": "images/ch1/hinh-167.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image169.wmf",
+      "output": "images/ch1/hinh-168.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image170.wmf",
+      "output": "images/ch1/hinh-169.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image171.wmf",
+      "output": "images/ch1/hinh-170.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image172.wmf",
+      "output": "images/ch1/hinh-171.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image173.wmf",
+      "output": "images/ch1/hinh-172.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image174.png",
+      "output": "images/ch1/hinh-173.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image175.wmf",
+      "output": "images/ch1/hinh-174.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image176.wmf",
+      "output": "images/ch1/hinh-175.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image177.wmf",
+      "output": "images/ch1/hinh-176.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image178.wmf",
+      "output": "images/ch1/hinh-177.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image179.wmf",
+      "output": "images/ch1/hinh-178.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image180.wmf",
+      "output": "images/ch1/hinh-179.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image181.wmf",
+      "output": "images/ch1/hinh-180.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image182.wmf",
+      "output": "images/ch1/hinh-181.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image183.wmf",
+      "output": "images/ch1/hinh-182.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image184.wmf",
+      "output": "images/ch1/hinh-183.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image185.wmf",
+      "output": "images/ch1/hinh-184.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image186.wmf",
+      "output": "images/ch1/hinh-185.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image187.wmf",
+      "output": "images/ch1/hinh-186.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image188.wmf",
+      "output": "images/ch1/hinh-187.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image189.png",
+      "output": "images/ch1/hinh-188.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image190.wmf",
+      "output": "images/ch1/hinh-189.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image191.wmf",
+      "output": "images/ch1/hinh-190.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image192.wmf",
+      "output": "images/ch1/hinh-191.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image193.wmf",
+      "output": "images/ch1/hinh-192.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image194.wmf",
+      "output": "images/ch1/hinh-193.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image195.wmf",
+      "output": "images/ch1/hinh-194.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image196.png",
+      "output": "images/ch1/hinh-195.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image197.wmf",
+      "output": "images/ch1/hinh-196.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image198.wmf",
+      "output": "images/ch1/hinh-197.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image199.wmf",
+      "output": "images/ch1/hinh-198.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image200.wmf",
+      "output": "images/ch1/hinh-199.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image201.wmf",
+      "output": "images/ch1/hinh-200.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image202.wmf",
+      "output": "images/ch1/hinh-201.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image203.wmf",
+      "output": "images/ch1/hinh-202.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image204.wmf",
+      "output": "images/ch1/hinh-203.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image205.wmf",
+      "output": "images/ch1/hinh-204.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image206.wmf",
+      "output": "images/ch1/hinh-205.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image207.wmf",
+      "output": "images/ch1/hinh-206.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image208.wmf",
+      "output": "images/ch1/hinh-207.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image209.png",
+      "output": "images/ch1/hinh-208.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image210.wmf",
+      "output": "images/ch1/hinh-209.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image211.wmf",
+      "output": "images/ch1/hinh-210.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image212.wmf",
+      "output": "images/ch1/hinh-211.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image213.png",
+      "output": "images/ch1/hinh-212.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image214.wmf",
+      "output": "images/ch1/hinh-213.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image215.wmf",
+      "output": "images/ch1/hinh-214.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image216.wmf",
+      "output": "images/ch1/hinh-215.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image217.wmf",
+      "output": "images/ch1/hinh-216.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image218.png",
+      "output": "images/ch1/hinh-217.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image219.png",
+      "output": "images/ch1/hinh-218.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image220.wmf",
+      "output": "images/ch1/hinh-219.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image221.wmf",
+      "output": "images/ch1/hinh-220.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image222.wmf",
+      "output": "images/ch1/hinh-221.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image223.png",
+      "output": "images/ch1/hinh-222.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image224.wmf",
+      "output": "images/ch1/hinh-223.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image225.png",
+      "output": "images/ch1/hinh-224.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image226.wmf",
+      "output": "images/ch1/hinh-225.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image227.wmf",
+      "output": "images/ch1/hinh-226.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image228.wmf",
+      "output": "images/ch1/hinh-227.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image229.wmf",
+      "output": "images/ch1/hinh-228.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image230.png",
+      "output": "images/ch1/hinh-229.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image231.png",
+      "output": "images/ch1/hinh-230.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image232.png",
+      "output": "images/ch1/hinh-231.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image233.png",
+      "output": "images/ch1/hinh-232.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image234.png",
+      "output": "images/ch1/hinh-233.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image235.png",
+      "output": "images/ch1/hinh-234.png"
+    },
+    {
+      "chapter": 1,
+      "media": "image236.png",
+      "output": "images/ch1/hinh-235.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image237.wmf",
+      "output": "images/ch2/hinh-001.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image238.png",
+      "output": "images/ch2/hinh-002.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image239.wmf",
+      "output": "images/ch2/hinh-003.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image240.wmf",
+      "output": "images/ch2/hinh-004.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image241.png",
+      "output": "images/ch2/hinh-005.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image242.wmf",
+      "output": "images/ch2/hinh-006.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image243.wmf",
+      "output": "images/ch2/hinh-007.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image244.png",
+      "output": "images/ch2/hinh-008.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image245.png",
+      "output": "images/ch2/hinh-009.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image246.wmf",
+      "output": "images/ch2/hinh-010.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image247.png",
+      "output": "images/ch2/hinh-011.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image248.wmf",
+      "output": "images/ch2/hinh-012.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image249.png",
+      "output": "images/ch2/hinh-013.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image250.wmf",
+      "output": "images/ch2/hinh-014.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image251.wmf",
+      "output": "images/ch2/hinh-015.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image252.wmf",
+      "output": "images/ch2/hinh-016.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image253.wmf",
+      "output": "images/ch2/hinh-017.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image254.wmf",
+      "output": "images/ch2/hinh-018.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image255.png",
+      "output": "images/ch2/hinh-019.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image256.wmf",
+      "output": "images/ch2/hinh-020.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image257.png",
+      "output": "images/ch2/hinh-021.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image258.wmf",
+      "output": "images/ch2/hinh-022.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image259.wmf",
+      "output": "images/ch2/hinh-023.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image260.png",
+      "output": "images/ch2/hinh-024.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image261.wmf",
+      "output": "images/ch2/hinh-025.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image262.wmf",
+      "output": "images/ch2/hinh-026.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image263.wmf",
+      "output": "images/ch2/hinh-027.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image264.png",
+      "output": "images/ch2/hinh-028.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image265.wmf",
+      "output": "images/ch2/hinh-029.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image266.wmf",
+      "output": "images/ch2/hinh-030.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image267.png",
+      "output": "images/ch2/hinh-031.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image268.wmf",
+      "output": "images/ch2/hinh-032.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image269.wmf",
+      "output": "images/ch2/hinh-033.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image270.wmf",
+      "output": "images/ch2/hinh-034.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image271.wmf",
+      "output": "images/ch2/hinh-035.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image272.png",
+      "output": "images/ch2/hinh-036.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image273.wmf",
+      "output": "images/ch2/hinh-037.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image274.wmf",
+      "output": "images/ch2/hinh-038.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image275.wmf",
+      "output": "images/ch2/hinh-039.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image276.wmf",
+      "output": "images/ch2/hinh-040.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image277.wmf",
+      "output": "images/ch2/hinh-041.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image278.wmf",
+      "output": "images/ch2/hinh-042.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image279.wmf",
+      "output": "images/ch2/hinh-043.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image280.wmf",
+      "output": "images/ch2/hinh-044.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image281.wmf",
+      "output": "images/ch2/hinh-045.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image282.wmf",
+      "output": "images/ch2/hinh-046.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image283.wmf",
+      "output": "images/ch2/hinh-047.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image284.wmf",
+      "output": "images/ch2/hinh-048.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image285.wmf",
+      "output": "images/ch2/hinh-049.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image286.png",
+      "output": "images/ch2/hinh-050.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image287.wmf",
+      "output": "images/ch2/hinh-051.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image288.wmf",
+      "output": "images/ch2/hinh-052.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image289.wmf",
+      "output": "images/ch2/hinh-053.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image290.wmf",
+      "output": "images/ch2/hinh-054.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image291.wmf",
+      "output": "images/ch2/hinh-055.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image292.png",
+      "output": "images/ch2/hinh-056.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image293.wmf",
+      "output": "images/ch2/hinh-057.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image294.wmf",
+      "output": "images/ch2/hinh-058.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image295.wmf",
+      "output": "images/ch2/hinh-059.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image296.wmf",
+      "output": "images/ch2/hinh-060.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image297.wmf",
+      "output": "images/ch2/hinh-061.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image298.wmf",
+      "output": "images/ch2/hinh-062.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image299.wmf",
+      "output": "images/ch2/hinh-063.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image300.wmf",
+      "output": "images/ch2/hinh-064.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image301.wmf",
+      "output": "images/ch2/hinh-065.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image302.wmf",
+      "output": "images/ch2/hinh-066.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image303.wmf",
+      "output": "images/ch2/hinh-067.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image304.wmf",
+      "output": "images/ch2/hinh-068.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image305.wmf",
+      "output": "images/ch2/hinh-069.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image306.wmf",
+      "output": "images/ch2/hinh-070.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image307.wmf",
+      "output": "images/ch2/hinh-071.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image308.png",
+      "output": "images/ch2/hinh-072.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image309.wmf",
+      "output": "images/ch2/hinh-073.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image310.wmf",
+      "output": "images/ch2/hinh-074.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image311.wmf",
+      "output": "images/ch2/hinh-075.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image312.wmf",
+      "output": "images/ch2/hinh-076.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image313.wmf",
+      "output": "images/ch2/hinh-077.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image314.wmf",
+      "output": "images/ch2/hinh-078.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image315.png",
+      "output": "images/ch2/hinh-079.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image316.png",
+      "output": "images/ch2/hinh-080.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image317.wmf",
+      "output": "images/ch2/hinh-081.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image318.png",
+      "output": "images/ch2/hinh-082.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image319.wmf",
+      "output": "images/ch2/hinh-083.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image320.png",
+      "output": "images/ch2/hinh-084.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image321.wmf",
+      "output": "images/ch2/hinh-085.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image322.png",
+      "output": "images/ch2/hinh-086.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image323.wmf",
+      "output": "images/ch2/hinh-087.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image324.png",
+      "output": "images/ch2/hinh-088.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image325.wmf",
+      "output": "images/ch2/hinh-089.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image326.wmf",
+      "output": "images/ch2/hinh-090.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image327.wmf",
+      "output": "images/ch2/hinh-091.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image328.png",
+      "output": "images/ch2/hinh-092.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image329.wmf",
+      "output": "images/ch2/hinh-093.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image330.png",
+      "output": "images/ch2/hinh-094.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image331.wmf",
+      "output": "images/ch2/hinh-095.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image332.png",
+      "output": "images/ch2/hinh-096.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image333.wmf",
+      "output": "images/ch2/hinh-097.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image334.png",
+      "output": "images/ch2/hinh-098.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image335.wmf",
+      "output": "images/ch2/hinh-099.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image336.wmf",
+      "output": "images/ch2/hinh-100.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image337.png",
+      "output": "images/ch2/hinh-101.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image338.wmf",
+      "output": "images/ch2/hinh-102.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image339.wmf",
+      "output": "images/ch2/hinh-103.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image340.wmf",
+      "output": "images/ch2/hinh-104.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image341.wmf",
+      "output": "images/ch2/hinh-105.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image342.png",
+      "output": "images/ch2/hinh-106.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image343.png",
+      "output": "images/ch2/hinh-107.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image344.wmf",
+      "output": "images/ch2/hinh-108.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image345.wmf",
+      "output": "images/ch2/hinh-109.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image346.wmf",
+      "output": "images/ch2/hinh-110.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image347.png",
+      "output": "images/ch2/hinh-111.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image348.wmf",
+      "output": "images/ch2/hinh-112.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image349.wmf",
+      "output": "images/ch2/hinh-113.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image350.wmf",
+      "output": "images/ch2/hinh-114.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image351.wmf",
+      "output": "images/ch2/hinh-115.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image352.wmf",
+      "output": "images/ch2/hinh-116.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image353.wmf",
+      "output": "images/ch2/hinh-117.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image354.wmf",
+      "output": "images/ch2/hinh-118.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image355.wmf",
+      "output": "images/ch2/hinh-119.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image356.wmf",
+      "output": "images/ch2/hinh-120.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image357.png",
+      "output": "images/ch2/hinh-121.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image358.wmf",
+      "output": "images/ch2/hinh-122.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image359.wmf",
+      "output": "images/ch2/hinh-123.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image360.wmf",
+      "output": "images/ch2/hinh-124.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image361.png",
+      "output": "images/ch2/hinh-125.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image362.wmf",
+      "output": "images/ch2/hinh-126.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image363.wmf",
+      "output": "images/ch2/hinh-127.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image364.wmf",
+      "output": "images/ch2/hinh-128.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image365.wmf",
+      "output": "images/ch2/hinh-129.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image366.png",
+      "output": "images/ch2/hinh-130.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image367.wmf",
+      "output": "images/ch2/hinh-131.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image368.wmf",
+      "output": "images/ch2/hinh-132.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image369.wmf",
+      "output": "images/ch2/hinh-133.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image370.wmf",
+      "output": "images/ch2/hinh-134.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image371.wmf",
+      "output": "images/ch2/hinh-135.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image372.wmf",
+      "output": "images/ch2/hinh-136.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image373.wmf",
+      "output": "images/ch2/hinh-137.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image374.wmf",
+      "output": "images/ch2/hinh-138.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image375.wmf",
+      "output": "images/ch2/hinh-139.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image376.png",
+      "output": "images/ch2/hinh-140.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image377.wmf",
+      "output": "images/ch2/hinh-141.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image378.wmf",
+      "output": "images/ch2/hinh-142.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image379.png",
+      "output": "images/ch2/hinh-143.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image380.wmf",
+      "output": "images/ch2/hinh-144.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image381.wmf",
+      "output": "images/ch2/hinh-145.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image382.wmf",
+      "output": "images/ch2/hinh-146.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image383.png",
+      "output": "images/ch2/hinh-147.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image384.png",
+      "output": "images/ch2/hinh-148.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image385.wmf",
+      "output": "images/ch2/hinh-149.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image386.wmf",
+      "output": "images/ch2/hinh-150.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image387.wmf",
+      "output": "images/ch2/hinh-151.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image388.wmf",
+      "output": "images/ch2/hinh-152.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image389.wmf",
+      "output": "images/ch2/hinh-153.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image390.wmf",
+      "output": "images/ch2/hinh-154.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image391.wmf",
+      "output": "images/ch2/hinh-155.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image392.wmf",
+      "output": "images/ch2/hinh-156.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image393.wmf",
+      "output": "images/ch2/hinh-157.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image394.wmf",
+      "output": "images/ch2/hinh-158.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image395.wmf",
+      "output": "images/ch2/hinh-159.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image396.wmf",
+      "output": "images/ch2/hinh-160.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image397.wmf",
+      "output": "images/ch2/hinh-161.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image398.wmf",
+      "output": "images/ch2/hinh-162.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image399.wmf",
+      "output": "images/ch2/hinh-163.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image400.png",
+      "output": "images/ch2/hinh-164.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image401.wmf",
+      "output": "images/ch2/hinh-165.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image402.wmf",
+      "output": "images/ch2/hinh-166.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image403.wmf",
+      "output": "images/ch2/hinh-167.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image404.wmf",
+      "output": "images/ch2/hinh-168.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image405.wmf",
+      "output": "images/ch2/hinh-169.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image406.wmf",
+      "output": "images/ch2/hinh-170.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image407.wmf",
+      "output": "images/ch2/hinh-171.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image408.wmf",
+      "output": "images/ch2/hinh-172.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image409.png",
+      "output": "images/ch2/hinh-173.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image410.wmf",
+      "output": "images/ch2/hinh-174.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image411.wmf",
+      "output": "images/ch2/hinh-175.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image412.wmf",
+      "output": "images/ch2/hinh-176.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image413.wmf",
+      "output": "images/ch2/hinh-177.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image414.wmf",
+      "output": "images/ch2/hinh-178.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image415.wmf",
+      "output": "images/ch2/hinh-179.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image416.wmf",
+      "output": "images/ch2/hinh-180.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image417.wmf",
+      "output": "images/ch2/hinh-181.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image418.png",
+      "output": "images/ch2/hinh-182.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image419.wmf",
+      "output": "images/ch2/hinh-183.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image420.wmf",
+      "output": "images/ch2/hinh-184.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image421.wmf",
+      "output": "images/ch2/hinh-185.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image422.wmf",
+      "output": "images/ch2/hinh-186.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image423.wmf",
+      "output": "images/ch2/hinh-187.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image424.wmf",
+      "output": "images/ch2/hinh-188.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image425.png",
+      "output": "images/ch2/hinh-189.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image426.wmf",
+      "output": "images/ch2/hinh-190.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image427.wmf",
+      "output": "images/ch2/hinh-191.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image428.wmf",
+      "output": "images/ch2/hinh-192.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image429.wmf",
+      "output": "images/ch2/hinh-193.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image430.wmf",
+      "output": "images/ch2/hinh-194.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image431.png",
+      "output": "images/ch2/hinh-195.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image432.png",
+      "output": "images/ch2/hinh-196.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image433.wmf",
+      "output": "images/ch2/hinh-197.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image434.wmf",
+      "output": "images/ch2/hinh-198.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image435.wmf",
+      "output": "images/ch2/hinh-199.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image436.png",
+      "output": "images/ch2/hinh-200.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image437.wmf",
+      "output": "images/ch2/hinh-201.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image438.wmf",
+      "output": "images/ch2/hinh-202.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image439.wmf",
+      "output": "images/ch2/hinh-203.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image440.wmf",
+      "output": "images/ch2/hinh-204.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image441.wmf",
+      "output": "images/ch2/hinh-205.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image442.wmf",
+      "output": "images/ch2/hinh-206.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image443.wmf",
+      "output": "images/ch2/hinh-207.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image444.png",
+      "output": "images/ch2/hinh-208.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image445.png",
+      "output": "images/ch2/hinh-209.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image446.wmf",
+      "output": "images/ch2/hinh-210.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image447.png",
+      "output": "images/ch2/hinh-211.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image448.wmf",
+      "output": "images/ch2/hinh-212.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image449.wmf",
+      "output": "images/ch2/hinh-213.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image450.wmf",
+      "output": "images/ch2/hinh-214.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image451.wmf",
+      "output": "images/ch2/hinh-215.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image452.wmf",
+      "output": "images/ch2/hinh-216.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image453.wmf",
+      "output": "images/ch2/hinh-217.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image454.wmf",
+      "output": "images/ch2/hinh-218.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image455.png",
+      "output": "images/ch2/hinh-219.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image456.wmf",
+      "output": "images/ch2/hinh-220.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image457.wmf",
+      "output": "images/ch2/hinh-221.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image458.wmf",
+      "output": "images/ch2/hinh-222.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image459.wmf",
+      "output": "images/ch2/hinh-223.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image460.wmf",
+      "output": "images/ch2/hinh-224.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image461.wmf",
+      "output": "images/ch2/hinh-225.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image462.wmf",
+      "output": "images/ch2/hinh-226.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image463.wmf",
+      "output": "images/ch2/hinh-227.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image464.wmf",
+      "output": "images/ch2/hinh-228.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image465.png",
+      "output": "images/ch2/hinh-229.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image467.wmf",
+      "output": "images/ch2/hinh-230.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image468.wmf",
+      "output": "images/ch2/hinh-231.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image469.wmf",
+      "output": "images/ch2/hinh-232.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image470.wmf",
+      "output": "images/ch2/hinh-233.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image471.wmf",
+      "output": "images/ch2/hinh-234.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image472.wmf",
+      "output": "images/ch2/hinh-235.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image473.wmf",
+      "output": "images/ch2/hinh-236.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image474.wmf",
+      "output": "images/ch2/hinh-237.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image475.wmf",
+      "output": "images/ch2/hinh-238.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image476.png",
+      "output": "images/ch2/hinh-239.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image477.wmf",
+      "output": "images/ch2/hinh-240.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image478.wmf",
+      "output": "images/ch2/hinh-241.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image479.wmf",
+      "output": "images/ch2/hinh-242.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image480.wmf",
+      "output": "images/ch2/hinh-243.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image481.wmf",
+      "output": "images/ch2/hinh-244.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image482.wmf",
+      "output": "images/ch2/hinh-245.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image483.wmf",
+      "output": "images/ch2/hinh-246.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image484.wmf",
+      "output": "images/ch2/hinh-247.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image485.png",
+      "output": "images/ch2/hinh-248.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image486.wmf",
+      "output": "images/ch2/hinh-249.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image487.wmf",
+      "output": "images/ch2/hinh-250.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image488.wmf",
+      "output": "images/ch2/hinh-251.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image489.wmf",
+      "output": "images/ch2/hinh-252.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image490.emf",
+      "output": "images/ch2/hinh-253.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image491.wmf",
+      "output": "images/ch2/hinh-254.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image492.wmf",
+      "output": "images/ch2/hinh-255.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image493.wmf",
+      "output": "images/ch2/hinh-256.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image494.png",
+      "output": "images/ch2/hinh-257.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image495.wmf",
+      "output": "images/ch2/hinh-258.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image496.wmf",
+      "output": "images/ch2/hinh-259.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image497.wmf",
+      "output": "images/ch2/hinh-260.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image498.png",
+      "output": "images/ch2/hinh-261.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image499.wmf",
+      "output": "images/ch2/hinh-262.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image500.png",
+      "output": "images/ch2/hinh-263.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image501.wmf",
+      "output": "images/ch2/hinh-264.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image502.wmf",
+      "output": "images/ch2/hinh-265.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image503.wmf",
+      "output": "images/ch2/hinh-266.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image504.wmf",
+      "output": "images/ch2/hinh-267.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image505.wmf",
+      "output": "images/ch2/hinh-268.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image506.wmf",
+      "output": "images/ch2/hinh-269.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image507.wmf",
+      "output": "images/ch2/hinh-270.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image508.wmf",
+      "output": "images/ch2/hinh-271.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image509.wmf",
+      "output": "images/ch2/hinh-272.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image510.wmf",
+      "output": "images/ch2/hinh-273.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image511.wmf",
+      "output": "images/ch2/hinh-274.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image512.wmf",
+      "output": "images/ch2/hinh-275.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image513.png",
+      "output": "images/ch2/hinh-276.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image514.png",
+      "output": "images/ch2/hinh-277.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image515.png",
+      "output": "images/ch2/hinh-278.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image516.wmf",
+      "output": "images/ch2/hinh-279.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image517.wmf",
+      "output": "images/ch2/hinh-280.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image518.wmf",
+      "output": "images/ch2/hinh-281.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image519.png",
+      "output": "images/ch2/hinh-282.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image520.wmf",
+      "output": "images/ch2/hinh-283.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image521.wmf",
+      "output": "images/ch2/hinh-284.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image522.wmf",
+      "output": "images/ch2/hinh-285.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image523.wmf",
+      "output": "images/ch2/hinh-286.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image524.wmf",
+      "output": "images/ch2/hinh-287.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image525.wmf",
+      "output": "images/ch2/hinh-288.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image526.wmf",
+      "output": "images/ch2/hinh-289.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image527.wmf",
+      "output": "images/ch2/hinh-290.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image528.wmf",
+      "output": "images/ch2/hinh-291.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image529.wmf",
+      "output": "images/ch2/hinh-292.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image530.wmf",
+      "output": "images/ch2/hinh-293.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image531.wmf",
+      "output": "images/ch2/hinh-294.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image532.wmf",
+      "output": "images/ch2/hinh-295.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image533.png",
+      "output": "images/ch2/hinh-296.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image534.png",
+      "output": "images/ch2/hinh-297.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image535.wmf",
+      "output": "images/ch2/hinh-298.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image536.wmf",
+      "output": "images/ch2/hinh-299.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image537.wmf",
+      "output": "images/ch2/hinh-300.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image538.wmf",
+      "output": "images/ch2/hinh-301.png"
+    },
+    {
+      "chapter": 2,
+      "media": "image539.wmf",
+      "output": "images/ch2/hinh-302.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image540.wmf",
+      "output": "images/ch3/hinh-001.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image541.wmf",
+      "output": "images/ch3/hinh-002.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image542.wmf",
+      "output": "images/ch3/hinh-003.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image543.wmf",
+      "output": "images/ch3/hinh-004.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image544.wmf",
+      "output": "images/ch3/hinh-005.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image545.wmf",
+      "output": "images/ch3/hinh-006.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image546.png",
+      "output": "images/ch3/hinh-007.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image547.png",
+      "output": "images/ch3/hinh-008.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image548.wmf",
+      "output": "images/ch3/hinh-009.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image549.wmf",
+      "output": "images/ch3/hinh-010.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image550.wmf",
+      "output": "images/ch3/hinh-011.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image551.wmf",
+      "output": "images/ch3/hinh-012.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image552.wmf",
+      "output": "images/ch3/hinh-013.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image553.wmf",
+      "output": "images/ch3/hinh-014.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image554.wmf",
+      "output": "images/ch3/hinh-015.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image555.wmf",
+      "output": "images/ch3/hinh-016.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image556.wmf",
+      "output": "images/ch3/hinh-017.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image557.wmf",
+      "output": "images/ch3/hinh-018.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image558.wmf",
+      "output": "images/ch3/hinh-019.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image559.wmf",
+      "output": "images/ch3/hinh-020.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image560.wmf",
+      "output": "images/ch3/hinh-021.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image561.wmf",
+      "output": "images/ch3/hinh-022.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image562.wmf",
+      "output": "images/ch3/hinh-023.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image563.wmf",
+      "output": "images/ch3/hinh-024.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image564.wmf",
+      "output": "images/ch3/hinh-025.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image565.wmf",
+      "output": "images/ch3/hinh-026.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image566.wmf",
+      "output": "images/ch3/hinh-027.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image567.wmf",
+      "output": "images/ch3/hinh-028.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image568.wmf",
+      "output": "images/ch3/hinh-029.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image569.wmf",
+      "output": "images/ch3/hinh-030.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image570.wmf",
+      "output": "images/ch3/hinh-031.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image571.wmf",
+      "output": "images/ch3/hinh-032.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image572.png",
+      "output": "images/ch3/hinh-033.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image573.wmf",
+      "output": "images/ch3/hinh-034.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image574.wmf",
+      "output": "images/ch3/hinh-035.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image575.wmf",
+      "output": "images/ch3/hinh-036.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image576.wmf",
+      "output": "images/ch3/hinh-037.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image577.wmf",
+      "output": "images/ch3/hinh-038.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image578.wmf",
+      "output": "images/ch3/hinh-039.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image579.wmf",
+      "output": "images/ch3/hinh-040.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image580.wmf",
+      "output": "images/ch3/hinh-041.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image581.wmf",
+      "output": "images/ch3/hinh-042.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image582.png",
+      "output": "images/ch3/hinh-043.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image583.wmf",
+      "output": "images/ch3/hinh-044.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image584.wmf",
+      "output": "images/ch3/hinh-045.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image585.wmf",
+      "output": "images/ch3/hinh-046.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image586.wmf",
+      "output": "images/ch3/hinh-047.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image587.wmf",
+      "output": "images/ch3/hinh-048.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image588.wmf",
+      "output": "images/ch3/hinh-049.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image589.png",
+      "output": "images/ch3/hinh-050.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image590.wmf",
+      "output": "images/ch3/hinh-051.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image591.wmf",
+      "output": "images/ch3/hinh-052.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image592.wmf",
+      "output": "images/ch3/hinh-053.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image593.wmf",
+      "output": "images/ch3/hinh-054.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image594.wmf",
+      "output": "images/ch3/hinh-055.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image595.wmf",
+      "output": "images/ch3/hinh-056.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image596.wmf",
+      "output": "images/ch3/hinh-057.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image597.wmf",
+      "output": "images/ch3/hinh-058.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image598.wmf",
+      "output": "images/ch3/hinh-059.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image599.wmf",
+      "output": "images/ch3/hinh-060.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image600.wmf",
+      "output": "images/ch3/hinh-061.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image601.wmf",
+      "output": "images/ch3/hinh-062.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image602.wmf",
+      "output": "images/ch3/hinh-063.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image603.wmf",
+      "output": "images/ch3/hinh-064.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image604.wmf",
+      "output": "images/ch3/hinh-065.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image605.wmf",
+      "output": "images/ch3/hinh-066.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image606.wmf",
+      "output": "images/ch3/hinh-067.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image607.png",
+      "output": "images/ch3/hinh-068.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image608.wmf",
+      "output": "images/ch3/hinh-069.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image609.wmf",
+      "output": "images/ch3/hinh-070.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image610.wmf",
+      "output": "images/ch3/hinh-071.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image611.wmf",
+      "output": "images/ch3/hinh-072.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image612.wmf",
+      "output": "images/ch3/hinh-073.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image613.wmf",
+      "output": "images/ch3/hinh-074.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image614.wmf",
+      "output": "images/ch3/hinh-075.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image615.wmf",
+      "output": "images/ch3/hinh-076.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image616.wmf",
+      "output": "images/ch3/hinh-077.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image617.wmf",
+      "output": "images/ch3/hinh-078.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image618.wmf",
+      "output": "images/ch3/hinh-079.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image619.wmf",
+      "output": "images/ch3/hinh-080.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image620.wmf",
+      "output": "images/ch3/hinh-081.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image621.wmf",
+      "output": "images/ch3/hinh-082.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image622.wmf",
+      "output": "images/ch3/hinh-083.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image623.wmf",
+      "output": "images/ch3/hinh-084.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image624.wmf",
+      "output": "images/ch3/hinh-085.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image625.wmf",
+      "output": "images/ch3/hinh-086.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image626.wmf",
+      "output": "images/ch3/hinh-087.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image627.wmf",
+      "output": "images/ch3/hinh-088.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image628.wmf",
+      "output": "images/ch3/hinh-089.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image629.wmf",
+      "output": "images/ch3/hinh-090.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image630.wmf",
+      "output": "images/ch3/hinh-091.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image631.wmf",
+      "output": "images/ch3/hinh-092.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image632.wmf",
+      "output": "images/ch3/hinh-093.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image633.wmf",
+      "output": "images/ch3/hinh-094.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image634.wmf",
+      "output": "images/ch3/hinh-095.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image635.wmf",
+      "output": "images/ch3/hinh-096.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image636.wmf",
+      "output": "images/ch3/hinh-097.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image637.wmf",
+      "output": "images/ch3/hinh-098.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image638.wmf",
+      "output": "images/ch3/hinh-099.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image639.wmf",
+      "output": "images/ch3/hinh-100.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image640.png",
+      "output": "images/ch3/hinh-101.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image641.wmf",
+      "output": "images/ch3/hinh-102.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image642.wmf",
+      "output": "images/ch3/hinh-103.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image643.wmf",
+      "output": "images/ch3/hinh-104.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image644.wmf",
+      "output": "images/ch3/hinh-105.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image645.wmf",
+      "output": "images/ch3/hinh-106.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image646.wmf",
+      "output": "images/ch3/hinh-107.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image647.wmf",
+      "output": "images/ch3/hinh-108.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image648.wmf",
+      "output": "images/ch3/hinh-109.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image649.wmf",
+      "output": "images/ch3/hinh-110.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image650.png",
+      "output": "images/ch3/hinh-111.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image651.wmf",
+      "output": "images/ch3/hinh-112.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image652.wmf",
+      "output": "images/ch3/hinh-113.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image653.wmf",
+      "output": "images/ch3/hinh-114.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image654.png",
+      "output": "images/ch3/hinh-115.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image655.wmf",
+      "output": "images/ch3/hinh-116.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image656.wmf",
+      "output": "images/ch3/hinh-117.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image657.wmf",
+      "output": "images/ch3/hinh-118.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image658.wmf",
+      "output": "images/ch3/hinh-119.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image659.wmf",
+      "output": "images/ch3/hinh-120.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image660.wmf",
+      "output": "images/ch3/hinh-121.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image661.wmf",
+      "output": "images/ch3/hinh-122.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image662.png",
+      "output": "images/ch3/hinh-123.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image663.wmf",
+      "output": "images/ch3/hinh-124.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image664.wmf",
+      "output": "images/ch3/hinh-125.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image665.wmf",
+      "output": "images/ch3/hinh-126.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image666.wmf",
+      "output": "images/ch3/hinh-127.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image667.wmf",
+      "output": "images/ch3/hinh-128.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image668.wmf",
+      "output": "images/ch3/hinh-129.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image669.wmf",
+      "output": "images/ch3/hinh-130.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image670.wmf",
+      "output": "images/ch3/hinh-131.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image671.wmf",
+      "output": "images/ch3/hinh-132.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image672.wmf",
+      "output": "images/ch3/hinh-133.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image673.wmf",
+      "output": "images/ch3/hinh-134.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image674.wmf",
+      "output": "images/ch3/hinh-135.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image675.wmf",
+      "output": "images/ch3/hinh-136.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image676.wmf",
+      "output": "images/ch3/hinh-137.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image677.wmf",
+      "output": "images/ch3/hinh-138.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image678.wmf",
+      "output": "images/ch3/hinh-139.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image679.wmf",
+      "output": "images/ch3/hinh-140.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image680.wmf",
+      "output": "images/ch3/hinh-141.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image681.wmf",
+      "output": "images/ch3/hinh-142.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image682.wmf",
+      "output": "images/ch3/hinh-143.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image683.wmf",
+      "output": "images/ch3/hinh-144.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image684.wmf",
+      "output": "images/ch3/hinh-145.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image685.wmf",
+      "output": "images/ch3/hinh-146.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image686.wmf",
+      "output": "images/ch3/hinh-147.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image687.wmf",
+      "output": "images/ch3/hinh-148.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image688.wmf",
+      "output": "images/ch3/hinh-149.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image689.wmf",
+      "output": "images/ch3/hinh-150.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image690.png",
+      "output": "images/ch3/hinh-151.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image691.wmf",
+      "output": "images/ch3/hinh-152.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image692.wmf",
+      "output": "images/ch3/hinh-153.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image693.wmf",
+      "output": "images/ch3/hinh-154.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image694.wmf",
+      "output": "images/ch3/hinh-155.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image695.wmf",
+      "output": "images/ch3/hinh-156.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image696.wmf",
+      "output": "images/ch3/hinh-157.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image697.wmf",
+      "output": "images/ch3/hinh-158.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image698.wmf",
+      "output": "images/ch3/hinh-159.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image699.wmf",
+      "output": "images/ch3/hinh-160.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image700.wmf",
+      "output": "images/ch3/hinh-161.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image701.wmf",
+      "output": "images/ch3/hinh-162.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image702.wmf",
+      "output": "images/ch3/hinh-163.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image703.wmf",
+      "output": "images/ch3/hinh-164.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image704.wmf",
+      "output": "images/ch3/hinh-165.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image705.wmf",
+      "output": "images/ch3/hinh-166.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image706.wmf",
+      "output": "images/ch3/hinh-167.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image707.wmf",
+      "output": "images/ch3/hinh-168.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image708.png",
+      "output": "images/ch3/hinh-169.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image709.wmf",
+      "output": "images/ch3/hinh-170.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image710.wmf",
+      "output": "images/ch3/hinh-171.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image711.wmf",
+      "output": "images/ch3/hinh-172.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image712.wmf",
+      "output": "images/ch3/hinh-173.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image713.png",
+      "output": "images/ch3/hinh-174.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image714.wmf",
+      "output": "images/ch3/hinh-175.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image715.wmf",
+      "output": "images/ch3/hinh-176.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image716.png",
+      "output": "images/ch3/hinh-177.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image717.wmf",
+      "output": "images/ch3/hinh-178.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image718.wmf",
+      "output": "images/ch3/hinh-179.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image719.wmf",
+      "output": "images/ch3/hinh-180.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image720.wmf",
+      "output": "images/ch3/hinh-181.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image721.wmf",
+      "output": "images/ch3/hinh-182.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image722.wmf",
+      "output": "images/ch3/hinh-183.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image723.wmf",
+      "output": "images/ch3/hinh-184.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image724.wmf",
+      "output": "images/ch3/hinh-185.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image725.wmf",
+      "output": "images/ch3/hinh-186.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image726.wmf",
+      "output": "images/ch3/hinh-187.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image727.wmf",
+      "output": "images/ch3/hinh-188.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image728.wmf",
+      "output": "images/ch3/hinh-189.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image729.wmf",
+      "output": "images/ch3/hinh-190.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image730.wmf",
+      "output": "images/ch3/hinh-191.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image731.wmf",
+      "output": "images/ch3/hinh-192.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image732.wmf",
+      "output": "images/ch3/hinh-193.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image733.wmf",
+      "output": "images/ch3/hinh-194.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image734.wmf",
+      "output": "images/ch3/hinh-195.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image735.wmf",
+      "output": "images/ch3/hinh-196.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image736.png",
+      "output": "images/ch3/hinh-197.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image737.wmf",
+      "output": "images/ch3/hinh-198.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image738.png",
+      "output": "images/ch3/hinh-199.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image739.png",
+      "output": "images/ch3/hinh-200.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image740.wmf",
+      "output": "images/ch3/hinh-201.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image741.wmf",
+      "output": "images/ch3/hinh-202.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image742.wmf",
+      "output": "images/ch3/hinh-203.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image743.wmf",
+      "output": "images/ch3/hinh-204.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image744.wmf",
+      "output": "images/ch3/hinh-205.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image745.wmf",
+      "output": "images/ch3/hinh-206.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image746.png",
+      "output": "images/ch3/hinh-207.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image747.wmf",
+      "output": "images/ch3/hinh-208.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image748.wmf",
+      "output": "images/ch3/hinh-209.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image749.wmf",
+      "output": "images/ch3/hinh-210.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image750.wmf",
+      "output": "images/ch3/hinh-211.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image751.wmf",
+      "output": "images/ch3/hinh-212.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image752.wmf",
+      "output": "images/ch3/hinh-213.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image753.wmf",
+      "output": "images/ch3/hinh-214.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image754.wmf",
+      "output": "images/ch3/hinh-215.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image755.png",
+      "output": "images/ch3/hinh-216.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image756.png",
+      "output": "images/ch3/hinh-217.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image757.wmf",
+      "output": "images/ch3/hinh-218.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image758.wmf",
+      "output": "images/ch3/hinh-219.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image759.wmf",
+      "output": "images/ch3/hinh-220.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image760.wmf",
+      "output": "images/ch3/hinh-221.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image761.wmf",
+      "output": "images/ch3/hinh-222.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image762.wmf",
+      "output": "images/ch3/hinh-223.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image763.png",
+      "output": "images/ch3/hinh-224.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image764.png",
+      "output": "images/ch3/hinh-225.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image765.wmf",
+      "output": "images/ch3/hinh-226.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image766.png",
+      "output": "images/ch3/hinh-227.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image767.wmf",
+      "output": "images/ch3/hinh-228.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image768.png",
+      "output": "images/ch3/hinh-229.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image769.wmf",
+      "output": "images/ch3/hinh-230.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image770.png",
+      "output": "images/ch3/hinh-231.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image771.wmf",
+      "output": "images/ch3/hinh-232.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image772.png",
+      "output": "images/ch3/hinh-233.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image773.wmf",
+      "output": "images/ch3/hinh-234.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image774.png",
+      "output": "images/ch3/hinh-235.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image775.wmf",
+      "output": "images/ch3/hinh-236.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image776.png",
+      "output": "images/ch3/hinh-237.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image777.wmf",
+      "output": "images/ch3/hinh-238.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image778.wmf",
+      "output": "images/ch3/hinh-239.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image779.wmf",
+      "output": "images/ch3/hinh-240.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image780.wmf",
+      "output": "images/ch3/hinh-241.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image781.wmf",
+      "output": "images/ch3/hinh-242.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image782.wmf",
+      "output": "images/ch3/hinh-243.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image783.png",
+      "output": "images/ch3/hinh-244.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image784.wmf",
+      "output": "images/ch3/hinh-245.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image785.wmf",
+      "output": "images/ch3/hinh-246.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image786.wmf",
+      "output": "images/ch3/hinh-247.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image787.wmf",
+      "output": "images/ch3/hinh-248.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image788.wmf",
+      "output": "images/ch3/hinh-249.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image789.wmf",
+      "output": "images/ch3/hinh-250.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image790.wmf",
+      "output": "images/ch3/hinh-251.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image791.wmf",
+      "output": "images/ch3/hinh-252.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image792.wmf",
+      "output": "images/ch3/hinh-253.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image793.wmf",
+      "output": "images/ch3/hinh-254.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image794.wmf",
+      "output": "images/ch3/hinh-255.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image795.png",
+      "output": "images/ch3/hinh-256.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image796.wmf",
+      "output": "images/ch3/hinh-257.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image797.png",
+      "output": "images/ch3/hinh-258.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image798.wmf",
+      "output": "images/ch3/hinh-259.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image799.png",
+      "output": "images/ch3/hinh-260.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image800.wmf",
+      "output": "images/ch3/hinh-261.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image801.png",
+      "output": "images/ch3/hinh-262.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image802.wmf",
+      "output": "images/ch3/hinh-263.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image803.wmf",
+      "output": "images/ch3/hinh-264.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image804.png",
+      "output": "images/ch3/hinh-265.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image805.png",
+      "output": "images/ch3/hinh-266.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image806.wmf",
+      "output": "images/ch3/hinh-267.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image807.png",
+      "output": "images/ch3/hinh-268.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image808.wmf",
+      "output": "images/ch3/hinh-269.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image809.png",
+      "output": "images/ch3/hinh-270.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image810.wmf",
+      "output": "images/ch3/hinh-271.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image811.png",
+      "output": "images/ch3/hinh-272.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image812.wmf",
+      "output": "images/ch3/hinh-273.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image813.png",
+      "output": "images/ch3/hinh-274.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image814.png",
+      "output": "images/ch3/hinh-275.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image815.wmf",
+      "output": "images/ch3/hinh-276.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image816.png",
+      "output": "images/ch3/hinh-277.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image817.wmf",
+      "output": "images/ch3/hinh-278.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image818.png",
+      "output": "images/ch3/hinh-279.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image819.wmf",
+      "output": "images/ch3/hinh-280.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image820.png",
+      "output": "images/ch3/hinh-281.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image821.wmf",
+      "output": "images/ch3/hinh-282.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image822.png",
+      "output": "images/ch3/hinh-283.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image823.wmf",
+      "output": "images/ch3/hinh-284.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image824.png",
+      "output": "images/ch3/hinh-285.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image825.wmf",
+      "output": "images/ch3/hinh-286.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image826.png",
+      "output": "images/ch3/hinh-287.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image827.wmf",
+      "output": "images/ch3/hinh-288.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image828.wmf",
+      "output": "images/ch3/hinh-289.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image829.wmf",
+      "output": "images/ch3/hinh-290.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image830.wmf",
+      "output": "images/ch3/hinh-291.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image831.wmf",
+      "output": "images/ch3/hinh-292.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image832.png",
+      "output": "images/ch3/hinh-293.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image833.wmf",
+      "output": "images/ch3/hinh-294.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image834.wmf",
+      "output": "images/ch3/hinh-295.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image835.wmf",
+      "output": "images/ch3/hinh-296.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image836.wmf",
+      "output": "images/ch3/hinh-297.png"
+    },
+    {
+      "chapter": 3,
+      "media": "image837.wmf",
+      "output": "images/ch3/hinh-298.png"
+    }
+  ],
+  "failures": []
+}

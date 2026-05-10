@@ -1,0 +1,652 @@
+[
+  {
+    "question": "Vật rắn tuyệt đối là gì?",
+    "options": [
+      "Vật không bị biến dạng dưới tác dụng của lực",
+      "Vật có khối lượng lớn",
+      "Vật đứng yên",
+      "Vật chuyển động thẳng đều"
+    ],
+    "correct": 0,
+    "section": "I",
+    "feedbackCorrect": "✅ Đúng! Vật rắn tuyệt đối là vật không bị biến dạng.",
+    "feedbackWrong": "❌ Vật rắn tuyệt đối = vật không biến dạng dưới tác dụng lực."
+  },
+  {
+    "question": "Trạng thái cân bằng của vật rắn là khi:",
+    "options": [
+      "Vật đứng yên hoặc chuyển động thẳng đều",
+      "Vật chỉ đứng yên",
+      "Vật quay đều",
+      "Vật dao động"
+    ],
+    "correct": 0,
+    "section": "I",
+    "feedbackCorrect": "✅ Chính xác!",
+    "feedbackWrong": "❌ Cân bằng = đứng yên HOẶC chuyển động thẳng đều."
+  },
+  {
+    "question": "Lực được đặc trưng bởi mấy yếu tố?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct": 1,
+    "section": "I",
+    "feedbackCorrect": "✅ 3 yếu tố: điểm đặt, phương chiều, cường độ.",
+    "feedbackWrong": "❌ Lực có 3 yếu tố: điểm đặt, phương chiều, cường độ."
+  },
+  {
+    "question": "Đơn vị của lực trong hệ SI là:",
+    "options": [
+      "kg",
+      "N (Newton)",
+      "Pa",
+      "J"
+    ],
+    "correct": 1,
+    "section": "I",
+    "feedbackCorrect": "✅ Đơn vị lực là Newton (N).",
+    "feedbackWrong": "❌ Đơn vị lực = Newton (N) = kg·m/s²."
+  },
+  {
+    "question": "Mô men của lực đối với một điểm phụ thuộc vào:",
+    "options": [
+      "Chỉ cường độ lực",
+      "Cường độ lực và khoảng cách từ điểm đến đường tác dụng",
+      "Chỉ khoảng cách",
+      "Khối lượng vật"
+    ],
+    "correct": 1,
+    "section": "I",
+    "feedbackCorrect": "✅ M = F × d (cường độ × cánh tay đòn).",
+    "feedbackWrong": "❌ Mô men = F × d (cường độ × cánh tay đòn)."
+  },
+  {
+    "question": "Ngẫu lực là:",
+    "options": [
+      "Hai lực cùng phương, cùng chiều",
+      "Hai lực song song, ngược chiều, cùng cường độ, khác đường tác dụng",
+      "Hai lực cùng điểm đặt",
+      "Một lực và mô men"
+    ],
+    "correct": 1,
+    "section": "I",
+    "feedbackCorrect": "✅ Ngẫu lực gồm 2 lực song song, ngược chiều, cùng cường độ.",
+    "feedbackWrong": "❌ Ngẫu lực = 2 lực song song, ngược chiều, cùng cường độ, khác ĐTD."
+  },
+  {
+    "question": "Vật tự do là:",
+    "options": [
+      "Vật chuyển động được theo mọi hướng",
+      "Vật không liên kết với vật khác",
+      "Vật đứng yên",
+      "Vật có khối lượng nhỏ"
+    ],
+    "correct": 0,
+    "section": "I",
+    "feedbackCorrect": "✅ Vật tự do có thể dịch chuyển theo mọi hướng.",
+    "feedbackWrong": "❌ Vật tự do = vật chuyển động được theo mọi hướng trong không gian."
+  },
+  {
+    "question": "Phản lực liên kết có đặc điểm gì?",
+    "options": [
+      "Luôn vuông góc mặt tiếp xúc",
+      "Cùng phương, ngược chiều với lực bị cản",
+      "Luôn thẳng đứng",
+      "Luôn nằm ngang"
+    ],
+    "correct": 1,
+    "section": "I",
+    "feedbackCorrect": "✅ Phản lực liên kết cùng phương, ngược chiều với dịch chuyển bị cản.",
+    "feedbackWrong": "❌ Phản lực liên kết ngược chiều với dịch chuyển bị liên kết cản trở."
+  },
+  {
+    "question": "Tiên đề 1 (cặp lực cân bằng): Điều kiện cần và đủ để 2 lực cân bằng là:",
+    "options": [
+      "Cùng cường độ",
+      "Cùng đường tác dụng, ngược chiều, cùng cường độ",
+      "Cùng phương",
+      "Cùng điểm đặt"
+    ],
+    "correct": 1,
+    "section": "II",
+    "feedbackCorrect": "✅ Chính xác! Cùng ĐTD + ngược chiều + cùng cường độ.",
+    "feedbackWrong": "❌ Cần 3 điều kiện: cùng ĐTD, ngược chiều, cùng cường độ."
+  },
+  {
+    "question": "Tiên đề 2 cho phép ta:",
+    "options": [
+      "Thêm hoặc bớt cặp lực cân bằng",
+      "Dịch chuyển lực dọc đường tác dụng",
+      "Phân tích lực",
+      "Tổng hợp lực"
+    ],
+    "correct": 0,
+    "section": "II",
+    "feedbackCorrect": "✅ Tiên đề 2: thêm hay bớt cặp lực cân bằng.",
+    "feedbackWrong": "❌ Tiên đề 2 = thêm/bớt cặp lực cân bằng không làm thay đổi trạng thái."
+  },
+  {
+    "question": "Theo tiên đề hình bình hành lực, hợp lực của hai lực đồng quy:",
+    "options": [
+      "Bằng tổng hai lực",
+      "Là đường chéo hình bình hành",
+      "Bằng hiệu hai lực",
+      "Vuông góc với hai lực"
+    ],
+    "correct": 1,
+    "section": "II",
+    "feedbackCorrect": "✅ Hợp lực = đường chéo hình bình hành.",
+    "feedbackWrong": "❌ Tiên đề 3: hợp lực = đường chéo hình bình hành lực."
+  },
+  {
+    "question": "Tiên đề 4 (lực tương tác) phát biểu:",
+    "options": [
+      "Lực luôn đi theo cặp, bằng nhau, ngược chiều",
+      "Lực tác dụng = phản lực, cùng đường tác dụng",
+      "Mọi lực đều có phản lực",
+      "Cả A, B, C đều đúng"
+    ],
+    "correct": 3,
+    "section": "II",
+    "feedbackCorrect": "✅ Tiên đề Newton 3: tác dụng = phản tác dụng.",
+    "feedbackWrong": "❌ Đáp án đúng: tất cả A, B, C đều mô tả tiên đề 4."
+  },
+  {
+    "question": "Tiên đề hóa rắn cho phép:",
+    "options": [
+      "Áp dụng ĐK cân bằng vật rắn cho vật biến dạng",
+      "Bỏ qua biến dạng",
+      "Xem vật mềm như vật rắn",
+      "Cả A và C"
+    ],
+    "correct": 3,
+    "section": "II",
+    "feedbackCorrect": "✅ Tiên đề hóa rắn: ĐK cân bằng VR là ĐK cần (không đủ) cho vật biến dạng.",
+    "feedbackWrong": "❌ Tiên đề hóa rắn cho phép áp dụng kết quả VR cho vật biến dạng."
+  },
+  {
+    "question": "Tiên đề giải phóng liên kết phát biểu:",
+    "options": [
+      "Bỏ liên kết và thay bằng phản lực",
+      "Giữ liên kết nguyên",
+      "Thêm liên kết mới",
+      "Xóa bỏ mọi lực"
+    ],
+    "correct": 0,
+    "section": "II",
+    "feedbackCorrect": "✅ Giải phóng liên kết = bỏ liên kết, thay bằng phản lực tương ứng.",
+    "feedbackWrong": "❌ Tiên đề 6: bỏ liên kết → thay bằng phản lực liên kết."
+  },
+  {
+    "question": "Hệ quả của tiên đề 1 và 2: Lực có thể trượt dọc đường tác dụng mà:",
+    "options": [
+      "Thay đổi trạng thái cân bằng",
+      "Không thay đổi trạng thái cân bằng",
+      "Thay đổi biến dạng",
+      "Thay đổi cả hai"
+    ],
+    "correct": 1,
+    "section": "II",
+    "feedbackCorrect": "✅ Hệ quả: lực trượt dọc ĐTD không ảnh hưởng cân bằng.",
+    "feedbackWrong": "❌ Lực trượt dọc đường tác dụng → trạng thái cân bằng không đổi."
+  },
+  {
+    "question": "Trong hệ tiên đề tĩnh học có mấy tiên đề?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correct": 2,
+    "section": "II",
+    "feedbackCorrect": "✅ Có 6 tiên đề tĩnh học.",
+    "feedbackWrong": "❌ Hệ tiên đề tĩnh học gồm 6 tiên đề."
+  },
+  {
+    "question": "Phản lực của liên kết tựa có phương:",
+    "options": [
+      "Dọc theo mặt tựa",
+      "Vuông góc mặt tựa tại điểm tiếp xúc",
+      "Song song mặt tựa",
+      "Bất kỳ"
+    ],
+    "correct": 1,
+    "section": "III",
+    "feedbackCorrect": "✅ Phản lực liên kết tựa vuông góc với mặt tựa.",
+    "feedbackWrong": "❌ Liên kết tựa: phản lực ⊥ mặt tựa tại điểm tiếp xúc."
+  },
+  {
+    "question": "Liên kết dây mềm chỉ chịu được:",
+    "options": [
+      "Lực nén",
+      "Lực kéo (kéo căng)",
+      "Cả kéo và nén",
+      "Mô men"
+    ],
+    "correct": 1,
+    "section": "III",
+    "feedbackCorrect": "✅ Dây mềm chỉ chịu kéo, không chịu nén.",
+    "feedbackWrong": "❌ Dây mềm chỉ truyền lực kéo dọc theo dây."
+  },
+  {
+    "question": "Liên kết bản lề phẳng cản trở dịch chuyển theo:",
+    "options": [
+      "1 phương",
+      "2 phương trong mặt phẳng",
+      "3 phương",
+      "Chỉ xoay"
+    ],
+    "correct": 1,
+    "section": "III",
+    "feedbackCorrect": "✅ Bản lề phẳng cản trở dịch chuyển theo 2 phương trong mặt phẳng.",
+    "feedbackWrong": "❌ Bản lề phẳng: 2 thành phần phản lực (ngang + đứng)."
+  },
+  {
+    "question": "Liên kết ngàm cản trở:",
+    "options": [
+      "Chỉ dịch chuyển",
+      "Chỉ xoay",
+      "Cả dịch chuyển và xoay",
+      "Không cản gì"
+    ],
+    "correct": 2,
+    "section": "III",
+    "feedbackCorrect": "✅ Ngàm cản trở cả dịch chuyển (2 phương) và xoay.",
+    "feedbackWrong": "❌ Ngàm = cản trở tịnh tiến + quay → 3 ẩn phản lực."
+  },
+  {
+    "question": "Liên kết thanh chỉ cho phản lực có phương:",
+    "options": [
+      "Vuông góc thanh",
+      "Dọc theo thanh",
+      "Bất kỳ",
+      "Song song thanh"
+    ],
+    "correct": 1,
+    "section": "III",
+    "feedbackCorrect": "✅ Thanh 2 đầu khớp: phản lực dọc theo thanh.",
+    "feedbackWrong": "❌ Liên kết thanh: phản lực dọc theo trục thanh."
+  },
+  {
+    "question": "Gối cầu có mấy thành phần phản lực?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 2,
+    "section": "III",
+    "feedbackCorrect": "✅ Gối cầu có 3 thành phần phản lực (x, y, z).",
+    "feedbackWrong": "❌ Gối cầu cản 3 phương tịnh tiến → 3 phản lực."
+  },
+  {
+    "question": "Gối di động chỉ có:",
+    "options": [
+      "1 phản lực vuông góc mặt đỡ",
+      "2 phản lực",
+      "3 phản lực",
+      "1 mô men"
+    ],
+    "correct": 0,
+    "section": "III",
+    "feedbackCorrect": "✅ Gối di động: 1 phản lực ⊥ mặt đỡ.",
+    "feedbackWrong": "❌ Gối di động chỉ có 1 phản lực vuông góc mặt đỡ."
+  },
+  {
+    "question": "Véc tơ chính của hệ lực là:",
+    "options": [
+      "Tổng hình học các véc tơ lực",
+      "Lực lớn nhất",
+      "Trung bình các lực",
+      "Hiệu các lực"
+    ],
+    "correct": 0,
+    "section": "IV",
+    "feedbackCorrect": "✅ R = ΣFi (tổng hình học).",
+    "feedbackWrong": "❌ Véc tơ chính R = tổng hình học tất cả các lực."
+  },
+  {
+    "question": "Mô men chính của hệ lực đối với tâm O:",
+    "options": [
+      "Phụ thuộc vị trí O",
+      "Không phụ thuộc O",
+      "Luôn bằng 0",
+      "Bằng véc tơ chính"
+    ],
+    "correct": 0,
+    "section": "IV",
+    "feedbackCorrect": "✅ Mô men chính phụ thuộc vào việc chọn tâm O.",
+    "feedbackWrong": "❌ Mô men chính MO = Σmo(Fi) phụ thuộc vào tâm thu gọn O."
+  },
+  {
+    "question": "Khi véc tơ chính R = 0 và mô men chính MO = 0 thì hệ lực:",
+    "options": [
+      "Tương đương ngẫu lực",
+      "Cân bằng",
+      "Thu gọn về 1 lực",
+      "Không xác định"
+    ],
+    "correct": 1,
+    "section": "IV",
+    "feedbackCorrect": "✅ R=0, MO=0 → hệ lực cân bằng.",
+    "feedbackWrong": "❌ Điều kiện cân bằng: R = 0 VÀ MO = 0."
+  },
+  {
+    "question": "Khi R ≠ 0 thì hệ lực thu gọn về:",
+    "options": [
+      "Ngẫu lực",
+      "Hợp lực duy nhất",
+      "Cặp lực cân bằng",
+      "Không thu gọn được"
+    ],
+    "correct": 1,
+    "section": "IV",
+    "feedbackCorrect": "✅ R ≠ 0 → hệ lực có hợp lực.",
+    "feedbackWrong": "❌ Khi R ≠ 0 hệ lực thu gọn về 1 hợp lực."
+  },
+  {
+    "question": "Hệ lực phẳng song song có tối đa mấy phương trình cân bằng độc lập?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct": 0,
+    "section": "IV",
+    "feedbackCorrect": "✅ Hệ lực phẳng song song: 2 PTCB độc lập.",
+    "feedbackWrong": "❌ Hệ phẳng song song: 2 phương trình cân bằng."
+  },
+  {
+    "question": "Hệ lực phẳng bất kỳ có tối đa mấy phương trình cân bằng?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct": 1,
+    "section": "V",
+    "feedbackCorrect": "✅ HLPBK: 3 PTCB (ΣFx=0, ΣFy=0, ΣmO=0).",
+    "feedbackWrong": "❌ Hệ lực phẳng bất kỳ → 3 phương trình cân bằng."
+  },
+  {
+    "question": "Hệ lực không gian bất kỳ có mấy PTCB?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correct": 3,
+    "section": "V",
+    "feedbackCorrect": "✅ HLKGBK: 6 PTCB (3 lực + 3 mô men).",
+    "feedbackWrong": "❌ Hệ lực KG bất kỳ: 6 PTCB (ΣFx,Fy,Fz=0 + Σmx,my,mz=0)."
+  },
+  {
+    "question": "Hệ lực phẳng đồng quy có mấy phương trình cân bằng?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": 1,
+    "section": "V",
+    "feedbackCorrect": "✅ Hệ lực phẳng đồng quy: 2 PTCB.",
+    "feedbackWrong": "❌ HLPĐQ: ΣFx=0, ΣFy=0 → 2 PTCB."
+  },
+  {
+    "question": "Dạng mô men của PTCB hệ lực phẳng bất kỳ là:",
+    "options": [
+      "ΣmA=0, ΣmB=0, ΣmC=0 (A,B,C không thẳng hàng)",
+      "ΣFx=0, ΣFy=0",
+      "ΣFz=0",
+      "ΣF=0"
+    ],
+    "correct": 0,
+    "section": "V",
+    "feedbackCorrect": "✅ Dạng 3 mô men: ΣmA=0, ΣmB=0, ΣmC=0.",
+    "feedbackWrong": "❌ Có thể viết 3 PTCB dạng mô men (A,B,C không thẳng hàng)."
+  },
+  {
+    "question": "Hệ lực đồng quy không gian có mấy PTCB?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct": 1,
+    "section": "V",
+    "feedbackCorrect": "✅ Đồng quy KG: ΣFx=0, ΣFy=0, ΣFz=0 → 3 PTCB.",
+    "feedbackWrong": "❌ Hệ lực đồng quy không gian: 3 PTCB."
+  },
+  {
+    "question": "Lực ma sát trượt tỉ lệ với:",
+    "options": [
+      "Diện tích tiếp xúc",
+      "Phản lực pháp tuyến",
+      "Vận tốc",
+      "Khối lượng"
+    ],
+    "correct": 1,
+    "section": "VI",
+    "feedbackCorrect": "✅ Fms = f × N (f = hệ số ma sát, N = phản lực pháp tuyến).",
+    "feedbackWrong": "❌ Lực ma sát trượt = f × N (tỷ lệ phản lực pháp tuyến)."
+  },
+  {
+    "question": "Hệ số ma sát trượt phụ thuộc vào:",
+    "options": [
+      "Diện tích tiếp xúc",
+      "Vật liệu và tình trạng bề mặt",
+      "Khối lượng vật",
+      "Hình dạng vật"
+    ],
+    "correct": 1,
+    "section": "VI",
+    "feedbackCorrect": "✅ Hệ số ma sát phụ thuộc vật liệu và độ nhám bề mặt.",
+    "feedbackWrong": "❌ f phụ thuộc vào vật liệu và tình trạng bề mặt tiếp xúc."
+  },
+  {
+    "question": "Góc ma sát là:",
+    "options": [
+      "Góc nghiêng mặt phẳng",
+      "Góc giữa phản lực toàn phần và pháp tuyến",
+      "Góc giữa 2 lực",
+      "Góc giữa F và v"
+    ],
+    "correct": 1,
+    "section": "VI",
+    "feedbackCorrect": "✅ Góc ma sát φ = arctan(f).",
+    "feedbackWrong": "❌ Góc ma sát = góc giữa phản lực toàn phần và pháp tuyến mặt tiếp xúc."
+  },
+  {
+    "question": "Ma sát lăn được đặc trưng bởi:",
+    "options": [
+      "Hệ số ma sát",
+      "Mô men cản lăn",
+      "Lực pháp tuyến",
+      "Lực tiếp tuyến"
+    ],
+    "correct": 1,
+    "section": "VI",
+    "feedbackCorrect": "✅ Ma sát lăn → mô men cản lăn Ml = δ × N.",
+    "feedbackWrong": "❌ Ma sát lăn đặc trưng bởi mô men cản lăn."
+  },
+  {
+    "question": "Điều kiện tự hãm xảy ra khi:",
+    "options": [
+      "Góc lực tác dụng ≤ góc ma sát",
+      "Lực rất lớn",
+      "Bề mặt rất nhám",
+      "F > N"
+    ],
+    "correct": 0,
+    "section": "VI",
+    "feedbackCorrect": "✅ Tự hãm khi góc α ≤ φ (góc ma sát).",
+    "feedbackWrong": "❌ Tự hãm: vật không trượt khi α ≤ φ bất kể lực lớn bao nhiêu."
+  },
+  {
+    "question": "Trọng tâm của vật rắn là:",
+    "options": [
+      "Điểm đặt hợp lực trọng trường",
+      "Tâm hình học",
+      "Điểm giữa vật",
+      "Điểm cao nhất"
+    ],
+    "correct": 0,
+    "section": "VII",
+    "feedbackCorrect": "✅ Trọng tâm = điểm đặt hợp lực của các lực trọng trường.",
+    "feedbackWrong": "❌ Trọng tâm là điểm đặt của hợp lực trọng trường."
+  },
+  {
+    "question": "Trọng tâm tam giác nằm tại:",
+    "options": [
+      "Đỉnh",
+      "Giao 3 đường trung tuyến",
+      "Giao 3 đường cao",
+      "Tâm đường tròn ngoại tiếp"
+    ],
+    "correct": 1,
+    "section": "VII",
+    "feedbackCorrect": "✅ Trọng tâm tam giác = giao 3 đường trung tuyến.",
+    "feedbackWrong": "❌ Trọng tâm Δ = giao 3 đường trung tuyến (cách đỉnh 2/3)."
+  },
+  {
+    "question": "Công thức tính tọa độ trọng tâm xC =",
+    "options": [
+      "ΣPi·xi / ΣPi",
+      "ΣPi / xi",
+      "ΣPi + xi",
+      "xi / ΣPi"
+    ],
+    "correct": 0,
+    "section": "VII",
+    "feedbackCorrect": "✅ xC = Σ(Pi·xi)/ΣPi.",
+    "feedbackWrong": "❌ Tọa độ trọng tâm: xC = Σ(Pi·xi) / ΣPi."
+  },
+  {
+    "question": "Trọng tâm nửa đường tròn bán kính R cách tâm:",
+    "options": [
+      "R/2",
+      "2R/π",
+      "R/π",
+      "R/3"
+    ],
+    "correct": 1,
+    "section": "VII",
+    "feedbackCorrect": "✅ Trọng tâm nửa đường tròn cách tâm 2R/π.",
+    "feedbackWrong": "❌ Nửa đường tròn: yC = 2R/π."
+  },
+  {
+    "question": "Nếu vật có trục đối xứng thì trọng tâm:",
+    "options": [
+      "Nằm trên trục đối xứng",
+      "Nằm ngoài vật",
+      "Không xác định được",
+      "Nằm ở biên"
+    ],
+    "correct": 0,
+    "section": "VII",
+    "feedbackCorrect": "✅ Trọng tâm nằm trên trục đối xứng.",
+    "feedbackWrong": "❌ Tính chất: trọng tâm luôn nằm trên trục đối xứng."
+  },
+  {
+    "question": "Phương pháp phần bù dùng để tính trọng tâm khi:",
+    "options": [
+      "Vật có lỗ khoét",
+      "Vật đồng nhất",
+      "Vật tròn",
+      "Vật phẳng"
+    ],
+    "correct": 0,
+    "section": "VII",
+    "feedbackCorrect": "✅ Phương pháp phần bù dùng cho vật có lỗ khoét.",
+    "feedbackWrong": "❌ PP phần bù: vật bị khoét = vật nguyên - phần khoét."
+  },
+  {
+    "question": "Cho dầm AB dài 4m, tựa đơn 2 đầu, lực P=10kN đặt giữa dầm. Phản lực tại A bằng:",
+    "options": [
+      "10 kN",
+      "5 kN",
+      "2.5 kN",
+      "7.5 kN"
+    ],
+    "correct": 1,
+    "section": "VIII",
+    "feedbackCorrect": "✅ Lực đặt giữa → RA = RB = P/2 = 5 kN.",
+    "feedbackWrong": "❌ P đặt giữa AB → RA = P/2 = 5 kN (đối xứng)."
+  },
+  {
+    "question": "Ngẫu lực có mô men m = F×d. Nếu F=20N, d=0.5m thì m =",
+    "options": [
+      "10 N·m",
+      "40 N·m",
+      "5 N·m",
+      "100 N·m"
+    ],
+    "correct": 0,
+    "section": "VIII",
+    "feedbackCorrect": "✅ m = 20 × 0.5 = 10 N·m.",
+    "feedbackWrong": "❌ m = F × d = 20 × 0.5 = 10 N·m."
+  },
+  {
+    "question": "Hai lực F1=3N, F2=4N vuông góc nhau. Hợp lực R =",
+    "options": [
+      "7 N",
+      "1 N",
+      "5 N",
+      "12 N"
+    ],
+    "correct": 2,
+    "section": "VIII",
+    "feedbackCorrect": "✅ R = √(3²+4²) = √25 = 5 N.",
+    "feedbackWrong": "❌ R = √(F1²+F2²) = √(9+16) = 5 N."
+  },
+  {
+    "question": "Dầm console dài L, chịu lực tập trung P tại đầu tự do. Mô men tại ngàm bằng:",
+    "options": [
+      "P×L",
+      "P/L",
+      "P×L²",
+      "P×L/2"
+    ],
+    "correct": 0,
+    "section": "VIII",
+    "feedbackCorrect": "✅ Mô men ngàm M = P × L.",
+    "feedbackWrong": "❌ Mô men tại ngàm = P × L (lực × cánh tay đòn)."
+  },
+  {
+    "question": "Vật nặng P=100N trên mặt phẳng nghiêng α=30°, hệ số ma sát 0.2. Lực ma sát =",
+    "options": [
+      "20 N",
+      "17.3 N",
+      "10 N",
+      "50 N"
+    ],
+    "correct": 1,
+    "section": "VIII",
+    "feedbackCorrect": "✅ Fms = f×N = 0.2×P×cos30° = 0.2×100×0.866 ≈ 17.3N.",
+    "feedbackWrong": "❌ N = P·cosα, Fms = f×N = 0.2 × 100 × cos30° ≈ 17.3 N."
+  },
+  {
+    "question": "Cho hệ 3 lực đồng quy: F1=5N(↑), F2=3N(→), F3=4N(↓). Hợp lực có cường độ:",
+    "options": [
+      "12 N",
+      "√10 N",
+      "2 N",
+      "√(1+9) = √10 N"
+    ],
+    "correct": 1,
+    "section": "VIII",
+    "feedbackCorrect": "✅ Rx=3, Ry=5-4=1 → R=√(9+1)=√10 N.",
+    "feedbackWrong": "❌ Rx=3, Ry=1 → R = √(9+1) = √10 ≈ 3.16 N."
+  }
+]
