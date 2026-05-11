@@ -7,7 +7,7 @@
 
   function init(host) {
     const container = document.createElement('div');
-    container.className = 'sim-viewport-v2';
+    container.setAttribute('class', 'sim-viewport-v2');
     container.style.display = 'flex';
     container.style.flexDirection = 'row';
     container.style.width = '100%';
@@ -21,7 +21,7 @@
     svg.setAttribute('viewBox', '0 0 500 440');
     svg.style.width = '100%';
     svg.style.height = '100%';
-    svg.className = 'sim-svg-v2';
+    svg.setAttribute('class', 'sim-svg-v2');
     canvasArea.appendChild(svg);
     
     const uiPanel = document.createElement('div');
@@ -53,7 +53,7 @@
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
       line.setAttribute('stroke', 'rgba(201, 150, 58, 0.1)');
       line.setAttribute('stroke-width', '1');
-      line.className = 'disk-spoke';
+      line.setAttribute('class', 'disk-spoke');
       svg.appendChild(line);
     }
 
@@ -66,7 +66,7 @@
     const arrowAc = SimV2Primitives.createArrow(svg, { color: '#e74c3c', strokeWidth: 3, label: 'ac' });
 
     const readout = document.createElement('div');
-    readout.className = 'sim-readout-v2';
+    readout.setAttribute('class', 'sim-readout-v2');
     readout.style.marginTop = '20px';
     readout.style.padding = '10px';
     readout.style.borderRadius = '4px';

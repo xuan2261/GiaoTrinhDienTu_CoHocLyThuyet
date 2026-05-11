@@ -14,10 +14,10 @@
     host.appendChild(layout);
 
     const viewport = document.createElement('div');
-    viewport.className = 'sim-viewport-v2';
+    viewport.setAttribute('class', 'sim-viewport-v2');
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 800 450');
-    svg.className = 'sim-svg-v2';
+    svg.setAttribute('class', 'sim-svg-v2');
     viewport.appendChild(svg);
     layout.appendChild(viewport);
 
@@ -33,7 +33,7 @@
 
     const chartCanvas = document.createElement('canvas');
     const chartContainer = document.createElement('div');
-    chartContainer.className = 'sim-chart-container-v2';
+    chartContainer.setAttribute('class', 'sim-chart-container-v2');
     chartContainer.appendChild(chartCanvas);
     sidebar.appendChild(chartContainer);
 

@@ -15,7 +15,7 @@
     host.appendChild(layout);
 
     const viewport = document.createElement('div');
-    viewport.className = 'sim-viewport-v2';
+    viewport.setAttribute('class', 'sim-viewport-v2');
     viewport.style.display = 'flex';
     viewport.style.flexDirection = 'column';
     viewport.style.justifyContent = 'center';
@@ -74,7 +74,7 @@
 
     const checkBtn = document.createElement('button');
     checkBtn.textContent = 'Kiểm tra';
-    checkBtn.className = 'sim-btn-v2';
+    checkBtn.setAttribute('class', 'sim-btn-v2');
     inputArea.appendChild(checkBtn);
     viewport.appendChild(inputArea);
 

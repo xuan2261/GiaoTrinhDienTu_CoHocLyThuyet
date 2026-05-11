@@ -16,10 +16,7 @@ const LEGACY_ROUTE_MAP = {
 };
 
 // Keep hook for historical route remaps; current 58-route set mounts by exact page id.
-const SIM_ROUTE_ALIAS_MAP = {
-  'ch1-2-3': 'pilot-parallelogram',
-  'ch3-6-3': 'pilot-collision'
-};
+const SIM_ROUTE_ALIAS_MAP = {};
 
 // ============================================
 // PAGE MAP: pageId → fragment path
@@ -189,7 +186,18 @@ function showLoading() {
 // ============================================
 async function loadPage(id) {
   id = LEGACY_ROUTE_MAP[id] || id;
-  if (!PAGE_MAP.hasOwnProperty(id)) {
+  
+  let baseId = id;
+  while (baseId && !PAGE_MAP.hasOwnProperty(baseId)) {
+    let nextId = baseId.replace(/[a-z]$/, '');
+    if (nextId === baseId) {
+      nextId = baseId.replace(/-\d+$/, '');
+    }
+    if (nextId === baseId) break;
+    baseId = nextId;
+  }
+
+  if (!PAGE_MAP.hasOwnProperty(baseId)) {
     console.warn('Page not found:', id);
     return;
   }
@@ -202,10 +210,10 @@ async function loadPage(id) {
   window.location.hash = id;
 
   // Update breadcrumb
-  document.getElementById('bc').innerHTML = BC[id] || 'Trang chủ';
+  document.getElementById('bc').innerHTML = BC[baseId] || 'Trang chủ';
 
   // Update sidebar active state
-  updateActiveNav(id);
+  updateActiveNav(baseId);
 
   // Close mobile sidebar
   if (window.innerWidth <= 768) {
@@ -216,46 +224,46 @@ async function loadPage(id) {
   closeSR();
 
   // If page is null (embedded in index.html like home page)
-  if (PAGE_MAP[id] === null) {
+  if (PAGE_MAP[baseId] === null) {
     const ca = document.getElementById('content-area');
     const homePage = document.getElementById('page-home-content');
     if (homePage) {
       ca.innerHTML = homePage.innerHTML;
     }
-    addPageNavButtons(id);
+    addPageNavButtons(baseId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    markPageRead(id);
+    markPageRead(baseId);
     return;
   }
 
-  const path = PAGE_MAP[id];
+  const path = PAGE_MAP[baseId];
 
   // Show loading if not cached
-  if (!pageCache[id]) {
+  if (!pageCache[baseId]) {
     showLoading();
   }
 
   try {
     // Check cache first
-    if (!pageCache[id]) {
+    if (!pageCache[baseId]) {
       // Use inline bundle (PAGES) for offline/USB mode
-      if (typeof PAGES !== 'undefined' && PAGES[id]) {
-        pageCache[id] = PAGES[id];
+      if (typeof PAGES !== 'undefined' && PAGES[baseId]) {
+        pageCache[baseId] = PAGES[baseId];
       } else {
         if (window.location && window.location.protocol === 'file:') {
-          throw new Error(`Offline bundle missing for ${id}`);
+          throw new Error(`Offline bundle missing for ${baseId}`);
         }
         // Fallback to fetch (dev server mode)
         const response = await fetch(path);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        pageCache[id] = await response.text();
+        pageCache[baseId] = await response.text();
       }
     }
 
     if (loadToken !== loadSequence) return;
 
     const ca = document.getElementById('content-area');
-    ca.innerHTML = pageCache[id];
+    ca.innerHTML = pageCache[baseId];
 
     // Execute inline scripts (e.g. quiz renderQuiz calls)
     ca.querySelectorAll('script').forEach(oldScript => {
@@ -422,10 +430,19 @@ async function initSimulations(container, pageId) {
 
   // Inject simulation from js/simulations.js if available for current page
   if (window.SIM_MAP && window.SIM_MAP[simRouteId]) {
+    let mountPoint = container.querySelector('#sim-' + simRouteId) || container.querySelector('.sim-container');
+    if (!mountPoint) {
+      // Create a mount point at the bottom if none exists
+      mountPoint = document.createElement('div');
+      mountPoint.className = 'sim-container';
+      container.appendChild(mountPoint);
+    }
+    
     // Don't inject twice
-    if (!container.querySelector('.sim-container')) {
+    if (!mountPoint.hasAttribute('data-route-id')) {
       try {
-        const mounted = window.SIM_MAP[simRouteId](container);
+        mountPoint.setAttribute('data-route-id', simRouteId);
+        const mounted = window.SIM_MAP[simRouteId](mountPoint);
         if (typeof mounted === 'function') {
           activeSimulationDispose = mounted;
         } else if (mounted && typeof mounted.dispose === 'function') {

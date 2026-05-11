@@ -12,7 +12,7 @@ from smoke_simulation_routes import SIMULATIONS_FILE, parse_sim_map, read_text
 sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parents[1]
-SIM_JS_GLOBS = ("js/sim*.js", "js/sims/**/*.js")
+SIM_JS_GLOBS = ("js/sim*.js", "js/sims/**/*.js", "js/routes/**/*.js")
 LEGACY_ADAPTERS = {
     "js/sim-statics.js",
     "js/sim-kinematics.js",

@@ -7,7 +7,7 @@
 
   function init(host) {
     const layout = document.createElement('div');
-    layout.className = 'sim-layout-v2';
+    layout.setAttribute('class', 'sim-layout-v2');
     layout.style.display = 'grid';
     layout.style.gridTemplateColumns = '1fr 320px';
     layout.style.gap = '16px';
@@ -19,22 +19,22 @@
     layout.appendChild(rightCol);
 
     const container = document.createElement('div');
-    container.className = 'sim-viewport-v2';
+    container.setAttribute('class', 'sim-viewport-v2');
     leftCol.appendChild(container);
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 800 500');
-    svg.className = 'sim-svg-v2';
+    svg.setAttribute('class', 'sim-svg-v2');
     container.appendChild(svg);
 
     const chartContainer = document.createElement('div');
-    chartContainer.className = 'sim-chart-container-v2';
+    chartContainer.setAttribute('class', 'sim-chart-container-v2');
     leftCol.appendChild(chartContainer);
     const canvas = document.createElement('canvas');
     chartContainer.appendChild(canvas);
 
     const uiPanel = document.createElement('div');
-    uiPanel.className = 'sim-ui-panel-v2';
+    uiPanel.setAttribute('class', 'sim-ui-panel-v2');
     rightCol.appendChild(uiPanel);
 
     const engine = new SimulationEngine({

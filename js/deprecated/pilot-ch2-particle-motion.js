@@ -18,17 +18,17 @@
     host.appendChild(layout);
 
     const container = document.createElement('div');
-    container.className = 'sim-viewport-v2';
+    container.setAttribute('class', 'sim-viewport-v2');
     leftCol.appendChild(container);
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 800 450');
-    svg.className = 'sim-svg-v2';
+    svg.setAttribute('class', 'sim-svg-v2');
     container.appendChild(svg);
 
     const chartCanvas = document.createElement('canvas');
     const chartContainer = document.createElement('div');
-    chartContainer.className = 'sim-chart-container-v2';
+    chartContainer.setAttribute('class', 'sim-chart-container-v2');
     chartContainer.appendChild(chartCanvas);
     leftCol.appendChild(chartContainer);
 

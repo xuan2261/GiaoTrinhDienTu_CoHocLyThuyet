@@ -7,11 +7,11 @@
 
   function init(host) {
     const container = document.createElement('div');
-    container.className = 'sim-viewport-v2';
+    container.setAttribute('class', 'sim-viewport-v2');
     
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 800 450');
-    svg.className = 'sim-svg-v2';
+    svg.setAttribute('class', 'sim-svg-v2');
     
     const uiPanel = document.createElement('div');
     container.appendChild(svg);

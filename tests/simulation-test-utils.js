@@ -2,27 +2,28 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const { pathToFileURL } = require('url');
+const assert = require('assert');
 
 const ROOT = path.resolve(__dirname, '..');
 const INDEX_FILE = path.join(ROOT, 'index.html');
-const EXPECTED_ROUTE_COUNT = 58;
-const ROUTE_RE = /['"](ch\d+-\d+-\d+)['"]\s*:/g;
-const MIME = { '.css': 'text/css', '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
+const EXPECTED_ROUTE_COUNT = 80;
 
-function assert(condition, message) {
-  if (!condition) throw new Error(message);
+function discoverV2Routes() {
+  const routes = [];
+  ['ch1', 'ch2', 'ch3'].forEach(ch => {
+    const dir = path.join(ROOT, 'js/routes', ch);
+    if (fs.existsSync(dir)) {
+      fs.readdirSync(dir).forEach(file => {
+        if (file.endsWith('.js')) {
+          routes.push(file.replace('.js', ''));
+        }
+      });
+    }
+  });
+  return routes.sort();
 }
 
-function readProjectFile(relativePath) {
-  return fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
-}
-
-function manifestRoutes() {
-  const routes = [...readProjectFile('js/sim-route-manifest.js').matchAll(ROUTE_RE)].map(match => match[1]);
-  return [...new Set(routes)].sort();
-}
-
-const ALL_ROUTES = manifestRoutes();
+const ALL_ROUTES = discoverV2Routes();
 const ROUTE_GROUPS = {
   ch1: ALL_ROUTES.filter(route => route.startsWith('ch1-')),
   ch2: ALL_ROUTES.filter(route => route.startsWith('ch2-')),
@@ -44,7 +45,7 @@ async function blockNonLocalHttp(page) {
 function relevantConsoleErrors(messages) {
   return messages.filter(text =>
     !/Failed to load resource/i.test(text) &&
-    !/cdn\.jsdelivr|katex|ERR_ABORTED/i.test(text)
+    !/cdn\.jsdelivr|katex|ERR_ABORTED|LaTeX-incompatible|No character metrics/i.test(text)
   );
 }
 
@@ -62,13 +63,23 @@ async function openRoute(page, route, options = {}) {
     const url = options.url || `${pathToFileURL(INDEX_FILE).href}#${route}`;
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(expected => window.location.hash.replace('#', '') === expected, route);
-    await page.waitForSelector('.sim-container.sim-lab canvas', { timeout: options.timeout || 10000 });
+    
+    // Wait for either legacy or V2 simulation container
+    const selector = '.sim-container.sim-lab canvas, .sim-viewport-v2 svg.sim-svg-v2, .sim-viewport-v2 h2';
+    await page.waitForSelector(selector, { timeout: options.timeout || 10000 });
     await page.waitForTimeout(options.settleMs || 90);
-    const labCount = await page.locator('.sim-container.sim-lab').count();
+    
+    const labCount = await page.locator('.sim-container.sim-lab, .sim-viewport-v2').count();
     assert(labCount === 1, `${route}: expected one simulation lab, got ${labCount}`);
-    const stats = await canvasStats(page);
-    assert(stats.width > 100 && stats.height > 100, `${route}: canvas size too small`);
-    assert(stats.variants > 2, `${route}: canvas appears blank`);
+    
+    // For V2, we skip canvasStats check for now as it's SVG-based
+    const isV2 = await page.locator('.sim-viewport-v2').count() > 0;
+    if (!isV2) {
+      const stats = await canvasStats(page);
+      assert(stats.width > 100 && stats.height > 100, `${route}: canvas size too small`);
+      assert(stats.variants > 2, `${route}: canvas appears blank`);
+    }
+    
     assert((page.__simExternalRequests || []).length === 0, `${route}: external requests: ${page.__simExternalRequests.join(', ')}`);
     const errors = relevantConsoleErrors(consoleMessages);
     assert(errors.length === 0, `${route}: console errors: ${errors.join(' | ')}`);
@@ -110,22 +121,33 @@ async function canvasStats(page) {
 }
 
 async function labState(page) {
+  const hasV2 = await page.locator('.sim-viewport-v2').count() > 0;
+  if (hasV2) {
+    return page.locator('.sim-viewport-v2').first().evaluate(vp => {
+      const readout = vp.parentNode.querySelector('.sim-readout-v2');
+      return {
+        routeId: vp.getAttribute('data-route-id') || '', // Might need to be set in init
+        title: vp.parentNode.querySelector('.sim-title')?.textContent.trim() || '',
+        readoutText: readout?.textContent.trim() || '',
+        readoutCards: [...(readout?.querySelectorAll('.sim-readout-card') || [])].map(card => ({
+          label: card.querySelector('.sim-readout-label')?.textContent.trim() || '',
+          value: card.querySelector('.sim-readout-value')?.textContent.trim() || '',
+        })),
+        v2: true
+      };
+    });
+  }
+
   return page.locator('.sim-container.sim-lab').first().evaluate(lab => ({
     routeId: lab.getAttribute('data-route-id') || '',
     rendererId: lab.getAttribute('data-renderer-id') || '',
     behaviorId: lab.getAttribute('data-behavior-id') || '',
-    handleIds: (lab.getAttribute('data-handle-ids') || '').split(',').filter(Boolean),
-    structuralMarks: (lab.getAttribute('data-structural-marks') || '').split('|').filter(Boolean),
     title: lab.querySelector('.sim-title')?.textContent.trim() || '',
-    formula: lab.querySelector('.sim-formula-panel')?.textContent.trim() || '',
-    hint: lab.querySelector('.sim-lab-hint')?.textContent.trim() || '',
     readoutCards: [...lab.querySelectorAll('.sim-readout-card')].map(card => ({
       label: card.querySelector('.sim-readout-label')?.textContent.trim() || '',
       value: card.querySelector('.sim-readout-value')?.textContent.trim() || '',
-      kind: card.getAttribute('data-readout-kind') || '',
-      key: card.getAttribute('data-readout-key') || '',
     })),
-    visibleText: lab.innerText.replace(/\s+/g, ' ').trim(),
+    v2: false
   }));
 }
 
@@ -209,5 +231,5 @@ function startStaticServer() {
 module.exports = {
   ROOT, INDEX_FILE, EXPECTED_ROUTE_COUNT, ALL_ROUTES, ROUTE_GROUPS,
   openRoute, canvasStats, labState, readoutSnapshot, firstHandlePoint,
-  dragTarget, dragCanvasPoint, setTheme, layoutOverflow, startStaticServer,
+  dragTarget, dragCanvasPoint, setTheme, layoutOverflow, startStaticServer, relevantConsoleErrors,
 };

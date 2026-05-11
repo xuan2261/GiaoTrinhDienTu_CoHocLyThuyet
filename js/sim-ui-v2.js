@@ -49,6 +49,35 @@ class SimUI {
   }
 
   /**
+   * Add a checkbox toggle control.
+   */
+  addCheckbox(label, onChange, initialValue) {
+    const group = document.createElement('div');
+    group.className = 'sim-checkbox-group-v2';
+    group.style.display = 'flex';
+    group.style.alignItems = 'center';
+    group.style.marginBottom = '8px';
+
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = !!initialValue;
+    input.style.marginRight = '8px';
+
+    const labelSpan = document.createElement('span');
+    labelSpan.textContent = label;
+
+    input.addEventListener('change', (e) => {
+      onChange(e.target.checked);
+    });
+
+    group.appendChild(input);
+    group.appendChild(labelSpan);
+    this.container.appendChild(group);
+
+    return input;
+  }
+
+  /**
    * Add a button.
    */
   addButton(label, onClick, isPrimary = false) {

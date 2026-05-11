@@ -9,7 +9,7 @@
   function init(host) {
     // 1. Setup Layout
     const container = document.createElement('div');
-    container.className = 'sim-viewport-v2';
+    container.setAttribute('class', 'sim-viewport-v2');
     container.style.display = 'flex';
     container.style.flexDirection = 'row';
     container.style.width = '100%';
@@ -23,7 +23,7 @@
     svg.setAttribute('viewBox', '0 0 760 440');
     svg.style.width = '100%';
     svg.style.height = '100%';
-    svg.className = 'sim-svg-v2';
+    svg.setAttribute('class', 'sim-svg-v2');
     canvasArea.appendChild(svg);
     
     const uiPanel = document.createElement('div');
@@ -96,7 +96,7 @@
 
     // 5. Result Readout
     const readout = document.createElement('div');
-    readout.className = 'sim-readout-v2';
+    readout.setAttribute('class', 'sim-readout-v2');
     readout.style.marginTop = '20px';
     readout.style.padding = '10px';
     readout.style.borderRadius = '4px';

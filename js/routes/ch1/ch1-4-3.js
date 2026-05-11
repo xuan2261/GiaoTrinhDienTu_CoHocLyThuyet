@@ -7,13 +7,14 @@
 
   function init(host) {
     const container = document.createElement('div');
-    container.className = 'sim-viewport-v2';
+    container.setAttribute('class', 'sim-viewport-v2');
     container.style.cssText = 'display:flex; width:100%; height:440px; background:#1a1c24; color:#e8ecf1;';
     
     const canvasArea = document.createElement('div');
     canvasArea.style.cssText = 'flex:0 0 540px; position:relative; overflow:hidden;';
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 540 440');
+    svg.setAttribute('class', 'sim-svg-v2');
     svg.style.cssText = 'width:100%; height:100%;';
     canvasArea.appendChild(svg);
     
