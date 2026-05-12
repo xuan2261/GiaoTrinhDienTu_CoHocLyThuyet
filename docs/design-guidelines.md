@@ -33,7 +33,7 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 
 | Yếu tố | Quy ước |
 |---|---|
-| Runtime | Shared `.sim-lab` canvas shell qua `SimProfessionalLab` |
+| Runtime | Shared `.sim-lab` canvas shell qua `js/sim-professional-lab.js` / `window.SimProfessionalLab` |
 | Rendering | Canvas route renderers + DOM/KaTeX overlay qua route primitives |
 | UI Controls | `SimCore.addSlider`, segmented buttons, reset/play-pause |
 | Interaction | Route-owned drag handles, pointer/touch/keyboard support |
@@ -108,6 +108,9 @@ CSS mới cho lab phải scope dưới `.sim-lab`; tránh selector global như `
 - Readout cards phải gắn `data-readout-kind` để metadata và accent left border phản ánh đúng loại giá trị.
 - Route-owned handles phải được vẽ bởi shared lab sau renderer output, có hit ring, label ngắn, và legend compact lấy từ handle descriptors.
 - Mọi slider, segmented button, handle kéo, và nút play animation phải tạo phản hồi nhìn thấy được qua canvas hoặc readout trong cùng route.
+- Canonical geometry sliders phải là nguồn state chính cho route; không dùng proxy slider khiến canvas và readout lệch nhau.
+- Direct drag phải giữ các giá trị hợp lệ bằng 0, không ép `0` thành trạng thái rỗng hoặc giá trị mặc định khác.
+- Visible checker labels phải được localize theo ngôn ngữ giáo trình, không giữ label kỹ thuật tiếng Anh nếu UI đã Việt hóa.
 - Shell phải giữ semantic hooks: `role="region"`, route `aria-label`, status `aria-live`, canvas `aria-describedby`.
 - Hint text phải ưu tiên câu chủ động, lấy từ route handles khi có thể; tránh hint chung chung nếu route metadata đã đủ.
 - Segmented buttons phải đồng bộ state bằng `aria-pressed`, `data-control-key`, và `data-value`.

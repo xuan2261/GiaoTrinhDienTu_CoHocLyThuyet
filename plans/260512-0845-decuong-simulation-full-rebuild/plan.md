@@ -1,7 +1,7 @@
 ---
 title: "DeCuong Simulation Full Rebuild"
 description: "Xây dựng lại toàn bộ 58 simulation (25 CH1 + 15 CH2 + 18 CH3) đạt chuẩn DeCuong visual/interaction quality. Canvas 760×440, KaTeX equations, trail effect toàn bộ, instant reset."
-status: in_progress
+status: complete
 priority: P1
 effort: 180h
 issue:
@@ -89,14 +89,14 @@ DeCuong Visual Stack:
 | 02 | [CH1 Axioms Parallelogram](./phase-02-ch1-axioms-parallelogram.md) | Complete | 4 | 14h | 01 | ch1-2-3 matches DeCuong |
 | 03 | [CH1 Support Spatial](./phase-03-ch1-support-spatial.md) | Complete | 7 | 16h | 02 | ch1-3-* ch1-4-* pass |
 | 04 | [CH1 Friction Centroid Exercises](./phase-04-ch1-friction-centroid-exercises.md) | Complete | 8 | 14h | 03 | ch1-5-* ch1-6-* ch1-7-* pass |
-| 05 | [CH1 Full QA Gate](./phase-05-ch1-full-qa-gate.md) | Pending | 0 | 6h | 04 | 25/25 CH1 release clean |
-| 06 | [CH2 Particle Trajectory](./phase-06-ch2-particle-trajectory.md) | Pending | 4 | 16h | 00 | ch2-1-* matches DeCuong particle |
-| 07 | [CH2 Rotation Transmission](./phase-07-ch2-rotation-transmission.md) | Pending | 2 | 8h | 06 | ch2-2-2 ch2-3-2 pass |
-| 08 | [CH2 Relative Plane Motion](./phase-08-ch2-relative-plane-motion.md) | Pending | 7 | 18h | 07 | ch2-4-* ch2-5-* pass |
-| 09 | [CH2 Exercises QA Gate](./phase-09-ch2-exercises-qa-gate.md) | Pending | 2 | 8h | 08 | 15/15 CH2 release clean |
-| 10 | [CH3 Newton ODE Routes](./phase-10-ch3-newton-ode-routes.md) | Pending | 10 | 20h | 00 | ch3-1-* to ch3-4-* pass |
-| 11 | [CH3 Theorems Collision](./phase-11-ch3-theorems-collision.md) | Pending | 6 | 16h | 10 | ch3-5-* ch3-6-* pass |
-| 12 | [CH3 Exercises Full Release](./phase-12-ch3-exercises-full-release.md) | Pending | 2 | 10h | 11 | 58/58 full release gate |
+| 05 | [CH1 Full QA Gate](./phase-05-ch1-full-qa-gate.md) | Complete | 0 | 6h | 04 | 25/25 CH1 release clean |
+| 06 | [CH2 Particle Trajectory](./phase-06-ch2-particle-trajectory.md) | Complete | 4 | 16h | 00 | ch2-1-* matches DeCuong particle |
+| 07 | [CH2 Rotation Transmission](./phase-07-ch2-rotation-transmission.md) | Complete | 2 | 8h | 06 | ch2-2-2 ch2-3-2 pass |
+| 08 | [CH2 Relative Plane Motion](./phase-08-ch2-relative-plane-motion.md) | Complete | 7 | 18h | 07 | ch2-4-* ch2-5-* pass |
+| 09 | [CH2 Exercises QA Gate](./phase-09-ch2-exercises-qa-gate.md) | Complete | 2 | 8h | 08 | 15/15 CH2 release clean |
+| 10 | [CH3 Newton ODE Routes](./phase-10-ch3-newton-ode-routes.md) | Complete | 10 | 20h | 00 | ch3-1-* to ch3-4-* pass |
+| 11 | [CH3 Theorems Collision](./phase-11-ch3-theorems-collision.md) | Complete | 6 | 16h | 10 | ch3-5-* ch3-6-* pass |
+| 12 | [CH3 Exercises Full Release](./phase-12-ch3-exercises-full-release.md) | Complete | 2 | 10h | 11 | 58/58 full release gate |
 
 ```
 Parallel Execution Graph:
@@ -204,3 +204,19 @@ python tools\audit.py
 - Verification passed: unit, strict 7-route scene catalog, targeted renderer contract, targeted `ch1-3|ch1-4` interaction suite (10 tests), all-route `@control-audit|@direct-drag-audit`, visual-quality `@visual-all|@theme-all`, runtime/manifest/route smokes, and quality audit. Code review findings were fixed and re-reviewed clean.
 - Phase 04 complete: rebuilt `ch1-5-1`, `ch1-5-2`, `ch1-5-3`, `ch1-5-4`, `ch1-6-2`, `ch1-6-3`, `ch1-7-1`, and `ch1-7-2` with DeCuong-style friction thresholds, friction cone/self-locking wedge, centroid composite/cutout visuals, solver/checker boards, route-owned handles, trails, KaTeX overlays, and synchronized readout/control state.
 - Verification passed: unit, strict 8-route manifest/scene/renderer gates, runtime smoke, all-route `@direct-drag-audit`, Phase 04 semantic regressions for `ch1-5-1`, `ch1-6-2`, and `ch1-5-4`, visual-quality `@visual-all|@theme-all|@renderer-contract|@scene-identity`, tester re-validation, and code re-review after fixes.
+- Phase 05 complete: CH1 full QA gate release-ready for 25/25 routes with static, runtime, semantic, browser, visual-quality, quality, and content audit gates passing.
+- Screenshot evidence saved under `reports/phase-05-screenshots/` with 50 PNGs (25 CH1 routes in light and dark themes).
+- Phase 06 complete: rebuilt `ch2-1-1`, `ch2-1-2`, `ch2-1-3`, and `ch2-1-4` with DeCuong-style particle trajectory, graph cursor, natural coordinates, and motion preset visuals; all four routes have 30-point trails, KaTeX overlays, route-owned handles, play/pause/reset, and synchronized readouts.
+- Verification passed: unit, strict 4-route scene catalog, strict 4-route renderer contract, quality audit, targeted `ch2-1` interaction/animation/direct-drag suite, visual-quality `@visual-all|@theme-all`, manifest smoke, full browser suite, and content audit. Code review concerns were fixed and sent for re-review.
+- Phase 07 complete: rebuilt `ch2-2-2` and `ch2-3-2` with DeCuong-style fixed-axis rotation and belt transmission visuals, route-owned P/r1 handles, omega/epsilon and omega2 formula overlays, trails, and synchronized readout/control state.
+- Verification passed: unit, strict 2-route scene catalog, strict 2-route renderer contract, all-route `@control-audit|@direct-drag-audit|@animation|@reset`, and visual-quality `@visual-all|@theme-all|@renderer-contract|@scene-identity`.
+- Phase 08 complete: rebuilt `ch2-4-1` to `ch2-5-3` with DeCuong-style relative/plane motion visuals, velocity triangles, Coriolis frame, IC distribution, route-owned handles/readouts, trails, KaTeX equations, and Phase 08 TDD coverage.
+- Code review concerns fixed for Phase 08: `vrMag`, `phi`, and `theta` controls now drive model state; plane/IC readouts use dedicated velocity magnitude keys and direct-drag velocity vectors recompute immediately.
+- Second review concerns fixed for Phase 08: `|v_a|` and `|a_c|` readouts now use scalar keys; ch2-4 drag/slider paths recompute velocity magnitudes and Coriolis state immediately while paused.
+- Verification passed: `npm run test:sim:unit`, strict `ch2-4/ch2-5` scene catalog, strict `ch2-4/ch2-5` renderer contract, runtime smoke, route smoke, `audit_simulation_quality`, all-route direct-drag/control, `npm run test:sim:browser` (163 passed), `npm run test:sim:visual-quality` (4 passed), `python tools/audit.py`, independent tester re-validation, and post-review targeted rechecks.
+- Phase 09 complete: hardened `ch2-7-1` and `ch2-7-2` exercise/checker behavior so solver steps stay within 3 panels and `x/v/a` use one canonical sinusoid derivative chain with `omega`.
+- Phase 10 complete: CH3 Newton/ODE routes pass strict 10-route scene/renderer gates; `ch3-3-1` opens with meaningful spring energy and `ch3-3-2` now records both coupled-spring trajectories.
+- Phase 11 complete: CH3 theorem/collision routes pass strict 6-route scene/renderer gates, all-route visual-quality, and browser interaction coverage; collision solver TDD locks signed momentum conservation.
+- Phase 12 complete: added `tests/phase-09-12-tdd.test.js`, wired it into `npm run test:sim:unit`, passed full 58-route release gate, and did not produce a new all-chapter screenshot capture set in this cook run.
+- Final sync-back after code-review fixes: inert `rho`/`L` sliders removed from dead paths, `x0=0` direct-drag path fixed, visible English CH2 checker labels removed; `npm run test:sim:release` PASS and reviewer re-review clean.
+- Final verification passed: route/manifest/scene/renderer/runtime smokes, `npm run test:sim:unit`, `npm run test:sim:browser` (163 passed), `npm run test:sim:visual-quality` (4 passed), `npm run test:sim:release`, disposal audit, `python tools/audit.py`, strict equation audit, and strict KaTeX equation mapping validation.

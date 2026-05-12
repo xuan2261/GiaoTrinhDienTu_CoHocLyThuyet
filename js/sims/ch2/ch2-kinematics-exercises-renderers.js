@@ -52,7 +52,7 @@ function renderCh271KinematicsGuidedChecker(ctx, scene, state, d) {
     drawMiniCurve(ctx, px + 14, 198, idx, t);
 
     // Equation
-    const eqs = ['x=5+3\\sin(\\omega t)', 'v=dx/dt=3\\omega\\cos(\\omega t)', 'a=dv/dt=-3\\omega^2\\sin(\\omega t)'];
+    const eqs = ['x=5+3\\sin(\\omega t)', 'v=3\\omega\\cos(\\omega t)', 'a=-3\\omega^2\\sin(\\omega t)'];
     P.domMath(ctx, `step-eq-${idx}`, px + 8, 258, eqs[idx], { color: P.tone(idx) });
   });
 
@@ -81,8 +81,11 @@ function renderCh272KinematicsNumericVerifier(ctx, scene, state, d) {
   const t = state.t || 0;
   const xVal = state.xVal || 5;
   const vVal = state.vVal || 0;
-  const status = state.status || 'OK';
+  const status = state.status || 'Đúng';
   const errorV = state.errorV || 0;
+  const omega = state.omega || 1;
+  const x0 = Number.isFinite(Number(state.x0)) ? Number(state.x0) : 5;
+  const amplitude = Number.isFinite(Number(state.amplitude)) ? Number(state.amplitude) : 3;
 
   // Data table panel
   P.panel(ctx, 72, 76, 416, 168, 'bang so lieu', P.tone(6));
@@ -106,9 +109,9 @@ function renderCh272KinematicsNumericVerifier(ctx, scene, state, d) {
   const rows = 5;
   for (let i = 0; i < rows; i++) {
     const ti = (i / rows) * Math.PI * 2;
-    const xi = 5 + 3 * Math.sin(ti);
-    const vi = 3 * Math.cos(ti);
-    const ai = -3 * Math.sin(ti);
+    const xi = x0 + amplitude * Math.sin(ti);
+    const vi = amplitude * omega * Math.cos(ti);
+    const ai = -amplitude * omega * omega * Math.sin(ti);
     const isCurrent = Math.abs(ti - t) < 0.3;
     const rowY = 142 + i * 22;
 
@@ -121,7 +124,7 @@ function renderCh272KinematicsNumericVerifier(ctx, scene, state, d) {
     P.label(ctx, xi.toFixed(2), 182, rowY, 11, P.tone(0));
     P.label(ctx, vi.toFixed(2), 262, rowY, 11, P.tone(1));
     P.label(ctx, ai.toFixed(2), 342, rowY, 11, P.tone(2));
-    P.label(ctx, Math.abs(vi - 3 * Math.cos(ti)) < 0.1 ? 'OK' : '--', 422, rowY, 11, P.tone(4));
+    P.label(ctx, Math.abs(vi - amplitude * omega * Math.cos(ti)) < 0.1 ? 'đúng' : '--', 422, rowY, 11, P.tone(4));
   }
 
   // Status panel
@@ -130,8 +133,8 @@ function renderCh272KinematicsNumericVerifier(ctx, scene, state, d) {
   P.domMath(ctx, 'verify-x', 194, 284, `x=${xVal.toFixed(2)}`, { color: P.tone(0) });
   P.domMath(ctx, 'verify-v', 286, 284, `v=${vVal.toFixed(2)}`, { color: P.tone(1) });
   P.domMath(ctx, 'verify-error', 378, 284,
-    `\\Delta v=${errorV.toFixed(3)}`, { color: status === 'OK' ? P.tone(4) : P.tone(0) });
-  P.domLabel(ctx, 'verify-status', 462, 284, status, { color: status === 'OK' ? P.tone(4) : P.tone(0) });
+    `\\Delta v=${errorV.toFixed(3)}`, { color: status === 'Đúng' ? P.tone(4) : P.tone(0) });
+  P.domLabel(ctx, 'verify-status', 462, 284, status, { color: status === 'Đúng' ? P.tone(4) : P.tone(0) });
 }
 
 // ─── Registry ──────────────────────────────────────────────────────────────────

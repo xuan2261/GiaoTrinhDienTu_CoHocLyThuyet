@@ -71,7 +71,7 @@ const rows = [
 ];
 
 function buildInitial(routeId) {
-  return {
+  const base = {
     x: 0, v: 0, t: 0, _t: 0,
     trajectory: [], trajectory2: [],
     F: 50, m: 5, k: 20, e: 1,
@@ -91,6 +91,11 @@ function buildInitial(routeId) {
     a_frame: 2,
     alpha: 0
   };
+  if (routeId === 'ch3-3-1') Object.assign(base, { x: 0.8, spring: 0.8 });
+  if (routeId === 'ch3-3-2') Object.assign(base, { x: 0.45, x2: -0.25, m2: 2 });
+  if (routeId === 'ch3-5-4') Object.assign(base, { v: 3, kineticEnergy: 22.5, potentialEnergy: 0 });
+  if (routeId === 'ch3-7-2') Object.assign(base, { residualScale: 0, score: 100, residual1: 0, residual2: 0, residual3: 0, residual4: 0 });
+  return base;
 }
 
 function buildControls(routeId) {

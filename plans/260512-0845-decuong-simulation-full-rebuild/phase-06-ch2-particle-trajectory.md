@@ -1,7 +1,7 @@
 ---
 phase: 6
 title: "CH2 Particle Trajectory"
-status: pending
+status: complete
 priority: P1
 effort: "16h"
 dependencies: [0]
@@ -64,13 +64,13 @@ Rebuild 4 routes chuyển động chất điểm. **ch2-1-1 phải match DeCuong
 3. Auto-animate along chosen path
 
 ## Todo List
-- [ ] ch2-1-1 renderer matching DeCuong particle
-- [ ] ch2-1-2 graph cursor renderer
-- [ ] ch2-1-3 natural coordinates renderer
-- [ ] ch2-1-4 preset motion renderer
-- [ ] Play/pause/reset controls for animated routes
-- [ ] KaTeX kinematics formulas
-- [ ] Trail for all 4 routes
+- [x] ch2-1-1 renderer matching DeCuong particle
+- [x] ch2-1-2 graph cursor renderer
+- [x] ch2-1-3 natural coordinates renderer
+- [x] ch2-1-4 preset motion renderer
+- [x] Play/pause/reset controls for animated routes
+- [x] KaTeX kinematics formulas
+- [x] Trail for all 4 routes
 
 ## Verification / Tests
 ```powershell
@@ -82,6 +82,13 @@ npm run test:sim:unit
 ```
 
 ## Success Criteria
-- [ ] ch2-1-1 matches DeCuong particle (trail, vectors, controls)
-- [ ] Graph cursor syncs with readouts
-- [ ] Animation stable: no drift, clean reset
+- [x] ch2-1-1 matches DeCuong particle (trail, vectors, controls)
+- [x] Graph cursor syncs with readouts
+- [x] Animation stable: no drift, clean reset
+
+## Progress Log
+
+### 2026-05-12
+- Phase 06 complete: rebuilt `ch2-1-1`, `ch2-1-2`, `ch2-1-3`, and `ch2-1-4` with DeCuong-style trajectory visuals, 30-point trails, route-owned handles, KaTeX overlays, synchronized graph/trajectory readouts, and frame-rate independent animation.
+- Review fixes applied: `ch2-1-4` drag now syncs current position/speed state, motion preset preview panels use bounded mini trajectories, `x/v/a` graph derivatives are consistent, and initial `a_n` readouts are seeded.
+- Verification passed: unit, strict 4-route scene catalog, strict 4-route renderer contract, quality audit, targeted interaction/animation/direct-drag suite, visual/theme gate, manifest smoke, full browser suite, and content audit.

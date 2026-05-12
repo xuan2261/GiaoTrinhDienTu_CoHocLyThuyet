@@ -1,6 +1,6 @@
 # Codebase Summary
 
-Snapshot này dựa trên scout trực tiếp runtime, toolchain, và docs hiện có (refreshed 2026-05-12 cho DeCuong simulation Phase 04).
+Snapshot này dựa trên scout trực tiếp runtime, toolchain, và docs hiện có (refreshed 2026-05-12 cho DeCuong simulation full rebuild Phase 12).
 
 ## Snapshot
 
@@ -14,7 +14,7 @@ Snapshot này dựa trên scout trực tiếp runtime, toolchain, và docs hiệ
 | Simulation route contracts | `js/sim-scene-registry.js`, `js/sim-route-renderer-registry.js`, `js/sim-route-behavior-registry.js`, 58 route renderers under `js/sims/ch*/` |
 | Simulation files | 65 active JS files scanned by `audit_simulation_quality.py`; Ch1 route files stay under 220 lines |
 | Shared-first simulation UX | `.sim-lab` shell with 760×440 canvas, chapter accents, 44px touch controls, semantic readout cards, DeCuong render helpers, and ARIA-backed hint/status/canvas wiring |
-| DeCuong CH1 rebuild progress | Phase 00 through Phase 04 complete; active rebuilt routes include CH1 force, axioms, support/spatial, friction, centroid, and solver exercise groups through `ch1-7-2` |
+| DeCuong rebuild progress | Phase 00 through Phase 12 complete; 58/58 rebuilt routes pass final release gate, including final review fixes for `ch2-1-3`, `ch2-5-3`, `ch2-7-2`, localized CH2 checker labels, CH2 exercise/checkers `ch2-7-1`/`ch2-7-2`, and CH3 Newton/ODE, theorem/collision, and exercise/checker routes; final browser QA is 163/163 and visual-quality is 4/4 |
 | Generated/runtime assets lớn | `images/`, `equation-review.html`, `js/pages.js` |
 | Large generated artifacts | `equation-review.html`, `js/pages.js`, `tools/equation_report.json` |
 
@@ -28,7 +28,7 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 - progress và bookmark
 - notes, highlight, glossary tooltip
 - simulations canvas
-- route-specific scene catalogs, strict renderer/behavior contracts, semantic QA, và lazy professional lab mounts
+- route-specific scene catalogs, strict renderer/behavior contracts, semantic QA, and lazy professional lab mounts
 - DOCX sync pipeline để regenerate fragment và asset
 
 ## Cấu trúc cấp cao
@@ -97,6 +97,7 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `tools/smoke_simulation_scene_catalog.py` | Gate scene catalog identity và route coverage 58 route |
 | `tools/smoke_simulation_renderer_contract.py` | Strict gate cho rendererId/function/body uniqueness, behavior registrations, no family dispatch |
 | `tools/smoke_simulation_runtime.py` | QA smoke cho split runtime, script order, module globals, registry, lifecycle tokens, `--expect-runtime-routes 58`, `--check-mount-rollback` |
+| `tests/phase-08-tdd.test.js` | Phase 08 TDD coverage cho relative-motion và plane/instant-center routes |
 | `tools/validate_equation_mapping.py` | Validate mapping JSON, trạng thái `reviewed`, và optional KaTeX parse |
 | `tools/ocr_equation_mapping.py` | Prefill mapping bằng local OCR/Vision LLM và reject OCR LaTeX không render được |
 | `tools/build_equation_review_html.py` | Tạo `equation-review.html` offline |
@@ -105,6 +106,7 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `tools/merge_equation_mapping.py` | Merge reviewed mapping vào publish file |
 | `tools/test_docx_equation_pipeline.py` | Regression test cho mojibake MathML, generated output sạch, và inline spacing |
 | `tools/test_simulation_qa_tools.py` | Regression test cho simulation QA tools và browser baseline wiring |
+| `tests/phase-09-12-tdd.test.js` | TDD coverage cho CH2 exercise checker và CH3 dynamics/exercise invariants |
 | `npm run test:sim:scene-identity` | Browser scene identity gate: `tools/smoke_simulation_scene_catalog.py --strict --require-routes 58` + Playwright `@scene-identity` |
 | `npm run test:sim:renderer-contract` | Static + browser gate cho 58 dedicated renderers, 58 behavior ids, và runtime structural identity |
 
@@ -134,5 +136,5 @@ Khi `audit.py --strict-equations` còn warning figure `<img>` tags, đó là fig
 - Simulation lifecycle đã có shared dispose path: `loader.js` dispose active simulation trước khi replace `#content-area`; `sim-core.js` cleanup RAF và resize listener.
 - Professional simulation architecture hiện dùng `js/sim-professional-lab.js`, scene metadata registry, strict renderer/behavior registries, thin adapters, route modules, và registry-backed route map.
 - Runtime smoke gate chuẩn là `python tools\smoke_simulation_runtime.py --expect-runtime-routes 58 --check-mount-rollback --check-listener-cleanup`; semantic gate là `npm run test:sim:semantic`.
-- DeCuong Phase 00-04 foundation/CH1 routes yêu cầu canvas 760×440, transparent clear, PI/7 arrows, theme-aware grid, KaTeX equation panel fallback, route-owned handles for force/support/friction/centroid/solver interactions, synchronized readouts/sliders, and manifest-aligned 58 route contracts.
+- DeCuong Phase 00-12 foundation/CH1/CH2/CH3 routes yêu cầu canvas 760×440, transparent clear, PI/7 arrows, theme-aware grid, KaTeX equation panel fallback, route-owned handles, trails, synchronized readouts/sliders, manifest-aligned 58 route contracts, CH1 release-ready QA evidence, CH2 exercise checker invariants, CH3 spring/collision/checker invariants, và final release gate pass.
 - Browser QA suite hiện có pass; scene identity, route discovery guard, route shell, direct drag, animation tick, readout cards, responsive, `file://`, và server smoke phải giữ sạch.

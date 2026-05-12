@@ -1,7 +1,7 @@
 ---
 phase: 9
 title: "CH2 Exercises QA Gate"
-status: pending
+status: complete
 priority: P1
 effort: "8h"
 dependencies: [8]
@@ -26,9 +26,9 @@ Rebuild 2 exercise routes + run full CH2 quality gate (15/15 routes).
 4. Run full CH2 test suite
 
 ## Todo List
-- [ ] ch2-7-1 exercise solver
-- [ ] ch2-7-2 result checker
-- [ ] CH2 full QA gate pass
+- [x] ch2-7-1 exercise solver
+- [x] ch2-7-2 result checker
+- [x] CH2 full QA gate pass
 
 ## Verification / Tests
 ```powershell
@@ -44,6 +44,13 @@ python tools\audit.py
 ```
 
 ## Success Criteria
-- [ ] 15/15 CH2 routes DeCuong quality
-- [ ] Animation lifecycle stable (no drift after reset)
-- [ ] All test suites green for CH2
+- [x] 15/15 CH2 routes DeCuong quality
+- [x] Animation lifecycle stable (no drift after reset)
+- [x] All test suites green for CH2
+
+## Completion Notes
+
+- `ch2-7-1` solver now keeps steps bounded to the 3 visible panels and computes `v/a` from the same `omega` derivative chain as the displayed KaTeX formula.
+- `ch2-7-2` checker now verifies canonical sinusoid data consistently for `x(t)`, `v(t)`, and `a(t)`.
+- Verification passed: CH2 manifest/scene/renderer/runtime smokes, `npm run test:sim:unit`, `npm run test:sim:browser`, `npm run test:sim:visual-quality`, and final `npm run test:sim:release`.
+- Final sync-back: Phase 09 remains complete after code-review fixes; CH2 checker labels now stay localized, no phase metadata change.

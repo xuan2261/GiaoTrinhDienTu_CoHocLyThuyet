@@ -101,10 +101,12 @@ function onTick_ch332(scene, state, dt) {
   state.v2 = (state.v2 || 0) + a2 * dt;
   state.x = x1 + state.v1 * dt;
   state.x2 = x2 + state.v2 * dt;
-  (state.trajectory || []).push({ t: (state._t || 0), x: state.x });
-  (state.trajectory2 || []).push({ t: (state._t || 0), x: state.x2 });
-  if ((state.trajectory || []).length > 300) state.trajectory.shift();
-  if ((state.trajectory2 || []).length > 300) state.trajectory2.shift();
+  state.trajectory = state.trajectory || [];
+  state.trajectory2 = state.trajectory2 || [];
+  state.trajectory.push({ t: (state._t || 0), x: state.x });
+  state.trajectory2.push({ t: (state._t || 0), x: state.x2 });
+  if (state.trajectory.length > 300) state.trajectory.shift();
+  if (state.trajectory2.length > 300) state.trajectory2.shift();
   state._t = (state._t || 0) + dt;
 }
 

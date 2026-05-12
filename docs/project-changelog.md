@@ -3,11 +3,19 @@
 ## 2026-05-12
 
 ### Changed
-- DeCuong full rebuild Phase 00 foundation complete: active simulation canvas baseline is now 760×440, transparent `clearRect()` canvas background uses CSS theme, shared arrows use `Math.PI / 7`, and `sim-rendering.js` exposes DeCuong helpers for grid, handles, trail, angle arc, arrows, and dashed guides.
+- DeCuong full rebuild Phase 00 foundation complete: active simulation canvas baseline is now 760×440, transparent canvas background is reset through the CSS theme, shared arrows use `Math.PI / 7`, and `sim-rendering.js` exposes DeCuong helpers for grid, handles, trail, angle arc, arrows, and dashed guides.
 - DeCuong full rebuild Phase 01 complete: 6 CH1 core force routes (`ch1-1-3`, `ch1-1-4`, `ch1-1-5`, `ch1-1-6`, `ch1-1-8`, `ch1-2-1`) now use rebuilt 760×440 scenes with DeCuong grid/handles/trails, KaTeX/DOM overlays, and route-specific readouts.
 - DeCuong full rebuild Phase 02 complete: `ch1-2-3`, `ch1-2-6`, `ch1-3-1`, and `ch1-3-2` now use rebuilt DeCuong-style parallelogram, FBD, support normal, and cable tension visuals with route-owned handles, trails, KaTeX overlays, and synchronized controls/readouts.
 - DeCuong full rebuild Phase 03 complete: `ch1-3-3`, `ch1-3-4`, `ch1-3-6`, `ch1-3-7`, `ch1-4-1`, `ch1-4-2`, and `ch1-4-4` now use rebuilt DeCuong-style support/spatial visuals, beam reactions, pseudo-3D axes, route-owned handles, trails, KaTeX overlays, and synchronized controls/readouts.
 - DeCuong full rebuild Phase 04 complete: `ch1-5-1` through `ch1-5-4`, `ch1-6-2`, `ch1-6-3`, `ch1-7-1`, and `ch1-7-2` now use DeCuong-style friction, centroid, and solver visuals with route-owned handles, trails, KaTeX overlays, synchronized controls/readouts, and Phase 04 semantic regression coverage.
+- DeCuong full rebuild Phase 05 complete: CH1 is release-ready with 25/25 routes passing static, runtime, semantic, browser, visual-quality, quality, and content audit gates.
+- DeCuong full rebuild Phase 06 complete: CH2 particle routes `ch2-1-1` to `ch2-1-4` now use DeCuong-style particle trajectory, graph cursor, natural-coordinate, and motion-preset visuals with 30-point trails, KaTeX overlays, route-owned handles, synchronized controls/readouts, and frame-rate independent animation.
+- DeCuong full rebuild Phase 08 complete: `ch2-4-1` to `ch2-4-4` and `ch2-5-1` to `ch2-5-3` now use rebuilt relative-motion and plane/instant-center visuals with velocity-composition triangles, absolute/transport/relative vectors, Coriolis vector invariant `2*omega*|vr|`, plane-body `vB = vA + omega x AB`, instant-center velocity distribution, KaTeX equations, trails, and route-owned handles/readouts.
+- DeCuong full rebuild Phase 09 complete: `ch2-7-1` and `ch2-7-2` exercise/checker routes now keep solver steps bounded to 3 panels and verify canonical `x(t)`, `v(t)`, `a(t)` with consistent `omega` derivatives.
+- DeCuong full rebuild Phase 10 complete: CH3 Newton/ODE routes `ch3-1-2` to `ch3-4-2` pass strict scene/renderer gates; spring routes now open with meaningful energy state and record coupled trajectories deterministically.
+- DeCuong full rebuild Phase 11 complete: CH3 theorem/collision routes `ch3-5-1` to `ch3-6-3` pass strict gates and browser interaction checks; collision solver behavior is locked by signed momentum conservation TDD.
+- DeCuong full rebuild Phase 12 complete: CH3 exercise/checker routes `ch3-7-1` and `ch3-7-2` are included in the final 58-route release gate, with zero-residual checker state locked to score 100.
+- Final code-review fixes landed for the DeCuong rebuild: `ch2-1-3` now treats `rho` as the canonical radius slider, `ch2-5-3` uses `L` as the canonical endpoint geometry and `vBMag` slider, `ch2-7-2` keeps valid `x0=0` during direct drag, and CH2 checker visible labels are localized.
 - Professional lab mount lifecycle is now scoped/idempotent: route mounts return `{ dispose }`, clean resize and `sim:katex-ready` listeners, and dispose on mount failure.
 - Professional lab control sync now preserves valid zero angles, supports explicit readout item kinds, allows route scenes to suppress generic readouts, and keeps finite slider display values synchronized without creating absent state keys.
 - Contract scene, renderer, and behavior route sets are aligned to the manifest 58 IDs, including `zz-simulation-contract-*` modules.
@@ -29,6 +37,10 @@
 - Playwright regressions locking direct-drag state updates for all 7 Phase 03 support/spatial routes.
 - Playwright regressions locking Phase 04 `ch1-5-1` friction readout drag, `ch1-6-2` centroid G drag, and `ch1-5-4` self-locking readout/overlay plus wedge-base geometry.
 - Unit regression for disposal audit leak-threshold and unavailable-metric branches.
+- Phase 05 screenshot evidence for all 25 CH1 routes in light and dark themes under `plans/260512-0845-decuong-simulation-full-rebuild/reports/phase-05-screenshots/`.
+- Phase 06 CH2 particle trajectory review hardening: `ch2-1-4` drag syncs full trajectory state, preset preview panels use bounded mini trajectories, graph `x/v/a` derivatives are consistent, and initial `a_n` readouts are seeded.
+- Phase 08 TDD coverage added in `tests/phase-08-tdd.test.js` and wired into `npm run test:sim:unit`.
+- Phase 09-12 TDD coverage added in `tests/phase-09-12-tdd.test.js` and wired into `npm run test:sim:unit`.
 
 ### Verified
 - DeCuong Phase 00 gates PASS: unit, browser, visual-quality, renderer contract, runtime lifecycle, manifest, scene catalog, quality audit, and content audit.
@@ -39,10 +51,16 @@
 - Ch1 manifest, scene catalog, renderer contract, runtime, quality, interaction, and mass-mount gates PASS.
 - `npm run test:sim:release` PASS after code-review fixes; browser suite now has 150 tests.
 - `npm run test:sim:quality`, `npm run test:sim:semantic`, and `git diff --check` PASS.
+- Final review fixes revalidated: `npm run test:sim:release` PASS, focused tester re-validation PASS, reviewer re-review no blockers.
 - Phase 01 final gates PASS: `npm run test:sim:unit`, targeted `ch1-1-3` tail-drag regression, full `@direct-drag|@control-audit`, strict 6-route scene catalog, strict 6-route renderer contract, `@visual-all|@theme-all`, runtime smoke, `audit_simulation_quality.py --all --max-js-lines 220`, and `python tools\audit.py`.
 - Phase 02 final gates PASS: `npm run test:sim:unit`, strict 4-route scene catalog, strict 4-route renderer contract, `audit_simulation_quality.py --all --max-js-lines 220`, targeted `ch1-2-3|ch1-2-6|ch1-3` interaction suite, and `@visual-all|@theme-all`.
 - Phase 03 final gates PASS: `npm run test:sim:unit`, strict 7-route scene catalog, targeted renderer contract, targeted `ch1-3|ch1-4` interaction suite (10 tests), all-route `@control-audit|@direct-drag-audit`, `@visual-all|@theme-all`, runtime/manifest/route smokes, quality audit, and code re-review.
 - Phase 04 final gates PASS: `npm run test:sim:unit`, strict 8-route manifest/scene/renderer gates, runtime smoke, all-route `@direct-drag-audit`, Phase 04 semantic interaction regressions, `@visual-all|@theme-all|@renderer-contract|@scene-identity`, tester re-validation, and code re-review.
+- Phase 05 final gates PASS: `python tools\smoke_simulation_routes.py --require-p1`, CH1 manifest/scene/renderer strict gates, CH1 runtime smoke, `npm run test:sim:unit`, `npm run test:sim:quality`, `npm run test:sim:semantic`, `npm run test:sim:browser` (163 tests), `npm run test:sim:visual-quality` (4 tests), and `python tools\audit.py`.
+- Phase 06 final gates PASS: `npm run test:sim:unit`, strict 4-route scene catalog, strict 4-route renderer contract, `audit_simulation_quality.py --all --max-js-lines 220`, targeted `ch2-1` interaction/animation/direct-drag suite, visual-quality `@visual-all|@theme-all`, manifest smoke, `npm run test:sim:browser` (163 tests), and `python tools\audit.py`.
+- Phase 08 final gates PASS: `npm run test:sim:unit`, strict `ch2-4/ch2-5` scene catalog, strict `ch2-4/ch2-5` renderer contract, runtime smoke, route smoke, `audit_simulation_quality`, all-route direct-drag/control audit, `npm run test:sim:browser` (163 tests), `npm run test:sim:visual-quality` (4 tests), `python tools\audit.py`, and independent tester re-validation.
+- Phase 09-12 final gates PASS: CH2 15-route manifest/scene/renderer/runtime smokes, CH3 Phase 10 strict 10-route scene/renderer gates, CH3 Phase 11 strict 6-route scene/renderer gates, `npm run test:sim:unit`, focused CH3 interaction/animation checks, `npm run test:sim:browser` (163 tests), and `npm run test:sim:visual-quality` (4 tests).
+- DeCuong full rebuild final release PASS: `python tools\smoke_simulation_routes.py --require-p1`, 58-route manifest/scene/renderer/runtime smokes, `npm run test:sim:release`, disposal audit, content audit, strict equation audit, and strict KaTeX equation mapping validation.
 
 ## 2026-05-11
 
@@ -52,10 +70,10 @@
   - `test:sim:browser:route-mount` now targets the canonical `@route-mount` suite.
   - `test:sim:release` now includes `test:sim:visual-quality`.
 - Improved weak-control routes found during full control audit:
-  - `ch2-1-4` now exposes a `Pha` slider in addition to motion mode buttons.
+- `ch2-1-4` now exposes a dedicated motion-state slider in addition to motion mode buttons.
   - `ch3-7-2` now exposes a `Độ nhiễu` slider and direct handle that scale residuals in the numeric dynamics checker.
 - Refresh shared DeCuong-style simulation UX across 58 P1 routes:
-  - `SimProfessionalLab` now draws the route-owned drag handle layer after each renderer pass, so all simulations expose visible direct-manipulation targets.
+- The shared professional lab shell now draws the route-owned drag handle layer after each renderer pass, so all simulations expose visible direct-manipulation targets.
   - Shared lab status now reflects hover/drag handle state, and the shell renders a compact handle legend from route descriptors.
   - Readout cards now emphasize values with semantic colors matching force/velocity/acceleration/result/angle/energy metadata and expose active slider/time values so controls always give visible feedback.
   - Slider factories now set `step` before `value`, preventing browser range rounding from desynchronizing UI value and simulation state.

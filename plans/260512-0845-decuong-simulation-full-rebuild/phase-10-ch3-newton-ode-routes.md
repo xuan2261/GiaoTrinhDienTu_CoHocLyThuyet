@@ -1,7 +1,7 @@
 ---
 phase: 10
 title: "CH3 Newton ODE Routes"
-status: pending
+status: complete
 priority: P1
 effort: "20h"
 dependencies: [0]
@@ -51,13 +51,13 @@ KaTeX equations:
 - `m\ddot{x} = F(t)` (forced motion)
 
 ## Todo List
-- [ ] ch3-1-2, ch3-1-3 concept routes
-- [ ] ch3-2-1 to ch3-2-5 Newton laws routes
-- [ ] ch3-3-1, ch3-3-2 ODE/spring routes
-- [ ] ch3-4-1, ch3-4-2 forward/inverse problem routes
-- [ ] Spring oscillation animation with energy bar
-- [ ] KaTeX dynamics formulas
-- [ ] Trail for all animated routes
+- [x] ch3-1-2, ch3-1-3 concept routes
+- [x] ch3-2-1 to ch3-2-5 Newton laws routes
+- [x] ch3-3-1, ch3-3-2 ODE/spring routes
+- [x] ch3-4-1, ch3-4-2 forward/inverse problem routes
+- [x] Spring oscillation animation with energy bar
+- [x] KaTeX dynamics formulas
+- [x] Trail for all animated routes
 
 ## Verification / Tests
 ```powershell
@@ -68,7 +68,14 @@ npm run test:sim:unit
 ```
 
 ## Success Criteria
-- [ ] F=ma relation visible and interactive
-- [ ] Spring oscillation smooth with energy readout
-- [ ] Animation lifecycle deterministic
-- [ ] Physics readouts don't drift while paused
+- [x] F=ma relation visible and interactive
+- [x] Spring oscillation smooth with energy readout
+- [x] Animation lifecycle deterministic
+- [x] Physics readouts don't drift while paused
+
+## Completion Notes
+
+- CH3 Newton/ODE routes pass strict scene/renderer contract gates for `ch3-1` through `ch3-4`.
+- `ch3-3-1` opens with non-zero spring displacement so energy and trajectory readouts are meaningful immediately.
+- `ch3-3-2` now creates and appends both trajectory arrays when missing, preventing silent loss of coupled-spring samples.
+- Verification passed: Phase 10 strict scene/renderer gates, `npm run test:sim:unit`, targeted CH3 interaction/animation checks, `npm run test:sim:visual-quality`, and final release gate.

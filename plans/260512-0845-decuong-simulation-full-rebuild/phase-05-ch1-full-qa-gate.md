@@ -1,7 +1,7 @@
 ---
 phase: 5
 title: "CH1 Full QA Gate"
-status: pending
+status: complete
 priority: P1
 effort: "6h"
 dependencies: [4]
@@ -21,12 +21,12 @@ Lock CH1 quality: tất cả 25 routes đạt DeCuong standard. Chạy full test
 6. Mark CH1 as release-ready
 
 ## Todo List
-- [ ] CH1 static gates pass
-- [ ] CH1 browser gates pass
-- [ ] CH1 visual-quality pass
-- [ ] Full shared runtime gates pass
-- [ ] Docs/changelog synced
-- [ ] Screenshot evidence saved
+- [x] CH1 static gates pass
+- [x] CH1 browser gates pass
+- [x] CH1 visual-quality pass
+- [x] Full shared runtime gates pass
+- [x] Docs/changelog synced
+- [x] Screenshot evidence saved
 
 ## Verification / Tests
 ```powershell
@@ -45,7 +45,15 @@ python tools\audit.py
 ```
 
 ## Success Criteria
-- [ ] 25/25 CH1 routes DeCuong quality
-- [ ] All test suites green
-- [ ] No fallback scene/renderer/behavior
-- [ ] No English text in visible UI
+- [x] 25/25 CH1 routes DeCuong quality
+- [x] All test suites green
+- [x] No fallback scene/renderer/behavior
+- [x] No English text in visible UI
+
+## Completion Notes
+
+- Completed: 2026-05-12.
+- Screenshot evidence: `plans/260512-0845-decuong-simulation-full-rebuild/reports/phase-05-screenshots/` (25 CH1 routes x light/dark = 50 PNG).
+- Static gates pass: route smoke, CH1 manifest, CH1 scene catalog, CH1 renderer contract.
+- Runtime/content gates pass: CH1 runtime smoke, `npm run test:sim:unit`, `npm run test:sim:quality`, `python tools\audit.py`.
+- Browser gates pass: `npm run test:sim:semantic`, `npm run test:sim:browser` (163 tests), `npm run test:sim:visual-quality` (4 tests).

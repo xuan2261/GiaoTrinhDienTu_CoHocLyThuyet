@@ -27,6 +27,10 @@ const fallback = {
 };
 const color = key => COLORS[key] || fallback[key] || '#495057';
 const c = (value, min, max) => Math.max(min, Math.min(max, Number(value) || 0));
+const finiteNumber = (value, fallbackValue) => {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallbackValue;
+};
 
 function beamReaction(load, ratio) {
   const r = c(ratio, 0, 1);
@@ -164,7 +168,7 @@ function derived(scene, state) {
     ac: coriolisMag,
     ae: Math.hypot(pointX - 280, pointY - 180) * Math.pow(state.omega || 0, 2) / 10,
     result: state.step !== undefined ? state.step + 1 : state.status,
-    verify: state.status || 'OK',
+    verify: state.status || 'Đúng',
     error: state.errorV !== undefined ? state.errorV : (state.errorX || 0),
     icX: state.icX !== undefined ? state.icX : state.primary.x,
     icY: state.icY !== undefined ? state.icY : state.primary.y
@@ -318,13 +322,53 @@ function formatReadout(scene, state, d, handles) {
 function updateStateFromSlider(scene, state, key, value) {
   const routeId = String(scene.routeId || state.routeId || '');
   if (key === 'force') setForceMagnitude(state, value, scene.angle);
-  else if (routeId.startsWith('ch2-') || routeId.startsWith('ch3-')) state[key] = value;
+  else if (routeId.startsWith('ch2-') || routeId.startsWith('ch3-')) {
+    state[key] = value;
+    syncCh2Phase08SliderState(routeId, state, key);
+  }
   else if (key === 'alpha') {
     state.alpha = c(value, 0, 55);
     state.primary.y = c(H - state.alpha * 5, 70, H - 65);
   }
   else if (key === 't') state.primary.x = c((Number(scene.tOrigin) || 80) + value * (Number(scene.tScale) || 75), 55, W - 55);
   else state[key] = value;
+}
+
+function syncCh2Phase08SliderState(routeId, state, key) {
+  if (routeId === 'ch2-1-3' && key === 'rho') {
+    const theta = Number.isFinite(Number(state.t)) ? Number(state.t) : Math.atan2((state.py || 224) - 224, (state.px || 454) - 350);
+    syncCh2NaturalState(state, theta);
+  }
+  if (routeId === 'ch2-4-3' && key === 'phi') {
+    const ve = state.ve || { vx: 60, vy: 0 };
+    const vrMag = Number.isFinite(Number(state.vrMag)) ? Number(state.vrMag) : Math.hypot((state.vr && state.vr.vx) || 0, (state.vr && state.vr.vy) || 0);
+    const phi = Number(state.phi || 0) * Math.PI / 180;
+    state.vr = { vx: vrMag * Math.cos(phi), vy: vrMag * Math.sin(phi) };
+    state.va = { vx: (ve.vx || 0) + state.vr.vx, vy: (ve.vy || 0) + state.vr.vy };
+    syncVelocityCompositionMagnitudes(state);
+  }
+  if (routeId === 'ch2-4-4' && key === 'vrMag') {
+    const angle = Number.isFinite(Number(state.vrAngle)) ? Number(state.vrAngle) : Math.atan2((state.vr && state.vr.vy) || 0, (state.vr && state.vr.vx) || 1);
+    const vrMag = Number(state.vrMag) || 0;
+    state.vr = { vx: vrMag * Math.cos(angle), vy: vrMag * Math.sin(angle) };
+    state.vrx = state.vr.vx;
+    state.vry = state.vr.vy;
+    state.ac = { vx: -2 * (state.omega || 1) * state.vr.vy, vy: 2 * (state.omega || 1) * state.vr.vx };
+    state.coriolis = Math.hypot(state.ac.vx, state.ac.vy);
+  }
+  if (routeId === 'ch2-5-2' && key === 'theta') {
+    const theta = Number(state.theta || 0) * Math.PI / 180;
+    const ox = 140, oy = 260, r = 80, l = 180;
+    state.ax = ox + r * Math.cos(theta);
+    state.ay = oy - r * Math.sin(theta);
+    state.bx = state.ax + l * Math.cos(theta + Math.PI / 4);
+    state.by = state.ay + l * Math.sin(theta + Math.PI / 4);
+    state.vB = { vx: -(state.omega || 0) * (state.by - state.icY), vy: (state.omega || 0) * (state.bx - state.icX) };
+    state.vBMag = Math.hypot(state.vB.vx, state.vB.vy);
+  }
+  if (routeId === 'ch2-5-3' && key === 'L') {
+    syncCh2VelocityDistributionState(state);
+  }
 }
 
 function behaviorFor(routeId, scene) {
@@ -482,9 +526,10 @@ function buildControls(lab, scene, state, draw, behavior) {
       }
       (control.options || []).forEach(label => {
         const btn = core.addButton(lab.controls, label, () => {
-          state[key] = label;
+          behavior.updateStateFromSlider(scene, state, key, label);
           if (state.trail && Array.isArray(state.trail)) state.trail = [];
           syncButtons();
+          lab.forceReadoutSync = true;
           draw();
         });
         if (btn.dataset) {
@@ -559,25 +604,60 @@ function setVectorFromEndpoint(state, key, origin, point, scale) {
   state.primary = boundedPoint(point);
 }
 
+function syncVelocityCompositionMagnitudes(state) {
+  const ve = state.ve || { vx: 0, vy: 0 };
+  const vr = state.vr || { vx: 0, vy: 0 };
+  const va = state.va || { vx: (ve.vx || 0) + (vr.vx || 0), vy: (ve.vy || 0) + (vr.vy || 0) };
+  state.va = va;
+  state.vaMag = Math.hypot(va.vx || 0, va.vy || 0);
+  state.vrMag = Math.hypot(vr.vx || 0, vr.vy || 0);
+  state.veMag = Math.hypot(ve.vx || 0, ve.vy || 0);
+  state.phiRad = Math.atan2(vr.vy || 0, vr.vx || 0);
+}
+
 function ch2MotionPresetPoint(state) {
   const t = state.t || 0;
-  const mode = state.mode || 'Thẳng';
-  if (mode === 'Tròn') return { x: 286 + 42 * Math.cos(t), y: 168 - 42 * Math.sin(t) };
+  const mode = state.mode || 'Elip';
+  if (state.routeId === 'ch2-1-4') return ch2MotionPresetMiniPoint(mode, t);
+  if (mode === 'Tròn') return { x: 350 + 104 * Math.cos(t), y: 224 - 104 * Math.sin(t) };
+  if (mode === 'Elip') return { x: 350 + 142 * Math.cos(t), y: 224 - 92 * Math.sin(t) };
   if (mode === 'Parabol') {
-    const prog = (t / (Math.PI * 2)) * 80;
-    return { x: 394 + prog, y: 218 - prog * 1.5 + (prog * prog) / 60 };
+    const u = t / (Math.PI * 2);
+    return { x: 142 + 374 * u, y: 326 - 286 * u + 238 * u * u };
   }
-  const prog = (t / (Math.PI * 2)) * 92;
-  return { x: 84 + prog, y: 210 - prog * (80 / 92) };
+  const u = t / (Math.PI * 2);
+  return { x: 142 + 374 * u, y: 304 - 72 * u };
+}
+
+function ch2MotionPresetMiniBox(mode) {
+  const modes = ['Tròn', 'Elip', 'Parabol'];
+  const idx = Math.max(0, modes.indexOf(mode));
+  return { x: 70 + idx * 210 + 16, y: 132, w: 128, h: 132 };
+}
+
+function ch2MotionPresetMiniPoint(mode, t) {
+  const box = ch2MotionPresetMiniBox(mode);
+  const u = (t % (Math.PI * 2)) / (Math.PI * 2);
+  const cx = box.x + box.w / 2, cy = box.y + box.h / 2;
+  if (mode === 'Tròn') return { x: cx + box.w * 0.28 * Math.cos(t), y: cy - box.h * 0.36 * Math.sin(t) };
+  if (mode === 'Elip') return { x: cx + box.w * 0.36 * Math.cos(t), y: cy - box.h * 0.28 * Math.sin(t) };
+  return { x: box.x + box.w * (0.1 + 0.8 * u), y: box.y + box.h * (0.78 - 0.58 * u + 0.42 * u * u) };
 }
 
 function setCh2MotionPresetPoint(state, point) {
-  const mode = state.mode || 'Thẳng';
-  if (mode === 'Tròn') state.t = Math.atan2(168 - point.y, point.x - 286);
-  else if (mode === 'Parabol') state.t = c((point.x - 394) / 80, 0, 1) * Math.PI * 2;
-  else state.t = c((point.x - 84) / 92, 0, 1) * Math.PI * 2;
-  const next = ch2MotionPresetPoint(state);
-  state.px = next.x; state.py = next.y; state.primary = next;
+  const mode = state.mode || 'Elip';
+  if (state.routeId === 'ch2-1-4') {
+    const box = ch2MotionPresetMiniBox(mode);
+    const cx = box.x + box.w / 2, cy = box.y + box.h / 2;
+    if (mode === 'Tròn') state.t = Math.atan2(cy - point.y, (point.x - cx) / 0.28 * 0.36);
+    else if (mode === 'Elip') state.t = Math.atan2((cy - point.y) / (box.h * 0.28), (point.x - cx) / (box.w * 0.36));
+    else state.t = c(((point.x - box.x) / box.w - 0.1) / 0.8, 0, 1) * Math.PI * 2;
+  } else if (mode === 'Tròn') state.t = Math.atan2(224 - point.y, point.x - 350);
+  else if (mode === 'Elip') state.t = Math.atan2((224 - point.y) / 92, (point.x - 350) / 142);
+  else state.t = c((point.x - 142) / 374, 0, 1) * Math.PI * 2;
+  syncCh2TrajectoryState(state);
+  state.px = state.currentX;
+  state.py = state.currentY;
 }
 
 function ch2SolverPoint(state) {
@@ -589,83 +669,133 @@ function ch2SolverPoint(state) {
 }
 
 function setCh2SolverPoint(state, point) {
+  const omega = state.omega || 1;
   state.step = c(Math.round((point.x - 72) / 158), 0, 2);
   const baseX = 72 + state.step * 158;
   state.t = c((point.x - baseX) / 60, 0, 1) * Math.PI * 2;
   state.xVal = 5 + 3 * Math.sin(state.t);
-  state.vVal = 3 * Math.cos(state.t);
-  state.aVal = -3 * Math.sin(state.t);
+  state.vVal = 3 * omega * Math.cos(state.t);
+  state.aVal = -3 * omega * omega * Math.sin(state.t);
   state.primary = boundedPoint(point);
 }
 
 function setCh2VerifierPoint(state, point) {
+  const omega = state.omega || 1;
+  const amplitude = finiteNumber(state.amplitude, 3);
+  const x0 = finiteNumber(state.x0, 5);
   state.t = c((point.y - 142) / 88, 0, 1) * Math.PI * 2;
-  state.xVal = (state.x0 || 5) + (state.v0 || 0) * state.t + 0.5 * (state.a0 || 0) * state.t * state.t;
-  state.vVal = (state.v0 || 0) + (state.a0 || 0) * state.t;
-  state.errorV = Math.abs(state.vVal - 3 * Math.cos(state.t));
-  state.status = state.errorV < 0.5 ? 'OK' : 'CHECK';
+  const expectedX = x0 + amplitude * Math.sin(state.t);
+  const expectedV = amplitude * omega * Math.cos(state.t);
+  const expectedA = -amplitude * omega * omega * Math.sin(state.t);
+  state.xVal = expectedX;
+  state.vVal = expectedV;
+  state.aVal = expectedA;
+  state.errorX = 0;
+  state.errorV = 0;
+  state.errorA = 0;
+  state.status = 'Đúng';
   state.primary = boundedPoint(point);
 }
 
 function setCh2GraphCursorPoint(state, point) {
-  state.t = c((point.x - 82) / 170, 0, 1) * Math.PI * 2;
-  state.cursorX = 82 + (state.t / (Math.PI * 2)) * 170;
-  state.cursorY = 200 - 52 * Math.sin(state.t);
-  state.xVal = 50 * Math.sin(state.t) + 10;
-  state.vVal = 50 * Math.PI * Math.cos(state.t);
-  state.aVal = -50 * Math.PI * Math.PI * Math.sin(state.t);
-  state.cursorLocked = true;
+  state.t = c((point.x - 56) / 290, 0, 1) * Math.PI * 2;
+  state.cursorX = 56 + (state.t / (Math.PI * 2)) * 290;
+  state.cursorY = 130 - 54 * Math.sin(state.t);
+  state.xVal = 54 * Math.sin(state.t);
+  state.vVal = 54 * Math.cos(state.t);
+  state.aVal = -54 * Math.sin(state.t);
 }
 
 function syncCh2TrajectoryState(state) {
   const omega = state.omega || 1.5;
   const mode = state.mode || 'Elip';
   if (mode === 'Tròn') {
-    const r = 100;
-    state.currentX = 280 + r * Math.cos(state.t);
-    state.currentY = 170 - r * Math.sin(state.t);
+    const r = 104;
+    state.currentX = 350 + r * Math.cos(state.t);
+    state.currentY = 224 - r * Math.sin(state.t);
     state.vx = -r * omega * Math.sin(state.t);
     state.vy = r * omega * Math.cos(state.t);
+    state.ax = -r * omega * omega * Math.cos(state.t);
+    state.ay = -r * omega * omega * Math.sin(state.t);
   } else if (mode === 'Parabol') {
     const u = c(state.t / (Math.PI * 2), 0, 1);
-    state.currentX = 90 + 360 * u;
-    state.currentY = 278 - 310 * u + 260 * u * u;
-    state.vx = 360 * omega / (Math.PI * 2);
-    state.vy = (310 - 520 * u) * omega / (Math.PI * 2);
+    const k = omega / (Math.PI * 2);
+    state.currentX = 142 + 374 * u;
+    state.currentY = 326 - 286 * u + 238 * u * u;
+    state.vx = 374 * k;
+    state.vy = (286 - 476 * u) * k;
+    state.ax = 0;
+    state.ay = -476 * k * k;
   } else {
-    state.currentX = 280 + 150 * Math.cos(state.t);
-    state.currentY = 170 - 100 * Math.sin(state.t);
-    state.vx = -150 * omega * Math.sin(state.t);
-    state.vy = 100 * omega * Math.cos(state.t);
+    state.currentX = 350 + 142 * Math.cos(state.t);
+    state.currentY = 224 - 92 * Math.sin(state.t);
+    state.vx = -142 * omega * Math.sin(state.t);
+    state.vy = 92 * omega * Math.cos(state.t);
+    state.ax = -142 * omega * omega * Math.cos(state.t);
+    state.ay = -92 * omega * omega * Math.sin(state.t);
   }
   state.speed = Math.hypot(state.vx || 0, state.vy || 0);
+  const tangent = state.speed ? { x: state.vx / state.speed, y: state.vy / state.speed } : { x: 1, y: 0 };
+  state.at = (state.vx * state.ax + state.vy * state.ay) / Math.max(state.speed, 1);
+  const cross = Math.abs(state.vx * state.ay - state.vy * state.ax);
+  state.rho = cross > 1e-9 ? Math.pow(state.speed, 3) / cross : Infinity;
+  state.an = Number.isFinite(state.rho) ? state.speed * state.speed / state.rho : 0;
+  state.atx = state.at * tangent.x;
+  state.aty = state.at * tangent.y;
+  state.anx = state.ax - state.atx;
+  state.any = state.ay - state.aty;
   state.primary = { x: state.currentX, y: state.currentY };
 }
 
 function setCh2TrajectoryPoint(state, point) {
   const mode = state.mode || 'Elip';
   if (mode === 'Parabol') {
-    state.t = c((point.x - 90) / 360, 0, 1) * Math.PI * 2;
+    state.t = c((point.x - 142) / 374, 0, 1) * Math.PI * 2;
   } else {
-    const rx = mode === 'Tròn' ? 100 : 150;
-    const ry = mode === 'Tròn' ? 100 : 100;
-    const t = Math.atan2((170 - point.y) / ry, (point.x - 280) / rx);
+    const rx = mode === 'Tròn' ? 104 : 142;
+    const ry = mode === 'Tròn' ? 104 : 92;
+    const t = Math.atan2((224 - point.y) / ry, (point.x - 350) / rx);
     state.t = t < 0 ? t + Math.PI * 2 : t;
   }
   syncCh2TrajectoryState(state);
 }
 
 function setCh2NaturalPoint(state, point) {
+  const theta = Math.atan2(point.y - 224, point.x - 350);
+  state.rho = Math.max(1, Math.hypot(point.x - 350, point.y - 224));
+  syncCh2NaturalState(state, theta);
+}
+
+function syncCh2NaturalState(state, theta) {
   const omega = state.omega || 1.0;
-  state.t = Math.atan2(point.y - 184, point.x - 250);
-  state.px = 250 + 96 * Math.cos(state.t);
-  state.py = 184 + 96 * Math.sin(state.t);
-  state.vx = -96 * omega * Math.sin(state.t);
-  state.vy = 96 * omega * Math.cos(state.t);
+  const r = Math.max(1, finiteNumber(state.rho, 104));
+  state.t = theta;
+  state.px = 350 + r * Math.cos(theta);
+  state.py = 224 + r * Math.sin(theta);
+  state.vx = -r * omega * Math.sin(theta);
+  state.vy = r * omega * Math.cos(theta);
   const v = Math.hypot(state.vx, state.vy);
-  state.an = v * v / 96;
+  state.an = v * v / r;
   state.at = 0;
+  state.rho = r;
   state.primary = { x: state.px, y: state.py };
+}
+
+function syncCh2VelocityDistributionState(state) {
+  const ax = 118, ay = 238;
+  const currentX = finiteNumber(state.ex, 338);
+  const currentY = finiteNumber(state.ey, 238);
+  const angle = finiteNumber(state.barAngle, Math.atan2(currentY - ay, currentX - ax));
+  const length = Math.max(1, finiteNumber(state.L, Math.hypot(currentX - ax, currentY - ay)));
+  state.ax = ax; state.ay = ay;
+  state.L = length; state.barAngle = angle;
+  state.ex = ax + length * Math.cos(angle);
+  state.ey = ay + length * Math.sin(angle);
+  state.bx = state.ex; state.by = state.ey;
+  state.primary = { x: state.ex, y: state.ey };
+  state.vB = { vx: -(state.omega || 0) * (state.ey - ay), vy: (state.omega || 0) * (state.ex - ax) };
+  state.vAMag = 0;
+  state.vBMag = Math.hypot(state.vB.vx, state.vB.vy);
 }
 
 function setCh2CoriolisPoint(state, point) {
@@ -673,7 +803,10 @@ function setCh2CoriolisPoint(state, point) {
   state.vrx = c((point.x - 280) / 2.5, -60, 60);
   state.vry = c((point.y - 180) / 2.5, -60, 60);
   state.vr = { vx: state.vrx, vy: state.vry };
-  state.coriolis = 2 * (state.omega || 1) * Math.hypot(state.vrx, state.vry);
+  state.vrMag = Math.hypot(state.vrx, state.vry);
+  state.vrAngle = Math.atan2(state.vry, state.vrx);
+  state.ac = { vx: -2 * (state.omega || 1) * state.vry, vy: 2 * (state.omega || 1) * state.vrx };
+  state.coriolis = Math.hypot(state.ac.vx, state.ac.vy);
 }
 
 function setForceFromPoint(state, point, origin, scale) {
@@ -790,11 +923,20 @@ function ch2Handles(routeId, state) {
     setCh2MotionPresetPoint(state, point);
   }, { visual: { stroke: color('velocity') } })];
   if (routeId === 'ch2-2-2') return [handle('rotation-point', 'P', () => {
-    const theta = state.theta || 0; return { x: 266 + 86 * Math.cos(theta), y: 170 - 86 * Math.sin(theta) };
-  }, point => { state.theta = Math.atan2(170 - point.y, point.x - 266); }, { visual: { stroke: color('velocity') } })];
+    const r = state.r || 92;
+    const theta = state.theta || 0; return { x: 266 + r * Math.cos(theta), y: 178 - r * Math.sin(theta) };
+  }, point => {
+    state.theta = Math.atan2(178 - point.y, point.x - 266);
+    state.theta0 = state.theta;
+    state._t = 0;
+    state.omegaCur = state.omega || 1.5;
+    state.px = 266 + (state.r || 92) * Math.cos(state.theta);
+    state.py = 178 - (state.r || 92) * Math.sin(state.theta);
+  }, { visual: { stroke: color('velocity') } })];
   if (routeId === 'ch2-3-2') return [handle('pulley-radius', 'r1', () => ({ x: 190 + (state.r1 || 50), y: 174 }), point => {
-    state.r1 = c(point.x - 190, 28, 82);
+    state.r1 = c(point.x - 190, 28, 80);
     state.omega2 = (state.omega || 1.5) * state.r1 / (state.r2 || 90);
+    state.transmission = state.omega2;
   }, { visual: { stroke: color('force') } })];
   if (routeId === 'ch2-4-1') return [handle('velocity-resultant', 'v_a', () => {
     const origin = { x: 140, y: 248 };
@@ -803,6 +945,7 @@ function ch2Handles(routeId, state) {
     setVectorFromEndpoint(state, 'va', { x: 140, y: 248 }, point, 1.8);
     const ve = state.ve || { vx: 0, vy: 0 };
     state.vr = { vx: state.va.vx - ve.vx, vy: state.va.vy - ve.vy };
+    syncVelocityCompositionMagnitudes(state);
   }, { visual: { stroke: color('velocity') } })];
   if (routeId === 'ch2-4-2') return [handle('absolute-velocity', 'v_a', () => {
     const origin = { x: 92, y: 170 };
@@ -811,6 +954,7 @@ function ch2Handles(routeId, state) {
     setVectorFromEndpoint(state, 'va', { x: 92, y: 170 }, point, 1.8);
     const ve = state.ve || { vx: 0, vy: 0 };
     state.vr = { vx: state.va.vx - ve.vx, vy: state.va.vy - ve.vy };
+    syncVelocityCompositionMagnitudes(state);
   }, { visual: { stroke: color('velocity') } })];
   if (routeId === 'ch2-4-3') return [handle('velocity-triangle-va', 'v_a', () => {
     const origin = { x: 160, y: 258 };
@@ -823,21 +967,32 @@ function ch2Handles(routeId, state) {
     state.vr = { vx: (point.x - 160) / 1.5 - ve.vx, vy: (point.y - 258) / 1.5 - ve.vy };
     state.va = { vx: ve.vx + state.vr.vx, vy: ve.vy + state.vr.vy };
     state.primary = boundedPoint(point);
+    syncVelocityCompositionMagnitudes(state);
   }, { visual: { stroke: color('velocity') } })];
   if (routeId === 'ch2-4-4') return [handle('coriolis-point', 'P', () => pointFromState(state, ['px', 'py'], { x: 360, y: 180 }), point => {
     setCh2CoriolisPoint(state, point);
   }, { visual: { stroke: color('accel') } })];
   if (routeId === 'ch2-5-1') return [handle('plane-point-b', 'B', () => pointFromState(state, ['bx', 'by'], { x: 420, y: 170 }), point => {
     state.bx = point.x; state.by = point.y; state.primary = point;
+    state.vA = { vx: 46, vy: -8 };
+    state.vBA = { vx: -(state.omega || 0) * (state.by - state.ay), vy: (state.omega || 0) * (state.bx - state.ax) };
+    state.vB = { vx: state.vA.vx + state.vBA.vx, vy: state.vA.vy + state.vBA.vy };
+    state.vAMag = Math.hypot(state.vA.vx, state.vA.vy);
+    state.vBMag = Math.hypot(state.vB.vx, state.vB.vy);
   }, { visual: { stroke: color('velocity') } })];
   if (routeId === 'ch2-5-2') return [handle('instant-center-point', 'IC', () => pointFromState(state, ['icX', 'icY'], state.primary || { x: 270, y: 245 }), point => {
     const next = setPointKeys(state, point, 'icX', 'icY');
     state.P = next;
+    const bx = Number.isFinite(Number(state.bx)) ? state.bx : 360;
+    const by = Number.isFinite(Number(state.by)) ? state.by : 180;
+    state.vB = { vx: -(state.omega || 0) * (by - state.icY), vy: (state.omega || 0) * (bx - state.icX) };
+    state.vBMag = Math.hypot(state.vB.vx, state.vB.vy);
   }, { visual: { stroke: color('result') } })];
   if (routeId === 'ch2-5-3') return [handle('bar-end', 'B', () => pointFromState(state, ['ex', 'ey'], { x: 338, y: 238 }), point => {
     state.ex = c(point.x, 190, 460); state.ey = c(point.y, 90, 270);
-    state.ax = 118; state.ay = 238; state.bx = state.ex; state.by = state.ey;
-    state.primary = { x: state.ex, y: state.ey };
+    state.L = Math.hypot(state.ex - 118, state.ey - 238);
+    state.barAngle = Math.atan2(state.ey - 238, state.ex - 118);
+    syncCh2VelocityDistributionState(state);
   }, { visual: { stroke: color('velocity') } })];
   if (routeId === 'ch2-7-1') return [handle('solver-time-point', 't', () => ch2SolverPoint(state), point => {
     setCh2SolverPoint(state, point);

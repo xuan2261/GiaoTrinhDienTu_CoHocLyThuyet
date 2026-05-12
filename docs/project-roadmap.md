@@ -24,6 +24,11 @@ Roadmap này phản ánh trạng thái hiện tại của project và các bư�
 | DeCuong CH1 axioms/parallelogram rebuild | Done: Phase 02 rebuilt `ch1-2-3`, `ch1-2-6`, `ch1-3-1`, and `ch1-3-2` with DeCuong parallelogram/FBD/support visuals, F1/F2 handles, support alpha geometry, trails, KaTeX overlays, and strict 4-route gates |
 | DeCuong CH1 support/spatial rebuild | Done: Phase 03 rebuilt `ch1-3-3`, `ch1-3-4`, `ch1-3-6`, `ch1-3-7`, `ch1-4-1`, `ch1-4-2`, and `ch1-4-4` with DeCuong beam/support/spatial visuals, route-owned direct drag, trails, KaTeX overlays, synchronized controls/readouts, and strict 7-route gates |
 | DeCuong CH1 friction/centroid/exercises rebuild | Done: Phase 04 rebuilt 8 routes `ch1-5-1` to `ch1-7-2` with friction thresholds, friction cone/self-locking wedge, centroid composite/cutout visuals, guided solver/checker boards, route-owned direct drag, trails, KaTeX overlays, synchronized controls/readouts, and semantic regression tests |
+| DeCuong CH1 full QA gate | Done: Phase 05 release-ready gate passed for 25/25 CH1 routes, with CH1 static gates, runtime smoke, semantic/browser/visual-quality suites, quality/content audits, and 50 light/dark screenshot evidence images |
+| DeCuong CH2 particle trajectory rebuild | Done: Phase 06 rebuilt `ch2-1-1` to `ch2-1-4` with DeCuong particle trajectory, graph cursor, natural coordinates, motion presets, 30-point trails, KaTeX overlays, route-owned handles, synchronized readouts, and strict/browser/visual gates |
+| DeCuong CH2 relative/plane motion rebuild | Done: Phase 08 rebuilt `ch2-4-1` to `ch2-4-4` and `ch2-5-1` to `ch2-5-3` with relative-motion velocity composition, Coriolis vector invariants, plane-body velocity, instant-center distribution, KaTeX equations, trails, and route-owned handles/readouts |
+| DeCuong CH2 exercises QA gate | Done: Phase 09 hardened `ch2-7-1` and `ch2-7-2`, 15/15 CH2 routes pass manifest/scene/renderer/runtime gates |
+| DeCuong CH3 full rebuild | Done: Phase 10-12 complete for 18/18 CH3 routes; Newton/ODE, theorem/collision, and exercise/checker routes pass strict gates and final 58-route release |
 | Route-specific simulation scene registry repair | Done: 7 scene catalogs cover 58 routes; shared professional lab route mount lazy-resolves scene configs, keeps assessment keys compatible, và QA 2026-05-07 pass với `python tools\smoke_simulation_scene_catalog.py --strict --require-routes 58`, `npm run test:sim:scene-identity`, `npm run test:sim:browser` |
 | Route unique renderer rebuild | Done: 58/58 routes có dedicated renderer function, 58 behavior contracts, manifest/checkpoint renderer links, browser structural marks, `Family dispatch: no`, `npm run test:sim:semantic` và `npm run test:sim:release` pass |
 | Route-specific simulation rebuild | Done: Hoàn tất tinh chỉnh chi tiết 58 routes (Plan 260510) với shared visual primitives mới, polish Ch1/Ch2/Ch3 và interaction hardening 100% |
@@ -47,7 +52,7 @@ Roadmap này phản ánh trạng thái hiện tại của project và các bư�
 | P6 | Done | Phase 06 Polish: deprecated legacy, docs updated, responsive canvas | Legacy files → `js/deprecated/`, docs synced, responsive + touch targets |
 | P7 | Done | Route-specific simulation rebuild | Polish chi tiết 58 routes, shared visual primitives, interaction hardening, release pass |
 | P8 | Done | Ch1 DeCuong interaction upgrade | 25 Ch1 routes có route-owned physical handles, QA tool prefix gates, docs/runtime architecture synced |
-| P9 | In Progress | DeCuong simulation full rebuild | Phase 00 foundation and CH1 Phases 01-04 complete; next CH1 QA gate or CH2/CH3 route rebuild phases pending |
+| P9 | Done | DeCuong simulation full rebuild | Phase 00-12 complete; final review fixes landed for `ch2-1-3`, `ch2-5-3`, `ch2-7-2`, and CH2 checker labels; final 58-route release gate pass |
 
 ## P2 breakdown
 
@@ -62,10 +67,10 @@ Roadmap này phản ánh trạng thái hiện tại của project và các bư�
 
 ## Near-term priorities
 
-1. Tiếp tục `plans/260512-0845-decuong-simulation-full-rebuild/`: chạy CH1 Phase 05 QA gate, hoặc nhánh song song CH2 Phase 06 / CH3 Phase 10.
-2. Tạo clean package folder/zip theo [release checklist](../plans/20260505-2044-local-math-ocr-semantic-math-strict-publish/reports/release-checklist.md).
-3. Chạy `npm run test:sim:browser:route-mount`, `npm run test:sim:browser:baseline`, `python tools\audit.py --strict-images`, và `python tools\audit.py --strict-equations` trên máy mục tiêu trước khi bàn giao.
-4. Quyết định release đích dùng student/offline package hay maintainer package.
+1. Tạo clean package folder/zip theo [release checklist](../plans/20260505-2044-local-math-ocr-semantic-math-strict-publish/reports/release-checklist.md).
+2. Chạy `npm run test:sim:browser:route-mount`, `npm run test:sim:browser:baseline`, `python tools\audit.py --strict-images`, và `python tools\audit.py --strict-equations` trên máy mục tiêu trước khi bàn giao.
+3. Quyết định release đích dùng student/offline package hay maintainer package.
+4. Bổ sung final screenshot evidence all chapters nếu cần artifact nghiệm thu trực quan.
 
 ## Long-term backlog
 

@@ -1,7 +1,7 @@
 ---
 phase: 11
 title: "CH3 Theorems Collision"
-status: pending
+status: complete
 priority: P1
 effort: "16h"
 dependencies: [10]
@@ -48,12 +48,12 @@ KaTeX:
 - `e = \frac{v_2' - v_1'}{v_1 - v_2}`
 
 ## Todo List
-- [ ] ch3-5-1 to ch3-5-4 theorem routes
-- [ ] ch3-6-2 collision with e slider
-- [ ] ch3-6-3 collision types
-- [ ] Energy bar chart visualization
-- [ ] Momentum conservation demo
-- [ ] KaTeX theorem formulas
+- [x] ch3-5-1 to ch3-5-4 theorem routes
+- [x] ch3-6-2 collision with e slider
+- [x] ch3-6-3 collision types
+- [x] Energy bar chart visualization
+- [x] Momentum conservation demo
+- [x] KaTeX theorem formulas
 
 ## Verification / Tests
 ```powershell
@@ -64,10 +64,16 @@ npm run test:sim:unit
 ```
 
 ## Success Criteria
-- [ ] Collision e slider responsive, physics correct
-- [ ] Momentum conservation visible in readouts
-- [ ] Energy bar chart updates with animation
-- [ ] All 6 routes render DeCuong-quality visuals
+- [x] Collision e slider responsive, physics correct
+- [x] Momentum conservation visible in readouts
+- [x] Energy bar chart updates with animation
+- [x] All 6 routes render DeCuong-quality visuals
+
+## Completion Notes
+
+- Phase 11 routes pass strict scene/renderer contract gates for `ch3-5-1` to `ch3-6-3`.
+- TDD coverage locks signed momentum conservation for the 1D collision solver and release browser coverage verifies `ch3-6-2` direct drag momentum readouts.
+- Verification passed: Phase 11 strict scene/renderer gates, CH3 manifest smoke, all-route visual-quality, all-route browser interaction suite, and final release gate.
 
 ## Risk Assessment
 - Risk: collision animation timing needs careful lifecycle management. Mitigation: use scope.requestFrame for deterministic cleanup.

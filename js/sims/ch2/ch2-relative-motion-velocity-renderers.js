@@ -10,94 +10,111 @@
 
 const registry = window.SimRouteRenderers;
 const P = window.SimRouteRendererPrimitives;
+const R = window.SimRender || {};
 if (!registry || !P) return;
 
-// ─── ch2-4-1: Velocity Composition ─────────────────────────────────────────
+function vec(value, fallback) {
+  return value && typeof value === 'object' ? value : fallback;
+}
+
+function mag(vector) {
+  return Math.hypot(vector.vx || 0, vector.vy || 0);
+}
+
+function tip(origin, vector, scale) {
+  return { x: origin.x + (vector.vx || 0) * scale, y: origin.y + (vector.vy || 0) * scale };
+}
+
+function drawTrail(ctx, state, color) {
+  if (R.drawTrail) R.drawTrail(ctx, state.trail || [], color, 34);
+}
+
+function drawFrameAxes(ctx, ox, oy) {
+  P.neonArrow(ctx, ox - 58, oy, ox + 330, oy, P.tone(6), 'x');
+  P.neonArrow(ctx, ox, oy + 60, ox, oy - 174, P.tone(6), 'y');
+}
 
 function renderCh241VelocityComposition(ctx, scene, state, d) {
-  P.frame(ctx, scene, 'Hợp chuyển động: v_a = v_e + v_r', P.tone(1));
+  P.frame(ctx, scene, 'Hợp chuyển động: vận tốc tuyệt đối = kéo theo + tương đối', P.tone(1));
   const ox = 140, oy = 248, scale = 1.8;
-  P.neonArrow(ctx, 80, 248, 450, 248, P.tone(6), 'x');
-  P.neonArrow(ctx, 140, 300, 140, 90, P.tone(6), 'y');
-
-  const ve = state.ve || { vx: 60, vy: -30 };
-  const vr = state.vr || { vx: 40, vy: 40 };
-  const ex2 = ox + ve.vx * scale, ey2 = oy + ve.vy * scale;
-  const va = state.va || { vx: ve.vx + vr.vx, vy: ve.vy + vr.vy };
-  const rx = ox + va.vx * scale, ry = oy + va.vy * scale;
-
-  // Shaded composition parallelogram/triangle
-  P.vectorTriangle(ctx, ox, oy, ex2, ey2, rx, ry, P.tone(4), 0.1);
-
-  P.neonArrow(ctx, ox, oy, ex2, ey2, P.tone(1), 'v_e');
-  P.neonArrow(ctx, ex2, ey2, rx, ry, P.tone(3), 'v_r');
-  P.neonArrow(ctx, ox, oy, rx, ry, P.tone(0), 'v_a');
-
-  P.dashedLine(ctx, ex2, ey2, rx, ry, P.tone(3));
-  P.dashedLine(ctx, ox, oy, rx, ry, P.tone(6));
+  const origin = { x: ox, y: oy };
+  const ve = vec(state.ve, { vx: 60, vy: -30 });
+  const vr = vec(state.vr, { vx: 40, vy: 40 });
+  const va = vec(state.va, { vx: ve.vx + vr.vx, vy: ve.vy + vr.vy });
+  const e = tip(origin, ve, scale);
+  const a = tip(origin, va, scale);
+  drawFrameAxes(ctx, ox, oy);
+  drawTrail(ctx, state, 'rgba(220,53,69,.25)');
+  P.vectorTriangle(ctx, ox, oy, e.x, e.y, a.x, a.y, P.tone(4), 0.12);
+  P.dashedLine(ctx, e.x, e.y, a.x, a.y, P.tone(3));
+  P.neonArrow(ctx, ox, oy, e.x, e.y, P.tone(1), 'v_e');
+  P.neonArrow(ctx, e.x, e.y, a.x, a.y, P.tone(3), 'v_r');
+  P.neonArrow(ctx, ox, oy, a.x, a.y, P.tone(0), 'v_a');
   P.realisticPoint(ctx, ox, oy, { text: 'O', fill: P.tone(4) });
-  P.domMath(ctx, 'va-magnitude', 380, 60, `v_a=${Math.hypot(va.vx, va.vy).toFixed(1)}`, { color: P.tone(0) });
+  P.realisticPoint(ctx, a.x, a.y, { text: 'M', fill: P.tone(0) });
+  P.domMath(ctx, 'velocity-composition-eq', 380, 62, `\\vec{v}_a=\\vec{v}_e+\\vec{v}_r`, { color: P.tone(0) });
+  P.domMath(ctx, 'velocity-composition-value', 380, 84, `|v_a|=${mag(va).toFixed(1)}`, { color: P.tone(0) });
 }
-
-// ─── ch2-4-2: Absolute / Relative / Transport ─────────────────────────────
 
 function renderCh242AbsoluteRelativeTransport(ctx, scene, state, d) {
-  P.frame(ctx, scene, 'Ba loại vận tốc: tuyệt đối, kéo theo, tương đối', P.tone(3));
+  P.frame(ctx, scene, 'Tuyệt đối - kéo theo - tương đối', P.tone(3));
   const scale = 1.8;
-  const va = state.va || { vx: 55, vy: 0 };
-  const ve = state.ve || { vx: 30, vy: 0 };
-  const vr = state.vr || { vx: va.vx - ve.vx, vy: va.vy - ve.vy };
-  P.panel(ctx, 72, 76, 130, 154, 'tuyệt đối v_a', P.tone(0));
-  P.neonArrow(ctx, 92, 170, 92 + va.vx * scale, 170 + va.vy * scale, P.tone(0), 'v_a');
-  P.panel(ctx, 222, 76, 130, 154, 'kéo theo v_e', P.tone(1));
-  P.neonArrow(ctx, 242, 170, 242 + ve.vx * scale, 170 + ve.vy * scale, P.tone(1), 'v_e');
-  P.panel(ctx, 372, 76, 130, 154, 'tương đối v_r', P.tone(3));
-  P.neonArrow(ctx, 392, 170, 392 + vr.vx * scale, 170 + vr.vy * scale, P.tone(3), 'v_r');
-  P.domMath(ctx, 'velocity-eq', 360, 290, `v_a=v_e+v_r`, { color: P.tone(3) });
+  const va = vec(state.va, { vx: 55, vy: 0 });
+  const ve = vec(state.ve, { vx: 30, vy: 0 });
+  const vr = vec(state.vr, { vx: va.vx - ve.vx, vy: va.vy - ve.vy });
+  const panels = [
+    { x: 72, label: 'tuyệt đối', vector: va, color: P.tone(0), tag: 'v_a' },
+    { x: 262, label: 'kéo theo', vector: ve, color: P.tone(1), tag: 'v_e' },
+    { x: 452, label: 'tương đối', vector: vr, color: P.tone(3), tag: 'v_r' }
+  ];
+  drawTrail(ctx, state, 'rgba(13,110,253,.24)');
+  panels.forEach(item => {
+    const origin = { x: item.x + 24, y: 178 };
+    const end = tip(origin, item.vector, scale);
+    P.panel(ctx, item.x, 82, 154, 152, `${item.label} ${item.tag}`, item.color);
+    P.neonArrow(ctx, origin.x, origin.y, end.x, end.y, item.color, item.tag);
+    P.domMath(ctx, `${item.tag}-mag`, item.x + 16, 248, `|${item.tag}|=${mag(item.vector).toFixed(1)}`, { color: item.color });
+  });
+  P.domMath(ctx, 'velocity-definition-eq', 318, 310, `\\vec{v}_a=\\vec{v}_e+\\vec{v}_r`, { color: P.tone(3) });
 }
-
-// ─── ch2-4-3: Velocity Triangle ─────────────────────────────────────────────
 
 function renderCh243VelocityTriangle(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Tam giác vận tốc: v_a = v_e + v_r', P.tone(2));
   const ox = 160, oy = 258, scale = 1.5;
-  const ve = state.ve || { vx: 60, vy: 0 };
-  const vr = state.vr || { vx: 0, vy: 40 };
-  const ex2 = ox + ve.vx * scale, ey2 = oy + ve.vy * scale;
-  const va = state.va || { vx: ve.vx + vr.vx, vy: ve.vy + vr.vy };
-  const rx = ox + va.vx * scale, ry = oy + va.vy * scale;
-
-  P.vectorTriangle(ctx, ox, oy, ex2, ey2, rx, ry, P.tone(2), 0.15);
-
-  P.neonArrow(ctx, ox, oy, ex2, ey2, P.tone(1), 'v_e');
-  P.neonArrow(ctx, ex2, ey2, rx, ry, P.tone(3), 'v_r');
-  P.neonArrow(ctx, ox, oy, rx, ry, P.tone(0), 'v_a');
-
+  const ve = vec(state.ve, { vx: 60, vy: 0 });
+  const vr = vec(state.vr, { vx: 0, vy: 40 });
+  const va = vec(state.va, { vx: ve.vx + vr.vx, vy: ve.vy + vr.vy });
+  const e = tip({ x: ox, y: oy }, ve, scale);
+  const a = tip({ x: ox, y: oy }, va, scale);
+  drawTrail(ctx, state, 'rgba(25,135,84,.24)');
+  P.vectorTriangle(ctx, ox, oy, e.x, e.y, a.x, a.y, P.tone(2), 0.15);
+  P.neonArrow(ctx, ox, oy, e.x, e.y, P.tone(1), 'v_e');
+  P.neonArrow(ctx, e.x, e.y, a.x, a.y, P.tone(3), 'v_r');
+  P.neonArrow(ctx, ox, oy, a.x, a.y, P.tone(0), 'v_a');
   P.realisticPoint(ctx, ox, oy, { text: 'A', fill: P.tone(4) });
-  P.realisticPoint(ctx, ex2, ey2, { text: 'B', fill: P.tone(4) });
-  P.realisticPoint(ctx, rx, ry, { text: 'C', fill: P.tone(4) });
-
-  P.domMath(ctx, 'triangle-va', 360, 64, `v_a=${Math.hypot(va.vx, va.vy).toFixed(1)}`, { color: P.tone(0) });
-  P.domMath(ctx, 'triangle-ve', 360, 82, `v_e=${Math.hypot(ve.vx, ve.vy).toFixed(1)}`, { color: P.tone(1) });
+  P.realisticPoint(ctx, e.x, e.y, { text: 'B', fill: P.tone(4) });
+  P.realisticPoint(ctx, a.x, a.y, { text: 'C', fill: P.tone(4) });
+  P.domMath(ctx, 'triangle-eq', 380, 64, `\\vec{v}_a=\\vec{v}_e+\\vec{v}_r`, { color: P.tone(0) });
+  P.domMath(ctx, 'triangle-values', 380, 86, `|v_a|=${mag(va).toFixed(1)};\\ |v_r|=${mag(vr).toFixed(1)}`, { color: P.tone(1) });
 }
 
-// ─── ch2-4-4: Coriolis Acceleration ────────────────────────────────────────
-
 function renderCh244CoriolisAcceleration(ctx, scene, state, d) {
-  P.frame(ctx, scene, 'Gia tốc Coriolis: a_c = 2ω × v_r', P.tone(4));
+  P.frame(ctx, scene, 'Gia tốc Coriolis trong hệ quay', P.tone(4));
   const cx = 280, cy = 180, theta = state.theta || 0, omega = state.omega || 1.0, r = 80;
   const px = state.px || (cx + r), py = state.py || cy;
-  const vrx = state.vrx || (30 * Math.cos(theta)), vry = state.vry || (30 * Math.sin(theta));
+  const vr = vec(state.vr, { vx: state.vrx || (30 * Math.cos(theta)), vy: state.vry || (30 * Math.sin(theta)) });
+  const ac = vec(state.ac, { vx: -2 * omega * vr.vy, vy: 2 * omega * vr.vx });
   ctx.strokeStyle = P.tone(5); ctx.lineWidth = 2;
   ctx.beginPath(); ctx.arc(cx, cy, 120, 0, Math.PI * 2); ctx.stroke();
+  drawTrail(ctx, state, 'rgba(220,53,69,.24)');
   P.dashedLine(ctx, cx, cy, px, py, P.tone(6));
   ctx.fillStyle = P.tone(3); ctx.font = '16px monospace'; ctx.fillText('ω ⊗', cx - 14, cy + 5);
   P.realisticPoint(ctx, px, py, { text: 'P', fill: P.tone(0) });
-  P.neonArrow(ctx, px, py, px + vrx * 2.5, py + vry * 2.5, P.tone(1), 'v_r');
+  P.neonArrow(ctx, px, py, px + vr.vx * 2.5, py + vr.vy * 2.5, P.tone(1), 'v_r');
   P.neonArrow(ctx, px, py, px - (px - cx) / 10, py - (py - cy) / 10, P.tone(2), 'a_e');
-  P.neonArrow(ctx, px, py, px + (-2 * omega * vry) * 2, py + (2 * omega * vrx) * 2, P.tone(0), 'a_c');
-  const coriolis = state.coriolis || (2 * omega * Math.hypot(vrx, vry));
-  P.domMath(ctx, 'coriolis-value', 380, 56, `a_c=${coriolis.toFixed(1)}`, { color: P.tone(0) });
+  P.neonArrow(ctx, px, py, px + ac.vx * 2, py + ac.vy * 2, P.tone(0), 'a_c');
+  P.domMath(ctx, 'coriolis-eq', 380, 56, `\\vec{a}_c=2\\vec{\\omega}\\times\\vec{v}_r`, { color: P.tone(0) });
+  P.domMath(ctx, 'coriolis-value', 380, 78, `|a_c|=${(state.coriolis || mag(ac)).toFixed(1)}`, { color: P.tone(0) });
 }
 
 // ─── Registry ───────────────────────────────────────────────────────────────

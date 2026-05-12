@@ -1,229 +1,163 @@
 /**
- * Route renderers for Ch2 trajectory, graph, and motion preset routes.
- * ch2-1-1: Ellipse trajectory with trail + velocity vector
- * ch2-1-2: x(t), v(t), a(t) graphs with time cursor
- * ch2-1-3: Natural coordinates: tangent, normal, radius of curvature
- * ch2-1-4: Motion presets: đều, biến đổi đều, bài tập
+ * DeCuong-style renderers for Ch2 particle trajectory routes.
  */
 (function() {
 'use strict';
 
 const registry = window.SimRouteRenderers;
 const P = window.SimRouteRendererPrimitives;
+const R = window.SimRender || {};
 if (!registry || !P) return;
 
-// ─── ch2-1-1: Ellipse Trajectory ─────────────────────────────────────────────
+function pathPoint(mode, t) {
+  const u = (t % (Math.PI * 2)) / (Math.PI * 2);
+  if (mode === 'Tròn') return { x: 350 + 104 * Math.cos(t), y: 224 - 104 * Math.sin(t) };
+  if (mode === 'Parabol') return { x: 142 + 374 * u, y: 326 - 286 * u + 238 * u * u };
+  if (mode === 'Elip') return { x: 350 + 142 * Math.cos(t), y: 224 - 92 * Math.sin(t) };
+  return { x: 142 + 374 * u, y: 304 - 72 * u };
+}
 
-function renderCh211Trajectory(ctx, scene, state, d) {
+function drawTrajectory(ctx, mode, color) {
+  ctx.save();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.8;
+  ctx.setLineDash([5, 3]);
+  ctx.beginPath();
+  for (let i = 0; i <= 150; i++) {
+    const p = pathPoint(mode, i / 150 * Math.PI * 2);
+    if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
+  }
+  ctx.stroke();
+  ctx.restore();
+}
+
+function miniPoint(mode, t, box) {
+  const u = (t % (Math.PI * 2)) / (Math.PI * 2);
+  const cx = box.x + box.w / 2, cy = box.y + box.h / 2;
+  if (mode === 'Tròn') return { x: cx + box.w * 0.28 * Math.cos(t), y: cy - box.h * 0.36 * Math.sin(t) };
+  if (mode === 'Elip') return { x: cx + box.w * 0.36 * Math.cos(t), y: cy - box.h * 0.28 * Math.sin(t) };
+  return { x: box.x + box.w * (0.1 + 0.8 * u), y: box.y + box.h * (0.78 - 0.58 * u + 0.42 * u * u) };
+}
+
+function drawMiniTrajectory(ctx, mode, box, color) {
+  ctx.save();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.setLineDash([5, 3]);
+  ctx.beginPath();
+  for (let i = 0; i <= 80; i++) {
+    const p = miniPoint(mode, i / 80 * Math.PI * 2, box);
+    if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
+  }
+  ctx.stroke();
+  ctx.restore();
+}
+
+function arrow(ctx, x, y, vx, vy, color, label, scale) {
+  if (Math.hypot(vx, vy) < 0.5) return;
+  const s = scale || 1;
+  const ex = Math.max(42, Math.min(718, x + vx * s));
+  const ey = Math.max(60, Math.min(382, y - vy * s));
+  if (R.drawDeCuongArrow) R.drawDeCuongArrow(ctx, x, y, ex, ey, color, 3, 14);
+  else P.arrow(ctx, x, y, ex, ey, color, label);
+  P.label(ctx, label, Math.max(42, Math.min(708, ex + 8)), Math.max(60, Math.min(382, ey - 6)), 12, color);
+}
+
+function drawParticle(ctx, x, y) {
+  ctx.save();
+  ctx.fillStyle = '#e74c3c';
+  ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#fff';
+  ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fill();
+  ctx.restore();
+}
+
+function renderCh211Trajectory(ctx, scene, state) {
   const mode = state.mode || 'Elip';
-  P.frame(ctx, scene, `Quỹ đạo ${mode.toLowerCase()} + vận tốc tức thời`, P.tone(1));
-  P.realisticGround(ctx, 50, 295, 510, { material: 'concrete' });
-
-  // Draw selected path
-  ctx.save();
-  ctx.strokeStyle = P.tone(6);
-  ctx.lineWidth = 1.2;
-  ctx.setLineDash([6, 4]);
-  if (mode === 'Tròn') {
-    ctx.beginPath(); ctx.arc(280, 170, 100, 0, Math.PI * 2);
-  } else if (mode === 'Parabol') {
-    ctx.beginPath();
-    for (let i = 0; i <= 72; i += 1) {
-      const u = i / 72;
-      const x = 90 + 360 * u;
-      const y = 278 - 310 * u + 260 * u * u;
-      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    }
-  } else {
-    ctx.beginPath(); ctx.ellipse(280, 170, 150, 100, 0, 0, Math.PI * 2);
-  }
-  ctx.stroke();
-  ctx.restore();
-
-  // Trail
-  const trail = state.trail || [];
-  ctx.save();
-  for (let i = 1; i < trail.length; i++) {
-    const alpha = (i / trail.length) * 0.5;
-    ctx.strokeStyle = P.isDarkTheme() ? `rgba(41,128,185,${alpha})` : `rgba(41,128,185,${alpha})`;
-    ctx.lineWidth = 1 + 1.5 * (i / trail.length);
-    ctx.beginPath(); ctx.moveTo(trail[i - 1].x, trail[i - 1].y); ctx.lineTo(trail[i].x, trail[i].y); ctx.stroke();
-  }
-  ctx.restore();
-
-  const cx = state.currentX || 280;
-  const cy = state.currentY || 170;
-  P.realisticPoint(ctx, cx, cy, { text: 'M', fill: P.tone(0), radius: 6 });
-
-  if (state.vx != null) {
-    const vx = state.vx || 0, vy = state.vy || 0, vScale = 0.3;
-    P.neonArrow(ctx, cx, cy, cx + vx * vScale, cy - vy * vScale, P.tone(1), 'v');
-  }
-
-  if (state.vx != null) {
-    const ax = -(cx - 280) / 8, ay = -(cy - 170) / 8;
-    P.neonArrow(ctx, cx, cy, cx + ax, cy + ay, P.tone(2), 'a');
-  }
-  P.domMath(ctx, 'trajectory-speed', 390, 62, `v=${(state.speed || 0).toFixed(1)}`, { color: P.tone(1) });
-  P.domMath(ctx, 'trajectory-theta', 390, 82, `t=${(state.t || 0).toFixed(2)}`, { color: P.tone(6) });
+  const dark = P.isDarkTheme();
+  P.frame(ctx, scene, 'Quỹ đạo chất điểm: v, aτ, an', '#e74c3c');
+  drawTrajectory(ctx, mode, dark ? 'rgba(255,255,255,.15)' : 'rgba(0,0,0,.12)');
+  if (R.drawTrail) R.drawTrail(ctx, state.trail || [], 'rgba(231,76,60,.30)', 30);
+  const x = state.currentX || 500, y = state.currentY || 220;
+  drawParticle(ctx, x, y);
+  arrow(ctx, x, y, state.vx || 0, state.vy || 0, '#e74c3c', 'v', 0.6);
+  arrow(ctx, x, y, state.atx || 0, state.aty || 0, '#e67e22', 'aτ', 0.15);
+  arrow(ctx, x, y, state.anx || 0, state.any || 0, '#2980b9', 'an', 0.15);
+  P.domMath(ctx, 'particle-a', 520, 74, '\\vec{a}=a_\\tau\\vec{\\tau}+a_n\\vec{n}', { color: '#e67e22' });
+  P.domMath(ctx, 'particle-rho', 520, 104, 'a_n=\\frac{v^2}{\\rho}', { color: '#2980b9' });
+  P.domLabel(ctx, 'particle-mode', 46, 386, `${mode} | t=${(state.t || 0).toFixed(2)}s`, { color: P.tone(6) });
 }
 
-// ─── ch2-1-2: Motion Graphs ───────────────────────────────────────────────────
+function graphValue(kind, t) {
+  if (kind === 'x') return 54 * Math.sin(t);
+  if (kind === 'v') return 54 * Math.cos(t);
+  return -54 * Math.sin(t);
+}
 
-function drawGraphPanel(ctx, ox, oy, w, h, yLabel, xMax, curveFn, cursorT, toneIdx) {
-  // Mini Grid
-  ctx.save();
-  ctx.strokeStyle = P.isDarkTheme() ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.04)';
-  ctx.lineWidth = 1;
-  for (let gx = 0; gx <= w; gx += 40) {
-    ctx.beginPath(); ctx.moveTo(ox + gx, oy); ctx.lineTo(ox + gx, oy - h); ctx.stroke();
-  }
-  for (let gy = 0; gy <= h; gy += 40) {
-    ctx.beginPath(); ctx.moveTo(ox, oy - gy); ctx.lineTo(ox + w, oy - gy); ctx.stroke();
-  }
-  ctx.restore();
-
-  // Axes
-  P.neonArrow(ctx, ox, oy, ox + w + 10, oy, P.tone(6), '');
-  P.neonArrow(ctx, ox, oy, ox, oy - h - 10, P.tone(6), '');
-  P.label(ctx, yLabel, ox - 18, oy - h / 2, 11, P.tone(toneIdx));
-  P.label(ctx, 't', ox + w + 12, oy + 5, 11, P.tone(6));
-
-  // Curve
-  ctx.strokeStyle = P.tone(toneIdx);
-  ctx.lineWidth = 2.5;
+function drawGraph(ctx, x, y, w, h, label, tone, t) {
+  const zero = y + h / 2;
+  ctx.strokeStyle = P.tone(6); ctx.lineWidth = 1.2;
+  ctx.strokeRect(x, y, w, h);
+  P.line(ctx, x, zero, x + w, zero, P.tone(6), 1);
+  ctx.strokeStyle = P.tone(tone); ctx.lineWidth = 2.6;
   ctx.beginPath();
-  for (let i = 0; i <= xMax; i += 4) {
-    const px = ox + i, py = oy - curveFn(i / xMax);
-    if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+  for (let i = 0; i <= w; i += 4) {
+    const py = zero - graphValue(label, i / w * Math.PI * 2);
+    if (i === 0) ctx.moveTo(x + i, py); else ctx.lineTo(x + i, py);
   }
   ctx.stroke();
-
-  // Cursor
-  const ct = ((cursorT % (Math.PI * 2)) / (Math.PI * 2)) * xMax;
-  const cy2 = oy - curveFn(ct / xMax);
-  P.dashedLine(ctx, ox + ct, oy - h, ox + ct, oy, P.tone(4));
-  P.realisticPoint(ctx, ox + ct, cy2, { fill: P.tone(0), radius: 4 });
+  const cx = x + ((t % (Math.PI * 2)) / (Math.PI * 2)) * w;
+  P.dashedLine(ctx, cx, y, cx, y + h, P.tone(4));
+  P.point(ctx, cx, zero - graphValue(label, t), P.tone(tone), label);
 }
 
-function renderCh212MotionGraphs(ctx, scene, state, d) {
-  P.frame(ctx, scene, 'Đồ thị x(t), v(t), a(t) — con trỏ thời gian', P.tone(3));
-
+function renderCh212MotionGraphs(ctx, scene, state) {
+  P.frame(ctx, scene, 'Đồ thị x(t), v(t), a(t) có con trỏ kéo', P.tone(3));
   const t = state.t || 0;
-  const xFn = (u) => 40 * Math.sin(u * Math.PI * 2) + 20;
-  const vFn = (u) => 40 * Math.cos(u * Math.PI * 2);
-  const aFn = (u) => 30 * (-Math.sin(u * Math.PI * 2));
-
-  drawGraphPanel(ctx, 72, 150, 190, 80, 'x', 190, xFn, t, 0);
-  drawGraphPanel(ctx, 310, 150, 190, 80, 'v', 190, vFn, t, 1);
-  drawGraphPanel(ctx, 72, 290, 190, 80, 'a', 190, aFn, t, 2);
-
-  P.domMath(ctx, 'graph-cursor-time', 400, 280, `t=${t.toFixed(2)}`, { color: P.tone(3) });
+  drawGraph(ctx, 56, 86, 290, 88, 'x', 0, t);
+  drawGraph(ctx, 398, 86, 290, 88, 'v', 1, t);
+  drawGraph(ctx, 56, 238, 290, 88, 'a', 2, t);
+  if (R.drawTrail) R.drawTrail(ctx, state.trail || [], 'rgba(201,150,58,.30)', 30);
+  P.domMath(ctx, 'graph-katex', 420, 258, 'v=\\dot{x},\\quad a=\\ddot{x}', { color: P.tone(3) });
+  P.domLabel(ctx, 'graph-values', 420, 302,
+    `x=${(state.xVal || 0).toFixed(1)} | v=${(state.vVal || 0).toFixed(1)} | a=${(state.aVal || 0).toFixed(1)}`,
+    { color: P.tone(6), width: 260 });
 }
 
-// ─── ch2-1-3: Natural Coordinates ─────────────────────────────────────────────
-
-function renderCh213NaturalCoords(ctx, scene, state, d) {
-  P.frame(ctx, scene, 'Tọa độ tự nhiên: tiếp tuyến + pháp tuyến + bán kính cong', P.tone(2));
-
-  const cx = 250, cy = 184, r = 96;
-  const px = state.px || (cx + r);
-  const py = state.py || cy;
-
-  // Curve
-  ctx.strokeStyle = P.tone(2);
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.arc(cx, cy, r, 0.1, 1.7 * Math.PI);
-  ctx.stroke();
-
-  // Point P
-  P.point(ctx, px, py, P.tone(0), 'P');
-
-  // Tangent (tau) — direction of velocity
-  if (state.vx != null) {
-    const vMag = Math.hypot(state.vx, state.vy);
-    if (vMag > 0.01) {
-      const tx = state.vx / vMag;
-      const ty = -state.vy / vMag;
-      P.arrow(ctx, px, py, px + tx * 60, py + ty * 60, P.tone(1), 'tau');
-    }
-  }
-
-  // Normal (n) — inward toward center
-  const nDirX = (cx - px) / r;
-  const nDirY = (cy - py) / r;
-  P.arrow(ctx, px, py, px + nDirX * 52, py + nDirY * 52, P.tone(2), 'n');
-
-  // Center
+function renderCh213NaturalCoords(ctx, scene, state) {
+  P.frame(ctx, scene, 'Tọa độ tự nhiên: τ, n và bán kính cong ρ', P.tone(2));
+  const cx = 350, cy = 224, r = 104;
+  const t = state.t || 0, px = state.px || cx + r, py = state.py || cy;
+  ctx.strokeStyle = P.tone(2); ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+  if (R.drawTrail) R.drawTrail(ctx, state.trail || [], 'rgba(25,135,84,.26)', 30);
   P.point(ctx, cx, cy, P.tone(4), 'C');
-
-  // Radius of curvature (dashed)
   P.dashedLine(ctx, cx, cy, px, py, P.tone(6));
-
-  // Dimension label
-  P.dimension(ctx, cx, cy, px, py, P.tone(6), 'rho');
-
-  // Acceleration components
-  P.domMath(ctx, 'natural-an', 352, 268,
-    `a_n=\\frac{v^2}{\\rho}=${(state.an || 0).toFixed(2)}`, { color: P.tone(2) });
-  P.domMath(ctx, 'natural-curvature', 352, 288,
-    `\\rho=${r}\\,\\mathrm{m}`, { color: P.tone(6) });
+  P.dimension(ctx, cx, cy, px, py, P.tone(6), 'ρ');
+  P.point(ctx, px, py, P.tone(0), 'P');
+  arrow(ctx, px, py, -Math.sin(t) * 70, -Math.cos(t) * 70, '#e74c3c', 'τ', 1);
+  arrow(ctx, px, py, (cx - px) / r * 72, (py - cy) / r * 72, '#2980b9', 'n', 1);
+  P.domMath(ctx, 'natural-v', 494, 82, '\\vec{v}=v\\vec{\\tau}', { color: '#e74c3c' });
+  P.domMath(ctx, 'natural-a', 494, 112, '\\vec{a}=\\dot{v}\\vec{\\tau}+\\frac{v^2}{\\rho}\\vec{n}', { color: '#2980b9' });
 }
 
-// ─── ch2-1-4: Motion Presets ─────────────────────────────────────────────────
-
-function renderCh214MotionPresets(ctx, scene, state, d) {
-  P.frame(ctx, scene, 'Các dạng chuyển động: thẳng, tròn, parabol', P.tone(4));
-
-  const modes = ['Thẳng', 'Tròn', 'Parabol'];
-  modes.forEach((mode, idx) => {
-    const x = 64 + idx * 156;
-    P.panel(ctx, x, 76, 132, 178, mode, P.tone(idx));
-
-    ctx.strokeStyle = P.tone(idx);
-    ctx.lineWidth = 2;
-
-    if (mode === 'Thẳng') {
-      ctx.beginPath();
-      ctx.moveTo(x + 20, 210);
-      ctx.lineTo(x + 112, 130);
-      ctx.stroke();
-      const prog = ((state.t || 0) / (Math.PI * 2)) * 92;
-      const ppx = x + 20 + prog;
-      const ppy = 210 - prog * (80 / 92);
-      P.point(ctx, ppx, ppy, P.tone(0), '');
-    } else if (mode === 'Tròn') {
-      ctx.beginPath();
-      ctx.arc(x + 66, 168, 42, 0, Math.PI * 2);
-      ctx.stroke();
-      const angle = state.t || 0;
-      const ppx = x + 66 + 42 * Math.cos(angle);
-      const ppy = 168 - 42 * Math.sin(angle);
-      P.point(ctx, ppx, ppy, P.tone(0), '');
-    } else {
-      for (let i = 0; i <= 80; i += 8) {
-        const ppx = x + 18 + i;
-        const ppy = 218 - i * 1.5 + (i * i) / 60;
-        if (i === 0) ctx.moveTo(ppx, ppy); else ctx.lineTo(ppx, ppy);
-      }
-      ctx.stroke();
-      const prog = ((state.t || 0) / (Math.PI * 2)) * 80;
-      const ppx = x + 18 + prog;
-      const ppy = 218 - prog * 1.5 + (prog * prog) / 60;
-      P.point(ctx, ppx, ppy, P.tone(0), '');
-    }
+function renderCh214MotionPresets(ctx, scene, state) {
+  const mode = state.mode || 'Elip';
+  P.frame(ctx, scene, `Preset chuyển động: ${mode}`, P.tone(4));
+  ['Tròn', 'Elip', 'Parabol'].forEach((name, idx) => {
+    const x = 70 + idx * 210;
+    P.panel(ctx, x, 82, 160, 230, name, P.tone(idx));
+    drawMiniTrajectory(ctx, name, { x: x + 16, y: 132, w: 128, h: 132 }, P.tone(idx));
+    const mini = miniPoint(name, state.t || 0, { x: x + 16, y: 132, w: 128, h: 132 });
+    P.point(ctx, mini.x, mini.y, P.tone(0), '');
   });
-
-  P.domLabel(ctx, 'active-preset', 430, 284,
-    `đang chọn: ${state.mode || 'Thẳng'}`, { color: P.tone(4) });
+  P.domLabel(ctx, 'preset-active', 86, 334, `đang chọn: ${mode}`, { color: P.tone(4) });
+  P.domMath(ctx, 'preset-katex', 488, 348, '\\vec{r}=\\vec{r}(t),\\quad v=\\left|\\dot{\\vec{r}}\\right|', { color: P.tone(4) });
 }
 
-// ─── Registry ──────────────────────────────────────────────────────────────────
-
-registry.register('ch2-1-1', 'ch2-1-1-trajectory-renderer', renderCh211Trajectory);
-registry.register('ch2-1-2', 'ch2-1-2-motion-graphs-renderer', renderCh212MotionGraphs);
-registry.register('ch2-1-3', 'ch2-1-3-natural-coords-renderer', renderCh213NaturalCoords);
-registry.register('ch2-1-4', 'ch2-1-4-motion-presets-renderer', renderCh214MotionPresets);
+registry.register('ch2-1-1', 'ch2-1-1-decuong-particle-renderer', renderCh211Trajectory);
+registry.register('ch2-1-2', 'ch2-1-2-graph-cursor-renderer', renderCh212MotionGraphs);
+registry.register('ch2-1-3', 'ch2-1-3-natural-coordinates-renderer', renderCh213NaturalCoords);
+registry.register('ch2-1-4', 'ch2-1-4-motion-preset-renderer', renderCh214MotionPresets);
 
 })();

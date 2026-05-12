@@ -1,7 +1,7 @@
 ---
 phase: 8
 title: "CH2 Relative Plane Motion"
-status: pending
+status: complete
 priority: P1
 effort: "18h"
 dependencies: [7]
@@ -47,11 +47,11 @@ KaTeX equations:
 - `\vec{v}_A = \vec{\omega} \times \overrightarrow{IA}`
 
 ## Todo List
-- [ ] ch2-4-1 to ch2-4-4 relative motion routes
-- [ ] ch2-5-1 to ch2-5-3 plane motion routes
-- [ ] Velocity triangle interactive
-- [ ] IC visualization with velocity distribution
-- [ ] KaTeX + trail for each
+- [x] ch2-4-1 to ch2-4-4 relative motion routes
+- [x] ch2-5-1 to ch2-5-3 plane motion routes
+- [x] Velocity triangle interactive
+- [x] IC visualization with velocity distribution
+- [x] KaTeX + trail for each
 
 ## Verification / Tests
 ```powershell
@@ -62,6 +62,14 @@ npm run test:sim:unit
 ```
 
 ## Success Criteria
-- [ ] Velocity triangle interactive and correct
-- [ ] IC point + velocity distribution visible
-- [ ] Coriolis vector direction correct
+- [x] Velocity triangle interactive and correct
+- [x] IC point + velocity distribution visible
+- [x] Coriolis vector direction correct
+
+## Progress Log
+
+### 2026-05-12
+- Phase 08 complete: 7 routes rebuilt with DeCuong-style relative/plane motion renderers, KaTeX equations, trails, route-owned handles/readouts, and `tests/phase-08-tdd.test.js` coverage.
+- Code review concerns fixed: `vrMag`, `phi`, and `theta` controls now drive route models; plane/IC readouts use dedicated `vAMag`/`vBMag` keys and direct drag recomputes dependent velocity vectors immediately.
+- Second review concerns fixed: `|v_a|` and `|a_c|` readouts now use scalar keys; ch2-4 direct drag and Phase 08 sliders recompute derived magnitudes/vectors immediately while paused.
+- Final sync-back: Phase 08 remains complete after downstream review fixes; no status change, only revalidation note.

@@ -32,13 +32,16 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 - Canonical route count: 58 P1 routes.
 - Ch1 active route count: 25.
 - Canvas logical size: 760×440; responsive CSS scales visually without changing simulation coordinates.
-- Canvas clear path is transparent `clearRect()`, with `.sim-canvas-wrap` owning theme background.
+- Canvas clear path is transparent `ctx.clearRect(0, 0, w, h)`, with `.sim-canvas-wrap` owning theme background.
 - Each route must have a unique renderer id, behavior id, named renderer function, and scene signature.
 - Route-owned handles must expose meaningful ids/labels through `data-handle-ids`; fallback `legacy-primary` is not acceptable for active routes.
 - Readouts use `.sim-readout-card` and semantic `data-readout-kind` values.
 - Route scenes may provide explicit readout item `kind` metadata or set `appendGenericReadouts: false` when their physics model owns all displayed values.
 - Drag handlers must update canonical state, sliders, inline control values, readout cards, and overlays from the same clamped model state.
 - DeCuong CH1 route rebuilds must keep direct geometry and readouts coupled: `ch1-2-3` uses F1/F2 endpoint state for canvas, `|F₁|`, `|F₂|`, `|R|`, and `α`; support routes use alpha/handle state to redraw normal/tension geometry.
+- DeCuong CH2/CH3 exercise routes must keep checker math canonical: `ch2-7-*` uses one sinusoid derivative chain for `x/v/a`; `ch3-7-2` exposes residual scale and score from the same derived state used by overlay/readout.
+- DeCuong final review fixes keep CH2 control semantics canonical: `ch2-1-3` uses `rho` as the radius slider, `ch2-5-3` uses `L` for endpoint geometry and `vBMag`, `ch2-7-2` preserves valid `x0=0` during direct drag, and CH2 checker labels are localized.
+- CH3 dynamics routes keep animated state deterministic: spring/ODE routes seed non-zero displacement for visible energy, coupled-spring routes maintain both trajectory arrays, and collision solver readouts preserve signed momentum.
 - `SimProfessionalLab.mount(routeId)` must return an idempotent disposer and clean route-scoped listeners/RAF on route change or mount rollback.
 - No runtime bundler is required; `package.json` is dev-only QA.
 
