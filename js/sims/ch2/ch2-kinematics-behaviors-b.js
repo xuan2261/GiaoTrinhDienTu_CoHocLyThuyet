@@ -217,5 +217,4 @@ registry.registerMany({
     }
   }
 });
-
 })();

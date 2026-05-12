@@ -151,7 +151,7 @@ npm run test:sim:browser:route-mount
 ```
 
 `package.json` chỉ dùng cho QA dev-only. Không thêm runtime bundler; app vẫn phải chạy được bằng `file://`.
-`npm run test:sim:release` phải bao gồm `test:sim:visual-quality` để khóa 58-route discovery, bounded canvas, route-owned handles, renderer/behavior/scene identity, dark/light readability, và overflow.
+`npm run test:sim:release` phải bao gồm `test:sim:quality` và `test:sim:visual-quality` để khóa line-count active simulation sources, 58-route discovery, bounded canvas, route-owned handles, renderer/behavior/scene identity, dark/light readability, và overflow.
 
 Khi chỉnh DOCX sync hoặc equation flow, chạy thêm:
 

@@ -18,6 +18,7 @@
 - Final code-review fixes landed for the DeCuong rebuild: `ch2-1-3` now treats `rho` as the canonical radius slider, `ch2-5-3` uses `L` as the canonical endpoint geometry and `vBMag` slider, `ch2-7-2` keeps valid `x0=0` during direct drag, and CH2 checker visible labels are localized.
 - Professional lab mount lifecycle is now scoped/idempotent: route mounts return `{ dispose }`, clean resize and `sim:katex-ready` listeners, and dispose on mount failure.
 - Professional lab control sync now preserves valid zero angles, supports explicit readout item kinds, allows route scenes to suppress generic readouts, and keeps finite slider display values synchronized without creating absent state keys.
+- `npm run test:sim:release` now includes `test:sim:quality`, so the canonical release gate catches active simulation line-count regressions before browser/visual release checks.
 - Contract scene, renderer, and behavior route sets are aligned to the manifest 58 IDs, including `zz-simulation-contract-*` modules.
 - Ch1 DeCuong interaction upgrade: 25/25 Ch1 routes now expose physical route-owned handle labels (`F`, `F2`, `N`, `T`, `R`, `M`, `P`, `G`, `α`) instead of generic `điểm` construction handles.
 - QA tools now honor route prefix filters for chapter-scoped gates: `smoke_simulation_manifest.py`, `smoke_simulation_scene_catalog.py`, and `audit_simulation_quality.py`.
@@ -25,6 +26,9 @@
 - `ch1-2-3` parallelogram law now derives `|R|` readout from the same geometry used by the canvas overlay, so dragging `F2` cannot show conflicting resultant values.
 - `audit_v2_disposal.js` now uses CDP heap metrics, self-starts its static server, and fails non-zero when heap growth exceeds the release threshold.
 - Docs synced to current `.sim-lab` canvas + registry architecture; stale Matter.js/SVG V2 wording scoped as legacy/historical.
+
+### Fixed
+- Fixed post-cook quality gate regression: `js/sims/ch2/ch2-kinematics-behaviors-b.js` is back at the 220-line active-source limit.
 
 ### Added
 - KaTeX equation panel styling and runtime fallback for simulation equations; late KaTeX load can rerender fallback math instead of caching plain text permanently.
@@ -61,6 +65,7 @@
 - Phase 08 final gates PASS: `npm run test:sim:unit`, strict `ch2-4/ch2-5` scene catalog, strict `ch2-4/ch2-5` renderer contract, runtime smoke, route smoke, `audit_simulation_quality`, all-route direct-drag/control audit, `npm run test:sim:browser` (163 tests), `npm run test:sim:visual-quality` (4 tests), `python tools\audit.py`, and independent tester re-validation.
 - Phase 09-12 final gates PASS: CH2 15-route manifest/scene/renderer/runtime smokes, CH3 Phase 10 strict 10-route scene/renderer gates, CH3 Phase 11 strict 6-route scene/renderer gates, `npm run test:sim:unit`, focused CH3 interaction/animation checks, `npm run test:sim:browser` (163 tests), and `npm run test:sim:visual-quality` (4 tests).
 - DeCuong full rebuild final release PASS: `python tools\smoke_simulation_routes.py --require-p1`, 58-route manifest/scene/renderer/runtime smokes, `npm run test:sim:release`, disposal audit, content audit, strict equation audit, and strict KaTeX equation mapping validation.
+- Post-cook review/debug PASS: `npm run test:sim:quality`, `npm run test:sim:unit`, runtime smoke, and updated `npm run test:sim:release` all pass after the line-count fix.
 
 ## 2026-05-11
 
