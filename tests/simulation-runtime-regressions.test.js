@@ -4,6 +4,7 @@ const path = require('path');
 const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
+const { assertStableHeap } = require('../tools/audit_v2_disposal');
 
 function runScript(context, file) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
@@ -19,6 +20,24 @@ function makeElement() {
     style: {},
     textContent: '',
   };
+}
+
+{
+  assert.strictEqual(
+    assertStableHeap(10 * 1024 * 1024, 12 * 1024 * 1024),
+    2,
+    'disposal audit should allow deltas within threshold'
+  );
+  assert.throws(
+    () => assertStableHeap(10 * 1024 * 1024, 16 * 1024 * 1024),
+    /Potential memory leak detected/,
+    'disposal audit must fail release gate when heap grows past threshold'
+  );
+  assert.throws(
+    () => assertStableHeap(0, 16 * 1024 * 1024),
+    /Heap metric unavailable/,
+    'disposal audit must fail clearly when heap metrics are unavailable'
+  );
 }
 
 {
@@ -39,9 +58,19 @@ function makeElement() {
   let frameCallback = null;
   let started = false;
   const buttons = [];
+  const listeners = { resize: new Set(), katex: new Set() };
   let ticks = 0;
   let renders = 0;
-  const scope = { onDispose() {} };
+  let disposed = false;
+  let activeScope = null;
+  const scope = {
+    cleanups: [],
+    onDispose(fn) { this.cleanups.push(fn); },
+    dispose() {
+      disposed = true;
+      while (this.cleanups.length) this.cleanups.pop()();
+    },
+  };
   const lab = {
     wrap: makeElement(),
     canvas: { width: 560, height: 340 },
@@ -56,7 +85,12 @@ function makeElement() {
       SIM_ROUTE_MANIFEST: {},
       SimCore: {
         COLORS: {},
-        getActiveScope: () => scope,
+        createScope: () => scope,
+        withScope(nextScope, fn) {
+          activeScope = nextScope;
+          try { return fn(); } finally { activeScope = null; }
+        },
+        getActiveScope: () => activeScope,
         addButton(_container, text, onClick) {
           const button = makeElement();
           button.textContent = text;
@@ -100,8 +134,14 @@ function makeElement() {
           isRunning: () => started,
         }),
       },
-      addEventListener() {},
-      removeEventListener() {},
+      addEventListener(type, fn) {
+        if (type === 'resize') listeners.resize.add(fn);
+        if (type === 'sim:katex-ready') listeners.katex.add(fn);
+      },
+      removeEventListener(type, fn) {
+        if (type === 'resize') listeners.resize.delete(fn);
+        if (type === 'sim:katex-ready') listeners.katex.delete(fn);
+      },
     },
     document: {},
   };
@@ -109,7 +149,10 @@ function makeElement() {
   context.window.document = context.document;
   vm.createContext(context);
   runScript(context, 'js/sim-professional-lab.js');
-  context.window.SimProfessionalLab.mount('ch-test')(makeElement());
+  const mounted = context.window.SimProfessionalLab.mount('ch-test')(makeElement());
+  assert.ok(mounted && typeof mounted.dispose === 'function', 'professional lab mount must return a disposer');
+  assert.strictEqual(listeners.resize.size, 1, 'mount must register resize listener in scoped cleanup');
+  assert.strictEqual(listeners.katex.size, 1, 'mount must register KaTeX listener in scoped cleanup');
   assert.strictEqual(started, false, 'behavior.onTick routes must open paused for direct manipulation');
   assert.strictEqual(typeof frameCallback, 'function', 'behavior.onTick must be registered with lab.anim.onFrame');
   const playButton = buttons.find(button => /Chạy/.test(button.textContent));
@@ -119,6 +162,10 @@ function makeElement() {
   frameCallback(1, 0.1);
   assert.strictEqual(ticks, 1, 'registered animation frame must call behavior.onTick');
   assert.strictEqual(renders, 1, 'animation tick must redraw after state update');
+  mounted.dispose();
+  assert.strictEqual(disposed, true, 'disposer must dispose the scoped lab lifecycle');
+  assert.strictEqual(listeners.resize.size, 0, 'dispose must remove resize listener');
+  assert.strictEqual(listeners.katex.size, 0, 'dispose must remove KaTeX listener');
 }
 
 console.log('simulation-runtime-regressions: PASS');

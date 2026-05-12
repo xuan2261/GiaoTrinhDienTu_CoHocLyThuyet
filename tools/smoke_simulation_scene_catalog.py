@@ -109,8 +109,9 @@ def main() -> int:
     routes = known_routes()
     selected, filter_errors = resolve_route_filter(args.routes, routes)
     errors.extend(filter_errors)
-    if args.require_routes is not None and len(routes) != args.require_routes:
-        errors.append(f"Expected {args.require_routes} SIM_MAP routes, found {len(routes)}")
+    route_count_target = selected if args.routes else routes
+    if args.require_routes is not None and len(route_count_target) != args.require_routes:
+        errors.append(f"Expected {args.require_routes} SIM_MAP routes, found {len(route_count_target)}")
     try:
         signatures = load_scene_signatures()
     except RuntimeError as exc:

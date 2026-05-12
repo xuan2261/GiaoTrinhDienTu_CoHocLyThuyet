@@ -29,29 +29,27 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 
 ## Simulation design tokens
 
-### Simulation V2 Architecture (Matter.js + SVG/DOM)
+### Current Simulation Architecture
 
 | Yếu tố | Quy ước |
 |---|---|
-| Physics Engine | **Matter.js** (Headless) |
-| Rendering | **SVG / DOM** (Sync qua `transform`) |
-| UI Controls | **SimUI V2** (Standardized HTML range sliders, buttons) |
-| Data Visualization | **Chart.js** (Real-time performance optimized graphs) |
-| Coordinate System | Tự động hỗ trợ `flipY` và `originOffset` cho Mechanics |
+| Runtime | Shared `.sim-lab` canvas shell qua `SimProfessionalLab` |
+| Rendering | Canvas route renderers + DOM/KaTeX overlay qua route primitives |
+| UI Controls | `SimCore.addSlider`, segmented buttons, reset/play-pause |
+| Interaction | Route-owned drag handles, pointer/touch/keyboard support |
+| Route contracts | Scene registry + renderer registry + behavior registry |
 | Touch Target | Nút bấm và sliders tối thiểu 44px height |
 | Colors | Đồng nhất với chapter accents và dark navy theme |
 
-### Legacy Architecture (deprecated)
+### Legacy/Pilot Reference
 
 | Token | Giá trị | Dùng cho |
 |---|---|---|
-| Canvas logical size | 760×440 px | Old simulations |
-| Canvas aspect ratio | 760:440 ≈ 1.73 | Scale calculation |
-| Animation loop | 60fps target | `requestAnimationFrame` trong engine cũ |
-| Trail max points | 120 | Quỹ đạo chuyển động Ch2/Ch3 cũ |
-| Particle max | 200 | Particle emitter có object pooling |
-| Glow blur | 4-12px | Vector, moment, collision highlight |
-| Glassmorphism | `rgba(255,255,255,0.1)` | Energy bars, status overlays cũ |
+| Canvas logical size | 760×440 px | Active `.sim-lab` canvas |
+| Canvas aspect ratio | 760:440 ≈ 1.73 | Responsive scale calculation |
+| Animation loop | `requestAnimationFrame` scoped cleanup | Animated routes |
+| Legacy V2/Matter.js files | Reference only | Không active trừ khi plan mới promote qua registry |
+| Pilot Ch1 parallelogram | Reference only | Không tự đăng ký `window.SIM_MAP` |
 
 ## Typography
 
@@ -108,6 +106,8 @@ CSS mới cho lab phải scope dưới `.sim-lab`; tránh selector global như `
 - Chapter accent tokens phải đi qua `.sim-lab[data-route-id^="ch1"]`, `.sim-lab[data-route-id^="ch2"]`, và `.sim-lab[data-route-id^="ch3"]` để tô chip, active control, và left border của readout/formula/hint.
 - Touch controls phải giữ `min-height: 44px` trên mobile; không giảm dưới mức thumb-friendly này.
 - Readout cards phải gắn `data-readout-kind` để metadata và accent left border phản ánh đúng loại giá trị.
+- Route-owned handles phải được vẽ bởi shared lab sau renderer output, có hit ring, label ngắn, và legend compact lấy từ handle descriptors.
+- Mọi slider, segmented button, handle kéo, và nút play animation phải tạo phản hồi nhìn thấy được qua canvas hoặc readout trong cùng route.
 - Shell phải giữ semantic hooks: `role="region"`, route `aria-label`, status `aria-live`, canvas `aria-describedby`.
 - Hint text phải ưu tiên câu chủ động, lấy từ route handles khi có thể; tránh hint chung chung nếu route metadata đã đủ.
 - Segmented buttons phải đồng bộ state bằng `aria-pressed`, `data-control-key`, và `data-value`.

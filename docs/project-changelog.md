@@ -1,5 +1,77 @@
 # Project Changelog
 
+## 2026-05-12
+
+### Changed
+- DeCuong full rebuild Phase 00 foundation complete: active simulation canvas baseline is now 760×440, transparent `clearRect()` canvas background uses CSS theme, shared arrows use `Math.PI / 7`, and `sim-rendering.js` exposes DeCuong helpers for grid, handles, trail, angle arc, arrows, and dashed guides.
+- DeCuong full rebuild Phase 01 complete: 6 CH1 core force routes (`ch1-1-3`, `ch1-1-4`, `ch1-1-5`, `ch1-1-6`, `ch1-1-8`, `ch1-2-1`) now use rebuilt 760×440 scenes with DeCuong grid/handles/trails, KaTeX/DOM overlays, and route-specific readouts.
+- DeCuong full rebuild Phase 02 complete: `ch1-2-3`, `ch1-2-6`, `ch1-3-1`, and `ch1-3-2` now use rebuilt DeCuong-style parallelogram, FBD, support normal, and cable tension visuals with route-owned handles, trails, KaTeX overlays, and synchronized controls/readouts.
+- DeCuong full rebuild Phase 03 complete: `ch1-3-3`, `ch1-3-4`, `ch1-3-6`, `ch1-3-7`, `ch1-4-1`, `ch1-4-2`, and `ch1-4-4` now use rebuilt DeCuong-style support/spatial visuals, beam reactions, pseudo-3D axes, route-owned handles, trails, KaTeX overlays, and synchronized controls/readouts.
+- DeCuong full rebuild Phase 04 complete: `ch1-5-1` through `ch1-5-4`, `ch1-6-2`, `ch1-6-3`, `ch1-7-1`, and `ch1-7-2` now use DeCuong-style friction, centroid, and solver visuals with route-owned handles, trails, KaTeX overlays, synchronized controls/readouts, and Phase 04 semantic regression coverage.
+- Professional lab mount lifecycle is now scoped/idempotent: route mounts return `{ dispose }`, clean resize and `sim:katex-ready` listeners, and dispose on mount failure.
+- Professional lab control sync now preserves valid zero angles, supports explicit readout item kinds, allows route scenes to suppress generic readouts, and keeps finite slider display values synchronized without creating absent state keys.
+- Contract scene, renderer, and behavior route sets are aligned to the manifest 58 IDs, including `zz-simulation-contract-*` modules.
+- Ch1 DeCuong interaction upgrade: 25/25 Ch1 routes now expose physical route-owned handle labels (`F`, `F2`, `N`, `T`, `R`, `M`, `P`, `G`, `α`) instead of generic `điểm` construction handles.
+- QA tools now honor route prefix filters for chapter-scoped gates: `smoke_simulation_manifest.py`, `smoke_simulation_scene_catalog.py`, and `audit_simulation_quality.py`.
+- `js/routes/pilot-ch1-parallelogram.js` is reference-only and no longer self-registers `window.SIM_MAP`.
+- `ch1-2-3` parallelogram law now derives `|R|` readout from the same geometry used by the canvas overlay, so dragging `F2` cannot show conflicting resultant values.
+- `audit_v2_disposal.js` now uses CDP heap metrics, self-starts its static server, and fails non-zero when heap growth exceeds the release threshold.
+- Docs synced to current `.sim-lab` canvas + registry architecture; stale Matter.js/SVG V2 wording scoped as legacy/historical.
+
+### Added
+- KaTeX equation panel styling and runtime fallback for simulation equations; late KaTeX load can rerender fallback math instead of caching plain text permanently.
+- Regression coverage for professional-lab disposer/listener cleanup and 58-ID contract alignment.
+- Ch1 route baseline matrix and representative screenshots under `plans/260512-0544-ch1-decuong-interaction-upgrade/reports/`.
+- Playwright regression requiring Ch1 handles to avoid legacy/generic labels.
+- Playwright regression locking `ch1-2-3` readout/overlay resultant consistency after direct `F2` drag.
+- Playwright regression locking `ch1-1-3` force-tail drag so `|F|`/`α` readouts, sliders, and inline displays remain synchronized at canvas boundaries.
+- Playwright regressions locking `ch1-2-3` F1 drag slider/readout sync and support-route alpha controls changing real canvas geometry.
+- Playwright regressions locking direct-drag state updates for all 7 Phase 03 support/spatial routes.
+- Playwright regressions locking Phase 04 `ch1-5-1` friction readout drag, `ch1-6-2` centroid G drag, and `ch1-5-4` self-locking readout/overlay plus wedge-base geometry.
+- Unit regression for disposal audit leak-threshold and unavailable-metric branches.
+
+### Verified
+- DeCuong Phase 00 gates PASS: unit, browser, visual-quality, renderer contract, runtime lifecycle, manifest, scene catalog, quality audit, and content audit.
+- `npm run test:sim:browser` PASS: 150 tests.
+- `npm run test:sim:visual-quality` PASS: 4 tests.
+- `npm run test:sim:unit` PASS.
+- `python tools\test_simulation_qa_tools.py` PASS: 14 tests.
+- Ch1 manifest, scene catalog, renderer contract, runtime, quality, interaction, and mass-mount gates PASS.
+- `npm run test:sim:release` PASS after code-review fixes; browser suite now has 150 tests.
+- `npm run test:sim:quality`, `npm run test:sim:semantic`, and `git diff --check` PASS.
+- Phase 01 final gates PASS: `npm run test:sim:unit`, targeted `ch1-1-3` tail-drag regression, full `@direct-drag|@control-audit`, strict 6-route scene catalog, strict 6-route renderer contract, `@visual-all|@theme-all`, runtime smoke, `audit_simulation_quality.py --all --max-js-lines 220`, and `python tools\audit.py`.
+- Phase 02 final gates PASS: `npm run test:sim:unit`, strict 4-route scene catalog, strict 4-route renderer contract, `audit_simulation_quality.py --all --max-js-lines 220`, targeted `ch1-2-3|ch1-2-6|ch1-3` interaction suite, and `@visual-all|@theme-all`.
+- Phase 03 final gates PASS: `npm run test:sim:unit`, strict 7-route scene catalog, targeted renderer contract, targeted `ch1-3|ch1-4` interaction suite (10 tests), all-route `@control-audit|@direct-drag-audit`, `@visual-all|@theme-all`, runtime/manifest/route smokes, quality audit, and code re-review.
+- Phase 04 final gates PASS: `npm run test:sim:unit`, strict 8-route manifest/scene/renderer gates, runtime smoke, all-route `@direct-drag-audit`, Phase 04 semantic interaction regressions, `@visual-all|@theme-all|@renderer-contract|@scene-identity`, tester re-validation, and code re-review.
+
+## 2026-05-11
+
+### Changed
+- Tightened simulation browser QA scripts:
+  - `test:sim:browser` now runs mass mount, shell/browser, and interaction/control suites instead of only the minimal mass audit.
+  - `test:sim:browser:route-mount` now targets the canonical `@route-mount` suite.
+  - `test:sim:release` now includes `test:sim:visual-quality`.
+- Improved weak-control routes found during full control audit:
+  - `ch2-1-4` now exposes a `Pha` slider in addition to motion mode buttons.
+  - `ch3-7-2` now exposes a `Độ nhiễu` slider and direct handle that scale residuals in the numeric dynamics checker.
+- Refresh shared DeCuong-style simulation UX across 58 P1 routes:
+  - `SimProfessionalLab` now draws the route-owned drag handle layer after each renderer pass, so all simulations expose visible direct-manipulation targets.
+  - Shared lab status now reflects hover/drag handle state, and the shell renders a compact handle legend from route descriptors.
+  - Readout cards now emphasize values with semantic colors matching force/velocity/acceleration/result/angle/energy metadata and expose active slider/time values so controls always give visible feedback.
+  - Slider factories now set `step` before `value`, preventing browser range rounding from desynchronizing UI value and simulation state.
+  - `audit_simulation_quality.py` now scans active simulation runtime sources instead of dormant `js/routes/**` experiments.
+
+### Added
+- Browser regression `@control-audit` checks every slider, segmented button, route-owned handle, and play animation state across all 58 routes.
+- Targeted regression locks `ch3-7-2` residual scale so readout and overlay agree at `Độ nhiễu = 0` and high-noise states.
+
+### Verified
+- `npm run test:sim:browser` pass: 148/148 tests.
+- `npm run test:sim:visual-quality` pass: 4/4 tests.
+- `python tools\smoke_simulation_runtime.py ... --check-mount-rollback --check-listener-cleanup` pass.
+- Focused probe confirmed `ch2-1-4` and `ch3-7-2` each expose 2 sliders after the control patch.
+- `@control-audit` passed across 58/58 routes with no control failures.
+
 ## 2026-05-10
 
 ### Added

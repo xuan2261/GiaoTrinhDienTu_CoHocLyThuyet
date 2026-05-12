@@ -186,7 +186,7 @@ function showLoading() {
 // ============================================
 async function loadPage(id) {
   id = LEGACY_ROUTE_MAP[id] || id;
-  
+
   let baseId = id;
   while (baseId && !PAGE_MAP.hasOwnProperty(baseId)) {
     let nextId = baseId.replace(/[a-z]$/, '');
@@ -424,7 +424,7 @@ async function loadSimScript(id) {
 
 async function initSimulations(container, pageId) {
   const simRouteId = SIM_ROUTE_ALIAS_MAP[pageId] || pageId;
-  
+
   // Try to load script first
   await loadSimScript(simRouteId);
 
@@ -437,7 +437,7 @@ async function initSimulations(container, pageId) {
       mountPoint.className = 'sim-container';
       container.appendChild(mountPoint);
     }
-    
+
     // Don't inject twice
     if (!mountPoint.hasAttribute('data-route-id')) {
       try {

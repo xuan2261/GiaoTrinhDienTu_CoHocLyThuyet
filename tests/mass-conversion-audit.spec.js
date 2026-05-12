@@ -17,18 +17,18 @@ test.describe('V2 Mass Conversion Audit', () => {
         }
       });
 
-      await openRoute(page, routeId, { url: `http://127.0.0.1:8080/index.html#${routeId}` });
+      await openRoute(page, routeId);
       
-      // Wait for simulation container to appear
-      await expect(page.locator('.sim-viewport-v2')).toBeVisible({ timeout: 5000 });
+      // Wait for simulation container to appear (legacy shell or V2 viewport)
+      await expect(page.locator('.sim-container.sim-lab, .sim-viewport-v2').first()).toBeVisible({ timeout: 5000 });
       
       const filteredErrors = relevantConsoleErrors(consoleMessages);
       if (filteredErrors.length > 0) {
         throw new Error(`Console errors found in ${routeId}:\n${filteredErrors.join('\n')}`);
       }
       
-      // Basic sanity check: ensure canvas is present
-      await expect(page.locator('svg.sim-svg-v2, canvas, .sim-viewport-v2 h2').first()).toBeVisible();
+      // Basic sanity check: ensure visual root is present
+      await expect(page.locator('.sim-container.sim-lab canvas, svg.sim-svg-v2, .sim-viewport-v2 h2').first()).toBeVisible();
     });
   }
 });

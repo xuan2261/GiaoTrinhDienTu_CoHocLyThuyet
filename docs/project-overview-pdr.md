@@ -81,7 +81,7 @@ Cập nhật: 2026-05-06.
 | DOCX sync pipeline | Có sẵn |
 | Offline bundle | Có sẵn |
 | Quiz/progress/notes/glossary/simulations | Có sẵn |
-| Simulation V2 (Rewrite) | Xong 100%: Chuyển sang Headless Matter.js + SVG/DOM sync, chuẩn hóa UI và Chart.js integration |
+| Current simulation runtime | Active `.sim-lab` canvas + scene/renderer/behavior registries; Ch1 pilot parallelogram là reference-only |
 | QA harness | Có sẵn: dev-only Playwright baseline + Python manifest/quality/runtime gates |
 
 | Semantic math strict publish | Automated strict pass; browser QA 100% |

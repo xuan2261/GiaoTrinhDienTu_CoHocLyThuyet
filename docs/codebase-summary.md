@@ -1,6 +1,6 @@
 # Codebase Summary
 
-Snapshot này dựa trên `repomix-output.xml` (refreshed 2026-05-09) và scout trực tiếp các file runtime, toolchain, và docs hiện có.
+Snapshot này dựa trên scout trực tiếp runtime, toolchain, và docs hiện có (refreshed 2026-05-12 cho DeCuong simulation Phase 04).
 
 ## Snapshot
 
@@ -12,8 +12,9 @@ Snapshot này dựa trên `repomix-output.xml` (refreshed 2026-05-09) và scout 
 | Runtime/source files chính | `index.html`, `js/`, `chapters/`, `data/`, `tools/` |
 | QA harness | `package.json` dev-only scripts + current simulation QA gates: unit, quality, semantic, visual-quality, browser, release, scene-identity, renderer-contract, runtime smoke |
 | Simulation route contracts | `js/sim-scene-registry.js`, `js/sim-route-renderer-registry.js`, `js/sim-route-behavior-registry.js`, 58 route renderers under `js/sims/ch*/` |
-| Simulation files | 63 JS files total; 22 Ch1, 17 Ch2, 18 Ch3, 6 infrastructure |
-| Shared-first simulation UX | `.sim-lab` shell with chapter accents, 44px touch controls, semantic readout cards, and ARIA-backed hint/status/canvas wiring |
+| Simulation files | 65 active JS files scanned by `audit_simulation_quality.py`; Ch1 route files stay under 220 lines |
+| Shared-first simulation UX | `.sim-lab` shell with 760×440 canvas, chapter accents, 44px touch controls, semantic readout cards, DeCuong render helpers, and ARIA-backed hint/status/canvas wiring |
+| DeCuong CH1 rebuild progress | Phase 00 through Phase 04 complete; active rebuilt routes include CH1 force, axioms, support/spatial, friction, centroid, and solver exercise groups through `ch1-7-2` |
 | Generated/runtime assets lớn | `images/`, `equation-review.html`, `js/pages.js` |
 | Large generated artifacts | `equation-review.html`, `js/pages.js`, `tools/equation_report.json` |
 
@@ -44,10 +45,10 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `js/progress.js` | Reading progress | Bookmark + progress per page/chapter |
 | `js/glossary.js` | Term tooltip | Tự wrap từ khóa technical |
 | `js/notes.js` | Personal notes | Highlight + notes per page |
-| `js/sim-engine-v2.js` | Simulation Engine V2 | Headless Matter.js sync to SVG/DOM |
-| `js/sim-ui-v2.js` | Simulation UI V2 | Standardized controls + Chart.js integration |
-| `js/simulations.js` | Simulation registry | Đăng ký và cấu hình các route simulation V2 |
-| `js/deprecated/` | Legacy simulation files | Các file engine cũ được giữ lại để tham khảo |
+| `js/sim-lab-ui.js` | Simulation shell | `.sim-lab` header, canvas, readout cards, hint, reset/play-pause |
+| `js/sim-professional-lab.js` | Simulation orchestration | Resolve scene/renderer/behavior, bind controls/handles, render canvas/readouts |
+| `js/sims/ch*/` | Route contracts | Scene catalogs, dedicated renderers, behavior contracts, route modules |
+| `js/simulations.js` | Simulation registry | Build `window.SIM_MAP` từ active route registries |
 | `chapters/` | HTML fragments | Sinh từ DOCX |
 | `data/` | Quiz + equation mapping | Có `quiz-ch1.json`, `quiz-ch2.json`, `quiz-ch3.json` |
 | `tools/` | Build/audit pipeline | Python scripts, manifest, reports |
@@ -64,10 +65,10 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `progress.js` | Track visited pages, bookmarks, read status |
 | `glossary.js` | Gắn tooltip cho thuật ngữ trong content fragment |
 | `notes.js` | Highlight selection, note popup, notes panel |
-| `sim-engine-v2.js` | Core V2 engine: Matter.js update loop + SVG/DOM sync |
-| `sim-ui-v2.js` | V2 UI components: standardized sliders, buttons, and Chart.js integration |
-| `simulations.js` | V2 Simulation registry and configuration |
-| `js/deprecated/` | Legacy simulation architecture (5-layer custom engine) |
+| `sim-lab-ui.js` | Shared `.sim-lab` shell and UI slots |
+| `sim-professional-lab.js` | Shared mount engine for route-specific scenes/renderers/behaviors |
+| `sim-statics.js`, `sim-kinematics.js`, `sim-dynamics.js` | Thin chapter adapters into `SimProfessionalLab.mount(routeId)` |
+| `simulations.js` | Registry-backed 58-route `window.SIM_MAP` |
 
 ## Data model
 
@@ -133,4 +134,5 @@ Khi `audit.py --strict-equations` còn warning figure `<img>` tags, đó là fig
 - Simulation lifecycle đã có shared dispose path: `loader.js` dispose active simulation trước khi replace `#content-area`; `sim-core.js` cleanup RAF và resize listener.
 - Professional simulation architecture hiện dùng `js/sim-professional-lab.js`, scene metadata registry, strict renderer/behavior registries, thin adapters, route modules, và registry-backed route map.
 - Runtime smoke gate chuẩn là `python tools\smoke_simulation_runtime.py --expect-runtime-routes 58 --check-mount-rollback --check-listener-cleanup`; semantic gate là `npm run test:sim:semantic`.
+- DeCuong Phase 00-04 foundation/CH1 routes yêu cầu canvas 760×440, transparent clear, PI/7 arrows, theme-aware grid, KaTeX equation panel fallback, route-owned handles for force/support/friction/centroid/solver interactions, synchronized readouts/sliders, and manifest-aligned 58 route contracts.
 - Browser QA suite hiện có pass; scene identity, route discovery guard, route shell, direct drag, animation tick, readout cards, responsive, `file://`, và server smoke phải giữ sạch.

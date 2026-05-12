@@ -6,21 +6,46 @@ const assert = require('assert');
 
 const ROOT = path.resolve(__dirname, '..');
 const INDEX_FILE = path.join(ROOT, 'index.html');
-const EXPECTED_ROUTE_COUNT = 80;
+const EXPECTED_ROUTE_COUNT = 58;
+const MIME = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.woff2': 'font/woff2',
+};
 
 function discoverV2Routes() {
-  const routes = [];
-  ['ch1', 'ch2', 'ch3'].forEach(ch => {
-    const dir = path.join(ROOT, 'js/routes', ch);
-    if (fs.existsSync(dir)) {
-      fs.readdirSync(dir).forEach(file => {
-        if (file.endsWith('.js')) {
-          routes.push(file.replace('.js', ''));
-        }
-      });
+  const manifestPath = path.join(ROOT, 'js', 'sim-route-manifest.js');
+  if (fs.existsSync(manifestPath)) {
+    const text = fs.readFileSync(manifestPath, 'utf8');
+    const routes = [];
+    const pattern = /['"](ch\d+-\d+-\d+)['"]\s*:\s*\{/g;
+    let match;
+    while ((match = pattern.exec(text)) !== null) routes.push(match[1]);
+    if (routes.length) return [...new Set(routes)].sort();
+  }
+
+  const routes = new Set();
+  const simsRoot = path.join(ROOT, 'js', 'sims');
+  if (fs.existsSync(simsRoot)) {
+    for (const chapter of fs.readdirSync(simsRoot)) {
+      const chapterDir = path.join(simsRoot, chapter);
+      if (!fs.statSync(chapterDir).isDirectory()) continue;
+      for (const file of fs.readdirSync(chapterDir)) {
+        if (!file.endsWith('-routes.js')) continue;
+        const text = fs.readFileSync(path.join(chapterDir, file), 'utf8');
+        const pattern = /['"](ch\d+-\d+-\d+)['"]/g;
+        let match;
+        while ((match = pattern.exec(text)) !== null) routes.add(match[1]);
+      }
     }
-  });
-  return routes.sort();
+  }
+  return [...routes].sort();
 }
 
 const ALL_ROUTES = discoverV2Routes();
@@ -143,9 +168,21 @@ async function labState(page) {
     rendererId: lab.getAttribute('data-renderer-id') || '',
     behaviorId: lab.getAttribute('data-behavior-id') || '',
     title: lab.querySelector('.sim-title')?.textContent.trim() || '',
+    formula: lab.querySelector('.sim-formula-panel')?.textContent.trim() || '',
+    hint: lab.querySelector('.sim-lab-hint')?.textContent.trim() || '',
+    visibleText: lab.textContent || '',
+    handleIds: String(lab.getAttribute('data-handle-ids') || '')
+      .split(',')
+      .map(item => item.trim())
+      .filter(Boolean),
+    structuralMarks: String(lab.getAttribute('data-structural-marks') || '')
+      .split('|')
+      .map(item => item.trim())
+      .filter(Boolean),
     readoutCards: [...lab.querySelectorAll('.sim-readout-card')].map(card => ({
       label: card.querySelector('.sim-readout-label')?.textContent.trim() || '',
       value: card.querySelector('.sim-readout-value')?.textContent.trim() || '',
+      kind: card.dataset?.readoutKind || 'default',
     })),
     v2: false
   }));

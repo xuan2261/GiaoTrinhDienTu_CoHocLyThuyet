@@ -118,6 +118,31 @@ window.SIM_ROUTE_MANIFEST = {
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("Manifest routes: 58", result.stdout)
 
+    def test_manifest_current_routes_filter_counts_selected_routes(self):
+        result = run_tool(
+            "tools/smoke_simulation_manifest.py",
+            "--routes",
+            "ch1",
+            "--require-routes",
+            "25",
+            "--require-objectives",
+            "--require-direct",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("Selected routes: 25", result.stdout)
+
+    def test_scene_catalog_current_routes_filter_counts_selected_routes(self):
+        result = run_tool(
+            "tools/smoke_simulation_scene_catalog.py",
+            "--strict",
+            "--routes",
+            "ch1",
+            "--require-routes",
+            "25",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("Selected routes: 25", result.stdout)
+
     def test_renderer_contract_current_routes_are_strict(self):
         result = run_tool(
             "tools/smoke_simulation_renderer_contract.py",
@@ -134,15 +159,15 @@ window.SIM_ROUTE_MANIFEST = {
         module = load_renderer_contract_module()
         paths = module.source_paths()
         self.assertLess(
-            paths.index("js/sims/ch2/ch2-trajectory-graph-renderers.js"),
-            paths.index("js/sims/ch2/ch2-rotation-gear-renderers.js"),
-        )
-        self.assertLess(
             paths.index("js/sims/ch2/ch2-rotation-gear-renderers.js"),
             paths.index("js/sims/ch2/ch2-relative-motion-velocity-renderers.js"),
         )
         self.assertLess(
             paths.index("js/sims/ch2/ch2-instant-center-plane-motion-renderers.js"),
+            paths.index("js/sims/ch2/ch2-trajectory-graph-renderers.js"),
+        )
+        self.assertLess(
+            paths.index("js/sims/ch2/ch2-trajectory-graph-renderers.js"),
             paths.index("js/sims/ch2/ch2-kinematics-exercises-renderers.js"),
         )
 
@@ -249,6 +274,22 @@ window.SIM_ROUTE_MANIFEST = {
         self.assertRegex(result.stdout, r"SIM_MAP routes:\s+58")
         self.assertRegex(result.stdout, r"Sliders:\s+\d+")
         self.assertRegex(result.stdout, r"Canvas drag hooks:\s+\d+")
+
+    def test_quality_audit_route_prefix_gates_lab_shell_and_direct_interaction(self):
+        result = run_tool(
+            "tools/audit_simulation_quality.py",
+            "--all",
+            "--routes",
+            "ch1",
+            "--require-lab-shell",
+            "ch1",
+            "--require-direct-interaction",
+            "ch1",
+            "--max-js-lines",
+            "220",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("Selected routes: 25", result.stdout)
 
     def test_quality_audit_fails_cleanly_for_malformed_manifest(self):
         result = run_tool(

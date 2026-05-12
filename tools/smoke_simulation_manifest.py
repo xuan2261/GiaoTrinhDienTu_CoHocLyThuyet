@@ -195,8 +195,10 @@ def main() -> int:
     if args.routes:
         print(f"Selected routes: {len(selected_routes)}")
 
-    if args.require_routes is not None and len(manifest_routes) != args.require_routes:
-        errors.append(f"Manifest route count {len(manifest_routes)} != required {args.require_routes}")
+    route_count_target = selected_routes if args.routes else manifest_routes
+    if args.require_routes is not None and len(route_count_target) != args.require_routes:
+        label = "Selected route count" if args.routes else "Manifest route count"
+        errors.append(f"{label} {len(route_count_target)} != required {args.require_routes}")
     if missing_from_sim_map:
         errors.append(f"Manifest routes not in SIM_MAP: {', '.join(missing_from_sim_map)}")
     missing_selected = sorted(selected_routes - manifest_routes)
@@ -227,8 +229,9 @@ def main() -> int:
             f"Routes below checkpoint minimum {checkpoint_min}: {', '.join(checkpoint_missing)}"
         )
 
-    print(f"Objectives declared: {len(manifest_routes - set(objective_missing))}/{len(manifest_routes)}")
-    print(f"Direct interactions declared: {len(manifest_routes - set(direct_missing))}/{len(manifest_routes)}")
+    present_target = {route for route in target_routes if route in manifest}
+    print(f"Objectives declared: {len(present_target - set(objective_missing))}/{len(target_routes)}")
+    print(f"Direct interactions declared: {len(present_target - set(direct_missing))}/{len(target_routes)}")
     print(f"Checkpoints: removed (simple shell refactor)")
 
     if errors:

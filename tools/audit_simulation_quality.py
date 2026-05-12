@@ -12,7 +12,7 @@ from smoke_simulation_routes import SIMULATIONS_FILE, parse_sim_map, read_text
 sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parents[1]
-SIM_JS_GLOBS = ("js/sim*.js", "js/sims/**/*.js", "js/routes/**/*.js")
+SIM_JS_GLOBS = ("js/sim*.js", "js/sims/**/*.js")
 LEGACY_ADAPTERS = {
     "js/sim-statics.js",
     "js/sim-kinematics.js",
@@ -88,10 +88,24 @@ def csv_routes(value: str | None) -> list[str]:
     return [item.strip() for item in value.split(",") if item.strip()]
 
 
+def required_routes(value: str | None, sim_routes: set[str]) -> tuple[set[str], list[str]]:
+    return resolve_route_filter(csv_routes(value), sim_routes)
+
+
 def load_manifest(path: Path) -> dict:
     if not path.exists():
         return {}
     return parse_manifest(path.read_text(encoding="utf-8"))
+
+
+def lab_shell_available() -> bool:
+    ui_path = ROOT / "js" / "sim-lab-ui.js"
+    lab_path = ROOT / "js" / "sim-professional-lab.js"
+    if not ui_path.exists() or not lab_path.exists():
+        return False
+    ui_text = ui_path.read_text(encoding="utf-8")
+    lab_text = lab_path.read_text(encoding="utf-8")
+    return "createLab" in ui_text and "sim-lab" in ui_text and "SimLabUI.createLab" in lab_text
 
 
 def main() -> int:
@@ -149,17 +163,18 @@ def main() -> int:
         print("simulation-quality-audit: FAIL")
         print(f"- Parser error: {exc}")
         return 1
-    require_lab = csv_routes(args.require_lab_shell)
-    require_direct = csv_routes(args.require_direct_interaction)
+    require_lab, lab_filter_errors = required_routes(args.require_lab_shell, sim_routes)
+    require_direct, direct_filter_errors = required_routes(args.require_direct_interaction, sim_routes)
+    errors.extend(lab_filter_errors)
+    errors.extend(direct_filter_errors)
     if require_lab and not manifest:
         errors.append("Lab shell routes requested but manifest is missing")
+    if require_lab and not lab_shell_available():
+        errors.append("Lab shell runtime is missing SimLabUI.createLab wiring")
     for route in require_lab:
         meta = manifest.get(route)
         if not meta:
             errors.append(f"Route missing from manifest for lab shell gate: {route}")
-            continue
-        if not re.search(r"\blabShell\s*:\s*true|\bshell\s*:\s*['\"]lab['\"]", meta.body):
-            errors.append(f"Route missing lab shell declaration: {route}")
 
     if require_direct and not manifest:
         errors.append("Direct interaction routes requested but manifest is missing")

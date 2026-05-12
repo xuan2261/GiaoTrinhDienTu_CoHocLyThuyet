@@ -6,7 +6,7 @@ priority: P1
 effort: 46h
 branch: no-git
 tags: [plan, simulations, decuong, route-specific, qa, offline]
-blockedBy: []
+blockedBy: [260512-0544-ch1-decuong-interaction-upgrade, 260512-0544-ch2-decuong-interaction-upgrade, 260512-0544-ch3-decuong-interaction-upgrade]
 blocks: [260509-1820-decuong-style-58-simulation-ux-rebuild]
 created: 2026-05-10
 ---
@@ -24,6 +24,14 @@ created: 2026-05-10
 - Every canonical route keeps unique scene, renderer, and behavior identity (`README.md:29`, `tests/simulation-visual-quality.spec.js:71`).
 - The shared mount chain stays `scene -> renderer -> behavior -> controls/readouts -> interaction layer` (`js/sim-professional-lab.js:841`, `js/sim-professional-lab.js:925`, `js/sim-professional-lab.js:949`, `js/sim-professional-lab.js:965`).
 - Canonical coverage stays 25 Ch1 + 15 Ch2 + 18 Ch3 = 58 routes (`js/sims/ch1/statics-routes.js:15`, `js/sims/ch2/kinematics-routes.js:15`, `js/sims/ch3/dynamics-routes.js:15`).
+
+## Child Execution Plans
+
+| Plan | Status | Scope |
+|---|---|---|
+| [Ch1 DeCuong Interaction Upgrade](../260512-0544-ch1-decuong-interaction-upgrade/plan.md) | pending | 25 Ch1 active routes + Ch1 legacy/pilot reconcile |
+| [Ch2 DeCuong Interaction Upgrade](../260512-0544-ch2-decuong-interaction-upgrade/plan.md) | pending | 15 Ch2 active routes + Ch2 legacy/pilot reconcile |
+| [Ch3 DeCuong Interaction Upgrade](../260512-0544-ch3-decuong-interaction-upgrade/plan.md) | pending | 18 Ch3 active routes + Ch3 legacy/bulk/pilot reconcile |
 
 ## Data Flow
 

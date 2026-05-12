@@ -62,7 +62,7 @@ async function renderQuiz(containerId, chId, mode = 'all', section = null) {
 
   const total = questions.length;
   const stateKey = `${chId}-${mode}-${section || 'all'}`;
-  
+
   // Init state
   quizState[stateKey] = { correct: 0, wrong: 0, total, answered: 0 };
 

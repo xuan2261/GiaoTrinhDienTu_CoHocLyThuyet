@@ -1201,7 +1201,7 @@ footer b { color: var(--gold); }
 .sim-lab .sim-lab-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; padding: 8px 0 0; min-width: 0; }
 .sim-lab .sim-lab-route-chip { flex: 0 0 auto; border: 1px solid #d6dce2; border-radius: 999px; padding: 4px 9px; background: #fff; color: #495057; font-size: .74rem; font-weight: 700; line-height: 1.2; }
 .sim-lab .sim-lab-legend { display: flex; flex: 1 1 180px; flex-wrap: wrap; gap: 6px 10px; min-width: 0; }
-.sim-lab .sim-lab-legend-item { display: inline-flex; align-items: center; gap: 5px; min-width: 0; color: #495057; font-size: .74rem; line-height: 1.25; overflow-wrap: anywhere; }
+.sim-lab .sim-lab-legend-item { display: inline-flex; align-items: center; gap: 5px; min-width: 0; color: #495057; font-size: .74rem; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; padding: 4px 7px; border: 1px solid #e9ecef; border-radius: 6px; background: #fff; }
 .sim-lab .sim-lab-legend-swatch { width: 10px; height: 10px; flex: 0 0 10px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(0,0,0,.12); }
 .sim-lab .sim-lab-tool { min-height: 36px; border: 1px solid #dee2e6; border-radius: 6px; padding: 5px 10px; background: #fff; color: #495057; font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer; }
 .sim-lab .sim-controls { align-items: stretch; margin-top: 10px; padding: 8px 0 0; }
@@ -1267,19 +1267,29 @@ footer b { color: var(--gold); }
   background: var(--sim-panel);
   color: var(--sim-muted);
 }
+.sim-lab .sim-lab-legend-item {
+  border-color: var(--sim-border);
+  background: var(--sim-panel);
+  color: var(--sim-text);
+}
 .sim-lab .sim-lab-route-chip { margin-left: auto; color: var(--sim-chapter); }
 .sim-lab .sim-lab-status { border-radius: 999px; padding: 4px 9px; font-size: .74rem; font-weight: 700; line-height: 1.2; }
+.sim-lab[data-active-handle-id] .sim-lab-status {
+  border-color: var(--sim-chapter);
+  color: var(--sim-text);
+  box-shadow: inset 0 0 0 1px var(--sim-chapter);
+}
 .sim-lab .sim-lab-scene {
-  aspect-ratio: 560 / 340;
+  aspect-ratio: 760 / 440;
   border-color: var(--sim-border);
-  background-color: var(--sim-scene);
+  background-color: var(--bg);
   background-image:
     linear-gradient(var(--sim-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--sim-grid) 1px, transparent 1px);
   background-size: 28px 28px;
   overscroll-behavior: contain;
 }
-.sim-lab .sim-canvas { background: var(--sim-scene); touch-action: none; user-select: none; }
+.sim-lab .sim-canvas { background: transparent; touch-action: none; user-select: none; }
 .sim-lab .sim-controls { border-top: 1px solid var(--sim-border); }
 .sim-lab .sim-slider-group label { color: var(--sim-muted); }
 .sim-lab .sim-slider-group input[type="range"] { min-height: 32px; background: var(--sim-border); accent-color: var(--sim-accent); }
@@ -1329,13 +1339,29 @@ footer b { color: var(--gold); }
   border-left: 3px solid var(--sim-chapter);
 }
 .sim-lab .sim-readout-card[data-readout-kind="force"] { border-left-color: #e74c3c; }
-.sim-lab .sim-readout-card[data-readout-kind="velocity"] { border-left-color: #3498db; }
+.sim-lab .sim-readout-card[data-readout-kind="velocity"] { border-left-color: #2980b9; }
 .sim-lab .sim-readout-card[data-readout-kind="accel"] { border-left-color: #27ae60; }
-.sim-lab .sim-readout-card[data-readout-kind="result"] { border-left-color: var(--sim-accent); }
-.sim-lab .sim-readout-card[data-readout-kind="angle"] { border-left-color: #0dcaf0; }
+.sim-lab .sim-readout-card[data-readout-kind="result"] { border-left-color: #27ae60; }
+.sim-lab .sim-readout-card[data-readout-kind="angle"] { border-left-color: var(--sim-accent); }
 .sim-lab .sim-readout-card[data-readout-kind="energy"] { border-left-color: #8e44ad; }
+.sim-lab .sim-readout-card[data-readout-kind="time"] { border-left-color: #fd7e14; }
 .sim-lab .sim-readout-label { color: var(--sim-muted); font-size: .76rem; letter-spacing: 0; text-transform: none; }
-.sim-lab .sim-readout-value { color: var(--sim-text); }
+.sim-lab .sim-readout-value { color: var(--sim-text); font-size: 1rem; }
+.sim-lab .sim-readout-card[data-readout-kind="force"] .sim-readout-value { color: #e74c3c; }
+.sim-lab .sim-readout-card[data-readout-kind="velocity"] .sim-readout-value { color: #2980b9; }
+.sim-lab .sim-readout-card[data-readout-kind="accel"] .sim-readout-value { color: #198754; }
+.sim-lab .sim-readout-card[data-readout-kind="result"] .sim-readout-value { color: #27ae60; }
+.sim-lab .sim-readout-card[data-readout-kind="angle"] .sim-readout-value { color: var(--sim-accent); }
+.sim-lab .sim-readout-card[data-readout-kind="energy"] .sim-readout-value { color: #c39bd3; }
+.sim-lab .sim-readout-card[data-readout-kind="mode"] .sim-readout-value { color: var(--sim-chapter); }
+.sim-lab .sim-readout-card[data-readout-kind="time"] .sim-readout-value { color: #e67e22; }
+[data-theme="light"] .sim-lab .sim-readout-card[data-readout-kind="force"] .sim-readout-value { color: #a61b1b; }
+[data-theme="light"] .sim-lab .sim-readout-card[data-readout-kind="velocity"] .sim-readout-value { color: #075985; }
+[data-theme="light"] .sim-lab .sim-readout-card[data-readout-kind="accel"] .sim-readout-value { color: #166534; }
+[data-theme="light"] .sim-lab .sim-readout-card[data-readout-kind="result"] .sim-readout-value { color: #166534; }
+[data-theme="light"] .sim-lab .sim-readout-card[data-readout-kind="angle"] .sim-readout-value { color: #8b6914; }
+[data-theme="light"] .sim-lab .sim-readout-card[data-readout-kind="energy"] .sim-readout-value { color: #6f42c1; }
+[data-theme="light"] .sim-lab .sim-readout-card[data-readout-kind="time"] .sim-readout-value { color: #b45309; }
 .sim-lab .sim-formula-panel,
 .sim-lab .sim-lab-hint {
   background: var(--sim-panel);
@@ -1351,6 +1377,10 @@ footer b { color: var(--gold); }
   font-size: .82rem;
   line-height: 1.45;
   overflow-wrap: anywhere;
+}
+.sim-lab .sim-equation-panel .katex {
+  color: inherit;
+  font-size: 1em;
 }
 .sim-lab .sim-formula-panel[data-empty="true"] { display: none; }
 .sim-lab .sim-overlay-formula,
@@ -1378,6 +1408,7 @@ footer b { color: var(--gold); }
   .sim-lab .sim-btn,
   .sim-lab .sim-lab-tool { min-height: 44px; }
   .sim-lab .sim-readout-grid { grid-template-columns: 1fr 1fr; }
+  .sim-lab .sim-lab-legend-item { flex: 1 1 auto; }
 }
 @media (max-width: 380px) {
   .sim-lab .sim-readout-grid { grid-template-columns: 1fr; }

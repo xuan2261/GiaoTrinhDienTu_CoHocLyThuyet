@@ -103,18 +103,18 @@ def script_sources(index_html: str) -> list[str]:
 
 
 def route_module_sources() -> list[str]:
-    if ROUTE_MODULE_ROOT.exists():
-        routes = [
-            path.relative_to(ROOT).as_posix()
-            for path in sorted(ROUTE_MODULE_ROOT.glob("*.js"))
-            if path.name != "route-registry.js" and not path.name.startswith("pilot-")
-        ]
-        if routes:
-            return routes
     legacy_root = ROOT / "js" / "sims"
-    if not legacy_root.exists():
+    if legacy_root.exists():
+        legacy_routes = [path.relative_to(ROOT).as_posix() for path in sorted(legacy_root.rglob("*-routes.js"))]
+        if legacy_routes:
+            return legacy_routes
+    if not ROUTE_MODULE_ROOT.exists():
         return []
-    return [path.relative_to(ROOT).as_posix() for path in sorted(legacy_root.rglob("*-routes.js"))]
+    return [
+        path.relative_to(ROOT).as_posix()
+        for path in sorted(ROUTE_MODULE_ROOT.glob("*.js"))
+        if path.name != "route-registry.js" and not path.name.startswith("pilot-")
+    ]
 
 
 def phase05_route_sources() -> list[str]:
@@ -193,7 +193,9 @@ def check_modules(errors: list[str]) -> None:
         ):
             errors.append(f"{path} missing registry registration")
         if not re.search(
-            r"(?:RouteRegistry\.register\(\s*['\"]ch\d+-\d+-\d+['\"]|\[\s*['\"]ch\d+-\d+-\d+['\"]\s*\]\s*=)",
+            r"(?:RouteRegistry\.register\(\s*['\"]ch\d+-\d+-\d+['\"]|"
+            r"\[\s*['\"]ch\d+-\d+-\d+['\"]\s*\]\s*=|"
+            r"['\"]ch\d+-\d+-\d+['\"]\s*:)",
             text,
         ):
             errors.append(f"{path} missing route id registration")
@@ -935,8 +937,10 @@ def main() -> int:
         errors.append(f"Missing required file: {exc}")
     try:
         check_executable_registry(errors, args.expect_runtime_routes)
-        check_mount_rollback(errors, args.check_mount_rollback)
-        check_listener_cleanup_flag(errors, args.check_listener_cleanup)
+        if args.check_mount_rollback:
+            check_mount_rollback(errors, True)
+        if args.check_listener_cleanup:
+            check_listener_cleanup_flag(errors, True)
     except FileNotFoundError as exc:
         errors.append(f"Missing required file: {exc}")
     if errors:
