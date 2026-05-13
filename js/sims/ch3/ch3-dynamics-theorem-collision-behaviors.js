@@ -17,8 +17,6 @@ const Phys = window.SimPhysicsDynamics || {};
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 function finiteNumber(value, fallback) { const n = Number(value); return Number.isFinite(n) ? n : fallback; }
 
-// ─── onTick functions (ch3-5-1 through ch3-7-2) ────────────────────────────
-
 function onTick_ch351(scene, state, dt) {
   const masses = state.masses || [
     { x: 130, y: 188, m: 2 },
@@ -114,8 +112,6 @@ function onTick_ch372(scene, state, dt) {
   state._t = t + dt;
 }
 
-// ─── Derived functions ─────────────────────────────────────────────────────────
-
 function derived_ch351(s, s2) {
   const masses = s.masses || [
     { x: 130, y: 188, m: 2 },
@@ -183,8 +179,6 @@ function derived_ch372(s, s2) {
     score, force: s.F || 50 };
 }
 
-// ─── Build and register (Part 2: ch3-5-1 through ch3-7-2) ─────────────────────
-
 function makeBehavior(routeId, onTickFn, derivedFn) {
   return {
     behaviorId: `ch3-behavior-${routeId}`,
@@ -195,10 +189,15 @@ function makeBehavior(routeId, onTickFn, derivedFn) {
     onReset(scene, state) {
       state.x = 0; state.v = 0; state.t = 0; state._t = 0;
       state.trajectory = []; state.trajectory2 = [];
-      state.ball1 = { x: 150, y: 180, vx: 8, vy: 0 };
-      state.ball2 = { x: 380, y: 180, vx: -3, vy: 0 };
-      state.collision = false;
-      state.masses = [{ x: 130, y: 188, m: 2 }, { x: 238, y: 130, m: 1.5 }, { x: 332, y: 204, m: 1 }];
+      delete state.ball1; delete state.ball2; delete state.collision; delete state.masses;
+      if (routeId === 'ch3-5-1') {
+        state.masses = [{ x: 130, y: 188, m: 2 }, { x: 238, y: 130, m: 1.5 }, { x: 332, y: 204, m: 1 }];
+      }
+      if (routeId === 'ch3-6-2') {
+        state.ball1 = { x: 150, y: 180, vx: 8, vy: 0 };
+        state.ball2 = { x: 380, y: 180, vx: -3, vy: 0 };
+        state.collision = false;
+      }
     }
   };
 }

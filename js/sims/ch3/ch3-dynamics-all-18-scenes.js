@@ -76,14 +76,6 @@ function buildInitial(routeId) {
     trajectory: [], trajectory2: [],
     F: 50, m: 5, k: 20, e: 1,
     m1: 1, m2: 1,
-    ball1: { x: 150, y: 180, vx: 8, vy: 0 },
-    ball2: { x: 380, y: 180, vx: -3, vy: 0 },
-    collision: false, collisionX: 0, collisionY: 0,
-    masses: [
-      { x: 130, y: 188, m: 2 },
-      { x: 238, y: 130, m: 1.5 },
-      { x: 332, y: 204, m: 1 }
-    ],
     impulseT: 0, impulseF: 0,
     I: 1, omega: 2, r: 60,
     selectedTheorem: null, problemType: 0,
@@ -93,7 +85,17 @@ function buildInitial(routeId) {
   };
   if (routeId === 'ch3-3-1') Object.assign(base, { x: 0.8, spring: 0.8 });
   if (routeId === 'ch3-3-2') Object.assign(base, { x: 0.45, x2: -0.25, m2: 2 });
+  if (routeId === 'ch3-5-1') Object.assign(base, { masses: [
+    { x: 130, y: 188, m: 2 },
+    { x: 238, y: 130, m: 1.5 },
+    { x: 332, y: 204, m: 1 }
+  ] });
   if (routeId === 'ch3-5-4') Object.assign(base, { v: 3, kineticEnergy: 22.5, potentialEnergy: 0 });
+  if (routeId === 'ch3-6-2') Object.assign(base, {
+    ball1: { x: 150, y: 180, vx: 8, vy: 0 },
+    ball2: { x: 380, y: 180, vx: -3, vy: 0 },
+    collision: false, collisionX: 0, collisionY: 0
+  });
   if (routeId === 'ch3-7-2') Object.assign(base, { residualScale: 0, score: 100, residual1: 0, residual2: 0, residual3: 0, residual4: 0 });
   return base;
 }

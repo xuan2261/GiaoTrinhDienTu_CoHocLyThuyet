@@ -1,5 +1,22 @@
 # Project Changelog
 
+## 2026-05-13
+
+### Fixed
+- Removed the unused legacy CH2 particle draft renderer module from runtime script order and source tree; canonical CH2 particle route renderers remain in `ch2-trajectory-graph-renderers.js`.
+- Narrowed CH3 theorem/collision behavior reset state so work-energy and theorem routes do not seed collision balls or center-of-mass masses they do not use.
+- Narrowed CH3 scene initial states so runtime reset restores only route-relevant center-of-mass or collision state.
+
+### Added
+- Regression coverage for CH2 dead renderer removal and CH3 route-specific reset profiles in `tests/phase-09-12-tdd.test.js`.
+
+### Verified
+- `npm run test:sim:unit` PASS.
+- `npm run test:sim:quality` PASS.
+- `python tools\smoke_simulation_scene_catalog.py --strict --require-routes 58` PASS.
+- `python tools\smoke_simulation_renderer_contract.py --strict --require-routes 58` PASS.
+- `python tools\smoke_simulation_runtime.py --expect-globals SimCore,SimMath,SimRender,SimInteractions,SimLabUI,SimProfessionalLab,SimRouteRenderers,SimRouteBehaviors --expect-runtime-routes 58 --check-mount-rollback --check-listener-cleanup` PASS.
+
 ## 2026-05-12
 
 ### Changed
