@@ -1118,9 +1118,6 @@ function bindInteractions(lab, scene, state, draw, handles) {
           lab.dragPausedAnimation = true;
           if (lab.status) lab.status.textContent = 'đang chỉnh tay';
         }
-        if (window.SimVisualHelpers && window.SimVisualHelpers.emitEnergyBurst) {
-          window.SimVisualHelpers.emitEnergyBurst(point.x, point.y, color('result'));
-        }
         setStatus(lab, `đang kéo ${finalHandle.label || finalHandle.id || 'điểm'}`);
         if (finalHandle.onStart) finalHandle.onStart(point);
         draw();

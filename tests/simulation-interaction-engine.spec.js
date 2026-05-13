@@ -49,6 +49,19 @@ async function routeSnapshot(page) {
   return `${await readoutSnapshot(page)}##${stats.hash}:${stats.ink}:${stats.variants}`;
 }
 
+async function transientParticlePixels(page) {
+  return page.locator('.sim-container.sim-lab canvas').first().evaluate(canvas => {
+    const ctx = canvas.getContext('2d');
+    const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let pixels = 0;
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i], g = data[i + 1], b = data[i + 2], a = data[i + 3];
+      if (a > 80 && r > 170 && g > 70 && g < 190 && b < 110) pixels += 1;
+    }
+    return pixels;
+  });
+}
+
 async function labControls(page) {
   return page.locator('.sim-container.sim-lab').first().evaluate(lab => ({
     sliders: [...lab.querySelectorAll('input[type="range"]')].map((input, index) => ({
@@ -400,6 +413,24 @@ test('animated route opens paused and drag pauses running animation @animation',
   await dragCanvasPoint(page, start, dragTarget(start));
   await expect(page.getByRole('button', { name: /Chạy/ }).first()).toBeVisible();
   await expect(page.locator('.sim-lab-status')).toContainText('đã tạm dừng');
+});
+
+test('paused direct drag does not leave transient particle dots after settling @direct-drag', async ({ page }) => {
+  await openRoute(page, 'ch3-3-1');
+  await expect.poll(() => transientParticlePixels(page)).toBe(0);
+  const start = await firstHandlePoint(page);
+  expect(start).not.toBeNull();
+
+  await dragCanvasPoint(page, start, dragTarget(start));
+  await page.waitForTimeout(900);
+
+  const beforeClear = await transientParticlePixels(page);
+  await page.evaluate(() => {
+    window.SimAnimationEngine.clearParticles();
+    window.dispatchEvent(new Event('resize'));
+  });
+  await page.waitForTimeout(80);
+  await expect.poll(() => transientParticlePixels(page)).toBe(beforeClear);
 });
 
 test('numeric checker residual scale stays consistent in readout and overlay @control-audit', async ({ page }) => {

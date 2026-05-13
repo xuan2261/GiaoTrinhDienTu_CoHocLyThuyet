@@ -3,16 +3,21 @@
 ## 2026-05-13
 
 ### Fixed
+- Removed drag-start energy burst particles from direct manipulation so paused simulations no longer leave persistent dot artifacts after moving objects.
 - Removed motion trail rendering and route-owned trail state from active simulations so direct drag redraws only the current object/vector state.
 - Removed the unused legacy CH2 particle draft renderer module from runtime script order and source tree; canonical CH2 particle route renderers remain in `ch2-trajectory-graph-renderers.js`.
 - Narrowed CH3 theorem/collision behavior reset state so work-energy and theorem routes do not seed collision balls or center-of-mass masses they do not use.
 - Narrowed CH3 scene initial states so runtime reset restores only route-relevant center-of-mass or collision state.
 
 ### Added
+- Playwright regression coverage in `tests/simulation-interaction-engine.spec.js` to ensure settled paused direct-drag does not depend on clearing transient particle dots.
 - TDD regression coverage in `tests/simulation-runtime-regressions.test.js` to block `drawTrail` helpers/calls and route-owned trail state from returning.
 - Regression coverage for CH2 dead renderer removal and CH3 route-specific reset profiles in `tests/phase-09-12-tdd.test.js`.
 
 ### Verified
+- `npx playwright test tests/simulation-interaction-engine.spec.js --grep "paused direct drag does not leave transient particle dots"` PASS.
+- `npm run test:sim:unit` PASS.
+- `npx playwright test tests/simulation-interaction-engine.spec.js` PASS: 31 tests.
 - `node tests/simulation-runtime-regressions.test.js` PASS.
 - `python tools\smoke_simulation_renderer_contract.py --strict --require-routes 58` PASS.
 - `npx playwright test "tests/simulation-interaction-engine.spec.js" --grep "tail drag"` PASS.
