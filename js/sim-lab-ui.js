@@ -72,6 +72,34 @@ function renderFormulaPanel(panel, formula) {
     panel.textContent = text;
   }
 }
+function createPromaxShell(lab) {
+  lab.diagnostics = {};
+  setAttr(lab.wrap, 'data-promax-level', 'standard');
+  setAttr(lab.wrap, 'data-diagnostics-visible', 'false');
+  setAttr(lab.wrap, 'data-invariant-status', 'none');
+  lab.promaxDiagnostics = document.createElement('div');
+  lab.promaxDiagnostics.className = 'sim-promax-diagnostics';
+  lab.promaxMode = document.createElement('div');
+  lab.promaxMode.className = 'sim-promax-mode';
+  lab.promaxInvariant = document.createElement('div');
+  lab.promaxInvariant.className = 'sim-promax-invariant';
+  setAttr(lab.promaxInvariant, 'role', 'status');
+  setAttr(lab.promaxInvariant, 'aria-live', 'polite');
+  lab.promaxReadout = document.createElement('div');
+  lab.promaxReadout.className = 'sim-promax-readout';
+  lab.promaxGraph = document.createElement('div');
+  lab.promaxGraph.className = 'sim-promax-graph';
+  setAttr(lab.promaxGraph, 'aria-live', 'polite');
+  lab.promaxChallenge = document.createElement('div');
+  lab.promaxChallenge.className = 'sim-promax-challenge';
+  setAttr(lab.promaxChallenge, 'aria-live', 'polite');
+  lab.promaxDiagnostics.hidden = true;
+  lab.promaxMode.hidden = true;
+  lab.promaxInvariant.hidden = true;
+  lab.promaxReadout.hidden = true;
+  lab.promaxGraph.hidden = true;
+  lab.promaxChallenge.hidden = true;
+}
 function startStructuralSync(lab, routeId) {
   const primitives = window.SimRouteRendererPrimitives;
   if (!lab || !lab.wrap || !lab.ctx || !primitives) return;
@@ -196,6 +224,7 @@ function createLab(host, config) {
   lab.legend.className = 'sim-lab-legend';
   lab.labToolbar.appendChild(lab.legend);
   placeBeforeOrAppend(lab.wrap, lab.labToolbar, lab.controls);
+  createPromaxShell(lab);
   lab.readoutGrid = document.createElement('div');
   lab.readoutGrid.className = 'sim-readout-grid';
   lab.formulaPanel = document.createElement('div');
@@ -221,12 +250,55 @@ function createLab(host, config) {
   setAttr(lab.info, 'aria-atomic', 'true');
   lab.wrap.appendChild(lab.readoutGrid);
   lab.wrap.appendChild(lab.formulaPanel);
+  lab.wrap.appendChild(lab.promaxInvariant);
+  lab.wrap.appendChild(lab.promaxReadout);
+  lab.wrap.appendChild(lab.promaxGraph);
+  lab.wrap.appendChild(lab.promaxChallenge);
   lab.wrap.appendChild(lab.hint);
 
   lab.readout = lab.info;
   lab.addToolbarButton = (label, onClick) => addToolbarButton(lab.toolbar, label, onClick);
   lab.setHint = (text) => { if (lab.hint) lab.hint.textContent = text || ''; };
   lab.setFormula = (formula) => renderFormulaPanel(lab.formulaPanel, formula);
+  lab.setPromaxLevel = (level) => {
+    setAttr(lab.wrap, 'data-promax-level', level || 'standard');
+    if (lab.promaxDiagnostics) lab.promaxDiagnostics.hidden = true;
+    if (lab.promaxMode) lab.promaxMode.hidden = true;
+  };
+  lab.setDiagnosticMode = (key, enabled) => {
+    if (key) lab.diagnostics[key] = !!enabled;
+    setAttr(lab.wrap, 'data-diagnostics-visible', 'false');
+  };
+  lab.getDiagnostics = () => Object.assign({}, lab.diagnostics);
+  lab.setInvariantStatus = (statusValue, summary) => {
+    setAttr(lab.wrap, 'data-invariant-status', statusValue || 'none');
+    if (lab.promaxInvariant) {
+      lab.promaxInvariant.hidden = true;
+      lab.promaxInvariant.textContent = '';
+    }
+  };
+  lab.setPromaxReadout = (summary) => {
+    if (!lab.promaxReadout) return;
+    lab.promaxReadout.hidden = true;
+    lab.promaxReadout.textContent = '';
+  };
+  lab.setPromaxGraph = (graph, route) => {
+    if (!lab.promaxGraph) return;
+    lab.promaxGraph.hidden = true;
+    lab.promaxGraph.textContent = '';
+    setAttr(lab.promaxGraph, 'data-graph-route', route || routeId || '');
+  };
+  lab.setChallengeMode = (mode) => {
+    lab.challengeMode = mode || 'Quan sát';
+    Array.prototype.forEach.call((lab.promaxMode && lab.promaxMode.querySelectorAll('button')) || [], btn => {
+      btn.setAttribute('aria-pressed', btn.textContent === lab.challengeMode ? 'true' : 'false');
+    });
+  };
+  lab.setChallengeFeedback = (text) => {
+    if (!lab.promaxChallenge) return;
+    lab.promaxChallenge.hidden = true;
+    lab.promaxChallenge.textContent = '';
+  };
   if (routeId && typeof lab.wrap.setAttribute === 'function') {
     lab.wrap.setAttribute('data-route-id', routeId);
     lab.wrap.setAttribute('data-renderer-id', `${routeId}-direct-renderer`);

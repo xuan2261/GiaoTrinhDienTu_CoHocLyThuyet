@@ -11,7 +11,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Add shared physics invariant contract before pilot route polish |
 | Routes | 6 pilot first, manifest shape ready for 58 |
 
@@ -91,12 +91,12 @@ tests/simulation-invariants.test.js
 
 ## Todo List
 
-- [ ] Define invariant manifest schema.
-- [ ] Implement evaluator helpers.
-- [ ] Add 6 pilot specs.
-- [ ] Add unit tests.
-- [ ] Wire into unit gate if stable.
-- [ ] Document tolerance choices.
+- [x] Define invariant manifest schema.
+- [x] Implement evaluator helpers.
+- [x] Add 6 pilot specs.
+- [x] Add unit tests.
+- [x] Wire into unit gate if stable.
+- [x] Document tolerance choices.
 
 ## Verification / Tests
 

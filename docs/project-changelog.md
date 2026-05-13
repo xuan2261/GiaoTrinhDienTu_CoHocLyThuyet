@@ -1,8 +1,67 @@
 # Project Changelog
 
+## 2026-05-14
+
+### Changed
+- Compact simulation readout cards now align short label/value pairs on one row in the right inspector while preserving `data-readout-kind`, semantic colors, and shared `.sim-lab` shell contracts.
+- Long Vietnamese labels and physics values wrap inside cards instead of creating horizontal overflow at desktop, tablet, and mobile widths.
+
+### Added
+- Playwright compact readout gates in `tests/simulation-browser.spec.js` for one-row density, card height, label/value alignment, and lab/grid/card overflow.
+- QA evidence under `plans/260514-compact-simulation-readout-cards/reports/`.
+
+### Verified
+- `npx playwright test tests/simulation-browser.spec.js --grep "compact readout|compact-readout"` FAIL before CSS: card display was `flex`.
+- `npx playwright test tests/simulation-browser.spec.js --grep "compact readout|right inspector|responsive"` PASS: 11 tests.
+- `npm run test:sim:unit` PASS.
+- `npm run test:sim:browser` PASS: 180 tests.
+- `npm run test:sim:visual-quality` PASS: 4 tests.
+
 ## 2026-05-13
 
+### Changed
+- Refined responsive layout contract: reading pages keep the narrow content measure while `.sim-container.sim-lab` uses a scoped wider scene-left/right-inspector layout on desktop/tablet and collapses to a stacked vertical flow on mobile without horizontal overflow.
+- Compact topbar behavior under tablet/mobile widths now hides breadcrumb/font zoom first, keeps search/theme reachable, and prevents child overlap.
+
+### Added
+- Playwright responsive layout gates in `tests/simulation-browser.spec.js` for reading width, simulation width, page overflow, topbar overlap, and the right-inspector stack at `1366`, `768`, and `390` viewport widths.
+- Screenshot/metric evidence under `plans/260513-2146-layout-simulation-responsive-refinement/reports/screenshots/`.
+
+### Verified
+- `npx playwright test tests/simulation-browser.spec.js --grep "right inspector"` PASS: 2 tests.
+- `npx playwright test tests/simulation-browser.spec.js --grep=@responsive` PASS: 7 tests.
+- `npm run test:sim:unit` PASS.
+- `npm run test:sim:quality` PASS.
+- `npm run test:sim:browser` PASS: 178 tests.
+- `npm run test:sim:visual-quality` PASS: 4 tests.
+
+### Changed
+- Added Promax pilot shell integration for 6 simulation routes: shared diagnostics toggles, invariant status, formula summary, observe/action/check mode, and local challenge feedback. The remaining 52 Promax routes stay classified only in the rollout matrix.
+- Completed Promax pilot route-owned mini graph summaries for `ch2-1-2`, `ch3-3-1`, and `ch3-6-2`.
+- Completed focused Promax diagnostic overlays for Ch2 graph/IC and Ch3 energy/collision residual views.
+- Wired Promax unit coverage into `npm run test:sim:unit` and Promax shell browser coverage into `npm run test:sim:browser`.
+
+### Added
+- `js/sim-route-invariants.js` and `js/sim-invariant-evaluators.js` for vector resultant, friction cone, derivative chain, instant center, spring energy, and collision momentum/restitution invariants.
+- `js/sim-promax-challenges.js`, `js/sim-promax-readouts.js`, and `js/sim-promax-mini-graph.js` for pilot challenge prompts, formula summaries, and graph summary helpers.
+- Promax TDD tests: `tests/simulation-invariants.test.js`, `tests/promax-challenge-mode.test.js`, `tests/promax-formula-graph.test.js`, `tests/promax-pilot-shell.spec.js`.
+- Pilot reports under `plans/260513-1450-promax-simulation-correctness-pedagogy-upgrade/reports/`.
+
+### Verified
+- `npm run test:sim:unit` PASS.
+- `npx playwright test tests/promax-pilot-shell.spec.js` PASS: 9 tests.
+- `npm run test:sim:quality` PASS.
+- `python tools\smoke_simulation_runtime.py --expect-runtime-routes 58 --check-mount-rollback --check-listener-cleanup --check-raf-cleanup` PASS.
+- `python tools\smoke_simulation_manifest.py --require-routes 58 --require-objectives --require-direct` PASS.
+- `python tools\smoke_simulation_renderer_contract.py --strict --require-routes 58` PASS.
+- `npm run test:sim:browser` PASS: 173 tests.
+- `npm run test:sim:visual-quality` PASS: 4 tests.
+- `npm run test:sim:release` PASS.
+
 ### Fixed
+- Simplified the 6 Promax pilot route UI by hiding nonessential diagnostic buttons, observe/action/check buttons, and extra Promax readout/graph/challenge lines while preserving invariant metadata for QA.
+- Hardened Promax invariant evaluators to fail on missing required route observables instead of passing from generated fallback values.
+- Switched `ch3-6-2` Promax collision invariant to a 2D momentum/restitution check when the route uses ball vectors.
 - Removed drag-start energy burst particles from direct manipulation so paused simulations no longer leave persistent dot artifacts after moving objects.
 - Removed motion trail rendering and route-owned trail state from active simulations so direct drag redraws only the current object/vector state.
 - Removed the unused legacy CH2 particle draft renderer module from runtime script order and source tree; canonical CH2 particle route renderers remain in `ch2-trajectory-graph-renderers.js`.

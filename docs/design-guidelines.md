@@ -68,6 +68,7 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 | Topbar | Fixed, cao `52px`, chứa menu, search, theme, zoom, breadcrumb |
 | Sidebar | Fixed, collapsible, có sub-menu và l3-menu |
 | Content | Centered, max-width clamp, padding vừa phải |
+| Simulation width | Text/math vẫn giữ nhịp đọc hẹp; `.sim-container.sim-lab` được phép nới riêng trên desktop/tablet, không đổi canvas logical size |
 | Cards | Dùng cho stats, authors, notes, progress, quiz, simulations |
 | Figures | Dùng `figure-container` cho ảnh minh họa thật |
 | Math | Dùng `math-block`, `mathml-block`, `math-img-inline`, `math-img-block` theo loại render |
@@ -82,7 +83,7 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 | Page nav | Hai nút trước/sau, rõ label và title |
 | Quiz | Thẻ đáp án dễ bấm, feedback rõ đúng/sai |
 | Simulations | Nền sáng, canvas bo góc, control dễ chạm |
-| Simple simulation lab shell | Dùng `.sim-lab` scoped shell cho toàn bộ 58 route: header + title, readout cards grid, hint; no checkpoint/feedback panels; reset/play-pause controls cho animated routes |
+| Simple simulation lab shell | Dùng `.sim-lab` scoped shell cho toàn bộ 58 route: layout wide chia scene trái + right inspector phải (readouts, controls, formula, hint), header + title, readout cards grid, hint; no checkpoint/feedback panels; reset/play-pause controls cho animated routes |
 | Glossary | Tooltip nhỏ, không che nội dung chính |
 | Notes | Panel nổi ở góc phải, không phá layout đọc |
 
@@ -91,8 +92,10 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 | Slot | Quy ước |
 |---|---|
 | `.sim-header` | Route title bar, scoped under `.sim-lab` |
-| `.sim-readout-grid` | Display cards: label/value/unit; wraps naturally on mobile |
+| `.sim-readout-grid` | Display cards: short label/value pairs align on one compact row when space allows; long labels/values wrap naturally without horizontal overflow |
 | `.sim-lab-hint` | Single-line objective/formula hint text |
+| Right inspector | Desktop/tablet stack cho readouts, controls, formula, hint ở cột phải; `<=768px` phải collapse sang bố cục stacked dọc, không được tạo horizontal overflow |
+| Promax slots | Pilot-only diagnostics toggles, invariant status, formula summary, mini graph summary, and challenge feedback stay scoped under `.sim-lab`; only 6 routes mount them today, with the remaining 52 routes classified in the rollout matrix |
 | Formula overlay | Must wrap before horizontal overflow on mobile; keep formula UI inside `.sim-lab` scope |
 | `lab.setHint(text)` | Update hint at runtime (used by route behaviors) |
 | `lab.reset()` | Reset route state to initial snapshot |
@@ -105,7 +108,7 @@ CSS mới cho lab phải scope dưới `.sim-lab`; tránh selector global như `
 
 - Chapter accent tokens phải đi qua `.sim-lab[data-route-id^="ch1"]`, `.sim-lab[data-route-id^="ch2"]`, và `.sim-lab[data-route-id^="ch3"]` để tô chip, active control, và left border của readout/formula/hint.
 - Touch controls phải giữ `min-height: 44px` trên mobile; không giảm dưới mức thumb-friendly này.
-- Readout cards phải gắn `data-readout-kind` để metadata và accent left border phản ánh đúng loại giá trị.
+- Readout cards phải gắn `data-readout-kind` để metadata và accent left border phản ánh đúng loại giá trị; layout card dùng shared compact name-value CSS, không thêm variant riêng theo route.
 - Route-owned handles phải được vẽ bởi shared lab sau renderer output, có hit ring, label ngắn, và legend compact lấy từ handle descriptors.
 - Mọi slider, segmented button, handle kéo, và nút play animation phải tạo phản hồi nhìn thấy được qua canvas hoặc readout trong cùng route.
 - Canonical geometry sliders phải là nguồn state chính cho route; không dùng proxy slider khiến canvas và readout lệch nhau.
@@ -114,13 +117,16 @@ CSS mới cho lab phải scope dưới `.sim-lab`; tránh selector global như `
 - Shell phải giữ semantic hooks: `role="region"`, route `aria-label`, status `aria-live`, canvas `aria-describedby`.
 - Hint text phải ưu tiên câu chủ động, lấy từ route handles khi có thể; tránh hint chung chung nếu route metadata đã đủ.
 - Segmented buttons phải đồng bộ state bằng `aria-pressed`, `data-control-key`, và `data-value`.
+- Promax pilot controls phải dùng Vietnamese labels, `aria-pressed`, polite live feedback, và không ghi persistence mặc định.
 
 ## Responsive behavior
 
 | Breakpoint | Hành vi |
 |---|---|
-| `<= 768px` | Sidebar trượt ra overlay, main full-width, content padding nhỏ hơn |
-| `<= 480px` | Ẩn breadcrumb, thu topbar, stats grid xuống 2 cột |
+| `<= 900px` | Topbar ưu tiên menu, brand, search, theme/bookmark; ẩn breadcrumb và font zoom để tránh overlap |
+| `<= 768px` | Sidebar trượt ra overlay, main full-width, content padding nhỏ hơn; simulation dùng gần full viewport khi đủ chỗ và right inspector phải xếp dọc, không được tràn ngang |
+| `<= 560px` | Simulation quay về contained width trong content, controls dễ chạm, readout 2 cột |
+| `<= 480px` | Ẩn breadcrumb, thu topbar, ẩn kbd hint trong search, stats grid xuống 2 cột |
 | `>= 2000px` | Tăng sidebar width và content max-width |
 | `>= 2560px` | Nới thêm content width, giữ nhịp đọc thoáng |
 
@@ -149,3 +155,4 @@ CSS mới cho lab phải scope dưới `.sim-lab`; tránh selector global như `
 - `dark-mode` chỉ là fallback style cho một số output generated, còn primary switch là `data-theme`.
 - Nếu thêm component mới, nên bám cùng token và spacing system hiện tại trước khi nghĩ đến redesign lớn.
 - Với simulation labs, đừng tạo layout variant riêng cho từng route; chỉ thay topic/data, không thay shell.
+- Không nới `.content-area` toàn cục để làm simulation rộng hơn; chỉ dùng rule scoped cho `.content-area .sim-container.sim-lab`.

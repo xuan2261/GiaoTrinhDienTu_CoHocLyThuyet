@@ -10,6 +10,7 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 | Lifecycle/core | `js/sim-core.js` | Scope cleanup, canvas helpers, sliders/buttons, RAF/listener cleanup |
 | Interaction | `js/sim-interactions.js` | Pointer/touch/keyboard handle layer, active handle metadata |
 | Shared DeCuong rendering | `js/sim-rendering.js`, `js/sim-visual-helpers.js` | Theme-aware grid, drag handle dots, PI/7 arrows, dashed guides, and readable panels |
+| Promax pilot invariants | `js/sim-route-invariants.js`, `js/sim-invariant-evaluators.js`, `js/sim-promax-*` | 6-route pilot invariant specs/evaluators run as hidden metadata; diagnostic controls, formula summaries, mini graph summaries, and challenge feedback stay out of the learner UI |
 | Scene data | `js/sim-scene-registry.js`, `js/sims/ch*/*-scenes.js` | Route-scoped scene catalog and deterministic signatures |
 | Rendering | `js/sim-route-renderer-registry.js`, `js/sims/ch*/*-renderers.js` | Dedicated renderer per route; no family final dispatch |
 | Behavior | `js/sim-route-behavior-registry.js`, `js/sims/ch*/*-behaviors.js` | Derived model ids, route-owned handles, interaction semantics |
@@ -37,6 +38,7 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 - Each route must have a unique renderer id, behavior id, named renderer function, and scene signature.
 - Route-owned handles must expose meaningful ids/labels through `data-handle-ids`; fallback `legacy-primary` is not acceptable for active routes.
 - Readouts use `.sim-readout-card` and semantic `data-readout-kind` values.
+- Promax pilot routes expose `data-promax-level="pilot"` and `data-invariant-status` for QA/logic, but do not show diagnostic toggles, observe/action/check mode buttons, formula summaries, mini graph summaries, or challenge feedback in the learner UI.
 - Route scenes may provide explicit readout item `kind` metadata or set `appendGenericReadouts: false` when their physics model owns all displayed values.
 - Drag handlers must update canonical state, sliders, inline control values, readout cards, and overlays from the same clamped model state.
 - DeCuong CH1 route rebuilds must keep direct geometry and readouts coupled: `ch1-2-3` uses F1/F2 endpoint state for canvas, `|F₁|`, `|F₂|`, `|R|`, and `α`; support routes use alpha/handle state to redraw normal/tension geometry.
@@ -63,6 +65,15 @@ python tools\smoke_simulation_runtime.py --expect-runtime-routes 58 --check-moun
 npm run test:sim:unit
 npm run test:sim:browser
 npm run test:sim:visual-quality
+```
+
+Promax pilot gates:
+
+```powershell
+node tests\simulation-invariants.test.js
+node tests\promax-challenge-mode.test.js
+node tests\promax-formula-graph.test.js
+npx playwright test tests\promax-pilot-shell.spec.js
 ```
 
 ## Persistence Layer

@@ -118,6 +118,8 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 npm run test:sim:unit
 python -m compileall -q tools
 python tools\audit.py
+npm run test:sim:audit
+npm run test:sim:disposal
 python tools\smoke_simulation_routes.py
 python tools\smoke_simulation_scene_catalog.py --strict --require-routes 58
 python tools\smoke_simulation_renderer_contract.py --strict --require-routes 58
@@ -185,4 +187,4 @@ python tools\audit.py --strict-images
 - `package.json` chỉ chứa QA scripts/dev dependencies; không biến repo thành npm runtime app.
 - Không thêm framework hoặc build step mới nếu chưa có lý do thật.
 - Nếu một file code mới vượt mức vừa phải, tách thành module nhỏ hơn trước khi tích lũy thêm logic.
-- Browser QA professional dùng focused suite không còn skipped rollout tests: `test:sim:browser` hiện 87 tests trong `simulation-browser.spec.js` và `simulation-interaction-engine.spec.js`; `test:sim:visual-quality` hiện 4 all-route visual/identity/theme tests.
+- Browser QA professional dùng focused suite không còn skipped rollout tests: `test:sim:browser` hiện 173 tests trong `mass-conversion-audit.spec.js`, `simulation-browser.spec.js`, `simulation-interaction-engine.spec.js`, và `promax-pilot-shell.spec.js`; `test:sim:visual-quality` hiện 4 all-route visual/identity/theme tests; `test:sim:scene-identity` và `test:sim:renderer-contract` là hai gate riêng cho identity/contract.

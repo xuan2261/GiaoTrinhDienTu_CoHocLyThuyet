@@ -18,6 +18,11 @@ const physicsKinematics = window.SimPhysicsKinematics || {};
 const physicsDynamics = window.SimPhysicsDynamics || {};
 const visualHelpers = window.SimVisualHelpers || {};
 const interactionEnhancements = window.SimInteractionEnhancements || {};
+const invariantSpecs = window.SimRouteInvariants || {};
+const invariantEvaluators = window.SimInvariantEvaluators || {};
+const promaxChallenges = window.SimPromaxChallenges || {};
+const promaxReadouts = window.SimPromaxReadouts || {};
+const promaxMiniGraph = window.SimPromaxMiniGraph || {};
 const DEFAULT_W = 760, DEFAULT_H = 440;
 const W = templates.W || DEFAULT_W, H = templates.H || DEFAULT_H;
 const COLORS = core.COLORS || {};
@@ -818,10 +823,12 @@ function updateCollisionMomentum(state) {
   const b2 = state.ball2 || { vx: -3, vy: 0 };
   const m1 = state.m1 || 1;
   const m2 = state.m2 || 1;
-  const p1 = m1 * Math.hypot(b1.vx || 0, b1.vy || 0);
-  const p2 = m2 * Math.hypot(b2.vx || 0, b2.vy || 0);
-  state.pBefore = p1 + p2;
-  state.pAfter = state.collision ? state.pAfter || state.pBefore : state.pBefore;
+  const p = { x: m1 * (b1.vx || 0) + m2 * (b2.vx || 0), y: m1 * (b1.vy || 0) + m2 * (b2.vy || 0) };
+  state.momentumBefore = p;
+  state.momentumAfter = state.collision && state.momentumAfter ? state.momentumAfter : p;
+  state.pBefore = state.momentumBefore;
+  state.pAfter = state.momentumAfter;
+  if (!state.collision) state.restitutionResidual = 0;
 }
 
 function ch3BodyPoint(routeId, state) {
@@ -1100,6 +1107,84 @@ function setStatus(lab, text) {
   if (lab && lab.status) lab.status.textContent = text;
 }
 
+function invariantLabel(status) {
+  if (status === 'pass') return 'Đạt';
+  if (status === 'warn') return 'Cận biên';
+  if (status === 'fail') return 'Lệch';
+  return '';
+}
+
+function buildInvariantInput(routeId, state, d, initialState) {
+  if (routeId === 'ch1-2-3') {
+    const origin = { x: 200, y: 300 };
+    return {
+      origin,
+      f1: d.f1 ? { x: d.f1.x - origin.x, y: d.f1.y - origin.y } : null,
+      f2: d.f2 ? { x: d.f2.x - origin.x, y: d.f2.y - origin.y } : null,
+      resultant: d.r ? { x: d.r.x - origin.x, y: d.r.y - origin.y } : null
+    };
+  }
+  if (routeId === 'ch2-1-2') return { t: state.t, x: state.xVal, v: state.vVal, a: state.aVal, scale: 54 };
+  if (routeId === 'ch2-5-2') {
+    return {
+      icX: state.icX,
+      icY: state.icY,
+      bx: state.bx,
+      by: state.by,
+      omega: state.omega,
+      vB: state.vB || { vx: -(state.omega || 0) * ((state.by || 0) - (state.icY || 0)), vy: (state.omega || 0) * ((state.bx || 0) - (state.icX || 0)) }
+    };
+  }
+  if (routeId === 'ch3-3-1') return {
+    m: state.m,
+    k: state.k,
+    x: state.x,
+    v: state.v || 0,
+    x0: initialState && initialState.x,
+    v0: initialState && (initialState.v || 0)
+  };
+  if (routeId === 'ch3-6-2') return {
+    m1: state.m1,
+    m2: state.m2,
+    e: state.e,
+    ball1: state.ball1,
+    ball2: state.ball2,
+    momentumBefore: state.momentumBefore || d.pBefore || d.momentumBefore,
+    momentumAfter: state.momentumAfter || d.pAfter || d.momentumAfter,
+    preRelativeNormal: state.preRelativeNormal,
+    postRelativeNormal: state.postRelativeNormal,
+    restitutionResidual: state.restitutionResidual
+  };
+  return Object.assign({}, state, d);
+}
+
+function syncPromaxState(routeId, lab, state, d, initialState) {
+  if (!lab || typeof invariantEvaluators.evaluateRoute !== 'function') return null;
+  const spec = invariantSpecs.get && invariantSpecs.get(routeId);
+  if (!spec) {
+    if (lab.setInvariantStatus) lab.setInvariantStatus('none', '');
+    return null;
+  }
+  if (lab.setPromaxLevel) lab.setPromaxLevel('pilot');
+  state.diagnostics = lab.getDiagnostics ? lab.getDiagnostics() : {};
+  const outcome = invariantEvaluators.evaluateRoute(routeId, buildInvariantInput(routeId, state, d, initialState));
+  const residual = Number(outcome.residual || 0).toExponential(2);
+  const summary = `${invariantLabel(outcome.status)} invariant · sai số ${residual}`;
+  if (lab.setInvariantStatus) lab.setInvariantStatus(outcome.status, summary);
+  if (lab.setPromaxReadout && promaxReadouts.invariantFormula) {
+    lab.setPromaxReadout(promaxReadouts.invariantFormula(routeId, outcome).summary);
+  }
+  if (lab.setPromaxGraph && promaxMiniGraph.routeSummary) {
+    lab.setPromaxGraph(promaxMiniGraph.routeSummary(routeId, state, outcome), routeId);
+  }
+  if (lab.setChallengeFeedback && promaxChallenges.get) {
+    const challenge = promaxChallenges.get(routeId);
+    const feedback = promaxChallenges.evaluate ? promaxChallenges.evaluate(routeId, outcome) : null;
+    lab.setChallengeFeedback(challenge ? `${challenge.prompt} ${feedback ? feedback.message : ''}` : '');
+  }
+  return outcome;
+}
+
 function bindInteractions(lab, scene, state, draw, handles) {
   if (!interactions.createInteractionLayer) return null;
   const layer = interactions.createInteractionLayer(lab.canvas, { label: `${scene.title} canvas`, root: lab.wrap });
@@ -1220,6 +1305,7 @@ function mount(routeId) {
       hint: meta.objective || scene.feedback || 'Điều chỉnh cảnh để đọc quan hệ cơ học.'
     });
     setLabMetadata(lab, routeId, rendererEntry, behavior);
+    if (invariantSpecs.get && invariantSpecs.get(routeId) && lab.setPromaxLevel) lab.setPromaxLevel('pilot');
 
     // Get active scope BEFORE binding animation engine (avoids TDZ: scope is const declared below)
     const scope = core.getActiveScope && core.getActiveScope();
@@ -1286,6 +1372,8 @@ function mount(routeId) {
     let routeHandles = [];
     function draw() {
       const d = behavior.derived(scene, state);
+      const invariant = syncPromaxState(routeId, lab, state, d, initialState);
+      if (invariant) d.invariant = invariant;
       if (!routeHandles.length) routeHandles = resolveHandles(scene, state, d, behavior, lab);
       if (primitives.resetMarks) primitives.resetMarks(routeId);
       if (primitives.traceContext) primitives.traceContext(lab.ctx);

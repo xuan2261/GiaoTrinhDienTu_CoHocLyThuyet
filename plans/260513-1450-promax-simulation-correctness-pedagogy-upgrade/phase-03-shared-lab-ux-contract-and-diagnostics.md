@@ -11,7 +11,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Add shared promax lab slots without per-route layout forks |
 | Scope | Shared shell, diagnostics metadata, accessibility |
 
@@ -92,12 +92,12 @@ SimProfessionalLab.mount()
 
 ## Todo List
 
-- [ ] Add diagnostics shell.
-- [ ] Add invariant status shell.
-- [ ] Add lab API methods.
-- [ ] Add scoped CSS.
-- [ ] Add browser tests.
-- [ ] Add visual tests.
+- [x] Add diagnostics shell.
+- [x] Add invariant status shell.
+- [x] Add lab API methods.
+- [x] Add scoped CSS.
+- [x] Add browser tests.
+- [x] Add visual tests.
 
 ## Verification / Tests
 

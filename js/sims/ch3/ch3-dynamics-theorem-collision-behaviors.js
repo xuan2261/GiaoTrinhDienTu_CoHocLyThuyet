@@ -1,8 +1,4 @@
-/**
- * Ch3 dynamics behaviors — Part 2: Theorems + Collisions + Exercises (9 routes).
- * Routes: ch3-5-1, ch3-5-2, ch3-5-3, ch3-5-4,
- * ch3-6-2, ch3-6-3, ch3-7-1, ch3-7-2
- */
+/* Ch3 dynamics behaviors: theorems, collisions, exercises. */
 (function() {
 'use strict';
 
@@ -16,6 +12,15 @@ const Phys = window.SimPhysicsDynamics || {};
 
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 function finiteNumber(value, fallback) { const n = Number(value); return Number.isFinite(n) ? n : fallback; }
+function momentum2d(b1, b2, m1, m2) {
+  return { x: m1 * finiteNumber(b1.vx, 0) + m2 * finiteNumber(b2.vx, 0),
+    y: m1 * finiteNumber(b1.vy, 0) + m2 * finiteNumber(b2.vy, 0) };
+}
+function setCollisionMomentum(state, before, after, residual) {
+  state.momentumBefore = before; state.momentumAfter = after;
+  state.pBefore = before; state.pAfter = after;
+  state.restitutionResidual = residual || 0;
+}
 
 function onTick_ch351(scene, state, dt) {
   const masses = state.masses || [
@@ -62,7 +67,8 @@ function onTick_ch362(scene, state, dt) {
   if (b1.y < 60 || b1.y > 290) { b1.vy *= -1; b1.y = clamp(b1.y, 60, 290); }
   if (b2.x < 20 || b2.x > 540) { b2.vx *= -1; b2.x = clamp(b2.x, 20, 540); }
   if (b2.y < 60 || b2.y > 290) { b2.vy *= -1; b2.y = clamp(b2.y, 60, 290); }
-  state.pBefore = m1 * Math.hypot(b1.vx, b1.vy) + m2 * Math.hypot(b2.vx, b2.vy);
+  const p0 = momentum2d(b1, b2, m1, m2);
+  setCollisionMomentum(state, p0, p0, 0);
   const dist = Math.hypot(b1.x - b2.x, b1.y - b2.y);
   const r1 = 25, r2 = 20;
   if (dist > 1e-6 && dist < r1 + r2) {
@@ -73,15 +79,15 @@ function onTick_ch362(scene, state, dt) {
       const j = -(1 + e) * vrn / (1 / m1 + 1 / m2);
       b1.vx += (j / m1) * nx; b1.vy += (j / m1) * ny;
       b2.vx -= (j / m2) * nx; b2.vy -= (j / m2) * ny;
-      state.collision = true;
-      state.collisionX = (b1.x + b2.x) / 2;
-      state.collisionY = (b1.y + b2.y) / 2;
+      const postRel = (b1.vx - b2.vx) * nx + (b1.vy - b2.vy) * ny;
+      state.preRelativeNormal = vrn; state.postRelativeNormal = postRel;
+      setCollisionMomentum(state, p0, momentum2d(b1, b2, m1, m2), Math.abs(postRel + e * vrn));
+      state.collision = true; state.collisionX = (b1.x + b2.x) / 2; state.collisionY = (b1.y + b2.y) / 2;
       if (window.SimVisualHelpers) {
         window.SimVisualHelpers.emitCollisionSparks(state.collisionX, state.collisionY);
       }
     }
   } else { state.collision = false; }
-  state.pAfter = m1 * Math.hypot(b1.vx, b1.vy) + m2 * Math.hypot(b2.vx, b2.vy);
   state.ball1 = b1; state.ball2 = b2; state._t = (state._t || 0) + dt;
 }
 
@@ -147,13 +153,10 @@ function derived_ch354(s, s2) {
 function derived_ch362(s, s2) {
   const b1 = s.ball1 || { vx: 8, vy: 0 };
   const b2 = s.ball2 || { vx: -3, vy: 0 };
-  const pNow = (s.m1 || 1) * Math.hypot(b1.vx || 0, b1.vy || 0) +
-    (s.m2 || 1) * Math.hypot(b2.vx || 0, b2.vy || 0);
-  return {
-    pBefore: Number.isFinite(Number(s.pBefore)) ? s.pBefore : pNow,
-    pAfter: Number.isFinite(Number(s.pAfter)) ? s.pAfter : pNow,
-    collision: s.collision || false
-  };
+  const pNow = momentum2d(b1, b2, s.m1 || 1, s.m2 || 1);
+  const pBefore = s.momentumBefore || s.pBefore || pNow, pAfter = s.momentumAfter || s.pAfter || pNow;
+  return { pBefore, pAfter, momentumBefore: pBefore, momentumAfter: pAfter,
+    restitutionResidual: Number.isFinite(Number(s.restitutionResidual)) ? s.restitutionResidual : 0, collision: s.collision || false };
 }
 function derived_ch363(s, s2) {
   const m1 = finiteNumber(s.m1, 1), m2 = finiteNumber(s.m2, 1), v1 = finiteNumber(s.v1, 5), v2 = finiteNumber(s.v2, -3), e = finiteNumber(s.e, 0.8);
@@ -196,12 +199,13 @@ function makeBehavior(routeId, onTickFn, derivedFn) {
       if (routeId === 'ch3-6-2') {
         state.ball1 = { x: 150, y: 180, vx: 8, vy: 0 };
         state.ball2 = { x: 380, y: 180, vx: -3, vy: 0 };
+        const p = momentum2d(state.ball1, state.ball2, state.m1 || 1, state.m2 || 1);
+        setCollisionMomentum(state, p, p, 0);
         state.collision = false;
       }
     }
   };
 }
-
 registry.registerMany({
   'ch3-5-1': makeBehavior('ch3-5-1', onTick_ch351, derived_ch351),
   'ch3-5-2': makeBehavior('ch3-5-2', onTick_ch352, derived_ch352),

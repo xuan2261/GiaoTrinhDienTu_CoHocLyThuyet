@@ -61,16 +61,21 @@ python tools\smoke_simulation_runtime.py --expect-globals SimCore,SimMath,SimRen
 npm run test:sim:unit
 npm run test:sim:quality
 npm run test:sim:quality:baseline
+npm run test:sim:audit
 npm run test:sim:semantic
+npm run test:sim:scene-identity
 npm run test:sim:renderer-contract
+npm run test:sim:visual-quality
 npm run test:sim:browser
+npx playwright test tests/promax-pilot-shell.spec.js
+npm run test:sim:disposal
 npm run test:sim:release
 npm run test:sim:browser:baseline
 npm run test:sim:browser:route-mount
 ```
 
 Nếu chưa cài Playwright dependency, chạy `npm install` trước. Python smoke vẫn là fallback nhanh khi không cần browser QA.
-Browser QA dev-only hiện dùng focused suite không còn skipped rollout tests: `npm run test:sim:browser` chạy 3 suite (`mass-conversion-audit`, `simulation-browser`, `simulation-interaction-engine`), gồm 58 route mount qua `file://`, DeCuong shell, static server smoke, localization, all-route direct-drag/readout stability, semantic drag checks, keyboard/touch/reset, play-pause, và control/animation audit. `npm run test:sim:visual-quality` chạy 4 all-route tests: nonblank/bounded canvas, route-owned handles, renderer/behavior/scene identity, dark/light readability và overflow. `python tools\smoke_simulation_routes.py --require-p1` khóa P1 coverage 58/58. `npm run test:sim:renderer-contract` kiểm 58 renderer ids/function bodies, 58 behavior ids, và browser structural identity. `npm run test:sim:semantic` gom scene identity + renderer contract. `tests/phase-09-12-tdd.test.js` khóa CH2 exercise checker invariants và CH3 dynamics/exercise invariants. `npm run test:sim:release` là canonical full release gate, gồm unit + quality + browser + visual-quality + disposal + audit/equation strict checks; release cuối cùng PASS với `npm run test:sim:browser` 163/163 và `npm run test:sim:visual-quality` 4/4.
+Browser QA dev-only hiện dùng focused suite không còn skipped rollout tests: `npm run test:sim:browser` chạy 4 suite (`mass-conversion-audit`, `simulation-browser`, `simulation-interaction-engine`, `promax-pilot-shell`), gồm 58 route mount qua `file://`, DeCuong shell, static server smoke, localization, all-route direct-drag/readout stability, semantic drag checks, keyboard/touch/reset, play-pause, control/animation audit, và Promax pilot shell checks. `npm run test:sim:visual-quality` chạy 4 all-route tests: nonblank/bounded canvas, route-owned handles, renderer/behavior/scene identity, dark/light readability và overflow. `python tools\smoke_simulation_routes.py --require-p1` khóa P1 coverage 58/58. `npm run test:sim:renderer-contract` kiểm 58 renderer ids/function bodies, 58 behavior ids, và browser structural identity. `npm run test:sim:semantic` gom scene identity + renderer contract. `tests/phase-09-12-tdd.test.js` khóa CH2 exercise checker invariants và CH3 dynamics/exercise invariants. `npm run test:sim:release` là canonical full release gate, gồm unit + quality + browser + visual-quality + disposal + audit/equation strict checks; release cuối cùng PASS với `npm run test:sim:browser` 173 tests và `npm run test:sim:visual-quality` 4/4.
 
 ## Quy ước vận hành
 

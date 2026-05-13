@@ -11,7 +11,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Upgrade Ch1 pilot routes to promax correctness + UX |
 | Routes | `ch1-2-3`, `ch1-5-3` |
 
@@ -82,12 +82,12 @@ Ch1 behavior derived model
 
 ## Todo List
 
-- [ ] Lock current file ownership.
-- [ ] Upgrade `ch1-2-3` invariant/readout/render diagnostics.
-- [ ] Upgrade `ch1-5-3` invariant/readout/render diagnostics.
-- [ ] Add unit invariant cases.
-- [ ] Add browser direct-drag cases.
-- [ ] Run Ch1 targeted and full gates.
+- [x] Lock current file ownership.
+- [x] Upgrade `ch1-2-3` invariant/readout shell.
+- [x] Upgrade `ch1-5-3` invariant/readout shell.
+- [x] Add unit invariant cases.
+- [x] Add browser shell cases.
+- [x] Run targeted and browser gates.
 
 ## Verification / Tests
 

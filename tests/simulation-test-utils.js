@@ -116,7 +116,7 @@ async function openRoute(page, route, options = {}) {
 
 async function canvasStats(page) {
   return page.locator('.sim-container.sim-lab canvas').first().evaluate(canvas => {
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
     const { data, width, height } = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const edge = { left: 0, right: 0, top: 0, bottom: 0 };
     const band = 6;

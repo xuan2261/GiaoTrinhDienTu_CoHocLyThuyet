@@ -6,6 +6,7 @@ const {
   ALL_ROUTES,
   EXPECTED_ROUTE_COUNT,
   ROOT,
+  INDEX_FILE,
   ROUTE_GROUPS,
   canvasStats,
   openRoute,
@@ -17,10 +18,178 @@ const {
 
 const REPRESENTATIVE_ROUTES = ['ch1-2-3', 'ch1-5-3', 'ch2-1-1', 'ch2-5-2', 'ch3-3-1', 'ch3-6-2'];
 const LEGACY_UI_TEXT_PATTERN = /\b(Simulation lab|Legacy scene|fallback|body\/force|generic handle|undefined)\b/i;
+const FILE_INDEX_URL = `file:///${INDEX_FILE.replace(/\\/g, '/')}`;
 
 function indexScriptOrder() {
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   return [...html.matchAll(/<script src="([^"]+)"/g)].map(match => match[1]);
+}
+
+async function openContentRoute(page, route) {
+  await page.goto(`${FILE_INDEX_URL}#${route}`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(expected => window.location.hash.replace('#', '') === expected, route);
+  await page.waitForSelector('.content-area');
+  await page.waitForTimeout(90);
+}
+
+async function layoutMetrics(page) {
+  return page.evaluate(() => {
+    const rect = selector => {
+      const node = document.querySelector(selector);
+      if (!node) return null;
+      const box = node.getBoundingClientRect();
+      return {
+        left: box.left,
+        right: box.right,
+        top: box.top,
+        bottom: box.bottom,
+        width: box.width,
+        height: box.height,
+      };
+    };
+    return {
+      viewport: document.documentElement.clientWidth,
+      pageOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      content: rect('.content-area'),
+      sim: rect('.content-area .sim-container.sim-lab'),
+      topbar: rect('.topbar'),
+    };
+  });
+}
+
+async function inspectorLayoutMetrics(page) {
+  return page.locator('.sim-container.sim-lab').first().evaluate(lab => {
+    const labBox = lab.getBoundingClientRect();
+    const rect = selector => {
+      const node = lab.querySelector(selector);
+      if (!node) return null;
+      const box = node.getBoundingClientRect();
+      return {
+        left: box.left,
+        right: box.right,
+        top: box.top,
+        bottom: box.bottom,
+        width: box.width,
+        height: box.height,
+      };
+    };
+    const visible = selector => {
+      const node = lab.querySelector(selector);
+      if (!node) return false;
+      const style = getComputedStyle(node);
+      const box = node.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden' && box.width > 1 && box.height > 1;
+    };
+    return {
+      viewport: document.documentElement.clientWidth,
+      pageOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      lab: {
+        left: labBox.left,
+        right: labBox.right,
+        top: labBox.top,
+        bottom: labBox.bottom,
+        width: labBox.width,
+        height: labBox.height,
+      },
+      scene: rect('.sim-lab-scene'),
+      readouts: rect('.sim-readout-grid'),
+      controls: rect('.sim-controls'),
+      formula: rect('.sim-formula-panel'),
+      hint: rect('.sim-lab-hint'),
+      canvasRect: rect('.sim-lab-scene canvas'),
+      visible: {
+        readouts: visible('.sim-readout-grid'),
+        controls: visible('.sim-controls'),
+        formula: visible('.sim-formula-panel'),
+        hint: visible('.sim-lab-hint'),
+      },
+      canvas: (() => {
+        const canvas = lab.querySelector('.sim-lab-scene canvas');
+        return canvas ? { width: canvas.width, height: canvas.height } : null;
+      })(),
+      styles: {
+        display: getComputedStyle(lab).display,
+        gridTemplateColumns: getComputedStyle(lab).gridTemplateColumns,
+      },
+    };
+  });
+}
+
+async function readoutLayoutMetrics(page) {
+  return page.locator('.sim-container.sim-lab').first().evaluate(lab => {
+    const rectOf = node => {
+      if (!node) return null;
+      const box = node.getBoundingClientRect();
+      return {
+        left: box.left,
+        right: box.right,
+        top: box.top,
+        bottom: box.bottom,
+        width: box.width,
+        height: box.height,
+      };
+    };
+    const grid = lab.querySelector('.sim-readout-grid');
+    const cards = [...lab.querySelectorAll('.sim-readout-card')];
+    const firstCard = cards[0];
+    const label = firstCard?.querySelector('.sim-readout-label');
+    const value = firstCard?.querySelector('.sim-readout-value');
+    const first = {
+      card: rectOf(firstCard),
+      label: rectOf(label),
+      value: rectOf(value),
+    };
+    const overflowFor = node => node ? Math.max(0, node.scrollWidth - node.clientWidth) : 0;
+    const wrapsText = node => {
+      if (!node) return false;
+      const style = getComputedStyle(node);
+      const lineHeight = parseFloat(style.lineHeight);
+      if (!Number.isFinite(lineHeight) || lineHeight <= 0) return false;
+      return node.getBoundingClientRect().height > lineHeight * 1.45;
+    };
+    return {
+      viewport: document.documentElement.clientWidth,
+      pageOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      labOverflow: overflowFor(lab),
+      gridOverflow: overflowFor(grid),
+      maxCardOverflow: Math.max(0, ...cards.map(overflowFor)),
+      wrappedTextCount: cards.reduce((total, card) => {
+        const labelNode = card.querySelector('.sim-readout-label');
+        const valueNode = card.querySelector('.sim-readout-value');
+        return total + (wrapsText(labelNode) || wrapsText(valueNode) ? 1 : 0);
+      }, 0),
+      grid: rectOf(grid),
+      first,
+      cardHeights: cards.map(card => card.getBoundingClientRect().height),
+      styles: {
+        cardDisplay: firstCard ? getComputedStyle(firstCard).display : '',
+        gridTemplateColumns: firstCard ? getComputedStyle(firstCard).gridTemplateColumns : '',
+      },
+    };
+  });
+}
+
+async function topbarOverlaps(page) {
+  return page.locator('.topbar').evaluate(topbar => {
+    const visibleChildren = [...topbar.children].filter(child => {
+      const style = getComputedStyle(child);
+      const box = child.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden' && box.width > 1 && box.height > 1;
+    });
+    const overlaps = [];
+    for (let i = 0; i < visibleChildren.length; i += 1) {
+      for (let j = i + 1; j < visibleChildren.length; j += 1) {
+        const a = visibleChildren[i].getBoundingClientRect();
+        const b = visibleChildren[j].getBoundingClientRect();
+        const horizontal = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+        const vertical = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+        if (horizontal > 1 && vertical > 1) {
+          overlaps.push(`${visibleChildren[i].className || visibleChildren[i].tagName}/${visibleChildren[j].className || visibleChildren[j].tagName}`);
+        }
+      }
+    }
+    return overlaps;
+  });
 }
 
 test('manifest lists the canonical 58 DeCuong-style simulation routes @route-mount', async () => {
@@ -168,6 +337,153 @@ for (const width of [375, 768, 1280]) {
     }
   });
 }
+
+test('reading pages keep the narrow content measure without page overflow @responsive', async ({ page }) => {
+  for (const viewport of [
+    { width: 1366, height: 768, route: 'ch3-7-3' },
+    { width: 768, height: 812, route: 'ch3-7-3' },
+    { width: 390, height: 844, route: 'ch3-7-3' },
+  ]) {
+    await page.setViewportSize(viewport);
+    await openContentRoute(page, viewport.route);
+    const metrics = await layoutMetrics(page);
+    expect(metrics.pageOverflow, `${viewport.route} page overflow at ${viewport.width}px`).toBeLessThanOrEqual(1);
+    expect(metrics.content.width, `${viewport.route} content width at ${viewport.width}px`).toBeLessThanOrEqual(940);
+    expect(metrics.sim, `${viewport.route} should not mount a simulation lab`).toBeNull();
+  }
+});
+
+test('simulation pages use scoped wide layout without page overflow @responsive', async ({ page }) => {
+  for (const route of ['ch1-2-3', 'ch2-5-2', 'ch3-6-2']) {
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await openRoute(page, route);
+    const desktop = await layoutMetrics(page);
+    expect(desktop.pageOverflow, `${route} page overflow at 1366px`).toBeLessThanOrEqual(1);
+    expect(desktop.content.width, `${route} reading shell width at 1366px`).toBeLessThanOrEqual(940);
+    expect(desktop.sim.width, `${route} sim should be wider than reading content at 1366px`).toBeGreaterThan(desktop.content.width + 80);
+    expect(desktop.sim.right, `${route} sim right edge at 1366px`).toBeLessThanOrEqual(desktop.viewport + 1);
+    expect(desktop.sim.left, `${route} sim left edge at 1366px`).toBeGreaterThanOrEqual(0);
+
+    await page.setViewportSize({ width: 768, height: 812 });
+    await page.waitForTimeout(360);
+    const tablet = await layoutMetrics(page);
+    expect(tablet.pageOverflow, `${route} page overflow at 768px`).toBeLessThanOrEqual(1);
+    expect(tablet.sim.width, `${route} sim should gain horizontal room at 768px`).toBeGreaterThan(tablet.content.width);
+    expect(tablet.sim.width, `${route} sim width at 768px`).toBeLessThanOrEqual(tablet.viewport);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.waitForTimeout(360);
+    const mobile = await layoutMetrics(page);
+    expect(mobile.pageOverflow, `${route} page overflow at 390px`).toBeLessThanOrEqual(1);
+    expect(mobile.sim.width, `${route} sim width at 390px`).toBeLessThanOrEqual(mobile.viewport);
+  }
+});
+
+test('right inspector places readouts controls formula and hint beside scene on wide screens @responsive', async ({ page }) => {
+  for (const viewport of [
+    { width: 1366, height: 768 },
+    { width: 1024, height: 768 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await openRoute(page, 'ch2-5-2');
+    const metrics = await inspectorLayoutMetrics(page);
+    expect(metrics.pageOverflow, `page overflow at ${viewport.width}px`).toBeLessThanOrEqual(1);
+    expect(metrics.canvas, `canvas logical size at ${viewport.width}px`).toEqual({ width: 760, height: 440 });
+    expect(metrics.scene, `scene exists at ${viewport.width}px`).toBeTruthy();
+    expect(metrics.canvasRect.width / metrics.canvasRect.height, `rendered canvas aspect at ${viewport.width}px`).toBeCloseTo(760 / 440, 1);
+    expect(metrics.canvasRect.right, `canvas should stay inside scene horizontally at ${viewport.width}px`).toBeLessThanOrEqual(metrics.scene.right + 1);
+    expect(metrics.canvasRect.bottom, `canvas should stay inside scene vertically at ${viewport.width}px`).toBeLessThanOrEqual(metrics.scene.bottom + 1);
+    expect(metrics.styles.display, `lab uses layout grid at ${viewport.width}px`).toBe('grid');
+    for (const key of ['readouts', 'controls', 'formula', 'hint']) {
+      expect(metrics.visible[key], `${key} visible at ${viewport.width}px`).toBe(true);
+      expect(metrics[key].left, `${key} should be right of scene at ${viewport.width}px`).toBeGreaterThanOrEqual(metrics.scene.right - 2);
+      expect(metrics[key].right, `${key} should stay within lab at ${viewport.width}px`).toBeLessThanOrEqual(metrics.lab.right + 1);
+    }
+  }
+});
+
+test('right inspector falls back to stacked mobile layout without overflow @responsive', async ({ page }) => {
+  for (const viewport of [
+    { width: 768, height: 900 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await openRoute(page, 'ch3-6-2');
+    const metrics = await inspectorLayoutMetrics(page);
+    expect(metrics.pageOverflow, `page overflow at ${viewport.width}px`).toBeLessThanOrEqual(1);
+    expect(metrics.canvas, `canvas logical size at ${viewport.width}px`).toEqual({ width: 760, height: 440 });
+    expect(metrics.canvasRect.width / metrics.canvasRect.height, `rendered canvas aspect at ${viewport.width}px`).toBeCloseTo(760 / 440, 1);
+    expect(metrics.canvasRect.right, `canvas should stay inside scene horizontally at ${viewport.width}px`).toBeLessThanOrEqual(metrics.scene.right + 1);
+    expect(metrics.canvasRect.bottom, `canvas should stay inside scene vertically at ${viewport.width}px`).toBeLessThanOrEqual(metrics.scene.bottom + 1);
+    for (const key of ['readouts', 'controls', 'formula', 'hint']) {
+      expect(metrics.visible[key], `${key} visible at ${viewport.width}px`).toBe(true);
+      expect(metrics[key].top, `${key} should stack below scene at ${viewport.width}px`).toBeGreaterThan(metrics.scene.bottom - 2);
+      expect(metrics[key].right, `${key} should stay inside lab at ${viewport.width}px`).toBeLessThanOrEqual(metrics.lab.right + 1);
+    }
+  }
+});
+
+test.describe('compact readout cards @compact-readout', () => {
+  test('short desktop readout cards use compact one-row density', async ({ page }) => {
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await openRoute(page, 'ch1-1-3');
+    const metrics = await readoutLayoutMetrics(page);
+    expect(metrics.first.card, 'first readout card should exist').toBeTruthy();
+    expect(metrics.first.label, 'first readout label should exist').toBeTruthy();
+    expect(metrics.first.value, 'first readout value should exist').toBeTruthy();
+    expect(metrics.styles.cardDisplay, 'card should use grid for label/value alignment').toBe('grid');
+    expect(metrics.first.card.height, 'short readout card height should be compact').toBeLessThanOrEqual(52);
+
+    const labelMid = (metrics.first.label.top + metrics.first.label.bottom) / 2;
+    const valueMid = (metrics.first.value.top + metrics.first.value.bottom) / 2;
+    expect(Math.abs(labelMid - valueMid), 'label/value vertical centers should align').toBeLessThanOrEqual(5);
+    expect(metrics.first.value.left, 'value should sit to the right of the label on desktop').toBeGreaterThanOrEqual(metrics.first.label.right - 1);
+    expect(metrics.pageOverflow, 'page overflow at desktop').toBeLessThanOrEqual(1);
+    expect(metrics.labOverflow, 'lab overflow at desktop').toBeLessThanOrEqual(1);
+    expect(metrics.gridOverflow, 'readout grid overflow at desktop').toBeLessThanOrEqual(1);
+    expect(metrics.maxCardOverflow, 'readout card overflow at desktop').toBeLessThanOrEqual(1);
+  });
+
+  test('long and mobile readout cards wrap without horizontal overflow', async ({ page }) => {
+    for (const viewport of [
+      { width: 1024, height: 768, route: 'ch3-6-2' },
+      { width: 768, height: 900, route: 'ch3-6-2' },
+      { width: 390, height: 844, route: 'ch2-4-3' },
+    ]) {
+      await page.setViewportSize(viewport);
+      await openRoute(page, viewport.route);
+      await page.waitForTimeout(360);
+      const metrics = await readoutLayoutMetrics(page);
+      expect(metrics.cardHeights.length, `${viewport.route} has readout cards`).toBeGreaterThanOrEqual(3);
+      expect(metrics.pageOverflow, `${viewport.route} page overflow at ${viewport.width}px`).toBeLessThanOrEqual(1);
+      expect(metrics.labOverflow, `${viewport.route} lab overflow at ${viewport.width}px`).toBeLessThanOrEqual(1);
+      expect(metrics.gridOverflow, `${viewport.route} readout grid overflow at ${viewport.width}px`).toBeLessThanOrEqual(1);
+      expect(metrics.maxCardOverflow, `${viewport.route} card overflow at ${viewport.width}px`).toBeLessThanOrEqual(1);
+      expect(metrics.first.label.height, `${viewport.route} first label visible at ${viewport.width}px`).toBeGreaterThan(8);
+      expect(metrics.first.value.height, `${viewport.route} first value visible at ${viewport.width}px`).toBeGreaterThan(10);
+      if (viewport.width <= 390) {
+        expect(metrics.wrappedTextCount, `${viewport.route} should wrap at least one narrow value instead of overflowing`).toBeGreaterThan(0);
+      }
+    }
+  });
+});
+
+test('topbar controls do not overlap on tablet and mobile widths @responsive', async ({ page }) => {
+  for (const viewport of [
+    { width: 1366, height: 768 },
+    { width: 768, height: 812 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await openContentRoute(page, 'ch1-6-2');
+    const overlaps = await topbarOverlaps(page);
+    const searchVisible = await page.locator('.topbar .search input').isVisible();
+    const themeVisible = await page.locator('#themeBtn').isVisible();
+    expect(overlaps, `topbar overlaps at ${viewport.width}px`).toEqual([]);
+    expect(searchVisible, `search remains visible at ${viewport.width}px`).toBe(true);
+    expect(themeVisible, `theme button remains visible at ${viewport.width}px`).toBe(true);
+  }
+});
 
 test('visible simulation shell text avoids legacy English UI leaks @localization', async ({ page }) => {
   test.setTimeout(120000);

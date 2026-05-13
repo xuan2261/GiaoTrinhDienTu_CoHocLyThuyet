@@ -13,7 +13,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Create measurable baseline before touching runtime code |
 | Routes | All 58, with detailed focus on 6 pilot routes |
 
@@ -84,11 +84,11 @@ SIM_ROUTE_MANIFEST
 
 ## Todo List
 
-- [ ] Generate 58-route matrix.
-- [ ] Mark pilot routes and target invariants.
-- [ ] Record current QA command results.
+- [x] Generate 58-route matrix.
+- [x] Mark pilot routes and target invariants.
+- [x] Record current QA command results.
 - [ ] Capture pilot screenshots if useful.
-- [ ] List blockers and non-blockers.
+- [x] List blockers and non-blockers.
 
 ## Verification / Tests
 

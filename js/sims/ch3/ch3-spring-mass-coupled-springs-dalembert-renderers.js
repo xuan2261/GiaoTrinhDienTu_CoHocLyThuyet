@@ -44,6 +44,15 @@ function renderCh331OdeSolver(ctx, scene, state, d) {
     P.realisticPoint(ctx, 240 + ((last.t - t0) / range) * 280, 194 - (last.x || 0) * 40, { fill: P.tone(0), radius: 4 });
     ctx.restore();
   }
+  if (state.diagnostics && (state.diagnostics.graph || state.diagnostics.error)) {
+    const values = d && d.invariant && d.invariant.values || {};
+    const kinetic = Number.isFinite(Number(values.kinetic)) ? Number(values.kinetic) : (Number(state.kinetic) || 0);
+    const potential = Number.isFinite(Number(values.potential)) ? Number(values.potential) : (Number(state.potential) || 0);
+    const energy = Number.isFinite(Number(values.energy)) ? Number(values.energy) : kinetic + potential;
+    const drift = Number.isFinite(Number(values.energyDrift)) ? Number(values.energyDrift) : 0;
+    P.barGraph(ctx, 330, 116, 150, 16, Math.min(Math.abs(drift), 1), 1, Math.abs(drift) < 0.05 ? '#198754' : '#dc3545');
+    P.domLabel(ctx, '331-energy-band', 326, 142, `E=${energy.toFixed(2)}J, drift=${drift.toExponential(1)}`, { color: P.tone(4), width: 230 });
+  }
   P.domMath(ctx, '331-state', 326, 62, `x = ${x.toFixed(3)}`, { color: P.tone(0) });
   P.domMath(ctx, '331-vel', 326, 84, `v = ${(state.v||0).toFixed(3)}`, { color: P.tone(2) });
 }

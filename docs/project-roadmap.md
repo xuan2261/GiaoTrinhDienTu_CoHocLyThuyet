@@ -29,6 +29,8 @@ Roadmap này phản ánh trạng thái hiện tại của project và các bư�
 | DeCuong CH2 relative/plane motion rebuild | Done: Phase 08 rebuilt `ch2-4-1` to `ch2-4-4` and `ch2-5-1` to `ch2-5-3` with relative-motion velocity composition, Coriolis vector invariants, plane-body velocity, instant-center distribution, KaTeX equations, and route-owned handles/readouts |
 | DeCuong CH2 exercises QA gate | Done: Phase 09 hardened `ch2-7-1` and `ch2-7-2`, 15/15 CH2 routes pass manifest/scene/renderer/runtime gates |
 | DeCuong CH3 full rebuild | Done: Phase 10-12 complete for 18/18 CH3 routes; Newton/ODE, theorem/collision, and exercise/checker routes pass strict gates and final 58-route release |
+| Promax simulation correctness pilot | Done: 6 pilot routes complete; shared shell invariant status, diagnostics toggles, local challenge mode, formula summaries, route-owned mini graph summaries for 3 high-value routes, focused diagnostic overlays, and 52 remaining routes classified only in the rollout matrix |
+| Layout simulation responsive refinement | Done: reading width preserved, simulation scoped wide on desktop/tablet, mobile contained width, topbar compact non-overlap, responsive/touch/visual/runtime/audit gates pass |
 | Route-specific simulation scene registry repair | Done: 7 scene catalogs cover 58 routes; shared professional lab route mount lazy-resolves scene configs, keeps assessment keys compatible, và QA 2026-05-07 pass với `python tools\smoke_simulation_scene_catalog.py --strict --require-routes 58`, `npm run test:sim:scene-identity`, `npm run test:sim:browser` |
 | Route unique renderer rebuild | Done: 58/58 routes có dedicated renderer function, 58 behavior contracts, manifest/checkpoint renderer links, browser structural marks, `Family dispatch: no`, `npm run test:sim:semantic` và `npm run test:sim:release` pass |
 | Route-specific simulation rebuild | Done: Hoàn tất tinh chỉnh chi tiết 58 routes (Plan 260510) với shared visual primitives mới, polish Ch1/Ch2/Ch3 và interaction hardening 100% |
@@ -53,6 +55,7 @@ Roadmap này phản ánh trạng thái hiện tại của project và các bư�
 | P7 | Done | Route-specific simulation rebuild | Polish chi tiết 58 routes, shared visual primitives, interaction hardening, release pass |
 | P8 | Done | Ch1 DeCuong interaction upgrade | 25 Ch1 routes có route-owned physical handles, QA tool prefix gates, docs/runtime architecture synced |
 | P9 | Done | DeCuong simulation full rebuild | Phase 00-12 complete; final review fixes landed for `ch2-1-3`, `ch2-5-3`, `ch2-7-2`, and CH2 checker labels; final 58-route release gate pass |
+| P10 | Done | Promax simulation correctness pilot | 6-route invariant/challenge shell, diagnostic overlays, route-owned mini graph summaries, targeted unit/browser gates, and 52 remaining routes classified only in the rollout matrix |
 
 ## P2 breakdown
 
@@ -82,6 +85,7 @@ Roadmap này phản ánh trạng thái hiện tại của project và các bư�
 | QA checklist rõ hơn | Giảm rủi ro khi regenerate từ DOCX |
 | Chuẩn hóa release package | Dễ copy sang USB hoặc static hosting |
 | Simulation delta routes | Chỉ thêm route mới khi DOCX hoặc scenario thật sự phát sinh |
+| Promax rollout | Mở rộng invariant/readout/diagnostic theo family sau pilot, không mass rewrite 52 routes |
 
 ## Success metrics
 

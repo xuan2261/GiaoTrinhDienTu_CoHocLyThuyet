@@ -142,7 +142,7 @@ function createSimContainer(hostEl, title, width, height) {
   wrap.appendChild(info);
   hostEl.appendChild(wrap);
   if (scope) scope.trackMount(wrap);
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
   // Make responsive
   const resizeCanvas = () => {
     const parentW = Math.max(0, wrap.clientWidth - 32);

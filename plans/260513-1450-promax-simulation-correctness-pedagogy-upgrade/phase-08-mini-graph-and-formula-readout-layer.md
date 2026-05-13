@@ -10,7 +10,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Add compact visual explanation tools without heavy dependency |
 | Scope | Pilot routes first |
 
@@ -94,12 +94,12 @@ route behavior
 
 ## Todo List
 
-- [ ] Create formula readout helper.
-- [ ] Create mini graph helper.
-- [ ] Integrate `ch2-1-2`.
-- [ ] Integrate `ch3-3-1`.
-- [ ] Integrate `ch3-6-2`.
-- [ ] Add visual/a11y tests.
+- [x] Create formula readout helper.
+- [x] Create mini graph helper.
+- [x] Integrate pilot formula summaries.
+- [x] Integrate route-owned mini graphs in `ch2-1-2`.
+- [x] Integrate route-owned mini graphs in `ch3-3-1` / `ch3-6-2`.
+- [x] Add visual/a11y graph tests.
 
 ## Verification / Tests
 
@@ -146,4 +146,4 @@ Manual checks:
 
 ## Unresolved Questions
 
-- If custom graph is inadequate, decide whether a local chart library is worth it. Default: no.
+- None.

@@ -13,7 +13,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Release-quality verification, docs sync, implementation handoff |
 | Scope | Pilot implementation plus rollout docs |
 
@@ -83,12 +83,12 @@ Implementation output
 
 ## Todo List
 
-- [ ] Run full release gate.
-- [ ] Run all promax-specific tests.
-- [ ] Update architecture/design docs.
-- [ ] Update roadmap/changelog.
-- [ ] Write final report.
-- [ ] List unresolved questions.
+- [x] Run full release gate.
+- [x] Run all promax-specific tests.
+- [x] Update architecture/design docs.
+- [x] Update roadmap/changelog.
+- [x] Write final report.
+- [x] List unresolved questions.
 
 ## Verification / Tests
 

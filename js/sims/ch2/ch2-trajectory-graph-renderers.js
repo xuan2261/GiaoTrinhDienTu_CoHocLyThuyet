@@ -110,12 +110,25 @@ function drawGraph(ctx, x, y, w, h, label, tone, t) {
   P.point(ctx, cx, zero - graphValue(label, t), P.tone(tone), label);
 }
 
-function renderCh212MotionGraphs(ctx, scene, state) {
+function renderCh212MotionGraphs(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Đồ thị x(t), v(t), a(t) có con trỏ kéo', P.tone(3));
   const t = state.t || 0;
   drawGraph(ctx, 56, 86, 290, 88, 'x', 0, t);
   drawGraph(ctx, 398, 86, 290, 88, 'v', 1, t);
   drawGraph(ctx, 56, 238, 290, 88, 'a', 2, t);
+  if (state.diagnostics && (state.diagnostics.graph || state.diagnostics.components)) {
+    const values = d && d.invariant && d.invariant.values || {};
+    const cx = 56 + ((t % (Math.PI * 2)) / (Math.PI * 2)) * 290;
+    const xVal = Number.isFinite(Number(values.x)) ? Number(values.x) : (state.xVal || 0);
+    const vVal = Number.isFinite(Number(values.v)) ? Number(values.v) : (state.vVal || 0);
+    const aVal = Number.isFinite(Number(values.a)) ? Number(values.a) : (state.aVal || 0);
+    const cy = 130 - xVal;
+    const slope = vVal / 54;
+    P.dashedLine(ctx, cx - 48, cy + slope * 48, cx + 48, cy - slope * 48, P.tone(4));
+    P.domLabel(ctx, 'graph-diagnostic', 420, 328,
+      `tangent: v=${vVal.toFixed(1)}, a=${aVal.toFixed(1)}`,
+      { color: P.tone(4), width: 250 });
+  }
   P.domMath(ctx, 'graph-katex', 420, 258, 'v=\\dot{x},\\quad a=\\ddot{x}', { color: P.tone(3) });
   P.domLabel(ctx, 'graph-values', 420, 302,
     `x=${(state.xVal || 0).toFixed(1)} | v=${(state.vVal || 0).toFixed(1)} | a=${(state.aVal || 0).toFixed(1)}`,

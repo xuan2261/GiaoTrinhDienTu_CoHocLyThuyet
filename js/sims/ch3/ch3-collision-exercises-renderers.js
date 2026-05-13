@@ -36,6 +36,21 @@ function renderCh362Collision2D(ctx, scene, state, d) {
     ctx.restore();
   }
 
+  if (state.diagnostics && (state.diagnostics.error || state.diagnostics.graph)) {
+    const values = d && d.invariant && d.invariant.values || {};
+    const graph = window.SimPromaxMiniGraph && window.SimPromaxMiniGraph.buildBeforeAfterSummary ?
+      window.SimPromaxMiniGraph.buildBeforeAfterSummary({
+        label: 'p',
+        before: values.momentumBefore,
+        after: values.momentumAfter,
+        residual: d && d.invariant && d.invariant.residual
+      }) :
+      null;
+    if (graph && window.SimPromaxMiniGraph.drawBars) {
+      window.SimPromaxMiniGraph.drawBars(ctx, 376, 104, 150, 34, graph);
+      P.domLabel(ctx, '362-momentum-residual', 376, 144, graph.summary, { color: P.tone(4), width: 240 });
+    }
+  }
   P.domMath(ctx, '362-restitution', 376, 58, `e = ${(state.e||1).toFixed(2)}`, { color: P.tone(4) });
   P.domLabel(ctx, '362-p-cons', 60, 294, `Bảo toàn động lượng`, { color: P.tone(6) });
 }

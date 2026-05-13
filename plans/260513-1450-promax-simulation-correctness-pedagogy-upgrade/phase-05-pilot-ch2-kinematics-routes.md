@@ -10,7 +10,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Upgrade Ch2 pilot routes for derivative/instant-center correctness |
 | Routes | `ch2-1-2`, `ch2-5-2` |
 
@@ -77,12 +77,12 @@ ch2 route state
 
 ## Todo List
 
-- [ ] Upgrade `ch2-1-2` canonical derivative chain.
-- [ ] Add graph diagnostics.
-- [ ] Upgrade `ch2-5-2` IC invariant.
-- [ ] Add IC diagnostics.
-- [ ] Add unit and browser tests.
-- [ ] Record matrix updates.
+- [x] Upgrade `ch2-1-2` invariant chain evaluator.
+- [x] Add graph renderer diagnostics.
+- [x] Upgrade `ch2-5-2` IC invariant evaluator.
+- [x] Add IC renderer diagnostics.
+- [x] Add unit and browser tests.
+- [x] Record matrix updates.
 
 ## Verification / Tests
 

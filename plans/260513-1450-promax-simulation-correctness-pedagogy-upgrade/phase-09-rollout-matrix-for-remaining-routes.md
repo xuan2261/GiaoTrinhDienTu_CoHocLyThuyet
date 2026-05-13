@@ -12,7 +12,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Decide safe rollout strategy after pilot evidence |
 | Routes | Remaining 52 routes |
 
@@ -88,11 +88,11 @@ Pilot evidence
 
 ## Todo List
 
-- [ ] Update baseline matrix.
-- [ ] Create rollout family taxonomy.
-- [ ] Add test plan per family.
-- [ ] Estimate effort/risk.
-- [ ] Recommend next execution path.
+- [x] Update baseline matrix.
+- [x] Create rollout family taxonomy.
+- [x] Add test plan per family.
+- [x] Estimate effort/risk.
+- [x] Recommend next execution path.
 
 ## Verification / Tests
 

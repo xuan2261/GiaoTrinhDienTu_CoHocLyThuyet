@@ -11,7 +11,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Turn invariant knowledge into learner-facing tasks |
 | Routes | 6 pilot routes |
 
@@ -91,12 +91,12 @@ SimProfessionalLab
 
 ## Todo List
 
-- [ ] Create challenge module.
-- [ ] Add 6 pilot challenge specs.
-- [ ] Add mode selector UI.
-- [ ] Add live feedback.
-- [ ] Add unit tests.
-- [ ] Add browser tests.
+- [x] Create challenge module.
+- [x] Add 6 pilot challenge specs.
+- [x] Add mode selector UI.
+- [x] Add live feedback.
+- [x] Add unit tests.
+- [x] Add browser tests.
 
 ## Verification / Tests
 

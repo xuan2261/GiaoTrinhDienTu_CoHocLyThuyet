@@ -76,6 +76,17 @@ function renderCh252InstantCenter(ctx, scene, state, d) {
 
   const vB = state.vB || { vx: -omega * (by - icY), vy: omega * (bx - icX) };
   arrowFromVector(ctx, { x: bx, y: by }, vB, 0.38, P.tone(2), 'v_B');
+  if (state.diagnostics && (state.diagnostics.components || state.diagnostics.error)) {
+    const values = d && d.invariant && d.invariant.values || {};
+    const radius = Math.hypot(bx - icX, by - icY);
+    const perp = Number.isFinite(Number(values.perpendicularResidual))
+      ? Number(values.perpendicularResidual)
+      : Math.abs((bx - icX) * (vB.vx || 0) + (by - icY) * (vB.vy || 0));
+    P.dimension(ctx, icX, icY, bx, by, P.tone(2), `r=${radius.toFixed(0)}`);
+    P.domLabel(ctx, 'ic-diagnostic', 376, 104,
+      `vuông góc residual=${perp.toExponential(1)}`,
+      { color: perp < 1e-6 ? P.tone(2) : '#dc3545', width: 240 });
+  }
   P.domMath(ctx, 'ic-eq', 376, 58, `\\vec{v}_B=\\vec{\\omega}\\times\\overrightarrow{IB}`, { color: P.tone(3) });
   P.domMath(ctx, 'ic-vb', 376, 80, `I(${icX.toFixed(0)},${icY.toFixed(0)});\\ |v_B|=${mag(vB).toFixed(1)}`, { color: P.tone(2) });
 }

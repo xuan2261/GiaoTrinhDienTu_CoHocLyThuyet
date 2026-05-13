@@ -10,7 +10,7 @@
 | Field | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Upgrade Ch3 pilot routes for ODE/energy/collision correctness |
 | Routes | `ch3-3-1`, `ch3-6-2` |
 
@@ -81,12 +81,12 @@ SimPhysicsDynamics
 
 ## Todo List
 
-- [ ] Upgrade spring invariant/readout.
-- [ ] Upgrade spring diagnostics.
-- [ ] Upgrade collision invariant/readout.
-- [ ] Upgrade collision diagnostics.
-- [ ] Add dynamic edge-case tests.
-- [ ] Run full pilot gate.
+- [x] Upgrade spring invariant/readout shell.
+- [x] Upgrade spring renderer diagnostics.
+- [x] Upgrade collision invariant/readout shell.
+- [x] Upgrade collision renderer diagnostics.
+- [x] Add dynamic edge-case tests.
+- [x] Run pilot shell gate.
 
 ## Verification / Tests
 

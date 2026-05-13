@@ -1,6 +1,6 @@
 # Codebase Summary
 
-Snapshot này dựa trên scout trực tiếp runtime, toolchain, và docs hiện có (refreshed 2026-05-12 cho DeCuong simulation full rebuild Phase 12).
+Snapshot này dựa trên scout trực tiếp runtime, toolchain, docs hiện có, và repomix refresh ngày 2026-05-13.
 
 ## Snapshot
 
@@ -10,11 +10,12 @@ Snapshot này dựa trên scout trực tiếp runtime, toolchain, và docs hiệ
 | Main subject | Cơ Học Lý Thuyết |
 | Input chuẩn | `CoHocLyThuyet_Full_New.docx` |
 | Runtime/source files chính | `index.html`, `js/`, `chapters/`, `data/`, `tools/` |
-| QA harness | `package.json` dev-only scripts + current simulation QA gates: unit, quality, semantic, visual-quality, browser, release, scene-identity, renderer-contract, runtime smoke |
+| QA harness | `package.json` dev-only scripts + current simulation QA gates: unit, quality, audit, disposal, semantic, visual-quality, browser, release, scene-identity, renderer-contract, runtime smoke |
 | Simulation route contracts | `js/sim-scene-registry.js`, `js/sim-route-renderer-registry.js`, `js/sim-route-behavior-registry.js`, 58 route renderers under `js/sims/ch*/` |
 | Simulation files | 65 active JS files scanned by `audit_simulation_quality.py`; Ch1 route files stay under 220 lines |
-| Shared-first simulation UX | `.sim-lab` shell with 760×440 canvas, chapter accents, 44px touch controls, semantic readout cards, DeCuong render helpers, and ARIA-backed hint/status/canvas wiring |
-| DeCuong rebuild progress | Phase 00 through Phase 12 complete; 58/58 rebuilt routes pass final release gate, including final review fixes for `ch2-1-3`, `ch2-5-3`, `ch2-7-2`, localized CH2 checker labels, CH2 exercise/checkers `ch2-7-1`/`ch2-7-2`, and CH3 Newton/ODE, theorem/collision, and exercise/checker routes; final browser QA is 163/163 and visual-quality is 4/4 |
+| Shared-first simulation UX | `.sim-lab` shell with 760×440 canvas, chapter accents, 44px touch controls, semantic readout cards, wide right-inspector stack on desktop/tablet, stacked mobile fallback, DeCuong render helpers, and ARIA-backed hint/status/canvas wiring |
+| Promax pilot scope | 6 routes keep hidden invariant metadata for QA; extra diagnostics, formula readouts, mini graph summaries, and challenge controls are no longer shown to learners |
+| DeCuong rebuild progress | Phase 00 through Phase 12 complete; 58/58 rebuilt routes pass final release gate, including final review fixes for `ch2-1-3`, `ch2-5-3`, `ch2-7-2`, localized CH2 checker labels, CH2 exercise/checkers `ch2-7-1`/`ch2-7-2`, and CH3 Newton/ODE, theorem/collision, and exercise/checker routes; final browser QA is 178/178 and visual-quality is 4/4 |
 | Generated/runtime assets lớn | `images/`, `equation-review.html`, `js/pages.js` |
 | Large generated artifacts | `equation-review.html`, `js/pages.js`, `tools/equation_report.json` |
 
