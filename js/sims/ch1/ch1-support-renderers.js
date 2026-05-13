@@ -37,13 +37,6 @@ function handle(ctx, x, y, color) {
   if (R.drawDragHandle) R.drawDragHandle(ctx, x, y, color);
   else P.point(ctx, x, y, color);
 }
-function trail(state, point, max) {
-  state.trail = Array.isArray(state.trail) ? state.trail : [];
-  const last = state.trail[state.trail.length - 1];
-  if (!last || Math.hypot(last.x - point.x, last.y - point.y) > 2) state.trail.push({ x: point.x, y: point.y });
-  if (state.trail.length > (max || 30)) state.trail.splice(0, state.trail.length - (max || 30));
-  return state.trail;
-}
 function groundHatch(ctx, x1, y, x2) {
   ctx.save();
   ctx.strokeStyle = P.isDarkTheme() ? 'rgba(255,255,255,.2)' : 'rgba(0,0,0,.22)';
@@ -80,7 +73,6 @@ function renderCh131SmoothSupportNormal(ctx, scene, state, d) {
   const p = state.primary || { x: 360, y: 258 };
   const a = -Number(d.alpha || 20) * Math.PI / 180, tx = Math.cos(a), ty = Math.sin(a), nx = ty, ny = -tx;
   base(ctx, scene, 'Liên kết tựa: phản lực vuông góc mặt tựa', P.tone(2));
-  if (R.drawTrail) R.drawTrail(ctx, trail(state, p), 'rgba(39,174,96,.24)', 30);
   P.realisticGround(ctx, 84, 305, 602, { material: 'concrete' });
   P.dashedLine(ctx, p.x - 210 * tx, p.y - 210 * ty, p.x + 210 * tx, p.y + 210 * ty, P.tone(6));
   P.realisticBody(ctx, p.x - 42, p.y - 72, 92, 48, 'vật', { material: 'metal', radius: 7, stroke: P.tone(1) });
@@ -93,7 +85,6 @@ function renderCh131SmoothSupportNormal(ctx, scene, state, d) {
 function renderCh132CableTension(ctx, scene, state, d) {
   const anchor = { x: 120, y: 76 }, load = state.primary || { x: 430, y: 238 };
   base(ctx, scene, 'Dây mềm: phản lực dọc theo trục dây', P.tone(5));
-  if (R.drawTrail) R.drawTrail(ctx, trail(state, load), 'rgba(13,202,240,.24)', 30);
   P.realisticGround(ctx, 88, 52, 152, { material: 'concrete', height: 170 });
   P.realisticPoint(ctx, anchor.x, anchor.y, { text: 'A', fill: P.tone(4) });
   P.cable(ctx, anchor.x, anchor.y, load.x, load.y, { sag: 4, color: P.tone(5), lineWidth: 3 });
@@ -107,7 +98,6 @@ function renderCh132CableTension(ctx, scene, state, d) {
 function renderCh133HingeReactionComponents(ctx, scene, state, d) {
   const p = state.primary || { x: 340, y: 188 };
   base(ctx, scene, 'Bản lề: hai thành phần phản lực', P.tone(4));
-  if (R.drawTrail) R.drawTrail(ctx, trail(state, p), 'rgba(220,53,69,.22)', 30);
   groundHatch(ctx, 82, 260, 250);
   P.supportTriangle(ctx, 150, 226, 14, P.tone(4));
   P.realisticPoint(ctx, 150, 226, { text: 'A', fill: P.tone(4) });
@@ -123,7 +113,6 @@ function renderCh133HingeReactionComponents(ctx, scene, state, d) {
 function renderCh134RollerPinBuilder(ctx, scene, state, d) {
   const p = state.primary || { x: 380, y: 150 };
   base(ctx, scene, 'Gối cố định - gối di động: cân bằng dầm', P.tone(6));
-  if (R.drawTrail) R.drawTrail(ctx, trail(state, p), 'rgba(231,76,60,.24)', 30);
   beamBody(ctx); groundHatch(ctx, 90, beam.y + 52, 670);
   P.supportTriangle(ctx, beam.ax, beam.y + 11, 12, P.tone(1)); roller(ctx, beam.bx, beam.y + 11);
   label(ctx, 'A', beam.ax - 20, beam.y + 42, P.tone(1)); label(ctx, 'B', beam.bx + 14, beam.y + 42, P.tone(3));
@@ -141,7 +130,6 @@ function renderCh134RollerPinBuilder(ctx, scene, state, d) {
 function renderCh136FixedSupport(ctx, scene, state, d) {
   const p = state.primary || { x: 420, y: 128 };
   base(ctx, scene, 'Ngàm: phản lực lực và mô men', P.tone(6));
-  if (R.drawTrail) R.drawTrail(ctx, trail(state, p), 'rgba(201,150,58,.25)', 30);
   fixedWall(ctx, 110, 100, 292);
   P.realisticBeam(ctx, 110, 192, 430, 192, { material: 'metal', height: 32 });
   arrow(ctx, 110, 192, 166, 150, P.tone(1), 'R_x');
@@ -157,7 +145,6 @@ function renderCh137TwoForceMember(ctx, scene, state, d) {
   const b = state.primary || { x: 410, y: 118 }, a = { x: 142, y: 248 };
   const ux = (b.x - a.x) / (Math.hypot(b.x - a.x, b.y - a.y) || 1), uy = (b.y - a.y) / (Math.hypot(b.x - a.x, b.y - a.y) || 1);
   base(ctx, scene, 'Thanh hai lực: phản lực cùng đường tác dụng', P.tone(2));
-  if (R.drawTrail) R.drawTrail(ctx, trail(state, b), 'rgba(39,174,96,.24)', 30);
   P.realisticBeam(ctx, a.x, a.y, b.x, b.y, { material: 'metal', height: 14 });
   P.realisticPoint(ctx, a.x, a.y, { text: 'A', fill: P.tone(4) });
   P.realisticPoint(ctx, b.x, b.y, { text: 'B', fill: P.tone(4) });

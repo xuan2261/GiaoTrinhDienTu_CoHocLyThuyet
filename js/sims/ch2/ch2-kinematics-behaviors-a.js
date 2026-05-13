@@ -31,7 +31,6 @@ function syncParticleState(state, mode, omega) {
   state.anx = state.ax - state.atx;
   state.any = state.ay - state.aty;
   state.primary = { x: state.currentX, y: state.currentY };
-  pushTrail(state, state.primary);
 }
 
 function setCircularState(state, t, omega) {
@@ -71,21 +70,6 @@ function radiusOfCurvature(vx, vy, ax, ay) {
   return cross > 1e-9 ? speed * speed * speed / cross : Infinity;
 }
 
-function pushTrail(state, point) {
-  state.trail = Array.isArray(state.trail) ? state.trail : [];
-  const last = state.trail[state.trail.length - 1];
-  if (!last || Math.hypot(last.x - point.x, last.y - point.y) > 2) state.trail.push({ x: point.x, y: point.y });
-  if (state.trail.length > 30) state.trail.splice(0, state.trail.length - 30);
-}
-
-function pushNamedTrail(state, key, point) {
-  state[key] = Array.isArray(state[key]) ? state[key] : [];
-  const trail = state[key];
-  const last = trail[trail.length - 1];
-  if (!last || Math.hypot(last.x - point.x, last.y - point.y) > 2) trail.push({ x: point.x, y: point.y });
-  if (trail.length > 30) trail.splice(0, trail.length - 30);
-}
-
 function updateGraphState(state) {
   const t = state.t || 0;
   state.xVal = 54 * Math.sin(t);
@@ -111,14 +95,11 @@ function updateStateFromSlider(scene, state, key, value) {
     state._t = 0;
     state.px = 266 + state.r * Math.cos(state.theta || 0);
     state.py = 178 - state.r * Math.sin(state.theta || 0);
-    state.trail = [];
   } else if (routeId === 'ch2-3-2') {
     state.r1 = Math.max(28, Math.min(80, Number(state.r1) || 50));
     state.r2 = 90;
     state.omega2 = (state.omega || 1.5) * state.r1 / state.r2;
     state.transmission = state.omega2;
-    state.trail1 = [];
-    state.trail2 = [];
   }
 }
 
@@ -141,7 +122,6 @@ registry.registerMany({
       const omega = state.omega || 1.5;
       state.t = ((state.t || 0) + omega * 0.08 * dt) % (Math.PI * 2);
       updateGraphState(state);
-      pushTrail(state, { x: state.cursorX, y: state.cursorY });
     }
   },
   'ch2-1-3': {
@@ -159,7 +139,6 @@ registry.registerMany({
       state.vy = r * omega * Math.cos(state.t);
       const v = Math.hypot(state.vx, state.vy);
       state.an = v * v / r; state.at = 0; state.rho = r;
-      pushTrail(state, { x: state.px, y: state.py });
     }
   },
   'ch2-1-4': {
@@ -187,7 +166,6 @@ registry.registerMany({
       state.r = 92;
       state.px = 266 + state.r * Math.cos(state.theta);
       state.py = 178 - state.r * Math.sin(state.theta);
-      pushTrail(state, { x: state.px, y: state.py });
     }
   },
   'ch2-3-2': {
@@ -201,8 +179,6 @@ registry.registerMany({
       state.omega2 = (state.omega || 1.5) * r1 / r2;
       state.transmission = state.omega2;
       state.phi2 = ((state.phi2 || 0) + state.omega2 * dt) % (2 * Math.PI);
-      pushNamedTrail(state, 'trail1', { x: 190 + r1 * Math.cos(state.phi1), y: 174 - r1 * Math.sin(state.phi1) });
-      pushNamedTrail(state, 'trail2', { x: 370 + r2 * Math.cos(-state.phi2), y: 174 - r2 * Math.sin(-state.phi2) });
     }
   }
 });

@@ -21,9 +21,6 @@ function makeHandle(id, label, stroke) {
       state.primary = { x: clamp(point.x, 150, 572), y: clamp(point.y, 92, 230) };
       state.loadRatio = clamp((state.primary.x - 150) / 422, 0.05, 0.95);
       state.force = clamp(220 - state.primary.y, 45, 180);
-      state.trail = Array.isArray(state.trail) ? state.trail : [];
-      state.trail.push({ x: state.primary.x, y: state.primary.y });
-      if (state.trail.length > 34) state.trail.shift();
     },
     visual: { stroke }
   }];
@@ -41,8 +38,7 @@ function solverDerived(scene, state) {
     moment: force * a, step: clamp(state.buoc, 1, 4),
     residual, verify: residual < 8 ? 'đúng' : 'lệch',
     progress: `${clamp(state.buoc, 1, 4)}/4`,
-    resultantMagnitude: Math.hypot(ra, rb),
-    trail: state.trail || []
+    resultantMagnitude: Math.hypot(ra, rb)
   };
 }
 

@@ -77,7 +77,6 @@ function renderCh211Trajectory(ctx, scene, state) {
   const dark = P.isDarkTheme();
   P.frame(ctx, scene, 'Quỹ đạo chất điểm: v, aτ, an', '#e74c3c');
   drawTrajectory(ctx, mode, dark ? 'rgba(255,255,255,.15)' : 'rgba(0,0,0,.12)');
-  if (R.drawTrail) R.drawTrail(ctx, state.trail || [], 'rgba(231,76,60,.30)', 30);
   const x = state.currentX || 500, y = state.currentY || 220;
   drawParticle(ctx, x, y);
   arrow(ctx, x, y, state.vx || 0, state.vy || 0, '#e74c3c', 'v', 0.6);
@@ -117,7 +116,6 @@ function renderCh212MotionGraphs(ctx, scene, state) {
   drawGraph(ctx, 56, 86, 290, 88, 'x', 0, t);
   drawGraph(ctx, 398, 86, 290, 88, 'v', 1, t);
   drawGraph(ctx, 56, 238, 290, 88, 'a', 2, t);
-  if (R.drawTrail) R.drawTrail(ctx, state.trail || [], 'rgba(201,150,58,.30)', 30);
   P.domMath(ctx, 'graph-katex', 420, 258, 'v=\\dot{x},\\quad a=\\ddot{x}', { color: P.tone(3) });
   P.domLabel(ctx, 'graph-values', 420, 302,
     `x=${(state.xVal || 0).toFixed(1)} | v=${(state.vVal || 0).toFixed(1)} | a=${(state.aVal || 0).toFixed(1)}`,
@@ -130,7 +128,6 @@ function renderCh213NaturalCoords(ctx, scene, state) {
   const t = state.t || 0, px = state.px || cx + r, py = state.py || cy;
   ctx.strokeStyle = P.tone(2); ctx.lineWidth = 3;
   ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
-  if (R.drawTrail) R.drawTrail(ctx, state.trail || [], 'rgba(25,135,84,.26)', 30);
   P.point(ctx, cx, cy, P.tone(4), 'C');
   P.dashedLine(ctx, cx, cy, px, py, P.tone(6));
   P.dimension(ctx, cx, cy, px, py, P.tone(6), 'ρ');

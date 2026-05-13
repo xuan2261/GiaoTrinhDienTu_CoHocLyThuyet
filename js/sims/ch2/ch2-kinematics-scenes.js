@@ -53,7 +53,7 @@ function scene(row, index) {
 }
 
 function buildInitialState(routeId, index) {
-  const base = { t: 0, omega: 1.5, theta: index * 0.2, trail: [] };
+  const base = { t: 0, omega: 1.5, theta: index * 0.2 };
   switch (routeId) {
     case 'ch2-1-1': return Object.assign(base, {
       mode: 'Elip', currentX: 492, currentY: 224, vx: 0, vy: 138, ax: -319.5, ay: 0,

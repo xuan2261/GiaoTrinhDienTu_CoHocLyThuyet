@@ -6,7 +6,6 @@
 
 const registry = window.SimRouteRenderers;
 const P = window.SimRouteRendererPrimitives;
-const R = window.SimRender || {};
 if (!registry || !P) return;
 
 function block(ctx, x, y, label) {
@@ -22,7 +21,6 @@ function thresholdBar(ctx, x, y, width, value, limit) {
 
 function renderCh151ContactForceDecomposition(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Lực tiếp xúc tách thành N và Fms', P.tone(0));
-  R.drawTrail && R.drawTrail(ctx, d.trail, P.tone(0), 30);
   P.realisticGround(ctx, 92, 304, 560, { material: 'concrete' });
   block(ctx, 324, 252, 'vật');
   P.vectorTriangle(ctx, 324, 304, 324, 132, 214, 304, P.tone(4), 0.12);
@@ -37,7 +35,6 @@ function renderCh151ContactForceDecomposition(ctx, scene, state, d) {
 
 function renderCh152FrictionModeTabs(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Ma sát nghỉ, trượt và lăn', P.tone(3));
-  R.drawTrail && R.drawTrail(ctx, d.trail, P.tone(3), 30);
   const labels = [['nghỉ', P.tone(2), 'Fms biến thiên'], ['trượt', P.tone(0), 'Fms = μN'], ['lăn', P.tone(6), 'mô men cản']];
   labels.forEach((item, index) => {
     const x = 70 + index * 186;
@@ -55,7 +52,6 @@ function renderCh152FrictionModeTabs(ctx, scene, state, d) {
 
 function renderCh153FrictionConeIncline(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Nón ma sát trên mặt nghiêng: tan alpha <= mu', P.tone(2));
-  R.drawTrail && R.drawTrail(ctx, d.trail, P.tone(2), 30);
   const base = { x: 148, y: 310 }, len = 420, a = d.alpha * Math.PI / 180;
   const end = { x: base.x + len * Math.cos(a), y: base.y - len * Math.sin(a) };
   P.line(ctx, base.x, base.y, end.x, end.y, P.tone(2), 5);
@@ -72,7 +68,6 @@ function renderCh153FrictionConeIncline(ctx, scene, state, d) {
 
 function renderCh154SelfLockingWedge(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Nêm tự hãm: alpha nhỏ hơn phi', P.tone(6));
-  R.drawTrail && R.drawTrail(ctx, d.trail, P.tone(6), 30);
   const base = { x: 176, y: 300 }, w = 300, h = 170 * Math.tan(d.alpha * Math.PI / 180);
   ctx.beginPath(); ctx.moveTo(base.x, base.y); ctx.lineTo(base.x + w, base.y); ctx.lineTo(base.x + w, base.y - h); ctx.closePath();
   ctx.fillStyle = P.isDarkTheme() ? 'rgba(201,150,58,.12)' : 'rgba(184,134,11,.16)';

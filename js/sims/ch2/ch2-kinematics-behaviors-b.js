@@ -30,12 +30,6 @@ function setVelocityComposition(state, ve, vr) {
   state.veMag = magnitude(state.ve);
 }
 
-function pushTrail(state, point, limit) {
-  state.trail = Array.isArray(state.trail) ? state.trail : [];
-  state.trail.push({ x: point.x, y: point.y });
-  while (state.trail.length > (limit || 34)) state.trail.shift();
-}
-
 function computePlaneVelocityState(state) {
   state.vA = { vx: 46, vy: -8 };
   state.vBA = { vx: -(state.omega || 0) * (state.by - state.ay), vy: (state.omega || 0) * (state.bx - state.ax) };
@@ -56,7 +50,6 @@ registry.registerMany({
         { vx: 60 * Math.cos(state.t * 0.5), vy: -30 * Math.sin(state.t * 0.5) },
         { vx: 40 * Math.cos(state.t + 1), vy: 40 * Math.sin(state.t + 1) }
       );
-      pushTrail(state, { x: 140 + state.va.vx * 1.8, y: 248 + state.va.vy * 1.8 });
     }
   },
   'ch2-4-2': {
@@ -70,7 +63,6 @@ registry.registerMany({
       const va = { vx: 55 * Math.cos(phase), vy: 55 * Math.sin(phase) };
       const ve = { vx: 30 * Math.cos(phase * 0.6 + 0.5), vy: 30 * Math.sin(phase * 0.6 + 0.5) };
       setVelocityComposition(state, ve, { vx: va.vx - ve.vx, vy: va.vy - ve.vy });
-      pushTrail(state, { x: 92 + state.va.vx * 1.8, y: 170 + state.va.vy * 1.8 });
     }
   },
   'ch2-4-3': {
@@ -89,7 +81,6 @@ registry.registerMany({
         { vx: vrMag * Math.cos(phi), vy: vrMag * Math.sin(phi) }
       );
       state.phiRad = phi;
-      pushTrail(state, { x: 160 + state.va.vx * 1.5, y: 258 + state.va.vy * 1.5 });
     }
   },
   'ch2-4-4': {
@@ -111,7 +102,6 @@ registry.registerMany({
       state.vrMag = vrMag;
       state.ac = { vx: -2 * omega * vry, vy: 2 * omega * vrx };
       state.coriolis = magnitude(state.ac);
-      pushTrail(state, { x: px, y: py });
     }
   },
   'ch2-5-1': {
@@ -125,7 +115,6 @@ registry.registerMany({
       const omega = state.omega || 1.0;
       state.phi = ((state.phi || 0) + omega * dt) % (2 * Math.PI);
       computePlaneVelocityState(state);
-      pushTrail(state, { x: state.bx, y: state.by });
     }
   },
   'ch2-5-2': {
@@ -146,7 +135,6 @@ registry.registerMany({
       state.by = state.ay + l * Math.sin(theta + Math.PI / 4);
       state.vB = { vx: -omega * (state.by - state.icY), vy: omega * (state.bx - state.icX) };
       state.vBMag = magnitude(state.vB);
-      pushTrail(state, { x: state.icX, y: state.icY });
     }
   },
   'ch2-5-3': {
@@ -179,7 +167,6 @@ registry.registerMany({
       state.vB = { vx: last.vx, vy: last.vy };
       state.vAMag = 0;
       state.vBMag = last.speed;
-      pushTrail(state, { x: bx, y: by });
     }
   },
   'ch2-7-1': {

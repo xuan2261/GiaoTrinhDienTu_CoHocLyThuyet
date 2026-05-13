@@ -527,7 +527,6 @@ function buildControls(lab, scene, state, draw, behavior) {
       (control.options || []).forEach(label => {
         const btn = core.addButton(lab.controls, label, () => {
           behavior.updateStateFromSlider(scene, state, key, label);
-          if (state.trail && Array.isArray(state.trail)) state.trail = [];
           syncButtons();
           lab.forceReadoutSync = true;
           draw();

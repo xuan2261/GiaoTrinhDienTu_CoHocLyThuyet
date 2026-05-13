@@ -6,7 +6,6 @@
 
 const registry = window.SimRouteRenderers;
 const P = window.SimRouteRendererPrimitives;
-const R = window.SimRender || {};
 if (!registry || !P) return;
 
 function beam(ctx, d) {
@@ -30,7 +29,6 @@ function stepCard(ctx, index, title, active) {
 
 function renderCh171GuidedEquilibriumSolver(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Chuỗi giải: sơ đồ, phương trình, nghiệm', P.tone(2));
-  R.drawTrail && R.drawTrail(ctx, d.trail, P.tone(0), 30);
   beam(ctx, d);
   const step = Math.round(d.step);
   const x0 = stepCard(ctx, 0, 'FBD', step >= 1);
@@ -48,7 +46,6 @@ function renderCh171GuidedEquilibriumSolver(ctx, scene, state, d) {
 
 function renderCh172StaticsNumericChecker(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Kiểm tra số: so sánh RA, RB, MO', P.tone(3));
-  R.drawTrail && R.drawTrail(ctx, d.trail, P.tone(6), 30);
   beam(ctx, d);
   P.panel(ctx, 452, 72, 236, 120, 'bảng cân bằng', P.tone(4));
   P.domMath(ctx, 'eq-1', 472, 112, `R_A+R_B=${d.force.toFixed(0)}`, { color: P.tone(3), width: 190 });

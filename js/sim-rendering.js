@@ -76,21 +76,6 @@ function drawDragHandle(ctx, x, y, color) {
   ctx.restore();
 }
 
-function drawTrail(ctx, points, color, maxPoints) {
-  if (!points || points.length < 2) return;
-  const recent = points.slice(-(maxPoints || 30));
-  ctx.save();
-  ctx.strokeStyle = color || (isDarkTheme() ? 'rgba(231,76,60,.3)' : 'rgba(231,76,60,.25)');
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  recent.forEach((point, index) => {
-    if (index === 0) ctx.moveTo(point.x, point.y);
-    else ctx.lineTo(point.x, point.y);
-  });
-  ctx.stroke();
-  ctx.restore();
-}
-
 function drawAngleArc(ctx, cx, cy, startAngle, endAngle, radius, color) {
   ctx.save();
   ctx.strokeStyle = color || ((core.COLORS && core.COLORS.gold) || '#c9963a');
@@ -227,7 +212,6 @@ window.SimRender = {
   drawGrid,
   drawThemeGrid,
   drawDragHandle,
-  drawTrail,
   drawAngleArc,
   drawDeCuongArrow,
   drawDashed,

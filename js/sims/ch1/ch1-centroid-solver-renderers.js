@@ -6,7 +6,6 @@
 
 const registry = window.SimRouteRenderers;
 const P = window.SimRouteRendererPrimitives;
-const R = window.SimRender || {};
 if (!registry || !P) return;
 
 function axes(ctx) {
@@ -18,7 +17,6 @@ function axes(ctx) {
 
 function renderCh162CentroidComposite(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Trọng tâm diện tích ghép: trung bình có trọng số', P.tone(1));
-  R.drawTrail && R.drawTrail(ctx, d.trail, P.tone(2), 30);
   axes(ctx);
   P.body(ctx, 150, 112, 160, 132, 'rgba(13,110,253,.16)', P.tone(1), 'S1', { radius: 2 });
   P.body(ctx, 310, 184, 220, 96, 'rgba(25,135,84,.16)', P.tone(2), 'S2', { radius: 2 });
@@ -34,7 +32,6 @@ function renderCh162CentroidComposite(ctx, scene, state, d) {
 
 function renderCh163CentroidHoleShift(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Trọng tâm có lỗ khoét: trừ diện tích bị bỏ', P.tone(4));
-  R.drawTrail && R.drawTrail(ctx, d.trail, P.tone(4), 30);
   axes(ctx);
   P.body(ctx, 176, 96, 300, 184, 'rgba(111,66,193,.12)', P.tone(4), 'S', { radius: 4 });
   ctx.save();

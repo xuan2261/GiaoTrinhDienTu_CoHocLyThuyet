@@ -9,15 +9,10 @@
 
 const registry = window.SimRouteRenderers;
 const P = window.SimRouteRendererPrimitives;
-const R = window.SimRender || {};
 if (!registry || !P) return;
 
 function mag(vector) {
   return Math.hypot((vector && vector.vx) || 0, (vector && vector.vy) || 0);
-}
-
-function drawTrail(ctx, state, color) {
-  if (R.drawTrail) R.drawTrail(ctx, state.trail || [], color, 34);
 }
 
 function arrowFromVector(ctx, point, vector, scale, color, label) {
@@ -31,7 +26,6 @@ function renderCh251PlaneTranslationRotation(ctx, scene, state, d) {
   const bx = state.bx || (ax + 160), by = state.by || ay;
   const phi = state.phi || 0, omega = state.omega || 1.0;
 
-  drawTrail(ctx, state, 'rgba(13,110,253,.24)');
   P.realisticBody(ctx, ox, oy - 28, bx - ox + 8, 56, 'vật rắn', { material: 'metal', radius: 8 });
   P.dashedLine(ctx, ax, ay, bx, by, P.tone(6));
   P.angleArc(ctx, ox + (bx - ox) / 2, oy, 36, -0.5, phi - 0.5, P.tone(6), 'ω');
@@ -69,7 +63,6 @@ function renderCh252InstantCenter(ctx, scene, state, d) {
   const icX = Number.isFinite(Number(state.icX)) ? Number(state.icX) : ox;
   const icY = Number.isFinite(Number(state.icY)) ? Number(state.icY) : oy;
 
-  drawTrail(ctx, state, 'rgba(253,126,20,.24)');
   ctx.save();
   ctx.strokeStyle = P.tone(2);
   ctx.lineWidth = 2;
@@ -92,7 +85,6 @@ function renderCh253VelocityDistribution(ctx, scene, state, d) {
   const omega = state.omega || 1.2, L = 220, ox = 118, oy = 238;
   const ex = state.ex || (ox + L), ey = state.ey || oy;
 
-  drawTrail(ctx, state, 'rgba(25,135,84,.24)');
   P.realisticBeam(ctx, ox, oy, ex, ey, { material: 'metal', height: 12 });
   const samples = state.velocitySamples || [0, 0.25, 0.5, 0.75, 1].map(t => {
     const px = ox + (ex - ox) * t, py = oy + (ey - oy) * t;

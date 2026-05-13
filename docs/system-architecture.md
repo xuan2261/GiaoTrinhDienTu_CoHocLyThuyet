@@ -9,7 +9,7 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 | Shell | `js/sim-lab-ui.js` | Tạo `.sim-lab`, canvas, controls, readout cards, hint, reset/play-pause |
 | Lifecycle/core | `js/sim-core.js` | Scope cleanup, canvas helpers, sliders/buttons, RAF/listener cleanup |
 | Interaction | `js/sim-interactions.js` | Pointer/touch/keyboard handle layer, active handle metadata |
-| Shared DeCuong rendering | `js/sim-rendering.js`, `js/sim-visual-helpers.js` | Theme-aware grid, drag handle dots, trails, PI/7 arrows, dashed guides, and readable panels |
+| Shared DeCuong rendering | `js/sim-rendering.js`, `js/sim-visual-helpers.js` | Theme-aware grid, drag handle dots, PI/7 arrows, dashed guides, and readable panels |
 | Scene data | `js/sim-scene-registry.js`, `js/sims/ch*/*-scenes.js` | Route-scoped scene catalog and deterministic signatures |
 | Rendering | `js/sim-route-renderer-registry.js`, `js/sims/ch*/*-renderers.js` | Dedicated renderer per route; no family final dispatch |
 | Behavior | `js/sim-route-behavior-registry.js`, `js/sims/ch*/*-behaviors.js` | Derived model ids, route-owned handles, interaction semantics |
@@ -33,6 +33,7 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 - Ch1 active route count: 25.
 - Canvas logical size: 760×440; responsive CSS scales visually without changing simulation coordinates.
 - Canvas clear path is transparent `ctx.clearRect(0, 0, w, h)`, with `.sim-canvas-wrap` owning theme background.
+- Motion trails are disabled in active routes: no `drawTrail` API exposure and no route-owned trail state.
 - Each route must have a unique renderer id, behavior id, named renderer function, and scene signature.
 - Route-owned handles must expose meaningful ids/labels through `data-handle-ids`; fallback `legacy-primary` is not acceptable for active routes.
 - Readouts use `.sim-readout-card` and semantic `data-readout-kind` values.

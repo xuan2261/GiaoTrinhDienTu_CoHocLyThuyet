@@ -1,5 +1,5 @@
 /**
- * Animation engine — stateless animation loop with easing, trails, and particles.
+ * Animation engine — stateless animation loop with easing and particles.
  * Phase 1 infrastructure for 58-route simulation rebuild.
  */
 (function() {
@@ -31,35 +31,6 @@ function spring(t, tension, friction) {
 }
 function lerp(a, b, t) { return a + (b - a) * t; }
 function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
-
-// ─── Trail Renderer ────────────────────────────────────────────────────────────
-
-function createTrail(color, maxPoints, fade) {
-  return { color: color || '#2980b9', maxPoints: maxPoints || 120, fade: fade !== undefined ? fade : true, points: [] };
-}
-
-function addTrailPoint(trail, x, y) {
-  if (!trail) return;
-  trail.points.push({ x, y });
-  if (trail.points.length > trail.maxPoints) trail.points.shift();
-}
-
-function drawTrail(ctx, trail) {
-  if (!trail || !trail.points || trail.points.length < 2) return;
-  const pts = trail.points;
-  const n = pts.length;
-  for (let i = 1; i < n; i++) {
-    const alpha = trail.fade ? (i / n) * 0.7 : 0.8;
-    ctx.strokeStyle = trail.color;
-    ctx.globalAlpha = alpha;
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(pts[i - 1].x, pts[i - 1].y);
-    ctx.lineTo(pts[i].x, pts[i].y);
-    ctx.stroke();
-  }
-  ctx.globalAlpha = 1;
-}
 
 // ─── Particle System ───────────────────────────────────────────────────────────
 
@@ -265,8 +236,7 @@ function createEngine() {
     addEmitter, removeEmitter,
     isRunning, getFPS, getAnimTime, getEmitters, hasActiveParticles,
     emitParticles, updateParticles, drawParticles,
-    // expose trail and easing for direct use
-    createTrail, addTrailPoint, drawTrail,
+    // expose easing for direct use
     easeIn, easeOut, easeInOut, easeOutBack, easeOutElastic, spring,
     lerp, clamp
   };
@@ -293,9 +263,6 @@ function bindToLab(lab, scope) {
 
 window.SimAnimationEngine = {
   bindToLab,
-  createTrail,
-  addTrailPoint,
-  drawTrail,
   createParticleEmitter,
   emitParticles,
   updateParticles,

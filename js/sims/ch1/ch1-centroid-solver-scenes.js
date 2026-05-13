@@ -24,7 +24,7 @@ const scenes = [
     routeId: 'ch1-6-2', template: 'centroid-composite', family: 'centroid',
     title: 'Trọng tâm diện tích ghép', formula: 'x_G=\\frac{\\sum S_i x_i}{\\sum S_i}',
     visualLabel: 'Hai diện tích ghép và điểm G', seed: 62, appendGenericReadouts: false,
-    initialState: { primary: { x: 332, y: 202 }, force: 88, load: 96, trail: [] },
+    initialState: { primary: { x: 332, y: 202 }, force: 88, load: 96 },
     controls: [slider('load', 'S2', 20, 180, 96, '%', 1)],
     readouts: [
       { label: 'xG', key: 'gx', digits: 0, unit: 'px', kind: 'result' },
@@ -36,7 +36,7 @@ const scenes = [
     routeId: 'ch1-6-3', template: 'centroid-hole-shift', family: 'centroid',
     title: 'Trọng tâm khi có lỗ khoét', formula: 'x_G=\\frac{Sx-S_hx_h}{S-S_h}',
     visualLabel: 'Đối xứng bị phá bởi phần khoét', seed: 63, appendGenericReadouts: false,
-    initialState: { primary: { x: 244, y: 164 }, force: 88, load: 72, trail: [] },
+    initialState: { primary: { x: 244, y: 164 }, force: 88, load: 72 },
     controls: [slider('load', 'S lỗ', 20, 150, 72, '%', 1)],
     readouts: [
       { label: 'xG', key: 'gx', digits: 0, unit: 'px', kind: 'result' },

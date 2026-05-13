@@ -35,13 +35,6 @@ function handle(ctx, x, y, color) {
   if (R.drawDragHandle) R.drawDragHandle(ctx, x, y, color);
   else P.point(ctx, x, y, color);
 }
-function trail(state, point) {
-  state.trail = Array.isArray(state.trail) ? state.trail : [];
-  const last = state.trail[state.trail.length - 1];
-  if (!last || Math.hypot(last.x - point.x, last.y - point.y) > 2) state.trail.push({ x: point.x, y: point.y });
-  if (state.trail.length > 30) state.trail.splice(0, state.trail.length - 30);
-  return state.trail;
-}
 function axes(ctx, ox, oy) {
   arrow(ctx, ox, oy, ox + 210, oy + 10, P.tone(0), 'x', 2.4);
   arrow(ctx, ox, oy, ox - 14, oy - 158, P.tone(2), 'y', 2.4);
@@ -56,7 +49,6 @@ function project(ctx, ox, oy, p) {
 function renderCh141SpatialResultant(ctx, scene, state, d) {
   const p = state.primary || { x: 342, y: 146 }, o = { x: 120, y: 286 };
   base(ctx, scene, 'Hợp lực không gian: ba thành phần', P.tone(1));
-  if (R.drawTrail) R.drawTrail(ctx, trail(state, p), 'rgba(25,135,84,.24)', 30);
   axes(ctx, o.x, o.y); project(ctx, o.x, o.y, p);
   arrow(ctx, o.x, o.y, p.x, p.y, P.tone(4), 'R', 3.4);
   arrow(ctx, o.x, o.y, p.x, o.y, P.tone(0), 'R_x', 2.2);
@@ -72,7 +64,6 @@ function renderCh142SpatialMomentProjection(ctx, scene, state, d) {
   const axis = -Number(d.alpha || 25) * Math.PI / 180;
   const ex = 180 * Math.cos(axis), ey = 180 * Math.sin(axis);
   base(ctx, scene, 'Mô men chính: chiếu lên trục', P.tone(3));
-  if (R.drawTrail) R.drawTrail(ctx, trail(state, p), 'rgba(201,150,58,.24)', 30);
   axes(ctx, o.x, o.y);
   P.realisticPoint(ctx, o.x, o.y, { text: 'O', fill: P.tone(4) });
   P.dashedLine(ctx, o.x, o.y, p.x, p.y, P.tone(6));
@@ -87,7 +78,6 @@ function renderCh142SpatialMomentProjection(ctx, scene, state, d) {
 function renderCh144SpatialEquilibriumBoard(ctx, scene, state, d) {
   const p = state.primary || { x: 214, y: 126 }, o = { x: 88, y: 292 };
   base(ctx, scene, 'Cân bằng không gian: sáu phương trình', P.tone(4));
-  if (R.drawTrail) R.drawTrail(ctx, trail(state, p), 'rgba(220,53,69,.22)', 30);
   axes(ctx, o.x, o.y);
   arrow(ctx, o.x, o.y - 72, p.x, p.y, P.tone(0), 'P', 3);
   arrow(ctx, o.x, o.y - 72, o.x + 64, o.y + 4, P.tone(2), 'R', 2.6);

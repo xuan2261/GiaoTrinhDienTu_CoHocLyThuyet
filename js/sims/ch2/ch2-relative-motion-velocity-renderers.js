@@ -10,7 +10,6 @@
 
 const registry = window.SimRouteRenderers;
 const P = window.SimRouteRendererPrimitives;
-const R = window.SimRender || {};
 if (!registry || !P) return;
 
 function vec(value, fallback) {
@@ -23,10 +22,6 @@ function mag(vector) {
 
 function tip(origin, vector, scale) {
   return { x: origin.x + (vector.vx || 0) * scale, y: origin.y + (vector.vy || 0) * scale };
-}
-
-function drawTrail(ctx, state, color) {
-  if (R.drawTrail) R.drawTrail(ctx, state.trail || [], color, 34);
 }
 
 function drawFrameAxes(ctx, ox, oy) {
@@ -44,7 +39,6 @@ function renderCh241VelocityComposition(ctx, scene, state, d) {
   const e = tip(origin, ve, scale);
   const a = tip(origin, va, scale);
   drawFrameAxes(ctx, ox, oy);
-  drawTrail(ctx, state, 'rgba(220,53,69,.25)');
   P.vectorTriangle(ctx, ox, oy, e.x, e.y, a.x, a.y, P.tone(4), 0.12);
   P.dashedLine(ctx, e.x, e.y, a.x, a.y, P.tone(3));
   P.neonArrow(ctx, ox, oy, e.x, e.y, P.tone(1), 'v_e');
@@ -67,7 +61,6 @@ function renderCh242AbsoluteRelativeTransport(ctx, scene, state, d) {
     { x: 262, label: 'kéo theo', vector: ve, color: P.tone(1), tag: 'v_e' },
     { x: 452, label: 'tương đối', vector: vr, color: P.tone(3), tag: 'v_r' }
   ];
-  drawTrail(ctx, state, 'rgba(13,110,253,.24)');
   panels.forEach(item => {
     const origin = { x: item.x + 24, y: 178 };
     const end = tip(origin, item.vector, scale);
@@ -86,7 +79,6 @@ function renderCh243VelocityTriangle(ctx, scene, state, d) {
   const va = vec(state.va, { vx: ve.vx + vr.vx, vy: ve.vy + vr.vy });
   const e = tip({ x: ox, y: oy }, ve, scale);
   const a = tip({ x: ox, y: oy }, va, scale);
-  drawTrail(ctx, state, 'rgba(25,135,84,.24)');
   P.vectorTriangle(ctx, ox, oy, e.x, e.y, a.x, a.y, P.tone(2), 0.15);
   P.neonArrow(ctx, ox, oy, e.x, e.y, P.tone(1), 'v_e');
   P.neonArrow(ctx, e.x, e.y, a.x, a.y, P.tone(3), 'v_r');
@@ -106,7 +98,6 @@ function renderCh244CoriolisAcceleration(ctx, scene, state, d) {
   const ac = vec(state.ac, { vx: -2 * omega * vr.vy, vy: 2 * omega * vr.vx });
   ctx.strokeStyle = P.tone(5); ctx.lineWidth = 2;
   ctx.beginPath(); ctx.arc(cx, cy, 120, 0, Math.PI * 2); ctx.stroke();
-  drawTrail(ctx, state, 'rgba(220,53,69,.24)');
   P.dashedLine(ctx, cx, cy, px, py, P.tone(6));
   ctx.fillStyle = P.tone(3); ctx.font = '16px monospace'; ctx.fillText('ω ⊗', cx - 14, cy + 5);
   P.realisticPoint(ctx, px, py, { text: 'P', fill: P.tone(0) });

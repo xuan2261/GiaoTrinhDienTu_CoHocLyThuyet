@@ -22,20 +22,10 @@ function makeHandle(id, label, get, set, stroke, options) {
     get, set(point) { set(cfg.raw ? point : bounded(point)); }, visual: { stroke } };
 }
 
-function pushTrail(state, point) {
-  state.trail = Array.isArray(state.trail) ? state.trail : [];
-  const last = state.trail[state.trail.length - 1];
-  if (!last || Math.hypot(last.x - point.x, last.y - point.y) > 4) {
-    state.trail.push({ x: point.x, y: point.y });
-    if (state.trail.length > 34) state.trail.shift();
-  }
-}
-
 function setInclineByAngle(state, angle, routeId) {
   state.alpha = clamp(angle, 5, 42);
   const base = inclineBase(routeId), len = routeId === 'ch1-5-4' ? 210 : 245, a = toRad(state.alpha);
   state.primary = { x: base.x + len * Math.cos(a), y: base.y - len * Math.sin(a) };
-  pushTrail(state, state.primary);
 }
 
 function setFrictionPoint(routeId, state, point) {
@@ -46,7 +36,6 @@ function setFrictionPoint(routeId, state, point) {
   } else {
     state.primary = { x: clamp(p.x, 130, 560), y: clamp(p.y, 160, 292) };
     state.force = clamp(60 + Math.abs(312 - state.primary.x) * 0.35, 20, 180);
-    pushTrail(state, state.primary);
   }
 }
 
@@ -58,7 +47,6 @@ function setCentroidPoint(routeId, state, point) {
   } else {
     state.primary = { x: clamp(p.x, 188, 420), y: clamp(p.y, 112, 232) };
   }
-  pushTrail(state, state.primary);
 }
 
 function frictionDerived(scene, state) {
@@ -79,8 +67,7 @@ function frictionDerived(scene, state) {
     resultantMagnitude: Math.hypot(normal, fms),
     threshold: limit, tanAlpha, phi, lockState,
     slipState, margin: routeId === 'ch1-5-2' ? limit - applied : mu - tanAlpha,
-    mode: slipState === 'hold' ? 'bám' : 'trượt',
-    trail: state.trail || []
+    mode: slipState === 'hold' ? 'bám' : 'trượt'
   };
 }
 
@@ -102,7 +89,7 @@ function centroidDerived(scene, state) {
     shift = Math.hypot(gx - 300, gy - 188);
   }
   return { point: p, gx, gy, centroid: { x: gx, y: gy }, load, hole, shift,
-    resultantMagnitude: Math.hypot(gx - 180, gy - 260), trail: state.trail || [] };
+    resultantMagnitude: Math.hypot(gx - 180, gy - 260) };
 }
 
 function updateFrictionState(scene, state, key, value) {

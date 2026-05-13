@@ -28,13 +28,6 @@ function arrow(ctx, x1, y1, x2, y2, color, text, width) {
 
 function handle(ctx, x, y, color) { if (R.drawDragHandle) R.drawDragHandle(ctx, x, y, color); else P.point(ctx, x, y, color); }
 
-function trackTrail(state, point) {
-  state.trail = Array.isArray(state.trail) ? state.trail : [];
-  const last = state.trail[state.trail.length - 1];
-  if (!last || Math.hypot(last.x - point.x, last.y - point.y) > 2) state.trail.push({ x: point.x, y: point.y });
-  if (state.trail.length > 20) state.trail.splice(0, state.trail.length - 20); return state.trail;
-}
-
 function drawMomentArc(ctx, cx, cy, radius, color, labelText) {
   if (R.drawAngleArc) R.drawAngleArc(ctx, cx, cy, -0.55, 1.25, radius, color);
   else P.angleArc(ctx, cx, cy, radius, -0.55, 1.25, color);
@@ -52,7 +45,6 @@ function ground(ctx, x1, y, x2) {
 function renderCh113ForceVectorAnatomy(ctx, scene, state, d) {
   const p = state.primary, v = state.vector;
   base(ctx, 'Véc tơ lực: điểm đặt, phương, chiều', P.tone(0));
-  if (R.drawTrail) R.drawTrail(ctx, trackTrail(state, v), 'rgba(220,53,69,.28)', 20);
   P.dashedLine(ctx, 70, p.y, 610, p.y, P.tone(6));
   P.dashedLine(ctx, v.x, p.y, v.x, v.y, P.tone(6));
   arrow(ctx, p.x, p.y, v.x, v.y, P.tone(0), 'F', 3.5);
@@ -69,7 +61,6 @@ function renderCh113ForceVectorAnatomy(ctx, scene, state, d) {
 function renderCh114MomentArm(ctx, scene, state, d) {
   const p = state.primary, v = state.vector;
   base(ctx, 'Mô men lực quanh điểm O', P.tone(3));
-  if (R.drawTrail) R.drawTrail(ctx, trackTrail(state, p), 'rgba(201,150,58,.32)', 20);
   P.realisticPoint(ctx, O.x, O.y, { text: 'O', fill: P.tone(4) });
   P.dashedLine(ctx, O.x, O.y, p.x, O.y, P.tone(6));
   P.dashedLine(ctx, p.x, O.y, p.x, p.y, P.tone(6));
@@ -85,7 +76,6 @@ function renderCh114MomentArm(ctx, scene, state, d) {
 function renderCh115ForceSystemReducer(ctx, scene, state, d) {
   const p = state.primary, v = state.vector, analyze = state.mode === 'Phân tích';
   base(ctx, analyze ? 'Hệ lực phẳng: phân tích lực thành phần' : 'Hệ lực phẳng: thu gọn tại O', P.tone(2));
-  if (R.drawTrail) R.drawTrail(ctx, trackTrail(state, v), 'rgba(25,135,84,.26)', 20);
   P.realisticPoint(ctx, 250, 245, { text: 'O', fill: P.tone(4) });
   P.realisticBody(ctx, 315, 170, 150, 86, 'vật rắn', { material: 'metal', radius: 10, stroke: P.tone(2) });
   const forces = [[315, 198, 392, 135, P.tone(0), 'F1'], [430, 226, 485, 150, P.tone(1), 'F2'], [355, 252, 295, 190, P.tone(4), 'F3']];
@@ -107,7 +97,6 @@ function renderCh116CoupleFreeVector(ctx, scene, state, d) {
   const dist = Math.max(80, Math.min(260, state.distance || 180));
   const left = cx - dist / 2, right = cx + dist / 2;
   base(ctx, 'Ngẫu lực: hai lực song song ngược chiều', P.tone(6));
-  if (R.drawTrail) R.drawTrail(ctx, trackTrail(state, { x: right, y: (yTop + yBot) / 2 }), 'rgba(111,66,193,.28)', 20);
   P.realisticBody(ctx, left - 35, 170, dist + 70, 72, 'vật tự do', { material: 'metal', radius: 10, stroke: P.tone(6) });
   arrow(ctx, left, yBot, left, yTop, P.tone(0), '+F', 3.2);
   arrow(ctx, right, yTop, right, yBot, P.tone(0), '-F', 3.2);
@@ -121,7 +110,6 @@ function renderCh116CoupleFreeVector(ctx, scene, state, d) {
 function renderCh118ConstraintRelease(ctx, scene, state, d) {
   const mode = state.mode || 'Tựa', p = state.primary, v = state.vector;
   base(ctx, `Phản lực liên kết: ${mode}`, P.tone(4));
-  if (R.drawTrail) R.drawTrail(ctx, trackTrail(state, p), 'rgba(13,110,253,.25)', 20);
   ground(ctx, 92, 305, 560);
   P.realisticBody(ctx, 325, 205, 112, 54, 'vật', { material: 'metal', radius: 8, stroke: P.tone(4) });
   arrow(ctx, p.x, p.y, v.x, v.y, P.tone(0), 'F', 3);
@@ -149,7 +137,6 @@ function renderCh121TwoForceBody(ctx, scene, state, d) {
   const dx = tip.x - b.x, dy = tip.y - b.y;
   const leftTip = { x: a.x - dx, y: a.y - dy };
   base(ctx, 'Cặp lực cân bằng: cùng đường tác dụng', P.tone(5));
-  if (R.drawTrail) R.drawTrail(ctx, trackTrail(state, tip), 'rgba(220,53,69,.25)', 20);
   P.realisticBeam(ctx, a.x, a.y, b.x, b.y, { material: 'metal', height: 18, stroke: P.tone(5), shadow: true });
   P.realisticPoint(ctx, a.x, a.y, { text: 'A', fill: P.tone(1) });
   P.realisticPoint(ctx, b.x, b.y, { text: 'B', fill: P.tone(1) });
@@ -168,7 +155,6 @@ function renderCh123ParallelogramLaw(ctx, scene, state, d) {
   const dark = P.isDarkTheme();
   ctx.clearRect(0, 0, W, H);
   if (R.drawThemeGrid) R.drawThemeGrid(ctx, W, H, 30);
-  if (R.drawTrail) R.drawTrail(ctx, trackTrail(state, f2), dark ? 'rgba(41,128,185,.3)' : 'rgba(41,128,185,.25)', 30);
   ctx.beginPath(); ctx.moveTo(PARA_O.x, PARA_O.y); ctx.lineTo(f1.x, f1.y); ctx.lineTo(res.x, res.y); ctx.lineTo(f2.x, f2.y); ctx.closePath();
   ctx.fillStyle = dark ? 'rgba(39,174,96,.08)' : 'rgba(39,174,96,.12)'; ctx.fill();
   ctx.strokeStyle = dark ? 'rgba(39,174,96,.25)' : 'rgba(39,174,96,.35)'; ctx.lineWidth = 1; ctx.stroke();
@@ -194,7 +180,6 @@ function renderCh123ParallelogramLaw(ctx, scene, state, d) {
 function renderCh126FbdBuilder(ctx, scene, state, d) {
   const p = state.primary || { x: 468, y: 118 };
   base(ctx, 'Giải phóng liên kết: thay liên kết bằng phản lực', P.tone(4));
-  if (R.drawTrail) R.drawTrail(ctx, trackTrail(state, p), 'rgba(220,53,69,.24)', 30);
   P.panel(ctx, 54, 84, 214, 230, 'vật còn liên kết', P.tone(4));
   P.realisticBody(ctx, 116, 160, 88, 60, 'vật', { material: 'metal', radius: 8, stroke: P.tone(4) });
   P.ground(ctx, 86, 244, 234); P.supportTriangle(ctx, 160, 222, 12, P.tone(4));

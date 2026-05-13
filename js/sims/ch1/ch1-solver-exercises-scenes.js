@@ -24,7 +24,7 @@ const scenes = [
     routeId: 'ch1-7-1', template: 'guided-equilibrium-solver', family: 'checker',
     title: 'Chuỗi giải tĩnh học', formula: '\\sum F_x=0,\\ \\sum F_y=0,\\ \\sum M_A=0',
     visualLabel: 'Quy trình giải từng bước', seed: 71, appendGenericReadouts: false,
-    initialState: { primary: { x: 326, y: 166 }, force: 104, buoc: 1, loadRatio: 0.42, trail: [] },
+    initialState: { primary: { x: 326, y: 166 }, force: 104, buoc: 1, loadRatio: 0.42 },
     controls: [slider('force', 'P', 45, 180, 104, 'N', 5), slider('buoc', 'Bước', 1, 4, 1, '', 1)],
     readouts: [
       { label: 'P', key: 'force', digits: 1, unit: 'N', kind: 'force' },
@@ -37,7 +37,7 @@ const scenes = [
     routeId: 'ch1-7-2', template: 'statics-numeric-checker', family: 'checker',
     title: 'Đối chiếu kết quả tĩnh học', formula: 'R_A+R_B=P,\\quad R_B L=Pa',
     visualLabel: 'So sánh nghiệm nhập với cân bằng', seed: 72, appendGenericReadouts: false,
-    initialState: { primary: { x: 348, y: 158 }, force: 112, buoc: 4, loadRatio: 0.47, inputRA: 48, inputRB: 50, trail: [] },
+    initialState: { primary: { x: 348, y: 158 }, force: 112, buoc: 4, loadRatio: 0.47, inputRA: 48, inputRB: 50 },
     controls: [
       slider('force', 'P', 45, 180, 112, 'N', 5),
       slider('inputRA', 'RA nhập', 0, 220, 48, 'N', 1),

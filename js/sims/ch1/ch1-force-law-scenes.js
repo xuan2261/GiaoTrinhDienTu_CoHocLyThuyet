@@ -31,7 +31,7 @@ const scenes = [
     seed: 1,
     angle: 32 * Math.PI / 180,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 170, y: 290 }, vector: { x: 390, y: 155 }, force: 260, angle: 32, trail: [] },
+    initialState: { primary: { x: 170, y: 290 }, vector: { x: 390, y: 155 }, force: 260, angle: 32 },
     controls: [slider('force', '|F|', 40, 260, 260, 'N', 5), slider('angle', 'α', -45, 75, 32, '°')],
     readouts: [
       { label: '|F|', key: 'force', digits: 1, unit: 'N', kind: 'force' },
@@ -48,7 +48,7 @@ const scenes = [
     seed: 2,
     angle: -Math.PI / 2,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 330, y: 185 }, vector: { x: 330, y: 295 }, force: 110, load: 180, trail: [] },
+    initialState: { primary: { x: 330, y: 185 }, vector: { x: 330, y: 295 }, force: 110, load: 180 },
     controls: [slider('force', 'F', 30, 180, 110, 'N', 5), slider('load', 'd', 60, 220, 180, 'px', 5)],
     readouts: [
       { label: 'F', key: 'force', digits: 1, unit: 'N', kind: 'force' },
@@ -65,7 +65,7 @@ const scenes = [
     seed: 3,
     angle: 34 * Math.PI / 180,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 455, y: 215 }, vector: { x: 560, y: 150 }, force: 125, load: 95, mode: 'Thu gọn', trail: [] },
+    initialState: { primary: { x: 455, y: 215 }, vector: { x: 560, y: 150 }, force: 125, load: 95, mode: 'Thu gọn' },
     controls: [slider('force', '|R|', 50, 180, 125, 'N', 5), { type: 'buttons', key: 'mode', label: 'Chế độ', options: ['Thu gọn', 'Phân tích'] }],
     readouts: [
       { label: '|R|', key: 'resultantMagnitude', digits: 1, unit: 'N', kind: 'result' },
@@ -82,7 +82,7 @@ const scenes = [
     seed: 4,
     angle: Math.PI / 2,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 410, y: 230 }, force: 90, distance: 180, trail: [] },
+    initialState: { primary: { x: 410, y: 230 }, force: 90, distance: 180 },
     controls: [slider('force', 'F', 30, 150, 90, 'N', 5), slider('distance', 'd', 80, 260, 180, 'px', 5)],
     readouts: [
       { label: 'F', key: 'force', digits: 1, unit: 'N', kind: 'force' },
@@ -100,7 +100,7 @@ const scenes = [
     seed: 5,
     angle: -Math.PI / 2,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 380, y: 140 }, vector: { x: 380, y: 250 }, force: 110, mode: 'Tựa', trail: [] },
+    initialState: { primary: { x: 380, y: 140 }, vector: { x: 380, y: 250 }, force: 110, mode: 'Tựa' },
     controls: [{ type: 'buttons', key: 'mode', label: 'Loại liên kết', options: ['Tựa', 'Dây', 'Bản lề', 'Gối', 'Ngàm'] }],
     readouts: [
       { label: 'Loại', key: 'supportKind', kind: 'mode' },
@@ -118,7 +118,7 @@ const scenes = [
     seed: 6,
     angle: 0,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 470, y: 230 }, vector: { x: 575, y: 230 }, force: 105, angle: 0, trail: [] },
+    initialState: { primary: { x: 470, y: 230 }, vector: { x: 575, y: 230 }, force: 105, angle: 0 },
     controls: [slider('force', '|F|', 40, 170, 105, 'N', 5), slider('angle', 'α', -30, 30, 0, '°')],
     readouts: [
       { label: '|F|', key: 'force', digits: 1, unit: 'N', kind: 'force' },
@@ -134,7 +134,7 @@ const scenes = [
     visualLabel: 'Hình bình hành lực',
     seed: 7,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 350, y: 180 }, secondary: { x: 380, y: 300 }, alpha: 39, force: 192, mass: 8, load: 118, mu: 0.42, trail: [] },
+    initialState: { primary: { x: 350, y: 180 }, secondary: { x: 380, y: 300 }, alpha: 39, force: 192, mass: 8, load: 118, mu: 0.42 },
     controls: [slider('force', '|F1|', 60, 260, 192, 'N', 5), slider('alpha', 'α', 0, 90, 39, '°')],
     readouts: [
       { label: '|F₁|', key: 'f1Magnitude', digits: 1, unit: 'N', kind: 'force' },
@@ -152,7 +152,7 @@ const scenes = [
     visualLabel: 'Giải phóng liên kết',
     seed: 8,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 476, y: 86 }, vector: { x: 476, y: 176 }, force: 90, mass: 8, load: 120, mu: 0.42, trail: [] },
+    initialState: { primary: { x: 476, y: 86 }, vector: { x: 476, y: 176 }, force: 90, mass: 8, load: 120, mu: 0.42 },
     controls: [slider('force', '|F| sơ đồ', 20, 160, 90, 'N', 5), slider('load', '|R| liên kết', 0, 160, 120, 'N', 5)],
     readouts: [
       { label: '|F|', key: 'force', digits: 1, unit: 'N', kind: 'force' },

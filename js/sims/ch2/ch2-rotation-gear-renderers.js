@@ -10,12 +10,6 @@ const registry = window.SimRouteRenderers;
 const P = window.SimRouteRendererPrimitives;
 if (!registry || !P) return;
 
-function drawRouteTrail(ctx, points, color) {
-  if (window.SimRender && window.SimRender.drawTrail) {
-    window.SimRender.drawTrail(ctx, points || [], color, 30);
-  }
-}
-
 function renderCh222FixedAxisRotation(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Quay quanh trục cố định: ω, ε, v, aτ, an', P.tone(1));
 
@@ -25,7 +19,6 @@ function renderCh222FixedAxisRotation(ctx, scene, state, d) {
   const alpha = state.alpha || 0;
   const px = cx + r * Math.cos(theta), py = cy - r * Math.sin(theta);
 
-  drawRouteTrail(ctx, state.trail, P.tone(0));
   P.realisticWheel(ctx, cx, cy, r, theta, { spokes: 4, shadow: true });
   P.realisticPoint(ctx, cx, cy, { text: 'O', fill: P.tone(4) });
   P.realisticPoint(ctx, px, py, { text: 'P', fill: P.tone(0), radius: 5 });
@@ -64,8 +57,6 @@ function renderCh232GearBeltTransmission(ctx, scene, state, d) {
   P.cable(ctx, c1x + r1 * Math.sin(alpha), c1y - r1 * Math.cos(alpha), c2x + r2 * Math.sin(alpha), c2y - r2 * Math.cos(alpha), { sag: 2, color: '#495057', lineWidth: 2 });
   P.cable(ctx, c1x + r1 * Math.sin(alpha), c1y + r1 * Math.cos(alpha), c2x + r2 * Math.sin(alpha), c2y + r2 * Math.cos(alpha), { sag: -2, color: '#495057', lineWidth: 2 });
 
-  drawRouteTrail(ctx, state.trail1, P.tone(0));
-  drawRouteTrail(ctx, state.trail2, P.tone(1));
   P.realisticWheel(ctx, c1x, c1y, r1, phi1, { spokes: 4, shadow: true });
   P.realisticWheel(ctx, c2x, c2y, r2, -phi2, { spokes: 6, shadow: true });
 

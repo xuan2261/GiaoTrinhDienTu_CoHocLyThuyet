@@ -48,7 +48,7 @@ function scene(row, index) {
     supportLabel: read1,
     projection: visualLabel,
     angle: -0.7 + index * 0.04,
-    initialState: { primary: initialPrimary, force: routeId === 'ch1-3-4' ? 130 : 76 + index * 5, load: routeId === 'ch1-3-4' ? 250 : 80 + index * 9, omega: 1.2, trail: [] },
+    initialState: { primary: initialPrimary, force: routeId === 'ch1-3-4' ? 130 : 76 + index * 5, load: routeId === 'ch1-3-4' ? 250 : 80 + index * 9, omega: 1.2 },
     controls: [
       { type: 'slider', key: 'force', label: forceLabel, min: routeId === 'ch1-3-4' ? 35 : 20, max: routeId === 'ch1-3-4' ? 190 : 170, value: routeId === 'ch1-3-4' ? 130 : 85, step: 5, unit: 'N' },
       { type: 'slider', key: secondKey, label: secondLabel, min: 0, max: secondKey === 'load' ? loadMax : 55, value: secondKey === 'load' ? loadValue : 20, step: secondKey === 'load' ? 10 : 1, unit: secondKey === 'load' ? 'px' : 'deg' }

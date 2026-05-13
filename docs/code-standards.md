@@ -28,11 +28,11 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 | `js/sim-rendering.js` | Rendering helpers dùng chung cho canvas |
 | `js/sim-interactions.js` | Pointer/handle interaction scaffold |
 | `js/sim-lab-ui.js` | Professional lab UI shell; keep selectors scoped under `.sim-lab`, and reuse one `.sim-lab-overlay` synced to canvas rect/scale |
-| `js/sim-animation-engine.js` | Animation loop, easing, trails, particles; binds to lab lifecycle |
+| `js/sim-animation-engine.js` | Animation loop, easing, particles; binds to lab lifecycle |
 | `js/sim-physics-statics.js` | Statics helper formulas: force components, moments, reactions, friction, centroid |
 | `js/sim-physics-kinematics.js` | Kinematics helpers: trajectories, derivatives, rotation, transmission, instant center |
 | `js/sim-physics-dynamics.js` | Dynamics helpers: Newton, ODE solvers, collision, energy, D'Alembert |
-| `js/sim-visual-helpers.js` | Glow, gradients, enhanced arrows/grid, trails |
+| `js/sim-visual-helpers.js` | Glow, gradients, enhanced arrows/grid |
 | `js/sim-interaction-enhancements.js` | Snap guides, ghost state, drag visual feedback |
 | `js/sim-scene-registry.js` | Route-scoped scene catalog registry; keep scene ids/signatures deterministic |
 | `js/sim-scene-templates.js` | Legacy scene template fallback và deterministic signature helpers |
@@ -100,6 +100,7 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 | Legacy routes | Giữ redirect `ch1-8*` và `ch2-8*` |
 | No duplicate registrations | Mỗi route có đúng 1 renderer registration; xóa file cũ/split khi tạo file mới, và cập nhật `index.html` script load order tương ứng |
 | Route-owned handles | Route simulation mới phải ưu tiên handle descriptors do behavior cung cấp; active handle hiện tại phải được expose qua `data-active-handle-id`, và phải clear khi release/dispose/removeHandle; không phụ thuộc vào generic default handle text khi route đã có handle thật |
+| No motion trails | Active simulation routes không lưu hoặc vẽ motion trail; drag/redraw chỉ hiển thị trạng thái hiện tại |
 
 ## Python/tool standards
 

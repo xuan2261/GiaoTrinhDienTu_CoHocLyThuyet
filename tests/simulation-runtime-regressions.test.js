@@ -10,6 +10,17 @@ function runScript(context, file) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
 }
 
+function walkJsFiles(dir) {
+  const files = [];
+  for (const name of fs.readdirSync(dir)) {
+    const fullPath = path.join(dir, name);
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) files.push(...walkJsFiles(fullPath));
+    else if (name.endsWith('.js')) files.push(fullPath);
+  }
+  return files;
+}
+
 function makeElement() {
   return {
     classList: { add() {} },
@@ -38,6 +49,24 @@ function makeElement() {
     /Heap metric unavailable/,
     'disposal audit must fail clearly when heap metrics are unavailable'
   );
+}
+
+{
+  const sharedSources = [
+    'js/sim-rendering.js',
+    'js/sim-animation-engine.js',
+  ].map(file => fs.readFileSync(path.join(ROOT, file), 'utf8')).join('\n');
+  assert.ok(!/\bdrawTrail\b/.test(sharedSources), 'shared simulation engines must not expose trail drawing');
+
+  const routeTrailDrawers = walkJsFiles(path.join(ROOT, 'js', 'sims'))
+    .filter(file => /\bdrawTrail\s*\(/.test(fs.readFileSync(file, 'utf8')))
+    .map(file => path.relative(ROOT, file).replace(/\\/g, '/'));
+  assert.deepStrictEqual(routeTrailDrawers, [], 'active simulation routes must not draw motion trails');
+
+  const routeTrailState = walkJsFiles(path.join(ROOT, 'js', 'sims'))
+    .filter(file => /\btrail[12]?\b|state\.trail/.test(fs.readFileSync(file, 'utf8')))
+    .map(file => path.relative(ROOT, file).replace(/\\/g, '/'));
+  assert.deepStrictEqual(routeTrailState, [], 'active simulation routes must not keep motion trail state');
 }
 
 {
