@@ -66,8 +66,8 @@ const rows = [
    'Chọn định lý phù hợp', 'I/M, W/E, L',
    'Chọn định lý', 'loai', 'problem', 'Loại bài toán'],
   ['ch3-7-2', 'dynamics-numeric', 'dynamics',
-   'Kiểm tra số liệu động lực', 'verify theorems',
-   'Verify', 'T', 'V', 'Động năng']
+   'Kiểm tra số liệu động lực', 'kiểm tra định lý',
+   'Kiểm tra', 'T', 'V', 'Động năng']
 ];
 
 function buildInitial(routeId) {

@@ -10,6 +10,11 @@ const registry = window.SimRouteRenderers;
 const P = window.SimRouteRendererPrimitives;
 if (!registry || !P) return;
 
+function finiteNumber(value, fallback) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}
+
 // ─── ch2-7-1: Kinematics Guided Checker ───────────────────────────────────
 
 function drawMiniCurve(ctx, x, y, index, t) {
@@ -58,16 +63,16 @@ function renderCh271KinematicsGuidedChecker(ctx, scene, state, d) {
 
   // Step indicator
   P.domLabel(ctx, 'step-indicator', 430, 264,
-    `buoc ${step + 1}/3`, { color: P.tone(step) });
+    `bước ${step + 1}/3`, { color: P.tone(step) });
 
   // Step description
-  const stepLabels = ['Doc x(t) tai t', 'Tinh v=dx/dt', 'Tinh a=dv/dt'];
+  const stepLabels = ['Đọc x(t) tại t', 'Tính v=dx/dt', 'Tính a=dv/dt'];
   P.domLabel(ctx, 'step-desc', 430, 282, stepLabels[step], { color: P.tone(4) });
 
   // Numeric values
-  const xVal = state.xVal || 5;
-  const vVal = state.vVal || 0;
-  const aVal = state.aVal || 0;
+  const xVal = finiteNumber(state.xVal, 5);
+  const vVal = finiteNumber(state.vVal, 0);
+  const aVal = finiteNumber(state.aVal, 0);
   P.domMath(ctx, 'step-x', 430, 66, `x=${xVal.toFixed(2)}`, { color: P.tone(0) });
   P.domMath(ctx, 'step-v', 430, 84, `v=${vVal.toFixed(2)}`, { color: P.tone(1) });
   P.domMath(ctx, 'step-a', 430, 102, `a=${aVal.toFixed(2)}`, { color: P.tone(2) });
@@ -79,23 +84,23 @@ function renderCh272KinematicsNumericVerifier(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Kiểm tra số liệu x(t), v(t), a(t)', P.tone(6));
 
   const t = state.t || 0;
-  const xVal = state.xVal || 5;
-  const vVal = state.vVal || 0;
+  const xVal = finiteNumber(state.xVal, 5);
+  const vVal = finiteNumber(state.vVal, 0);
   const status = state.status || 'Đúng';
-  const errorV = state.errorV || 0;
-  const omega = state.omega || 1;
-  const x0 = Number.isFinite(Number(state.x0)) ? Number(state.x0) : 5;
-  const amplitude = Number.isFinite(Number(state.amplitude)) ? Number(state.amplitude) : 3;
+  const errorV = finiteNumber(state.errorV, 0);
+  const omega = finiteNumber(state.omega, 1);
+  const x0 = finiteNumber(state.x0, 5);
+  const amplitude = finiteNumber(state.amplitude, 3);
 
   // Data table panel
-  P.panel(ctx, 72, 76, 416, 168, 'bang so lieu', P.tone(6));
+  P.panel(ctx, 72, 76, 416, 168, 'bảng số liệu', P.tone(6));
 
   // Table header
   P.label(ctx, 't (s)', 102, 118, 12, P.tone(6));
   P.label(ctx, 'x(t)', 182, 118, 12, P.tone(0));
   P.label(ctx, 'v(t)', 262, 118, 12, P.tone(1));
   P.label(ctx, 'a(t)', 342, 118, 12, P.tone(2));
-  P.label(ctx, 'trang thai', 422, 118, 12, P.tone(6));
+  P.label(ctx, 'trạng thái', 422, 118, 12, P.tone(6));
 
   // Horizontal line under header
   ctx.strokeStyle = P.tone(6);
@@ -128,7 +133,7 @@ function renderCh272KinematicsNumericVerifier(ctx, scene, state, d) {
   }
 
   // Status panel
-  P.panel(ctx, 72, 260, 416, 54, 'kiem tra dong bat dong', P.tone(6));
+  P.panel(ctx, 72, 260, 416, 54, 'kiểm tra động bất động', P.tone(6));
   P.domMath(ctx, 'verify-t', 102, 284, `t=${t.toFixed(2)}\\,\\mathrm{s}`, { color: P.tone(4) });
   P.domMath(ctx, 'verify-x', 194, 284, `x=${xVal.toFixed(2)}`, { color: P.tone(0) });
   P.domMath(ctx, 'verify-v', 286, 284, `v=${vVal.toFixed(2)}`, { color: P.tone(1) });

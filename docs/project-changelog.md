@@ -29,6 +29,7 @@
 
 ### Fixed
 - Fixed post-cook quality gate regression: `js/sims/ch2/ch2-kinematics-behaviors-b.js` is back at the 220-line active-source limit.
+- Fixed post-review DeCuong regressions: CH2 exercise renderers now preserve visible `x=0`, CH3 collision solver preserves valid zero `v1`/`v2`/`e` values, remaining CH3 visible checker/collision English labels are localized, and blank `ch1-7-1` Phase 05 screenshots were regenerated from runtime.
 
 ### Added
 - KaTeX equation panel styling and runtime fallback for simulation equations; late KaTeX load can rerender fallback math instead of caching plain text permanently.
@@ -45,6 +46,7 @@
 - Phase 06 CH2 particle trajectory review hardening: `ch2-1-4` drag syncs full trajectory state, preset preview panels use bounded mini trajectories, graph `x/v/a` derivatives are consistent, and initial `a_n` readouts are seeded.
 - Phase 08 TDD coverage added in `tests/phase-08-tdd.test.js` and wired into `npm run test:sim:unit`.
 - Phase 09-12 TDD coverage added in `tests/phase-09-12-tdd.test.js` and wired into `npm run test:sim:unit`.
+- Phase 09-12 regression coverage now locks zero-value collision inputs, visible zero-value checker output, and localized checker/collision labels.
 
 ### Verified
 - DeCuong Phase 00 gates PASS: unit, browser, visual-quality, renderer contract, runtime lifecycle, manifest, scene catalog, quality audit, and content audit.
@@ -66,6 +68,7 @@
 - Phase 09-12 final gates PASS: CH2 15-route manifest/scene/renderer/runtime smokes, CH3 Phase 10 strict 10-route scene/renderer gates, CH3 Phase 11 strict 6-route scene/renderer gates, `npm run test:sim:unit`, focused CH3 interaction/animation checks, `npm run test:sim:browser` (163 tests), and `npm run test:sim:visual-quality` (4 tests).
 - DeCuong full rebuild final release PASS: `python tools\smoke_simulation_routes.py --require-p1`, 58-route manifest/scene/renderer/runtime smokes, `npm run test:sim:release`, disposal audit, content audit, strict equation audit, and strict KaTeX equation mapping validation.
 - Post-cook review/debug PASS: `npm run test:sim:quality`, `npm run test:sim:unit`, runtime smoke, and updated `npm run test:sim:release` all pass after the line-count fix.
+- Post-review DeCuong fixes PASS: `npm run test:sim:unit` and `npm run test:sim:release`.
 
 ## 2026-05-11
 

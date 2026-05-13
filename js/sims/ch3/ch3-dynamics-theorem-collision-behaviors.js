@@ -15,6 +15,7 @@ if (!registry) {
 const Phys = window.SimPhysicsDynamics || {};
 
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+function finiteNumber(value, fallback) { const n = Number(value); return Number.isFinite(n) ? n : fallback; }
 
 // ─── onTick functions (ch3-5-1 through ch3-7-2) ────────────────────────────
 
@@ -87,8 +88,7 @@ function onTick_ch362(scene, state, dt) {
 }
 
 function onTick_ch363(scene, state, dt) {
-  const m1 = state.m1 || 1, m2 = state.m2 || 1;
-  const v1 = state.v1 || 5, v2 = state.v2 || -3, e = state.e || 0.8;
+  const m1 = finiteNumber(state.m1, 1), m2 = finiteNumber(state.m2, 1), v1 = finiteNumber(state.v1, 5), v2 = finiteNumber(state.v2, -3), e = finiteNumber(state.e, 0.8);
   const result = Phys.restitutionVelocity ? Phys.restitutionVelocity(m1, m2, v1, v2, e) : { v1, v2 };
   state.v1After = result.v1; state.v2After = result.v2;
   state.pBefore = m1 * v1 + m2 * v2; state.pAfter = m1 * result.v1 + m2 * result.v2;
@@ -160,7 +160,7 @@ function derived_ch362(s, s2) {
   };
 }
 function derived_ch363(s, s2) {
-  const m1 = s.m1 || 1, m2 = s.m2 || 1, v1 = s.v1 || 5, v2 = s.v2 || -3, e = s.e || 0.8;
+  const m1 = finiteNumber(s.m1, 1), m2 = finiteNumber(s.m2, 1), v1 = finiteNumber(s.v1, 5), v2 = finiteNumber(s.v2, -3), e = finiteNumber(s.e, 0.8);
   const result = Phys.restitutionVelocity ?
     Phys.restitutionVelocity(m1, m2, v1, v2, e) :
     { v1, v2 };

@@ -79,6 +79,7 @@ python tools\audit.py
 
 - Added Phase 09-12 TDD coverage in `tests/phase-09-12-tdd.test.js` and wired it into `npm run test:sim:unit`.
 - `ch3-7-2` zero-noise residual checker remains locked at residual `0` and score `100`; browser control audit verifies readout and overlay agreement.
+- Post-review fixes preserve valid zero values in CH2/CH3 checker displays and CH3 collision inputs, and localize remaining visible checker/collision English labels.
 - Final release gate passed: static route/manifest/scene/renderer/runtime smokes, `npm run test:sim:unit`, `npm run test:sim:browser` (163 tests), `npm run test:sim:visual-quality` (4 tests), disposal audit, content audit, strict equation audit, and strict KaTeX equation mapping validation.
 - All-chapter screenshot evidence was not produced in this cook run; CH1 Phase 05 screenshot evidence exists for CH1 light/dark samples, but Phase 12 did not generate a new all-chapter capture set.
 - Final sync-back: Phase 12 stays complete after final review fixes; release gate remains the canonical PASS.

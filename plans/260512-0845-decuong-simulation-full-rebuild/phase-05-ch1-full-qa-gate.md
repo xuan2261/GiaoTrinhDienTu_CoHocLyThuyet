@@ -54,6 +54,7 @@ python tools\audit.py
 
 - Completed: 2026-05-12.
 - Screenshot evidence: `plans/260512-0845-decuong-simulation-full-rebuild/reports/phase-05-screenshots/` (25 CH1 routes x light/dark = 50 PNG).
+- Post-review screenshot refresh: `light-ch1-7-1.png` and `dark-ch1-7-1.png` were regenerated from the live `ch1-7-1` route after blank evidence was found.
 - Static gates pass: route smoke, CH1 manifest, CH1 scene catalog, CH1 renderer contract.
 - Runtime/content gates pass: CH1 runtime smoke, `npm run test:sim:unit`, `npm run test:sim:quality`, `python tools\audit.py`.
 - Browser gates pass: `npm run test:sim:semantic`, `npm run test:sim:browser` (163 tests), `npm run test:sim:visual-quality` (4 tests).

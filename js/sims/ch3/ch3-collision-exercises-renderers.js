@@ -11,6 +11,10 @@ if (!registry || !P) return;
 
 const visualHelpers = window.SimVisualHelpers || {};
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+function finiteNumber(value, fallback) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}
 
 // ─── ch3-6-2: 2D collision ─────────────────────────────────────────────────
 
@@ -28,7 +32,7 @@ function renderCh362Collision2D(ctx, scene, state, d) {
   if (state.collision) {
     ctx.save();
     ctx.shadowColor = P.tone(4); ctx.shadowBlur = 10;
-    P.realisticPoint(ctx, state.collisionX || (b1.x + b2.x) / 2, state.collisionY || (b1.y + b2.y) / 2, { fill: P.tone(4), radius: 8, text: 'COLLISION' });
+    P.realisticPoint(ctx, state.collisionX || (b1.x + b2.x) / 2, state.collisionY || (b1.y + b2.y) / 2, { fill: P.tone(4), radius: 8, text: 'va chạm' });
     ctx.restore();
   }
 
@@ -40,8 +44,8 @@ function renderCh362Collision2D(ctx, scene, state, d) {
 
 function renderCh363CollisionSolver(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Giải bài va chạm: bảo toàn p, e', P.tone(3));
-  const m1 = state.m1 || 1, m2 = state.m2 || 1;
-  const v1 = state.v1 || 5, v2 = state.v2 || -3, e = state.e || 0.8;
+  const m1 = finiteNumber(state.m1, 1), m2 = finiteNumber(state.m2, 1);
+  const v1 = finiteNumber(state.v1, 5), v2 = finiteNumber(state.v2, -3), e = finiteNumber(state.e, 0.8);
   const result = window.SimPhysicsDynamics ?
     window.SimPhysicsDynamics.restitutionVelocity(m1, m2, v1, v2, e) :
     { v1: v1, v2: v2 };
@@ -93,7 +97,7 @@ function renderCh372NumericChecker(ctx, scene, state, d) {
     { label: '\\Delta L - Mdt', value: Number.isFinite(Number(d.residual4)) ? Number(d.residual4) : 0.04 }
   ];
   P.frame(ctx, scene, 'Kiểm tra số liệu động lực học', P.tone(6));
-  P.panel(ctx, 78, 80, 400, 176, 'bảng sai lệch (residuals)', P.tone(6));
+  P.panel(ctx, 78, 80, 400, 176, 'bảng sai lệch', P.tone(6));
   residuals.forEach((r, i) => {
     const y = 122 + i * 34;
     P.domMath(ctx, `372-label-${i}`, 106, y - 10, r.label, { color: P.tone(i) });
