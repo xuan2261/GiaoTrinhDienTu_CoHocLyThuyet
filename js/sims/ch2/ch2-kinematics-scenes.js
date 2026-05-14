@@ -43,12 +43,64 @@ function scene(row, index) {
     visualLabel,
     seed: index + 1,
     angle: -0.5 + index * 0.06,
+    readoutPolicy: readoutPolicyFor(routeId),
     initialState: buildInitialState(routeId, index),
     controls: buildControls(routeId, forceLabel, secondKey, secondLabel),
-    readouts: [
-      { label: read1, key: readKey(read1), scale: 1, digits: 2 },
-      { label: read2, key: readKey(read2), scale: 1, digits: 2 }
-    ]
+    readouts: readoutsFor(routeId, read1, read2)
+  };
+}
+
+function readoutPolicyFor(routeId) {
+  return {
+    appendMode: false,
+    appendAlpha: false,
+    appendControls: false,
+    appendTime: ['ch2-1-1', 'ch2-1-2', 'ch2-1-4', 'ch2-2-2', 'ch2-3-2', 'ch2-5-3'].includes(routeId)
+  };
+}
+
+function readoutsFor(routeId, read1, read2) {
+  if (routeId === 'ch2-1-3') return [
+    { label: 'a_t', key: 'at', digits: 2, unit: 'm/s²', kind: 'accel' },
+    { label: 'a_n', key: 'an', digits: 2, unit: 'm/s²', kind: 'accel' },
+    { label: 'ρ', key: 'rho', digits: 2, unit: 'm', kind: 'default' },
+    { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }
+  ];
+  const extraByRoute = {
+    'ch2-1-1': [{ label: 'ρ', key: 'rho', digits: 2, unit: 'm' }, { label: 'α', key: 'alpha', digits: 0, unit: '°', kind: 'angle' }],
+    'ch2-1-2': [{ label: 'a(t)', key: 'aVal', digits: 2, unit: 'm/s²' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }],
+    'ch2-1-4': { label: 'Mẫu', key: 'mode', kind: 'mode' },
+    'ch2-2-2': { label: 'ε', key: 'alpha', digits: 2, unit: 'rad/s²', kind: 'accel' },
+    'ch2-3-2': [{ label: 'r1', key: 'r1', digits: 1, unit: 'px' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }],
+    'ch2-4-1': [{ label: '|v_e|', key: 'veMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Pha', key: 't', digits: 2, unit: 'rad' }],
+    'ch2-4-2': [{ label: '|v_r|', key: 'vrMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Pha', key: 't', digits: 2, unit: 'rad' }],
+    'ch2-4-3': [{ label: '|v_e|', key: 'veMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Quan hệ vận tốc', key: 'velocityRelation', kind: 'default' }],
+    'ch2-4-4': { label: '|v_r|', key: 'vrMag', digits: 2, unit: 'm/s' },
+    'ch2-5-1': { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' },
+    'ch2-5-2': { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' },
+    'ch2-5-3': { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' },
+    'ch2-7-1': [{ label: 'Sai số', key: 'error', digits: 2 }, { label: 'x(t)', key: 'xVal', digits: 2, unit: 'm' }, { label: 'v(t)', key: 'vVal', digits: 2, unit: 'm/s', kind: 'velocity' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }],
+    'ch2-7-2': [{ label: 'x0', key: 'x0', digits: 2, unit: 'm' }, { label: 'x(t)', key: 'xVal', digits: 2, unit: 'm' }]
+  };
+  const base = [readoutItem(read1), readoutItem(read2)];
+  if (extraByRoute[routeId]) base.push(...[].concat(extraByRoute[routeId]));
+  return base;
+}
+
+function readoutItem(label) {
+  const key = readKey(label);
+  const velocity = ['speed', 'vVal', 'vaMag', 'veMag', 'vrMag', 'vAMag', 'vBMag'];
+  const accel = ['an', 'at', 'coriolis', 'ae'];
+  const isAngularVelocity = ['omega', 'omega2'].includes(key);
+  const isVelocity = velocity.includes(key) || /\|v/.test(label);
+  const isAccel = accel.includes(key) || /^a_/.test(label);
+  return {
+    label,
+    key,
+    scale: 1,
+    digits: 2,
+    unit: isAngularVelocity ? 'rad/s' : (isVelocity ? 'm/s' : (isAccel ? 'm/s²' : '')),
+    kind: (isAngularVelocity || isVelocity) ? 'velocity' : (isAccel ? 'accel' : 'default')
   };
 }
 
@@ -60,13 +112,13 @@ function buildInitialState(routeId, index) {
       speed: 138, at: 0, an: 319.5, rho: 59.6, atx: 0, aty: 0, anx: -319.5, any: 0, alpha: 0
     });
     case 'ch2-1-2': return Object.assign(base, { cursorX: 56, cursorY: 130, xVal: 0, vVal: 54, aVal: 0 });
-    case 'ch2-1-3': return Object.assign(base, { px: 454, py: 224, vx: 0, vy: 104, an: 104, at: 0, rho: 104 });
+    case 'ch2-1-3': return Object.assign(base, { px: 446, py: 224, vx: 0, vy: 144, an: 216, at: 0, rho: 96 });
     case 'ch2-1-4': return Object.assign(base, { mode: 'Elip', px: 492, py: 224, speed: 138 });
     case 'ch2-2-2': return Object.assign(base, { theta: 0, omegaCur: 1.5, alpha: 0, r: 92, _t: 0 });
     case 'ch2-3-2': return Object.assign(base, { phi1: 0, phi2: 0, r1: 50, r2: 90, omega2: 1.0 });
     case 'ch2-4-1': return Object.assign(base, { ve: { vx: 60, vy: -30 }, vr: { vx: 40, vy: 40 }, va: { vx: 100, vy: 10 }, vaMag: 100.5, vrMag: 56.6, veMag: 67.1 });
     case 'ch2-4-2': return Object.assign(base, { mode: 'tuyệt đối', va: { vx: 55, vy: 0 }, ve: { vx: 30, vy: 0 }, vr: { vx: 25, vy: 0 }, vaMag: 55, vrMag: 25, veMag: 30 });
-    case 'ch2-4-3': return Object.assign(base, { phi: 0, ve: { vx: 60, vy: 0 }, vr: { vx: 0, vy: 40 }, va: { vx: 60, vy: 40 }, vaMag: 72.1, vrMag: 40 });
+    case 'ch2-4-3': return Object.assign(base, { phi: 0, velocityRelation: 'v_a = v_e + v_r', ve: { vx: 60, vy: 0 }, vr: { vx: 0, vy: 40 }, va: { vx: 60, vy: 40 }, vaMag: 72.1, vrMag: 40 });
     case 'ch2-4-4': return Object.assign(base, { theta: 0, px: 360, py: 180, vrx: 30, vry: 0, vrMag: 30, vr: { vx: 30, vy: 0 }, ac: { vx: 0, vy: 90 }, coriolis: 90 });
     case 'ch2-5-1': return Object.assign(base, { phi: 0, ox: 180, oy: 170, ax: 260, ay: 170, bx: 420, by: 170, vAMag: 46.7, vBMag: 245 });
     case 'ch2-5-2': return Object.assign(base, {
@@ -82,7 +134,7 @@ function buildInitialState(routeId, index) {
     });
     case 'ch2-5-3': return Object.assign(base, { phi: 0, ex: 338, ey: 238, L: 220, vAMag: 0, vBMag: 330 });
     case 'ch2-7-1': return Object.assign(base, { step: 0, xVal: 5, vVal: 0, aVal: 0 });
-    case 'ch2-7-2': return Object.assign(base, { xVal: 5, vVal: 0, errorX: 0, errorV: 0, status: 'Đúng', x0: 5, v0: 0, a0: 0 });
+    case 'ch2-7-2': return Object.assign(base, { t: Math.PI, xVal: 5, vVal: 0, errorX: 0, errorV: 0, status: 'Đúng', x0: 5, v0: 0, a0: 0 });
     default: return base;
   }
 }
@@ -103,45 +155,23 @@ function buildControls(routeId, forceLabel, secondKey, secondLabel) {
 }
 
 function maxFor(key) {
-  switch (key) {
-    case 'alpha': return 2; case 'r1': return 80; case 'r2': return 90;
-    case 'theta': return 360; case 'phi': return 360; case 't': return 6.28; case 'L': return 260; case 'rho': return 180;
-    case 'vr': case 'vrMag': return 80; case 'step': return 2; case 'x0': return 20;
-    default: return 90;
-  }
+  return { alpha: 2, r1: 80, r2: 90, theta: 360, phi: 360, t: 6.28, L: 260, rho: 180, vr: 80, vrMag: 80, step: 2, x0: 20 }[key] || 90;
 }
 
 function minFor(key) {
-  switch (key) {
-    case 'L': return 80;
-    case 'rho': return 60;
-    default: return 0;
-  }
+  return { L: 80, rho: 60 }[key] || 0;
 }
 
 function defaultFor(key) {
-  switch (key) {
-    case 'alpha': return 0; case 'r1': return 50; case 'r2': return 90;
-    case 'theta': return 0; case 'phi': return 0; case 't': return 0; case 'L': return 220; case 'rho': return 104;
-    case 'vr': case 'vrMag': return 30; case 'step': return 0; case 'x0': return 5;
-    default: return 30;
-  }
+  return { alpha: 0, r1: 50, r2: 90, theta: 0, phi: 0, t: 0, L: 220, rho: 96, vr: 30, vrMag: 30, step: 0, x0: 5 }[key] ?? 30;
 }
 
 function stepFor(key) {
-  switch (key) {
-    case 'alpha': return 0.05; case 't': return 0.05; case 'L': return 5; case 'step': return 1;
-    default: return 1;
-  }
+  return { alpha: 0.05, t: 0.05, L: 5, step: 1 }[key] || 1;
 }
 
 function unitFor(key) {
-  switch (key) {
-    case 'alpha': return 'rad/s²'; case 'r1': case 'r2': return 'px';
-    case 'theta': case 'phi': return '°'; case 't': return 'rad'; case 'L': return 'px';
-    case 'vr': case 'vrMag': return 'm/s'; case 'step': return ''; case 'x0': return 'm';
-    default: return '';
-  }
+  return { alpha: 'rad/s²', r1: 'px', r2: 'px', theta: '°', phi: '°', t: 'rad', L: 'px', vr: 'm/s', vrMag: 'm/s', x0: 'm' }[key] || '';
 }
 
 function readKey(label) {

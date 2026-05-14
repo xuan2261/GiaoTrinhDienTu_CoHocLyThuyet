@@ -86,7 +86,21 @@ function placeOverlay(node, x, y, options) {
   node.style.width = cfg.width ? `${Math.round(cfg.width)}px` : '';
   node.style.height = cfg.height ? `${Math.round(cfg.height)}px` : '';
 }
+function allowCanvasFormulaOverlay() {
+  return !!(typeof window !== 'undefined' && window.SIM_ALLOW_CANVAS_FORMULA_OVERLAY === true);
+}
+function isShortOverlayLabel(text) {
+  return /^(?:[A-Z]|[A-Z]\d|O|IC|F|F1|F2|v|a|N|T|x|y|α)$/u.test(String(text || '').trim());
+}
+function allowCanvasOverlayText(text) {
+  const normalized = String(text || '').replace(/\s+/g, ' ').trim();
+  return !normalized || isShortOverlayLabel(normalized);
+}
 function domMath(ctx, key, x, y, latex, options) {
+  if (!allowCanvasFormulaOverlay()) {
+    mark('domMathSuppressed', key, x, y);
+    return;
+  }
   mark('domMath', key, x, y);
   const node = overlayNode('math', key, 'sim-overlay-formula');
   if (!node) return;
@@ -108,6 +122,10 @@ function domMath(ctx, key, x, y, latex, options) {
   placeOverlay(node, x, y, options);
 }
 function domLabel(ctx, key, x, y, text, options) {
+  if (!allowCanvasFormulaOverlay() && !allowCanvasOverlayText(text)) {
+    mark('domLabelSuppressed', key, x, y);
+    return;
+  }
   mark('domLabel', key, x, y);
   const node = overlayNode('label', key, 'sim-overlay-label');
   if (!node) return;
@@ -118,6 +136,10 @@ function domLabel(ctx, key, x, y, text, options) {
   placeOverlay(node, x, y, options);
 }
 function domPanel(ctx, key, x, y, w, h, text, options) {
+  if (!allowCanvasFormulaOverlay() && !allowCanvasOverlayText(text)) {
+    mark('domPanelSuppressed', key, x, y, w, h);
+    return;
+  }
   mark('domPanel', key, x, y, w, h);
   const node = overlayNode('panel', key, 'sim-overlay-panel');
   if (!node) return;

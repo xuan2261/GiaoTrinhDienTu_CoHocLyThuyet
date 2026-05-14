@@ -48,6 +48,7 @@ function scene(row, index) {
     supportLabel: read1,
     projection: visualLabel,
     angle: -0.7 + index * 0.04,
+    readoutPolicy: { appendControls: false },
     initialState: { primary: initialPrimary, force: routeId === 'ch1-3-4' ? 130 : 76 + index * 5, load: routeId === 'ch1-3-4' ? 250 : 80 + index * 9, omega: 1.2 },
     controls: [
       { type: 'slider', key: 'force', label: forceLabel, min: routeId === 'ch1-3-4' ? 35 : 20, max: routeId === 'ch1-3-4' ? 190 : 170, value: routeId === 'ch1-3-4' ? 130 : 85, step: 5, unit: 'N' },
@@ -56,7 +57,7 @@ function scene(row, index) {
     readouts: [
       { label: read1, key: read1 === 'R_A' ? 'ra' : (read1.indexOf('M') >= 0 ? 'moment' : 'resultantMagnitude'), scale: read1.indexOf('M') >= 0 ? 0.01 : 1, digits: 1, unit: read1.indexOf('M') >= 0 ? 'N.m' : 'N', kind: read1.indexOf('T') >= 0 ? 'force' : 'result' },
       { label: read2, key: read2 === 'R_B' ? 'rb' : (index < 2 ? 'direction' : secondKey), digits: 1, unit: read2 === 'R_B' ? 'N' : '', kind: index < 2 ? 'mode' : 'angle' }
-    ]
+    ].concat(routeId === 'ch1-4-1' ? [{ label: forceLabel, key: 'force', digits: 1, unit: 'N', kind: 'force' }] : [])
   };
 }
 

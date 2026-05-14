@@ -14,24 +14,12 @@ if (!registry) {
 }
 
 const rows = [
-  ['ch3-1-2', 'force-to-acceleration', 'dynamics',
-   'Lực tổng → gia tốc', 'F = ma',
-   'Lực tổng tạo gia tốc', 'Lực F', 'm', 'Khối lượng m'],
-  ['ch3-1-3', 'inertial-frame', 'dynamics',
-   'Hệ quy chiếu quán tính', 'F* = -ma',
-   'Hệ quy chiếu quán tính', 'a_frame', 'm', 'Khối lượng m'],
-  ['ch3-2-1', 'inertia-law', 'dynamics',
-   'Định luật quán tính', 'F=0 → v=const',
-   'Quán tính', 'F', 'alpha', 'Góc lực'],
-  ['ch3-2-2', 'newton-second', 'dynamics',
-   'Định luật Newton II', 'F = ma',
-   'F = ma', 'F', 'm', 'Lực F'],
-  ['ch3-2-3', 'newton-third', 'dynamics',
-   'Định luật Newton III', 'F_AB = -F_BA',
-   'Tương tác', 'F', 'm2', 'Lực F'],
-  ['ch3-2-5', 'dynamic-fbd', 'dynamics',
-   'Sơ đồ FBD động lực', 'F + F* = 0',
-   'FBD với lực quán tính', 'F', 'm', 'Lực F'],
+  ['ch3-1-2', 'force-to-acceleration', 'dynamics', 'Lực tổng → gia tốc', 'F = ma', 'Lực tổng tạo gia tốc', 'Lực F', 'm', 'Khối lượng m'],
+  ['ch3-1-3', 'inertial-frame', 'dynamics', 'Hệ quy chiếu quán tính', 'F* = -ma', 'Hệ quy chiếu quán tính', 'a_frame', 'm', 'Khối lượng m'],
+  ['ch3-2-1', 'inertia-law', 'dynamics', 'Định luật quán tính', 'F=0 → v=const', 'Quán tính', 'F', 'alpha', 'Góc lực'],
+  ['ch3-2-2', 'newton-second', 'dynamics', 'Định luật Newton II', 'F = ma', 'F = ma', 'F', 'm', 'Lực F'],
+  ['ch3-2-3', 'newton-third', 'dynamics', 'Định luật Newton III', 'F_AB = -F_BA', 'Tương tác', 'F', 'm2', 'Lực F'],
+  ['ch3-2-5', 'dynamic-fbd', 'dynamics', 'Sơ đồ FBD động lực', 'F + F* = 0', 'FBD với lực quán tính', 'F', 'm', 'Lực F'],
   ['ch3-3-1', 'ode-solver', 'dynamics',
    'Tích phân phương trình vi phân', 'x″ + k/m·x = 0',
    'Spring-mass RK4', 'k', 'm', 'Hệ số lò xo'],
@@ -101,9 +89,8 @@ function buildInitial(routeId) {
 }
 
 function buildControls(routeId) {
-  const ctrls = [
-    { type: 'slider', key: 'F', label: 'Lực F', min: 0, max: 200, value: 50, step: 5, unit: 'N' }
-  ];
+  const ctrls = [];
+  if (['ch3-1-2', 'ch3-2-1', 'ch3-2-2', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1'].includes(routeId)) ctrls.push({ type: 'slider', key: 'F', label: 'Lực F', min: 0, max: 200, value: 50, step: 5, unit: 'N' });
   switch (routeId) {
     case 'ch3-1-2':
     case 'ch3-2-2':
@@ -158,35 +145,33 @@ function buildControls(routeId) {
   }
   return ctrls;
 }
-
 function readoutsFor(routeId) {
   switch (routeId) {
     case 'ch3-2-3':
-      return [{ label: 'a1', key: 'a1', digits: 2, unit: 'm/s²' }, { label: 'a2', key: 'a2', digits: 2, unit: 'm/s²' }];
+      return [{ label: 'a1', key: 'a1', digits: 2, unit: 'm/s²' }, { label: 'a2', key: 'a2', digits: 2, unit: 'm/s²' }, { label: 'F', key: 'force', digits: 1, unit: 'N' }];
     case 'ch3-3-1':
-      return [{ label: 'T', key: 'kinetic', digits: 2, unit: 'J' }, { label: 'V', key: 'potential', digits: 2, unit: 'J' }];
+      return [{ label: 'T', key: 'kinetic', digits: 2, unit: 'J' }, { label: 'V', key: 'potential', digits: 2, unit: 'J' }, { label: 'k', key: 'k', digits: 1, unit: 'N/m' }];
     case 'ch3-3-2':
-      return [{ label: 'x1', key: 'x1', digits: 2 }, { label: 'x2', key: 'x2', digits: 2 }];
+      return [{ label: 'x1', key: 'x1', digits: 2 }, { label: 'x2', key: 'x2', digits: 2 }, { label: 'k', key: 'k', digits: 1, unit: 'N/m' }];
     case 'ch3-5-1':
-      return [{ label: 'a_CM', key: 'aCM', digits: 2, unit: 'm/s²' }, { label: 'x_C', key: 'xCM', digits: 0 }];
+      return [{ label: 'a_CM', key: 'aCM', digits: 2, unit: 'm/s²' }, { label: 'x_C', key: 'xCM', digits: 0 }, { label: 'm1', key: 'm1', digits: 1, unit: 'kg' }, { label: 'm2', key: 'm2', digits: 1, unit: 'kg' }];
     case 'ch3-5-2':
-      return [{ label: 'p trước', key: 'pBefore', digits: 1 }, { label: 'Δp', key: 'deltaP', digits: 1 }];
+      return [{ label: 'p trước', key: 'pBefore', digits: 1 }, { label: 'Δp', key: 'deltaP', digits: 1 }, { label: 'J', key: 'J', digits: 1, unit: 'N·s' }];
     case 'ch3-5-3':
-      return [{ label: 'L', key: 'L', digits: 2 }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' }];
+      return [{ label: 'L', key: 'L', digits: 2 }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' }, { label: 'I', key: 'I', digits: 2, unit: 'kg·m²' }];
     case 'ch3-5-4':
-      return [{ label: 'T', key: 'kineticEnergy', digits: 2, unit: 'J' }, { label: 'V', key: 'potentialEnergy', digits: 2, unit: 'J' }];
+      return [{ label: 'T', key: 'kineticEnergy', digits: 2, unit: 'J' }, { label: 'V', key: 'potentialEnergy', digits: 2, unit: 'J' }, { label: 'v0', key: 'v0', digits: 1, unit: 'm/s' }];
     case 'ch3-6-2':
     case 'ch3-6-3':
-      return [{ label: 'p trước', key: 'pBefore', digits: 1 }, { label: 'p sau', key: 'pAfter', digits: 1 }];
+      return [{ label: 'p trước', key: 'pBefore', digits: 1 }, { label: 'p sau', key: 'pAfter', digits: 1 }, { label: 'e', key: 'e', digits: 2 }];
     case 'ch3-7-1':
-      return [{ label: 'định lý', key: 'selectedTheorem' }, { label: 'F', key: 'force', digits: 1, unit: 'N' }];
+      return [{ label: 'định lý', key: 'selectedTheorem' }, { label: 'F', key: 'force', digits: 1, unit: 'N' }, { label: 'Bài toán', key: 'problemType', digits: 0 }];
     case 'ch3-7-2':
-      return [{ label: 'điểm', key: 'score', digits: 0 }, { label: 'r1', key: 'residual1', digits: 3 }];
+      return [{ label: 'điểm', key: 'score', digits: 0 }, { label: 'r1', key: 'residual1', digits: 3 }, { label: 'Độ nhiễu', key: 'residualScale', digits: 1 }];
     default:
-      return [{ label: 'a', key: 'accel', scale: 1, digits: 2, unit: 'm/s²' }, { label: 'v', key: 'v', scale: 1, digits: 2, unit: 'm/s' }];
+      return [{ label: 'a', key: 'accel', scale: 1, digits: 2, unit: 'm/s²' }, { label: 'v', key: 'v', scale: 1, digits: 2, unit: 'm/s' }, { label: 'F', key: 'force', digits: 1, unit: 'N' }];
   }
 }
-
 function scene(row, index) {
   const [routeId, template, family, title, formula, visualLabel, forceLabel, secondKey, secondLabel] = row;
   return {
@@ -199,10 +184,14 @@ function scene(row, index) {
     visualKey: `${template}-${index + 31}`,
     visualLabel,
     seed: index + 31,
+    readoutPolicy: readoutPolicyFor(routeId),
     initialState: buildInitial(routeId),
     controls: buildControls(routeId),
     readouts: readoutsFor(routeId)
   };
+}
+function readoutPolicyFor(routeId) {
+  return { appendMode: false, appendAlpha: false, appendControls: false, appendTime: ['ch3-1-3', 'ch3-2-3', 'ch3-5-1', 'ch3-5-2', 'ch3-6-3', 'ch3-7-1', 'ch3-7-2'].includes(routeId) };
 }
 
 registry.registerMany(rows.map(scene));

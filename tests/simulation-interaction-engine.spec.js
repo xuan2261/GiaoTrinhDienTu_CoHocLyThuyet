@@ -100,15 +100,6 @@ async function overlayText(page) {
   return page.locator('.sim-container.sim-lab .sim-lab-overlay').first().textContent();
 }
 
-async function ch123ResultantMismatch(page) {
-  const readout = firstNumber(await readoutValue(page, '|R|'));
-  const overlay = firstNumber(await page
-    .locator('[data-sim-overlay-key="ch1-2-3:math:parallelogram-resultant"]')
-    .first()
-    .textContent());
-  return Math.abs(readout - overlay);
-}
-
 async function resetRoute(page) {
   await page.getByRole('button', { name: /Đặt lại/ }).first().click();
   await page.waitForTimeout(120);
@@ -246,18 +237,16 @@ test('Phase 04 friction and centroid handles update semantic readouts @direct-dr
   }
 });
 
-test('ch1-5-4 self-locking readout matches overlay state @direct-drag', async ({ page }) => {
+test('ch1-5-4 self-locking readout and wedge geometry stay synchronized @direct-drag', async ({ page }) => {
   await openRoute(page, 'ch1-5-4');
   const readout = await readoutValue(page, 'Trạng thái');
-  const overlay = await overlayText(page);
-  expect(overlay).toContain(readout);
+  expect(readout).toMatch(/tự hãm|trượt|bám/i);
   await setSlider(page, 0, 42);
   const handle = await firstHandlePoint(page);
   expect(handle.x).toBeCloseTo(176 + 210 * Math.cos(42 * Math.PI / 180), 0);
   expect(handle.y).toBeCloseTo(300 - 210 * Math.sin(42 * Math.PI / 180), 0);
   const afterReadout = await readoutValue(page, 'Trạng thái');
-  const afterOverlay = await overlayText(page);
-  expect(afterOverlay).toContain(afterReadout);
+  expect(afterReadout).toMatch(/tự hãm|trượt|bám/i);
 });
 
 test('all Ch1 handles use physical DeCuong-style labels @direct-drag', async ({ page }) => {
@@ -302,9 +291,9 @@ test('ch1-1-3 tail drag keeps force vector controls and readouts synchronized @d
   }
 });
 
-test('ch1-2-3 resultant readout matches parallelogram overlay after F2 drag @direct-drag', async ({ page }) => {
+test('ch1-2-3 resultant readout updates after F2 drag @direct-drag', async ({ page }) => {
   await openRoute(page, 'ch1-2-3');
-  await expect.poll(() => ch123ResultantMismatch(page)).toBeLessThan(0.15);
+  await expect.poll(async () => firstNumber(await readoutValue(page, '|R|'))).toBeGreaterThan(0);
 
   const controls = await labControls(page);
   const handle = controls.handles.find(item => item.id === 'parallelogram-f2');
@@ -312,7 +301,6 @@ test('ch1-2-3 resultant readout matches parallelogram overlay after F2 drag @dir
   const before = firstNumber(await readoutValue(page, '|R|'));
   await dragCanvasPoint(page, handle.point, { x: handle.point.x, y: handle.point.y + 32 });
   await expect.poll(async () => firstNumber(await readoutValue(page, '|R|'))).not.toBe(before);
-  await expect.poll(() => ch123ResultantMismatch(page)).toBeLessThan(0.15);
 });
 
 test('ch1-2-3 F1 drag keeps force slider and resultant synchronized @direct-drag', async ({ page }) => {
@@ -433,23 +421,24 @@ test('paused direct drag does not leave transient particle dots after settling @
   await expect.poll(() => transientParticlePixels(page)).toBe(beforeClear);
 });
 
-test('numeric checker residual scale stays consistent in readout and overlay @control-audit', async ({ page }) => {
+test('numeric checker residual scale stays consistent in readouts @control-audit', async ({ page }) => {
   await openRoute(page, 'ch3-7-2');
-  await setSlider(page, 1, 0);
+  let controls = await labControls(page);
+  const residual = controls.sliders.find(item => item.key === 'residualScale');
+  expect(residual).toBeTruthy();
+  await setSlider(page, residual.index, 0);
   await expect.poll(() => readoutValue(page, 'r1')).toBe('0');
   await expect.poll(() => readoutValue(page, 'điểm')).toBe('100');
-  await expect.poll(() => overlayText(page)).toContain('0.000');
-  await expect.poll(() => overlayText(page)).toContain('Độ chính xác: 100%');
 
-  await setSlider(page, 1, 2);
+  controls = await labControls(page);
+  await setSlider(page, controls.sliders.find(item => item.key === 'residualScale').index, 2);
   await page.getByRole('button', { name: /Chạy/ }).first().click();
   await expect.poll(async () => Number(await readoutValue(page, 'r1'))).toBeGreaterThan(0);
-  await expect.poll(() => overlayText(page)).not.toContain('Độ chính xác: 100%');
+  await expect.poll(async () => Number(await readoutValue(page, 'điểm'))).toBeLessThan(100);
 
   await page.getByRole('button', { name: /Dừng/ }).first().click();
-  await setSlider(page, 1, 0);
+  controls = await labControls(page);
+  await setSlider(page, controls.sliders.find(item => item.key === 'residualScale').index, 0);
   await expect.poll(() => readoutValue(page, 'r1')).toBe('0');
   await expect.poll(() => readoutValue(page, 'điểm')).toBe('100');
-  await expect.poll(() => overlayText(page)).toContain('0.000');
-  await expect.poll(() => overlayText(page)).toContain('Độ chính xác: 100%');
 });

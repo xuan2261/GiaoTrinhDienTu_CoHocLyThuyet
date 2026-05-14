@@ -233,6 +233,16 @@ function hasReadout(items, key, label) {
   );
 }
 
+function resolveReadoutPolicy(scene) {
+  const generic = scene && scene.appendGenericReadouts !== false;
+  return Object.assign({
+    appendMode: generic,
+    appendAlpha: generic,
+    appendControls: true,
+    appendTime: true
+  }, scene && scene.readoutPolicy || {});
+}
+
 function formatControlValue(control, state) {
   const key = control.key || '';
   const value = state[key] !== undefined ? state[key] : control.value;
@@ -298,6 +308,7 @@ function syncControlDisplays(lab, scene, state) {
 
 function formatReadoutItems(scene, state, d, handles, behavior) {
   const source = Object.assign({}, state, d, { mode: state.mode });
+  const policy = resolveReadoutPolicy(scene);
   const items = [];
   (scene.readouts || []).forEach(item => {
     let value = source[item.key];
@@ -307,14 +318,14 @@ function formatReadoutItems(scene, state, d, handles, behavior) {
     }
     items.push({ label: item.label, value: displayValue(value), unit: item.unit || '', key: item.key || '', kind: item.kind || readoutKind(item) });
   });
-  if (scene.appendGenericReadouts !== false && !hasReadout(items, 'mode', 'chế độ')) {
+  if (policy.appendMode && !hasReadout(items, 'mode', 'chế độ')) {
     items.push({ label: 'chế độ', value: String(state.mode || '—'), unit: '', key: 'mode', kind: 'mode' });
   }
-  if (scene.appendGenericReadouts !== false && Number.isFinite(Number(d.alpha)) && !hasReadout(items, 'alpha', 'α')) {
+  if (policy.appendAlpha && Number.isFinite(Number(d.alpha)) && !hasReadout(items, 'alpha', 'α')) {
     items.push({ label: 'α', value: Number(d.alpha).toFixed(0), unit: '°', key: 'alpha', kind: 'angle' });
   }
-  appendControlReadouts(items, scene, source);
-  appendTimeReadout(items, scene, source, behavior);
+  if (policy.appendControls) appendControlReadouts(items, scene, source);
+  if (policy.appendTime) appendTimeReadout(items, scene, source, behavior);
   return items;
 }
 

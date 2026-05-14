@@ -134,6 +134,7 @@ const scenes = [
     visualLabel: 'Hình bình hành lực',
     seed: 7,
     appendGenericReadouts: false,
+    readoutPolicy: { appendControls: false, appendTime: false },
     initialState: { primary: { x: 350, y: 180 }, secondary: { x: 380, y: 300 }, alpha: 39, force: 192, mass: 8, load: 118, mu: 0.42 },
     controls: [slider('force', '|F1|', 60, 260, 192, 'N', 5), slider('alpha', 'α', 0, 90, 39, '°')],
     readouts: [

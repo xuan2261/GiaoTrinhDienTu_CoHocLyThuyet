@@ -157,6 +157,8 @@ async function labState(page) {
         readoutCards: [...(readout?.querySelectorAll('.sim-readout-card') || [])].map(card => ({
           label: card.querySelector('.sim-readout-label')?.textContent.trim() || '',
           value: card.querySelector('.sim-readout-value')?.textContent.trim() || '',
+          key: card.dataset?.readoutKey || '',
+          kind: card.dataset?.readoutKind || 'default',
         })),
         v2: true
       };
@@ -182,6 +184,7 @@ async function labState(page) {
     readoutCards: [...lab.querySelectorAll('.sim-readout-card')].map(card => ({
       label: card.querySelector('.sim-readout-label')?.textContent.trim() || '',
       value: card.querySelector('.sim-readout-value')?.textContent.trim() || '',
+      key: card.dataset?.readoutKey || '',
       kind: card.dataset?.readoutKind || 'default',
     })),
     v2: false
