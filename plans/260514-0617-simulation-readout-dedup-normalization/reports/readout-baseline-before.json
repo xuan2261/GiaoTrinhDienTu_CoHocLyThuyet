@@ -1,0 +1,2878 @@
+[
+  {
+    "routeId": "ch1-1-3",
+    "title": "Mô phỏng ch1-1-3 - Cấu tạo véc tơ lực",
+    "readoutCards": [
+      {
+        "label": "|F|",
+        "key": "force",
+        "value": "260N",
+        "kind": "force"
+      },
+      {
+        "label": "α",
+        "key": "forceAngle",
+        "value": "32°",
+        "kind": "angle"
+      },
+      {
+        "label": "Điểm đặt",
+        "key": "primary",
+        "value": "(170; 290)",
+        "kind": "default"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [],
+      "controlEchoes": [
+        "|F|"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-1-4",
+    "title": "Mô phỏng ch1-1-4 - Cánh tay đòn mô men",
+    "readoutCards": [
+      {
+        "label": "F",
+        "key": "force",
+        "value": "110N",
+        "kind": "force"
+      },
+      {
+        "label": "d",
+        "key": "distance",
+        "value": "3m",
+        "kind": "default"
+      },
+      {
+        "label": "M_O",
+        "key": "moment",
+        "value": "330N.m",
+        "kind": "moment"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [],
+      "controlEchoes": [
+        "F"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-1-5",
+    "title": "Mô phỏng ch1-1-5 - Thu gọn hệ lực phẳng",
+    "readoutCards": [
+      {
+        "label": "|R|",
+        "key": "resultantMagnitude",
+        "value": "125N",
+        "kind": "result"
+      },
+      {
+        "label": "M_O",
+        "key": "moment",
+        "value": "273.4N.m",
+        "kind": "moment"
+      },
+      {
+        "label": "Chế độ",
+        "key": "mode",
+        "value": "Thu gọn",
+        "kind": "mode"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "Chế độ"
+      ],
+      "controlEchoes": []
+    }
+  },
+  {
+    "routeId": "ch1-1-6",
+    "title": "Mô phỏng ch1-1-6 - Mô men ngẫu lực tự do",
+    "readoutCards": [
+      {
+        "label": "F",
+        "key": "force",
+        "value": "90N",
+        "kind": "force"
+      },
+      {
+        "label": "d",
+        "key": "distance",
+        "value": "3m",
+        "kind": "default"
+      },
+      {
+        "label": "M",
+        "key": "moment",
+        "value": "270N.m",
+        "kind": "moment"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [],
+      "controlEchoes": [
+        "F"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-1-8",
+    "title": "Mô phỏng ch1-1-8 - Lực chủ động và phản lực liên kết",
+    "readoutCards": [
+      {
+        "label": "Loại",
+        "key": "supportKind",
+        "value": "Tựa trơn",
+        "kind": "mode"
+      },
+      {
+        "label": "Khóa",
+        "key": "supportDof",
+        "value": "khóa pháp tuyến",
+        "kind": "default"
+      },
+      {
+        "label": "Phản lực",
+        "key": "supportReaction",
+        "value": "N",
+        "kind": "result"
+      },
+      {
+        "label": "Điểm đặt",
+        "key": "primary",
+        "value": "(380; 140)",
+        "kind": "default"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "Loại"
+      ],
+      "controlEchoes": []
+    }
+  },
+  {
+    "routeId": "ch1-2-1",
+    "title": "Mô phỏng ch1-2-1 - Cân bằng vật chịu hai lực",
+    "readoutCards": [
+      {
+        "label": "|F|",
+        "key": "force",
+        "value": "105N",
+        "kind": "force"
+      },
+      {
+        "label": "Lệch",
+        "key": "balanceError",
+        "value": "0px",
+        "kind": "default"
+      },
+      {
+        "label": "Cân bằng",
+        "key": "balanceState",
+        "value": "đúng",
+        "kind": "result"
+      },
+      {
+        "label": "α",
+        "key": "angle",
+        "value": "0°",
+        "kind": "angle"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [],
+      "controlEchoes": [
+        "|F|"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-2-3",
+    "title": "Mô phỏng ch1-2-3 - Quy tắc hình bình hành lực",
+    "readoutCards": [
+      {
+        "label": "|F₁|",
+        "key": "f1Magnitude",
+        "value": "192.1N",
+        "kind": "force"
+      },
+      {
+        "label": "|F₂|",
+        "key": "f2Magnitude",
+        "value": "180N",
+        "kind": "force"
+      },
+      {
+        "label": "|R|",
+        "key": "resultantMagnitude",
+        "value": "351.1N",
+        "kind": "result"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "39°",
+        "kind": "angle"
+      },
+      {
+        "label": "|F1|",
+        "key": "force",
+        "value": "192.1N",
+        "kind": "force"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [
+        "|F₁| / |F1|"
+      ],
+      "genericNoise": [
+        "α"
+      ],
+      "controlEchoes": [
+        "|F1|"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-2-6",
+    "title": "Mô phỏng ch1-2-6 - Dựng sơ đồ vật thể tự do",
+    "readoutCards": [
+      {
+        "label": "|F|",
+        "key": "force",
+        "value": "90N",
+        "kind": "force"
+      },
+      {
+        "label": "|R|",
+        "key": "resultantMagnitude",
+        "value": "150N",
+        "kind": "result"
+      },
+      {
+        "label": "M_O",
+        "key": "moment",
+        "value": "0N.m",
+        "kind": "moment"
+      },
+      {
+        "label": "|R| liên kết",
+        "key": "load",
+        "value": "120N",
+        "kind": "result"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [],
+      "controlEchoes": [
+        "|F|",
+        "|R| liên kết"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-3-1",
+    "title": "Mô phỏng ch1-3-1 - Phản lực pháp tuyến tựa trơn",
+    "readoutCards": [
+      {
+        "label": "N",
+        "key": "resultantMagnitude",
+        "value": "76N",
+        "kind": "result"
+      },
+      {
+        "label": "Phương",
+        "key": "direction",
+        "value": "pháp tuyến",
+        "kind": "mode"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "0°",
+        "kind": "angle"
+      },
+      {
+        "label": "|N|",
+        "key": "force",
+        "value": "76N",
+        "kind": "result"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [
+        "N / |N|"
+      ],
+      "genericNoise": [
+        "Phương",
+        "chế độ",
+        "α"
+      ],
+      "controlEchoes": [
+        "|N|"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-3-2",
+    "title": "Mô phỏng ch1-3-2 - Lực căng dây mềm",
+    "readoutCards": [
+      {
+        "label": "Lực căng",
+        "key": "resultantMagnitude",
+        "value": "81N",
+        "kind": "result"
+      },
+      {
+        "label": "Dây",
+        "key": "direction",
+        "value": "dọc dây",
+        "kind": "mode"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "28°",
+        "kind": "angle"
+      },
+      {
+        "label": "|T|",
+        "key": "force",
+        "value": "81N",
+        "kind": "force"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [
+        "Lực căng / |T|"
+      ],
+      "genericNoise": [
+        "Dây",
+        "chế độ",
+        "α"
+      ],
+      "controlEchoes": [
+        "|T|"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-3-3",
+    "title": "Mô phỏng ch1-3-3 - Thành phần phản lực bản lề",
+    "readoutCards": [
+      {
+        "label": "Rx/Ry",
+        "key": "resultantMagnitude",
+        "value": "85.6N",
+        "kind": "result"
+      },
+      {
+        "label": "Loại liên kết",
+        "key": "load",
+        "value": "98",
+        "kind": "angle"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "0°",
+        "kind": "angle"
+      },
+      {
+        "label": "|R| bản lề",
+        "key": "force",
+        "value": "86N",
+        "kind": "result"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α"
+      ],
+      "controlEchoes": [
+        "Loại liên kết",
+        "|R| bản lề"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-3-4",
+    "title": "Mô phỏng ch1-3-4 - Gối di động và gối cố định",
+    "readoutCards": [
+      {
+        "label": "R_A",
+        "key": "ra",
+        "value": "66.5N",
+        "kind": "result"
+      },
+      {
+        "label": "R_B",
+        "key": "rb",
+        "value": "66.5N",
+        "kind": "angle"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "0°",
+        "kind": "angle"
+      },
+      {
+        "label": "P",
+        "key": "force",
+        "value": "133N",
+        "kind": "force"
+      },
+      {
+        "label": "Vị trí tải a",
+        "key": "load",
+        "value": "250px",
+        "kind": "force"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α"
+      ],
+      "controlEchoes": [
+        "P",
+        "Vị trí tải a"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-3-6",
+    "title": "Mô phỏng ch1-3-6 - Phản lực tại ngàm",
+    "readoutCards": [
+      {
+        "label": "MA",
+        "key": "moment",
+        "value": "0.9N.m",
+        "kind": "result"
+      },
+      {
+        "label": "Rx/Ry",
+        "key": "load",
+        "value": "116",
+        "kind": "angle"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "0°",
+        "kind": "angle"
+      },
+      {
+        "label": "|R| ngàm",
+        "key": "force",
+        "value": "96N",
+        "kind": "result"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α"
+      ],
+      "controlEchoes": [
+        "Rx/Ry",
+        "|R| ngàm"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-3-7",
+    "title": "Mô phỏng ch1-3-7 - Thanh hai lực theo trục",
+    "readoutCards": [
+      {
+        "label": "N dọc trục",
+        "key": "resultantMagnitude",
+        "value": "101N",
+        "kind": "result"
+      },
+      {
+        "label": "Đường trục",
+        "key": "alpha",
+        "value": "0",
+        "kind": "angle"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "|N| dọc trục",
+        "key": "force",
+        "value": "101N",
+        "kind": "result"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [
+        "N dọc trục / |N| dọc trục"
+      ],
+      "genericNoise": [
+        "Đường trục",
+        "chế độ"
+      ],
+      "controlEchoes": [
+        "|N| dọc trục"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-4-1",
+    "title": "Mô phỏng ch1-4-1 - Hợp lực không gian",
+    "readoutCards": [
+      {
+        "label": "Rxyz",
+        "key": "resultantMagnitude",
+        "value": "200N",
+        "kind": "result"
+      },
+      {
+        "label": "Hình chiếu",
+        "key": "load",
+        "value": "134",
+        "kind": "angle"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "0°",
+        "kind": "angle"
+      },
+      {
+        "label": "|R| 3D",
+        "key": "force",
+        "value": "106N",
+        "kind": "result"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α"
+      ],
+      "controlEchoes": [
+        "Hình chiếu",
+        "|R| 3D"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-4-2",
+    "title": "Mô phỏng ch1-4-2 - Hình chiếu mô men không gian",
+    "readoutCards": [
+      {
+        "label": "M_axis",
+        "key": "moment",
+        "value": "1.3N.m",
+        "kind": "result"
+      },
+      {
+        "label": "MO",
+        "key": "alpha",
+        "value": "0",
+        "kind": "angle"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "|F| theo trục",
+        "key": "force",
+        "value": "111N",
+        "kind": "force"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "MO",
+        "chế độ"
+      ],
+      "controlEchoes": [
+        "|F| theo trục"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-4-4",
+    "title": "Mô phỏng ch1-4-4 - Bảng cân bằng không gian",
+    "readoutCards": [
+      {
+        "label": "ΣF",
+        "key": "resultantMagnitude",
+        "value": "116N",
+        "kind": "result"
+      },
+      {
+        "label": "ΣM",
+        "key": "load",
+        "value": "152",
+        "kind": "angle"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "0°",
+        "kind": "angle"
+      },
+      {
+        "label": "|R| cân bằng",
+        "key": "force",
+        "value": "116N",
+        "kind": "result"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [
+        "ΣF / |R| cân bằng"
+      ],
+      "genericNoise": [
+        "chế độ",
+        "α"
+      ],
+      "controlEchoes": [
+        "ΣM",
+        "|R| cân bằng"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-5-1",
+    "title": "Mô phỏng ch1-5-1 - Phân tích lực tiếp xúc",
+    "readoutCards": [
+      {
+        "label": "N",
+        "key": "normal",
+        "value": "140N",
+        "kind": "force"
+      },
+      {
+        "label": "Fms",
+        "key": "friction",
+        "value": "88N",
+        "kind": "result"
+      },
+      {
+        "label": "|R|",
+        "key": "resultantMagnitude",
+        "value": "165.4N",
+        "kind": "result"
+      },
+      {
+        "label": "μ",
+        "key": "mu",
+        "value": "0.38",
+        "kind": "default"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [],
+      "controlEchoes": []
+    }
+  },
+  {
+    "routeId": "ch1-5-2",
+    "title": "Mô phỏng ch1-5-2 - Ma sát nghỉ, trượt và lăn",
+    "readoutCards": [
+      {
+        "label": "F kéo",
+        "key": "force",
+        "value": "94N",
+        "kind": "force"
+      },
+      {
+        "label": "μN",
+        "key": "threshold",
+        "value": "72N",
+        "kind": "result"
+      },
+      {
+        "label": "Trạng thái",
+        "key": "slipState",
+        "value": "trượt",
+        "kind": "mode"
+      },
+      {
+        "label": "μ",
+        "key": "mu",
+        "value": "0.48",
+        "kind": "default"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "Trạng thái"
+      ],
+      "controlEchoes": [
+        "F kéo"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-5-3",
+    "title": "Mô phỏng ch1-5-3 - Nón ma sát trên mặt nghiêng",
+    "readoutCards": [
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "19°",
+        "kind": "angle"
+      },
+      {
+        "label": "tan α",
+        "key": "tanAlpha",
+        "value": "0.34",
+        "kind": "angle"
+      },
+      {
+        "label": "Trạng thái",
+        "key": "slipState",
+        "value": "trượt",
+        "kind": "mode"
+      },
+      {
+        "label": "μ",
+        "key": "mu",
+        "value": "0.46",
+        "kind": "default"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "α",
+        "Trạng thái"
+      ],
+      "controlEchoes": []
+    }
+  },
+  {
+    "routeId": "ch1-5-4",
+    "title": "Mô phỏng ch1-5-4 - Tự hãm nêm và vít",
+    "readoutCards": [
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "16°",
+        "kind": "angle"
+      },
+      {
+        "label": "φ",
+        "key": "phi",
+        "value": "23°",
+        "kind": "angle"
+      },
+      {
+        "label": "Trạng thái",
+        "key": "lockState",
+        "value": "tự hãm",
+        "kind": "mode"
+      },
+      {
+        "label": "μ",
+        "key": "mu",
+        "value": "0.42",
+        "kind": "default"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "α",
+        "Trạng thái"
+      ],
+      "controlEchoes": []
+    }
+  },
+  {
+    "routeId": "ch1-6-2",
+    "title": "Mô phỏng ch1-6-2 - Trọng tâm diện tích ghép",
+    "readoutCards": [
+      {
+        "label": "xG",
+        "key": "gx",
+        "value": "295px",
+        "kind": "result"
+      },
+      {
+        "label": "yG",
+        "key": "gy",
+        "value": "198px",
+        "kind": "result"
+      },
+      {
+        "label": "S2",
+        "key": "load",
+        "value": "96%",
+        "kind": "default"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [],
+      "controlEchoes": [
+        "S2"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-6-3",
+    "title": "Mô phỏng ch1-6-3 - Trọng tâm khi có lỗ khoét",
+    "readoutCards": [
+      {
+        "label": "xG",
+        "key": "gx",
+        "value": "314px",
+        "kind": "result"
+      },
+      {
+        "label": "Dịch G",
+        "key": "shift",
+        "value": "15.2px",
+        "kind": "result"
+      },
+      {
+        "label": "S lỗ",
+        "key": "hole",
+        "value": "52",
+        "kind": "default"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [],
+      "controlEchoes": []
+    }
+  },
+  {
+    "routeId": "ch1-7-1",
+    "title": "Mô phỏng ch1-7-1 - Chuỗi giải tĩnh học",
+    "readoutCards": [
+      {
+        "label": "P",
+        "key": "force",
+        "value": "104N",
+        "kind": "force"
+      },
+      {
+        "label": "Bước",
+        "key": "progress",
+        "value": "1/4",
+        "kind": "mode"
+      },
+      {
+        "label": "RA",
+        "key": "ra",
+        "value": "60.3N",
+        "kind": "result"
+      },
+      {
+        "label": "RB",
+        "key": "rb",
+        "value": "43.7N",
+        "kind": "result"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "Bước"
+      ],
+      "controlEchoes": [
+        "P"
+      ]
+    }
+  },
+  {
+    "routeId": "ch1-7-2",
+    "title": "Mô phỏng ch1-7-2 - Đối chiếu kết quả tĩnh học",
+    "readoutCards": [
+      {
+        "label": "RA đúng",
+        "key": "ra",
+        "value": "59.4N",
+        "kind": "result"
+      },
+      {
+        "label": "RB đúng",
+        "key": "rb",
+        "value": "52.6N",
+        "kind": "result"
+      },
+      {
+        "label": "Sai số",
+        "key": "residual",
+        "value": "14N",
+        "kind": "default"
+      },
+      {
+        "label": "Kiểm",
+        "key": "verify",
+        "value": "lệch",
+        "kind": "mode"
+      },
+      {
+        "label": "P",
+        "key": "force",
+        "value": "112N",
+        "kind": "force"
+      },
+      {
+        "label": "RA nhập",
+        "key": "inputRA",
+        "value": "48N",
+        "kind": "result"
+      },
+      {
+        "label": "RB nhập",
+        "key": "inputRB",
+        "value": "50N",
+        "kind": "result"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "Kiểm"
+      ],
+      "controlEchoes": [
+        "P"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-1-1",
+    "title": "Mô phỏng ch2-1-1 - Quỹ đạo chất điểm",
+    "readoutCards": [
+      {
+        "label": "|v|",
+        "key": "speed",
+        "value": "138",
+        "kind": "velocity"
+      },
+      {
+        "label": "a_n",
+        "key": "an",
+        "value": "319.5",
+        "kind": "result"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Elip",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Pha",
+        "key": "t",
+        "value": "0.00rad",
+        "kind": "accel"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-1-2",
+    "title": "Mô phỏng ch2-1-2 - Đồ thị x(t) v(t) a(t)",
+    "readoutCards": [
+      {
+        "label": "x(t)",
+        "key": "xVal",
+        "value": "0",
+        "kind": "energy"
+      },
+      {
+        "label": "v(t)",
+        "key": "vVal",
+        "value": "54",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Con trỏ t",
+        "key": "t",
+        "value": "0.00rad",
+        "kind": "result"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-1-3",
+    "title": "Mô phỏng ch2-1-3 - Tọa độ tự nhiên",
+    "readoutCards": [
+      {
+        "label": "a_t",
+        "key": "at",
+        "value": "0",
+        "kind": "energy"
+      },
+      {
+        "label": "a_n",
+        "key": "an",
+        "value": "104",
+        "kind": "result"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Bán kính cong",
+        "key": "rho",
+        "value": "104",
+        "kind": "result"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega",
+        "Bán kính cong"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-1-4",
+    "title": "Mô phỏng ch2-1-4 - Các dạng chuyển động",
+    "readoutCards": [
+      {
+        "label": "x",
+        "key": "x",
+        "value": "492",
+        "kind": "default"
+      },
+      {
+        "label": "v",
+        "key": "v",
+        "value": "138",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Elip",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Pha",
+        "key": "t",
+        "value": "0.00rad",
+        "kind": "accel"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-2-2",
+    "title": "Mô phỏng ch2-2-2 - Quay quanh trục cố định",
+    "readoutCards": [
+      {
+        "label": "phi",
+        "key": "theta",
+        "value": "0",
+        "kind": "accel"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.5",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-3-2",
+    "title": "Mô phỏng ch2-3-2 - Truyền động bánh răng",
+    "readoutCards": [
+      {
+        "label": "omega2",
+        "key": "omega2",
+        "value": "1",
+        "kind": "velocity"
+      },
+      {
+        "label": "v",
+        "key": "v",
+        "value": "0",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Bán kính r1",
+        "key": "r1",
+        "value": "50px",
+        "kind": "result"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-4-1",
+    "title": "Mô phỏng ch2-4-1 - Hợp chuyển động",
+    "readoutCards": [
+      {
+        "label": "|v_a|",
+        "key": "vaMag",
+        "value": "100.5",
+        "kind": "accel"
+      },
+      {
+        "label": "|v_r|",
+        "key": "vrMag",
+        "value": "56.6",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Pha vận tốc",
+        "key": "t",
+        "value": "0.00rad",
+        "kind": "result"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-4-2",
+    "title": "Mô phỏng ch2-4-2 - Ba loại vận tốc",
+    "readoutCards": [
+      {
+        "label": "|v_a|",
+        "key": "vaMag",
+        "value": "55",
+        "kind": "accel"
+      },
+      {
+        "label": "|v_e|",
+        "key": "veMag",
+        "value": "30",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "tuyệt đối",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Pha định nghĩa",
+        "key": "t",
+        "value": "0.00rad",
+        "kind": "accel"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-4-3",
+    "title": "Mô phỏng ch2-4-3 - Tam giác vận tốc",
+    "readoutCards": [
+      {
+        "label": "|v_a|",
+        "key": "vaMag",
+        "value": "72.1",
+        "kind": "accel"
+      },
+      {
+        "label": "|v_r|",
+        "key": "vrMag",
+        "value": "40",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Góc pha",
+        "key": "phi",
+        "value": "0°",
+        "kind": "accel"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-4-4",
+    "title": "Mô phỏng ch2-4-4 - Gia tốc Coriolis",
+    "readoutCards": [
+      {
+        "label": "|a_c|",
+        "key": "coriolis",
+        "value": "90",
+        "kind": "default"
+      },
+      {
+        "label": "a_e",
+        "key": "ae",
+        "value": "18",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Vận tốc tương đối",
+        "key": "vrMag",
+        "value": "30m/s",
+        "kind": "result"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-5-1",
+    "title": "Mô phỏng ch2-5-1 - Tịnh tiến + quay phẳng",
+    "readoutCards": [
+      {
+        "label": "|v_A|",
+        "key": "vAMag",
+        "value": "46.7",
+        "kind": "accel"
+      },
+      {
+        "label": "|v_B|",
+        "key": "vBMag",
+        "value": "245",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Tốc độ góc thanh",
+        "key": "phi",
+        "value": "0°",
+        "kind": "velocity"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-5-2",
+    "title": "Mô phỏng ch2-5-2 - Tâm vận tốc tức thời",
+    "readoutCards": [
+      {
+        "label": "IC_x",
+        "key": "icX",
+        "value": "270",
+        "kind": "default"
+      },
+      {
+        "label": "IC_y",
+        "key": "icY",
+        "value": "245",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "39°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Tốc độ góc điều khiển",
+        "key": "theta",
+        "value": "0°",
+        "kind": "result"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-5-3",
+    "title": "Mô phỏng ch2-5-3 - Phân bố vận tốc",
+    "readoutCards": [
+      {
+        "label": "|v_A|",
+        "key": "vAMag",
+        "value": "0",
+        "kind": "accel"
+      },
+      {
+        "label": "|v_B|",
+        "key": "vBMag",
+        "value": "330",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Chiều dài thanh",
+        "key": "L",
+        "value": "220px",
+        "kind": "default"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-7-1",
+    "title": "Mô phỏng ch2-7-1 - Giải bài động học",
+    "readoutCards": [
+      {
+        "label": "Bước giải",
+        "key": "step",
+        "value": "0",
+        "kind": "force"
+      },
+      {
+        "label": "Kiểm tra",
+        "key": "status",
+        "value": "—",
+        "kind": "result"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch2-7-2",
+    "title": "Mô phỏng ch2-7-2 - Kiểm tra số liệu x(t)",
+    "readoutCards": [
+      {
+        "label": "Sai số",
+        "key": "errorV",
+        "value": "0",
+        "kind": "velocity"
+      },
+      {
+        "label": "Trạng thái",
+        "key": "status",
+        "value": "Đúng",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "α",
+        "key": "alpha",
+        "value": "37°",
+        "kind": "angle"
+      },
+      {
+        "label": "omega",
+        "key": "omega",
+        "value": "1.50rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "Điều kiện đầu",
+        "key": "x0",
+        "value": "5m",
+        "kind": "result"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "α",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "omega"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-1-2",
+    "title": "Mô phỏng ch3-1-2 - Lực tổng → gia tốc",
+    "readoutCards": [
+      {
+        "label": "a",
+        "key": "accel",
+        "value": "10m/s²",
+        "kind": "accel"
+      },
+      {
+        "label": "v",
+        "key": "v",
+        "value": "0m/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "m",
+        "key": "m",
+        "value": "5.00kg",
+        "kind": "energy"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-1-3",
+    "title": "Mô phỏng ch3-1-3 - Hệ quy chiếu quán tính",
+    "readoutCards": [
+      {
+        "label": "a",
+        "key": "accel",
+        "value": "2m/s²",
+        "kind": "accel"
+      },
+      {
+        "label": "v",
+        "key": "v",
+        "value": "0m/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-2-1",
+    "title": "Mô phỏng ch3-2-1 - Định luật quán tính",
+    "readoutCards": [
+      {
+        "label": "a",
+        "key": "accel",
+        "value": "10m/s²",
+        "kind": "accel"
+      },
+      {
+        "label": "v",
+        "key": "v",
+        "value": "0m/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "Góc",
+        "key": "alpha",
+        "value": "0deg",
+        "kind": "accel"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "Góc",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-2-2",
+    "title": "Mô phỏng ch3-2-2 - Định luật Newton II",
+    "readoutCards": [
+      {
+        "label": "a",
+        "key": "accel",
+        "value": "10m/s²",
+        "kind": "accel"
+      },
+      {
+        "label": "v",
+        "key": "v",
+        "value": "0m/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "m",
+        "key": "m",
+        "value": "5.00kg",
+        "kind": "energy"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-2-3",
+    "title": "Mô phỏng ch3-2-3 - Định luật Newton III",
+    "readoutCards": [
+      {
+        "label": "a1",
+        "key": "a1",
+        "value": "10m/s²",
+        "kind": "default"
+      },
+      {
+        "label": "a2",
+        "key": "a2",
+        "value": "-50m/s²",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "m",
+        "key": "m",
+        "value": "5.00kg",
+        "kind": "energy"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-2-5",
+    "title": "Mô phỏng ch3-2-5 - Sơ đồ FBD động lực",
+    "readoutCards": [
+      {
+        "label": "a",
+        "key": "accel",
+        "value": "10m/s²",
+        "kind": "accel"
+      },
+      {
+        "label": "v",
+        "key": "v",
+        "value": "0m/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "m",
+        "key": "m",
+        "value": "5.00kg",
+        "kind": "energy"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-3-1",
+    "title": "Mô phỏng ch3-3-1 - Tích phân phương trình vi phân",
+    "readoutCards": [
+      {
+        "label": "T",
+        "key": "kinetic",
+        "value": "0J",
+        "kind": "energy"
+      },
+      {
+        "label": "V",
+        "key": "potential",
+        "value": "6.4J",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "k",
+        "key": "k",
+        "value": "20N/m",
+        "kind": "energy"
+      },
+      {
+        "label": "m",
+        "key": "m",
+        "value": "5.00kg",
+        "kind": "energy"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-3-2",
+    "title": "Mô phỏng ch3-3-2 - Cơ hệ 2 khối nối lò xo",
+    "readoutCards": [
+      {
+        "label": "x1",
+        "key": "x1",
+        "value": "0.45",
+        "kind": "default"
+      },
+      {
+        "label": "x2",
+        "key": "x2",
+        "value": "-0.25",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "k",
+        "key": "k",
+        "value": "20N/m",
+        "kind": "energy"
+      },
+      {
+        "label": "m",
+        "key": "m",
+        "value": "5.00kg",
+        "kind": "energy"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-4-1",
+    "title": "Mô phỏng ch3-4-1 - Cân bằng động D’Alembert",
+    "readoutCards": [
+      {
+        "label": "a",
+        "key": "accel",
+        "value": "10m/s²",
+        "kind": "accel"
+      },
+      {
+        "label": "v",
+        "key": "v",
+        "value": "0m/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "m",
+        "key": "m",
+        "value": "5.00kg",
+        "kind": "energy"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-4-2",
+    "title": "Mô phỏng ch3-4-2 - Ngược từ chuyển động suy lực",
+    "readoutCards": [
+      {
+        "label": "a",
+        "key": "accel",
+        "value": "10m/s²",
+        "kind": "accel"
+      },
+      {
+        "label": "v",
+        "key": "v",
+        "value": "0m/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "m",
+        "key": "m",
+        "value": "5.00kg",
+        "kind": "energy"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-5-1",
+    "title": "Mô phỏng ch3-5-1 - Định lý khối tâm",
+    "readoutCards": [
+      {
+        "label": "a_CM",
+        "key": "aCM",
+        "value": "11.11m/s²",
+        "kind": "energy"
+      },
+      {
+        "label": "x_C",
+        "key": "xCM",
+        "value": "211",
+        "kind": "energy"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "m1",
+        "key": "m1",
+        "value": "1.00kg",
+        "kind": "default"
+      },
+      {
+        "label": "m2",
+        "key": "m2",
+        "value": "1.00kg",
+        "kind": "default"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m1",
+        "m2"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-5-2",
+    "title": "Mô phỏng ch3-5-2 - Xung lượng - động lượng",
+    "readoutCards": [
+      {
+        "label": "p trước",
+        "key": "pBefore",
+        "value": "30",
+        "kind": "force"
+      },
+      {
+        "label": "Δp",
+        "key": "deltaP",
+        "value": "20",
+        "kind": "force"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "J",
+        "key": "J",
+        "value": "20N·s",
+        "kind": "default"
+      },
+      {
+        "label": "m",
+        "key": "m",
+        "value": "5.00kg",
+        "kind": "energy"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-5-3",
+    "title": "Mô phỏng ch3-5-3 - Mô men động lượng",
+    "readoutCards": [
+      {
+        "label": "L",
+        "key": "L",
+        "value": "2",
+        "kind": "default"
+      },
+      {
+        "label": "ω",
+        "key": "omega",
+        "value": "2rad/s",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "I",
+        "key": "I",
+        "value": "1.00kg·m²",
+        "kind": "default"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "ω",
+        "Lực F"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-5-4",
+    "title": "Mô phỏng ch3-5-4 - Định lý động năng",
+    "readoutCards": [
+      {
+        "label": "T",
+        "key": "kineticEnergy",
+        "value": "22.5J",
+        "kind": "energy"
+      },
+      {
+        "label": "V",
+        "key": "potentialEnergy",
+        "value": "0J",
+        "kind": "velocity"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "v0",
+        "key": "v0",
+        "value": "3.00m/s",
+        "kind": "default"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-6-2",
+    "title": "Mô phỏng ch3-6-2 - Va chạm 2D",
+    "readoutCards": [
+      {
+        "label": "p trước",
+        "key": "pBefore",
+        "value": "(5; 0)",
+        "kind": "force"
+      },
+      {
+        "label": "p sau",
+        "key": "pAfter",
+        "value": "(5; 0)",
+        "kind": "force"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "e",
+        "key": "e",
+        "value": "1.00",
+        "kind": "default"
+      },
+      {
+        "label": "m1",
+        "key": "m1",
+        "value": "1.00kg",
+        "kind": "default"
+      },
+      {
+        "label": "m2",
+        "key": "m2",
+        "value": "1.00kg",
+        "kind": "default"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F",
+        "m1",
+        "m2"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-6-3",
+    "title": "Mô phỏng ch3-6-3 - Giải bài va chạm",
+    "readoutCards": [
+      {
+        "label": "p trước",
+        "key": "pBefore",
+        "value": "2",
+        "kind": "force"
+      },
+      {
+        "label": "p sau",
+        "key": "pAfter",
+        "value": "2",
+        "kind": "force"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "v1",
+        "key": "v1",
+        "value": "5.00m/s",
+        "kind": "default"
+      },
+      {
+        "label": "v2",
+        "key": "v2",
+        "value": "-3.00m/s",
+        "kind": "default"
+      },
+      {
+        "label": "e",
+        "key": "e",
+        "value": "1.00",
+        "kind": "default"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-7-1",
+    "title": "Mô phỏng ch3-7-1 - Chọn định lý phù hợp",
+    "readoutCards": [
+      {
+        "label": "định lý",
+        "key": "selectedTheorem",
+        "value": "Định lý khối tâm",
+        "kind": "energy"
+      },
+      {
+        "label": "F",
+        "key": "force",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "Bài toán",
+        "key": "problemType",
+        "value": "0",
+        "kind": "result"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [
+        "F / Lực F"
+      ],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "F",
+        "Lực F"
+      ]
+    }
+  },
+  {
+    "routeId": "ch3-7-2",
+    "title": "Mô phỏng ch3-7-2 - Kiểm tra số liệu động lực",
+    "readoutCards": [
+      {
+        "label": "điểm",
+        "key": "score",
+        "value": "100",
+        "kind": "energy"
+      },
+      {
+        "label": "r1",
+        "key": "residual1",
+        "value": "0",
+        "kind": "default"
+      },
+      {
+        "label": "chế độ",
+        "key": "mode",
+        "value": "Chuẩn",
+        "kind": "mode"
+      },
+      {
+        "label": "Lực F",
+        "key": "F",
+        "value": "50N",
+        "kind": "force"
+      },
+      {
+        "label": "Độ nhiễu",
+        "key": "residualScale",
+        "value": "0.00",
+        "kind": "default"
+      },
+      {
+        "label": "thời gian",
+        "key": "_t",
+        "value": "0.00s",
+        "kind": "time"
+      }
+    ],
+    "classification": {
+      "duplicateAliases": [],
+      "genericNoise": [
+        "chế độ",
+        "thời gian"
+      ],
+      "controlEchoes": [
+        "Lực F"
+      ]
+    }
+  }
+]
