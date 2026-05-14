@@ -430,18 +430,22 @@ async function initSimulations(container, pageId) {
 
   // Inject simulation from js/simulations.js if available for current page
   if (window.SIM_MAP && window.SIM_MAP[simRouteId]) {
-    let mountPoint = container.querySelector('#sim-' + simRouteId) || container.querySelector('.sim-container');
+    let mountPoint = container.querySelector('#sim-' + simRouteId) ||
+      container.querySelector('.sim-mount') ||
+      container.querySelector('.sim-container:not(.sim-lab)');
     if (!mountPoint) {
       // Create a mount point at the bottom if none exists
       mountPoint = document.createElement('div');
-      mountPoint.className = 'sim-container';
+      mountPoint.className = 'sim-mount';
       container.appendChild(mountPoint);
     }
+    mountPoint.classList.remove('sim-container');
+    mountPoint.classList.add('sim-mount');
 
     // Don't inject twice
-    if (!mountPoint.hasAttribute('data-route-id')) {
+    if (!mountPoint.hasAttribute('data-sim-mount-route')) {
       try {
-        mountPoint.setAttribute('data-route-id', simRouteId);
+        mountPoint.setAttribute('data-sim-mount-route', simRouteId);
         const mounted = window.SIM_MAP[simRouteId](mountPoint);
         if (typeof mounted === 'function') {
           activeSimulationDispose = mounted;

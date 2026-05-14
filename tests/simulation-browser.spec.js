@@ -57,6 +57,25 @@ async function layoutMetrics(page) {
   });
 }
 
+async function simulationMountShellMetrics(page) {
+  return page.evaluate(() => {
+    const lab = document.querySelector('.content-area .sim-container.sim-lab');
+    const parent = lab?.parentElement || null;
+    const plainContainers = [...document.querySelectorAll('.content-area .sim-container')]
+      .filter(node => !node.classList.contains('sim-lab'));
+    return {
+      labCount: document.querySelectorAll('.content-area .sim-container.sim-lab').length,
+      plainContainerCount: plainContainers.length,
+      parentIsPlainSimContainer: !!parent &&
+        parent.classList.contains('sim-container') &&
+        !parent.classList.contains('sim-lab'),
+      parentClassName: parent?.className || '',
+      parentBackground: parent ? getComputedStyle(parent).backgroundColor : '',
+      parentPadding: parent ? getComputedStyle(parent).padding : '',
+    };
+  });
+}
+
 async function inspectorLayoutMetrics(page) {
   return page.locator('.sim-container.sim-lab').first().evaluate(lab => {
     const labBox = lab.getBoundingClientRect();
@@ -376,6 +395,19 @@ test('simulation pages use scoped wide layout without page overflow @responsive'
     const mobile = await layoutMetrics(page);
     expect(mobile.pageOverflow, `${route} page overflow at 390px`).toBeLessThanOrEqual(1);
     expect(mobile.sim.width, `${route} sim width at 390px`).toBeLessThanOrEqual(mobile.viewport);
+  }
+});
+
+test('simulation mount point stays neutral outside the visual lab shell @responsive', async ({ page }) => {
+  for (const route of ['ch1-2-3', 'ch2-5-2', 'ch3-6-2']) {
+    await page.setViewportSize({ width: 1366, height: 768 });
+    await openRoute(page, route);
+    const metrics = await simulationMountShellMetrics(page);
+    expect(metrics.labCount, `${route} should mount exactly one visual lab`).toBe(1);
+    expect(metrics.plainContainerCount, `${route} should not leave plain .sim-container mount wrappers`).toBe(0);
+    expect(metrics.parentIsPlainSimContainer, `${route} lab parent must be a neutral mount, got ${metrics.parentClassName}`).toBe(false);
+    expect(metrics.parentBackground, `${route} lab parent should not paint a white sim container`).not.toBe('rgb(248, 249, 250)');
+    expect(metrics.parentPadding, `${route} lab parent should not add sim-container padding`).not.toBe('16px');
   }
 });
 
