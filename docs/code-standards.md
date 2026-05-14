@@ -36,7 +36,7 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 | `js/sim-interaction-enhancements.js` | Snap guides, ghost state, drag visual feedback |
 | `js/sim-scene-registry.js` | Route-scoped scene catalog registry; keep scene ids/signatures deterministic |
 | `js/sim-scene-templates.js` | Legacy scene template fallback và deterministic signature helpers |
-| `js/sim-route-renderer-primitives.js` | Low-level drawing helpers only; `domMath`/overlay render helpers ở đây, không đăng ký final route renderer |
+| `js/sim-route-renderer-primitives.js` | Low-level drawing helpers only; `domMath` suppresses learner-facing canvas formula overlay by default, overlay helpers chỉ giữ short labels |
 | `js/sim-route-renderer-registry.js` | 58 dedicated route renderer contracts; renderer id/function/body phải unique |
 | `js/sim-route-behavior-registry.js` | Route behavior contracts: behavior id, derived/interaction metadata, assessment link |
 | `js/sim-professional-lab.js` | Shared professional lab shell orchestration; resolve scene metadata, renderer contract, behavior contract, route-owned handle descriptors, và active handle metadata qua `data-active-handle-id` |
@@ -96,7 +96,7 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 | Route module naming | `ch{n}-{group}-{type}.js` ví dụ: `ch2-kinematics-behaviors-a.js`, `ch3-newton-laws-renderers.js`; khi split thì thêm suffix: `-a`, `-b` hoặc mô tả nhóm: `-theorems`, `-collision` |
 | DOM hooks | Chỉ inject sau khi fragment đã vào `#content-area` |
 | Error handling | Fail rõ ràng, log `console.warn`/`console.error` có ngữ cảnh |
-| Math render | Ưu tiên KaTeX/MathML hợp lệ; formula hiển thị qua `primitives.domMath` trên DOM overlay, không cache fallback text vĩnh viễn; không dùng figure style cho equation |
+| Math render | Ưu tiên KaTeX/MathML hợp lệ; simulation formula hiển thị qua `.sim-formula-panel`, không qua canvas overlay; không dùng figure style cho equation |
 | Legacy routes | Giữ redirect `ch1-8*` và `ch2-8*` |
 | No duplicate registrations | Mỗi route có đúng 1 renderer registration; xóa file cũ/split khi tạo file mới, và cập nhật `index.html` script load order tương ứng |
 | Route-owned handles | Route simulation mới phải ưu tiên handle descriptors do behavior cung cấp; active handle hiện tại phải được expose qua `data-active-handle-id`, và phải clear khi release/dispose/removeHandle; không phụ thuộc vào generic default handle text khi route đã có handle thật |

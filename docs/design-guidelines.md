@@ -34,7 +34,7 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 | Yếu tố | Quy ước |
 |---|---|
 | Runtime | Shared `.sim-lab` canvas shell qua `js/sim-professional-lab.js` / `window.SimProfessionalLab` |
-| Rendering | Canvas route renderers + DOM/KaTeX overlay qua route primitives |
+| Rendering | Canvas route renderers for geometry/handles; formulas in right inspector; overlay only for short diagram labels |
 | UI Controls | `SimCore.addSlider`, segmented buttons, reset/play-pause |
 | Interaction | Route-owned drag handles, pointer/touch/keyboard support |
 | Route contracts | Scene registry + renderer registry + behavior registry |
@@ -96,7 +96,7 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 | `.sim-lab-hint` | Single-line objective/formula hint text |
 | Right inspector | Desktop/tablet stack cho readouts, controls, formula, hint ở cột phải; `<=768px` phải collapse sang bố cục stacked dọc, không được tạo horizontal overflow |
 | Promax slots | Pilot-only diagnostics toggles, invariant status, formula summary, mini graph summary, and challenge feedback stay scoped under `.sim-lab`; only 6 routes mount them today, with the remaining 52 routes classified in the rollout matrix |
-| Formula overlay | Must wrap before horizontal overflow on mobile; keep formula UI inside `.sim-lab` scope |
+| Canvas overlay | Learner-facing formulas and dynamic values are forbidden in `.sim-lab-overlay`; use `.sim-formula-panel` and `.sim-readout-card` |
 | `lab.setHint(text)` | Update hint at runtime (used by route behaviors) |
 | `lab.reset()` | Reset route state to initial snapshot |
 | `lab.isPlaying` | Boolean flag: animation running state for play/pause toggle |
@@ -109,6 +109,9 @@ CSS mới cho lab phải scope dưới `.sim-lab`; tránh selector global như `
 - Chapter accent tokens phải đi qua `.sim-lab[data-route-id^="ch1"]`, `.sim-lab[data-route-id^="ch2"]`, và `.sim-lab[data-route-id^="ch3"]` để tô chip, active control, và left border của readout/formula/hint.
 - Touch controls phải giữ `min-height: 44px` trên mobile; không giảm dưới mức thumb-friendly này.
 - Readout cards phải gắn `data-readout-kind` để metadata và accent left border phản ánh đúng loại giá trị; layout card dùng shared compact name-value CSS, không thêm variant riêng theo route.
+- Readout cards ưu tiên output/status vật lý cốt lõi; slider/control không được tự động mirror vào readout nếu scene chưa khai báo explicit hoặc opt-in qua policy.
+- Formula và dynamic numeric values phải nằm trong right inspector (`.sim-formula-panel`, `.sim-readout-card`), không nằm trên canvas overlay.
+- Equal values chỉ được giữ khi là ý nghĩa vật lý có chủ đích, ví dụ đối xứng phản lực hoặc bảo toàn động lượng; duplicate aliases như cùng một lực dưới hai label phải bị loại.
 - Route-owned handles phải được vẽ bởi shared lab sau renderer output, có hit ring, label ngắn, và legend compact lấy từ handle descriptors.
 - Mọi slider, segmented button, handle kéo, và nút play animation phải tạo phản hồi nhìn thấy được qua canvas hoặc readout trong cùng route.
 - Canonical geometry sliders phải là nguồn state chính cho route; không dùng proxy slider khiến canvas và readout lệch nhau.

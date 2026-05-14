@@ -2,20 +2,55 @@
 
 ## 2026-05-14
 
+### Fixed
+- Removed learner-facing formula/value DOM from `.sim-lab-overlay` across 58 simulation routes; canvas overlay now keeps only short diagram labels/markers.
+- Updated `domMath` to preserve API compatibility while suppressing `.sim-overlay-formula` by default, with debug escape hatch `window.SIM_ALLOW_CANVAS_FORMULA_OVERLAY === true`.
+- Updated overlay-dependent interaction regressions to assert right-inspector readout behavior instead of canvas overlay text.
+
+### Added
+- `@overlay-contract` Playwright gate that scans 58/58 routes for forbidden formula/value overlay nodes.
+- Overlay inventory, QA evidence, PM sync report, and journal under `plans/260514-1900-simulation-canvas-overlay-cleanup/` and `docs/journals/`.
+
+### Verified
+- `npx playwright test tests/simulation-browser.spec.js --grep=@overlay-contract` PASS.
+- `npx playwright test tests/simulation-browser.spec.js --grep=@route-mount` PASS: 59 tests.
+- `npx playwright test tests/simulation-interaction-engine.spec.js --grep "ch1-2-3 resultant|numeric checker residual"` PASS: 2 tests.
+- `npm run test:sim:unit` PASS.
+- `npm run test:sim:semantic` PASS.
+- `npm run test:sim:visual-quality` PASS: 4 tests.
+- `npm run test:sim:browser` PASS: 188 tests.
+- `npm run test:sim:release` PASS.
+
 ### Changed
+- Normalized simulation readout cards across Ch1/Ch2/Ch3 so confirmed duplicate aliases are removed and controls/time/generic values appear only by explicit scene policy.
+- `ch2-1-3` now separates `a_n` and `ρ` with units instead of seeding the same displayed number.
 - Compact simulation readout cards now align short label/value pairs on one row in the right inspector while preserving `data-readout-kind`, semantic colors, and shared `.sim-lab` shell contracts.
 - Long Vietnamese labels and physics values wrap inside cards instead of creating horizontal overflow at desktop, tablet, and mobile widths.
 
 ### Added
+- `@readout-dedup` Playwright gates for forbidden alias pairs, intentional physics equalities, and `ch2-1-3` normal-acceleration/curvature-radius separation.
+- `@readout-dedup` policy gate ensuring control/generic readouts are explicit scene readouts or allowed by scene policy, and baseline report writing is opt-in through `READOUT_BASELINE_KIND`.
+- Before/after readout snapshots under `plans/260514-0617-simulation-readout-dedup-normalization/reports/`.
 - Playwright compact readout gates in `tests/simulation-browser.spec.js` for one-row density, card height, label/value alignment, and lab/grid/card overflow.
+- Playwright regression gate ensuring simulation mount points stay neutral outside the visual `.sim-container.sim-lab` shell.
 - QA evidence under `plans/260514-compact-simulation-readout-cards/reports/`.
 
+### Fixed
+- Split simulation mount points from visual simulation containers so auto-created mounts use `.sim-mount`, preventing plain white `.sim-container` wrappers around widened `.sim-container.sim-lab` shells.
+
 ### Verified
+- `npx playwright test tests/simulation-browser.spec.js --grep "readout dedup forbidden duplicate aliases"` FAIL before implementation on `ch1-2-3`.
+- `npx playwright test tests/simulation-browser.spec.js --grep "readout dedup"` PASS: 5 tests.
 - `npx playwright test tests/simulation-browser.spec.js --grep "compact readout|compact-readout"` FAIL before CSS: card display was `flex`.
 - `npx playwright test tests/simulation-browser.spec.js --grep "compact readout|right inspector|responsive"` PASS: 11 tests.
+- `npx playwright test tests/simulation-browser.spec.js --grep "simulation mount point stays neutral"` FAIL before implementation on `ch1-2-3`, PASS after fix.
+- `npx playwright test tests/simulation-browser.spec.js --grep "@responsive|@route-mount"` PASS: 69 tests.
 - `npm run test:sim:unit` PASS.
-- `npm run test:sim:browser` PASS: 180 tests.
+- `npm run test:sim:browser` PASS: 185 tests.
 - `npm run test:sim:visual-quality` PASS: 4 tests.
+- `npm run test:sim:semantic` PASS.
+- `npm run test:sim:disposal` PASS.
+- `python tools\audit.py` PASS: 102 files, 0 warnings, 0 errors.
 
 ## 2026-05-13
 

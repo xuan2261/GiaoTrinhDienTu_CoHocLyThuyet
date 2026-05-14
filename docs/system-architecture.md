@@ -38,11 +38,15 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 - Each route must have a unique renderer id, behavior id, named renderer function, and scene signature.
 - Route-owned handles must expose meaningful ids/labels through `data-handle-ids`; fallback `legacy-primary` is not acceptable for active routes.
 - Readouts use `.sim-readout-card` and semantic `data-readout-kind` values.
+- `.sim-lab-overlay` is canvas-aligned but must not show learner-facing formulas or dynamic values; it is reserved for short diagram labels/markers only.
+- Route formulas belong to `.sim-formula-panel`; dynamic computed values belong to `.sim-readout-card`.
 - Promax pilot routes expose `data-promax-level="pilot"` and `data-invariant-status` for QA/logic, but do not show diagnostic toggles, observe/action/check mode buttons, formula summaries, mini graph summaries, or challenge feedback in the learner UI.
 - Route scenes may provide explicit readout item `kind` metadata or set `appendGenericReadouts: false` when their physics model owns all displayed values.
-- Drag handlers must update canonical state, sliders, inline control values, readout cards, and overlays from the same clamped model state.
+- Route scenes may set `readoutPolicy` with `appendMode`, `appendAlpha`, `appendControls`, and `appendTime`; absent policy keeps legacy append defaults for backward compatibility, while active routes use explicit readouts or policy flags to avoid undeclared control echoes.
+- Controls that matter pedagogically should be declared as explicit scene readouts; the shared engine must not rely on blanket control echo to satisfy learner-facing readout contracts.
+- Drag handlers must update canonical state, sliders, inline control values, and readout cards from the same clamped model state.
 - DeCuong CH1 route rebuilds must keep direct geometry and readouts coupled: `ch1-2-3` uses F1/F2 endpoint state for canvas, `|F₁|`, `|F₂|`, `|R|`, and `α`; support routes use alpha/handle state to redraw normal/tension geometry.
-- DeCuong CH2/CH3 exercise routes must keep checker math canonical: `ch2-7-*` uses one sinusoid derivative chain for `x/v/a`; `ch3-7-2` exposes residual scale and score from the same derived state used by overlay/readout.
+- DeCuong CH2/CH3 exercise routes must keep checker math canonical: `ch2-7-*` uses one sinusoid derivative chain for `x/v/a`; `ch3-7-2` exposes residual scale and score from the same derived state used by readouts.
 - DeCuong final review fixes keep CH2 control semantics canonical: `ch2-1-3` uses `rho` as the radius slider, `ch2-5-3` uses `L` for endpoint geometry and `vBMag`, `ch2-7-2` preserves valid `x0=0` during direct drag, and CH2 checker labels are localized.
 - CH3 dynamics routes keep animated state deterministic: spring/ODE routes seed non-zero displacement for visible energy, coupled-spring routes maintain both trajectory arrays, and collision solver readouts preserve signed momentum.
 - `SimProfessionalLab.mount(routeId)` must return an idempotent disposer and clean route-scoped listeners/RAF on route change or mount rollback.
