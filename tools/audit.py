@@ -30,24 +30,38 @@ DOMAIN_CONTEXT_RE = re.compile(
     flags=re.I,
 )
 FIGURE_OPEN_RE = re.compile(
-    r'<div\b[^>]*\bclass=["\'][^"\']*\bfigure-container\b[^"\']*["\'][^>]*>\s*$',
-    flags=re.I,
+    r'(?:<div\b[^>]*\bclass=["\'][^"\']*\bfigure-container\b[^"\']*["\'][^>]*>'
+    r'|<figure\b[^>]*>)\s*(?:<figcaption[^>]*>.*?</figcaption>\s*)?$',
+    flags=re.I | re.S,
 )
 FIGURE_BLOCK_RE = re.compile(
-    r'<div\b[^>]*\bclass=["\'][^"\']*\bfigure-container\b[^"\']*["\'][^>]*>.*?</div>',
+    r'<div\b[^>]*\bclass=["\'][^"\']*\bfigure-container\b[^"\']*["\'][^>]*>.*?</div>'
+    r'|<figure\b[^>]*>.*?</figure>',
     flags=re.I | re.S,
 )
 FIGURE_BLOCK_AT_RE = re.compile(
-    r'\s*<div\b[^>]*\bclass=["\'][^"\']*\bfigure-container\b[^"\']*["\'][^>]*>.*?</div>',
+    r'\s*(?:<div\b[^>]*\bclass=["\'][^"\']*\bfigure-container\b[^"\']*["\'][^>]*>.*?</div>'
+    r'|<figure\b[^>]*>.*?</figure>)',
     flags=re.I | re.S,
 )
 IMAGE_BOUNDARY_RE = re.compile(
-    r'<div\b[^>]*\bclass=["\'][^"\']*\bfigure-container\b[^"\']*["\'][^>]*>|<img\b',
+    r'<div\b[^>]*\bclass=["\'][^"\']*\bfigure-container\b[^"\']*["\'][^>]*>'
+    r'|<figure\b[^>]*>|<img\b',
     flags=re.I,
 )
 CAPTION_WINDOW = 4000
 SHORT_INLINE_FIGURE_FRAGMENT_MAX = 90
 INLINE_FIGURE_TEXT_BREAK_RE = re.compile(r'[.!?]')
+
+FORMULA_IMAGE_KEYWORDS = re.compile(
+    r'(?:kí hiệu là|kí hiệu|véc tơ|vector|phản lực|sức căng|lực|gia tốc|'
+    r'vận tốc|mô men|đặt vào)',
+    flags=re.I,
+)
+FORMULA_IMAGE_SIZE_THRESHOLD = 5 * 1024
+FORMULA_IMAGE_TINY_W = 90
+FORMULA_IMAGE_TINY_H = 30
+FORMULA_IMAGE_BEFORE_WINDOW = 200
 
 
 def parse_args(argv=None):
@@ -61,6 +75,17 @@ def parse_args(argv=None):
         '--strict-images',
         action='store_true',
         help='Fail publish if local images have invalid wrappers, missing files, tiny files, or unresolved artifact metadata.',
+    )
+    parser.add_argument(
+        '--strict-formula-image',
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help='Detect raster images that likely contain formulas/symbols (size<5KB + 1-bit + neighbor keywords, or tiny pixel dims). Default: on. Use --no-strict-formula-image to disable.',
+    )
+    parser.add_argument(
+        '--root',
+        default=None,
+        help='Override project root (used by phase-06 audit-guard tests to inject suspect fixtures).',
     )
     return parser.parse_args(argv)
 
@@ -230,6 +255,37 @@ def has_nearby_text_context(content, block_start, block_end):
     return len(nearby) >= 80 and bool(DOMAIN_CONTEXT_RE.search(nearby))
 
 
+def png_metadata(path):
+    """Read PNG IHDR (width, height, bit_depth, color_type). Returns dict or None."""
+    try:
+        with open(path, 'rb') as fh:
+            sig = fh.read(8)
+            if sig[:8] != b'\x89PNG\r\n\x1a\n':
+                return None
+            fh.read(4)
+            if fh.read(4) != b'IHDR':
+                return None
+            width = int.from_bytes(fh.read(4), 'big')
+            height = int.from_bytes(fh.read(4), 'big')
+            bit_depth = fh.read(1)
+            color_type = fh.read(1)
+            return {
+                'width': width,
+                'height': height,
+                'bit_depth': bit_depth[0] if bit_depth else 0,
+                'color_type': color_type[0] if color_type else 0,
+            }
+    except (OSError, IndexError):
+        return None
+
+
+def stripped_before_text(content, start, window=1000, take_last=200):
+    begin = max(0, start - window)
+    raw = content[begin:start]
+    text = re.sub(r'\s+', ' ', TAG_RE.sub(' ', raw)).strip()
+    return text[-take_last:] if len(text) > take_last else text
+
+
 def collect_image_records(content, source):
     records = []
     for match in re.finditer(r'<img\b[^>]*>', content, flags=re.I):
@@ -239,6 +295,7 @@ def collect_image_records(content, source):
             records.append({
                 'source': source, 'src': '', 'kind': 'invalid', 'alt': '',
                 'exists': False, 'bytes': 0, 'external': False, 'caption': False, 'context': False,
+                'before_text': '', 'png_meta': None,
             })
             continue
         classes = attr_value(tag, 'class').split()
@@ -258,6 +315,8 @@ def collect_image_records(content, source):
         size = path.stat().st_size if path and path.exists() else 0
         caption = has_nearby_caption(content, block_start, block_end)
         context = has_nearby_text_context(content, block_start, block_end)
+        meta = png_metadata(path) if path and path.exists() else None
+        before_text = stripped_before_text(content, block_start)
         records.append({
             'source': source,
             'src': normalized or src,
@@ -268,6 +327,8 @@ def collect_image_records(content, source):
             'external': external,
             'caption': caption,
             'context': context,
+            'before_text': before_text,
+            'png_meta': meta,
         })
     return records
 
@@ -445,8 +506,72 @@ def strict_equation_errors(chapter_content):
     return errors
 
 
+def load_formula_image_allowlist():
+    path = ROOT / 'data' / 'formula-image-allowlist.json'
+    if not path.exists():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+    except Exception:
+        return set()
+    if isinstance(data, list):
+        return {normalize_src(s) for s in data if isinstance(s, str)}
+    if isinstance(data, dict):
+        return {normalize_src(s) for s in data.get('allow', []) if isinstance(s, str)}
+    return set()
+
+
+def strict_formula_image_errors(records):
+    """Detect raster images that likely encode formulas/symbols.
+
+    Heuristic per phase-06 spec:
+      1. file<5KB AND mode=1 PNG (1-bit) AND inside figure/figure-container
+         AND keyword (kí hiệu, véc tơ, lực, ...) within 200 chars before image
+      2. tiny pixel dims (<90x30) inside figure (regardless of keyword)
+    """
+    errors = []
+    allowlist = load_formula_image_allowlist()
+    for rec in records:
+        if rec['kind'] not in ('figure', 'unwrapped'):
+            continue
+        if not rec['exists'] or rec['external']:
+            continue
+        src = rec['src']
+        if src in allowlist:
+            continue
+        meta = rec.get('png_meta')
+        before = rec.get('before_text') or ''
+        before_window = before[-FORMULA_IMAGE_BEFORE_WINDOW:]
+
+        is_one_bit = bool(meta and meta.get('bit_depth') == 1)
+        is_small_file = rec['bytes'] < FORMULA_IMAGE_SIZE_THRESHOLD
+        has_keyword = bool(FORMULA_IMAGE_KEYWORDS.search(before_window))
+        is_tiny_px = bool(
+            meta
+            and meta.get('width', 999) < FORMULA_IMAGE_TINY_W
+            and meta.get('height', 999) < FORMULA_IMAGE_TINY_H
+        )
+
+        if is_small_file and is_one_bit and has_keyword:
+            errors.append(
+                f"❌ Strict formula-image: 1-bit small PNG near formula keyword: "
+                f"{src} ({rec['source']})"
+            )
+            continue
+        if is_tiny_px:
+            errors.append(
+                f"❌ Strict formula-image: tiny pixel dims "
+                f"({meta['width']}x{meta['height']}): {src} ({rec['source']})"
+            )
+    return sorted(set(errors))
+
+
 def main(argv=None):
     args = parse_args(argv)
+    if args.root:
+        global ROOT, BASE
+        ROOT = Path(args.root).resolve()
+        BASE = ROOT / 'chapters'
     stats = {'total': 0, 'ok': 0, 'warn': 0, 'error': 0}
     all_html = []
     all_image_records = []
@@ -617,6 +742,20 @@ def main(argv=None):
             stats['error'] += len(strict_errors)
         else:
             print("  ✅ No equation image fallbacks and mapping is fully reviewed")
+
+    if args.strict_formula_image:
+        print(f"\n{'─' * 80}")
+        print("🔒 STRICT FORMULA-AS-IMAGE GUARD")
+        print(f"{'─' * 80}")
+        guard_errors = strict_formula_image_errors(all_image_records)
+        if guard_errors:
+            for error in guard_errors[:50]:
+                print(f"  {error}")
+            if len(guard_errors) > 50:
+                print(f"  ... {len(guard_errors) - 50} more")
+            stats['error'] += len(guard_errors)
+        else:
+            print("  ✅ strict-formula-image: 0 suspects")
 
     print(f"\n{'=' * 80}")
     print(f"SUMMARY: {stats['total']} files | ✅ {stats['ok']} OK | ⚠️ {stats['warn']} warnings | ❌ {stats['error']} errors")

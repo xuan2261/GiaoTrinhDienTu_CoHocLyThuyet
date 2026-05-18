@@ -12,6 +12,7 @@ import hashlib
 import html
 import json
 import os
+import pathlib
 import re
 import shutil
 import subprocess
@@ -1131,14 +1132,56 @@ def extract(args):
             raise SystemExit("Image conversion failures detected; generated output is not complete.")
 
 
+def _run_auto_fix_known_issues(args):
+    """Re-apply Phase 02 (replace 8 raster) + Phase 05 (alt/figcaption) post-processors.
+
+    Idempotent: if a script already applied its edits, the script exits 0 silently.
+    Errors are logged but do not fail the extract (extract is the load-bearing step).
+    """
+    import subprocess
+    repo = pathlib.Path(__file__).resolve().parent.parent
+    candidates = [
+        'scripts/replace-eight-critical-formula-as-image-with-inline-katex-or-delete.py',
+        'scripts/dedupe-mathml-and-katex-render-pairs-keep-mathml.py',
+        'scripts/apply-image-alt-text-and-figcaption-from-overrides-and-docx-captions.py',
+        'scripts/fill-remaining-figure-alt-and-figcaption-from-section-title-fallback.py',
+    ]
+    print('[AUTO-FIX] Running post-extract fixers...')
+    for rel in candidates:
+        script = repo / rel
+        if not script.exists():
+            print(f'[AUTO-FIX SKIP] {rel} not yet present')
+            continue
+        try:
+            r = subprocess.run(
+                [sys.executable, str(script), '--apply', '--idempotent'],
+                cwd=repo, capture_output=True, text=True, encoding='utf-8',
+            )
+            tail = (r.stdout or '').strip().splitlines()[-1] if r.stdout else ''
+            if r.returncode != 0:
+                print(f'[AUTO-FIX WARN] {rel} returncode={r.returncode}: {(r.stderr or "")[:200]}')
+            else:
+                print(f'[AUTO-FIX] {rel}: {tail}')
+        except Exception as exc:
+            print(f'[AUTO-FIX WARN] {rel} crashed: {exc}')
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", default="CoHocLyThuyet_Full_New.docx")
     parser.add_argument("--output", default=os.getcwd())
     parser.add_argument("--write", action="store_true", help="Write generated fragments/images")
     parser.add_argument("--equation-report", action="store_true", help="Write tools/equation_report.json during dry-run")
+    parser.add_argument(
+        "--auto-fix-known-issues",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="After --write, run scripts/replace-eight-critical-... and apply-image-alt-... in --idempotent mode (default: on).",
+    )
     args = parser.parse_args()
     extract(args)
+    if args.write and args.auto_fix_known_issues:
+        _run_auto_fix_known_issues(args)
 
 
 if __name__ == "__main__":

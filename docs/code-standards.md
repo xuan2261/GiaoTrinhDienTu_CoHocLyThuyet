@@ -188,3 +188,24 @@ python tools\audit.py --strict-images
 - Không thêm framework hoặc build step mới nếu chưa có lý do thật.
 - Nếu một file code mới vượt mức vừa phải, tách thành module nhỏ hơn trước khi tích lũy thêm logic.
 - Browser QA professional dùng focused suite không còn skipped rollout tests: `test:sim:browser` hiện 173 tests trong `mass-conversion-audit.spec.js`, `simulation-browser.spec.js`, `simulation-interaction-engine.spec.js`, và `promax-pilot-shell.spec.js`; `test:sim:visual-quality` hiện 4 all-route visual/identity/theme tests; `test:sim:scene-identity` và `test:sim:renderer-contract` là hai gate riêng cho identity/contract.
+
+## Equation rendering rules (2026-05-18)
+
+| Quy tắc | Lý do |
+|---|---|
+| Không chèn raster image cho công thức trong DOCX (dùng MathType OLE / equation field) | Mất accessibility, không scale, chữ vỡ khi zoom |
+| Audit guard `--strict-formula-image` mặc định ON | Phát hiện regression khi DOCX mới vô tình đẩy formula PNG vào HTML |
+| `js/loader.js` cấu hình KaTeX với `output: 'htmlAndMathml'` | Screen reader đọc MathML; UI hiện KaTeX layout |
+| Không có cặp render trùng (`<span class="mathml-inline">…</math></span>` cạnh `<span class="math-tex">\(…\)</span>`) | DOCX export double-render; phải dedupe trong HTML, fix root cause trong `tools/extract_docx.py` |
+| Allowlist legitimate raster figures qua `data/formula-image-allowlist.json` | Khi figure thật là sketch/diagram (vd. line drawing problem-statement) trùng heuristic |
+
+## Image alt text + figcaption rules (2026-05-18)
+
+| Quy tắc | Cách làm |
+|---|---|
+| Không dùng generic alt `Hình minh hoạ chương X` | Phải mô tả cụ thể; nếu DOCX không có caption, fallback section title qua `scripts/fill-remaining-figure-alt-and-figcaption-from-section-title-fallback.py` |
+| Mọi `<img>` trong figure phải có `alt` ≤ 120 ký tự | Đáp ứng WCAG, tránh cắt screen reader |
+| Mọi `<figure>` phải có `<figcaption>` ≤ 200 ký tự | Cấu trúc HTML5 semantic |
+| Dùng `<figure><img alt><figcaption></figure>`, không dùng `<div class="figure-container">` | Phù hợp HTML5 semantic; audit tự reject `figure-container` mới |
+| Manual override alt/figcaption qua `data/image_alt_overrides.json` (key: image SHA1[:12]) | Re-extract DOCX vẫn giữ override |
+| Re-extract DOCX kích hoạt `tools/extract_docx.py --auto-fix-known-issues` (default ON) | Idempotent: post-processor tự áp lại 4 fix scripts |

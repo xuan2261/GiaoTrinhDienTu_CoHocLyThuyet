@@ -7,3 +7,4 @@ __pycache__/
 test-results/
 repomix-output.xml
 backups/
+*.rar

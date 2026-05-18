@@ -1,5 +1,34 @@
 # Project Changelog
 
+## 2026-05-18 — Formula-as-Image, Duplicate Render & Alt-Text Hardening
+
+### Fixed
+- 8 OCR-verified raster formulas converted to inline KaTeX or removed: `images/ch1/hinh-037.png` (\vec T), `images/ch1/hinh-039.png` (\vec R), `images/ch3/hinh-136.png` (\vec v), `images/ch3/hinh-240.png` (\vec P_2 + \vec P_1 dual-substitution), `images/ch3/hinh-241.png` (\vec N), `images/ch3/hinh-289.png` (\vec F); deleted `images/ch3/hinh-266.png` and `images/ch3/hinh-283.png` per OCR scope.
+- 40 duplicate `MathML + KaTeX` adjacent render pairs removed across 8 chapter files (`ch1/muc-III-3`, `ch1/muc-IV-3`, `ch2/muc-I-1`, `ch2/muc-II-2`, `ch2/muc-V-3`, `ch2/muc-VII-1`, `ch3/muc-VII-1`, `ch3/muc-VII-2`); KaTeX side stripped, MathML preserved.
+- 134 generic `Hình minh họa chương X` alt strings replaced with descriptive alt + `<figcaption>`. Sources: DOCX caption parser (88 entries) and section-title fallback (42 entries). Final: 127/127 figures with non-empty alt ≤120 chars and figcaption ≤200 chars.
+- `<div class="figure-container">` legacy wrapper migrated to HTML5 `<figure>/<figcaption>` (127 figures).
+
+### Added
+- Audit guard `--strict-formula-image` (default ON) detecting raster formulas via 1-bit + small-file + keyword heuristic and tiny-pixel detection. Allowlist escape hatch at `data/formula-image-allowlist.json`.
+- `data/image_alt_overrides.json` for manual alt-text + figcaption overrides keyed by image SHA1[:12].
+- Plain Python TDD test scripts `scripts/test-phase-{01..07}-*.py` (no pytest dependency).
+- Playwright visual smoke `tests/visual/phase-07-smoke-visual-regression-deleted-images-math-rendering.spec.js` (9 chapter targets × 4 assertion groups).
+- CSS `css/equations-and-figure-styling-mathml-katex-font-sync-figure-figcaption.css` synchronizing font fallback chain across MathML + KaTeX + `<figure>/<figcaption>`.
+- DOCX-caption auto-extraction pipeline (`scripts/parse-docx-figure-captions-emit-suggested-alt-and-figcaption-csv.py` → `scripts/build-image-alt-overrides-json-from-suggested-alt-csv.py`) wired into `tools/extract_docx.py --auto-fix-known-issues` for re-extract idempotency.
+- `scripts/git-tag-with-retry.ps1` for tag collision handling with `-r{HHMMSS}` suffix.
+
+### Changed
+- KaTeX render config: `output: 'htmlAndMathml'` for accessible screen-reader output.
+- `tools/audit.py`: `FIGURE_*_RE` regexes recognize both legacy `<div class="figure-container">` and new `<figure>` tags; new `--root` arg supports test-fixture roots.
+- `package.json scripts.test:sim:release` includes `--strict-formula-image`.
+- Phase 01 baseline locked at 120 files / 127 imgs (post-fix).
+
+### Verified
+- `python tools/audit.py --strict-images --strict-formula-image` PASS — 0 strict suspects.
+- All 7 phase TDD scripts PASS via `npm run test:equations`.
+- `python scripts/audit-all-formula-as-image.py`: 0 references to the 8 removed Phase 02 image paths.
+- `python scripts/detect-duplicate-math-broad.py`: Grand total duplicates: 0.
+
 ## 2026-05-14
 
 ### Fixed

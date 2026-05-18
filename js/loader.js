@@ -358,6 +358,7 @@ function renderMath(container) {
         { left: '$', right: '$', display: false },
         { left: '\\(', right: '\\)', display: false }
       ],
+      output: 'htmlAndMathml',
       throwOnError: false
     });
   }
