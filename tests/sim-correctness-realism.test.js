@@ -159,3 +159,19 @@ test('@a11y-source aria-live region declared (Phase 08b)', () => {
   const hasLive = /sim-aria-live|aria-live\s*=\s*["']polite["']/.test(labSource);
   assert.equal(hasLive, true, 'lab must declare aria-live region for announcements');
 });
+
+test('@a11y-source readout smoothing honors prefersReducedMotion (Phase 08b)', () => {
+  const hasSmoothingGate = /lab\.prefersReducedMotion\s*\?\s*1\s*:\s*0\.15|prefersReducedMotion[^?]*\?[^:]*1[^:]*:[^,]*0\.15/.test(labSource);
+  assert.equal(hasSmoothingGate, true, 'state-readout lerp must snap to target when reduced-motion is set');
+});
+
+test('@a11y-source aria-live announcement carries coordinates (Phase 08b)', () => {
+  const carriesCoords = /tới\s+x=\$\{[^}]+\},\s*y=\$\{/.test(labSource);
+  assert.equal(carriesCoords, true, 'aria-live announcement must include current x/y on keyboard nudge');
+});
+
+test('@a11y-source aria-live announcement is debounced (Phase 08b)', () => {
+  const debounced = /setTimeout\([\s\S]{0,200}live\.textContent/.test(labSource)
+    || /clearTimeout\([\s\S]{0,200}liveTimer/.test(labSource);
+  assert.equal(debounced, true, 'aria-live writes must be debounced (≥1 setTimeout/clearTimeout pair around live.textContent)');
+});

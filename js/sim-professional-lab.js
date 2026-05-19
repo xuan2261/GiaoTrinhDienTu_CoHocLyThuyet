@@ -1137,6 +1137,15 @@ function setupA11yOverlay(lab, handles, scene) {
     lab.wrap.__simA11yMousedownInstalled = true;
   }
   layer.innerHTML = '';
+  let liveTimer = null;
+  function announce(text) {
+    if (!live) return;
+    if (liveTimer) clearTimeout(liveTimer);
+    liveTimer = setTimeout(() => {
+      live.textContent = text;
+      liveTimer = null;
+    }, 300);
+  }
   handles.forEach(h => {
     const point = (typeof h.get === 'function' && h.get()) || { x: 0, y: 0 };
     const btn = document.createElement('button');
@@ -1163,8 +1172,12 @@ function setupA11yOverlay(lab, handles, scene) {
       else return;
       evt.preventDefault();
       const next = h.get() || { x: 0, y: 0 };
-      h.set({ x: next.x + dx, y: next.y + dy });
-      live.textContent = `${labelText} đã di chuyển`;
+      const nx = next.x + dx, ny = next.y + dy;
+      h.set({ x: nx, y: ny });
+      btn.style.left = `${Math.round(nx) - 14}px`;
+      btn.style.top = `${Math.round(ny) - 14}px`;
+      btn.setAttribute('aria-label', `Kéo ${labelText}, vị trí hiện tại x=${Math.round(nx)} y=${Math.round(ny)}`);
+      announce(`${labelText} tới x=${Math.round(nx)}, y=${Math.round(ny)}`);
     });
     layer.appendChild(btn);
   });
@@ -1370,8 +1383,8 @@ function startBehaviorAnimation(lab, scene, state, draw, behavior, scope) {
       });
     }
 
-    // Smooth state for readouts
-    const lerp = 0.15;
+    // Smooth state for readouts; reduced-motion snaps to target.
+    const lerp = lab.prefersReducedMotion ? 1 : 0.15;
     Object.keys(state).forEach(key => {
       if (typeof state[key] === 'number') {
         if (lab.smoothedState[key] === undefined) lab.smoothedState[key] = state[key];
