@@ -14,7 +14,7 @@ dependencies: [1, 2, 5, 6]
 - ✅ Impulse flash (ch3-6-2): Newton-3 invariant via `state.impulseFlash`; renderer emits 2 `impulseArrow` marks; `emitCollisionSparks` removed (commit a178756).
 - ✅ Preset gallery (ch1-2-3, ch1-1-3, ch1-2-1): scenes declare `presets[]`; `buildPresetGallery` renders `.sim-preset-button[data-preset]` row in lab; click applies state via `behavior.updateStateFromSlider`. 22/22 sim-correctness-realism tests GREEN. Browser control-audit GREEN across 58 routes (commit e23f19b).
 - ⏳ Trail buffer (ch2-1-1): blocked by `state.trail` ban in `tests/simulation-runtime-regressions.test.js:69` — needs coordinated test relaxation.
-- ⏳ Spring autoplay (ch3-3-1) with reduced-motion-aware fallback button.
+- ⏳ Spring autoplay (ch3-3-1): **blocked by control-audit invariant conflict.** `tests/simulation-interaction-engine.spec.js:168-175` clicks Play and asserts snapshot change within 420ms — autoplay starts the sim already running, so the click *pauses* and produces no snapshot change. Needs coordinated test relaxation: skip Play-button assertion on `scene.autoplay === true` routes, since the play→snapshot-change semantics no longer apply. Tested implementation kept revert clean; reapply alongside test patch.
 - ⏳ Light theme parity (RC6): merge `SimCore.COLORS` + `primitives.palette` + `PARA_COLORS` with theme-aware variants on 10 representative routes.
 
 ## Overview
