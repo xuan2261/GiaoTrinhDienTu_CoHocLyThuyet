@@ -77,15 +77,14 @@ function onTick_ch362(scene, state, dt) {
     const vrn = vrx * nx + vry * ny;
     if (vrn > 0) {
       const j = -(1 + e) * vrn / (1 / m1 + 1 / m2);
-      b1.vx += (j / m1) * nx; b1.vy += (j / m1) * ny;
-      b2.vx -= (j / m2) * nx; b2.vy -= (j / m2) * ny;
+      const jx = j * nx, jy = j * ny;
+      b1.vx += jx / m1; b1.vy += jy / m1;
+      b2.vx -= jx / m2; b2.vy -= jy / m2;
       const postRel = (b1.vx - b2.vx) * nx + (b1.vy - b2.vy) * ny;
       state.preRelativeNormal = vrn; state.postRelativeNormal = postRel;
       setCollisionMomentum(state, p0, momentum2d(b1, b2, m1, m2), Math.abs(postRel + e * vrn));
       state.collision = true; state.collisionX = (b1.x + b2.x) / 2; state.collisionY = (b1.y + b2.y) / 2;
-      if (window.SimVisualHelpers) {
-        window.SimVisualHelpers.emitCollisionSparks(state.collisionX, state.collisionY);
-      }
+      state.impulseFlash = { arrows: [{ x: b1.x, y: b1.y, dx: jx, dy: jy }, { x: b2.x, y: b2.y, dx: -jx, dy: -jy }] };
     }
   } else { state.collision = false; }
   state.ball1 = b1; state.ball2 = b2; state._t = (state._t || 0) + dt;

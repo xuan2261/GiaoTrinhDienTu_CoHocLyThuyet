@@ -175,3 +175,27 @@ test('@a11y-source aria-live announcement is debounced (Phase 08b)', () => {
     || /clearTimeout\([\s\S]{0,200}liveTimer/.test(labSource);
   assert.equal(debounced, true, 'aria-live writes must be debounced (≥1 setTimeout/clearTimeout pair around live.textContent)');
 });
+
+// ---------- @rc2-impulse-flash: Phase 08 ------------------------------------
+const path = require('node:path');
+const ch3CollisionBehaviors = fs.readFileSync(
+  path.join(fx.ROOT, 'js', 'sims', 'ch3', 'ch3-dynamics-theorem-collision-behaviors.js'), 'utf8');
+const ch3CollisionRenderers = fs.readFileSync(
+  path.join(fx.ROOT, 'js', 'sims', 'ch3', 'ch3-collision-exercises-renderers.js'), 'utf8');
+
+test('@rc2-impulse-flash ch3-6-2 behavior writes impulseFlash on collision (Phase 08)', () => {
+  const writesFlash = /state\.impulseFlash\s*=/.test(ch3CollisionBehaviors);
+  assert.equal(writesFlash, true, 'onTick_ch362 must stash impulseFlash for renderer to consume');
+});
+
+test('@rc2-impulse-flash ch3-6-2 renderer emits two impulseArrow marks (Phase 08)', () => {
+  const matches = ch3CollisionRenderers.match(/P\.mark\(['"]impulseArrow['"]/g) || [];
+  assert.ok(matches.length >= 2,
+    `renderCh362Collision2D must emit at least 2 impulseArrow marks (Newton-3); got ${matches.length}`);
+});
+
+test('@rc2-impulse-flash ch3-6-2 behavior drops emitCollisionSparks (Phase 08 plan)', () => {
+  const stillEmitsSparks = /emitCollisionSparks\s*\(/.test(ch3CollisionBehaviors);
+  assert.equal(stillEmitsSparks, false,
+    'spark/particle decoration misleads Newton-3 pedagogy — must be removed from ch3-6-2');
+});

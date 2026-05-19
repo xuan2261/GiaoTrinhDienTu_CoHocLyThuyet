@@ -36,6 +36,18 @@ function renderCh362Collision2D(ctx, scene, state, d) {
     ctx.restore();
   }
 
+  const flash = state.impulseFlash;
+  if (flash && Array.isArray(flash.arrows) && flash.arrows.length >= 2) {
+    const scale = 6;
+    const a1 = flash.arrows[0], a2 = flash.arrows[1];
+    const e1x = a1.x + a1.dx * scale, e1y = a1.y + a1.dy * scale;
+    const e2x = a2.x + a2.dx * scale, e2y = a2.y + a2.dy * scale;
+    P.mark('impulseArrow', a1.x, a1.y, e1x, e1y);
+    P.mark('impulseArrow', a2.x, a2.y, e2x, e2y);
+    P.neonArrow(ctx, a1.x, a1.y, e1x, e1y, P.tone(4), '');
+    P.neonArrow(ctx, a2.x, a2.y, e2x, e2y, P.tone(4), '');
+  }
+
   if (state.diagnostics && (state.diagnostics.error || state.diagnostics.graph)) {
     const values = d && d.invariant && d.invariant.values || {};
     const graph = window.SimPromaxMiniGraph && window.SimPromaxMiniGraph.buildBeforeAfterSummary ?
