@@ -1,7 +1,7 @@
 ---
 phase: 3
 title: "RC4 Spring And Cable Base Coupling"
-status: in-progress
+status: completed
 priority: P1
 effort: "5h"
 dependencies: [1, 2]

@@ -1,7 +1,7 @@
 ---
 phase: 2
 title: "RC1 Handle Body Anchor Coupling"
-status: in-progress
+status: completed
 priority: P1
 effort: "8h"
 dependencies: [1]
