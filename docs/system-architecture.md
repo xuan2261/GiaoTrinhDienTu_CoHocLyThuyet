@@ -9,12 +9,12 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 | Shell | `js/sim-lab-ui.js` | Tạo `.sim-lab`, canvas, controls, readout cards, hint, reset/play-pause |
 | Lifecycle/core | `js/sim-core.js` | Scope cleanup, canvas helpers, sliders/buttons, RAF/listener cleanup |
 | Interaction | `js/sim-interactions.js` | Pointer/touch/keyboard handle layer, active handle metadata |
-| Shared DeCuong rendering | `js/sim-rendering.js`, `js/sim-visual-helpers.js` | Theme-aware grid, drag handle dots, PI/7 arrows, dashed guides, and readable panels |
+| Shared DeCuong rendering | `js/sim-rendering.js`, `js/sim-visual-helpers.js` | Theme-aware grid, drag handle dots, PI/7 arrows, dashed guides, readable panels; `getPattern(ctx, material, theme)` / `clearPatternCache()` backed by OffscreenCanvas + seeded LCG noise; MutationObserver clears cache on `data-theme` toggle |
 | Promax pilot invariants | `js/sim-route-invariants.js`, `js/sim-invariant-evaluators.js`, `js/sim-promax-*` | 6-route pilot invariant specs/evaluators run as hidden metadata; diagnostic controls, formula summaries, mini graph summaries, and challenge feedback stay out of the learner UI |
 | Scene data | `js/sim-scene-registry.js`, `js/sims/ch*/*-scenes.js` | Route-scoped scene catalog and deterministic signatures |
 | Rendering | `js/sim-route-renderer-registry.js`, `js/sims/ch*/*-renderers.js` | Dedicated renderer per route; no family final dispatch |
 | Behavior | `js/sim-route-behavior-registry.js`, `js/sims/ch*/*-behaviors.js` | Derived model ids, route-owned handles, interaction semantics |
-| Lab orchestration | `js/sim-professional-lab.js` | Resolve scene/renderer/behavior, bind controls/handles, render readouts |
+| Lab orchestration | `js/sim-professional-lab.js` | Resolve scene/renderer/behavior, bind controls/handles, render readouts; `resolveHandles` fails loudly when a route returns no handles (legacy fallback removed); per-route ARIA overlay layer (`.sim-handle-a11y-layer`), keyboard nudge (Arrow + Shift), Escape blur, polite `sim-aria-live` region; `lab.prefersReducedMotion` flag honored across animation engine |
 | Thin adapters | `js/sim-statics.js`, `js/sim-kinematics.js`, `js/sim-dynamics.js` | Chapter route adapters into `SimProfessionalLab.mount(routeId)` |
 | Registry map | `js/sims/ch*/*-routes.js`, `js/simulations.js` | Build `window.SIM_MAP` for 58 canonical P1 routes |
 
@@ -69,6 +69,8 @@ python tools\smoke_simulation_runtime.py --expect-runtime-routes 58 --check-moun
 npm run test:sim:unit
 npm run test:sim:browser
 npm run test:sim:visual-quality
+npm run test:sim:correctness
+npm run test:sim:correctness:browser
 ```
 
 Promax pilot gates:

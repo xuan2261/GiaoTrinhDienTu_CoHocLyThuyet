@@ -36,7 +36,8 @@ const INTENTIONAL_EQUALITIES = [
   { route: 'ch3-6-2', labels: ['p trước', 'p sau'] },
   { route: 'ch3-6-3', labels: ['p trước', 'p sau'] },
 ];
-const OVERLAY_SHORT_LABEL_PATTERN = /^(?:[A-Z]|[A-Z]\d|O|IC|F|F1|F2|v|a|N|T|x|y|α)$/u;
+// Mirror of `isShortOverlayLabel` in js/sim-route-renderer-primitives.js (Phase 04 widening).
+const OVERLAY_SHORT_LABEL_PATTERN = /^(?:[\p{L}][\p{L}\p{M}\p{N}_'₀-₉⁰²³ⁿ]{0,11}|IC|FBD|RA|RB|R_x|R_y|M_O)$/u;
 
 function indexScriptOrder() {
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');

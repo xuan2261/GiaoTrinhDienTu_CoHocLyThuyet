@@ -32,14 +32,14 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 | `js/sim-physics-statics.js` | Statics helper formulas: force components, moments, reactions, friction, centroid |
 | `js/sim-physics-kinematics.js` | Kinematics helpers: trajectories, derivatives, rotation, transmission, instant center |
 | `js/sim-physics-dynamics.js` | Dynamics helpers: Newton, ODE solvers, collision, energy, D'Alembert |
-| `js/sim-visual-helpers.js` | Glow, gradients, enhanced arrows/grid |
+| `js/sim-visual-helpers.js` | Glow, gradients, enhanced arrows/grid; `getPattern(ctx, material, theme)` / `clearPatternCache()` backed by OffscreenCanvas + seeded LCG noise; `__patternCacheStats` for tests; MutationObserver clears cache on `data-theme` toggle |
 | `js/sim-interaction-enhancements.js` | Snap guides, ghost state, drag visual feedback |
 | `js/sim-scene-registry.js` | Route-scoped scene catalog registry; keep scene ids/signatures deterministic |
 | `js/sim-scene-templates.js` | Legacy scene template fallback và deterministic signature helpers |
-| `js/sim-route-renderer-primitives.js` | Low-level drawing helpers only; `domMath` suppresses learner-facing canvas formula overlay by default, overlay helpers chỉ giữ short labels |
+| `js/sim-route-renderer-primitives.js` | Low-level drawing helpers only; `domMath` suppresses learner-facing canvas formula overlay by default, overlay helpers chỉ giữ short labels; `P.spring` accepts `opts.anchor` / `opts.wallAnchor`; `P.realisticBody` emits `ao:` and `rim:` marks; `P.realisticWheel` emits `shine:` mark; `P.magnitudeArrow` for length-only PhET-scaled arrows; exports: `magnitudeArrow`, `isShortOverlayLabel`, `allowCanvasOverlayText` |
 | `js/sim-route-renderer-registry.js` | 58 dedicated route renderer contracts; renderer id/function/body phải unique |
 | `js/sim-route-behavior-registry.js` | Route behavior contracts: behavior id, derived/interaction metadata, assessment link |
-| `js/sim-professional-lab.js` | Shared professional lab shell orchestration; resolve scene metadata, renderer contract, behavior contract, route-owned handle descriptors, và active handle metadata qua `data-active-handle-id` |
+| `js/sim-professional-lab.js` | Shared professional lab shell orchestration; resolve scene metadata, renderer contract, behavior contract, route-owned handle descriptors, và active handle metadata qua `data-active-handle-id`; `resolveHandles` fails loudly when a route returns no handles (legacy fallback removed); per-route ARIA overlay layer (`.sim-handle-a11y-layer`), keyboard nudge (Arrow + Shift), Escape blur, polite `sim-aria-live` region; `lab.prefersReducedMotion` flag honored across animation engine |
 | `js/sim-statics.js` | Thin Ch1 adapter cho `SimProfessionalLab.mount(routeId)` |
 | `js/sim-kinematics.js` | Thin Ch2 adapter cho `SimProfessionalLab.mount(routeId)` |
 | `js/sim-dynamics.js` | Thin Ch3 adapter cho `SimProfessionalLab.mount(routeId)` |
@@ -130,6 +130,8 @@ npm run test:sim:browser
 npm run test:sim:visual-quality
 npm run test:sim:scene-identity
 npm run test:sim:browser:route-mount
+npm run test:sim:correctness
+npm run test:sim:correctness:browser
 ```
 
 `tools\audit.py` mặc định không tính textbook figure hợp lệ là warning; section `IMAGE RENDERING` phải ghi số figure hợp lệ, `unwrapped=0`, `missing=0`.

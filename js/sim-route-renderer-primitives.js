@@ -90,7 +90,7 @@ function allowCanvasFormulaOverlay() {
   return !!(typeof window !== 'undefined' && window.SIM_ALLOW_CANVAS_FORMULA_OVERLAY === true);
 }
 function isShortOverlayLabel(text) {
-  return /^(?:[A-Z]|[A-Z]\d|O|IC|F|F1|F2|v|a|N|T|x|y|α)$/u.test(String(text || '').trim());
+  return /^(?:[\p{L}][\p{L}\p{M}\p{N}_'₀-₉⁰²³ⁿ]{0,11}|IC|FBD|RA|RB|R_x|R_y|M_O)$/u.test(String(text || '').trim());
 }
 function allowCanvasOverlayText(text) {
   const normalized = String(text || '').replace(/\s+/g, ' ').trim();
@@ -258,29 +258,51 @@ function body(ctx, x, y, w, h, fill, stroke, title, options) {
   if (title) label(ctx, title, x + 8, y + 18, 12, stroke);
 }
 function spring(ctx, x1, y1, x2, y2, options) {
-  mark('spring', x1, y1, x2, y2);
   const cfg = options || {};
+  // Phase 03 (RC4): allow callers to pass `anchor` (body edge) and optional
+  // `wallAnchor` (fixed end). When anchor is provided, the spring tail snaps to
+  // the body edge so the spring stays glued to the mass under any state mutation.
+  if (cfg.anchor && typeof cfg.anchor === 'object') {
+    const wall = cfg.wallAnchor || { x: x1, y: y1 };
+    x1 = wall.x; y1 = wall.y;
+    x2 = cfg.anchor.x - (cfg.gap != null ? cfg.gap : 4);
+    y2 = cfg.anchor.y;
+    mark('springAnchor', x2, y2);
+  }
   const dx = x2 - x1, dy = y2 - y1;
   const len = Math.hypot(dx, dy);
-  const angle = Math.atan2(dy, dx);
-  const coils = cfg.coils || 10;
-  const width = cfg.width || 12;
-
+  if (len < 1) { mark('spring', x1, y1, x2, y2, 0); return; }
+  // Phase 05 (RC3a): sinusoidal helix replaces zigzag. Fixed amplitude + variable
+  // pitch so the spring keeps a natural appearance under stretch/compression.
+  const nx = dx / len, ny = dy / len;
+  const px = -ny, py = nx;
+  const amplitude = cfg.amplitude || cfg.width || 8;
+  const coilCount = cfg.coils || Math.max(4, Math.round(len / 14));
+  const steps = coilCount * 16;
+  const drawPath = () => {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    for (let i = 1; i <= steps; i++) {
+      const t = i / steps;
+      const along = len * t;
+      const perp = amplitude * Math.sin(t * coilCount * Math.PI * 2);
+      ctx.lineTo(x1 + nx * along + px * perp, y1 + ny * along + py * perp);
+    }
+  };
   ctx.save();
-  ctx.translate(x1, y1);
-  ctx.rotate(angle);
-  ctx.strokeStyle = cfg.color || '#adb5bd';
-  ctx.lineWidth = cfg.lineWidth || 2;
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  const step = len / (coils * 4);
-  for (let i = 0; i <= coils * 4; i++) {
-    const px = i * step;
-    const py = (i % 4 === 1) ? -width : (i % 4 === 3) ? width : 0;
-    ctx.lineTo(px, py);
-  }
+  ctx.strokeStyle = 'rgba(0,0,0,0.25)';
+  ctx.lineWidth = (cfg.lineWidth || 2) + 2;
+  ctx.translate(1.5, 2);
+  drawPath();
   ctx.stroke();
   ctx.restore();
+  ctx.save();
+  ctx.strokeStyle = cfg.color || '#adb5bd';
+  ctx.lineWidth = cfg.lineWidth || 2;
+  drawPath();
+  ctx.stroke();
+  ctx.restore();
+  mark('spring', x1, y1, x2, y2, coilCount);
 }
 function cable(ctx, x1, y1, x2, y2, options) {
   mark('cable', x1, y1, x2, y2);
@@ -300,8 +322,56 @@ function cable(ctx, x1, y1, x2, y2, options) {
 }
 function realisticBody(ctx, x, y, w, h, title, options) {
   const cfg = options || {};
+  // Phase 06 (RC3b): AO ellipse below the body so it appears grounded.
+  mark('ao', x + w / 2, y + h);
+  ctx.save();
+  ctx.fillStyle = isDarkTheme() ? 'rgba(0,0,0,0.45)' : 'rgba(0,0,0,0.22)';
+  ctx.beginPath();
+  ctx.ellipse(x + w / 2, y + h + 4, w * 0.45, 4, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
   const fill = cfg.material === 'metal' ? window.SimVisualHelpers.metalGradient(ctx, x, y, w, h) : (cfg.fill || 'rgba(206,212,218,0.5)');
   body(ctx, x, y, w, h, fill, cfg.stroke || '#495057', title, Object.assign({ radius: 4, shadow: true }, cfg));
+  // Phase 06 (RC3b): rim highlight overlay (top-left lighting).
+  mark('rim', x, y);
+  ctx.save();
+  const rimGrad = ctx.createLinearGradient(x, y, x, y + h * 0.6);
+  rimGrad.addColorStop(0, isDarkTheme() ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.32)');
+  rimGrad.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = rimGrad;
+  if (cfg.radius > 0 && ctx.roundRect) {
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, Math.max(2, h * 0.55), cfg.radius || 4);
+    ctx.fill();
+  } else {
+    ctx.fillRect(x, y, w, Math.max(2, h * 0.55));
+  }
+  ctx.restore();
+}
+function magnitudeArrow(ctx, x1, y1, x2, y2, options) {
+  // Phase 06 (RC3b): length-only magnitude arrow (PhET / MyPhysicsLab convention).
+  // Width and head size stay constant; only length encodes |F| so distinguishability
+  // is linear in magnitude rather than quadratic.
+  const cfg = options || {};
+  const mag = Math.max(0.1, Math.min(1.5, cfg.magnitude == null ? 1 : cfg.magnitude));
+  const dx = x2 - x1, dy = y2 - y1;
+  const len = Math.hypot(dx, dy) * mag;
+  const ang = Math.atan2(dy, dx);
+  const ex = x1 + Math.cos(ang) * len;
+  const ey = y1 + Math.sin(ang) * len;
+  mark('magnitudeArrow', x1, y1, ex, ey, Math.round(mag * 100));
+  if (window.SimCore && window.SimCore.drawArrow) {
+    window.SimCore.drawArrow(ctx, x1, y1, ex, ey, cfg.fill || cfg.color, 2.5, cfg.text);
+    return;
+  }
+  ctx.save();
+  ctx.strokeStyle = cfg.fill || cfg.color || '#dc3545';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(ex, ey);
+  ctx.stroke();
+  ctx.restore();
 }
 function realisticBeam(ctx, x1, y1, x2, y2, options) {
   mark('realisticBeam', x1, y1, x2, y2);
@@ -387,6 +457,14 @@ function realisticWheel(ctx, x, y, r, angle, options) {
   ctx.beginPath(); ctx.arc(0, 0, r * 0.15, 0, Math.PI * 2); ctx.fill();
   ctx.strokeStyle = '#343a40';
   ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Phase 07 (RC3c): specular shine arc at top-left.
+  mark('shine', r);
+  ctx.strokeStyle = isDarkTheme() ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.8)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(0, 0, r * 0.78, Math.PI * 1.15, Math.PI * 1.45);
   ctx.stroke();
 
   ctx.restore();
@@ -475,6 +553,7 @@ window.SimRouteRendererPrimitives = {
   frame, arrow, neonArrow, body, spring, cable,
   realisticBody, realisticBeam, realisticGround, realisticWheel, realisticPoint,
   point, angleArc, dimension, ground, panel, dashedLine, line,
-  supportTriangle, vectorTriangle, barGraph
+  supportTriangle, vectorTriangle, barGraph, magnitudeArrow,
+  isShortOverlayLabel, allowCanvasOverlayText
 };
 })();

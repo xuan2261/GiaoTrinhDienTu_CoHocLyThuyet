@@ -15,10 +15,17 @@ function renderCh331OdeSolver(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Dao động lò xo: RK4 integration', P.tone(0));
   P.realisticGround(ctx, 62, 120, 80, { material: 'concrete', height: 128 });
   const x = state.x || 0;
-  const sx1 = 80, sy1 = 184, sx2 = 80 + x * 50, sy2 = 184;
+  const m = state.m || 2;
+  const bodyX = 92 + x * 50;
+  const bodyW = Math.round(Math.max(40, Math.min(96, 36 + m * 6)));
+  const bodyAnchor = { x: bodyX, y: 184 };
 
-  P.spring(ctx, sx1, sy1, sx2, sy2, { coils: 8, width: 10, color: '#adb5bd', lineWidth: 3 });
-  P.realisticBody(ctx, 92 + x * 50, 166, 60, 36, 'm', { material: 'metal', radius: 4 });
+  P.spring(ctx, 80, 184, bodyAnchor.x, bodyAnchor.y, {
+    anchor: bodyAnchor,
+    wallAnchor: { x: 80, y: 184 },
+    coils: 8, width: 10, color: '#adb5bd', lineWidth: 3
+  });
+  P.realisticBody(ctx, bodyX, 166, bodyW, 36, 'm', { material: 'metal', radius: 4 });
 
   ctx.save();
   ctx.setLineDash([6, 4]); ctx.strokeStyle = P.tone(6); ctx.lineWidth = 1;
@@ -62,22 +69,45 @@ function renderCh331OdeSolver(ctx, scene, state, d) {
 function renderCh332CoupledSprings(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Cơ hệ 2 khối nối lò xo', P.tone(2));
   const x1 = state.x || 0, x2 = state.trajectory2 ? (state.trajectory2[state.trajectory2.length - 1] || { x: 0 }).x : 0;
+  const m1 = state.m || 2;
+  const m2 = state.m2 || m1;
+  const body1W = Math.round(Math.max(36, Math.min(80, 32 + m1 * 5)));
+  const body2W = Math.round(Math.max(36, Math.min(80, 32 + m2 * 5)));
 
   P.realisticGround(ctx, 58, 120, 76, { material: 'concrete', height: 130 });
   P.realisticGround(ctx, 492, 120, 510, { material: 'concrete', height: 130 });
   P.realisticGround(ctx, 54, 270, 526, { material: 'concrete', height: 4 });
 
-  const s1x2 = 130 + x1 * 30;
-  P.spring(ctx, 76, 184, s1x2, 184, { coils: 8, width: 10, color: P.tone(0), lineWidth: 2.5 });
+  const body1X = 130 + x1 * 30;
+  const body2X = 330 + x2 * 30;
+  const body1Anchor = { x: body1X, y: 184 };
+  const body2Anchor = { x: body2X, y: 184 };
 
-  const s2x1 = 180 + x1 * 30, s2x2 = 330 + x2 * 30;
-  P.spring(ctx, s2x1, 184, s2x2, 184, { coils: 10, width: 8, color: P.tone(1), lineWidth: 2 });
+  // Left spring: wall(76) → body1 left edge.
+  P.spring(ctx, 76, 184, body1Anchor.x, body1Anchor.y, {
+    anchor: body1Anchor,
+    wallAnchor: { x: 76, y: 184 },
+    coils: 8, width: 10, color: P.tone(0), lineWidth: 2.5
+  });
 
-  const s3x1 = 380 + x2 * 30;
-  P.spring(ctx, s3x1, 184, 490, 184, { coils: 8, width: 10, color: P.tone(0), lineWidth: 2.5 });
+  // Middle spring: body1 right edge → body2 left edge. Pass right-edge of body1 as wall.
+  const body1RightEdge = { x: body1X + body1W, y: 184 };
+  P.spring(ctx, body1RightEdge.x, body1RightEdge.y, body2Anchor.x, body2Anchor.y, {
+    anchor: body2Anchor,
+    wallAnchor: body1RightEdge,
+    coils: 10, width: 8, color: P.tone(1), lineWidth: 2
+  });
 
-  P.realisticBody(ctx, 130 + x1 * 30, 166, 50, 36, 'm1', { material: 'metal', radius: 4 });
-  P.realisticBody(ctx, 330 + x2 * 30, 166, 50, 36, 'm2', { material: 'metal', radius: 4 });
+  // Right spring: body2 right edge → wall(490).
+  const body2RightEdge = { x: body2X + body2W, y: 184 };
+  P.spring(ctx, body2RightEdge.x, body2RightEdge.y, 490, 184, {
+    anchor: { x: 490, y: 184 },
+    wallAnchor: body2RightEdge,
+    coils: 8, width: 10, color: P.tone(0), lineWidth: 2.5
+  });
+
+  P.realisticBody(ctx, body1X, 166, body1W, 36, 'm1', { material: 'metal', radius: 4 });
+  P.realisticBody(ctx, body2X, 166, body2W, 36, 'm2', { material: 'metal', radius: 4 });
 
   P.panel(ctx, 68, 84, 280, 56, 'phương trình hệ', P.tone(2));
   P.domMath(ctx, '332-eq', 86, 92, 'm_1\\ddot{x}_1 = -k(x_1-x_2)', { color: P.tone(2) });

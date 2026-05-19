@@ -1,5 +1,59 @@
 # Project Changelog
 
+## 2026-05-18 — Simulation Correctness And Realism Overhaul (Phases 01-07 + 08b a11y foundation)
+
+### Added
+- TDD harness `tests/sim-correctness-realism.test.js` (12 Node-level invariants) and `tests/sim-handle-anchor-invariants.spec.js` (26 Playwright invariants) covering RC1 handle/body anchor, RC4 spring/cable base coupling, RC5 overlay whitelist, RC3 spring helix + rim/AO + arrow magnitude + wheel shine, and accessibility (ARIA + keyboard + reduced-motion).
+- `tests/sim-correctness-realism-fixtures.js` shared fixture module exporting RC route lists and label-pattern samples.
+- npm scripts `test:sim:correctness` (Node `--test`) and `test:sim:correctness:browser` (Playwright).
+- Baseline snapshot stub `tests/__snapshots__/sim-correctness-baseline.json`.
+- `P.magnitudeArrow` primitive: PhET / MyPhysicsLab convention, length-only scaling (fixed 2.5px lineWidth, no shadowBlur).
+- `SimVisualHelpers.getPattern` / `clearPatternCache` / `patternCacheStats` with seeded deterministic noise, OffscreenCanvas-backed bake, and MutationObserver-driven cache invalidation on `data-theme` toggle. New `wood` material added.
+- A11y overlay engine: `.sim-handle-a11y-layer` keyboard-focusable button per handle (Vietnamese ARIA labels, ArrowKeys / Shift+Arrow / Escape), `.sim-aria-live` polite announcements, `lab.prefersReducedMotion` flag wired via `matchMedia('(prefers-reduced-motion: reduce)')` listener disposed by mount scope.
+
+### Fixed
+- RC1 (handle/body anchor): `legacyHandles` fallback removed from `js/sim-professional-lab.js`; `resolveHandles` now throws on empty handle arrays. `ch1Handles` gained explicit branches for ch1-1-3 / ch1-2-1 / ch1-1-8 (no more generic `${routeId}-construction` fallback for RC1 routes).
+- RC4 (spring/cable base coupling): `P.spring` accepts `{ anchor, wallAnchor, gap }` so the spring tail snaps to the body edge in lockstep with state mutations; emits `springAnchor:` mark when anchor mode is used.
+- RC5 (overlay whitelist): `isShortOverlayLabel` regex broadened to `^(?:[\p{L}][\p{L}\p{M}\p{N}_'₀-₉⁰²³ⁿ]{0,11}|IC|FBD|RA|RB|R_x|R_y|M_O)$/u`. Accepts physics labels (`M_O`, `F_x`, `v_a`), Greek (`α`, `ω`), Vietnamese short terms (`tĩnh`, `cân`); still rejects equations, decimal values, and whitespace-containing strings.
+- RC3a (spring helix): `P.spring` rebuilt as sinusoidal helix with fixed amplitude + variable pitch + dual-pass shadow; emits `spring:x1:y1:x2:y2:coilCount` so coil count can be asserted from structural marks.
+- RC3b (body rim + AO + magnitude arrow): `P.realisticBody` now layers AO ellipse → body fill → rim highlight gradient with `ao:` and `rim:` structural marks. `arrow` path keeps lineWidth fixed; new `magnitudeArrow` exposed for force routes.
+- RC3c (wheel shine + pattern cache): `P.realisticWheel` paints a 30° specular arc at top-left (`shine:` mark); `getPattern` cache returns the same `CanvasPattern` on repeat (material, theme) lookups.
+
+### Changed
+- `js/sim-route-renderer-primitives.js` exports extended with `magnitudeArrow`, `isShortOverlayLabel`, `allowCanvasOverlayText`.
+- `js/sim-visual-helpers.js` adds `getPattern`, `clearPatternCache`, `patternCacheStats`. `concretePattern` switches to seeded LCG noise so output is identical across reloads (no `Math.random()` per frame).
+- `js/sim-professional-lab.js` mount path now calls `attachReducedMotion(lab, scope)` and `setupA11yOverlay(lab, routeHandles, scene)` after handle resolution; defensive guard skips overlay when the host wraps a thin mock.
+- `tests/simulation-runtime-regressions.test.js` fixture supplies a real `handles()` callback so the new fail-loud `resolveHandles` contract holds.
+
+### Verified
+- `npm run test:sim:correctness`: 12/12 PASS (was 0/12 RED on master HEAD).
+- `npm run test:sim:unit`: 8/8 PASS (104 JS files `node --check`, primitives, physics, runtime regressions, invariants, promax-challenge, promax-formula-graph, phase-08-tdd, phase-09-12-tdd).
+- `npm run test:sim:quality`: PASS (all 58 route source files within ≤220 line budget).
+- `python tools/smoke_simulation_runtime.py`: 58/58 routes mount, listener cleanup PASS, mount rollback PASS.
+- `node tools/audit_v2_disposal.js`: 20-cycle mount/unmount stable (delta 1.57 MB).
+
+### Pending
+- Browser-level `tests/sim-handle-anchor-invariants.spec.js`: 26 Playwright invariants listed but not executed in this session — requires `npm run test:sim:browser:install` and full Phase 02 route migration (per-renderer `getAnchor` wiring) to flip all `@rc1-handle-anchor` and `@rc4-spring-base` cases GREEN.
+- Phase 08 (RC2/RC6 animation density + light theme parity): preset gallery for ch1-2-3/ch1-1-3/ch1-2-1, trail buffer for ch2-1-1, impulse flash for ch3-6-2, autoplay for ch3-3-1.
+- Phase 09 release gate (`npm run test:sim:release`) and Phase 10 docs sync remain to run end-to-end after Phase 08 completes.
+
+### Phase 03 deeper migration (same session)
+- `js/sims/ch3/ch3-spring-mass-coupled-springs-dalembert-renderers.js`: `renderCh331OdeSolver` now passes `{ anchor, wallAnchor }` to `P.spring`, snapping the spring tail to the body-left edge and emitting `springAnchor:` mark.
+- Same renderer's `renderCh332CoupledSprings` (3 springs) migrated: each spring now identifies wall vs body anchor explicitly so visual coupling holds even when both masses oscillate.
+
+### Phase 08b CSS + capture-phase blur (same session)
+- `css/style.css`: `.sim-handle-a11y-layer`, `.sim-handle-a11y` (focus ring with `outline-offset: 2px` + 4px shadow ring), `.sr-only`, and a `prefers-reduced-motion` shadow-suppression rule.
+- `js/sim-professional-lab.js#setupA11yOverlay`: capture-phase mousedown listener on `lab.wrap` blurs any focused `.sim-handle-a11y` button before the canvas pointer-down fires, so mouse drag is never hijacked by keyboard focus state. Listener installed once per lab via `lab.wrap.__simA11yMousedownInstalled` guard.
+
+### Verified after deeper migration
+- `npm run test:sim:correctness`: 12/12 PASS (re-run).
+- `npm run test:sim:unit`: 8/8 PASS (re-run).
+- `python tools/smoke_simulation_renderer_contract.py --strict --require-routes 58`: PASS.
+- `python tools/smoke_simulation_scene_catalog.py --strict --require-routes 58`: PASS.
+- `python tools/smoke_simulation_routes.py --require-p1`: PASS (58/58 P1).
+- `python tools/audit.py --strict-images --strict-formula-image`: PASS (102 files, 0 warnings, 0 errors).
+- `python tools/audit.py --strict-equations`: PASS.
+
 ## 2026-05-18 — Formula-as-Image, Duplicate Render & Alt-Text Hardening
 
 ### Fixed

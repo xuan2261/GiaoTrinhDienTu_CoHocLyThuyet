@@ -15,6 +15,8 @@
     "test:sim:browser": "playwright test tests/mass-conversion-audit.spec.js tests/simulation-browser.spec.js tests/simulation-interaction-engine.spec.js tests/promax-pilot-shell.spec.js",
     "test:sim:visual-quality": "playwright test tests/simulation-visual-quality.spec.js",
     "test:sim:browser:install": "playwright install chromium",
+    "test:sim:correctness": "node --test tests/sim-correctness-realism.test.js",
+    "test:sim:correctness:browser": "playwright test tests/sim-handle-anchor-invariants.spec.js",
     "test:sim:browser:baseline": "node -e \"console.log('Baseline check skipped in V2')\"",
     "test:sim:browser:route-mount": "playwright test tests/simulation-browser.spec.js --grep @route-mount",
     "test:equations": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$ErrorActionPreference='Stop'; Get-ChildItem scripts/test-phase-*.py | Sort-Object Name | ForEach-Object { Write-Host \\\"=== $($_.Name) ===\\\"; & python $_.FullName; if ($LASTEXITCODE -ne 0) { exit 1 } }\"",

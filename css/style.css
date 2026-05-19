@@ -1214,6 +1214,17 @@ footer b { color: var(--gold); }
 .sim-btn-group { display: flex; gap: 4px; }
 .sim-info { margin-top: 10px; padding: 8px 12px; background: #fff; border-radius: 8px; border: 1px solid #e9ecef; font-size: .82rem; color: #495057; line-height: 1.6; }
 .sim-sr-readout { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Phase 08b a11y: keyboard-focusable overlay + screen-reader live region. */
+/* Layer is positioned over the canvas; default pointer-events:none keeps mouse drag intact. */
+.sim-lab .sim-handle-a11y-layer { position: absolute; inset: 0; pointer-events: none; z-index: 5; overflow: hidden; }
+.sim-lab .sim-handle-a11y { position: absolute; width: 28px; height: 28px; padding: 0; margin: 0; background: transparent; border: 0; border-radius: 50%; outline: 0; pointer-events: none; cursor: crosshair; }
+.sim-lab .sim-handle-a11y:focus-visible { pointer-events: auto; outline: 2px solid #0d6efd; outline-offset: 2px; box-shadow: 0 0 0 4px rgba(13,110,253,.18); }
+.sim-lab .sim-aria-live.sr-only,
+.sim-lab .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  .sim-lab .sim-handle-a11y:focus-visible { box-shadow: none; }
+}
 .sim-lab { border-radius: 8px; padding: 14px; overflow: hidden; }
 .sim-lab .sim-header { margin-bottom: 10px; }
 .sim-lab .sim-lab-scene { position: relative; display: block; width: max-content; max-width: 100%; margin: 0 auto; overflow: hidden; border: 1px solid #e9ecef; border-radius: 8px; background: #f8f9fa; }

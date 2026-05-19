@@ -97,18 +97,97 @@ function metalGradient(ctx, x, y, w, h, vertical) {
 
 /**
  * Create a concrete pattern.
+ *
+ * Phase 07 (RC3c): pattern cache. Hashes (material, theme) into a stable key,
+ * pre-bakes the pattern to an offscreen canvas with deterministic noise so it
+ * looks identical across reloads, and reuses the CanvasPattern across mounts.
+ * Theme toggle clears the cache via a MutationObserver on `<html data-theme>`.
  */
-function concretePattern(ctx, color) {
-  const canvas = document.createElement('canvas');
-  canvas.width = 32; canvas.height = 32;
+const __patternCache = new Map();
+const __patternCacheStats = { hits: 0, misses: 0 };
+
+function __seededNoise(seed) {
+  // Tiny LCG: deterministic 0..1 stream so reloads paint identical noise.
+  let s = (seed >>> 0) || 1;
+  return () => {
+    s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
+    return s / 0xffffffff;
+  };
+}
+
+function __bakePattern(ctx, material, theme) {
+  const canvas = (typeof OffscreenCanvas !== 'undefined')
+    ? new OffscreenCanvas(32, 32)
+    : Object.assign(document.createElement('canvas'), { width: 32, height: 32 });
   const pctx = canvas.getContext('2d');
-  pctx.fillStyle = color || '#dee2e6';
-  pctx.fillRect(0, 0, 32, 32);
-  pctx.fillStyle = 'rgba(0,0,0,0.05)';
-  for (let i = 0; i < 40; i++) {
-    pctx.fillRect(Math.random() * 32, Math.random() * 32, 1, 1);
+  if (material === 'wood') {
+    pctx.fillStyle = theme === 'dark' ? '#5a3a22' : '#c9a26a';
+    pctx.fillRect(0, 0, 32, 32);
+    pctx.strokeStyle = theme === 'dark' ? 'rgba(0,0,0,0.45)' : 'rgba(0,0,0,0.18)';
+    for (let y = 4; y < 32; y += 6) {
+      pctx.beginPath();
+      pctx.moveTo(0, y);
+      pctx.lineTo(32, y + (y % 12 === 0 ? 1 : -1));
+      pctx.stroke();
+    }
+  } else {
+    pctx.fillStyle = theme === 'dark' ? '#1c2733' : '#dee2e6';
+    pctx.fillRect(0, 0, 32, 32);
+    pctx.fillStyle = theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
+    const rand = __seededNoise(material === 'metal' ? 0xa5b1 : 0xc011);
+    for (let i = 0; i < 40; i++) {
+      pctx.fillRect(Math.floor(rand() * 32), Math.floor(rand() * 32), 1, 1);
+    }
   }
   return ctx.createPattern(canvas, 'repeat');
+}
+
+function getPattern(ctx, material, theme) {
+  const t = theme || (typeof document !== 'undefined' && document.documentElement
+    && document.documentElement.getAttribute('data-theme')) || 'light';
+  const key = `${material}|${t}`;
+  if (__patternCache.has(key)) {
+    __patternCacheStats.hits += 1;
+    return __patternCache.get(key);
+  }
+  __patternCacheStats.misses += 1;
+  const pattern = __bakePattern(ctx, material, t);
+  __patternCache.set(key, pattern);
+  return pattern;
+}
+
+function clearPatternCache() {
+  __patternCache.clear();
+}
+
+if (typeof MutationObserver !== 'undefined' && typeof document !== 'undefined' && document.documentElement) {
+  const observer = new MutationObserver(records => {
+    for (const r of records) {
+      if (r.type === 'attributes' && r.attributeName === 'data-theme') {
+        clearPatternCache();
+      }
+    }
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+}
+
+function concretePattern(ctx, color) {
+  // Back-compat: existing callsites pass an explicit color override; new code
+  // should call getPattern(ctx, 'concrete') so the cache + theme observer kick in.
+  if (color) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 32; canvas.height = 32;
+    const pctx = canvas.getContext('2d');
+    pctx.fillStyle = color;
+    pctx.fillRect(0, 0, 32, 32);
+    pctx.fillStyle = 'rgba(0,0,0,0.05)';
+    const rand = __seededNoise(0xc011);
+    for (let i = 0; i < 40; i++) {
+      pctx.fillRect(Math.floor(rand() * 32), Math.floor(rand() * 32), 1, 1);
+    }
+    return ctx.createPattern(canvas, 'repeat');
+  }
+  return getPattern(ctx, 'concrete');
 }
 
 /**
@@ -604,6 +683,8 @@ window.SimVisualHelpers = {
   glow, setGlow, applyShadow, clearGlow,
   linearGradient, radialGradient,
   metalGradient, concretePattern,
+  getPattern, clearPatternCache,
+  patternCacheStats: __patternCacheStats,
   arrow, neonArrow, doubleArrow, curvedArrow,
   drawGrid, drawAxes,
   drawSpring, drawCable,

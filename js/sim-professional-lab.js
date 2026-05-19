@@ -923,6 +923,15 @@ function ch1Handles(routeId, state) {
   if (routeId === 'ch1-2-6') {
     return [handle('fbd-force', 'F', () => ({ x: 395, y: 150 }), point => setPrimary(state, point), { visual: { stroke: color('force') } })];
   }
+  if (routeId === 'ch1-1-3') {
+    return [handle('force-tip-f', 'F', () => state.primary, point => setPrimary(state, point), { visual: { stroke: color('force') } })];
+  }
+  if (routeId === 'ch1-2-1') {
+    return [handle('two-force-f2', 'F2', () => state.primary, point => setPrimary(state, point), { visual: { stroke: color('force') } })];
+  }
+  if (routeId === 'ch1-1-8') {
+    return [handle('constraint-load-p', 'P', () => state.primary, point => setPrimary(state, point), { visual: { stroke: color('force') } })];
+  }
   return [handle(`${routeId}-construction`, 'điểm', () => state.primary, point => setPrimary(state, point), { visual: { stroke: color('result') } })];
 }
 
@@ -1083,17 +1092,116 @@ function routeOwnedHandles(scene, state, d, lab) {
   return [];
 }
 
-function legacyHandles(scene, state) {
-  return [
-    handle('legacy-primary', 'kéo', () => state.primary, point => setPrimary(state, point), { hitRadius: 52, visual: { stroke: color('result') } }),
-    handle('legacy-vector', 'v/F', () => state.vector, point => { state.vector = boundedPoint(point); }, { hitRadius: 30, visual: { stroke: color('force') } })
-  ];
-}
-
 function resolveHandles(scene, state, d, behavior, lab) {
   const raw = typeof behavior.handles === 'function' ? behavior.handles(scene, state, d, lab) : [];
   const handles = Array.isArray(raw) ? raw.filter(item => item && typeof item.get === 'function' && typeof item.set === 'function') : [];
-  return handles.length ? handles : legacyHandles(scene, state);
+  if (!handles.length) {
+    const routeId = (scene && scene.routeId) || (state && state.routeId) || 'unknown';
+    throw new Error(`[sim] route ${routeId} returned no handles — registry violation (legacy fallback removed in Phase 02)`);
+  }
+  return handles;
+}
+
+// Phase 08b (a11y): build keyboard-focusable overlay buttons for each handle plus an
+// aria-live="polite" region. Buttons stay pointer-events:none so mouse drag passes
+// through to the canvas; only on focus do they capture key events. This honors the
+// pedagogy decision in plans/260518-2300-sim-correctness-realism-overhaul: ARIA in
+// Vietnamese, keyboard nav, prefers-reduced-motion respected at the engine layer.
+function setupA11yOverlay(lab, handles, scene) {
+  if (!lab || !lab.wrap || typeof document === 'undefined') return null;
+  if (typeof lab.wrap.querySelector !== 'function' || typeof lab.wrap.appendChild !== 'function') return null;
+  let layer = lab.wrap.querySelector('.sim-handle-a11y-layer');
+  if (!layer) {
+    layer = document.createElement('div');
+    layer.className = 'sim-handle-a11y-layer';
+    layer.setAttribute('aria-hidden', 'false');
+    lab.wrap.appendChild(layer);
+  }
+  let live = lab.wrap.querySelector('.sim-aria-live');
+  if (!live) {
+    live = document.createElement('div');
+    live.className = 'sim-aria-live sr-only';
+    live.setAttribute('aria-live', 'polite');
+    live.setAttribute('aria-atomic', 'true');
+    lab.wrap.appendChild(live);
+  }
+  if (!lab.wrap.__simA11yMousedownInstalled && typeof lab.wrap.addEventListener === 'function') {
+    // Capture-phase blur: when user starts a mouse drag while an overlay button
+    // has focus, blur it BEFORE the canvas pointerdown so drag is not stolen.
+    lab.wrap.addEventListener('mousedown', () => {
+      const focused = document.activeElement;
+      if (focused && focused.classList && focused.classList.contains('sim-handle-a11y')) {
+        focused.blur();
+      }
+    }, true);
+    lab.wrap.__simA11yMousedownInstalled = true;
+  }
+  layer.innerHTML = '';
+  handles.forEach(h => {
+    const point = (typeof h.get === 'function' && h.get()) || { x: 0, y: 0 };
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'sim-handle-a11y';
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0');
+    btn.setAttribute('data-handle-id', h.id || '');
+    const labelText = h.label || h.id || 'điểm';
+    btn.setAttribute('aria-label', `Kéo ${labelText}, vị trí hiện tại x=${Math.round(point.x)} y=${Math.round(point.y)}`);
+    btn.style.position = 'absolute';
+    btn.style.left = `${Math.round(point.x) - 14}px`;
+    btn.style.top = `${Math.round(point.y) - 14}px`;
+    btn.style.width = '28px';
+    btn.style.height = '28px';
+    btn.addEventListener('keydown', evt => {
+      const step = (evt.shiftKey ? (h.shiftStep || 24) : (h.nudgeStep || 8));
+      let dx = 0, dy = 0;
+      if (evt.key === 'ArrowLeft') dx = -step;
+      else if (evt.key === 'ArrowRight') dx = step;
+      else if (evt.key === 'ArrowUp') dy = -step;
+      else if (evt.key === 'ArrowDown') dy = step;
+      else if (evt.key === 'Escape') { btn.blur(); return; }
+      else return;
+      evt.preventDefault();
+      const next = h.get() || { x: 0, y: 0 };
+      h.set({ x: next.x + dx, y: next.y + dy });
+      live.textContent = `${labelText} đã di chuyển`;
+    });
+    layer.appendChild(btn);
+  });
+  return { layer, live };
+}
+
+// Phase 08b (a11y): expose prefers-reduced-motion so animation engine, preset
+// tween, autoplay, and impulse flash can honor it. Listener stays subscribed for
+// the lab lifetime — disposed by the route's mount scope.
+function attachReducedMotion(lab, scope) {
+  if (!lab || typeof window === 'undefined' || !window.matchMedia) {
+    if (lab) lab.prefersReducedMotion = false;
+    return;
+  }
+  if (typeof lab._reducedMotionTeardown === 'function') {
+    try { lab._reducedMotionTeardown(); } catch (_) {}
+    lab._reducedMotionTeardown = null;
+  }
+  const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+  lab.prefersReducedMotion = !!mql.matches;
+  const onChange = e => { lab.prefersReducedMotion = !!e.matches; };
+  let teardown = null;
+  if (typeof mql.addEventListener === 'function') {
+    mql.addEventListener('change', onChange);
+    teardown = () => mql.removeEventListener('change', onChange);
+  } else if (typeof mql.addListener === 'function') {
+    mql.addListener(onChange);
+    teardown = () => mql.removeListener(onChange);
+  }
+  if (!teardown) return;
+  lab._reducedMotionTeardown = teardown;
+  if (scope && typeof scope.onDispose === 'function') {
+    scope.onDispose(() => {
+      try { teardown(); } catch (_) {}
+      if (lab._reducedMotionTeardown === teardown) lab._reducedMotionTeardown = null;
+    });
+  }
 }
 
 function drawRouteHandles(ctx, handles, layer) {
@@ -1429,6 +1537,8 @@ function mount(routeId) {
 
     routeHandles = resolveHandles(scene, state, behavior.derived(scene, state), behavior, lab);
     lab.interactionLayer = bindInteractions(lab, scene, state, draw, routeHandles);
+    attachReducedMotion(lab, scope);
+    lab.a11y = setupA11yOverlay(lab, routeHandles, scene);
     draw();
     startBehaviorAnimation(lab, scene, state, draw, behavior, scope);
     updatePlayButton();

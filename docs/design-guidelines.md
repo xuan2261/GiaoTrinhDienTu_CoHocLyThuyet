@@ -97,10 +97,12 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 | Right inspector | Desktop/tablet stack cho readouts, controls, formula, hint ở cột phải; `<=768px` phải collapse sang bố cục stacked dọc, không được tạo horizontal overflow |
 | Promax slots | Pilot-only diagnostics toggles, invariant status, formula summary, mini graph summary, and challenge feedback stay scoped under `.sim-lab`; only 6 routes mount them today, with the remaining 52 routes classified in the rollout matrix |
 | Canvas overlay | Learner-facing formulas and dynamic values are forbidden in `.sim-lab-overlay`; use `.sim-formula-panel` and `.sim-readout-card` |
+| `.sim-handle-a11y-layer` | Per-route ARIA overlay layer (positioned over canvas, `overflow: hidden`); contains `.sim-handle-a11y` focusable buttons for each drag handle; keyboard nudge via Arrow + Shift, Escape to blur; `.sim-aria-live` polite region for screen-reader feedback; `.sr-only` for visually-hidden labels |
 | `lab.setHint(text)` | Update hint at runtime (used by route behaviors) |
 | `lab.reset()` | Reset route state to initial snapshot |
 | `lab.isPlaying` | Boolean flag: animation running state for play/pause toggle |
 | `lab.pause()` / `lab.resume()` | Animation pause/resume for animated routes |
+| `lab.prefersReducedMotion` | Boolean flag: mirrors `prefers-reduced-motion` media query; animation engine suppresses non-essential motion when true |
 
 CSS mới cho lab phải scope dưới `.sim-lab`; tránh selector global như `.toolbar`, `.panel`, `.status`.
 

@@ -151,6 +151,14 @@ function makeElement() {
             ticks += 1;
             state.__ticked = dt > 0;
           },
+          handles() {
+            return [{
+              id: 'test-handle',
+              label: 'test',
+              get: () => ({ x: 100, y: 100 }),
+              set() {},
+            }];
+          },
         }),
       },
       SimAnimationEngine: {
