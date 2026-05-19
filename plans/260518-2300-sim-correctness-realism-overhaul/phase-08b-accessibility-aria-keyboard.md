@@ -1,7 +1,7 @@
 ---
 phase: 8.5
 title: "Accessibility ARIA Keyboard And Reduced Motion"
-status: in-progress
+status: completed
 priority: P2
 effort: "3h"
 dependencies: [2, 6, 8]
