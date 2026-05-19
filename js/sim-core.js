@@ -5,12 +5,43 @@
 'use strict';
 
 const SIM_BG = '#f8f9fa';
-const COLORS = {
-  force: '#dc3545', velocity: '#0d6efd', accel: '#198754',
-  result: '#fd7e14', mass: '#6f42c1', normal: '#0dcaf0',
-  beam: '#495057', support: '#6c757d', grid: '#dee2e6',
-  text: '#212529', label: '#495057', gold: '#b8860b'
+// Theme-aware palette (Phase 08 RC6). Each key has dark/light variants;
+// COLORS exposes string-resolved values through getters so existing
+// `COLORS.force` callers keep working.
+const PALETTE_SOURCE = {
+  force:    { dark: '#dc3545', light: '#c82333' },
+  velocity: { dark: '#0d6efd', light: '#0a58ca' },
+  accel:    { dark: '#198754', light: '#146c43' },
+  result:   { dark: '#fd7e14', light: '#e8590c' },
+  impulse:  { dark: '#fd7e14', light: '#e8590c' },
+  mass:     { dark: '#6f42c1', light: '#59359a' },
+  normal:   { dark: '#0dcaf0', light: '#087990' },
+  beam:     { dark: '#495057', light: '#343a40' },
+  support:  { dark: '#6c757d', light: '#495057' },
+  grid:     { dark: '#dee2e6', light: '#dee2e6' },
+  text:     { dark: '#e8ecf1', light: '#212529' },
+  label:    { dark: '#adb5bd', light: '#495057' },
+  gold:     { dark: '#b8860b', light: '#b8860b' },
+  paraF1:   { dark: '#e74c3c', light: '#c0392b' },
+  paraF2:   { dark: '#2980b9', light: '#1f5f8b' },
+  paraR:    { dark: '#27ae60', light: '#1e8449' }
 };
+function isDarkTheme() {
+  return !!(typeof document !== 'undefined' && document.documentElement &&
+    document.documentElement.getAttribute('data-theme') === 'dark');
+}
+function color(key) {
+  const entry = PALETTE_SOURCE[key];
+  if (!entry) return '#000';
+  return entry[isDarkTheme() ? 'dark' : 'light'];
+}
+const COLORS = {};
+Object.keys(PALETTE_SOURCE).forEach(function(key) {
+  Object.defineProperty(COLORS, key, {
+    enumerable: true, configurable: false,
+    get: function() { return color(key); }
+  });
+});
 
 let activeScope = null;
 
@@ -323,6 +354,8 @@ window.SimRegistry = window.SimRegistry || createRegistry();
 window.SimCore = {
   SIM_BG,
   COLORS,
+  color,
+  isDarkTheme,
   createScope,
   withScope,
   getActiveScope,

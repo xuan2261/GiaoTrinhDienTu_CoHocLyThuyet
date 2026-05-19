@@ -1,7 +1,21 @@
 (function() {
 'use strict';
 const W = 760, H = 440;
-const palette = ['#dc3545', '#0d6efd', '#198754', '#fd7e14', '#6f42c1', '#0dcaf0', '#b8860b'];
+// Phase 08 RC6: palette resolves through SimCore.color() so dark/light themes
+// pick the right variant per draw call. Keys map to SimCore palette entries.
+const PALETTE_KEYS = ['force', 'velocity', 'accel', 'result', 'mass', 'normal', 'gold'];
+const palette = new Proxy({}, {
+  get: function(_target, prop) {
+    if (prop === 'length') return PALETTE_KEYS.length;
+    const idx = Number(prop);
+    if (Number.isInteger(idx) && idx >= 0 && idx < PALETTE_KEYS.length) {
+      return (window.SimCore && window.SimCore.color)
+        ? window.SimCore.color(PALETTE_KEYS[idx])
+        : '#000';
+    }
+    return undefined;
+  }
+});
 const tracedMethods = ['fillRect', 'strokeRect', 'rect', 'roundRect', 'arc', 'ellipse', 'moveTo', 'lineTo', 'quadraticCurveTo', 'bezierCurveTo'];
 const traceLimit = 360;
 let currentRouteId = '';

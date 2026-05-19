@@ -13,6 +13,19 @@ function updateTrajectoryState(state, dt) {
   const mode = state.mode || 'Elip';
   state.t = ((state.t || 0) + omega * dt) % (2 * Math.PI);
   syncParticleState(state, mode, omega);
+  pushTrailSample(state);
+}
+
+// Phase 08 RC2: ring buffer of recent particle positions feeding the ch2-1-1
+// fading-motion trailBuffer. Capped at 40 samples; alpha decay handled by renderer.
+const TRAIL_BUFFER_LIMIT = 40;
+function pushTrailSample(state) {
+  const x = Number(state.currentX);
+  const y = Number(state.currentY);
+  if (!Number.isFinite(x) || !Number.isFinite(y)) return;
+  if (!Array.isArray(state.trailBuffer)) state.trailBuffer = [];
+  state.trailBuffer.push({ x: x, y: y });
+  while (state.trailBuffer.length > TRAIL_BUFFER_LIMIT) state.trailBuffer.shift();
 }
 
 function syncParticleState(state, mode, omega) {
@@ -88,6 +101,7 @@ function updateStateFromSlider(scene, state, key, value) {
     syncParticleState(state, state.mode || 'Elip', state.omega || 1.5);
     state.px = state.currentX;
     state.py = state.currentY;
+    if (Array.isArray(state.trailBuffer)) state.trailBuffer.length = 0;
   } else if (routeId === 'ch2-2-2') {
     state.omegaCur = state.omega || 1.5;
     state.r = 92;

@@ -218,3 +218,96 @@ test('@rc2-preset-gallery lab wires sim-preset-button gallery (Phase 08)', () =>
   assert.equal(wires, true,
     'lab must render preset buttons with class sim-preset-button and data-preset attribute');
 });
+
+// ---------- @rc6-palette: theme-aware palette unification (Phase 08) -------
+const coreSource = fs.readFileSync(
+  path.join(fx.ROOT, 'js', 'sim-core.js'), 'utf8');
+const ch1ForceLawRenderers = fs.readFileSync(
+  path.join(fx.ROOT, 'js', 'sims', 'ch1', 'ch1-force-law-renderers.js'), 'utf8');
+
+test('@rc6-palette SimCore exposes color(key) theme-aware helper (Phase 08)', () => {
+  const definesHelper = /function\s+color\s*\(/.test(coreSource);
+  const exportsHelper = /window\.SimCore\s*=\s*\{[\s\S]*?\bcolor\b/.test(coreSource);
+  assert.equal(definesHelper && exportsHelper, true,
+    'SimCore must define and export color(key) helper for theme-aware palette lookup');
+});
+
+test('@rc6-palette SimCore palette includes impulse key with theme variants (Phase 08)', () => {
+  const hasImpulse = /\bimpulse\s*:/.test(coreSource);
+  const hasThemeVariants = /\bdark\s*:\s*['"]#[0-9a-fA-F]{3,6}['"]\s*,\s*light\s*:/.test(coreSource);
+  assert.equal(hasImpulse, true, 'SimCore palette must include impulse key for ch3-6-2 collision flash');
+  assert.equal(hasThemeVariants, true, 'SimCore palette must declare per-key dark/light variants');
+});
+
+test('@rc6-palette primitives.palette no longer holds hardcoded hex array (Phase 08)', () => {
+  // RED: const palette = ['#dc3545', '#0d6efd', ...]
+  // GREEN: palette resolves through SimCore.color (function form, getter, or runtime build).
+  const stillHasHardcodedPalette = /const\s+palette\s*=\s*\[\s*['"]#[0-9a-fA-F]{6}/.test(primitivesSource);
+  assert.equal(stillHasHardcodedPalette, false,
+    'primitives.palette must resolve through SimCore.color(), not a hardcoded hex array');
+});
+
+test('@rc6-palette ch1 PARA_COLORS no longer hardcodes hex literals (Phase 08)', () => {
+  // RED: const PARA_COLORS = { f1: '#e74c3c', f2: '#2980b9', r: '#27ae60' };
+  // GREEN: PARA_COLORS uses getters that delegate to SimCore.color().
+  const stillHasHardcodedPara = /PARA_COLORS\s*=\s*\{\s*f1\s*:\s*['"]#[0-9a-fA-F]{6}/.test(ch1ForceLawRenderers);
+  assert.equal(stillHasHardcodedPara, false,
+    'PARA_COLORS must reference SimCore.color() instead of hardcoded hex literals');
+});
+
+// ---------- @rc2-trail: trajectory ring buffer for ch2-1-1 (Phase 08) ------
+const ch2KinematicsBehaviorsA = fs.readFileSync(
+  path.join(fx.ROOT, 'js', 'sims', 'ch2', 'ch2-kinematics-behaviors-a.js'), 'utf8');
+const ch2TrajectoryRenderers = fs.readFileSync(
+  path.join(fx.ROOT, 'js', 'sims', 'ch2', 'ch2-trajectory-graph-renderers.js'), 'utf8');
+
+test('@rc2-trail ch2-1-1 behavior pushes points into trailBuffer ring (Phase 08)', () => {
+  // GREEN: onTick (or trajectory updater) pushes {x, y} into state.trailBuffer with shift cap.
+  const pushesBuffer = /state\.trailBuffer/.test(ch2KinematicsBehaviorsA)
+    && /trailBuffer\.push\s*\(/.test(ch2KinematicsBehaviorsA);
+  const capsBuffer = /trailBuffer\.shift\s*\(\)|trailBuffer\.length\s*[<>]=?\s*\d+/.test(ch2KinematicsBehaviorsA);
+  assert.equal(pushesBuffer, true, 'ch2-1-1 onTick must push to state.trailBuffer');
+  assert.equal(capsBuffer, true, 'state.trailBuffer must be capped (shift or length guard)');
+});
+
+test('@rc2-trail ch2-1-1 renderer draws fading trail from buffer (Phase 08)', () => {
+  // GREEN: renderer iterates state.trailBuffer with alpha decay.
+  const readsBuffer = /state\.trailBuffer/.test(ch2TrajectoryRenderers);
+  const fadesAlpha = /globalAlpha|rgba\s*\(/.test(ch2TrajectoryRenderers);
+  assert.equal(readsBuffer, true, 'ch2-1-1 renderer must read state.trailBuffer');
+  assert.equal(fadesAlpha, true, 'trail render must use alpha decay (rgba or globalAlpha)');
+});
+
+// ---------- @rc2-autoplay: ch3-3-1 spring oscillation default-on (Phase 08) -
+const ch3DynamicsScenes = fs.readFileSync(
+  path.join(fx.ROOT, 'js', 'sims', 'ch3', 'ch3-dynamics-all-18-scenes.js'), 'utf8');
+
+test('@rc2-autoplay ch3-3-1 scene declares autoplay flag (Phase 08)', () => {
+  // GREEN: scene factory sets autoplay: true on ch3-3-1.
+  const declaresAutoplay = /['"]ch3-3-1['"][\s\S]{0,2400}?autoplay\s*:\s*true/.test(ch3DynamicsScenes)
+    || /autoplay\s*:\s*\(?routeId\s*===\s*['"]ch3-3-1['"]/.test(ch3DynamicsScenes)
+    || /routeId\s*===\s*['"]ch3-3-1['"][\s\S]{0,400}?autoplay\s*=\s*true/.test(ch3DynamicsScenes);
+  assert.equal(declaresAutoplay, true,
+    'ch3-3-1 scene must declare autoplay: true so spring oscillation runs by default');
+});
+
+test('@rc2-autoplay lab mount honors scene.autoplay gated by reduced-motion (Phase 08)', () => {
+  // GREEN: mount path reads scene.autoplay and calls lab.resume() when not reduced-motion.
+  const honors = /scene\.autoplay[\s\S]{0,200}?prefersReducedMotion[\s\S]{0,200}?lab\.resume/.test(labSource)
+    || /scene\.autoplay[\s\S]{0,200}?lab\.resume\s*\(\)[\s\S]{0,400}?prefersReducedMotion/.test(labSource);
+  assert.equal(honors, true,
+    'lab mount must call lab.resume() for scene.autoplay routes when prefers-reduced-motion is off');
+});
+
+test('@rc2-autoplay anim engine resume re-arms requestAnimationFrame (Phase 08)', () => {
+  // RED: function resume() flips paused but never re-schedules rAF;
+  // play after lab.reset() leaves the loop dormant.
+  // GREEN: resume() schedules a frame so the loop continues after pause.
+  const resumeBlock = animationSource.slice(
+    animationSource.indexOf('function resume('),
+    animationSource.indexOf('function reset(')
+  );
+  const armsRaf = /requestAnimationFrame\s*\(\s*loop\s*\)/.test(resumeBlock);
+  assert.equal(armsRaf, true,
+    'animation engine resume() must re-arm requestAnimationFrame(loop) after un-pausing');
+});

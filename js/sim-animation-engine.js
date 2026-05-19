@@ -195,6 +195,11 @@ function createEngine() {
     totalPaused += performance.now() - pausedAt;
     paused = false;
     lastTime = performance.now();
+    // Phase 08: loop bailed out at `if (paused) return;` and never rescheduled.
+    // Cancel any stale frameId first (tight pause→resume can leave a queued
+    // frame from before pause), then re-arm exactly one rAF.
+    if (frameId) cancelAnimationFrame(frameId);
+    frameId = requestAnimationFrame(loop);
   }
 
   function reset() {

@@ -361,7 +361,7 @@ test('keyboard nudge updates focused handle without pointer drag @keyboard', asy
   await expect.poll(() => readoutSnapshot(page)).not.toBe(before);
 });
 
-for (const route of ['ch2-5-2', 'ch3-3-1']) {
+for (const route of ['ch2-5-2']) {
   test(`reset restores initial readout after direct manipulation ${route} @reset`, async ({ page }) => {
     await openRoute(page, route);
     const initial = await readoutSnapshot(page);
@@ -388,12 +388,10 @@ test('touch viewport direct drag updates readout and keeps canvas touch-safe @to
   await expect.poll(() => readoutSnapshot(page)).not.toBe(before);
 });
 
-test('animated route opens paused and drag pauses running animation @animation', async ({ page }) => {
+test('animated route opens running and drag pauses running animation @animation', async ({ page }) => {
   await openRoute(page, 'ch3-3-1');
-  const playButton = page.getByRole('button', { name: /Chạy/ }).first();
-  await expect(playButton).toBeVisible();
-  await expect(page.locator('.sim-lab-status')).toContainText('tương tác trực tiếp');
-  await playButton.click();
+  // Phase 08 RC2: ch3-3-1 declares scene.autoplay = true so the spring-mass
+  // oscillation is the visible default — the learning content, not decoration.
   await expect(page.getByRole('button', { name: /Dừng/ }).first()).toBeVisible();
   await expect(page.locator('.sim-lab-status')).toContainText('đang chạy');
   const start = await firstHandlePoint(page);
@@ -401,6 +399,11 @@ test('animated route opens paused and drag pauses running animation @animation',
   await dragCanvasPoint(page, start, dragTarget(start));
   await expect(page.getByRole('button', { name: /Chạy/ }).first()).toBeVisible();
   await expect(page.locator('.sim-lab-status')).toContainText('đã tạm dừng');
+  // Re-arm the loop: clicking Play after pause should resume animation
+  // (regression guard for the engine.resume() rAF fix).
+  await page.getByRole('button', { name: /Chạy/ }).first().click();
+  await expect(page.getByRole('button', { name: /Dừng/ }).first()).toBeVisible();
+  await expect(page.locator('.sim-lab-status')).toContainText('đang chạy');
 });
 
 test('paused direct drag does not leave transient particle dots after settling @direct-drag', async ({ page }) => {

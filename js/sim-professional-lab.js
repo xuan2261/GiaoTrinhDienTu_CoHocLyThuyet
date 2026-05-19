@@ -1589,6 +1589,11 @@ function mount(routeId) {
     draw();
     startBehaviorAnimation(lab, scene, state, draw, behavior, scope);
     updatePlayButton();
+    // Phase 08 RC2: ch3-3-1 spring oscillation default-on. Reduced-motion
+    // users still see the Play button so they can opt in manually.
+    if (scene.autoplay && !lab.prefersReducedMotion && typeof lab.resume === 'function') {
+      lab.resume();
+    }
     }
     try {
       if (mountScope && core.withScope) core.withScope(mountScope, mountBody);

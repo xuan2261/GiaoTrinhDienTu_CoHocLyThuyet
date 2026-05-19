@@ -72,11 +72,34 @@ function drawParticle(ctx, x, y) {
   ctx.restore();
 }
 
+// Phase 08 RC2: fading trailBuffer renderer for ch2-1-1. The ring buffer is
+// pushed by ch2-kinematics-behaviors-a; alpha decays linearly oldest→newest.
+function drawTrailFromBuffer(ctx, buffer, dark) {
+  if (!Array.isArray(buffer) || buffer.length < 2) return;
+  ctx.save();
+  ctx.lineWidth = 2.4;
+  ctx.lineCap = 'round';
+  for (let i = 1; i < buffer.length; i++) {
+    const a = buffer[i - 1], b = buffer[i];
+    if (!a || !b) continue;
+    const alpha = (i / buffer.length) * 0.55;
+    ctx.strokeStyle = dark
+      ? `rgba(231, 76, 60, ${alpha.toFixed(3)})`
+      : `rgba(192, 57, 43, ${alpha.toFixed(3)})`;
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
 function renderCh211Trajectory(ctx, scene, state) {
   const mode = state.mode || 'Elip';
   const dark = P.isDarkTheme();
   P.frame(ctx, scene, 'Quỹ đạo chất điểm: v, aτ, an', '#e74c3c');
   drawTrajectory(ctx, mode, dark ? 'rgba(255,255,255,.15)' : 'rgba(0,0,0,.12)');
+  drawTrailFromBuffer(ctx, state.trailBuffer, dark);
   const x = state.currentX || 500, y = state.currentY || 220;
   drawParticle(ctx, x, y);
   arrow(ctx, x, y, state.vx || 0, state.vy || 0, '#e74c3c', 'v', 0.6);

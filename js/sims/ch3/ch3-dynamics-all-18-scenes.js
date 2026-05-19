@@ -187,7 +187,11 @@ function scene(row, index) {
     readoutPolicy: readoutPolicyFor(routeId),
     initialState: buildInitial(routeId),
     controls: buildControls(routeId),
-    readouts: readoutsFor(routeId)
+    readouts: readoutsFor(routeId),
+    // Phase 08 RC2: ch3-3-1 spring-mass oscillation is the *learning content*,
+    // not decoration. Autoplay surfaces the dynamics without forcing learners
+    // to find Play first. Reduced-motion users still get a manual Play button.
+    autoplay: routeId === 'ch3-3-1'
   };
 }
 function readoutPolicyFor(routeId) {

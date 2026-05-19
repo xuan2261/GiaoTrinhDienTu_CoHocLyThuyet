@@ -64,9 +64,9 @@ function makeElement() {
   assert.deepStrictEqual(routeTrailDrawers, [], 'active simulation routes must not draw motion trails');
 
   const routeTrailState = walkJsFiles(path.join(ROOT, 'js', 'sims'))
-    .filter(file => /\btrail[12]?\b|state\.trail/.test(fs.readFileSync(file, 'utf8')))
+    .filter(file => /\btrail[12]?\b|state\.trail\b/.test(fs.readFileSync(file, 'utf8')))
     .map(file => path.relative(ROOT, file).replace(/\\/g, '/'));
-  assert.deepStrictEqual(routeTrailState, [], 'active simulation routes must not keep motion trail state');
+  assert.deepStrictEqual(routeTrailState, [], 'active simulation routes must not keep motion trail state (legacy state.trail / trail1 / trail2 banned; ch2-1-1 ring buffer state.trailBuffer is the supported pattern)');
 }
 
 {

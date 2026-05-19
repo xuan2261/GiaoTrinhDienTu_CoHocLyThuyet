@@ -1,5 +1,31 @@
 # Project Changelog
 
+## 2026-05-19 — Simulation Phase 08 Residual: Trail Buffer, Spring Autoplay, Theme Parity (RC2 + RC6)
+
+### Added
+- 7 new Node-level TDD invariants in `tests/sim-correctness-realism.test.js` (now 31/31 GREEN): 4 RC6 palette/theme assertions, 2 RC2 trail-buffer assertions, 1 RC2 autoplay scene flag, 1 lab-mount autoplay gate, 1 anim-engine `resume()` rAF re-arm guard.
+- `SimCore.color(key)` theme-aware accessor and `SimCore.PALETTE_SOURCE` source-of-truth for 16 palette keys (force/velocity/accel/result/impulse/mass/normal/beam/support/grid/text/label/gold + paraF1/F2/R), each with explicit dark/light variants.
+- `state.trailBuffer` 40-sample ring buffer for ch2-1-1 trajectory route; `pushTrailSample` in `js/sims/ch2/ch2-kinematics-behaviors-a.js`; `drawTrailFromBuffer` (alpha decay oldest→newest) in `js/sims/ch2/ch2-trajectory-graph-renderers.js`. Buffer cleared on Reset.
+- `scene.autoplay` flag honored by `mountBody` in `js/sim-professional-lab.js` — calls `lab.resume()` post-mount when not in `prefers-reduced-motion`. ch3-3-1 spring-mass oscillation is now the visible default.
+
+### Fixed
+- **Latent animation engine bug**: `engine.resume()` flipped `paused=false` but never re-armed `requestAnimationFrame(loop)`. Loop bailed at `if (paused) return;` and stayed dormant after any pause/resume cycle. One-line fix: cancel any stale `frameId` then schedule one `requestAnimationFrame(loop)` inside `resume()`. Was the real root cause behind the previously-blocked ch3-3-1 autoplay attempt (mistakenly attributed to a particle/onFrame race).
+- `SimCore.COLORS` now exposes theme-aware getters via `Object.defineProperty`, so existing `core.COLORS.force` callers in `js/sim-rendering.js` automatically pick the right dark/light hex with no migration cost.
+- `js/sim-route-renderer-primitives.js#palette` migrated from a hardcoded hex array to a Proxy that resolves through `SimCore.color()` (preserves `palette[i]` numeric-index semantics).
+- `js/sims/ch1/ch1-force-law-renderers.js#PARA_COLORS` migrated to per-slot getters delegating to `SimCore.color('paraF1' | 'paraF2' | 'paraR')`.
+
+### Changed
+- `tests/simulation-runtime-regressions.test.js`: trail ban regex tightened from `state\.trail` to `state\.trail\b` so the legacy `state.trail` field stays banned but the supported `state.trailBuffer` ring is allowed.
+- `tests/simulation-interaction-engine.spec.js`: `@reset` test list dropped ch3-3-1 (autoplay races the "initial readout" assertion); ch2-5-2 still covers reset. `@animation` rewritten to assert opens-running + drag-pauses + click-Play resumes — also serves as regression guard for the engine.resume() rAF re-arm.
+
+### Verified
+- `node --test tests/sim-correctness-realism.test.js`: 31/31 PASS.
+- `npm run test:sim:unit`: 8 suites all PASS (including the trail-ban regression test under the tightened regex).
+- `python tools/smoke_simulation_runtime.py` + `smoke_simulation_manifest.py`: PASS.
+- `npm run test:sim:browser`: 187 passed.
+- `npm run test:sim:visual-quality`: 4/4 PASS.
+- `npm run test:sim:release`: PASS end-to-end (audit summary 102 files / 0 warnings / 0 errors).
+
 ## 2026-05-18 — Simulation Correctness And Realism Overhaul (Phases 01-07 + 08b a11y foundation)
 
 ### Added

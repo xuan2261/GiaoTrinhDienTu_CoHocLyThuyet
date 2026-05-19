@@ -7,7 +7,20 @@ const R = window.SimRender || {};
 if (!registry || !P) { console.warn('Route renderer registry missing for Ch1 force/law renderers'); return; }
 const W = P.W || 760, H = P.H || 440, O = { x: 150, y: 300 };
 const PARA_O = { x: 200, y: 300 };
-const PARA_COLORS = { f1: '#e74c3c', f2: '#2980b9', r: '#27ae60' };
+// Phase 08 RC6: resolve through SimCore palette so dark/light themes pick the
+// right variant. Keys f1/f2/r map to dedicated palette entries (paraF1/F2/R).
+const PARA_COLORS = Object.create(null);
+['f1', 'f2', 'r'].forEach(function(slot) {
+  const paletteKey = slot === 'f1' ? 'paraF1' : slot === 'f2' ? 'paraF2' : 'paraR';
+  Object.defineProperty(PARA_COLORS, slot, {
+    enumerable: true,
+    get: function() {
+      return (window.SimCore && window.SimCore.color)
+        ? window.SimCore.color(paletteKey)
+        : '#000';
+    }
+  });
+});
 function label(ctx, text, x, y, color, size) {
   ctx.save(); ctx.fillStyle = color || (P.isDarkTheme() ? '#e8ecf1' : '#1a1a2e');
   ctx.font = `bold ${size || 13}px "Segoe UI", Inter, sans-serif`; ctx.fillText(text, x, y); ctx.restore();
