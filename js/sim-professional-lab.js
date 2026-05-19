@@ -527,6 +527,39 @@ function formatHint(text, handles) {
   return body.includes(suffix) ? body : `${body} ${suffix}`;
 }
 
+function buildPresetGallery(lab, scene, state, draw, behavior) {
+  const presets = Array.isArray(scene.presets) ? scene.presets : [];
+  if (!presets.length || !lab || !lab.controls) return;
+  const row = document.createElement('div');
+  row.className = 'sim-preset-row';
+  row.setAttribute('role', 'group');
+  row.setAttribute('aria-label', 'Cấu hình mẫu');
+  presets.forEach(preset => {
+    if (!preset || !preset.id) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'sim-btn sim-preset-button';
+    btn.setAttribute('data-preset', preset.id);
+    btn.textContent = preset.label || preset.id;
+    btn.setAttribute('aria-label', `Cấu hình mẫu ${preset.label || preset.id}`);
+    btn.addEventListener('click', () => {
+      const data = preset.state || {};
+      Object.keys(data).forEach(key => {
+        if (behavior && typeof behavior.updateStateFromSlider === 'function') {
+          behavior.updateStateFromSlider(scene, state, key, data[key]);
+        } else {
+          state[key] = data[key];
+        }
+      });
+      syncControlDisplays(lab, scene, state);
+      lab.forceReadoutSync = true;
+      draw();
+    });
+    row.appendChild(btn);
+  });
+  lab.controls.appendChild(row);
+}
+
 function buildControls(lab, scene, state, draw, behavior) {
   (scene.controls || []).forEach(control => {
     if (control.type === 'buttons') {
@@ -1536,6 +1569,7 @@ function mount(routeId) {
       window.removeEventListener('sim:katex-ready', redrawOnKatexReady);
     });
     buildControls(lab, scene, state, draw, behavior);
+    buildPresetGallery(lab, scene, state, draw, behavior);
 
     // Reset button — always available
     core.addButton(lab.controls, '↺ Đặt lại', () => { lab.reset(); });

@@ -33,6 +33,11 @@ const scenes = [
     appendGenericReadouts: false,
     initialState: { primary: { x: 170, y: 290 }, vector: { x: 390, y: 155 }, force: 260, angle: 32 },
     controls: [slider('force', '|F|', 40, 260, 260, 'N', 5), slider('angle', 'α', -45, 75, 32, '°')],
+    presets: [
+      { id: 'horizontal', label: 'Ngang', state: { angle: 0, force: 200 } },
+      { id: 'oblique', label: 'Xiên 45°', state: { angle: 45, force: 220 } },
+      { id: 'vertical', label: 'Đứng', state: { angle: 75, force: 260 } }
+    ],
     readouts: [
       { label: '|F|', key: 'force', digits: 1, unit: 'N', kind: 'force' },
       { label: 'α', key: 'forceAngle', digits: 0, unit: '°', kind: 'angle' },
@@ -120,6 +125,11 @@ const scenes = [
     appendGenericReadouts: false,
     initialState: { primary: { x: 470, y: 230 }, vector: { x: 575, y: 230 }, force: 105, angle: 0 },
     controls: [slider('force', '|F|', 40, 170, 105, 'N', 5), slider('angle', 'α', -30, 30, 0, '°')],
+    presets: [
+      { id: 'aligned', label: 'Đồng trục', state: { force: 130, angle: 0 } },
+      { id: 'tilt-up', label: 'Lệch +20°', state: { force: 105, angle: 20 } },
+      { id: 'tilt-down', label: 'Lệch −20°', state: { force: 105, angle: -20 } }
+    ],
     readouts: [
       { label: '|F|', key: 'force', digits: 1, unit: 'N', kind: 'force' },
       { label: 'Lệch', key: 'balanceError', digits: 1, unit: 'px', kind: 'default' },
@@ -137,6 +147,11 @@ const scenes = [
     readoutPolicy: { appendControls: false, appendTime: false },
     initialState: { primary: { x: 350, y: 180 }, secondary: { x: 380, y: 300 }, alpha: 39, force: 192, mass: 8, load: 118, mu: 0.42 },
     controls: [slider('force', '|F1|', 60, 260, 192, 'N', 5), slider('alpha', 'α', 0, 90, 39, '°')],
+    presets: [
+      { id: 'narrow', label: 'α=30°', state: { alpha: 30, force: 180 } },
+      { id: 'right', label: 'α=60°', state: { alpha: 60, force: 200 } },
+      { id: 'wide', label: 'α=90°', state: { alpha: 90, force: 220 } }
+    ],
     readouts: [
       { label: '|F₁|', key: 'f1Magnitude', digits: 1, unit: 'N', kind: 'force' },
       { label: '|F₂|', key: 'f2Magnitude', digits: 1, unit: 'N', kind: 'force' },

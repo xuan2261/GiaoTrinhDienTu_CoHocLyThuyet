@@ -199,3 +199,22 @@ test('@rc2-impulse-flash ch3-6-2 behavior drops emitCollisionSparks (Phase 08 pl
   assert.equal(stillEmitsSparks, false,
     'spark/particle decoration misleads Newton-3 pedagogy — must be removed from ch3-6-2');
 });
+
+// ---------- @rc2-preset-gallery: Phase 08 -----------------------------------
+const ch1ForceLawScenes = fs.readFileSync(
+  path.join(fx.ROOT, 'js', 'sims', 'ch1', 'ch1-force-law-scenes.js'), 'utf8');
+
+for (const route of fx.RC2_PRESET_ROUTES) {
+  test(`@rc2-preset-gallery scene declares presets for ${route} (Phase 08)`, () => {
+    const re = new RegExp(`routeId:\\s*['"]${route}['"][\\s\\S]{0,1200}?presets:\\s*\\[`);
+    assert.match(ch1ForceLawScenes, re,
+      `scene for ${route} must declare a presets:[…] array following routeId`);
+  });
+}
+
+test('@rc2-preset-gallery lab wires sim-preset-button gallery (Phase 08)', () => {
+  const wires = /sim-preset-button/.test(labSource)
+    && /data-preset/.test(labSource);
+  assert.equal(wires, true,
+    'lab must render preset buttons with class sim-preset-button and data-preset attribute');
+});

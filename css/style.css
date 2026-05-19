@@ -1269,6 +1269,10 @@ footer b { color: var(--gold); }
 .sim-lab .sim-slider-group { min-width: 150px; flex: 1 1 150px; }
 .sim-lab .sim-btn { min-height: 40px; white-space: normal; }
 .sim-lab .sim-btn-group { flex-wrap: wrap; }
+.sim-preset-row { display: flex; flex-wrap: wrap; gap: 6px; flex: 1 1 100%; padding: 4px 0 2px; border-top: 1px dashed rgba(184, 134, 11, .35); }
+.sim-preset-button { background: #fffaf0; border: 1px solid #d8b25b; color: #6b4a00; font-size: .78rem; padding: 5px 12px; min-height: 32px; border-radius: 999px; cursor: pointer; font-weight: 600; }
+.sim-preset-button:hover { background: #fff3d6; border-color: #b8860b; }
+.sim-preset-button:focus-visible { outline: 2px solid #b8860b; outline-offset: 2px; }
 .sim-lab .sim-readout-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 10px; min-width: 0; min-height: 1px; }
 .sim-lab .sim-readout-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 44%); align-items: baseline; gap: 2px 8px; padding: 7px 10px; background: #fff; border: 1px solid #e9ecef; border-radius: 8px; }
 .sim-lab .sim-readout-label { min-width: 0; font-size: .72rem; color: #6c757d; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; overflow-wrap: anywhere; }
