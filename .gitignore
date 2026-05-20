@@ -1,10 +1,44 @@
+# Dependencies
 node_modules/
+
+# Python local environments and caches
+.venv/
+.venv-*/
 .venv*/
+venv/
+env/
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Editor and OS files
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db
+
+# Test and browser artifacts
 test-results/
+playwright-report/
+
+# Generated local reports and archives
 repomix-output.xml
 backups/
 *.rar
+*.zip
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
