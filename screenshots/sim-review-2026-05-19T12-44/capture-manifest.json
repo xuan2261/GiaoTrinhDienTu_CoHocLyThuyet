@@ -1,0 +1,529 @@
+{
+  "generatedAt": "2026-05-19T12:58:59.806Z",
+  "baseUrl": "http://127.0.0.1:8000/",
+  "total": 58,
+  "results": [
+    {
+      "idx": "01",
+      "route": "ch1-1-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15382,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "02",
+      "route": "ch1-1-4",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15347,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "03",
+      "route": "ch1-1-5",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15345,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "04",
+      "route": "ch1-1-6",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15343,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "05",
+      "route": "ch1-1-8",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15342,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "06",
+      "route": "ch1-2-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15346,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "07",
+      "route": "ch1-2-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15342,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "08",
+      "route": "ch1-2-6",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15345,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "09",
+      "route": "ch1-3-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15345,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "10",
+      "route": "ch1-3-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15343,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "11",
+      "route": "ch1-3-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15346,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "12",
+      "route": "ch1-3-4",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15343,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "13",
+      "route": "ch1-3-6",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15349,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "14",
+      "route": "ch1-3-7",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15344,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "15",
+      "route": "ch1-4-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15342,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "16",
+      "route": "ch1-4-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15344,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "17",
+      "route": "ch1-4-4",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15341,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "18",
+      "route": "ch1-5-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15347,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "19",
+      "route": "ch1-5-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15344,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "20",
+      "route": "ch1-5-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15354,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "21",
+      "route": "ch1-5-4",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15366,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "22",
+      "route": "ch1-6-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15357,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "23",
+      "route": "ch1-6-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15349,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "24",
+      "route": "ch1-7-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15350,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "25",
+      "route": "ch1-7-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15356,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "26",
+      "route": "ch2-1-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15346,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "27",
+      "route": "ch2-1-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15352,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "28",
+      "route": "ch2-1-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15343,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "29",
+      "route": "ch2-1-4",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15346,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "30",
+      "route": "ch2-2-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15345,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "31",
+      "route": "ch2-3-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15345,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "32",
+      "route": "ch2-4-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15348,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "33",
+      "route": "ch2-4-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15341,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "34",
+      "route": "ch2-4-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15340,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "35",
+      "route": "ch2-4-4",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15342,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "36",
+      "route": "ch2-5-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15344,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "37",
+      "route": "ch2-5-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15344,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "38",
+      "route": "ch2-5-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15343,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "39",
+      "route": "ch2-7-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15341,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "40",
+      "route": "ch2-7-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15345,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "41",
+      "route": "ch3-1-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15341,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "42",
+      "route": "ch3-1-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15341,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "43",
+      "route": "ch3-2-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15342,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "44",
+      "route": "ch3-2-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15340,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "45",
+      "route": "ch3-2-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15344,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "46",
+      "route": "ch3-2-5",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15348,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "47",
+      "route": "ch3-3-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15343,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "48",
+      "route": "ch3-3-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15347,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "49",
+      "route": "ch3-4-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15348,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "50",
+      "route": "ch3-4-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15349,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "51",
+      "route": "ch3-5-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15351,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "52",
+      "route": "ch3-5-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15350,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "53",
+      "route": "ch3-5-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15345,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "54",
+      "route": "ch3-5-4",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15342,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "55",
+      "route": "ch3-6-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15344,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "56",
+      "route": "ch3-6-3",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15350,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "57",
+      "route": "ch3-7-1",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15348,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    },
+    {
+      "idx": "58",
+      "route": "ch3-7-2",
+      "status": "error: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.sim-container.sim-lab canvas, .sim-lab canvas, .sim-container canvas') to be visible\u001b[22m\n",
+      "ms": 15351,
+      "mountedSelector": "",
+      "canvasInfo": null,
+      "errors": []
+    }
+  ]
+}
