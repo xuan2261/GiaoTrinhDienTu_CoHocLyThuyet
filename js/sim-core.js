@@ -191,15 +191,24 @@ function createSimContainer(hostEl, title, width, height) {
   return { wrap, canvas, ctx, controls, info };
 }
 
-function addSlider(container, label, min, max, value, step, unit, onChange) {
+/**
+ * @param {{physicalUnit?: string, pxPerUnit?: number, formatter?: Function}} [opts]
+ */
+function addSlider(container, label, min, max, value, step, unit, onChange, opts) {
   const div = document.createElement('div');
   div.className = 'sim-slider-group';
   const labelEl = document.createElement('label');
   const valueEl = document.createElement('strong');
   const input = document.createElement('input');
-  const suffix = unit || '';
+  const cfg = opts || {};
+  const suffix = unit || cfg.physicalUnit || '';
+  const format = next => {
+    const n = Number(next);
+    if (typeof cfg.formatter === 'function') return cfg.formatter(Number.isFinite(n) ? n : next, cfg.physicalUnit || unit || '');
+    return `${next}${suffix}`;
+  };
   valueEl.className = 'sv';
-  valueEl.textContent = value + suffix;
+  valueEl.textContent = format(value);
   labelEl.appendChild(document.createTextNode(label + ': '));
   labelEl.appendChild(valueEl);
   input.type = 'range';
@@ -211,12 +220,12 @@ function addSlider(container, label, min, max, value, step, unit, onChange) {
   div.appendChild(input);
   container.appendChild(div);
   input.addEventListener('input', () => {
-    valueEl.textContent = input.value + suffix;
+    valueEl.textContent = format(input.value);
     onChange(parseFloat(input.value));
   });
   input.setSimValue = (next, trigger) => {
     input.value = next;
-    valueEl.textContent = input.value + suffix;
+    valueEl.textContent = format(input.value);
     if (trigger) onChange(parseFloat(input.value));
   };
   return input;

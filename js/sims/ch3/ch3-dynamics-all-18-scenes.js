@@ -78,13 +78,14 @@ function buildInitial(routeId) {
     { x: 238, y: 130, m: 1.5 },
     { x: 332, y: 204, m: 1 }
   ] });
+  if (routeId === 'ch3-5-2') Object.assign(base, { m: 2, J: 20, pBefore: 12, pAfter: 32, deltaP: 20 });
   if (routeId === 'ch3-5-4') Object.assign(base, { v: 3, kineticEnergy: 22.5, potentialEnergy: 0 });
   if (routeId === 'ch3-6-2') Object.assign(base, {
     ball1: { x: 150, y: 180, vx: 8, vy: 0 },
     ball2: { x: 380, y: 180, vx: -3, vy: 0 },
     collision: false, collisionX: 0, collisionY: 0
   });
-  if (routeId === 'ch3-7-2') Object.assign(base, { residualScale: 0, score: 100, residual1: 0, residual2: 0, residual3: 0, residual4: 0 });
+  if (routeId === 'ch3-7-2') Object.assign(base, { residualScale: 1, score: 100, residual1: 0, residual2: 0, residual3: 0, residual4: 0 });
   return base;
 }
 
@@ -188,14 +189,26 @@ function scene(row, index) {
     initialState: buildInitial(routeId),
     controls: buildControls(routeId),
     readouts: readoutsFor(routeId),
-    // Phase 08 RC2: ch3-3-1 spring-mass oscillation is the *learning content*,
-    // not decoration. Autoplay surfaces the dynamics without forcing learners
-    // to find Play first. Reduced-motion users still get a manual Play button.
-    autoplay: routeId === 'ch3-3-1'
+    // Phase 09 — concept-only routes drop the misleading Play affordance.
+    // tickWithoutButton lets the engine still advance state._t for routes
+    // that need time-derived readouts but no temporal canvas evolution.
+    static: STATIC_CH3_CONCEPT.includes(routeId) || false,
+    tickWithoutButton: TICK_WITHOUT_BUTTON_CH3.includes(routeId) || false,
+    // Phase 08 RC2: ch3-3-1 spring-mass oscillation is the learning content.
+    autoplay: autoplayFor(routeId)
   };
 }
+
+const STATIC_CH3_CONCEPT = ['ch3-1-3', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1', 'ch3-6-3', 'ch3-7-1'];
+const TICK_WITHOUT_BUTTON_CH3 = ['ch3-1-3', 'ch3-2-3', 'ch3-6-3'];
+
+function autoplayFor(routeId) {
+  if (routeId === 'ch3-3-1') return true;
+  return false;
+}
+
 function readoutPolicyFor(routeId) {
-  return { appendMode: false, appendAlpha: false, appendControls: false, appendTime: ['ch3-1-3', 'ch3-2-3', 'ch3-5-1', 'ch3-5-2', 'ch3-6-3', 'ch3-7-1', 'ch3-7-2'].includes(routeId) };
+  return { appendMode: false, appendAlpha: false, appendControls: false, appendTime: ['ch3-1-3', 'ch3-2-3', 'ch3-5-1', 'ch3-5-2', 'ch3-6-3', 'ch3-7-2'].includes(routeId) };
 }
 
 registry.registerMany(rows.map(scene));

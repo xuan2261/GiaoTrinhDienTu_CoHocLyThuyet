@@ -1,6 +1,6 @@
 /**
  * Capture screenshots of all 58 simulations into a single folder.
- * Usage: node tools/capture-all-58-simulations-screenshots.js [outDir]
+ * Usage: node tools/capture-all-58-simulations-screenshots.js [outDir] [--routes a,b,c]
  *   outDir defaults to screenshots/sim-review-<timestamp>
  *
  * Pre-requisite: dev server running at http://127.0.0.1:8000/
@@ -37,10 +37,21 @@ const ROUTES = [
 ];
 
 const BASE_URL = process.env.SIM_BASE_URL || 'http://127.0.0.1:8000/';
+function argValue(name) {
+  const direct = process.argv.find(item => item.startsWith(`${name}=`));
+  if (direct) return direct.slice(name.length + 1);
+  const index = process.argv.indexOf(name);
+  return index >= 0 ? process.argv[index + 1] : '';
+}
+const routeArg = argValue('--routes') || process.env.SIM_CAPTURE_ROUTES || '';
+const ACTIVE_ROUTES = routeArg
+  ? ROUTES.filter(route => routeArg.split(',').map(item => item.trim()).includes(route))
+  : ROUTES;
 
 (async () => {
   const stamp = new Date().toISOString().replace(/[:.]/g,'-').slice(0,16);
-  const outDir = process.argv[2] || path.join('screenshots', `sim-review-${stamp}`);
+  const outDirArg = process.argv.find((arg, index) => index > 1 && !arg.startsWith('--') && process.argv[index - 1] !== '--routes');
+  const outDir = outDirArg || path.join('screenshots', `sim-review-${stamp}`);
   fs.mkdirSync(outDir, { recursive: true });
   fs.mkdirSync(path.join(outDir, 'full'), { recursive: true });
   fs.mkdirSync(path.join(outDir, 'sim-only'), { recursive: true });
@@ -61,12 +72,12 @@ const BASE_URL = process.env.SIM_BASE_URL || 'http://127.0.0.1:8000/';
     if (msg.type() === 'error') errorBag.push(`console.error: ${msg.text()}`);
   });
 
-  for (let i = 0; i < ROUTES.length; i++) {
-    const route = ROUTES[i];
+  for (let i = 0; i < ACTIVE_ROUTES.length; i++) {
+    const route = ACTIVE_ROUTES[i];
     errorBag.length = 0;
     const idx = String(i + 1).padStart(2, '0');
     const tag = `${idx}-${route}`;
-    process.stdout.write(`[${idx}/58] ${route} ... `);
+    process.stdout.write(`[${idx}/${ACTIVE_ROUTES.length}] ${route} ... `);
     const t0 = Date.now();
     let status = 'ok';
     let mountedSelector = '';
@@ -131,7 +142,8 @@ const BASE_URL = process.env.SIM_BASE_URL || 'http://127.0.0.1:8000/';
   fs.writeFileSync(path.join(outDir, 'capture-manifest.json'), JSON.stringify({
     generatedAt: new Date().toISOString(),
     baseUrl: BASE_URL,
-    total: ROUTES.length,
+    total: ACTIVE_ROUTES.length,
+    routes: ACTIVE_ROUTES,
     results,
   }, null, 2));
 
@@ -161,5 +173,5 @@ code{background:#f4f4f4;padding:1px 4px;border-radius:3px}
   fs.writeFileSync(path.join(outDir, 'index.html'), html);
 
   const okCount = results.filter(r => r.status === 'ok').length;
-  console.log(`\nDone. ${okCount}/${ROUTES.length} OK. Output: ${outDir}`);
+  console.log(`\nDone. ${okCount}/${ACTIVE_ROUTES.length} OK. Output: ${outDir}`);
 })();

@@ -19,6 +19,12 @@ const beam = { ax: 130, bx: 630, y: 240, pxPerM: 100 };
 const twoForceA = { x: 142, y: 248 };
 const spatialO = { x: 112, y: 286 };
 
+function supportMoment(routeId, force, load, alphaDeg) {
+  const arm = routeId === 'ch1-3-6' ? clamp(load, 0, 1.8) : clamp(load, 0, 180);
+  if (routeId === 'ch1-3-6') return force * arm;
+  return force * arm * Math.cos(toRad(routeId === 'ch1-4-2' ? alphaDeg : 0)) / 120;
+}
+
 function makeHandle(id, label, get, set, stroke) {
   return {
     id,
@@ -46,7 +52,7 @@ function setSupportPoint(routeId, state, point) {
   else if (routeId === 'ch1-3-4') {
     state.primary = { x: clamp(p.x, beam.ax + 40, beam.bx - 40), y: clamp(p.y, 92, beam.y - 22) };
     state.force = clamp((beam.y - state.primary.y) * 1.4, 35, 190);
-    state.load = state.primary.x - beam.ax;
+    state.load = (state.primary.x - beam.ax) / beam.pxPerM;
   }
   else {
     state.primary = p;
@@ -58,9 +64,14 @@ function supportDerived(scene, state) {
   const routeId = scene.routeId || state.routeId || '';
   const p = primary(state);
   const force = clamp(state.force, 20, 170);
+  const isHingeSelector = routeId === 'ch1-3-3';
+  const hingeKinds = ['Rx', 'Ry', 'Rx và Ry'];
+  const hingeKind = isHingeSelector
+    ? hingeKinds[clamp(Math.round(state.load), 0, hingeKinds.length - 1)] || hingeKinds[2]
+    : hingeKinds[2];
   const cableAngle = toDeg(Math.atan2(p.y - cableAnchor.y, p.x - cableAnchor.x));
   const span = beam.bx - beam.ax;
-  const aPx = routeId === 'ch1-3-4' ? clamp(p.x - beam.ax, 40, span - 40) : clamp(state.load, 0, 180);
+  const aPx = routeId === 'ch1-3-4' ? clamp(p.x - beam.ax, 40, span - 40) : (routeId === 'ch1-3-6' ? clamp(state.load, 0, 1.8) * beam.pxPerM : clamp(state.load, 0, 180));
   const beamForce = routeId === 'ch1-3-4' ? clamp((beam.y - p.y) * 1.4, 35, 190) : force;
   const rb = beamForce * aPx / span;
   const ra = beamForce - rb;
@@ -72,13 +83,16 @@ function supportDerived(scene, state) {
   const spatialZ = clamp(force * Math.sin(toRad(alphaDeg)) + 35, 20, 160);
   return {
     force: routeId === 'ch1-3-4' ? beamForce : force,
-    resultantMagnitude: routeId === 'ch1-3-3' ? Math.hypot(force * 0.55, force * 0.83) : (routeId === 'ch1-4-1' ? Math.hypot(spatialX, spatialY, spatialZ) : force),
-    alpha: routeId === 'ch1-3-2' ? cableAngle : clamp(state.alpha, 0, 55),
-    moment: routeId === 'ch1-3-4' ? rb * (span / beam.pxPerM) : force * clamp(state.load, 0, 180) * Math.cos(toRad(routeId === 'ch1-4-2' ? alphaDeg : 0)) / 120,
+    resultantMagnitude: routeId === 'ch1-3-3'
+      ? Math.hypot(hingeKind === 'Ry' ? 0 : force * 0.55, hingeKind === 'Rx' ? 0 : force * 0.83)
+      : (routeId === 'ch1-4-1' ? Math.hypot(spatialX, spatialY, spatialZ) : force),
+    alpha: routeId === 'ch1-3-2' && Number.isFinite(Number(state.alpha)) ? clamp(state.alpha, 0, 55) : (routeId === 'ch1-3-2' ? cableAngle : clamp(state.alpha, 0, 55)),
+    moment: routeId === 'ch1-3-4' ? rb * (span / beam.pxPerM) : supportMoment(routeId, force, state.load, alphaDeg),
     point: p,
     direction: routeId === 'ch1-3-2' ? 'dọc dây' : (routeId === 'ch1-3-7' ? 'dọc trục' : 'pháp tuyến'),
-    rx: routeId === 'ch1-3-7' ? force * dx / axial : force * 0.55,
-    ry: routeId === 'ch1-3-7' ? force * dy / axial : force * 0.83,
+    supportKind: isHingeSelector ? hingeKind : undefined,
+    rx: routeId === 'ch1-3-7' ? force * dx / axial : (hingeKind === 'Ry' ? 0 : force * 0.55),
+    ry: routeId === 'ch1-3-7' ? force * dy / axial : (hingeKind === 'Rx' ? 0 : force * 0.83),
     ra, rb, a: aPx / beam.pxPerM, length: span / beam.pxPerM,
     dx: spatialX, dy: spatialY, dz: spatialZ,
     residual: Math.abs(spatialX - spatialY) / 100
@@ -111,8 +125,8 @@ function updateSupportState(scene, state, key, value) {
   }
   else if (key === 'load' && routeId === 'ch1-3-4') {
     const p = primary(state);
-    state.load = clamp(value, 40, beam.bx - beam.ax - 40);
-    state.primary = { x: beam.ax + state.load, y: p.y };
+    state.load = clamp(value, 0.4, (beam.bx - beam.ax - 40) / beam.pxPerM);
+    state.primary = { x: beam.ax + state.load * beam.pxPerM, y: p.y };
   } else state[key] = value;
 }
 

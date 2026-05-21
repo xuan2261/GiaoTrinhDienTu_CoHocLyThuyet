@@ -14,11 +14,17 @@ if (!registry || !P) return;
 function renderCh312ForceAcceleration(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Lực tổng → gia tốc: F = ma', P.tone(0));
   const a = (state.F || 50) / (state.m || 5);
+  const t = state._t || 0;
+  const lenPulse = 1 + 0.3 * Math.sin(0.8 * t);
   P.realisticGround(ctx, 72, 268, 492, { material: 'concrete' });
   const blockX = Math.min(300, 100 + a * 4);
   P.realisticBody(ctx, blockX, 194, 78, 50, `m=${state.m}`, { material: 'metal', radius: 4 });
-  P.neonArrow(ctx, blockX + 78, 219, blockX + 78 + (state.F || 50) * 1.2, 178, P.tone(0), 'F');
-  P.neonArrow(ctx, blockX + 78, 244, blockX + 78 + a * 12, 244, P.tone(2), `a=${a.toFixed(1)}`);
+  const F = state.F || 50;
+  P.neonArrow(ctx, blockX + 78, 219,
+              blockX + 78 + F * 1.2 * lenPulse,
+              178 - F * 0.4 * (lenPulse - 1),
+              P.tone(0), 'F');
+  P.neonArrow(ctx, blockX + 78, 244, blockX + 78 + a * 12 * lenPulse, 244, P.tone(2), `a=${a.toFixed(1)}`);
   P.panel(ctx, 58, 84, 148, 76, 'quan hệ lực-gia tốc', P.tone(0));
   P.domMath(ctx, '312-law', 74, 94, 'a = \\frac{\\sum F}{m}', { color: P.tone(0) });
 }
@@ -42,10 +48,19 @@ function renderCh313InertialFrames(ctx, scene, state, d) {
 function renderCh321InertiaLaw(ctx, scene, state, d) {
   const alpha = (state.alpha || 0) * Math.PI / 180;
   const Fnet = (state.F || 50) * Math.cos(alpha);
+  const m = state.m || 5;
+  const a = Fnet / m;
+  const t = state._t || 0;
+  const v = state.v || 0;
+  const pxPerMeter = 8;
+  const dx = Math.abs(Fnet) < 1
+    ? v * t * pxPerMeter
+    : 0.5 * a * t * t * pxPerMeter;
+  const baseX = 200 + (state.F || 50) * 0.3;
+  const bodyX = Math.min(500, Math.max(68, baseX + dx));
   P.frame(ctx, scene, 'Định luật quán tính: F=0 → v=const', P.tone(2));
   ctx.strokeStyle = '#6c757d'; ctx.lineWidth = 3;
   ctx.beginPath(); ctx.moveTo(68, 264); ctx.lineTo(500, 264); ctx.stroke();
-  const bodyX = 200 + (state.F || 50) * 0.3;
   P.body(ctx, bodyX, 196, 82, 44, 'rgba(25,135,84,.12)', P.tone(2), 'vật');
   P.arrow(ctx, bodyX + 82, 218, bodyX + 82 + (state.F || 50), 218 - (state.F || 50) * 0.4, P.tone(0), 'F₁');
   P.arrow(ctx, bodyX, 218, bodyX - 60, 218 + 24, P.tone(0), 'F₂');

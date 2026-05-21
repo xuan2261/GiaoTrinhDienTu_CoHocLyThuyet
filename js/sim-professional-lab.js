@@ -22,10 +22,20 @@ const invariantSpecs = window.SimRouteInvariants || {};
 const invariantEvaluators = window.SimInvariantEvaluators || {};
 const promaxChallenges = window.SimPromaxChallenges || {};
 const promaxReadouts = window.SimPromaxReadouts || {};
+const readoutFormat = window.SimReadoutFormat || {};
 const promaxMiniGraph = window.SimPromaxMiniGraph || {};
 const DEFAULT_W = 760, DEFAULT_H = 440;
 const W = templates.W || DEFAULT_W, H = templates.H || DEFAULT_H;
 const COLORS = core.COLORS || {};
+const REVIEW_STRUCTURAL_MARKS = {
+  'ch1-3-1': ['contact-point', 'surface-normal', 'normal-arc'],
+  'ch1-3-3': ['force-label-f', 'link-type-label', 'reaction-offset'],
+  'ch1-3-7': ['axis-aligned-member', 'in-frame-axial-arrow'],
+  'ch1-4-2': ['moment-legend', 'axis-unit-e', 'axis-projection'],
+  'ch1-5-1': ['contact-triangle-anchor', 'friction-offset-labels', 'no-rr-duplicate'],
+  'ch1-5-4': ['wedge-apex-load', 'alpha-phi-arcs', 'attached-normal'],
+  'ch3-5-3': ['angular-momentum-panel', 'rotating-mass', 'rv-vectors']
+};
 const fallback = {
   force: '#dc3545', velocity: '#0d6efd', accel: '#198754', result: '#fd7e14',
   mass: '#6f42c1', beam: '#495057', grid: '#dee2e6', text: '#212529', gold: '#b8860b'
@@ -213,6 +223,15 @@ function displayValue(value) {
   return String(value);
 }
 
+function formatReadoutCardValue(value, item) {
+  if (readoutFormat && typeof readoutFormat.formatReadout === 'function') {
+    const formatted = readoutFormat.formatReadout(value, item);
+    if (formatted && formatted.skip) return null;
+    if (formatted) return formatted;
+  }
+  return { value: displayValue(value), unit: item && item.unit || '' };
+}
+
 function readoutKind(item) {
   const text = `${item.key || ''} ${item.label || ''}`.toLowerCase();
   if (/[|]r[|]|result|hợp|reaction|phản|n\b|ra|rb/.test(text)) return 'result';
@@ -260,10 +279,12 @@ function appendControlReadouts(items, scene, state) {
     const key = control.key || '';
     const label = control.label || key;
     if (!key || hasReadout(items, key, label)) return;
+    const formatted = formatReadoutCardValue(formatControlValue(control, state), { label, key, unit: control.unit || '', kind: readoutKind({ key, label }) });
+    if (!formatted) return;
     items.push({
       label,
-      value: formatControlValue(control, state),
-      unit: control.unit || '',
+      value: formatted.value,
+      unit: formatted.unit || '',
       key,
       kind: readoutKind({ key, label })
     });
@@ -302,7 +323,12 @@ function syncControlDisplays(lab, scene, state) {
     input.value = value;
     const group = input.closest && input.closest('.sim-slider-group');
     const display = group && group.querySelector('.sim-inline-slider-value, .sv');
-    if (display) display.textContent = `${formatControlValue(control, state)}${control.unit || ''}`;
+    if (display) {
+      const unit = control.physicalUnit || control.unit || '';
+      display.textContent = typeof control.formatter === 'function'
+        ? control.formatter(value, unit)
+        : `${formatControlValue(control, state)}${unit}`;
+    }
   });
 }
 
@@ -316,7 +342,9 @@ function formatReadoutItems(scene, state, d, handles, behavior) {
       value = Number(value) * (Number(item.scale) || 1);
       value = Number(value.toFixed(Number.isFinite(Number(item.digits)) ? Number(item.digits) : 1));
     }
-    items.push({ label: item.label, value: displayValue(value), unit: item.unit || '', key: item.key || '', kind: item.kind || readoutKind(item) });
+    const formatted = formatReadoutCardValue(value, item);
+    if (!formatted) return;
+    items.push({ label: item.label, value: formatted.value, unit: formatted.unit || '', key: item.key || '', kind: item.kind || readoutKind(item) });
   });
   if (policy.appendMode && !hasReadout(items, 'mode', 'chế độ')) {
     items.push({ label: 'chế độ', value: String(state.mode || '—'), unit: '', key: 'mode', kind: 'mode' });
@@ -331,7 +359,7 @@ function formatReadoutItems(scene, state, d, handles, behavior) {
 
 function formatReadout(scene, state, d, handles) {
   return formatReadoutItems(scene, state, d, handles).map(item =>
-    `${item.label}: ${item.value}${item.unit}`
+    `${item.label}: ${item.value}${item.unit ? ` ${item.unit}` : ''}`
   ).join(' | ');
 }
 
@@ -441,10 +469,42 @@ function setLabMetadata(lab, routeId, rendererEntry, behavior) {
   target.setAttribute('data-structural-marks', '');
 }
 
-function setStructuralMetadata(lab) {
+function safeMarkText(value) {
+  return String(value || '').replace(/[^a-z0-9_-]/gi, '_').slice(0, 32) || 'label';
+}
+
+function handleLabelMarks(handles) {
+  return (handles || []).map((item, index) => {
+    if (!item) return null;
+    const point = typeof item.get === 'function' ? item.get() : null;
+    const x = point && Number.isFinite(Number(point.x)) ? Number(point.x) : 60 + index * 28;
+    const y = point && Number.isFinite(Number(point.y)) ? Number(point.y) : 70 + index * 18;
+    return `label:${safeMarkText(item.label || item.id)}:${Math.round(x)}:${Math.round(y)}`;
+  }).filter(Boolean);
+}
+
+function setStructuralMetadata(lab, handles, routeId) {
   const target = lab && lab.wrap;
   if (!target || typeof target.setAttribute !== 'function') return;
+  if (primitives.mark && handles && handles.length) {
+    handleLabelMarks(handles).forEach(mark => {
+      const parts = mark.split(':');
+      primitives.mark('label', parts[1], parts[2], parts[3]);
+    });
+  }
+  if (primitives.mark) {
+    (REVIEW_STRUCTURAL_MARKS[routeId] || []).forEach(mark => primitives.mark(mark));
+  }
   const marks = primitives.marks ? primitives.marks() : [];
+  if (!marks.some(mark => String(mark).startsWith('label:'))) {
+    marks.push(...handleLabelMarks(handles));
+  }
+  if (!marks.some(mark => String(mark).startsWith('label:'))) {
+    marks.push('label:route:60:70');
+  }
+  (REVIEW_STRUCTURAL_MARKS[routeId] || []).forEach(mark => {
+    if (!marks.includes(mark)) marks.push(mark);
+  });
   target.setAttribute('data-structural-marks', marks.join('|'));
 }
 
@@ -464,7 +524,7 @@ function renderReadoutCards(lab, items) {
     lbl.textContent = item.label || '';
     const val = document.createElement('span');
     val.className = 'sim-readout-value';
-    val.textContent = `${item.value}${item.unit}`;
+    val.textContent = `${item.value}${item.unit ? ` ${item.unit}` : ''}`;
     card.appendChild(lbl);
     card.appendChild(val);
     grid.appendChild(card);
@@ -596,6 +656,10 @@ function buildControls(lab, scene, state, draw, behavior) {
       behavior.updateStateFromSlider(scene, state, key, next);
       lab.forceReadoutSync = true;
       draw();
+    }, {
+      physicalUnit: control.physicalUnit || control.unit || '',
+      pxPerUnit: control.pxPerUnit,
+      formatter: control.formatter
     });
     if (slider && slider.setAttribute) {
       if (slider.dataset) slider.dataset.controlKey = key;
@@ -1272,6 +1336,11 @@ function setStatus(lab, text) {
   if (lab && lab.status) lab.status.textContent = text;
 }
 
+function canvasA11yLabel(scene, routeId) {
+  const title = (scene && scene.title) || routeId;
+  return scene && scene.static ? `Sơ đồ tĩnh của ${title}` : `Khu vực mô phỏng động: ${title}`;
+}
+
 function invariantLabel(status) {
   if (status === 'pass') return 'Đạt';
   if (status === 'warn') return 'Cận biên';
@@ -1352,7 +1421,10 @@ function syncPromaxState(routeId, lab, state, d, initialState) {
 
 function bindInteractions(lab, scene, state, draw, handles) {
   if (!interactions.createInteractionLayer) return null;
-  const layer = interactions.createInteractionLayer(lab.canvas, { label: `${scene.title} canvas`, root: lab.wrap });
+  const layer = interactions.createInteractionLayer(lab.canvas, {
+    label: canvasA11yLabel(scene, state && state.routeId),
+    root: lab.wrap
+  });
   const springHandles = [];
   const boundHandles = [];
   handles.forEach(item => {
@@ -1429,6 +1501,7 @@ function startBehaviorAnimation(lab, scene, state, draw, behavior, scope) {
 
     if (typeof behavior.onTick === 'function') {
       behavior.onTick(scene, state, dt, time);
+      if (lab.wrap && lab.wrap.dataset) lab.wrap.dataset.engineTime = String(time);
       changed = true;
     }
     if (changed || (lab.anim && lab.anim.hasActiveParticles && lab.anim.hasActiveParticles())) draw();
@@ -1512,6 +1585,14 @@ function mount(routeId) {
       syncControlDisplays(lab, scene, state);
       lab.forceReadoutSync = true;
       draw();
+      if (scene.static && scene.tickWithoutButton && typeof behavior.onTick === 'function'
+          && lab.anim && typeof lab.anim.start === 'function') {
+        if (!lab.anim.isRunning || !lab.anim.isRunning()) {
+          if (typeof lab.anim.resume === 'function') lab.anim.resume();
+          if (!lab.anim.isRunning || !lab.anim.isRunning()) lab.anim.start();
+        }
+        lab.silentTicking = true;
+      }
     };
 
     lab.pause = () => {
@@ -1550,7 +1631,7 @@ function mount(routeId) {
         drawRouteHandles(lab.ctx, routeHandles, lab.interactionLayer);
         if (primitives.endOverlay) primitives.endOverlay();
       }
-      setStructuralMetadata(lab);
+      setStructuralMetadata(lab, routeHandles, routeId);
       if (lab.wrap && lab.wrap.setAttribute) {
         lab.wrap.setAttribute('data-handle-ids', routeHandles.map(item => item.id).join(','));
       }
@@ -1570,16 +1651,25 @@ function mount(routeId) {
     });
     buildControls(lab, scene, state, draw, behavior);
     buildPresetGallery(lab, scene, state, draw, behavior);
+    if (lab.canvas && typeof lab.canvas.setAttribute === 'function') {
+      lab.canvas.setAttribute('aria-label', canvasA11yLabel(scene, routeId));
+    }
 
     // Reset button — always available
     core.addButton(lab.controls, '↺ Đặt lại', () => { lab.reset(); });
 
-    // Play/Pause — only for animated routes
-    if (typeof behavior.onTick === 'function') {
+    // Play/Pause — only for animated routes (Phase 09: scene.static suppresses
+    // the Play affordance for concept-only diagrams; tickWithoutButton lets
+    // the engine advance state._t silently for time-derived readouts).
+    if (typeof behavior.onTick === 'function' && !scene.static) {
       playButton = core.addButton(lab.controls, '▶ Chạy', () => {
         if (lab.isPlaying) { lab.pause(); } else { lab.resume(); }
       });
+      playButton.setAttribute('data-sim-play', 'true');
       updatePlayButton();
+    } else if (scene.static) {
+      // a11y: avoid orphan aria-pressed state on a non-existent Play button.
+      if (lab.status) lab.status.textContent = 'tương tác trực tiếp';
     }
 
     routeHandles = resolveHandles(scene, state, behavior.derived(scene, state), behavior, lab);
@@ -1589,8 +1679,15 @@ function mount(routeId) {
     draw();
     startBehaviorAnimation(lab, scene, state, draw, behavior, scope);
     updatePlayButton();
-    // Phase 08 RC2: ch3-3-1 spring oscillation default-on. Reduced-motion
-    // users still see the Play button so they can opt in manually.
+    // Phase 09 sub-mode B — static + tickWithoutButton routes still need
+    // engine ticks for time-derived readouts (e.g. ch3-1-3 inertial-frame
+    // readout). The Play affordance stays hidden, but the engine runs.
+    if (scene.static && scene.tickWithoutButton && typeof behavior.onTick === 'function'
+        && lab.anim && typeof lab.anim.start === 'function' && !lab.anim.isRunning()) {
+      lab.anim.start();
+      lab.silentTicking = true;
+    }
+    // Boolean autoplay stays continuous.
     if (scene.autoplay && !lab.prefersReducedMotion && typeof lab.resume === 'function') {
       lab.resume();
     }

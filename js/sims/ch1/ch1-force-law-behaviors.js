@@ -41,7 +41,7 @@ function setVectorFromPoint(state, point, routeId) {
 function setVerticalForce(state, point) {
   const force = clamp(state.force, 30, 220), source = bounded(point || ensurePrimary(state)), isMoment = state.routeId === 'ch1-1-4';
   const p = { x: clamp(source.x, isMoment ? originO.x + 60 : 28, isMoment ? originO.x + 220 : W - 28), y: clamp(source.y, 28, H - 28 - force) };
-  state.primary = p; if (isMoment) state.load = p.x - originO.x; state.vector = { x: p.x, y: p.y + force };
+  state.primary = p; if (isMoment) state.load = (p.x - originO.x) / PX_PER_M; state.vector = { x: p.x, y: p.y + force };
 }
 
 function forceMagnitude(state) {
@@ -123,7 +123,7 @@ function forceLawDerived(scene, state) {
   let resultantMagnitude = baseForce;
   const info = supportInfo(state.mode);
   if (routeId === 'ch1-1-6') {
-    distance = clamp(state.distance, 80, 260) / PX_PER_M;
+    distance = clamp(state.distance, 1.3, 4.3);
     moment = baseForce * distance;
   }
   if (routeId === 'ch1-1-5') {
@@ -161,9 +161,9 @@ function updateForceLawState(scene, state, key, value) {
   } else if (key === 'angle') {
     setForceByAngle(state, forceMagnitude(state), value);
   } else if (key === 'distance') {
-    state.distance = clamp(value, 80, 260);
+    state.distance = clamp(value, 1.3, 4.3);
   } else if (key === 'load' && routeId === 'ch1-1-4') {
-    setVerticalForce(state, { x: originO.x + clamp(value, 60, 220), y: ensurePrimary(state).y });
+    setVerticalForce(state, { x: originO.x + clamp(value, 1, 3.7) * PX_PER_M, y: ensurePrimary(state).y });
   } else {
     state[key] = value;
   }
@@ -179,7 +179,7 @@ function forceLawHandles(routeId, state) {
     ],
     'ch1-1-4': () => [makeHandle('moment-load-p', 'P', primary, point => setVerticalForce(state, point), colors.moment)],
     'ch1-1-5': () => [makeHandle('reducer-resultant-r', 'R', vector, point => setVectorFromPoint(state, point, 'ch1-1-5'), colors.result)],
-    'ch1-1-6': () => [makeHandle('couple-arm-d', 'd', () => ({ x: 380 + clamp(state.distance, 80, 260) / 2, y: 246 }), point => { state.distance = clamp(Math.abs(point.x - 380) * 2, 80, 260); }, colors.moment, { raw: true })],
+    'ch1-1-6': () => [makeHandle('couple-arm-d', 'd', () => ({ x: 380 + clamp(state.distance, 1.3, 4.3) * PX_PER_M / 2, y: 246 }), point => { state.distance = clamp(Math.abs(point.x - 380) * 2 / PX_PER_M, 1.3, 4.3); }, colors.moment, { raw: true })],
     'ch1-1-8': () => [makeHandle('constraint-load-p', 'P', primary, point => setVerticalForce(state, point), colors.force)],
     'ch1-2-1': () => [makeHandle('two-force-f2', 'F2', vector, point => setVectorFromPoint(state, point, 'ch1-2-1'), colors.force)],
     'ch1-2-3': () => [

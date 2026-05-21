@@ -24,6 +24,7 @@ const rows = [
 
 function scene(row, index) {
   const [routeId, template, family, title, formula, visualLabel, forceLabel, secondKey, secondLabel, read1, read2] = row;
+  const momentScale = routeId === 'ch1-3-6' ? 1 : 0.01;
   const initialPoints = {
     'ch1-3-4': { x: 380, y: 145 },
     'ch1-3-6': { x: 420, y: 128 },
@@ -33,8 +34,10 @@ function scene(row, index) {
     'ch1-4-4': { x: 214, y: 126 }
   };
   const initialPrimary = initialPoints[routeId] || { x: index === 0 ? 360 : (index === 1 ? 430 : 145 + (index % 5) * 28), y: index === 0 ? 258 : (index === 1 ? 238 : 246 - (index % 4) * 20) };
-  const loadMax = routeId === 'ch1-3-4' ? 460 : 180;
-  const loadValue = routeId === 'ch1-3-4' ? 250 : 100;
+  const isHingeSelector = routeId === 'ch1-3-3';
+  const loadMax = isHingeSelector ? 2 : (routeId === 'ch1-3-4' ? 4.6 : (routeId === 'ch1-3-6' ? 1.8 : 180));
+  const loadValue = isHingeSelector ? 1 : (routeId === 'ch1-3-4' ? 2.5 : (routeId === 'ch1-3-6' ? 1 : 100));
+  const loadUnit = routeId === 'ch1-3-4' || routeId === 'ch1-3-6' ? 'm' : '%';
   return {
     routeId,
     sceneId: `${routeId}-${template}`,
@@ -49,15 +52,23 @@ function scene(row, index) {
     projection: visualLabel,
     angle: -0.7 + index * 0.04,
     readoutPolicy: { appendControls: false },
-    initialState: { primary: initialPrimary, force: routeId === 'ch1-3-4' ? 130 : 76 + index * 5, load: routeId === 'ch1-3-4' ? 250 : 80 + index * 9, omega: 1.2 },
+    initialState: { primary: initialPrimary, force: routeId === 'ch1-3-4' ? 130 : 76 + index * 5, load: loadValue, omega: 1.2 },
     controls: [
       { type: 'slider', key: 'force', label: forceLabel, min: routeId === 'ch1-3-4' ? 35 : 20, max: routeId === 'ch1-3-4' ? 190 : 170, value: routeId === 'ch1-3-4' ? 130 : 85, step: 5, unit: 'N' },
-      { type: 'slider', key: secondKey, label: secondLabel, min: 0, max: secondKey === 'load' ? loadMax : 55, value: secondKey === 'load' ? loadValue : 20, step: secondKey === 'load' ? 10 : 1, unit: secondKey === 'load' ? 'px' : 'deg' }
+      { type: 'slider', key: secondKey, label: secondLabel, min: 0, max: secondKey === 'load' ? loadMax : 55, value: secondKey === 'load' ? loadValue : 20, step: isHingeSelector ? 1 : (secondKey === 'load' ? (loadUnit === 'm' ? 0.1 : 5) : 1), unit: isHingeSelector ? '' : (secondKey === 'load' ? loadUnit : 'deg'), physicalUnit: isHingeSelector ? '' : (secondKey === 'load' ? loadUnit : 'deg'), pxPerUnit: loadUnit === 'm' ? 100 : undefined }
     ],
-    readouts: [
-      { label: read1, key: read1 === 'R_A' ? 'ra' : (read1.indexOf('M') >= 0 ? 'moment' : 'resultantMagnitude'), scale: read1.indexOf('M') >= 0 ? 0.01 : 1, digits: 1, unit: read1.indexOf('M') >= 0 ? 'N.m' : 'N', kind: read1.indexOf('T') >= 0 ? 'force' : 'result' },
+    readouts: (isHingeSelector ? [
+      { label: read1, key: 'resultantMagnitude', digits: 1, unit: 'N', kind: 'result' },
+      { label: read2, key: 'supportKind', kind: 'mode' },
+      { label: 'Tải P', key: 'force', digits: 1, unit: 'N', kind: 'force' }
+    ] : (routeId === 'ch1-3-6' ? [
+      { label: 'MA', key: 'moment', digits: 1, unit: 'N.m', kind: 'moment' },
+      { label: 'Rx', key: 'rx', digits: 1, unit: 'N', kind: 'result' },
+      { label: 'Ry', key: 'ry', digits: 1, unit: 'N', kind: 'result' }
+    ] : [
+      { label: read1, key: read1 === 'R_A' ? 'ra' : (read1.indexOf('M') >= 0 ? 'moment' : 'resultantMagnitude'), scale: read1.indexOf('M') >= 0 ? momentScale : 1, digits: 1, unit: read1.indexOf('M') >= 0 ? 'N.m' : 'N', kind: read1.indexOf('T') >= 0 ? 'force' : 'result' },
       { label: read2, key: read2 === 'R_B' ? 'rb' : (index < 2 ? 'direction' : secondKey), digits: 1, unit: read2 === 'R_B' ? 'N' : '', kind: index < 2 ? 'mode' : 'angle' }
-    ].concat(routeId === 'ch1-4-1' ? [{ label: forceLabel, key: 'force', digits: 1, unit: 'N', kind: 'force' }] : [])
+    ])).concat(routeId === 'ch1-4-1' ? [{ label: forceLabel, key: 'force', digits: 1, unit: 'N', kind: 'force' }] : [])
   };
 }
 

@@ -107,7 +107,7 @@ function renderCh115ForceSystemReducer(ctx, scene, state, d) {
 
 function renderCh116CoupleFreeVector(ctx, scene, state, d) {
   const cx = 380, yTop = 145, yBot = 275;
-  const dist = Math.max(80, Math.min(260, state.distance || 180));
+  const dist = Math.max(80, Math.min(260, (state.distance || 3) * 60));
   const left = cx - dist / 2, right = cx + dist / 2;
   base(ctx, 'Ngẫu lực: hai lực song song ngược chiều', P.tone(6));
   P.realisticBody(ctx, left - 35, 170, dist + 70, 72, 'vật tự do', { material: 'metal', radius: 10, stroke: P.tone(6) });

@@ -149,9 +149,12 @@ registry.registerMany({
       const currentBx = finiteNumber(state.ex, 338);
       const currentBy = finiteNumber(state.ey, 238);
       const angle = finiteNumber(state.barAngle, Math.atan2(currentBy - ay, currentBx - ax));
-      const length = Math.max(1, finiteNumber(state.L, Math.hypot(currentBx - ax, currentBy - ay)));
-      const bx = ax + length * Math.cos(angle);
-      const by = ay + length * Math.sin(angle);
+      const rawLength = finiteNumber(state.L, Math.hypot(currentBx - ax, currentBy - ay) / 100);
+      const legacyPxLength = rawLength > 20;
+      const length = legacyPxLength ? Math.max(1, rawLength) : Math.max(0.8, rawLength);
+      const lengthPx = legacyPxLength ? length : length * 100;
+      const bx = ax + lengthPx * Math.cos(angle);
+      const by = ay + lengthPx * Math.sin(angle);
       const dx = bx - ax, dy = by - ay;
       state.L = length;
       state.ax = ax; state.ay = ay; state.bx = bx; state.by = by;
@@ -159,8 +162,8 @@ registry.registerMany({
       state.velocitySamples = [0, 0.25, 0.5, 0.75, 1].map(ratio => {
         const x = ax + dx * ratio;
         const y = ay + dy * ratio;
-        const vx = -omega * (y - ay);
-        const vy = omega * (x - ax);
+        const vx = -omega * (y - ay) / (legacyPxLength ? 1 : 100);
+        const vy = omega * (x - ax) / (legacyPxLength ? 1 : 100);
         return { x, y, vx, vy, speed: Math.hypot(vx, vy) };
       });
       const last = state.velocitySamples[state.velocitySamples.length - 1];

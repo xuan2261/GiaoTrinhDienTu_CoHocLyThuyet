@@ -18,14 +18,25 @@ function renderCh351CenterOfMass(ctx, scene, state, d) {
     { x: 238, y: 130, m: 1.5 },
     { x: 332, y: 204, m: 1 }
   ];
-  const totalM = masses.reduce((s, m) => s + m.m, 0);
-  let xCM = 0, yCM = 0;
-  for (const m of masses) { xCM += m.x * m.m; yCM += m.y * m.m; }
-  xCM /= totalM; yCM /= totalM;
+  const t = state._t || 0;
+  const omega = 0.6;
+  const ri = 24;
+  const displaced = masses.map((m, i) => {
+    const theta = (i * 2 * Math.PI / 3) + omega * t;
+    return {
+      m: m.m,
+      x: m.x + ri * Math.cos(theta),
+      y: m.y + ri * Math.sin(theta),
+      i,
+    };
+  });
+  const totalM = displaced.reduce((s, p) => s + p.m, 0) || 1;
+  const xCM = displaced.reduce((s, p) => s + p.m * p.x, 0) / totalM;
+  const yCM = displaced.reduce((s, p) => s + p.m * p.y, 0) / totalM;
 
-  masses.forEach((m, i) => {
-    P.realisticPoint(ctx, m.x, m.y, { text: `m${i + 1}`, fill: P.tone(i), radius: 6 + m.m * 2 });
-    P.dashedLine(ctx, m.x, m.y, xCM, yCM, P.tone(6));
+  displaced.forEach((p) => {
+    P.realisticPoint(ctx, p.x, p.y, { text: `m${p.i + 1}`, fill: P.tone(p.i), radius: 6 + p.m * 2 });
+    P.dashedLine(ctx, p.x, p.y, xCM, yCM, P.tone(6));
   });
 
   P.realisticPoint(ctx, xCM, yCM, { text: 'C', fill: P.tone(0), radius: 8 });
@@ -48,8 +59,18 @@ function renderCh352ImpulseMomentum(ctx, scene, state, d) {
   ctx.fillStyle = P.isDarkTheme() ? 'rgba(253,126,20,.1)' : 'rgba(253,126,20,.15)'; ctx.fill(); ctx.stroke();
   ctx.restore();
 
+  const t = state._t || 0;
+  const F = state.F || 20;
+  const J = state.J || 20;
   const pBefore = (state.m || 2) * 6;
-  const pAfter = pBefore + (state.J || 20);
+  const pAfter = pBefore + J * Math.min(1, t / 4) + 0.25 * F * t;
+
+  // Moving cursor in the F(t) panel — sweeps left-to-right with t mod ~3.6 s.
+  const cursorX = 96 + ((t * 30) % 110);
+  ctx.save();
+  ctx.strokeStyle = P.tone(2); ctx.lineWidth = 1.5; ctx.setLineDash([4, 4]);
+  ctx.beginPath(); ctx.moveTo(cursorX, 100); ctx.lineTo(cursorX, 224); ctx.stroke();
+  ctx.restore();
 
   P.panel(ctx, 268, 82, 244, 152, 'động lượng trước/sau', P.tone(1));
   P.barGraph(ctx, 290, 190, 60, 24, pBefore, 100, P.tone(1), 'p_truoc');

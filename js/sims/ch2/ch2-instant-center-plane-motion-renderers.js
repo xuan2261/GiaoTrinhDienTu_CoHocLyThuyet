@@ -23,18 +23,26 @@ function renderCh251PlaneTranslationRotation(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Chuyển động phẳng: v_B = v_A + ω × AB', P.tone(1));
   const ox = state.ox || 180, oy = state.oy || 170;
   const ax = state.ax || (ox + 80), ay = state.ay || oy;
-  const bx = state.bx || (ax + 160), by = state.by || ay;
-  const phi = state.phi || 0, omega = state.omega || 1.0;
+  const bx0 = state.bx || (ax + 160), by0 = state.by || ay;
+  // F5: engine integrates state.phi via onTick_ch251 (ch2-kinematics-behaviors-b.js:107-119);
+  // renderer reads phi directly. Do NOT add another `omega * t` term.
+  const phi = state.phi || 0;
+  const omega = state.omega || 1.0;
+  const dxAB = bx0 - ax, dyAB = by0 - ay;
+  const cosP = Math.cos(phi), sinP = Math.sin(phi);
+  const bx = ax + dxAB * cosP - dyAB * sinP;
+  const by = ay + dxAB * sinP + dyAB * cosP;
 
-  P.realisticBody(ctx, ox, oy - 28, bx - ox + 8, 56, 'vật rắn', { material: 'metal', radius: 8 });
+  P.realisticBody(ctx, ox, oy - 28, Math.max(8, bx - ox + 8), 56, 'vật rắn', { material: 'metal', radius: 8 });
   P.dashedLine(ctx, ax, ay, bx, by, P.tone(6));
   P.angleArc(ctx, ox + (bx - ox) / 2, oy, 36, -0.5, phi - 0.5, P.tone(6), 'ω');
   P.realisticPoint(ctx, ox, oy, { text: 'O', fill: P.tone(4) });
   P.realisticPoint(ctx, ax, ay, { text: 'A', fill: P.tone(0) });
   P.realisticPoint(ctx, bx, by, { text: 'B', fill: P.tone(1) });
   const vA = state.vA || { vx: 46, vy: -8 };
-  const vBA = state.vBA || { vx: -omega * (by - ay), vy: omega * (bx - ax) };
-  const vB = state.vB || { vx: vA.vx + vBA.vx, vy: vA.vy + vBA.vy };
+  // Recompute vBA from rotated geometry so |v_B − v_A| = ω·|AB| invariant holds.
+  const vBA = { vx: -omega * (by - ay), vy: omega * (bx - ax) };
+  const vB = { vx: vA.vx + vBA.vx, vy: vA.vy + vBA.vy };
   arrowFromVector(ctx, { x: ax, y: ay }, vA, 0.55, P.tone(0), 'v_A');
   arrowFromVector(ctx, { x: bx, y: by }, vBA, 0.18, P.tone(3), 'ω×AB');
   arrowFromVector(ctx, { x: bx, y: by }, vB, 0.28, P.tone(1), 'v_B');
@@ -93,7 +101,7 @@ function renderCh252InstantCenter(ctx, scene, state, d) {
 
 function renderCh253VelocityDistribution(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Phân bố vận tốc: v ∝ r từ IC', P.tone(2));
-  const omega = state.omega || 1.2, L = 220, ox = 118, oy = 238;
+  const omega = state.omega || 1.2, L = (state.L || 2.2) * 100, ox = 118, oy = 238;
   const ex = state.ex || (ox + L), ey = state.ey || oy;
 
   P.realisticBeam(ctx, ox, oy, ex, ey, { material: 'metal', height: 12 });

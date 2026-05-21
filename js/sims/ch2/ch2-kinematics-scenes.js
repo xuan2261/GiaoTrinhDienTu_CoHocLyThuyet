@@ -46,7 +46,14 @@ function scene(row, index) {
     readoutPolicy: readoutPolicyFor(routeId),
     initialState: buildInitialState(routeId, index),
     controls: buildControls(routeId, forceLabel, secondKey, secondLabel),
-    readouts: readoutsFor(routeId, read1, read2)
+    readouts: readoutsFor(routeId, read1, read2),
+    // Phase 09 — concept-only scenes drop the misleading Play affordance.
+    //   ch2-7-2: numeric checker (Phase 03 sub-mode A).
+    //   ch2-5-2 / ch2-5-3: instant-velocity-center concepts framed as
+    //     "tâm vận tốc tức thời" / "phân bố vận tốc" — snapshot at an instant,
+    //     not motion over time (Phase 07 decision, see
+    //     docs/journals/2026-05-22-ch2-5-2-and-ch2-5-3-motion-intent-decision.md).
+    static: routeId === 'ch2-7-2' || routeId === 'ch2-5-2' || routeId === 'ch2-5-3'
   };
 }
 
@@ -55,7 +62,8 @@ function readoutPolicyFor(routeId) {
     appendMode: false,
     appendAlpha: false,
     appendControls: false,
-    appendTime: ['ch2-1-1', 'ch2-1-2', 'ch2-1-4', 'ch2-2-2', 'ch2-3-2', 'ch2-5-3'].includes(routeId)
+    // Phase 07 — ch2-5-3 dropped from appendTime allowlist (sub-mode C).
+    appendTime: ['ch2-1-1', 'ch2-1-2', 'ch2-1-4', 'ch2-2-2', 'ch2-3-2'].includes(routeId)
   };
 }
 
@@ -71,7 +79,7 @@ function readoutsFor(routeId, read1, read2) {
     'ch2-1-2': [{ label: 'a(t)', key: 'aVal', digits: 2, unit: 'm/s²' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }],
     'ch2-1-4': { label: 'Mẫu', key: 'mode', kind: 'mode' },
     'ch2-2-2': { label: 'ε', key: 'alpha', digits: 2, unit: 'rad/s²', kind: 'accel' },
-    'ch2-3-2': [{ label: 'r1', key: 'r1', digits: 1, unit: 'px' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }],
+    'ch2-3-2': [{ label: 'r1', key: 'r1', digits: 2, unit: 'm' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }],
     'ch2-4-1': [{ label: '|v_e|', key: 'veMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Pha', key: 't', digits: 2, unit: 'rad' }],
     'ch2-4-2': [{ label: '|v_r|', key: 'vrMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Pha', key: 't', digits: 2, unit: 'rad' }],
     'ch2-4-3': [{ label: '|v_e|', key: 'veMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Quan hệ vận tốc', key: 'velocityRelation', kind: 'default' }],
@@ -115,7 +123,7 @@ function buildInitialState(routeId, index) {
     case 'ch2-1-3': return Object.assign(base, { px: 446, py: 224, vx: 0, vy: 144, an: 216, at: 0, rho: 96 });
     case 'ch2-1-4': return Object.assign(base, { mode: 'Elip', px: 492, py: 224, speed: 138 });
     case 'ch2-2-2': return Object.assign(base, { theta: 0, omegaCur: 1.5, alpha: 0, r: 92, _t: 0 });
-    case 'ch2-3-2': return Object.assign(base, { phi1: 0, phi2: 0, r1: 50, r2: 90, omega2: 1.0 });
+    case 'ch2-3-2': return Object.assign(base, { phi1: 0, phi2: 0, r1: 1, r2: 1.8, omega2: 1.0 });
     case 'ch2-4-1': return Object.assign(base, { ve: { vx: 60, vy: -30 }, vr: { vx: 40, vy: 40 }, va: { vx: 100, vy: 10 }, vaMag: 100.5, vrMag: 56.6, veMag: 67.1 });
     case 'ch2-4-2': return Object.assign(base, { mode: 'tuyệt đối', va: { vx: 55, vy: 0 }, ve: { vx: 30, vy: 0 }, vr: { vx: 25, vy: 0 }, vaMag: 55, vrMag: 25, veMag: 30 });
     case 'ch2-4-3': return Object.assign(base, { phi: 0, velocityRelation: 'v_a = v_e + v_r', ve: { vx: 60, vy: 0 }, vr: { vx: 0, vy: 40 }, va: { vx: 60, vy: 40 }, vaMag: 72.1, vrMag: 40 });
@@ -132,7 +140,7 @@ function buildInitialState(routeId, index) {
       bx: 360,
       by: 180
     });
-    case 'ch2-5-3': return Object.assign(base, { phi: 0, ex: 338, ey: 238, L: 220, vAMag: 0, vBMag: 330 });
+    case 'ch2-5-3': return Object.assign(base, { phi: 0, ex: 338, ey: 238, L: 2.2, vAMag: 0, vBMag: 3.3 });
     case 'ch2-7-1': return Object.assign(base, { step: 0, xVal: 5, vVal: 0, aVal: 0 });
     case 'ch2-7-2': return Object.assign(base, { t: Math.PI, xVal: 5, vVal: 0, errorX: 0, errorV: 0, status: 'Đúng', x0: 5, v0: 0, a0: 0 });
     default: return base;
@@ -171,7 +179,7 @@ function stepFor(key) {
 }
 
 function unitFor(key) {
-  return { alpha: 'rad/s²', r1: 'px', r2: 'px', theta: '°', phi: '°', t: 'rad', L: 'px', vr: 'm/s', vrMag: 'm/s', x0: 'm' }[key] || '';
+  return { alpha: 'rad/s²', r1: 'm', r2: 'm', theta: '°', phi: '°', t: 'rad', L: 'm', vr: 'm/s', vrMag: 'm/s', x0: 'm' }[key] || '';
 }
 
 function readKey(label) {

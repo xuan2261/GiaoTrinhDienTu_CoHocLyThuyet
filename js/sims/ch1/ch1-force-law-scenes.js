@@ -17,8 +17,8 @@ const common = {
 };
 const routeSceneTokens = [['ch1-1-3', 1], ['ch1-1-4', 1], ['ch1-1-5', 1], ['ch1-1-6', 1], ['ch1-1-8', 1], ['ch1-2-1', 1]];
 
-function slider(key, label, min, max, value, unit, step) {
-  return { type: 'slider', key, label, min, max, value, step: step || 1, unit: unit || '' };
+function slider(key, label, min, max, value, unit, step, opts) {
+  return Object.assign({ type: 'slider', key, label, min, max, value, step: step || 1, unit: unit || '', physicalUnit: unit || '' }, opts || {});
 }
 
 const scenes = [
@@ -41,7 +41,7 @@ const scenes = [
     readouts: [
       { label: '|F|', key: 'force', digits: 1, unit: 'N', kind: 'force' },
       { label: 'α', key: 'forceAngle', digits: 0, unit: '°', kind: 'angle' },
-      { label: 'Điểm đặt', key: 'primary', kind: 'default' }
+      { label: 'Tọa độ A', key: 'primary', digits: 0, kind: 'default' }
     ]
   },
   {
@@ -53,8 +53,8 @@ const scenes = [
     seed: 2,
     angle: -Math.PI / 2,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 330, y: 185 }, vector: { x: 330, y: 295 }, force: 110, load: 180 },
-    controls: [slider('force', 'F', 30, 180, 110, 'N', 5), slider('load', 'd', 60, 220, 180, 'px', 5)],
+    initialState: { primary: { x: 330, y: 185 }, vector: { x: 330, y: 295 }, force: 110, load: 3 },
+    controls: [slider('force', 'F', 30, 180, 110, 'N', 5), slider('load', 'd', 1, 3.7, 3, 'm', 0.1, { pxPerUnit: 60 })],
     readouts: [
       { label: 'F', key: 'force', digits: 1, unit: 'N', kind: 'force' },
       { label: 'd', key: 'distance', digits: 1, unit: 'm', kind: 'default' },
@@ -87,8 +87,8 @@ const scenes = [
     seed: 4,
     angle: Math.PI / 2,
     appendGenericReadouts: false,
-    initialState: { primary: { x: 410, y: 230 }, force: 90, distance: 180 },
-    controls: [slider('force', 'F', 30, 150, 90, 'N', 5), slider('distance', 'd', 80, 260, 180, 'px', 5)],
+    initialState: { primary: { x: 410, y: 230 }, force: 90, distance: 3 },
+    controls: [slider('force', 'F', 30, 150, 90, 'N', 5), slider('distance', 'd', 1.3, 4.3, 3, 'm', 0.1, { pxPerUnit: 60 })],
     readouts: [
       { label: 'F', key: 'force', digits: 1, unit: 'N', kind: 'force' },
       { label: 'd', key: 'distance', digits: 1, unit: 'm', kind: 'default' },
@@ -111,7 +111,7 @@ const scenes = [
       { label: 'Loại', key: 'supportKind', kind: 'mode' },
       { label: 'Khóa', key: 'supportDof', kind: 'default' },
       { label: 'Phản lực', key: 'supportReaction', kind: 'result' },
-      { label: 'Điểm đặt', key: 'primary', kind: 'default' }
+      { label: 'Tọa độ P', key: 'primary', digits: 0, kind: 'default' }
     ]
   },
   {

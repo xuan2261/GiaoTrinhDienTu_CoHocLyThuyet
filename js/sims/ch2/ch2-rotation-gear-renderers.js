@@ -48,8 +48,8 @@ function renderCh232GearBeltTransmission(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Truyền động bánh/dây: không trượt', P.tone(6));
 
   const phi1 = state.phi1 || 0, phi2 = state.phi2 || 0;
-  const r1 = state.r1 || 50, r2 = state.r2 || 90;
-  const omega1 = state.omega || 1.5, omega2 = state.omega2 || (omega1 * r1 / r2);
+  const r1 = (state.r1 || 1) * 50, r2 = (state.r2 || 1.8) * 50;
+  const omega1 = state.omega || 1.5, omega2 = state.omega2 || (omega1 * (state.r1 || 1) / (state.r2 || 1.8));
   const c1x = 190, c1y = 174, c2x = 370, c2y = 174;
 
   const dy = r2 - r1, dx = c2x - c1x, alpha = Math.asin(dy / dx);

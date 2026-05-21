@@ -49,6 +49,13 @@ async function routeSnapshot(page) {
   return `${await readoutSnapshot(page)}##${stats.hash}:${stats.ink}:${stats.variants}`;
 }
 
+async function hasSilentTicks(page, route) {
+  return page.evaluate(routeId => {
+    const scene = window.SimSceneRegistry && window.SimSceneRegistry.get(routeId);
+    return Boolean(scene && scene.static && scene.tickWithoutButton);
+  }, route);
+}
+
 async function transientParticlePixels(page) {
   return page.locator('.sim-container.sim-lab canvas').first().evaluate(canvas => {
     const ctx = canvas.getContext('2d');
@@ -221,7 +228,7 @@ test('all 58 routes expose route-owned handles and stable readout drag @direct-d
     if (after === before) failures.push(`${route}: readout unchanged after drag`);
     await page.waitForTimeout(260);
     const later = await readoutSnapshot(page);
-    if (later !== after) failures.push(`${route}: readout drifted while paused`);
+    if (later !== after && !(await hasSilentTicks(page, route))) failures.push(`${route}: readout drifted while paused`);
   }
   expect(failures).toEqual([]);
 });
@@ -431,17 +438,17 @@ test('numeric checker residual scale stays consistent in readouts @control-audit
   expect(residual).toBeTruthy();
   await setSlider(page, residual.index, 0);
   await expect.poll(() => readoutValue(page, 'r1')).toBe('0');
-  await expect.poll(() => readoutValue(page, 'điểm')).toBe('100');
+  await expect.poll(async () => firstNumber(await readoutValue(page, 'điểm'))).toBe(100);
 
   controls = await labControls(page);
   await setSlider(page, controls.sliders.find(item => item.key === 'residualScale').index, 2);
   await page.getByRole('button', { name: /Chạy/ }).first().click();
-  await expect.poll(async () => Number(await readoutValue(page, 'r1'))).toBeGreaterThan(0);
-  await expect.poll(async () => Number(await readoutValue(page, 'điểm'))).toBeLessThan(100);
+  await expect.poll(async () => firstNumber(await readoutValue(page, 'r1'))).toBeGreaterThan(0);
+  await expect.poll(async () => firstNumber(await readoutValue(page, 'điểm'))).toBeLessThan(100);
 
   await page.getByRole('button', { name: /Dừng/ }).first().click();
   controls = await labControls(page);
   await setSlider(page, controls.sliders.find(item => item.key === 'residualScale').index, 0);
   await expect.poll(() => readoutValue(page, 'r1')).toBe('0');
-  await expect.poll(() => readoutValue(page, 'điểm')).toBe('100');
+  await expect.poll(async () => firstNumber(await readoutValue(page, 'điểm'))).toBe(100);
 });

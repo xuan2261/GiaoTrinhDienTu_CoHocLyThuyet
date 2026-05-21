@@ -23,11 +23,7 @@ function setCollisionMomentum(state, before, after, residual) {
 }
 
 function onTick_ch351(scene, state, dt) {
-  const masses = state.masses || [
-    { x: 130, y: 188, m: 2 },
-    { x: 238, y: 130, m: 1.5 },
-    { x: 332, y: 204, m: 1 }
-  ];
+  const masses = state.masses || [{ x: 130, y: 188, m: 2 }, { x: 238, y: 130, m: 1.5 }, { x: 332, y: 204, m: 1 }];
   let totalM = 0, xCM = 0, yCM = 0;
   for (const m of masses) { totalM += m.m; xCM += m.x * m.m; yCM += m.y * m.m; }
   state.xCM = xCM / totalM; state.yCM = yCM / totalM;
@@ -40,6 +36,14 @@ function onTick_ch352(scene, state, dt) {
   state.pBefore = m * 6; state.pAfter = state.pBefore + J; state.deltaP = J;
   state.impulseT = (state.impulseT || 0) + dt;
   state._t = (state._t || 0) + dt;
+}
+
+function seedImpulseMomentum(state) {
+  state.m = Number.isFinite(Number(state.m)) ? Number(state.m) : 2;
+  state.J = Number.isFinite(Number(state.J)) ? Number(state.J) : 20;
+  state.pBefore = state.m * 6;
+  state.pAfter = state.pBefore + state.J;
+  state.deltaP = state.J;
 }
 
 function onTick_ch353(scene, state, dt) {
@@ -118,11 +122,7 @@ function onTick_ch372(scene, state, dt) {
 }
 
 function derived_ch351(s, s2) {
-  const masses = s.masses || [
-    { x: 130, y: 188, m: 2 },
-    { x: 238, y: 130, m: 1.5 },
-    { x: 332, y: 204, m: 1 }
-  ];
+  const masses = s.masses || [{ x: 130, y: 188, m: 2 }, { x: 238, y: 130, m: 1.5 }, { x: 332, y: 204, m: 1 }];
   let totalM = 0, xCM = 0, yCM = 0;
   masses.forEach(item => {
     const mass = item.m || 1;
@@ -195,6 +195,7 @@ function makeBehavior(routeId, onTickFn, derivedFn) {
       if (routeId === 'ch3-5-1') {
         state.masses = [{ x: 130, y: 188, m: 2 }, { x: 238, y: 130, m: 1.5 }, { x: 332, y: 204, m: 1 }];
       }
+      if (routeId === 'ch3-5-2') seedImpulseMomentum(state);
       if (routeId === 'ch3-6-2') {
         state.ball1 = { x: 150, y: 180, vx: 8, vy: 0 };
         state.ball2 = { x: 380, y: 180, vx: -3, vy: 0 };

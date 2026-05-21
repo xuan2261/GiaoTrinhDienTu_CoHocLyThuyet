@@ -110,8 +110,8 @@ function updateStateFromSlider(scene, state, key, value) {
     state.px = 266 + state.r * Math.cos(state.theta || 0);
     state.py = 178 - state.r * Math.sin(state.theta || 0);
   } else if (routeId === 'ch2-3-2') {
-    state.r1 = Math.max(28, Math.min(80, Number(state.r1) || 50));
-    state.r2 = 90;
+    state.r1 = Math.max(0.56, Math.min(1.6, Number(state.r1) || 1));
+    state.r2 = 1.8;
     state.omega2 = (state.omega || 1.5) * state.r1 / state.r2;
     state.transmission = state.omega2;
   }
@@ -188,7 +188,7 @@ registry.registerMany({
     interactionSchemaId: 'gear-slider-interactions',
     onTick(scene, state, dt) {
       state.phi1 = ((state.phi1 || 0) + (state.omega || 1.5) * dt) % (2 * Math.PI);
-      const r1 = Math.max(28, Math.min(80, Number(state.r1) || 50)), r2 = state.r2 || 90;
+      const r1 = Math.max(0.56, Math.min(1.6, Number(state.r1) || 1)), r2 = state.r2 || 1.8;
       state.r1 = r1;
       state.omega2 = (state.omega || 1.5) * r1 / r2;
       state.transmission = state.omega2;

@@ -61,7 +61,7 @@ function frictionDerived(scene, state) {
   const phi = toDeg(Math.atan(mu));
   const lockState = alpha <= phi ? 'tự hãm' : 'không tự hãm';
   const slipState = routeId === 'ch1-5-1' ? 'hold'
-    : (routeId === 'ch1-5-4' ? (lockState === 'tự hãm' ? 'hold' : 'slip') : (tanAlpha <= mu && applied <= limit ? 'hold' : 'slip'));
+    : (routeId === 'ch1-5-3' || routeId === 'ch1-5-4' ? (lockState === 'tự hãm' ? 'hold' : 'slip') : (tanAlpha <= mu && applied <= limit ? 'hold' : 'slip'));
   return {
     point: p, alpha, mu, normal, force: applied, friction: fms,
     resultantMagnitude: Math.hypot(normal, fms),
