@@ -359,7 +359,11 @@ function renderMath(container) {
         { left: '\\(', right: '\\)', display: false }
       ],
       output: 'htmlAndMathml',
-      throwOnError: false
+      throwOnError: false,
+      strict: code =>
+        code === 'unicodeTextInMathMode' || code === 'unknownSymbol'
+          ? 'ignore'
+          : 'warn'
     });
   }
 
@@ -369,7 +373,11 @@ function renderMath(container) {
       try {
         katex.render(el.textContent, el, {
           displayMode: el.classList.contains('math-block'),
-          throwOnError: false
+          throwOnError: false,
+          strict: code =>
+            code === 'unicodeTextInMathMode' || code === 'unknownSymbol'
+              ? 'ignore'
+              : 'warn'
         });
       } catch (e) {
         console.warn('KaTeX render error:', e);

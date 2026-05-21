@@ -67,7 +67,14 @@ function renderFormulaPanel(panel, formula) {
     return;
   }
   try {
-    window.katex.render(text, panel, { throwOnError: false, displayMode: false });
+    window.katex.render(text, panel, {
+      throwOnError: false,
+      displayMode: false,
+      strict: code =>
+        code === 'unicodeTextInMathMode' || code === 'unknownSymbol'
+          ? 'ignore'
+          : 'warn'
+    });
   } catch (_err) {
     panel.textContent = text;
   }

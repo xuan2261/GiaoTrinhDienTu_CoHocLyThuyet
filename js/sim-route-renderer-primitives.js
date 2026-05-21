@@ -123,7 +123,13 @@ function domMath(ctx, key, x, y, latex, options) {
     node.textContent = latex || '';
     if (canRenderKatex) {
       try {
-        window.katex.render(latex || '', node, { throwOnError: false });
+        window.katex.render(latex || '', node, {
+          throwOnError: false,
+          strict: code =>
+            code === 'unicodeTextInMathMode' || code === 'unknownSymbol'
+              ? 'ignore'
+              : 'warn'
+        });
         node.__latex = latex;
       } catch (_err) {
         node.textContent = latex || '';
