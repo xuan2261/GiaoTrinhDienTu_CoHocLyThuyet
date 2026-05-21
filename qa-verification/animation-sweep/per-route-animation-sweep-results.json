@@ -1,0 +1,2612 @@
+[
+  {
+    "routeId": "ch1-1-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2163943806,
+        "nonZero": 36,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2163943806,
+        "nonZero": 36,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2163943806,
+        "nonZero": 36,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2163943806,
+        "nonZero": 36,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|F|260 Nα32 °",
+      "t1": "|F|260 Nα32 °",
+      "t2": "|F|260 Nα32 °",
+      "t3": "|F|260 Nα32 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3294
+  },
+  {
+    "routeId": "ch1-1-4",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 595287140,
+        "nonZero": 32,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 595287140,
+        "nonZero": 32,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 595287140,
+        "nonZero": 32,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 595287140,
+        "nonZero": 32,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "F110 Nd3 mM_O330 N.m",
+      "t1": "F110 Nd3 mM_O330 N.m",
+      "t2": "F110 Nd3 mM_O330 N.m",
+      "t3": "F110 Nd3 mM_O330 N.m"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3227
+  },
+  {
+    "routeId": "ch1-1-5",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1847520681,
+        "nonZero": 42,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1847520681,
+        "nonZero": 42,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1847520681,
+        "nonZero": 42,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1847520681,
+        "nonZero": 42,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|R|125 NM_O273.4 N.mChế độThu gọn",
+      "t1": "|R|125 NM_O273.4 N.mChế độThu gọn",
+      "t2": "|R|125 NM_O273.4 N.mChế độThu gọn",
+      "t3": "|R|125 NM_O273.4 N.mChế độThu gọn"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3225
+  },
+  {
+    "routeId": "ch1-1-6",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3575164268,
+        "nonZero": 41,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 3575164268,
+        "nonZero": 41,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3575164268,
+        "nonZero": 41,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 3575164268,
+        "nonZero": 41,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "F90 Nd3 mM270 N.m",
+      "t1": "F90 Nd3 mM270 N.m",
+      "t2": "F90 Nd3 mM270 N.m",
+      "t3": "F90 Nd3 mM270 N.m"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3224
+  },
+  {
+    "routeId": "ch1-1-8",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 4204121897,
+        "nonZero": 68,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 4204121897,
+        "nonZero": 68,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 4204121897,
+        "nonZero": 68,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 4204121897,
+        "nonZero": 68,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "LoạiTựa trơnKhóakhóa pháp tuyếnPhản lựcN N",
+      "t1": "LoạiTựa trơnKhóakhóa pháp tuyếnPhản lựcN N",
+      "t2": "LoạiTựa trơnKhóakhóa pháp tuyếnPhản lựcN N",
+      "t3": "LoạiTựa trơnKhóakhóa pháp tuyếnPhản lựcN N"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3221
+  },
+  {
+    "routeId": "ch1-2-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1984675098,
+        "nonZero": 33,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1984675098,
+        "nonZero": 33,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1984675098,
+        "nonZero": 33,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1984675098,
+        "nonZero": 33,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|F|105 NLệch0 mCân bằngđúngα0 °",
+      "t1": "|F|105 NLệch0 mCân bằngđúngα0 °",
+      "t2": "|F|105 NLệch0 mCân bằngđúngα0 °",
+      "t3": "|F|105 NLệch0 mCân bằngđúngα0 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3223
+  },
+  {
+    "routeId": "ch1-2-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1426495585,
+        "nonZero": 47,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1426495585,
+        "nonZero": 47,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1426495585,
+        "nonZero": 47,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1426495585,
+        "nonZero": 47,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|F₁|192.1 N|F₂|180 N|R|351.1 Nα39 °",
+      "t1": "|F₁|192.1 N|F₂|180 N|R|351.1 Nα39 °",
+      "t2": "|F₁|192.1 N|F₂|180 N|R|351.1 Nα39 °",
+      "t3": "|F₁|192.1 N|F₂|180 N|R|351.1 Nα39 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3223
+  },
+  {
+    "routeId": "ch1-2-6",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1981532830,
+        "nonZero": 94,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1981532830,
+        "nonZero": 94,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1981532830,
+        "nonZero": 94,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1981532830,
+        "nonZero": 94,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|F|90 N|R|150 NM_O0 N.m|R| liên kết120 N",
+      "t1": "|F|90 N|R|150 NM_O0 N.m|R| liên kết120 N",
+      "t2": "|F|90 N|R|150 NM_O0 N.m|R| liên kết120 N",
+      "t3": "|F|90 N|R|150 NM_O0 N.m|R| liên kết120 N"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3222
+  },
+  {
+    "routeId": "ch1-3-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3457258630,
+        "nonZero": 35,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 3457258630,
+        "nonZero": 35,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3457258630,
+        "nonZero": 35,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 3457258630,
+        "nonZero": 35,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "N76 NPhươngpháp tuyếnchế độChuẩnα0 °",
+      "t1": "N76 NPhươngpháp tuyếnchế độChuẩnα0 °",
+      "t2": "N76 NPhươngpháp tuyếnchế độChuẩnα0 °",
+      "t3": "N76 NPhươngpháp tuyếnchế độChuẩnα0 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3250
+  },
+  {
+    "routeId": "ch1-3-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1847275829,
+        "nonZero": 47,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1847275829,
+        "nonZero": 47,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1847275829,
+        "nonZero": 47,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1847275829,
+        "nonZero": 47,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "Lực căng81 NDâydọc dây mchế độChuẩnα28 °",
+      "t1": "Lực căng81 NDâydọc dây mchế độChuẩnα28 °",
+      "t2": "Lực căng81 NDâydọc dây mchế độChuẩnα28 °",
+      "t3": "Lực căng81 NDâydọc dây mchế độChuẩnα28 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3224
+  },
+  {
+    "routeId": "ch1-3-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3856444591,
+        "nonZero": 40,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 3856444591,
+        "nonZero": 40,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3856444591,
+        "nonZero": 40,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 3856444591,
+        "nonZero": 40,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "Rx/Ry85.6 NLoại liên kếtLiên kết đã chọnchế độChuẩnα0 °",
+      "t1": "Rx/Ry85.6 NLoại liên kếtLiên kết đã chọnchế độChuẩnα0 °",
+      "t2": "Rx/Ry85.6 NLoại liên kếtLiên kết đã chọnchế độChuẩnα0 °",
+      "t3": "Rx/Ry85.6 NLoại liên kếtLiên kết đã chọnchế độChuẩnα0 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3223
+  },
+  {
+    "routeId": "ch1-3-4",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3940647038,
+        "nonZero": 45,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 3940647038,
+        "nonZero": 45,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3940647038,
+        "nonZero": 45,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 3940647038,
+        "nonZero": 45,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "R_A66.5 NR_B66.5 Nchế độChuẩnα0 °",
+      "t1": "R_A66.5 NR_B66.5 Nchế độChuẩnα0 °",
+      "t2": "R_A66.5 NR_B66.5 Nchế độChuẩnα0 °",
+      "t3": "R_A66.5 NR_B66.5 Nchế độChuẩnα0 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3224
+  },
+  {
+    "routeId": "ch1-3-6",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3444289817,
+        "nonZero": 46,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 3444289817,
+        "nonZero": 46,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3444289817,
+        "nonZero": 46,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 3444289817,
+        "nonZero": 46,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "MA96 N.mRx/Ry1 Nchế độChuẩnα0 °",
+      "t1": "MA96 N.mRx/Ry1 Nchế độChuẩnα0 °",
+      "t2": "MA96 N.mRx/Ry1 Nchế độChuẩnα0 °",
+      "t3": "MA96 N.mRx/Ry1 Nchế độChuẩnα0 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3225
+  },
+  {
+    "routeId": "ch1-3-7",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3801595461,
+        "nonZero": 36,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 3801595461,
+        "nonZero": 36,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3801595461,
+        "nonZero": 36,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 3801595461,
+        "nonZero": 36,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "N dọc trục101 NĐường trục0 mchế độChuẩn",
+      "t1": "N dọc trục101 NĐường trục0 mchế độChuẩn",
+      "t2": "N dọc trục101 NĐường trục0 mchế độChuẩn",
+      "t3": "N dọc trục101 NĐường trục0 mchế độChuẩn"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3222
+  },
+  {
+    "routeId": "ch1-4-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1270017185,
+        "nonZero": 45,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1270017185,
+        "nonZero": 45,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1270017185,
+        "nonZero": 45,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1270017185,
+        "nonZero": 45,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "Rxyz200 NHình chiếu134 m|R| 3D106 Nchế độChuẩnα0 °",
+      "t1": "Rxyz200 NHình chiếu134 m|R| 3D106 Nchế độChuẩnα0 °",
+      "t2": "Rxyz200 NHình chiếu134 m|R| 3D106 Nchế độChuẩnα0 °",
+      "t3": "Rxyz200 NHình chiếu134 m|R| 3D106 Nchế độChuẩnα0 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3227
+  },
+  {
+    "routeId": "ch1-4-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2704212733,
+        "nonZero": 34,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2704212733,
+        "nonZero": 34,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2704212733,
+        "nonZero": 34,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2704212733,
+        "nonZero": 34,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "M_axis1.3 N.mMO0 °chế độChuẩn",
+      "t1": "M_axis1.3 N.mMO0 °chế độChuẩn",
+      "t2": "M_axis1.3 N.mMO0 °chế độChuẩn",
+      "t3": "M_axis1.3 N.mMO0 °chế độChuẩn"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3226
+  },
+  {
+    "routeId": "ch1-4-4",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2377227603,
+        "nonZero": 30,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2377227603,
+        "nonZero": 30,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2377227603,
+        "nonZero": 30,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2377227603,
+        "nonZero": 30,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "ΣF116 NΣM152 N·mchế độChuẩnα0 °",
+      "t1": "ΣF116 NΣM152 N·mchế độChuẩnα0 °",
+      "t2": "ΣF116 NΣM152 N·mchế độChuẩnα0 °",
+      "t3": "ΣF116 NΣM152 N·mchế độChuẩnα0 °"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3226
+  },
+  {
+    "routeId": "ch1-5-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 147984812,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 147984812,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 147984812,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 147984812,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "N140 NFms88 N|R|165.4 Nμ0.38",
+      "t1": "N140 NFms88 N|R|165.4 Nμ0.38",
+      "t2": "N140 NFms88 N|R|165.4 Nμ0.38",
+      "t3": "N140 NFms88 N|R|165.4 Nμ0.38"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3223
+  },
+  {
+    "routeId": "ch1-5-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1879993958,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1879993958,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1879993958,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1879993958,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "F kéo94 NμN72 NTrạng tháitrượtμ0.48",
+      "t1": "F kéo94 NμN72 NTrạng tháitrượtμ0.48",
+      "t2": "F kéo94 NμN72 NTrạng tháitrượtμ0.48",
+      "t3": "F kéo94 NμN72 NTrạng tháitrượtμ0.48"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3223
+  },
+  {
+    "routeId": "ch1-5-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2665084807,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2665084807,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2665084807,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2665084807,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "α19 °tan α0.34 °Trạng tháibámμ0.46",
+      "t1": "α19 °tan α0.34 °Trạng tháibámμ0.46",
+      "t2": "α19 °tan α0.34 °Trạng tháibámμ0.46",
+      "t3": "α19 °tan α0.34 °Trạng tháibámμ0.46"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3237
+  },
+  {
+    "routeId": "ch1-5-4",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 4272207728,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 4272207728,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 4272207728,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 4272207728,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "α16 °φ23 °Trạng tháitự hãmμ0.42",
+      "t1": "α16 °φ23 °Trạng tháitự hãmμ0.42",
+      "t2": "α16 °φ23 °Trạng tháitự hãmμ0.42",
+      "t3": "α16 °φ23 °Trạng tháitự hãmμ0.42"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3224
+  },
+  {
+    "routeId": "ch1-6-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2330360630,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2330360630,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2330360630,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2330360630,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "xG295 myG198 mS296 %",
+      "t1": "xG295 myG198 mS296 %",
+      "t2": "xG295 myG198 mS296 %",
+      "t3": "xG295 myG198 mS296 %"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3233
+  },
+  {
+    "routeId": "ch1-6-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 586107490,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 586107490,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 586107490,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 586107490,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "xG314 mDịch G15.2 mS lỗ52 m",
+      "t1": "xG314 mDịch G15.2 mS lỗ52 m",
+      "t2": "xG314 mDịch G15.2 mS lỗ52 m",
+      "t3": "xG314 mDịch G15.2 mS lỗ52 m"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3225
+  },
+  {
+    "routeId": "ch1-7-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 502213361,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 502213361,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 502213361,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 502213361,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "P104 NBước1/4RA60.3 NRB43.7 N",
+      "t1": "P104 NBước1/4RA60.3 NRB43.7 N",
+      "t2": "P104 NBước1/4RA60.3 NRB43.7 N",
+      "t3": "P104 NBước1/4RA60.3 NRB43.7 N"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3305
+  },
+  {
+    "routeId": "ch1-7-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": false,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2305473109,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2305473109,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2305473109,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2305473109,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "RA đúng59.4 NRB đúng52.6 NSai số14 NKiểmlệchP112 NRA nhập48 NRB nhập50 N",
+      "t1": "RA đúng59.4 NRB đúng52.6 NSai số14 NKiểmlệchP112 NRA nhập48 NRB nhập50 N",
+      "t2": "RA đúng59.4 NRB đúng52.6 NSai số14 NKiểmlệchP112 NRA nhập48 NRB nhập50 N",
+      "t3": "RA đúng59.4 NRB đúng52.6 NSai số14 NKiểmlệchP112 NRA nhập48 NRB nhập50 N"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3227
+  },
+  {
+    "routeId": "ch2-1-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3168046372,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1872333224,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 390860938,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2500168847,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|v|138 m/sa_n319.5 m/s²ρ59.6 mα37 °thời gian0.00 s",
+      "t1": "|v|212.91 m/sa_n207.09 m/s²ρ218.88 mα55 °thời gian1.53 s",
+      "t2": "|v|139.14 m/sa_n316.88 m/s²ρ61.1 mα45 °thời gian3.03 s",
+      "t3": "|v|211.52 m/sa_n208.45 m/s²ρ214.63 mα25 °thời gian4.56 s"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3285
+  },
+  {
+    "routeId": "ch2-1-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1928065904,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1928065904,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3650835824,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2614321376,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "x(t)0 mv(t)54 m/sa(t)0 m/s²ω1.5 rad/sthời gian0.00 s",
+      "t1": "x(t)6.65 mv(t)53.59 m/sa(t)-6.65 m/s²ω1.5 rad/sthời gian0.12 s",
+      "t2": "x(t)13.02 mv(t)52.41 m/sa(t)-13.02 m/s²ω1.5 rad/sthời gian0.24 s",
+      "t3": "x(t)19.2 mv(t)50.47 m/sa(t)-19.2 m/s²ω1.5 rad/sthời gian0.36 s"
+    },
+    "uniqueFrames": 3,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3288
+  },
+  {
+    "routeId": "ch2-1-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1359748636,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 170955520,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 448892052,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 324328452,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a_t0 m/s²a_n216 m/s²ρ96 mω1.5 rad/s",
+      "t1": "a_t0 m/s²a_n216 m/s²ρ96 mω1.5 rad/s",
+      "t2": "a_t0 m/s²a_n216 m/s²ρ96 mω1.5 rad/s",
+      "t3": "a_t0 m/s²a_n216 m/s²ρ96 mω1.5 rad/s"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3280
+  },
+  {
+    "routeId": "ch2-1-4",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3076745097,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2619889164,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1540831735,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 89748085,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "x492 mv138 m/sMẫuElipthời gian0.00 s",
+      "t1": "x351.19 mv213 m/sMẫuElipthời gian1.54 s",
+      "t2": "x208.44 mv138.59 m/sMẫuElipthời gian3.04 s",
+      "t3": "x328.89 mv211.63 m/sMẫuElipthời gian4.54 s"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3276
+  },
+  {
+    "routeId": "ch2-2-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 5448998,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 8900518,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 938544134,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 3557415837,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "phi0 °omega1.5 rad/sε37 rad/s²thời gian0.00 s",
+      "t1": "phi1.55 °omega1.5 rad/sε37 rad/s²thời gian1.03 s",
+      "t2": "phi3.05 °omega1.5 rad/sε37 rad/s²thời gian2.03 s",
+      "t3": "phi4.55 °omega1.5 rad/sε37 rad/s²thời gian3.03 s"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3333
+  },
+  {
+    "routeId": "ch2-3-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1746121122,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1877025406,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2839591345,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 3301404742,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "omega21 rad/sv0 m/sr11 mω1.5 rad/sthời gian0.00 s",
+      "t1": "omega20.83 rad/sv0 m/sr11 mω1.5 rad/sthời gian0.00 s",
+      "t2": "omega20.83 rad/sv0 m/sr11 mω1.5 rad/sthời gian0.00 s",
+      "t3": "omega20.83 rad/sv0 m/sr11 mω1.5 rad/sthời gian0.00 s"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3285
+  },
+  {
+    "routeId": "ch2-4-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3717885858,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1060150047,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2139684931,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2549402561,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|v_a|100.5 m/s|v_r|56.6 m/s|v_e|67.1 m/sω1.5 rad/sPha0 rad",
+      "t1": "|v_a|10.77 m/s|v_r|40 m/s|v_e|48.02 m/sω1.5 rad/sPha1.53 rad",
+      "t2": "|v_a|64.81 m/s|v_r|40 m/s|v_e|30.14 m/sω1.5 rad/sPha3.03 rad",
+      "t3": "|v_a|50.25 m/s|v_r|40 m/s|v_e|45.15 m/sω1.5 rad/sPha4.56 rad"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3274
+  },
+  {
+    "routeId": "ch2-4-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1788646627,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2692409444,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 4179834330,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 3812201502,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|v_a|55 m/s|v_e|30 m/s|v_r|25 m/sω1.5 rad/sPha0 rad",
+      "t1": "|v_a|55 m/s|v_e|30 m/s|v_r|25.42 m/sω1.5 rad/sPha1.53 rad",
+      "t2": "|v_a|55 m/s|v_e|30 m/s|v_r|37.83 m/sω1.5 rad/sPha3.03 rad",
+      "t3": "|v_a|55 m/s|v_e|30 m/s|v_r|55.56 m/sω1.5 rad/sPha4.54 rad"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3279
+  },
+  {
+    "routeId": "ch2-4-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3060686290,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1644728240,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1401321750,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 372542980,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|v_a|72.1 m/s|v_r|40 m/s|v_e|— m/sω1.5 rad/sQuan hệ vận tốcv_a = v_e + v_r m/s",
+      "t1": "|v_a|100.17 m/s|v_r|33.56 m/s|v_e|80 m/sω1.5 rad/sQuan hệ vận tốcv_a = v_e + v_r m/s",
+      "t2": "|v_a|52.35 m/s|v_r|29.8 m/s|v_e|61.83 m/sω1.5 rad/sQuan hệ vận tốcv_a = v_e + v_r m/s",
+      "t3": "|v_a|13.88 m/s|v_r|54 m/s|v_e|40.26 m/sω1.5 rad/sQuan hệ vận tốcv_a = v_e + v_r m/s"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3278
+  },
+  {
+    "routeId": "ch2-4-4",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2094074464,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 759044526,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1340784047,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2862605168,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|a_c|90 m/s²a_e18 m/s²|v_r|30 m/s",
+      "t1": "|a_c|90 m/s²a_e18 m/s²|v_r|30 m/s",
+      "t2": "|a_c|90 m/s²a_e18 m/s²|v_r|30 m/s",
+      "t3": "|a_c|90 m/s²a_e18 m/s²|v_r|30 m/s"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3283
+  },
+  {
+    "routeId": "ch2-5-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 384976843,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 384976843,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 384976843,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 384976843,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|v_A|46.7 m/s|v_B|245 m/sω1.5 rad/s",
+      "t1": "|v_A|46.69 m/s|v_B|236.52 m/sω1.5 rad/s",
+      "t2": "|v_A|46.69 m/s|v_B|236.52 m/sω1.5 rad/s",
+      "t3": "|v_A|46.69 m/s|v_B|236.52 m/sω1.5 rad/s"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3273
+  },
+  {
+    "routeId": "ch2-5-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2944649982,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2931872,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2931872,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2931872,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "IC_x270 mIC_y245 mω1.5 rad/s",
+      "t1": "IC_x270 mIC_y245 mω1.5 rad/s",
+      "t2": "IC_x270 mIC_y245 mω1.5 rad/s",
+      "t3": "IC_x270 mIC_y245 mω1.5 rad/s"
+    },
+    "uniqueFrames": 2,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3277
+  },
+  {
+    "routeId": "ch2-5-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1240497098,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 546029506,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 546029506,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 546029506,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "|v_A|0 m/s|v_B|3.3 m/sω1.5 rad/sthời gian0.00 s",
+      "t1": "|v_A|0 m/s|v_B|3.3 m/sω1.5 rad/sthời gian1.53 s",
+      "t2": "|v_A|0 m/s|v_B|3.3 m/sω1.5 rad/sthời gian3.03 s",
+      "t3": "|v_A|0 m/s|v_B|3.3 m/sω1.5 rad/sthời gian4.56 s"
+    },
+    "uniqueFrames": 2,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3282
+  },
+  {
+    "routeId": "ch2-7-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2407371120,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1963533898,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1220112516,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1221540662,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "Bước giảiBước hiện tạiKiểm tra—Sai số0 %x(t)5 mv(t)0 m/sω1.5 rad/s",
+      "t1": "Bước giảiBước hiện tạiKiểm tra—Sai số0 %x(t)5.91 mv(t)4.29 m/sω1.5 rad/s",
+      "t2": "Bước giảiBước hiện tạiKiểm tra—Sai số0 %x(t)6.72 mv(t)3.69 m/sω1.5 rad/s",
+      "t3": "Bước giảiBước hiện tạiKiểm tra—Sai số0 %x(t)7.37 mv(t)2.76 m/sω1.5 rad/s"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3296
+  },
+  {
+    "routeId": "ch2-7-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1663119881,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1663119881,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1663119881,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1663119881,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "Sai số0 %Trạng tháiĐúngx05 mx(t)5 m",
+      "t1": "Sai số0 %Trạng tháiĐúngx05 mx(t)4.77 m",
+      "t2": "Sai số0 %Trạng tháiĐúngx05 mx(t)4.54 m",
+      "t3": "Sai số0 %Trạng tháiĐúngx05 mx(t)4.32 m"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3282
+  },
+  {
+    "routeId": "ch3-1-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 730910646,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 730910646,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 730910646,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 730910646,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a10 m/s²v0 m/sF50 N",
+      "t1": "a10 m/s²v10.36 m/sF50 N",
+      "t2": "a10 m/s²v20.53 m/sF50 N",
+      "t3": "a10 m/s²v30.54 m/sF50 N"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3282
+  },
+  {
+    "routeId": "ch3-1-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 683140593,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 683140593,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 683140593,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 683140593,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a2 m/s²v0 m/sF10 Nthời gian0.00 s",
+      "t1": "a2 m/s²v0 m/sF10 Nthời gian1.02 s",
+      "t2": "a2 m/s²v0 m/sF10 Nthời gian2.02 s",
+      "t3": "a2 m/s²v0 m/sF10 Nthời gian3.02 s"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3272
+  },
+  {
+    "routeId": "ch3-2-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2272193811,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2272193811,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2272193811,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2272193811,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a10 m/s²v0 m/sF50 N",
+      "t1": "a10 m/s²v10.52 m/sF50 N",
+      "t2": "a10 m/s²v20.52 m/sF50 N",
+      "t3": "a10 m/s²v30.52 m/sF50 N"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3277
+  },
+  {
+    "routeId": "ch3-2-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1026098992,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2694662764,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3571578524,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 122208568,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a10 m/s²v0 m/sF50 N",
+      "t1": "a10 m/s²v10.4 m/sF50 N",
+      "t2": "a10 m/s²v20.4 m/sF50 N",
+      "t3": "a10 m/s²v30.4 m/sF50 N"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3273
+  },
+  {
+    "routeId": "ch3-2-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1157601123,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1157601123,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1157601123,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1157601123,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a110 m/s²a2-50 m/s²F50 Nthời gian0.00 s",
+      "t1": "a110 m/s²a2-50 m/s²F50 Nthời gian1.02 s",
+      "t2": "a110 m/s²a2-50 m/s²F50 Nthời gian2.04 s",
+      "t3": "a110 m/s²a2-50 m/s²F50 Nthời gian3.04 s"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3276
+  },
+  {
+    "routeId": "ch3-2-5",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1220200066,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1220200066,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1220200066,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1220200066,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a10 m/s²v0 m/sF50 N",
+      "t1": "a10 m/s²v10.28 m/sF50 N",
+      "t2": "a10 m/s²v20.28 m/sF50 N",
+      "t3": "a10 m/s²v30.29 m/sF50 N"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3274
+  },
+  {
+    "routeId": "ch3-3-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 3871688257,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1444949162,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1284170869,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2822474688,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "T0 JV6.4 Jk20 N/m",
+      "t1": "T4.74 JV1.66 Jk20 N/m",
+      "t2": "T4.32 JV2.08 Jk20 N/m",
+      "t3": "T0.2 JV6.2 Jk20 N/m"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3281
+  },
+  {
+    "routeId": "ch3-3-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1231822308,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 4129504933,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 4118978037,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2776287418,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "x10.45 mx2-0.25 mk20 N/m",
+      "t1": "x10.11 mx20.61 mk20 N/m",
+      "t2": "x10.28 mx20.18 mk20 N/m",
+      "t3": "x10.34 mx20.02 mk20 N/m"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3286
+  },
+  {
+    "routeId": "ch3-4-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 4039916744,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 4039916744,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 4039916744,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 4039916744,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a10 m/s²v0 m/sF50 N",
+      "t1": "a10 m/s²v10.35 m/sF50 N",
+      "t2": "a10 m/s²v20.35 m/sF50 N",
+      "t3": "a10 m/s²v30.35 m/sF50 N"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3287
+  },
+  {
+    "routeId": "ch3-4-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 950522518,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1276690485,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3524399503,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2036868683,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a10 m/s²v0 m/sF50 N",
+      "t1": "a-1.22 m/s²v0 m/sF-6.1 N",
+      "t2": "a-2.13 m/s²v0 m/sF-10.6 N",
+      "t3": "a-2.5 m/s²v0 m/sF-12.5 N"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3281
+  },
+  {
+    "routeId": "ch3-5-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 720466963,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 720466963,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 720466963,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 720466963,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "a_CM11.11 m/s²x_C211 mm11 kgm21 kgthời gian0.00 s",
+      "t1": "a_CM11.11 m/s²x_C211 mm11 kgm21 kgthời gian1.02 s",
+      "t2": "a_CM11.11 m/s²x_C211 mm11 kgm21 kgthời gian2.02 s",
+      "t3": "a_CM11.11 m/s²x_C211 mm11 kgm21 kgthời gian3.04 s"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3277
+  },
+  {
+    "routeId": "ch3-5-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2830485022,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2830485022,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2830485022,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2830485022,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "p trước12 kg·m/sΔp20 kg·m/sJ20 N·sthời gian0.00 s",
+      "t1": "p trước12 kg·m/sΔp20 kg·m/sJ20 N·sthời gian1.02 s",
+      "t2": "p trước12 kg·m/sΔp20 kg·m/sJ20 N·sthời gian2.04 s",
+      "t3": "p trước12 kg·m/sΔp20 kg·m/sJ20 N·sthời gian3.04 s"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3291
+  },
+  {
+    "routeId": "ch3-5-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 224821406,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 430160454,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 4218491975,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 799379349,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "L2 kg·m²/sω2 rad/sI1 kg·m²",
+      "t1": "L2 kg·m²/sω2 rad/sI1 kg·m²",
+      "t2": "L2 kg·m²/sω2 rad/sI1 kg·m²",
+      "t3": "L2 kg·m²/sω2 rad/sI1 kg·m²"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3289
+  },
+  {
+    "routeId": "ch3-5-4",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2822538622,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1305832250,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 3932458792,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2660202278,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "T22.5 JV0 Jv03 m/s",
+      "t1": "T17.72 JV4.78 Jv03 m/s",
+      "t2": "T13.99 JV8.51 Jv03 m/s",
+      "t3": "T1.2 JV21.3 Jv03 m/s"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3284
+  },
+  {
+    "routeId": "ch3-6-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 267938485,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2568767565,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 908022408,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 355169474,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "p trước(5; 0) kg·m/sp sau(5; 0) kg·m/se1",
+      "t1": "p trước(-11; 0) kg·m/sp sau(-11; 0) kg·m/se1",
+      "t2": "p trước(11; 0) kg·m/sp sau(11; 0) kg·m/se1",
+      "t3": "p trước(-5; 0) kg·m/sp sau(-5; 0) kg·m/se1"
+    },
+    "uniqueFrames": 4,
+    "animEvolved": true,
+    "errors": [],
+    "elapsedMs": 3282
+  },
+  {
+    "routeId": "ch3-6-3",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2253309424,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2253309424,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2253309424,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2253309424,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "p trước2 kg·m/sp sau2 kg·m/se1thời gian0.00 s",
+      "t1": "p trước2 kg·m/sp sau2 kg·m/se1thời gian1.03 s",
+      "t2": "p trước2 kg·m/sp sau2 kg·m/se1thời gian2.03 s",
+      "t3": "p trước2 kg·m/sp sau2 kg·m/se1thời gian3.03 s"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3296
+  },
+  {
+    "routeId": "ch3-7-1",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 1138272890,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 1138272890,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 1138272890,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 1138272890,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "định lýĐịnh lý khối tâm kg·m²/sF50 NBài toánBài mẫuthời gian0.00 s",
+      "t1": "định lýĐịnh lý khối tâm kg·m²/sF50 NBài toánBài mẫuthời gian1.02 s",
+      "t2": "định lýĐịnh lý khối tâm kg·m²/sF50 NBài toánBài mẫuthời gian2.02 s",
+      "t3": "định lýĐịnh lý khối tâm kg·m²/sF50 NBài toánBài mẫuthời gian3.04 s"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3301
+  },
+  {
+    "routeId": "ch3-7-2",
+    "mounted": true,
+    "canvasSize": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "hasReadout": true,
+    "hasPlay": true,
+    "autoplayed": false,
+    "frames": {
+      "t0": {
+        "hash": 2970140962,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t1": {
+        "hash": 2970140962,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t2": {
+        "hash": 2970140962,
+        "nonZero": 225,
+        "sampled": 225
+      },
+      "t3": {
+        "hash": 2970140962,
+        "nonZero": 225,
+        "sampled": 225
+      }
+    },
+    "readouts": {
+      "t0": "điểm100 %r10 mĐộ nhiễu0 %thời gian0.00 s",
+      "t1": "điểm100 %r10 mĐộ nhiễu0 %thời gian1.02 s",
+      "t2": "điểm100 %r10 mĐộ nhiễu0 %thời gian2.02 s",
+      "t3": "điểm100 %r10 mĐộ nhiễu0 %thời gian3.02 s"
+    },
+    "uniqueFrames": 1,
+    "animEvolved": false,
+    "errors": [],
+    "elapsedMs": 3292
+  }
+]

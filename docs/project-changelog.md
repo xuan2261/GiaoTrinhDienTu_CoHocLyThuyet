@@ -1,5 +1,64 @@
 # Project Changelog
 
+## 2026-05-21 — Phase 09 Concept Diagram Cleanup + Animation Evolution Harness
+
+### Added
+- 58-route canvas evolution sweep: `tests/sim-canvas-evolution.spec.js`, route fixtures, baseline JSON, and drift checker wired through `test:sim:browser:evolution`.
+- Tier-2 visual evolution baseline fallback: `tests/sim-canvas-pixelmatch.spec.js`, `tests/sim-canvas-pixelmatch-config.js`, `tools/update-visual-evolution-baseline.js`, and JSON baseline under `qa-verification/visual-evolution-baseline/`.
+- Static-route Play suppression regression: concept diagrams assert no `[data-sim-play]`, no orphan `aria-pressed`, exact static/animated canvas `aria-label`, and silent `tickWithoutButton` continues after drag.
+- Engine-time baseline contract: animated routes must sample by `state._t` or `lab.anim.getAnimTime()`, never silent wall-time fallback.
+- Renderer taxonomy reference in `docs/code-standards.md` with concept-diagram, animation-scene, and interactive-static recipes.
+
+### Changed
+- Concept diagrams now use `scene.static`; `tickWithoutButton` keeps selected static readouts ticking without showing Play.
+- `ch2-5-2` and `ch2-5-3` are classified as static-concept instant-state routes.
+- `ch3-7-2` defaults `residualScale` to `1`, so residual bars animate on Play by default.
+- Canvas evolution harness reads engine time from scoped `.sim-lab[data-engine-time]` instead of a runtime global.
+
+### Fixed
+- `ch3-2-1` inertia renderer consumes engine-populated time/velocity and visibly evolves.
+- Static canvas `aria-label` is restored after interaction layer binding.
+- Static `tickWithoutButton` routes no longer get paused permanently by handle drag.
+- Browser interaction gate regressions fixed: `ch1-1-3`/`ch1-1-8` expose point-coordinate readouts for drag audits, `ch1-3-3` selector changes hinge reaction mode, and residual checker assertions follow formatted score units.
+- Removed `window.__currentLab` runtime exposure.
+- Phase 06 preview-pause autoplay branch removed; only approved `ch3-3-1` autoplay remains.
+
+### Verified
+- `npm run test:sim:unit`: PASS.
+- `python tools\audit_simulation_quality.py --all --max-js-lines 220`: PASS.
+- `npm run test:sim:browser`: PASS, 197/197.
+- `npm run test:sim:visual-quality`: PASS, 4/4.
+- `npx playwright test tests/sim-canvas-pixelmatch.spec.js`: PASS, 24 animated routes.
+- `npm run test:sim:browser:evolution`: PASS, 58 routes, 0 drift.
+- `npx playwright test tests/phase-09-static-routes-no-play-button.spec.js`: PASS, 9/9.
+
+## 2026-05-20 — Simulation Review Priority Fixes Phase 02
+
+### Fixed
+- `ch1-3-2`: cable angle derive now uses slider-backed `state.alpha` when present, removing math/readout drift in the Phase 02 invariant.
+- `ch1-3-6`: fixed-end moment now uses physical arm length in metres for `M_A = R · d_m`; readout scale adjusted for this route.
+- `ch1-5-3`: friction-cone state now follows `tan(alpha) <= mu`, so `alpha=19°`, `mu=0.46` stays in hold/self-locking state.
+- `ch3-5-2`: impulse-momentum route seeds `m=2`, `J=20`, `pBefore=12`, `pAfter=32`, and `deltaP=20` at mount and reset before first tick.
+
+### Verified
+- `node tests/sim-review-2026-05-19/physics-invariants.test.js`: PASS.
+- `npm run test:sim:unit`: PASS.
+- `npm run test:sim:semantic`: PASS.
+- Visual refresh capture: 58/58 OK via `npm run test:sim:visual-quality:update` after local static server start.
+
+### Pending
+- Aggregate `npm run test:sim:review-2026-05-19` still has 6 RED suites owned by later phases: coordinate cleanup, empty-panel autoplay metadata, label collision, readout units, and route redesign checks.
+
+## 2026-05-20 — Simulation Review Priority Fixes Phase 01
+
+### Added
+- RED harness for simulation review priority fixes: physics invariants, slider unit display, readout unit audit, empty panel hint, label collision detector, coordinate cleanup, DeCuong shell overlay, and route redesign checks.
+- `test:sim:review-2026-05-19` aggregate runner and route-targeted visual baseline update workflow.
+
+### Changed
+- `tools/capture-all-58-simulations-screenshots.js` accepts optional `--routes` filtering for phase-scoped visual refresh.
+- Plan `plans/260519-2142-simulation-review-2026-05-19-priority-fixes/` marked Phase 01 completed with RED baseline report.
+
 ## 2026-05-19 — Simulation Phase 08 Residual: Trail Buffer, Spring Autoplay, Theme Parity (RC2 + RC6)
 
 ### Added

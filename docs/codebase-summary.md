@@ -1,6 +1,6 @@
 # Codebase Summary
 
-Snapshot này dựa trên scout trực tiếp runtime, toolchain, docs hiện có, và repomix refresh ngày 2026-05-13.
+Snapshot này dựa trên scout trực tiếp runtime, toolchain, docs hiện có, và QA metadata ngày 2026-05-20.
 
 ## Snapshot
 
@@ -10,12 +10,13 @@ Snapshot này dựa trên scout trực tiếp runtime, toolchain, docs hiện c�
 | Main subject | Cơ Học Lý Thuyết |
 | Input chuẩn | `CoHocLyThuyet_Full_New.docx` |
 | Runtime/source files chính | `index.html`, `js/`, `chapters/`, `data/`, `tools/` |
-| QA harness | `package.json` dev-only scripts + current simulation QA gates: unit, quality, audit, disposal, semantic, visual-quality, browser, release, scene-identity, renderer-contract, runtime smoke, correctness, correctness:browser |
+| QA harness | `package.json` dev-only scripts + current simulation QA gates: unit, quality, audit, disposal, semantic, visual-quality, browser, browser:evolution, release, scene-identity, renderer-contract, runtime smoke, correctness, correctness:browser, review aggregate, visual/evolution baseline update |
 | Simulation route contracts | `js/sim-scene-registry.js`, `js/sim-route-renderer-registry.js`, `js/sim-route-behavior-registry.js`, 58 route renderers under `js/sims/ch*/` |
 | Simulation files | 65 active JS files scanned by `audit_simulation_quality.py`; Ch1 route files stay under 220 lines |
 | Shared-first simulation UX | `.sim-lab` shell with 760×440 canvas, chapter accents, 44px touch controls, semantic readout cards, wide right-inspector stack on desktop/tablet, stacked mobile fallback, DeCuong render helpers, and ARIA-backed hint/status/canvas wiring |
+| Static vs animated simulations | Concept routes use `scene.static` to suppress Play; `tickWithoutButton` permits readout ticks without Play. Canvas labels are exact static/animated strings; engine time is exposed through scoped `.sim-lab[data-engine-time]`, not `window.__currentLab`. Animated routes must evolve under the engine-time canvas sweep and the no-dependency tier-2 visual baseline; renderer type rules live in `docs/code-standards.md` → `Sim renderer types`. |
 | Promax pilot scope | 6 routes keep hidden invariant metadata for QA; extra diagnostics, formula readouts, mini graph summaries, and challenge controls are no longer shown to learners |
-| DeCuong rebuild progress | Phase 00 through Phase 12 complete; 58/58 rebuilt routes pass final release gate, including final review fixes for `ch2-1-3`, `ch2-5-3`, `ch2-7-2`, localized CH2 checker labels, CH2 exercise/checkers `ch2-7-1`/`ch2-7-2`, and CH3 Newton/ODE, theorem/collision, and exercise/checker routes; final browser QA is 178/178 and visual-quality is 4/4 |
+| DeCuong rebuild progress | Phase 00 through Phase 12 complete; 58/58 rebuilt routes pass final release gate, including final review fixes for `ch2-1-3`, `ch2-5-3`, `ch2-7-2`, localized CH2 checker labels, CH2 exercise/checkers `ch2-7-1`/`ch2-7-2`, and CH3 Newton/ODE, theorem/collision, and exercise/checker routes; current QA scripts include `test:sim:review-2026-05-19` and `test:sim:visual-quality:update` |
 | Generated/runtime assets lớn | `images/`, `equation-review.html`, `js/pages.js` |
 | Large generated artifacts | `equation-review.html`, `js/pages.js`, `tools/equation_report.json` |
 
@@ -37,7 +38,7 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | Đường dẫn | Vai trò | Ghi chú |
 |---|---|---|
 | `index.html` | Shell ứng dụng | Nạp KaTeX local trước, CDN sau |
-| `package.json` | Dev-only QA scripts | `test:sim:unit`, `test:sim:quality`, `test:sim:semantic`, `test:sim:renderer-contract`, `test:sim:browser`, `test:sim:release`, `test:sim:browser:install`, `test:sim:browser:baseline`, `test:sim:browser:route-mount`, `test:sim:correctness`, `test:sim:correctness:browser` |
+| `package.json` | Dev-only QA scripts | `test:sim:unit`, `test:sim:quality`, `test:sim:semantic`, `test:sim:renderer-contract`, `test:sim:browser`, `test:sim:release`, `test:sim:browser:install`, `test:sim:browser:baseline`, `test:sim:browser:route-mount`, `test:sim:correctness`, `test:sim:correctness:browser`, `test:sim:review-2026-05-19`, `test:sim:visual-quality:update` |
 | `css/style.css` | Theme và layout | Dark navy + gold, có light mode |
 | `js/app.js` | UI shell | Breadcrumb, search, theme, font zoom, progress bar |
 | `js/loader.js` | Router và fragment loader | Có fallback bundle offline rồi mới fetch |
@@ -107,6 +108,8 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `tools/merge_equation_mapping.py` | Merge reviewed mapping vào publish file |
 | `tools/test_docx_equation_pipeline.py` | Regression test cho mojibake MathML, generated output sạch, và inline spacing |
 | `tools/test_simulation_qa_tools.py` | Regression test cho simulation QA tools và browser baseline wiring |
+| `tests/sim-canvas-evolution.spec.js` | 58-route engine-time canvas hash sweep; static buckets stay bounded, animated buckets must show `[3,4]` unique frames |
+| `tools/check-canvas-evolution-baseline.js` | Baseline drift gate for `qa-verification/animation-sweep/per-route-animation-sweep-baseline.json`; rejects animated wall-time fallback |
 | `tests/phase-09-12-tdd.test.js` | TDD coverage cho CH2 exercise checker và CH3 dynamics/exercise invariants |
 | `npm run test:sim:scene-identity` | Browser scene identity gate: `tools/smoke_simulation_scene_catalog.py --strict --require-routes 58` + Playwright `@scene-identity` |
 | `npm run test:sim:renderer-contract` | Static + browser gate cho 58 dedicated renderers, 58 behavior ids, và runtime structural identity |

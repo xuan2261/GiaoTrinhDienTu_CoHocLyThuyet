@@ -1,0 +1,5188 @@
+[
+  {
+    "id": "ch1-1-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 3,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": true,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 4,
+    "readoutInitial": {
+      "r1": "|F|",
+      "r2": "260 N",
+      "r4": "α",
+      "r5": "32 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "|F|",
+      "r2": "260 N",
+      "r4": "α",
+      "r5": "32 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "|F|",
+      "r2": "195 N",
+      "r4": "α",
+      "r5": "32 °"
+    },
+    "readoutAfterPreset": {
+      "r1": "|F|",
+      "r2": "200 N",
+      "r4": "α",
+      "r5": "0 °"
+    },
+    "readoutAfterReset": {
+      "r1": "|F|",
+      "r2": "260 N",
+      "r4": "α",
+      "r5": "32 °"
+    },
+    "hashesIdle": [
+      "446de99f",
+      "446de99f",
+      "446de99f",
+      "446de99f",
+      "446de99f",
+      "446de99f"
+    ],
+    "layout": {
+      "shellH": 1577,
+      "contentScroll": 1577,
+      "contentClient": 1577,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3650
+  },
+  {
+    "id": "ch1-1-4",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "F",
+      "r2": "110 N",
+      "r4": "d",
+      "r5": "3 m",
+      "r7": "M_O",
+      "r8": "330 N.m"
+    },
+    "readoutAfterDrag": {
+      "r1": "F",
+      "r2": "110 N",
+      "r4": "d",
+      "r5": "3 m",
+      "r7": "M_O",
+      "r8": "330 N.m"
+    },
+    "readoutAfterSlider": {
+      "r1": "F",
+      "r2": "135 N",
+      "r4": "d",
+      "r5": "3 m",
+      "r7": "M_O",
+      "r8": "405 N.m"
+    },
+    "readoutAfterReset": {
+      "r1": "F",
+      "r2": "110 N",
+      "r4": "d",
+      "r5": "3 m",
+      "r7": "M_O",
+      "r8": "330 N.m"
+    },
+    "hashesIdle": [
+      "fcc570f4",
+      "fcc570f4",
+      "fcc570f4",
+      "fcc570f4",
+      "fcc570f4",
+      "fcc570f4"
+    ],
+    "layout": {
+      "shellH": 2625,
+      "contentScroll": 2625,
+      "contentClient": 2625,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3401
+  },
+  {
+    "id": "ch1-1-5",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 1,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "|R|",
+      "r2": "125 N",
+      "r4": "M_O",
+      "r5": "273.4 N.m",
+      "r7": "Chế độ",
+      "r8": "Thu gọn"
+    },
+    "readoutAfterDrag": {
+      "r1": "|R|",
+      "r2": "125 N",
+      "r4": "M_O",
+      "r5": "273.4 N.m",
+      "r7": "Chế độ",
+      "r8": "Thu gọn"
+    },
+    "readoutAfterSlider": {
+      "r1": "|R|",
+      "r2": "140 N",
+      "r4": "M_O",
+      "r5": "306.2 N.m",
+      "r7": "Chế độ",
+      "r8": "Thu gọn"
+    },
+    "readoutAfterReset": {
+      "r1": "|R|",
+      "r2": "125 N",
+      "r4": "M_O",
+      "r5": "273.4 N.m",
+      "r7": "Chế độ",
+      "r8": "Thu gọn"
+    },
+    "hashesIdle": [
+      "b08337e2",
+      "b08337e2",
+      "b08337e2",
+      "b08337e2",
+      "b08337e2",
+      "b08337e2"
+    ],
+    "layout": {
+      "shellH": 1534,
+      "contentScroll": 1534,
+      "contentClient": 1534,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3401
+  },
+  {
+    "id": "ch1-1-6",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "F",
+      "r2": "90 N",
+      "r4": "d",
+      "r5": "3 m",
+      "r7": "M",
+      "r8": "270 N.m"
+    },
+    "readoutAfterDrag": {
+      "r1": "F",
+      "r2": "90 N",
+      "r4": "d",
+      "r5": "3 m",
+      "r7": "M",
+      "r8": "270 N.m"
+    },
+    "readoutAfterSlider": {
+      "r1": "F",
+      "r2": "115 N",
+      "r4": "d",
+      "r5": "3 m",
+      "r7": "M",
+      "r8": "345 N.m"
+    },
+    "readoutAfterReset": {
+      "r1": "F",
+      "r2": "90 N",
+      "r4": "d",
+      "r5": "3 m",
+      "r7": "M",
+      "r8": "270 N.m"
+    },
+    "hashesIdle": [
+      "b61fd473",
+      "b61fd473",
+      "b61fd473",
+      "b61fd473",
+      "b61fd473",
+      "b61fd473"
+    ],
+    "layout": {
+      "shellH": 1731,
+      "contentScroll": 1731,
+      "contentClient": 1731,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3402
+  },
+  {
+    "id": "ch1-1-8",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 0,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": false,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "Loại",
+      "r2": "Tựa trơn",
+      "r4": "Khóa",
+      "r5": "khóa pháp tuyến",
+      "r7": "Phản lực",
+      "r8": "N N"
+    },
+    "readoutAfterDrag": {
+      "r1": "Loại",
+      "r2": "Tựa trơn",
+      "r4": "Khóa",
+      "r5": "khóa pháp tuyến",
+      "r7": "Phản lực",
+      "r8": "N N"
+    },
+    "readoutAfterReset": {
+      "r1": "Loại",
+      "r2": "Tựa trơn",
+      "r4": "Khóa",
+      "r5": "khóa pháp tuyến",
+      "r7": "Phản lực",
+      "r8": "N N"
+    },
+    "hashesIdle": [
+      "3d3dbcbe",
+      "3d3dbcbe",
+      "3d3dbcbe",
+      "3d3dbcbe",
+      "3d3dbcbe",
+      "3d3dbcbe"
+    ],
+    "layout": {
+      "shellH": 1622,
+      "contentScroll": 1622,
+      "contentClient": 1622,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3095
+  },
+  {
+    "id": "ch1-2-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 3,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": true,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "|F|",
+      "r2": "105 N",
+      "r4": "Lệch",
+      "r5": "0 m",
+      "r7": "Cân bằng",
+      "r8": "đúng",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "|F|",
+      "r2": "105 N",
+      "r4": "Lệch",
+      "r5": "0 m",
+      "r7": "Cân bằng",
+      "r8": "đúng",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "|F|",
+      "r2": "130 N",
+      "r4": "Lệch",
+      "r5": "0 m",
+      "r7": "Cân bằng",
+      "r8": "đúng",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterPreset": {
+      "r1": "|F|",
+      "r2": "130 N",
+      "r4": "Lệch",
+      "r5": "0 m",
+      "r7": "Cân bằng",
+      "r8": "đúng",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterReset": {
+      "r1": "|F|",
+      "r2": "105 N",
+      "r4": "Lệch",
+      "r5": "0 m",
+      "r7": "Cân bằng",
+      "r8": "đúng",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "hashesIdle": [
+      "25e26bc5",
+      "25e26bc5",
+      "25e26bc5",
+      "25e26bc5",
+      "25e26bc5",
+      "25e26bc5"
+    ],
+    "layout": {
+      "shellH": 1458,
+      "contentScroll": 1458,
+      "contentClient": 1458,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3652
+  },
+  {
+    "id": "ch1-2-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 3,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": true,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "|F₁|",
+      "r2": "192.1 N",
+      "r4": "|F₂|",
+      "r5": "180 N",
+      "r7": "|R|",
+      "r8": "351.1 N",
+      "r10": "α",
+      "r11": "39 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "|F₁|",
+      "r2": "192.1 N",
+      "r4": "|F₂|",
+      "r5": "180 N",
+      "r7": "|R|",
+      "r8": "351.1 N",
+      "r10": "α",
+      "r11": "39 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "|F₁|",
+      "r2": "200 N",
+      "r4": "|F₂|",
+      "r5": "180 N",
+      "r7": "|R|",
+      "r8": "358.6 N",
+      "r10": "α",
+      "r11": "39 °"
+    },
+    "readoutAfterPreset": {
+      "r1": "|F₁|",
+      "r2": "180 N",
+      "r4": "|F₂|",
+      "r5": "180 N",
+      "r7": "|R|",
+      "r8": "347.7 N",
+      "r10": "α",
+      "r11": "30 °"
+    },
+    "readoutAfterReset": {
+      "r1": "|F₁|",
+      "r2": "192.1 N",
+      "r4": "|F₂|",
+      "r5": "180 N",
+      "r7": "|R|",
+      "r8": "351.1 N",
+      "r10": "α",
+      "r11": "39 °"
+    },
+    "hashesIdle": [
+      "8359be0b",
+      "8359be0b",
+      "8359be0b",
+      "8359be0b",
+      "8359be0b",
+      "8359be0b"
+    ],
+    "layout": {
+      "shellH": 1936,
+      "contentScroll": 1936,
+      "contentClient": 1936,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3649
+  },
+  {
+    "id": "ch1-2-6",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "|F|",
+      "r2": "90 N",
+      "r4": "|R|",
+      "r5": "150 N",
+      "r7": "M_O",
+      "r8": "0 N.m",
+      "r10": "|R| liên kết",
+      "r11": "120 N"
+    },
+    "readoutAfterDrag": {
+      "r1": "|F|",
+      "r2": "90 N",
+      "r4": "|R|",
+      "r5": "150 N",
+      "r7": "M_O",
+      "r8": "0 N.m",
+      "r10": "|R| liên kết",
+      "r11": "120 N"
+    },
+    "readoutAfterSlider": {
+      "r1": "|F|",
+      "r2": "120 N",
+      "r4": "|R|",
+      "r5": "169.7 N",
+      "r7": "M_O",
+      "r8": "0 N.m",
+      "r10": "|R| liên kết",
+      "r11": "120 N"
+    },
+    "readoutAfterReset": {
+      "r1": "|F|",
+      "r2": "90 N",
+      "r4": "|R|",
+      "r5": "150 N",
+      "r7": "M_O",
+      "r8": "0 N.m",
+      "r10": "|R| liên kết",
+      "r11": "120 N"
+    },
+    "hashesIdle": [
+      "c39c4d6b",
+      "c39c4d6b",
+      "c39c4d6b",
+      "c39c4d6b",
+      "c39c4d6b",
+      "c39c4d6b"
+    ],
+    "layout": {
+      "shellH": 1904,
+      "contentScroll": 1904,
+      "contentClient": 1904,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3396
+  },
+  {
+    "id": "ch1-3-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "N",
+      "r2": "76 N",
+      "r4": "Phương",
+      "r5": "pháp tuyến",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "N",
+      "r2": "76 N",
+      "r4": "Phương",
+      "r5": "pháp tuyến",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "N",
+      "r2": "125 N",
+      "r4": "Phương",
+      "r5": "pháp tuyến",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterReset": {
+      "r1": "N",
+      "r2": "76 N",
+      "r4": "Phương",
+      "r5": "pháp tuyến",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "hashesIdle": [
+      "89381177",
+      "89381177",
+      "89381177",
+      "89381177",
+      "89381177",
+      "89381177"
+    ],
+    "layout": {
+      "shellH": 1396,
+      "contentScroll": 1396,
+      "contentClient": 1396,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3399
+  },
+  {
+    "id": "ch1-3-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "Lực căng",
+      "r2": "81 N",
+      "r4": "Dây",
+      "r5": "dọc dây m",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "28 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "Lực căng",
+      "r2": "81 N",
+      "r4": "Dây",
+      "r5": "dọc dây m",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "28 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "Lực căng",
+      "r2": "125 N",
+      "r4": "Dây",
+      "r5": "dọc dây m",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "28 °"
+    },
+    "readoutAfterReset": {
+      "r1": "Lực căng",
+      "r2": "81 N",
+      "r4": "Dây",
+      "r5": "dọc dây m",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "28 °"
+    },
+    "hashesIdle": [
+      "7dba090d",
+      "7dba090d",
+      "7dba090d",
+      "7dba090d",
+      "7dba090d",
+      "7dba090d"
+    ],
+    "layout": {
+      "shellH": 1394,
+      "contentScroll": 1394,
+      "contentClient": 1394,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3404
+  },
+  {
+    "id": "ch1-3-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "Rx/Ry",
+      "r2": "85.6 N",
+      "r4": "Loại liên kết",
+      "r5": "Liên kết đã chọn",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "Rx/Ry",
+      "r2": "85.6 N",
+      "r4": "Loại liên kết",
+      "r5": "Liên kết đã chọn",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "Rx/Ry",
+      "r2": "124.5 N",
+      "r4": "Loại liên kết",
+      "r5": "Liên kết đã chọn",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterReset": {
+      "r1": "Rx/Ry",
+      "r2": "85.6 N",
+      "r4": "Loại liên kết",
+      "r5": "Liên kết đã chọn",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "hashesIdle": [
+      "e51e9371",
+      "e51e9371",
+      "e51e9371",
+      "e51e9371",
+      "e51e9371",
+      "e51e9371"
+    ],
+    "layout": {
+      "shellH": 1475,
+      "contentScroll": 1475,
+      "contentClient": 1475,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3397
+  },
+  {
+    "id": "ch1-3-4",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "R_A",
+      "r2": "66.5 N",
+      "r4": "R_B",
+      "r5": "66.5 N",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "R_A",
+      "r2": "66.5 N",
+      "r4": "R_B",
+      "r5": "66.5 N",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "R_A",
+      "r2": "72.5 N",
+      "r4": "R_B",
+      "r5": "72.5 N",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterReset": {
+      "r1": "R_A",
+      "r2": "66.5 N",
+      "r4": "R_B",
+      "r5": "66.5 N",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "hashesIdle": [
+      "a505923f",
+      "a505923f",
+      "a505923f",
+      "a505923f",
+      "a505923f",
+      "a505923f"
+    ],
+    "layout": {
+      "shellH": 1320,
+      "contentScroll": 1320,
+      "contentClient": 1320,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3398
+  },
+  {
+    "id": "ch1-3-6",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "MA",
+      "r2": "96 N.m",
+      "r4": "Rx/Ry",
+      "r5": "1 N",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "MA",
+      "r2": "96 N.m",
+      "r4": "Rx/Ry",
+      "r5": "1 N",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "MA",
+      "r2": "125 N.m",
+      "r4": "Rx/Ry",
+      "r5": "1 N",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterReset": {
+      "r1": "MA",
+      "r2": "96 N.m",
+      "r4": "Rx/Ry",
+      "r5": "1 N",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "hashesIdle": [
+      "4d14f4c3",
+      "4d14f4c3",
+      "4d14f4c3",
+      "4d14f4c3",
+      "4d14f4c3",
+      "4d14f4c3"
+    ],
+    "layout": {
+      "shellH": 1666,
+      "contentScroll": 1666,
+      "contentClient": 1666,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3401
+  },
+  {
+    "id": "ch1-3-7",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "N dọc trục",
+      "r2": "101 N",
+      "r4": "Đường trục",
+      "r5": "0 m",
+      "r7": "chế độ",
+      "r8": "Chuẩn"
+    },
+    "readoutAfterDrag": {
+      "r1": "N dọc trục",
+      "r2": "101 N",
+      "r4": "Đường trục",
+      "r5": "0 m",
+      "r7": "chế độ",
+      "r8": "Chuẩn"
+    },
+    "readoutAfterSlider": {
+      "r1": "N dọc trục",
+      "r2": "125 N",
+      "r4": "Đường trục",
+      "r5": "0 m",
+      "r7": "chế độ",
+      "r8": "Chuẩn"
+    },
+    "readoutAfterReset": {
+      "r1": "N dọc trục",
+      "r2": "101 N",
+      "r4": "Đường trục",
+      "r5": "0 m",
+      "r7": "chế độ",
+      "r8": "Chuẩn"
+    },
+    "hashesIdle": [
+      "c434fe1e",
+      "c434fe1e",
+      "c434fe1e",
+      "c434fe1e",
+      "c434fe1e",
+      "c434fe1e"
+    ],
+    "layout": {
+      "shellH": 1327,
+      "contentScroll": 1327,
+      "contentClient": 1327,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3395
+  },
+  {
+    "id": "ch1-4-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 10,
+    "readoutInitial": {
+      "r1": "Rxyz",
+      "r2": "200 N",
+      "r4": "Hình chiếu",
+      "r5": "134 m",
+      "r7": "|R| 3D",
+      "r8": "106 N",
+      "r10": "chế độ",
+      "r11": "Chuẩn",
+      "r13": "α",
+      "r14": "0 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "Rxyz",
+      "r2": "200 N",
+      "r4": "Hình chiếu",
+      "r5": "134 m",
+      "r7": "|R| 3D",
+      "r8": "106 N",
+      "r10": "chế độ",
+      "r11": "Chuẩn",
+      "r13": "α",
+      "r14": "0 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "Rxyz",
+      "r2": "200 N",
+      "r4": "Hình chiếu",
+      "r5": "134 m",
+      "r7": "|R| 3D",
+      "r8": "125 N",
+      "r10": "chế độ",
+      "r11": "Chuẩn",
+      "r13": "α",
+      "r14": "0 °"
+    },
+    "readoutAfterReset": {
+      "r1": "Rxyz",
+      "r2": "200 N",
+      "r4": "Hình chiếu",
+      "r5": "134 m",
+      "r7": "|R| 3D",
+      "r8": "106 N",
+      "r10": "chế độ",
+      "r11": "Chuẩn",
+      "r13": "α",
+      "r14": "0 °"
+    },
+    "hashesIdle": [
+      "fe093dcc",
+      "fe093dcc",
+      "fe093dcc",
+      "fe093dcc",
+      "fe093dcc",
+      "fe093dcc"
+    ],
+    "layout": {
+      "shellH": 2452,
+      "contentScroll": 2452,
+      "contentClient": 2452,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3402
+  },
+  {
+    "id": "ch1-4-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "M_axis",
+      "r2": "1.3 N.m",
+      "r4": "MO",
+      "r5": "0 °",
+      "r7": "chế độ",
+      "r8": "Chuẩn"
+    },
+    "readoutAfterDrag": {
+      "r1": "M_axis",
+      "r2": "1.3 N.m",
+      "r4": "MO",
+      "r5": "0 °",
+      "r7": "chế độ",
+      "r8": "Chuẩn"
+    },
+    "readoutAfterSlider": {
+      "r1": "M_axis",
+      "r2": "1.5 N.m",
+      "r4": "MO",
+      "r5": "0 °",
+      "r7": "chế độ",
+      "r8": "Chuẩn"
+    },
+    "readoutAfterReset": {
+      "r1": "M_axis",
+      "r2": "1.3 N.m",
+      "r4": "MO",
+      "r5": "0 °",
+      "r7": "chế độ",
+      "r8": "Chuẩn"
+    },
+    "hashesIdle": [
+      "aa16d418",
+      "aa16d418",
+      "aa16d418",
+      "aa16d418",
+      "aa16d418",
+      "aa16d418"
+    ],
+    "layout": {
+      "shellH": 2850,
+      "contentScroll": 2850,
+      "contentClient": 2850,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3405
+  },
+  {
+    "id": "ch1-4-4",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "ΣF",
+      "r2": "116 N",
+      "r4": "ΣM",
+      "r5": "152 N·m",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterDrag": {
+      "r1": "ΣF",
+      "r2": "116 N",
+      "r4": "ΣM",
+      "r5": "152 N·m",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterSlider": {
+      "r1": "ΣF",
+      "r2": "125 N",
+      "r4": "ΣM",
+      "r5": "152 N·m",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "readoutAfterReset": {
+      "r1": "ΣF",
+      "r2": "116 N",
+      "r4": "ΣM",
+      "r5": "152 N·m",
+      "r7": "chế độ",
+      "r8": "Chuẩn",
+      "r10": "α",
+      "r11": "0 °"
+    },
+    "hashesIdle": [
+      "2b4d83fb",
+      "2b4d83fb",
+      "2b4d83fb",
+      "2b4d83fb",
+      "2b4d83fb",
+      "2b4d83fb"
+    ],
+    "layout": {
+      "shellH": 1649,
+      "contentScroll": 1649,
+      "contentClient": 1649,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3400
+  },
+  {
+    "id": "ch1-5-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "N",
+      "r2": "140 N",
+      "r4": "Fms",
+      "r5": "88 N",
+      "r7": "|R|",
+      "r8": "165.4 N",
+      "r10": "μ",
+      "r11": "0.38"
+    },
+    "readoutAfterDrag": {
+      "r1": "N",
+      "r2": "140 N",
+      "r4": "Fms",
+      "r5": "88 N",
+      "r7": "|R|",
+      "r8": "165.4 N",
+      "r10": "μ",
+      "r11": "0.38"
+    },
+    "readoutAfterSlider": {
+      "r1": "N",
+      "r2": "170 N",
+      "r4": "Fms",
+      "r5": "88 N",
+      "r7": "|R|",
+      "r8": "191.4 N",
+      "r10": "μ",
+      "r11": "0.38"
+    },
+    "readoutAfterReset": {
+      "r1": "N",
+      "r2": "140 N",
+      "r4": "Fms",
+      "r5": "88 N",
+      "r7": "|R|",
+      "r8": "165.4 N",
+      "r10": "μ",
+      "r11": "0.38"
+    },
+    "hashesIdle": [
+      "f071f1ea",
+      "f071f1ea",
+      "f071f1ea",
+      "f071f1ea",
+      "f071f1ea",
+      "f071f1ea"
+    ],
+    "layout": {
+      "shellH": 1073,
+      "contentScroll": 1073,
+      "contentClient": 1073,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3400
+  },
+  {
+    "id": "ch1-5-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "F kéo",
+      "r2": "94 N",
+      "r4": "μN",
+      "r5": "72 N",
+      "r7": "Trạng thái",
+      "r8": "trượt",
+      "r10": "μ",
+      "r11": "0.48"
+    },
+    "readoutAfterDrag": {
+      "r1": "F kéo",
+      "r2": "94 N",
+      "r4": "μN",
+      "r5": "72 N",
+      "r7": "Trạng thái",
+      "r8": "trượt",
+      "r10": "μ",
+      "r11": "0.48"
+    },
+    "readoutAfterSlider": {
+      "r1": "F kéo",
+      "r2": "140 N",
+      "r4": "μN",
+      "r5": "72 N",
+      "r7": "Trạng thái",
+      "r8": "trượt",
+      "r10": "μ",
+      "r11": "0.48"
+    },
+    "readoutAfterReset": {
+      "r1": "F kéo",
+      "r2": "94 N",
+      "r4": "μN",
+      "r5": "72 N",
+      "r7": "Trạng thái",
+      "r8": "trượt",
+      "r10": "μ",
+      "r11": "0.48"
+    },
+    "hashesIdle": [
+      "fbd5a772",
+      "fbd5a772",
+      "fbd5a772",
+      "fbd5a772",
+      "fbd5a772",
+      "fbd5a772"
+    ],
+    "layout": {
+      "shellH": 3218,
+      "contentScroll": 3218,
+      "contentClient": 3218,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3400
+  },
+  {
+    "id": "ch1-5-3",
+    "ok": false,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "α",
+      "r2": "19 °",
+      "r4": "tan α",
+      "r5": "0.34 °",
+      "r7": "Trạng thái",
+      "r8": "bám",
+      "r10": "μ",
+      "r11": "0.46"
+    },
+    "readoutAfterDrag": {
+      "r1": "α",
+      "r2": "5 °",
+      "r4": "tan α",
+      "r5": "0.09 °",
+      "r7": "Trạng thái",
+      "r8": "bám",
+      "r10": "μ",
+      "r11": "0.46"
+    },
+    "readoutAfterSlider": {
+      "r1": "α",
+      "r2": "31 °",
+      "r4": "tan α",
+      "r5": "0.6 °",
+      "r7": "Trạng thái",
+      "r8": "trượt",
+      "r10": "μ",
+      "r11": "0.46"
+    },
+    "readoutAfterReset": {
+      "r1": "α",
+      "r2": "19 °",
+      "r4": "tan α",
+      "r5": "0.34 °",
+      "r7": "Trạng thái",
+      "r8": "bám",
+      "r10": "μ",
+      "r11": "0.46"
+    },
+    "hashesIdle": [
+      "bbfba94b",
+      "bbfba94b",
+      "bbfba94b",
+      "bbfba94b",
+      "bbfba94b",
+      "bbfba94b"
+    ],
+    "layout": {
+      "shellH": 6795,
+      "contentScroll": 6795,
+      "contentClient": 6795,
+      "overflow": false
+    },
+    "errors": [
+      "window.error: Uncaught NotFoundError: Failed to execute 'setPointerCapture' on 'Element': No active pointer with the given id is found."
+    ],
+    "elapsedMs": 3436
+  },
+  {
+    "id": "ch1-5-4",
+    "ok": false,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "α",
+      "r2": "16 °",
+      "r4": "φ",
+      "r5": "23 °",
+      "r7": "Trạng thái",
+      "r8": "tự hãm",
+      "r10": "μ",
+      "r11": "0.42"
+    },
+    "readoutAfterDrag": {
+      "r1": "α",
+      "r2": "5 °",
+      "r4": "φ",
+      "r5": "23 °",
+      "r7": "Trạng thái",
+      "r8": "tự hãm",
+      "r10": "μ",
+      "r11": "0.42"
+    },
+    "readoutAfterSlider": {
+      "r1": "α",
+      "r2": "31 °",
+      "r4": "φ",
+      "r5": "23 °",
+      "r7": "Trạng thái",
+      "r8": "không tự hãm",
+      "r10": "μ",
+      "r11": "0.42"
+    },
+    "readoutAfterReset": {
+      "r1": "α",
+      "r2": "16 °",
+      "r4": "φ",
+      "r5": "23 °",
+      "r7": "Trạng thái",
+      "r8": "tự hãm",
+      "r10": "μ",
+      "r11": "0.42"
+    },
+    "hashesIdle": [
+      "bda1919",
+      "bda1919",
+      "bda1919",
+      "bda1919",
+      "bda1919",
+      "bda1919"
+    ],
+    "layout": {
+      "shellH": 2020,
+      "contentScroll": 2020,
+      "contentClient": 2020,
+      "overflow": false
+    },
+    "errors": [
+      "window.error: Uncaught NotFoundError: Failed to execute 'setPointerCapture' on 'Element': No active pointer with the given id is found."
+    ],
+    "elapsedMs": 3419
+  },
+  {
+    "id": "ch1-6-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 1,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "xG",
+      "r2": "295 m",
+      "r4": "yG",
+      "r5": "198 m",
+      "r7": "S2",
+      "r8": "96 %"
+    },
+    "readoutAfterDrag": {
+      "r1": "xG",
+      "r2": "295 m",
+      "r4": "yG",
+      "r5": "198 m",
+      "r7": "S2",
+      "r8": "96 %"
+    },
+    "readoutAfterSlider": {
+      "r1": "xG",
+      "r2": "311 m",
+      "r4": "yG",
+      "r5": "202 m",
+      "r7": "S2",
+      "r8": "132 %"
+    },
+    "readoutAfterReset": {
+      "r1": "xG",
+      "r2": "295 m",
+      "r4": "yG",
+      "r5": "198 m",
+      "r7": "S2",
+      "r8": "96 %"
+    },
+    "hashesIdle": [
+      "8885fae2",
+      "8885fae2",
+      "8885fae2",
+      "8885fae2",
+      "8885fae2",
+      "8885fae2"
+    ],
+    "layout": {
+      "shellH": 3062,
+      "contentScroll": 3062,
+      "contentClient": 3062,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3410
+  },
+  {
+    "id": "ch1-6-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 1,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "xG",
+      "r2": "314 m",
+      "r4": "Dịch G",
+      "r5": "15.2 m",
+      "r7": "S lỗ",
+      "r8": "52 m"
+    },
+    "readoutAfterDrag": {
+      "r1": "xG",
+      "r2": "314 m",
+      "r4": "Dịch G",
+      "r5": "15.2 m",
+      "r7": "S lỗ",
+      "r8": "52 m"
+    },
+    "readoutAfterSlider": {
+      "r1": "xG",
+      "r2": "325 m",
+      "r4": "Dịch G",
+      "r5": "27 m",
+      "r7": "S lỗ",
+      "r8": "80 m"
+    },
+    "readoutAfterReset": {
+      "r1": "xG",
+      "r2": "314 m",
+      "r4": "Dịch G",
+      "r5": "15.2 m",
+      "r7": "S lỗ",
+      "r8": "52 m"
+    },
+    "hashesIdle": [
+      "95fde78d",
+      "95fde78d",
+      "95fde78d",
+      "95fde78d",
+      "95fde78d",
+      "95fde78d"
+    ],
+    "layout": {
+      "shellH": 1148,
+      "contentScroll": 1148,
+      "contentClient": 1148,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3399
+  },
+  {
+    "id": "ch1-7-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "P",
+      "r2": "104 N",
+      "r4": "Bước",
+      "r5": "1/4",
+      "r7": "RA",
+      "r8": "60.3 N",
+      "r10": "RB",
+      "r11": "43.7 N"
+    },
+    "readoutAfterDrag": {
+      "r1": "P",
+      "r2": "104 N",
+      "r4": "Bước",
+      "r5": "1/4",
+      "r7": "RA",
+      "r8": "60.3 N",
+      "r10": "RB",
+      "r11": "43.7 N"
+    },
+    "readoutAfterSlider": {
+      "r1": "P",
+      "r2": "140 N",
+      "r4": "Bước",
+      "r5": "1/4",
+      "r7": "RA",
+      "r8": "81.2 N",
+      "r10": "RB",
+      "r11": "58.8 N"
+    },
+    "readoutAfterReset": {
+      "r1": "P",
+      "r2": "104 N",
+      "r4": "Bước",
+      "r5": "1/4",
+      "r7": "RA",
+      "r8": "60.3 N",
+      "r10": "RB",
+      "r11": "43.7 N"
+    },
+    "hashesIdle": [
+      "e4c02545",
+      "e4c02545",
+      "e4c02545",
+      "e4c02545",
+      "e4c02545",
+      "e4c02545"
+    ],
+    "layout": {
+      "shellH": 9225,
+      "contentScroll": 9225,
+      "contentClient": 9225,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3458
+  },
+  {
+    "id": "ch1-7-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 3,
+      "presets": 0,
+      "hasPlay": false,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 0,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": false,
+    "dragChangedReadout": false,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 14,
+    "readoutInitial": {
+      "r1": "RA đúng",
+      "r2": "59.4 N",
+      "r4": "RB đúng",
+      "r5": "52.6 N",
+      "r7": "Sai số",
+      "r8": "14 N",
+      "r10": "Kiểm",
+      "r11": "lệch",
+      "r13": "P",
+      "r14": "112 N",
+      "r16": "RA nhập",
+      "r17": "48 N",
+      "r19": "RB nhập",
+      "r20": "50 N"
+    },
+    "readoutAfterDrag": {
+      "r1": "RA đúng",
+      "r2": "59.4 N",
+      "r4": "RB đúng",
+      "r5": "52.6 N",
+      "r7": "Sai số",
+      "r8": "14 N",
+      "r10": "Kiểm",
+      "r11": "lệch",
+      "r13": "P",
+      "r14": "112 N",
+      "r16": "RA nhập",
+      "r17": "48 N",
+      "r19": "RB nhập",
+      "r20": "50 N"
+    },
+    "readoutAfterSlider": {
+      "r1": "RA đúng",
+      "r2": "74.2 N",
+      "r4": "RB đúng",
+      "r5": "65.8 N",
+      "r7": "Sai số",
+      "r8": "42 N",
+      "r10": "Kiểm",
+      "r11": "lệch",
+      "r13": "P",
+      "r14": "140 N",
+      "r16": "RA nhập",
+      "r17": "48 N",
+      "r19": "RB nhập",
+      "r20": "50 N"
+    },
+    "readoutAfterReset": {
+      "r1": "RA đúng",
+      "r2": "59.4 N",
+      "r4": "RB đúng",
+      "r5": "52.6 N",
+      "r7": "Sai số",
+      "r8": "14 N",
+      "r10": "Kiểm",
+      "r11": "lệch",
+      "r13": "P",
+      "r14": "112 N",
+      "r16": "RA nhập",
+      "r17": "48 N",
+      "r19": "RB nhập",
+      "r20": "50 N"
+    },
+    "hashesIdle": [
+      "98a07d30",
+      "98a07d30",
+      "98a07d30",
+      "98a07d30",
+      "98a07d30",
+      "98a07d30"
+    ],
+    "layout": {
+      "shellH": 4874,
+      "contentScroll": 4874,
+      "contentClient": 4874,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 3401
+  },
+  {
+    "id": "ch2-1-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 5,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 10,
+    "readoutInitial": {
+      "r1": "|v|",
+      "r2": "138 m/s",
+      "r4": "a_n",
+      "r5": "319.5 m/s²",
+      "r7": "ρ",
+      "r8": "59.6 m",
+      "r10": "α",
+      "r11": "37 °",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "|v|",
+      "r2": "172.55 m/s",
+      "r4": "a_n",
+      "r5": "255.53 m/s²",
+      "r7": "ρ",
+      "r8": "116.51 m",
+      "r10": "α",
+      "r11": "31 °",
+      "r13": "thời gian",
+      "r14": "3.83 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "|v|",
+      "r2": "325.59 m/s",
+      "r4": "a_n",
+      "r5": "880.8 m/s²",
+      "r7": "ρ",
+      "r8": "120.35 m",
+      "r10": "α",
+      "r11": "31 °",
+      "r13": "thời gian",
+      "r14": "3.86 s"
+    },
+    "readoutAfterReset": {
+      "r1": "|v|",
+      "r2": "138 m/s",
+      "r4": "a_n",
+      "r5": "319.5 m/s²",
+      "r7": "ρ",
+      "r8": "59.6 m",
+      "r10": "α",
+      "r11": "37 °",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "hashesIdle": [
+      "dbf3c468",
+      "dbf3c468",
+      "dbf3c468",
+      "dbf3c468",
+      "dbf3c468",
+      "dbf3c468"
+    ],
+    "hashesPlay": [
+      "96da8e08",
+      "a4fe5367",
+      "29b33968",
+      "dbf3c468",
+      "dbf3c468",
+      "b78af980"
+    ],
+    "layout": {
+      "shellH": 4113,
+      "contentScroll": 4113,
+      "contentClient": 4113,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6117
+  },
+  {
+    "id": "ch2-1-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 3,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 10,
+    "readoutInitial": {
+      "r1": "x(t)",
+      "r2": "0 m",
+      "r4": "v(t)",
+      "r5": "54 m/s",
+      "r7": "a(t)",
+      "r8": "0 m/s²",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "x(t)",
+      "r2": "16.31 m",
+      "r4": "v(t)",
+      "r5": "51.48 m/s",
+      "r7": "a(t)",
+      "r8": "-16.31 m/s²",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "thời gian",
+      "r14": "0.31 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "x(t)",
+      "r2": "16.42 m",
+      "r4": "v(t)",
+      "r5": "51.44 m/s",
+      "r7": "a(t)",
+      "r8": "-16.42 m/s²",
+      "r10": "ω",
+      "r11": "2.8 rad/s",
+      "r13": "thời gian",
+      "r14": "0.31 s"
+    },
+    "readoutAfterReset": {
+      "r1": "x(t)",
+      "r2": "0 m",
+      "r4": "v(t)",
+      "r5": "54 m/s",
+      "r7": "a(t)",
+      "r8": "0 m/s²",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "hashesIdle": [
+      "53b58a03",
+      "53b58a03",
+      "53b58a03",
+      "53b58a03",
+      "53b58a03",
+      "53b58a03"
+    ],
+    "hashesPlay": [
+      "53b58a03",
+      "53b58a03",
+      "53b58a03",
+      "53b58a03",
+      "a025362f",
+      "bf7651f6"
+    ],
+    "layout": {
+      "shellH": 3921,
+      "contentScroll": 3921,
+      "contentClient": 3921,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6121
+  },
+  {
+    "id": "ch2-1-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 5,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": false,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "a_t",
+      "r2": "0 m/s²",
+      "r4": "a_n",
+      "r5": "216 m/s²",
+      "r7": "ρ",
+      "r8": "96 m",
+      "r10": "ω",
+      "r11": "1.5 rad/s"
+    },
+    "readoutAfterDrag": {
+      "r1": "a_t",
+      "r2": "0 m/s²",
+      "r4": "a_n",
+      "r5": "216 m/s²",
+      "r7": "ρ",
+      "r8": "96 m",
+      "r10": "ω",
+      "r11": "1.5 rad/s"
+    },
+    "readoutAfterSlider": {
+      "r1": "a_t",
+      "r2": "0 m/s²",
+      "r4": "a_n",
+      "r5": "216 m/s²",
+      "r7": "ρ",
+      "r8": "96 m",
+      "r10": "ω",
+      "r11": "2.8 rad/s"
+    },
+    "readoutAfterReset": {
+      "r1": "a_t",
+      "r2": "0 m/s²",
+      "r4": "a_n",
+      "r5": "216 m/s²",
+      "r7": "ρ",
+      "r8": "96 m",
+      "r10": "ω",
+      "r11": "1.5 rad/s"
+    },
+    "hashesIdle": [
+      "dbf3c468",
+      "dbf3c468",
+      "dbf3c468",
+      "dbf3c468",
+      "dbf3c468",
+      "dbf3c468"
+    ],
+    "hashesPlay": [
+      "dbf3c468",
+      "607d88c8",
+      "9105d1e8",
+      "71005832",
+      "dbf3c468",
+      "b9de1bf2"
+    ],
+    "layout": {
+      "shellH": 2535,
+      "contentScroll": 2535,
+      "contentClient": 2535,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6115
+  },
+  {
+    "id": "ch2-1-4",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 3,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "x",
+      "r2": "492 m",
+      "r4": "v",
+      "r5": "138 m/s",
+      "r7": "Mẫu",
+      "r8": "Elip",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "x",
+      "r2": "246.64 m",
+      "r4": "v",
+      "r5": "177.26 m/s",
+      "r7": "Mẫu",
+      "r8": "Elip",
+      "r10": "thời gian",
+      "r11": "3.87 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "x",
+      "r2": "246.64 m",
+      "r4": "v",
+      "r5": "330.89 m/s",
+      "r7": "Mẫu",
+      "r8": "Elip",
+      "r10": "thời gian",
+      "r11": "3.90 s"
+    },
+    "readoutAfterReset": {
+      "r1": "x",
+      "r2": "492 m",
+      "r4": "v",
+      "r5": "138 m/s",
+      "r7": "Mẫu",
+      "r8": "Elip",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "hashesIdle": [
+      "32db7c9a",
+      "32db7c9a",
+      "32db7c9a",
+      "32db7c9a",
+      "32db7c9a",
+      "32db7c9a"
+    ],
+    "hashesPlay": [
+      "e7691db",
+      "5c5920ed",
+      "c8b67073",
+      "5c5920ed",
+      "5c5920ed",
+      "5c5920ed"
+    ],
+    "layout": {
+      "shellH": 2659,
+      "contentScroll": 2659,
+      "contentClient": 2659,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6137
+  },
+  {
+    "id": "ch2-2-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "phi",
+      "r2": "0 °",
+      "r4": "omega",
+      "r5": "1.5 rad/s",
+      "r7": "ε",
+      "r8": "37 rad/s²",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "phi",
+      "r2": "3.85 °",
+      "r4": "omega",
+      "r5": "1.5 rad/s",
+      "r7": "ε",
+      "r8": "37 rad/s²",
+      "r10": "thời gian",
+      "r11": "2.57 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "phi",
+      "r2": "3.88 °",
+      "r4": "omega",
+      "r5": "2.8 rad/s",
+      "r7": "ε",
+      "r8": "37 rad/s²",
+      "r10": "thời gian",
+      "r11": "2.59 s"
+    },
+    "readoutAfterReset": {
+      "r1": "phi",
+      "r2": "0 °",
+      "r4": "omega",
+      "r5": "1.5 rad/s",
+      "r7": "ε",
+      "r8": "37 rad/s²",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "hashesIdle": [
+      "4ed3bf70",
+      "4ed3bf70",
+      "4ed3bf70",
+      "4ed3bf70",
+      "4ed3bf70",
+      "4ed3bf70"
+    ],
+    "hashesPlay": [
+      "6d8102f0",
+      "357e3cef",
+      "4e271dd5",
+      "416d765f",
+      "1cca8761",
+      "c62d198f"
+    ],
+    "layout": {
+      "shellH": 6887,
+      "contentScroll": 6887,
+      "contentClient": 6887,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6164
+  },
+  {
+    "id": "ch2-3-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 10,
+    "readoutInitial": {
+      "r1": "omega2",
+      "r2": "1 rad/s",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "r1",
+      "r8": "1 m",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "omega2",
+      "r2": "0.83 rad/s",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "r1",
+      "r8": "1 m",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "omega2",
+      "r2": "0.83 rad/s",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "r1",
+      "r8": "1 m",
+      "r10": "ω",
+      "r11": "2.8 rad/s",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "readoutAfterReset": {
+      "r1": "omega2",
+      "r2": "1 rad/s",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "r1",
+      "r8": "1 m",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "hashesIdle": [
+      "8a77a5be",
+      "8a77a5be",
+      "8a77a5be",
+      "8a77a5be",
+      "8a77a5be",
+      "8a77a5be"
+    ],
+    "hashesPlay": [
+      "3c5e3c79",
+      "e369a9e7",
+      "57a73349",
+      "310d19b7",
+      "d6541b12",
+      "6d6e56f2"
+    ],
+    "layout": {
+      "shellH": 3008,
+      "contentScroll": 3008,
+      "contentClient": 3008,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6123
+  },
+  {
+    "id": "ch2-4-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 10,
+    "readoutInitial": {
+      "r1": "|v_a|",
+      "r2": "100.5 m/s",
+      "r4": "|v_r|",
+      "r5": "56.6 m/s",
+      "r7": "|v_e|",
+      "r8": "67.1 m/s",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "Pha",
+      "r14": "0 rad"
+    },
+    "readoutAfterDrag": {
+      "r1": "|v_a|",
+      "r2": "69.51 m/s",
+      "r4": "|v_r|",
+      "r5": "40 m/s",
+      "r7": "|v_e|",
+      "r8": "34.96 m/s",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "Pha",
+      "r14": "3.85 rad"
+    },
+    "readoutAfterSlider": {
+      "r1": "|v_a|",
+      "r2": "69.17 m/s",
+      "r4": "|v_r|",
+      "r5": "40 m/s",
+      "r7": "|v_e|",
+      "r8": "35.28 m/s",
+      "r10": "ω",
+      "r11": "2.8 rad/s",
+      "r13": "Pha",
+      "r14": "3.87 rad"
+    },
+    "readoutAfterReset": {
+      "r1": "|v_a|",
+      "r2": "100.5 m/s",
+      "r4": "|v_r|",
+      "r5": "56.6 m/s",
+      "r7": "|v_e|",
+      "r8": "67.1 m/s",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "Pha",
+      "r14": "0 rad"
+    },
+    "hashesIdle": [
+      "ca1e27e1",
+      "ca1e27e1",
+      "ca1e27e1",
+      "ca1e27e1",
+      "ca1e27e1",
+      "ca1e27e1"
+    ],
+    "hashesPlay": [
+      "efcd396",
+      "9c701a1f",
+      "4ac3ad2e",
+      "a72702ea",
+      "ca7f5327",
+      "3b36f804"
+    ],
+    "layout": {
+      "shellH": 1907,
+      "contentScroll": 1907,
+      "contentClient": 1907,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6110
+  },
+  {
+    "id": "ch2-4-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 10,
+    "readoutInitial": {
+      "r1": "|v_a|",
+      "r2": "55 m/s",
+      "r4": "|v_e|",
+      "r5": "30 m/s",
+      "r7": "|v_r|",
+      "r8": "25 m/s",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "Pha",
+      "r14": "0 rad"
+    },
+    "readoutAfterDrag": {
+      "r1": "|v_a|",
+      "r2": "55 m/s",
+      "r4": "|v_e|",
+      "r5": "30 m/s",
+      "r7": "|v_r|",
+      "r8": "47.5 m/s",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "Pha",
+      "r14": "3.85 rad"
+    },
+    "readoutAfterSlider": {
+      "r1": "|v_a|",
+      "r2": "55 m/s",
+      "r4": "|v_e|",
+      "r5": "30 m/s",
+      "r7": "|v_r|",
+      "r8": "47.79 m/s",
+      "r10": "ω",
+      "r11": "2.8 rad/s",
+      "r13": "Pha",
+      "r14": "3.88 rad"
+    },
+    "readoutAfterReset": {
+      "r1": "|v_a|",
+      "r2": "55 m/s",
+      "r4": "|v_e|",
+      "r5": "30 m/s",
+      "r7": "|v_r|",
+      "r8": "25 m/s",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "Pha",
+      "r14": "0 rad"
+    },
+    "hashesIdle": [
+      "77636c12",
+      "77636c12",
+      "77636c12",
+      "77636c12",
+      "77636c12",
+      "77636c12"
+    ],
+    "hashesPlay": [
+      "38e43aa6",
+      "6f4e999a",
+      "d19d1982",
+      "f91a8437",
+      "a7997b46",
+      "1003758f"
+    ],
+    "layout": {
+      "shellH": 2891,
+      "contentScroll": 2891,
+      "contentClient": 2891,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6128
+  },
+  {
+    "id": "ch2-4-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 10,
+    "readoutInitial": {
+      "r1": "|v_a|",
+      "r2": "72.1 m/s",
+      "r4": "|v_r|",
+      "r5": "40 m/s",
+      "r7": "|v_e|",
+      "r8": "— m/s",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "Quan hệ vận tốc",
+      "r14": "v_a = v_e + v_r m/s"
+    },
+    "readoutAfterDrag": {
+      "r1": "|v_a|",
+      "r2": "20.65 m/s",
+      "r4": "|v_r|",
+      "r5": "44.18 m/s",
+      "r7": "|v_e|",
+      "r8": "47.1 m/s",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "Quan hệ vận tốc",
+      "r14": "v_a = v_e + v_r m/s"
+    },
+    "readoutAfterSlider": {
+      "r1": "|v_a|",
+      "r2": "19.8 m/s",
+      "r4": "|v_r|",
+      "r5": "44.65 m/s",
+      "r7": "|v_e|",
+      "r8": "46.73 m/s",
+      "r10": "ω",
+      "r11": "2.8 rad/s",
+      "r13": "Quan hệ vận tốc",
+      "r14": "v_a = v_e + v_r m/s"
+    },
+    "readoutAfterReset": {
+      "r1": "|v_a|",
+      "r2": "72.1 m/s",
+      "r4": "|v_r|",
+      "r5": "40 m/s",
+      "r7": "|v_e|",
+      "r8": "— m/s",
+      "r10": "ω",
+      "r11": "1.5 rad/s",
+      "r13": "Quan hệ vận tốc",
+      "r14": "v_a = v_e + v_r m/s"
+    },
+    "hashesIdle": [
+      "2d1be7d3",
+      "2d1be7d3",
+      "2d1be7d3",
+      "2d1be7d3",
+      "2d1be7d3",
+      "2d1be7d3"
+    ],
+    "hashesPlay": [
+      "ec9c4edb",
+      "f5063370",
+      "b909ab36",
+      "f226fc2e",
+      "e98387a5",
+      "83c85f06"
+    ],
+    "layout": {
+      "shellH": 1863,
+      "contentScroll": 1863,
+      "contentClient": 1863,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6107
+  },
+  {
+    "id": "ch2-4-4",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": false,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "|a_c|",
+      "r2": "90 m/s²",
+      "r4": "a_e",
+      "r5": "18 m/s²",
+      "r7": "|v_r|",
+      "r8": "30 m/s"
+    },
+    "readoutAfterDrag": {
+      "r1": "|a_c|",
+      "r2": "90 m/s²",
+      "r4": "a_e",
+      "r5": "18 m/s²",
+      "r7": "|v_r|",
+      "r8": "30 m/s"
+    },
+    "readoutAfterSlider": {
+      "r1": "|a_c|",
+      "r2": "90 m/s²",
+      "r4": "a_e",
+      "r5": "62.72 m/s²",
+      "r7": "|v_r|",
+      "r8": "30 m/s"
+    },
+    "readoutAfterReset": {
+      "r1": "|a_c|",
+      "r2": "90 m/s²",
+      "r4": "a_e",
+      "r5": "18 m/s²",
+      "r7": "|v_r|",
+      "r8": "30 m/s"
+    },
+    "hashesIdle": [
+      "df9b86a4",
+      "df9b86a4",
+      "df9b86a4",
+      "df9b86a4",
+      "df9b86a4",
+      "df9b86a4"
+    ],
+    "hashesPlay": [
+      "466156f",
+      "13a685f5",
+      "fe03299f",
+      "7cf4212c",
+      "6be2f4e3",
+      "e45eb3bc"
+    ],
+    "layout": {
+      "shellH": 3938,
+      "contentScroll": 3938,
+      "contentClient": 3938,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6120
+  },
+  {
+    "id": "ch2-5-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "|v_A|",
+      "r2": "46.7 m/s",
+      "r4": "|v_B|",
+      "r5": "245 m/s",
+      "r7": "ω",
+      "r8": "1.5 rad/s"
+    },
+    "readoutAfterDrag": {
+      "r1": "|v_A|",
+      "r2": "46.69 m/s",
+      "r4": "|v_B|",
+      "r5": "236.52 m/s",
+      "r7": "ω",
+      "r8": "1.5 rad/s"
+    },
+    "readoutAfterSlider": {
+      "r1": "|v_A|",
+      "r2": "46.69 m/s",
+      "r4": "|v_B|",
+      "r5": "236.52 m/s",
+      "r7": "ω",
+      "r8": "2.8 rad/s"
+    },
+    "readoutAfterReset": {
+      "r1": "|v_A|",
+      "r2": "46.7 m/s",
+      "r4": "|v_B|",
+      "r5": "245 m/s",
+      "r7": "ω",
+      "r8": "1.5 rad/s"
+    },
+    "hashesIdle": [
+      "ffd8dabe",
+      "ffd8dabe",
+      "ffd8dabe",
+      "ffd8dabe",
+      "ffd8dabe",
+      "ffd8dabe"
+    ],
+    "hashesPlay": [
+      "ffd8dabe",
+      "ffd8dabe",
+      "ffd8dabe",
+      "ffd8dabe",
+      "ffd8dabe",
+      "ffd8dabe"
+    ],
+    "layout": {
+      "shellH": 1870,
+      "contentScroll": 1870,
+      "contentClient": 1870,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6106
+  },
+  {
+    "id": "ch2-5-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": false,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "IC_x",
+      "r2": "270 m",
+      "r4": "IC_y",
+      "r5": "245 m",
+      "r7": "ω",
+      "r8": "1.5 rad/s"
+    },
+    "readoutAfterDrag": {
+      "r1": "IC_x",
+      "r2": "270 m",
+      "r4": "IC_y",
+      "r5": "245 m",
+      "r7": "ω",
+      "r8": "1.5 rad/s"
+    },
+    "readoutAfterSlider": {
+      "r1": "IC_x",
+      "r2": "270 m",
+      "r4": "IC_y",
+      "r5": "245 m",
+      "r7": "ω",
+      "r8": "2.8 rad/s"
+    },
+    "readoutAfterReset": {
+      "r1": "IC_x",
+      "r2": "270 m",
+      "r4": "IC_y",
+      "r5": "245 m",
+      "r7": "ω",
+      "r8": "1.5 rad/s"
+    },
+    "hashesIdle": [
+      "5a3476e3",
+      "5a3476e3",
+      "5a3476e3",
+      "5a3476e3",
+      "5a3476e3",
+      "5a3476e3"
+    ],
+    "hashesPlay": [
+      "6cf2d2f5",
+      "6cf2d2f5",
+      "6cf2d2f5",
+      "6cf2d2f5",
+      "6cf2d2f5",
+      "6cf2d2f5"
+    ],
+    "layout": {
+      "shellH": 2091,
+      "contentScroll": 2091,
+      "contentClient": 2091,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6112
+  },
+  {
+    "id": "ch2-5-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "|v_A|",
+      "r2": "0 m/s",
+      "r4": "|v_B|",
+      "r5": "3.3 m/s",
+      "r7": "ω",
+      "r8": "1.5 rad/s",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "|v_A|",
+      "r2": "0 m/s",
+      "r4": "|v_B|",
+      "r5": "3.3 m/s",
+      "r7": "ω",
+      "r8": "1.5 rad/s",
+      "r10": "thời gian",
+      "r11": "3.83 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "|v_A|",
+      "r2": "0 m/s",
+      "r4": "|v_B|",
+      "r5": "3.3 m/s",
+      "r7": "ω",
+      "r8": "2.8 rad/s",
+      "r10": "thời gian",
+      "r11": "3.85 s"
+    },
+    "readoutAfterReset": {
+      "r1": "|v_A|",
+      "r2": "0 m/s",
+      "r4": "|v_B|",
+      "r5": "3.3 m/s",
+      "r7": "ω",
+      "r8": "1.5 rad/s",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "hashesIdle": [
+      "874ef868",
+      "874ef868",
+      "874ef868",
+      "874ef868",
+      "874ef868",
+      "874ef868"
+    ],
+    "hashesPlay": [
+      "d86caa2a",
+      "d86caa2a",
+      "d86caa2a",
+      "d86caa2a",
+      "d86caa2a",
+      "d86caa2a"
+    ],
+    "layout": {
+      "shellH": 4780,
+      "contentScroll": 4780,
+      "contentClient": 4780,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6111
+  },
+  {
+    "id": "ch2-7-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 5,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 12,
+    "readoutInitial": {
+      "r1": "Bước giải",
+      "r2": "Bước hiện tại",
+      "r4": "Kiểm tra",
+      "r5": "—",
+      "r7": "Sai số",
+      "r8": "0 %",
+      "r10": "x(t)",
+      "r11": "5 m",
+      "r13": "v(t)",
+      "r14": "0 m/s",
+      "r16": "ω",
+      "r17": "1.5 rad/s"
+    },
+    "readoutAfterDrag": {
+      "r1": "Bước giải",
+      "r2": "Bước hiện tại",
+      "r4": "Kiểm tra",
+      "r5": "—",
+      "r7": "Sai số",
+      "r8": "0 %",
+      "r10": "x(t)",
+      "r11": "7.09 m",
+      "r13": "v(t)",
+      "r14": "3.23 m/s",
+      "r16": "ω",
+      "r17": "1.5 rad/s"
+    },
+    "readoutAfterSlider": {
+      "r1": "Bước giải",
+      "r2": "Bước hiện tại",
+      "r4": "Kiểm tra",
+      "r5": "—",
+      "r7": "Sai số",
+      "r8": "0 %",
+      "r10": "x(t)",
+      "r11": "7.1 m",
+      "r13": "v(t)",
+      "r14": "3.22 m/s",
+      "r16": "ω",
+      "r17": "2.8 rad/s"
+    },
+    "readoutAfterReset": {
+      "r1": "Bước giải",
+      "r2": "Bước hiện tại",
+      "r4": "Kiểm tra",
+      "r5": "—",
+      "r7": "Sai số",
+      "r8": "0 %",
+      "r10": "x(t)",
+      "r11": "5 m",
+      "r13": "v(t)",
+      "r14": "0 m/s",
+      "r16": "ω",
+      "r17": "1.5 rad/s"
+    },
+    "hashesIdle": [
+      "90dd5f3a",
+      "90dd5f3a",
+      "90dd5f3a",
+      "90dd5f3a",
+      "90dd5f3a",
+      "90dd5f3a"
+    ],
+    "hashesPlay": [
+      "90dd5f3a",
+      "90dd5f3a",
+      "b0e6a73d",
+      "f3f3282b",
+      "98b1ea56",
+      "d00a24d5"
+    ],
+    "layout": {
+      "shellH": 6783,
+      "contentScroll": 6783,
+      "contentClient": 6783,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6136
+  },
+  {
+    "id": "ch2-7-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "Sai số",
+      "r2": "0 %",
+      "r4": "Trạng thái",
+      "r5": "Đúng",
+      "r7": "x0",
+      "r8": "5 m",
+      "r10": "x(t)",
+      "r11": "5 m"
+    },
+    "readoutAfterDrag": {
+      "r1": "Sai số",
+      "r2": "0 %",
+      "r4": "Trạng thái",
+      "r5": "Đúng",
+      "r7": "x0",
+      "r8": "5 m",
+      "r10": "x(t)",
+      "r11": "4.43 m"
+    },
+    "readoutAfterSlider": {
+      "r1": "Sai số",
+      "r2": "0 %",
+      "r4": "Trạng thái",
+      "r5": "Đúng",
+      "r7": "x0",
+      "r8": "5 m",
+      "r10": "x(t)",
+      "r11": "4.42 m"
+    },
+    "readoutAfterReset": {
+      "r1": "Sai số",
+      "r2": "0 %",
+      "r4": "Trạng thái",
+      "r5": "Đúng",
+      "r7": "x0",
+      "r8": "5 m",
+      "r10": "x(t)",
+      "r11": "5 m"
+    },
+    "hashesIdle": [
+      "2743ffb",
+      "2743ffb",
+      "2743ffb",
+      "2743ffb",
+      "2743ffb",
+      "2743ffb"
+    ],
+    "hashesPlay": [
+      "2743ffb",
+      "2743ffb",
+      "2743ffb",
+      "2743ffb",
+      "2743ffb",
+      "2743ffb"
+    ],
+    "layout": {
+      "shellH": 3313,
+      "contentScroll": 3313,
+      "contentClient": 3313,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6117
+  },
+  {
+    "id": "ch3-1-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterDrag": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "25.83 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterSlider": {
+      "r1": "a",
+      "r2": "28 m/s²",
+      "r4": "v",
+      "r5": "25.83 m/s",
+      "r7": "F",
+      "r8": "140 N"
+    },
+    "readoutAfterReset": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "hashesIdle": [
+      "6c487d70",
+      "6c487d70",
+      "6c487d70",
+      "6c487d70",
+      "6c487d70",
+      "6c487d70"
+    ],
+    "hashesPlay": [
+      "6c487d70",
+      "6c487d70",
+      "6c487d70",
+      "6c487d70",
+      "6c487d70",
+      "6c487d70"
+    ],
+    "layout": {
+      "shellH": 1245,
+      "contentScroll": 1245,
+      "contentClient": 1245,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6114
+  },
+  {
+    "id": "ch3-1-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 1,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "a",
+      "r2": "2 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "10 N",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "a",
+      "r2": "2 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "10 N",
+      "r10": "thời gian",
+      "r11": "2.57 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "a",
+      "r2": "3.5 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "17.5 N",
+      "r10": "thời gian",
+      "r11": "2.59 s"
+    },
+    "readoutAfterReset": {
+      "r1": "a",
+      "r2": "2 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "10 N",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "hashesIdle": [
+      "9b613e3a",
+      "9b613e3a",
+      "9b613e3a",
+      "9b613e3a",
+      "9b613e3a",
+      "9b613e3a"
+    ],
+    "hashesPlay": [
+      "9b613e3a",
+      "9b613e3a",
+      "9b613e3a",
+      "9b613e3a",
+      "9b613e3a",
+      "9b613e3a"
+    ],
+    "layout": {
+      "shellH": 1106,
+      "contentScroll": 1106,
+      "contentClient": 1106,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6115
+  },
+  {
+    "id": "ch3-2-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterDrag": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "25.88 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterSlider": {
+      "r1": "a",
+      "r2": "28 m/s²",
+      "r4": "v",
+      "r5": "25.88 m/s",
+      "r7": "F",
+      "r8": "140 N"
+    },
+    "readoutAfterReset": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "hashesIdle": [
+      "c31a251c",
+      "c31a251c",
+      "c31a251c",
+      "c31a251c",
+      "c31a251c",
+      "c31a251c"
+    ],
+    "hashesPlay": [
+      "c31a251c",
+      "c31a251c",
+      "c31a251c",
+      "c31a251c",
+      "c31a251c",
+      "c31a251c"
+    ],
+    "layout": {
+      "shellH": 1342,
+      "contentScroll": 1342,
+      "contentClient": 1342,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6117
+  },
+  {
+    "id": "ch3-2-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 3,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterDrag": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "25.74 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterSlider": {
+      "r1": "a",
+      "r2": "28 m/s²",
+      "r4": "v",
+      "r5": "25.74 m/s",
+      "r7": "F",
+      "r8": "140 N"
+    },
+    "readoutAfterReset": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "hashesIdle": [
+      "8641c5dc",
+      "8641c5dc",
+      "8641c5dc",
+      "8641c5dc",
+      "8641c5dc",
+      "8641c5dc"
+    ],
+    "hashesPlay": [
+      "8641c5dc",
+      "8641c5dc",
+      "8641c5dc",
+      "3019b971",
+      "31a7e6ed",
+      "8641c5dc"
+    ],
+    "layout": {
+      "shellH": 2116,
+      "contentScroll": 2116,
+      "contentClient": 2116,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6105
+  },
+  {
+    "id": "ch3-2-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "a1",
+      "r2": "10 m/s²",
+      "r4": "a2",
+      "r5": "-50 m/s²",
+      "r7": "F",
+      "r8": "50 N",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "a1",
+      "r2": "10 m/s²",
+      "r4": "a2",
+      "r5": "-50 m/s²",
+      "r7": "F",
+      "r8": "50 N",
+      "r10": "thời gian",
+      "r11": "2.56 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "a1",
+      "r2": "28 m/s²",
+      "r4": "a2",
+      "r5": "-140 m/s²",
+      "r7": "F",
+      "r8": "140 N",
+      "r10": "thời gian",
+      "r11": "2.57 s"
+    },
+    "readoutAfterReset": {
+      "r1": "a1",
+      "r2": "10 m/s²",
+      "r4": "a2",
+      "r5": "-50 m/s²",
+      "r7": "F",
+      "r8": "50 N",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "hashesIdle": [
+      "7e13b929",
+      "7e13b929",
+      "7e13b929",
+      "7e13b929",
+      "7e13b929",
+      "7e13b929"
+    ],
+    "hashesPlay": [
+      "7e13b929",
+      "7e13b929",
+      "7e13b929",
+      "7e13b929",
+      "7e13b929",
+      "7e13b929"
+    ],
+    "layout": {
+      "shellH": 1160,
+      "contentScroll": 1160,
+      "contentClient": 1160,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6106
+  },
+  {
+    "id": "ch3-2-5",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterDrag": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "25.67 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterSlider": {
+      "r1": "a",
+      "r2": "28 m/s²",
+      "r4": "v",
+      "r5": "25.84 m/s",
+      "r7": "F",
+      "r8": "140 N"
+    },
+    "readoutAfterReset": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "hashesIdle": [
+      "31372da0",
+      "31372da0",
+      "31372da0",
+      "31372da0",
+      "31372da0",
+      "31372da0"
+    ],
+    "hashesPlay": [
+      "31372da0",
+      "31372da0",
+      "31372da0",
+      "31372da0",
+      "31372da0",
+      "31372da0"
+    ],
+    "layout": {
+      "shellH": 1115,
+      "contentScroll": 1115,
+      "contentClient": 1115,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6114
+  },
+  {
+    "id": "ch3-3-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "T",
+      "r2": "0 J",
+      "r4": "V",
+      "r5": "6.4 J",
+      "r7": "k",
+      "r8": "20 N/m"
+    },
+    "readoutAfterDrag": {
+      "r1": "T",
+      "r2": "5.15 J",
+      "r4": "V",
+      "r5": "1.25 J",
+      "r7": "k",
+      "r8": "20 N/m"
+    },
+    "readoutAfterSlider": {
+      "r1": "T",
+      "r2": "5.15 J",
+      "r4": "V",
+      "r5": "2.19 J",
+      "r7": "k",
+      "r8": "35 N/m"
+    },
+    "readoutAfterReset": {
+      "r1": "T",
+      "r2": "0 J",
+      "r4": "V",
+      "r5": "6.4 J",
+      "r7": "k",
+      "r8": "20 N/m"
+    },
+    "hashesIdle": [
+      "407f315f",
+      "407f315f",
+      "407f315f",
+      "407f315f",
+      "407f315f",
+      "407f315f"
+    ],
+    "hashesPlay": [
+      "6b0ad413",
+      "162fef4c",
+      "3c2c6808",
+      "2d5a0fbf",
+      "eb40a1a4",
+      "1f842355"
+    ],
+    "layout": {
+      "shellH": 1895,
+      "contentScroll": 1895,
+      "contentClient": 1895,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6114
+  },
+  {
+    "id": "ch3-3-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "x1",
+      "r2": "0.45 m",
+      "r4": "x2",
+      "r5": "-0.25 m",
+      "r7": "k",
+      "r8": "20 N/m"
+    },
+    "readoutAfterDrag": {
+      "r1": "x1",
+      "r2": "0.06 m",
+      "r4": "x2",
+      "r5": "0.73 m",
+      "r7": "k",
+      "r8": "20 N/m"
+    },
+    "readoutAfterSlider": {
+      "r1": "x1",
+      "r2": "0.06 m",
+      "r4": "x2",
+      "r5": "0.73 m",
+      "r7": "k",
+      "r8": "35 N/m"
+    },
+    "readoutAfterReset": {
+      "r1": "x1",
+      "r2": "0.45 m",
+      "r4": "x2",
+      "r5": "-0.25 m",
+      "r7": "k",
+      "r8": "20 N/m"
+    },
+    "hashesIdle": [
+      "20862365",
+      "20862365",
+      "20862365",
+      "20862365",
+      "20862365",
+      "20862365"
+    ],
+    "hashesPlay": [
+      "2fb4deba",
+      "654b1c50",
+      "2b91b70e",
+      "b8f95a5a",
+      "ade1518c",
+      "400c8da"
+    ],
+    "layout": {
+      "shellH": 1634,
+      "contentScroll": 1634,
+      "contentClient": 1634,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6124
+  },
+  {
+    "id": "ch3-4-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterDrag": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "25.65 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterSlider": {
+      "r1": "a",
+      "r2": "28 m/s²",
+      "r4": "v",
+      "r5": "25.81 m/s",
+      "r7": "F",
+      "r8": "140 N"
+    },
+    "readoutAfterReset": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "hashesIdle": [
+      "be3bcaf9",
+      "be3bcaf9",
+      "be3bcaf9",
+      "be3bcaf9",
+      "be3bcaf9",
+      "be3bcaf9"
+    ],
+    "hashesPlay": [
+      "be3bcaf9",
+      "be3bcaf9",
+      "be3bcaf9",
+      "be3bcaf9",
+      "be3bcaf9",
+      "be3bcaf9"
+    ],
+    "layout": {
+      "shellH": 3915,
+      "contentScroll": 3915,
+      "contentClient": 3915,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6119
+  },
+  {
+    "id": "ch3-4-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 1,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "readoutAfterDrag": {
+      "r1": "a",
+      "r2": "-2.4 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "-12 N"
+    },
+    "readoutAfterSlider": {
+      "r1": "a",
+      "r2": "-2.4 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "-16.8 N"
+    },
+    "readoutAfterReset": {
+      "r1": "a",
+      "r2": "10 m/s²",
+      "r4": "v",
+      "r5": "0 m/s",
+      "r7": "F",
+      "r8": "50 N"
+    },
+    "hashesIdle": [
+      "24e87c5a",
+      "24e87c5a",
+      "24e87c5a",
+      "24e87c5a",
+      "24e87c5a",
+      "24e87c5a"
+    ],
+    "hashesPlay": [
+      "6c1974c4",
+      "cbbaf802",
+      "c8036451",
+      "5349e88a",
+      "fd1df7b2",
+      "6d0b36a"
+    ],
+    "layout": {
+      "shellH": 1403,
+      "contentScroll": 1403,
+      "contentClient": 1403,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6117
+  },
+  {
+    "id": "ch3-5-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 10,
+    "readoutInitial": {
+      "r1": "a_CM",
+      "r2": "11.11 m/s²",
+      "r4": "x_C",
+      "r5": "211 m",
+      "r7": "m1",
+      "r8": "1 kg",
+      "r10": "m2",
+      "r11": "1 kg",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "a_CM",
+      "r2": "11.11 m/s²",
+      "r4": "x_C",
+      "r5": "211 m",
+      "r7": "m1",
+      "r8": "1 kg",
+      "r10": "m2",
+      "r11": "1 kg",
+      "r13": "thời gian",
+      "r14": "2.57 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "a_CM",
+      "r2": "11.11 m/s²",
+      "r4": "x_C",
+      "r5": "211 m",
+      "r7": "m1",
+      "r8": "3.5 kg",
+      "r10": "m2",
+      "r11": "1 kg",
+      "r13": "thời gian",
+      "r14": "2.58 s"
+    },
+    "readoutAfterReset": {
+      "r1": "a_CM",
+      "r2": "11.11 m/s²",
+      "r4": "x_C",
+      "r5": "211 m",
+      "r7": "m1",
+      "r8": "1 kg",
+      "r10": "m2",
+      "r11": "1 kg",
+      "r13": "thời gian",
+      "r14": "0.00 s"
+    },
+    "hashesIdle": [
+      "f82a4520",
+      "f82a4520",
+      "f82a4520",
+      "f82a4520",
+      "f82a4520",
+      "f82a4520"
+    ],
+    "hashesPlay": [
+      "f82a4520",
+      "f82a4520",
+      "f82a4520",
+      "f82a4520",
+      "f82a4520",
+      "f82a4520"
+    ],
+    "layout": {
+      "shellH": 2373,
+      "contentScroll": 2373,
+      "contentClient": 2373,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6111
+  },
+  {
+    "id": "ch3-5-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "p trước",
+      "r2": "12 kg·m/s",
+      "r4": "Δp",
+      "r5": "20 kg·m/s",
+      "r7": "J",
+      "r8": "20 N·s",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "p trước",
+      "r2": "12 kg·m/s",
+      "r4": "Δp",
+      "r5": "20 kg·m/s",
+      "r7": "J",
+      "r8": "20 N·s",
+      "r10": "thời gian",
+      "r11": "2.56 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "p trước",
+      "r2": "12 kg·m/s",
+      "r4": "Δp",
+      "r5": "70 kg·m/s",
+      "r7": "J",
+      "r8": "70 N·s",
+      "r10": "thời gian",
+      "r11": "2.58 s"
+    },
+    "readoutAfterReset": {
+      "r1": "p trước",
+      "r2": "12 kg·m/s",
+      "r4": "Δp",
+      "r5": "20 kg·m/s",
+      "r7": "J",
+      "r8": "20 N·s",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "hashesIdle": [
+      "5199951b",
+      "5199951b",
+      "5199951b",
+      "5199951b",
+      "5199951b",
+      "5199951b"
+    ],
+    "hashesPlay": [
+      "5199951b",
+      "5199951b",
+      "5199951b",
+      "5199951b",
+      "5199951b",
+      "5199951b"
+    ],
+    "layout": {
+      "shellH": 5779,
+      "contentScroll": 5779,
+      "contentClient": 5779,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6131
+  },
+  {
+    "id": "ch3-5-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 2,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 4,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": false,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "L",
+      "r2": "2 kg·m²/s",
+      "r4": "ω",
+      "r5": "2 rad/s",
+      "r7": "I",
+      "r8": "1 kg·m²"
+    },
+    "readoutAfterDrag": {
+      "r1": "L",
+      "r2": "2 kg·m²/s",
+      "r4": "ω",
+      "r5": "2 rad/s",
+      "r7": "I",
+      "r8": "1 kg·m²"
+    },
+    "readoutAfterSlider": {
+      "r1": "L",
+      "r2": "2 kg·m²/s",
+      "r4": "ω",
+      "r5": "2 rad/s",
+      "r7": "I",
+      "r8": "3.5 kg·m²"
+    },
+    "readoutAfterReset": {
+      "r1": "L",
+      "r2": "2 kg·m²/s",
+      "r4": "ω",
+      "r5": "2 rad/s",
+      "r7": "I",
+      "r8": "1 kg·m²"
+    },
+    "hashesIdle": [
+      "8dbacb03",
+      "8dbacb03",
+      "8dbacb03",
+      "8dbacb03",
+      "8dbacb03",
+      "8dbacb03"
+    ],
+    "hashesPlay": [
+      "8dbacb03",
+      "dd250063",
+      "e0c65f8",
+      "8dbacb03",
+      "e0c65f8",
+      "3931109d"
+    ],
+    "layout": {
+      "shellH": 5773,
+      "contentScroll": 5773,
+      "contentClient": 5773,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6129
+  },
+  {
+    "id": "ch3-5-4",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 1,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "T",
+      "r2": "22.5 J",
+      "r4": "V",
+      "r5": "0 J",
+      "r7": "v0",
+      "r8": "3 m/s"
+    },
+    "readoutAfterDrag": {
+      "r1": "T",
+      "r2": "18.44 J",
+      "r4": "V",
+      "r5": "4.06 J",
+      "r7": "v0",
+      "r8": "3 m/s"
+    },
+    "readoutAfterSlider": {
+      "r1": "T",
+      "r2": "18.44 J",
+      "r4": "V",
+      "r5": "4.06 J",
+      "r7": "v0",
+      "r8": "7 m/s"
+    },
+    "readoutAfterReset": {
+      "r1": "T",
+      "r2": "22.5 J",
+      "r4": "V",
+      "r5": "0 J",
+      "r7": "v0",
+      "r8": "3 m/s"
+    },
+    "hashesIdle": [
+      "b9af2b7f",
+      "b9af2b7f",
+      "b9af2b7f",
+      "b9af2b7f",
+      "b9af2b7f",
+      "b9af2b7f"
+    ],
+    "hashesPlay": [
+      "b9af2b7f",
+      "b9af2b7f",
+      "b9af2b7f",
+      "b9af2b7f",
+      "b9af2b7f",
+      "b9af2b7f"
+    ],
+    "layout": {
+      "shellH": 4446,
+      "contentScroll": 4446,
+      "contentClient": 4446,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6134
+  },
+  {
+    "id": "ch3-6-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 3,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 6,
+    "idleEvolved": false,
+    "playEvolved": true,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": true,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 6,
+    "readoutInitial": {
+      "r1": "p trước",
+      "r2": "(5; 0) kg·m/s",
+      "r4": "p sau",
+      "r5": "(5; 0) kg·m/s",
+      "r7": "e",
+      "r8": "1"
+    },
+    "readoutAfterDrag": {
+      "r1": "p trước",
+      "r2": "(11; 0) kg·m/s",
+      "r4": "p sau",
+      "r5": "(11; 0) kg·m/s",
+      "r7": "e",
+      "r8": "1"
+    },
+    "readoutAfterSlider": {
+      "r1": "p trước",
+      "r2": "(11; 0) kg·m/s",
+      "r4": "p sau",
+      "r5": "(11; 0) kg·m/s",
+      "r7": "e",
+      "r8": "0.7"
+    },
+    "readoutAfterReset": {
+      "r1": "p trước",
+      "r2": "(5; 0) kg·m/s",
+      "r4": "p sau",
+      "r5": "(5; 0) kg·m/s",
+      "r7": "e",
+      "r8": "1"
+    },
+    "hashesIdle": [
+      "b184407d",
+      "b184407d",
+      "b184407d",
+      "b184407d",
+      "b184407d",
+      "b184407d"
+    ],
+    "hashesPlay": [
+      "d3504c06",
+      "fb6b7aa6",
+      "6ec0ca54",
+      "daca897e",
+      "2f52d398",
+      "c03562e"
+    ],
+    "layout": {
+      "shellH": 2869,
+      "contentScroll": 2869,
+      "contentClient": 2869,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6117
+  },
+  {
+    "id": "ch3-6-3",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 3,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "p trước",
+      "r2": "2 kg·m/s",
+      "r4": "p sau",
+      "r5": "2 kg·m/s",
+      "r7": "e",
+      "r8": "1",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "p trước",
+      "r2": "2 kg·m/s",
+      "r4": "p sau",
+      "r5": "2 kg·m/s",
+      "r7": "e",
+      "r8": "1",
+      "r10": "thời gian",
+      "r11": "2.57 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "p trước",
+      "r2": "1 kg·m/s",
+      "r4": "p sau",
+      "r5": "1 kg·m/s",
+      "r7": "e",
+      "r8": "1",
+      "r10": "thời gian",
+      "r11": "2.58 s"
+    },
+    "readoutAfterReset": {
+      "r1": "p trước",
+      "r2": "2 kg·m/s",
+      "r4": "p sau",
+      "r5": "2 kg·m/s",
+      "r7": "e",
+      "r8": "1",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "hashesIdle": [
+      "2b3dda2a",
+      "2b3dda2a",
+      "2b3dda2a",
+      "2b3dda2a",
+      "2b3dda2a",
+      "2b3dda2a"
+    ],
+    "hashesPlay": [
+      "2b3dda2a",
+      "2b3dda2a",
+      "2b3dda2a",
+      "2b3dda2a",
+      "2b3dda2a",
+      "2b3dda2a"
+    ],
+    "layout": {
+      "shellH": 7558,
+      "contentScroll": 7558,
+      "contentClient": 7558,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6137
+  },
+  {
+    "id": "ch3-7-1",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 1,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "định lý",
+      "r2": "Định lý khối tâm kg·m²/s",
+      "r4": "F",
+      "r5": "50 N",
+      "r7": "Bài toán",
+      "r8": "Bài mẫu",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "định lý",
+      "r2": "Định lý khối tâm kg·m²/s",
+      "r4": "F",
+      "r5": "50 N",
+      "r7": "Bài toán",
+      "r8": "Bài mẫu",
+      "r10": "thời gian",
+      "r11": "2.57 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "định lý",
+      "r2": "Định lý mô men động lượng kg·m²/s",
+      "r4": "F",
+      "r5": "50 N",
+      "r7": "Bài toán",
+      "r8": "Bài mẫu",
+      "r10": "thời gian",
+      "r11": "2.58 s"
+    },
+    "readoutAfterReset": {
+      "r1": "định lý",
+      "r2": "Định lý khối tâm kg·m²/s",
+      "r4": "F",
+      "r5": "50 N",
+      "r7": "Bài toán",
+      "r8": "Bài mẫu",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "hashesIdle": [
+      "2fc53528",
+      "2fc53528",
+      "2fc53528",
+      "2fc53528",
+      "2fc53528",
+      "2fc53528"
+    ],
+    "hashesPlay": [
+      "2fc53528",
+      "2fc53528",
+      "2fc53528",
+      "2fc53528",
+      "2fc53528",
+      "2fc53528"
+    ],
+    "layout": {
+      "shellH": 7170,
+      "contentScroll": 7170,
+      "contentClient": 7170,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6139
+  },
+  {
+    "id": "ch3-7-2",
+    "ok": true,
+    "error": null,
+    "canvas": {
+      "w": 760,
+      "h": 440,
+      "cssW": 590,
+      "cssH": 341
+    },
+    "controls": {
+      "sliders": 1,
+      "presets": 0,
+      "hasPlay": true,
+      "hasReset": true,
+      "handles": 0
+    },
+    "idleHashesUnique": 1,
+    "playHashesUnique": 1,
+    "idleEvolved": false,
+    "playEvolved": false,
+    "playLabelChanged": true,
+    "dragChangedReadout": true,
+    "dragChangedFrame": false,
+    "sliderChangedReadout": true,
+    "hasPreset": false,
+    "hasReset": true,
+    "resetRestores": true,
+    "readoutKeys": 8,
+    "readoutInitial": {
+      "r1": "điểm",
+      "r2": "100 %",
+      "r4": "r1",
+      "r5": "0 m",
+      "r7": "Độ nhiễu",
+      "r8": "0 %",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "readoutAfterDrag": {
+      "r1": "điểm",
+      "r2": "100 %",
+      "r4": "r1",
+      "r5": "0 m",
+      "r7": "Độ nhiễu",
+      "r8": "0 %",
+      "r10": "thời gian",
+      "r11": "2.56 s"
+    },
+    "readoutAfterSlider": {
+      "r1": "điểm",
+      "r2": "42 %",
+      "r4": "r1",
+      "r5": "0.015 m",
+      "r7": "Độ nhiễu",
+      "r8": "1.4 %",
+      "r10": "thời gian",
+      "r11": "2.58 s"
+    },
+    "readoutAfterReset": {
+      "r1": "điểm",
+      "r2": "100 %",
+      "r4": "r1",
+      "r5": "0 m",
+      "r7": "Độ nhiễu",
+      "r8": "0 %",
+      "r10": "thời gian",
+      "r11": "0.00 s"
+    },
+    "hashesIdle": [
+      "df889718",
+      "df889718",
+      "df889718",
+      "df889718",
+      "df889718",
+      "df889718"
+    ],
+    "hashesPlay": [
+      "df889718",
+      "df889718",
+      "df889718",
+      "df889718",
+      "df889718",
+      "df889718"
+    ],
+    "layout": {
+      "shellH": 4373,
+      "contentScroll": 4373,
+      "contentClient": 4373,
+      "overflow": false
+    },
+    "errors": [],
+    "elapsedMs": 6134
+  }
+]

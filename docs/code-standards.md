@@ -158,6 +158,66 @@ npm run test:sim:browser:route-mount
 `package.json` chỉ dùng cho QA dev-only. Không thêm runtime bundler; app vẫn phải chạy được bằng `file://`.
 `npm run test:sim:release` phải bao gồm `test:sim:quality` và `test:sim:visual-quality` để khóa line-count active simulation sources, 58-route discovery, bounded canvas, route-owned handles, renderer/behavior/scene identity, dark/light readability, và overflow.
 
+## Sim renderer types
+
+58 simulation routes split into 3 renderer kinds. Pick by reading the scene's teaching intent, not by whether a route happens to have sliders or handles.
+
+### 1. Concept diagram (`scene.static === true`)
+
+Pure state-of-now diagram. Renderer reads the current `state` and derived values, but does not read `state._t`, `state.phi`, or wall-clock time. The reader suppresses Play; Reset and controls remain. If readouts need silent engine ticks while the canvas stays static, add `tickWithoutButton: true`.
+
+Example: `js/sims/ch3/ch3-newton-laws-renderers.js` route `ch3-2-3`.
+
+### 2. Animation scene (no `scene.static`)
+
+Renderer must visibly evolve under engine time between t=0 and t=3. Use `state._t`, time-derived behavior state such as `state.phi`, or `lab.anim.getAnimTime()`-derived values. The reader shows Play/Pause unless the route explicitly autoplays.
+
+Example: `js/sims/ch3/ch3-theorems-renderers.js` route `ch3-5-3`.
+
+### 3. Interactive-static (Ch1 statics)
+
+No time dimension by subject matter. Renderer paints scalar equilibrium state and reacts to sliders/handles only. Reader has no Play; canvas evolution sweep expects bounded static hashes.
+
+Example: `js/sims/ch1/ch1-force-law-renderers.js` route `ch1-1-3`.
+
+### Decision tree
+
+- Lesson teaches "tại thời điểm", free-body diagram, theorem selector, residual checker, or instantaneous relation → concept diagram.
+- Lesson teaches "khi vật chuyển động", translation, rotation, impulse over time, oscillation, or collision evolution → animation scene.
+- Lesson is Ch1 statics/equilibrium → interactive-static.
+
+### Recipe: convert concept diagram to animation scene
+
+1. Remove `static: true` from the scene catalog.
+2. Add an engine-time-driven term to the route renderer.
+3. Move the route from `STATIC_ROUTES_CONCEPT_DIAGRAM` to `ANIMATED_ROUTES_EVOLVING` in `tests/sim-canvas-evolution-fixtures.js`.
+4. Update `qa-verification/animation-sweep/per-route-animation-sweep-baseline.json` so the route expects `[3, 4]` unique frames.
+5. Run `npm run test:sim:browser:evolution`.
+
+### Recipe: add static concept route
+
+1. Set `static: true` in the scene catalog.
+2. Keep the renderer pure state-of-now; no `state._t` dependency.
+3. Add the route to `STATIC_ROUTES_CONCEPT_DIAGRAM`.
+4. Keep the baseline expected window at `[1, 2]`.
+5. Verify Play is hidden with `tests/phase-09-static-routes-no-play-button.spec.js`.
+
+`tests/sim-canvas-evolution.spec.js` locks this split. `tools/check-canvas-evolution-baseline.js` fails if animated routes drift outside their unique-frame window or fall back to wall-time sampling.
+
+Tier-2 visual evolution baselines use the no-dependency JSON pixel-diff fallback in `tests/sim-canvas-pixelmatch.spec.js`. Refresh them only after human review with:
+
+```powershell
+npm run test:sim:visual-quality:update-evolution-baseline
+```
+
+Then verify:
+
+```powershell
+npm run test:sim:visual-quality:full
+```
+
+See `docs/journals/260521-phase-09-canvas-evolution-harness-and-renderer-cleanup-closeout.md` for the verification finding that motivated this taxonomy.
+
 Khi chỉnh DOCX sync hoặc equation flow, chạy thêm:
 
 ```powershell
@@ -189,7 +249,7 @@ python tools\audit.py --strict-images
 - `package.json` chỉ chứa QA scripts/dev dependencies; không biến repo thành npm runtime app.
 - Không thêm framework hoặc build step mới nếu chưa có lý do thật.
 - Nếu một file code mới vượt mức vừa phải, tách thành module nhỏ hơn trước khi tích lũy thêm logic.
-- Browser QA professional dùng focused suite không còn skipped rollout tests: `test:sim:browser` hiện 173 tests trong `mass-conversion-audit.spec.js`, `simulation-browser.spec.js`, `simulation-interaction-engine.spec.js`, và `promax-pilot-shell.spec.js`; `test:sim:visual-quality` hiện 4 all-route visual/identity/theme tests; `test:sim:scene-identity` và `test:sim:renderer-contract` là hai gate riêng cho identity/contract.
+- Browser QA professional dùng focused suite không còn skipped rollout tests: `test:sim:browser` chạy mass-conversion, simulation browser, interaction engine, Promax shell, canvas-evolution, và static-route no-play specs; `test:sim:visual-quality` chạy 4 all-route visual/identity/theme tests; `test:sim:visual-quality:full` thêm tier-2 visual evolution JSON baseline; `test:sim:scene-identity` và `test:sim:renderer-contract` là hai gate riêng cho identity/contract.
 
 ## Equation rendering rules (2026-05-18)
 

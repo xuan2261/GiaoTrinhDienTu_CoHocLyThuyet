@@ -1,0 +1,643 @@
+{
+  "generated": "2026-05-21",
+  "routes": {
+    "ch1-1-3": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-1-4": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-1-5": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-1-6": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-1-8": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-2-1": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-2-3": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-2-6": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-3-1": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-3-2": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-3-3": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-3-4": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-3-6": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-3-7": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-4-1": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-4-2": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-4-4": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-5-1": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-5-2": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-5-3": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-5-4": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-6-2": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-6-3": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-7-1": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch1-7-2": {
+      "bucket": "static-ch1",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch2-1-1": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.012599999988079,
+      "sampleMode": "engine-time"
+    },
+    "ch2-1-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0212000000000008,
+      "sampleMode": "engine-time"
+    },
+    "ch2-1-3": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0499999999880782,
+      "sampleMode": "engine-time"
+    },
+    "ch2-1-4": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0340999999940395,
+      "sampleMode": "engine-time"
+    },
+    "ch2-2-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.026045555552124,
+      "sampleMode": "engine-time"
+    },
+    "ch2-3-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.030099999997019,
+      "sampleMode": "engine-time"
+    },
+    "ch2-4-1": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0308999999970183,
+      "sampleMode": "engine-time"
+    },
+    "ch2-4-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0289999999910577,
+      "sampleMode": "engine-time"
+    },
+    "ch2-4-3": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0153999999970185,
+      "sampleMode": "engine-time"
+    },
+    "ch2-4-4": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.015499999994041,
+      "sampleMode": "engine-time"
+    },
+    "ch2-5-1": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0473999999880763,
+      "sampleMode": "engine-time"
+    },
+    "ch2-5-2": {
+      "bucket": "static-concept",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch2-5-3": {
+      "bucket": "static-concept",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch2-7-1": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0267999999880777,
+      "sampleMode": "engine-time"
+    },
+    "ch2-7-2": {
+      "bucket": "static-concept",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch3-1-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0403229276098536,
+      "sampleMode": "engine-time"
+    },
+    "ch3-1-3": {
+      "bucket": "static-concept",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0.15440573051245024,
+      "sampleMode": "static-quick"
+    },
+    "ch3-2-1": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0363608975630956,
+      "sampleMode": "engine-time"
+    },
+    "ch3-2-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0045808765220223,
+      "sampleMode": "engine-time"
+    },
+    "ch3-2-3": {
+      "bucket": "static-concept",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0.14499803647843215,
+      "sampleMode": "static-quick"
+    },
+    "ch3-2-5": {
+      "bucket": "static-concept",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch3-3-1": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0156476913814836,
+      "sampleMode": "engine-time"
+    },
+    "ch3-3-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.014675627878084,
+      "sampleMode": "engine-time"
+    },
+    "ch3-4-1": {
+      "bucket": "static-concept",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch3-4-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0009249014882364,
+      "sampleMode": "engine-time"
+    },
+    "ch3-5-1": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0245294515038372,
+      "sampleMode": "engine-time"
+    },
+    "ch3-5-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.021974625163289,
+      "sampleMode": "engine-time"
+    },
+    "ch3-5-3": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0072010650801553,
+      "sampleMode": "engine-time"
+    },
+    "ch3-5-4": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.0079583082713284,
+      "sampleMode": "engine-time"
+    },
+    "ch3-6-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.034794465781716,
+      "sampleMode": "engine-time"
+    },
+    "ch3-6-3": {
+      "bucket": "static-concept",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0.1590500497122542,
+      "sampleMode": "static-quick"
+    },
+    "ch3-7-1": {
+      "bucket": "static-concept",
+      "expectedUniqueFrames": [
+        1,
+        2
+      ],
+      "lastSeenFrames": 1,
+      "hasPlayButton": false,
+      "engineTimeReached": 0,
+      "sampleMode": "static-quick"
+    },
+    "ch3-7-2": {
+      "bucket": "animated",
+      "expectedUniqueFrames": [
+        3,
+        4
+      ],
+      "lastSeenFrames": 4,
+      "hasPlayButton": true,
+      "engineTimeReached": 3.007158418761738,
+      "sampleMode": "engine-time"
+    }
+  }
+}
