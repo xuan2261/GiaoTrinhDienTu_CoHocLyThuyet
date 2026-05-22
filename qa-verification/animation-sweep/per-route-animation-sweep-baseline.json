@@ -254,28 +254,6 @@
       "engineTimeReached": 0,
       "sampleMode": "static-quick"
     },
-    "ch1-7-1": {
-      "bucket": "static-ch1",
-      "expectedUniqueFrames": [
-        1,
-        2
-      ],
-      "lastSeenFrames": 1,
-      "hasPlayButton": false,
-      "engineTimeReached": 0,
-      "sampleMode": "static-quick"
-    },
-    "ch1-7-2": {
-      "bucket": "static-ch1",
-      "expectedUniqueFrames": [
-        1,
-        2
-      ],
-      "lastSeenFrames": 1,
-      "hasPlayButton": false,
-      "engineTimeReached": 0,
-      "sampleMode": "static-quick"
-    },
     "ch2-1-1": {
       "bucket": "animated",
       "expectedUniqueFrames": [
@@ -409,28 +387,6 @@
       "sampleMode": "static-quick"
     },
     "ch2-5-3": {
-      "bucket": "static-concept",
-      "expectedUniqueFrames": [
-        1,
-        2
-      ],
-      "lastSeenFrames": 1,
-      "hasPlayButton": false,
-      "engineTimeReached": 0,
-      "sampleMode": "static-quick"
-    },
-    "ch2-7-1": {
-      "bucket": "animated",
-      "expectedUniqueFrames": [
-        3,
-        4
-      ],
-      "lastSeenFrames": 4,
-      "hasPlayButton": true,
-      "engineTimeReached": 3.0267999999880777,
-      "sampleMode": "engine-time"
-    },
-    "ch2-7-2": {
       "bucket": "static-concept",
       "expectedUniqueFrames": [
         1,
@@ -616,28 +572,6 @@
       "hasPlayButton": false,
       "engineTimeReached": 0.1590500497122542,
       "sampleMode": "static-quick"
-    },
-    "ch3-7-1": {
-      "bucket": "static-concept",
-      "expectedUniqueFrames": [
-        1,
-        2
-      ],
-      "lastSeenFrames": 1,
-      "hasPlayButton": false,
-      "engineTimeReached": 0,
-      "sampleMode": "static-quick"
-    },
-    "ch3-7-2": {
-      "bucket": "animated",
-      "expectedUniqueFrames": [
-        3,
-        4
-      ],
-      "lastSeenFrames": 4,
-      "hasPlayButton": true,
-      "engineTimeReached": 3.007158418761738,
-      "sampleMode": "engine-time"
     }
   }
 }

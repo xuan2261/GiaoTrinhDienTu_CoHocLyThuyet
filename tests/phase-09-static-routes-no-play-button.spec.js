@@ -1,7 +1,7 @@
 /**
  * Phase 09 → Phase 03 — concept-only routes have no Play affordance.
  *
- * Mounts each of the 7 static-concept routes via the index.html shell and
+ * Mounts each static-concept route via the index.html shell and
  * asserts:
  *   - `[data-sim-play]` attribute returns null;
  *   - no button renders text containing "▶ Chạy" or "⏸ Dừng";
@@ -16,7 +16,7 @@ const { test, expect } = require('@playwright/test');
 const path = require('path');
 const { firstHandlePoint, dragCanvasPoint, dragTarget } = require('./simulation-test-utils');
 
-const STATIC_ROUTES = ['ch3-1-3', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1', 'ch3-6-3', 'ch3-7-1', 'ch2-7-2'];
+const STATIC_ROUTES = ['ch3-1-3', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1', 'ch3-6-3'];
 const ANIMATED_CONTROL = 'ch3-2-2';
 
 const ROOT = path.resolve(__dirname, '..');

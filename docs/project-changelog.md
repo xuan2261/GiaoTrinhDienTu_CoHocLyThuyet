@@ -1,5 +1,24 @@
 # Project Changelog
 
+## 2026-05-22 — Exercise Section Simulation Removal
+
+### Fixed
+- Section VII `BÀI TẬP` routes for chapters 1, 2, and 3 are now content-only and no longer auto-mount simulation labs from `SIM_MAP`.
+- Removed stale Ch3 exercise placeholders `sim-ch3-7-4`, `sim-ch3-7-5`, and `sim-ch3-7-6` from fragments and regenerated `js/pages.js`.
+- Browser simulation QA now distinguishes 58 canonical registry routes from 52 learner-facing mountable routes, excluding the six dormant section VII checker labs from page-mount, visual, interaction, and canvas-evolution sweeps.
+
+### Added
+- `tests/exercise-section-no-simulation.spec.js` locks all `ch*-7*` exercise-section routes against `.sim-lab`, `.sim-mount`, `data-sim-mount-route`, and `#sim-*` regressions while confirming a non-exercise route still mounts.
+
+### Verified
+- `npx playwright test tests/exercise-section-no-simulation.spec.js --reporter=line --workers=1 --timeout=30000`: PASS, 16/16.
+- `npx playwright test tests/simulation-browser.spec.js -g "route-mount" --reporter=line --workers=1 --timeout=30000`: PASS, 53/53.
+- `npm run test:sim:unit`: PASS.
+- `npm run test:sim:visual-quality`: PASS, 4/4.
+- `npm run test:sim:browser`: PASS, 183/183; canvas evolution baseline OK, 52 routes.
+- `python -m compileall -q tools`: PASS.
+- `python tools\audit.py`: PASS, 102/102 files OK.
+
 ## 2026-05-22 — Author Page Content Cleanup
 
 ### Fixed

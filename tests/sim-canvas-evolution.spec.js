@@ -1,7 +1,7 @@
 /**
  * Phase 09 — canvas-evolution sweep spec.
  *
- * Mounts every one of the 58 sim routes via the existing index.html shell,
+ * Mounts every learner-facing sim route via the existing index.html shell,
  * clicks Play (when present), waits for engine seconds 1, 2, 3 to elapse,
  * and records 4 canvas hashes. Static buckets must show ≤2 unique frames;
  * animated bucket must show ≥3.
@@ -31,10 +31,10 @@ const RESULTS_PATH = path.join(
   'sweep-results.json'
 );
 
-// Single-page-context. ~58 routes × ~4s ≈ 4 min budget per F12.
+// Single-page-context. ~52 routes × ~4s ≈ 4 min budget per F12.
 test.describe.configure({ mode: 'serial' });
 
-test.describe('Canvas evolution sweep — 58 routes', () => {
+test.describe('Canvas evolution sweep — mountable routes', () => {
   test('records hashes and enforces bucket-specific uniqueFrames', async ({ page }) => {
     test.setTimeout(8 * 60 * 1000);
     const consoleErrors = [];

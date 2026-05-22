@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { ALL_ROUTES, openRoute, relevantConsoleErrors } = require('./simulation-test-utils');
+const { MOUNTABLE_ROUTES, openRoute, relevantConsoleErrors } = require('./simulation-test-utils');
 
 /**
  * Phase 05: Mass QA Audit
@@ -7,7 +7,7 @@ const { ALL_ROUTES, openRoute, relevantConsoleErrors } = require('./simulation-t
  */
 test.describe('V2 Mass Conversion Audit', () => {
   
-  for (const routeId of ALL_ROUTES) {
+  for (const routeId of MOUNTABLE_ROUTES) {
     test(`route ${routeId} should load without console errors`, async ({ page }) => {
       const consoleMessages = [];
       page.on('console', msg => {

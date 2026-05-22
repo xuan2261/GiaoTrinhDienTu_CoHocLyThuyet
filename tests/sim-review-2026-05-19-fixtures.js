@@ -29,7 +29,7 @@ const EMPTY_PANEL_ROUTES = [
 ];
 
 const AUTOPLAY_PREVIEW_ROUTES = ['ch3-5-4', 'ch3-6-2'];
-const DECUONG_SHELL_ROUTES = ['ch2-1-1', 'ch2-1-4', 'ch2-7-2'];
+const DECUONG_SHELL_ROUTES = ['ch2-1-1', 'ch2-1-4', 'ch2-5-2'];
 
 const LABEL_COLLISION_ROUTES = [
   'ch1-3-1',

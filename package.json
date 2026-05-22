@@ -12,7 +12,7 @@
     "test:sim:renderer-contract": "python tools/smoke_simulation_renderer_contract.py --strict --require-routes 58 && playwright test tests/simulation-visual-quality.spec.js --grep @renderer-contract",
     "test:sim:semantic": "npm run test:sim:scene-identity && npm run test:sim:renderer-contract",
     "test:sim:disposal": "node tools/audit_v2_disposal.js",
-    "test:sim:browser": "playwright test tests/mass-conversion-audit.spec.js tests/simulation-browser.spec.js tests/simulation-interaction-engine.spec.js tests/promax-pilot-shell.spec.js tests/sim-canvas-evolution.spec.js tests/phase-09-static-routes-no-play-button.spec.js && node tools/check-canvas-evolution-baseline.js",
+    "test:sim:browser": "playwright test tests/exercise-section-no-simulation.spec.js tests/mass-conversion-audit.spec.js tests/simulation-browser.spec.js tests/simulation-interaction-engine.spec.js tests/promax-pilot-shell.spec.js tests/sim-canvas-evolution.spec.js tests/phase-09-static-routes-no-play-button.spec.js && node tools/check-canvas-evolution-baseline.js",
     "test:sim:browser:evolution": "playwright test tests/sim-canvas-evolution.spec.js && node tools/check-canvas-evolution-baseline.js",
     "test:sim:browser:update-evolution-baseline": "node tools/update-canvas-evolution-baseline.js",
     "test:sim:visual-quality": "playwright test tests/simulation-visual-quality.spec.js",

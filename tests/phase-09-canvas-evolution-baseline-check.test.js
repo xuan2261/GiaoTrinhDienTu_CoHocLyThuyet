@@ -3,7 +3,7 @@
  *
  * The drift-check tool consumes this baseline; if the file is malformed the
  * gate fails silently. This Node test asserts the baseline schema:
- *   - 58 routes;
+ *   - 52 learner-facing mountable routes;
  *   - bucket ∈ {static-ch1, static-concept, animated};
  *   - expectedUniqueFrames is [min, max] with min ≤ max;
  *   - lastSeenFrames either matches the window OR carries a knownDefect tag.
@@ -21,7 +21,7 @@ const BASELINE_PATH = path.join(
   'animation-sweep',
   'per-route-animation-sweep-baseline.json'
 );
-const TOTAL_EXPECTED = 58;
+const TOTAL_EXPECTED = 52;
 const VALID_BUCKETS = new Set(['static-ch1', 'static-concept', 'animated']);
 
 const baseline = JSON.parse(fs.readFileSync(BASELINE_PATH, 'utf8'));

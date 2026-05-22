@@ -7,6 +7,12 @@ const assert = require('assert');
 const ROOT = path.resolve(__dirname, '..');
 const INDEX_FILE = path.join(ROOT, 'index.html');
 const EXPECTED_ROUTE_COUNT = 58;
+const EXERCISE_SECTION_SIM_ROUTES = Object.freeze([
+  'ch1-7-1', 'ch1-7-2',
+  'ch2-7-1', 'ch2-7-2',
+  'ch3-7-1', 'ch3-7-2',
+]);
+const EXPECTED_MOUNTABLE_ROUTE_COUNT = EXPECTED_ROUTE_COUNT - EXERCISE_SECTION_SIM_ROUTES.length;
 const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
@@ -49,10 +55,16 @@ function discoverV2Routes() {
 }
 
 const ALL_ROUTES = discoverV2Routes();
+const MOUNTABLE_ROUTES = ALL_ROUTES.filter(route => !EXERCISE_SECTION_SIM_ROUTES.includes(route));
 const ROUTE_GROUPS = {
   ch1: ALL_ROUTES.filter(route => route.startsWith('ch1-')),
   ch2: ALL_ROUTES.filter(route => route.startsWith('ch2-')),
   ch3: ALL_ROUTES.filter(route => route.startsWith('ch3-')),
+};
+const MOUNTABLE_ROUTE_GROUPS = {
+  ch1: MOUNTABLE_ROUTES.filter(route => route.startsWith('ch1-')),
+  ch2: MOUNTABLE_ROUTES.filter(route => route.startsWith('ch2-')),
+  ch3: MOUNTABLE_ROUTES.filter(route => route.startsWith('ch3-')),
 };
 
 async function blockNonLocalHttp(page) {
@@ -269,7 +281,8 @@ function startStaticServer() {
 }
 
 module.exports = {
-  ROOT, INDEX_FILE, EXPECTED_ROUTE_COUNT, ALL_ROUTES, ROUTE_GROUPS,
+  ROOT, INDEX_FILE, EXPECTED_ROUTE_COUNT, EXPECTED_MOUNTABLE_ROUTE_COUNT,
+  EXERCISE_SECTION_SIM_ROUTES, ALL_ROUTES, MOUNTABLE_ROUTES, ROUTE_GROUPS, MOUNTABLE_ROUTE_GROUPS,
   openRoute, canvasStats, labState, readoutSnapshot, firstHandlePoint,
   dragTarget, dragCanvasPoint, setTheme, layoutOverflow, startStaticServer, relevantConsoleErrors,
 };

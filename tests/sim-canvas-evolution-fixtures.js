@@ -1,15 +1,17 @@
 /**
  * Phase 09 — canvas-evolution sweep fixtures.
  *
- * Three buckets cover every route we mount in the sim shell:
- *   - STATIC_ROUTES_INTENT_KH1: 25 Ch1 statics routes (no temporal dimension by spec).
+ * Three buckets cover every learner-facing route we mount in the sim shell:
+ *   - STATIC_ROUTES_INTENT_KH1: Ch1 statics routes (no temporal dimension by spec).
  *   - STATIC_ROUTES_CONCEPT_DIAGRAM: Ch2/Ch3 concept-diagram routes (Phase 03 strips
- *     misleading Play affordance). Post-F3 reclassification: ch3-7-2 leaves this
- *     bucket via Phase 05 (its onTick already produces time-oscillating residuals).
+ *     misleading Play affordance). Section VII checker routes are excluded from
+ *     this browser sweep because they are content-only learner pages.
  *   - ANIMATED_ROUTES_EVOLVING: every other dynamic route — must show ≥3 unique
  *     canvas hashes between t=0 and t=3 engine seconds.
  *
- * Total must equal SimRouteManifest count (58). routeBucket() returns the bucket
+ * Total must equal the mountable route count (52). Section VII exercise routes
+ * stay content-only even though dormant registry contracts still exist.
+ * routeBucket() returns the bucket
  * label or null for unknown routes.
  */
 'use strict';
@@ -21,13 +23,12 @@ const STATIC_ROUTES_INTENT_KH1 = Object.freeze([
   'ch1-4-1', 'ch1-4-2', 'ch1-4-4',
   'ch1-5-1', 'ch1-5-2', 'ch1-5-3', 'ch1-5-4',
   'ch1-6-2', 'ch1-6-3',
-  'ch1-7-1', 'ch1-7-2',
 ]);
 
 const STATIC_ROUTES_CONCEPT_DIAGRAM = Object.freeze([
-  'ch2-5-2', 'ch2-5-3', 'ch2-7-2',
+  'ch2-5-2', 'ch2-5-3',
   'ch3-1-3', 'ch3-2-3', 'ch3-2-5',
-  'ch3-4-1', 'ch3-6-3', 'ch3-7-1',
+  'ch3-4-1', 'ch3-6-3',
 ]);
 
 const ANIMATED_ROUTES_EVOLVING = Object.freeze([
@@ -35,17 +36,15 @@ const ANIMATED_ROUTES_EVOLVING = Object.freeze([
   'ch2-2-2', 'ch2-3-2',
   'ch2-4-1', 'ch2-4-2', 'ch2-4-3', 'ch2-4-4',
   'ch2-5-1',
-  'ch2-7-1',
   'ch3-1-2',
   'ch3-2-1', 'ch3-2-2',
   'ch3-3-1', 'ch3-3-2',
   'ch3-4-2',
   'ch3-5-1', 'ch3-5-2', 'ch3-5-3', 'ch3-5-4',
   'ch3-6-2',
-  'ch3-7-2',
 ]);
 
-const TOTAL_EXPECTED = 58;
+const TOTAL_EXPECTED = 52;
 
 function selfCheck() {
   const total = STATIC_ROUTES_INTENT_KH1.length

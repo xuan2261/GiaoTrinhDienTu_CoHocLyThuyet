@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 const {
-  ALL_ROUTES,
+  MOUNTABLE_ROUTES,
   canvasStats,
   openRoute,
   labState,
@@ -19,7 +19,7 @@ const SEMANTIC_CASES = [
   { route: 'ch3-3-1', label: 'V', reason: 'spring energy' },
   { route: 'ch3-6-2', label: 'p trước', reason: 'collision momentum' },
 ];
-const CH1_ROUTES = ALL_ROUTES.filter(route => route.startsWith('ch1-'));
+const CH1_ROUTES = MOUNTABLE_ROUTES.filter(route => route.startsWith('ch1-'));
 
 async function canvasClientPoint(page, point) {
   const canvas = page.locator('.sim-container.sim-lab canvas').first();
@@ -128,10 +128,10 @@ async function touchDragCanvasPoint(page, from, to) {
   await cdp.detach();
 }
 
-test('all controls, handles, and animation play states respond across 58 routes @control-audit', async ({ page }) => {
+test('all controls, handles, and animation play states respond across mountable routes @control-audit', async ({ page }) => {
   test.setTimeout(240000);
   const failures = [];
-  for (const route of ALL_ROUTES) {
+  for (const route of MOUNTABLE_ROUTES) {
     await openRoute(page, route);
     let controls = await labControls(page);
     for (const slider of controls.sliders) {
@@ -205,10 +205,10 @@ test('interaction layer exposes active handle metadata lifecycle @direct-drag', 
   await expect(page.locator('.sim-container.sim-lab')).not.toHaveAttribute('data-active-handle-id', /.+/);
 });
 
-test('all 58 routes expose route-owned handles and stable readout drag @direct-drag-audit', async ({ page }) => {
+test('all mountable routes expose route-owned handles and stable readout drag @direct-drag-audit', async ({ page }) => {
   test.setTimeout(180000);
   const failures = [];
-  for (const route of ALL_ROUTES) {
+  for (const route of MOUNTABLE_ROUTES) {
     await openRoute(page, route);
     const state = await labState(page);
     if (!state.handleIds.length) {
@@ -431,24 +431,20 @@ test('paused direct drag does not leave transient particle dots after settling @
   await expect.poll(() => transientParticlePixels(page)).toBe(beforeClear);
 });
 
-test('numeric checker residual scale stays consistent in readouts @control-audit', async ({ page }) => {
-  await openRoute(page, 'ch3-7-2');
+test('collision restitution residual scale stays consistent in readouts @control-audit', async ({ page }) => {
+  await openRoute(page, 'ch3-6-2');
   let controls = await labControls(page);
-  const residual = controls.sliders.find(item => item.key === 'residualScale');
+  const residual = controls.sliders.find(item => item.key === 'e');
   expect(residual).toBeTruthy();
-  await setSlider(page, residual.index, 0);
-  await expect.poll(() => readoutValue(page, 'r1')).toBe('0');
-  await expect.poll(async () => firstNumber(await readoutValue(page, 'điểm'))).toBe(100);
+  const before = await routeSnapshot(page);
+  await setSlider(page, residual.index, Number(residual.value) === Number(residual.max) ? residual.min : residual.max);
+  await expect.poll(() => routeSnapshot(page)).not.toBe(before);
 
   controls = await labControls(page);
-  await setSlider(page, controls.sliders.find(item => item.key === 'residualScale').index, 2);
+  const nextResidual = controls.sliders.find(item => item.key === 'e');
   await page.getByRole('button', { name: /Chạy/ }).first().click();
-  await expect.poll(async () => firstNumber(await readoutValue(page, 'r1'))).toBeGreaterThan(0);
-  await expect.poll(async () => firstNumber(await readoutValue(page, 'điểm'))).toBeLessThan(100);
+  await expect.poll(() => routeSnapshot(page)).not.toBe(before);
 
   await page.getByRole('button', { name: /Dừng/ }).first().click();
-  controls = await labControls(page);
-  await setSlider(page, controls.sliders.find(item => item.key === 'residualScale').index, 0);
-  await expect.poll(() => readoutValue(page, 'r1')).toBe('0');
-  await expect.poll(async () => firstNumber(await readoutValue(page, 'điểm'))).toBe(100);
+  await setSlider(page, nextResidual.index, nextResidual.value);
 });

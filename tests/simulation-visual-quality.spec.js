@@ -3,6 +3,8 @@ const { test, expect } = require('@playwright/test');
 const {
   ALL_ROUTES,
   EXPECTED_ROUTE_COUNT,
+  MOUNTABLE_ROUTES,
+  EXPECTED_MOUNTABLE_ROUTE_COUNT,
   openRoute,
   labState,
   canvasStats,
@@ -45,10 +47,10 @@ test(`visual route discovery uses ${EXPECTED_ROUTE_COUNT} canonical manifest rou
   expect(new Set(ALL_ROUTES).size).toBe(EXPECTED_ROUTE_COUNT);
 });
 
-test('all 58 route canvases are nonblank, bounded, and route-owned @visual-all', async ({ page }) => {
+test(`all ${EXPECTED_MOUNTABLE_ROUTE_COUNT} mountable route canvases are nonblank, bounded, and route-owned @visual-all`, async ({ page }) => {
   test.setTimeout(180000);
   const failures = [];
-  for (const route of ALL_ROUTES) {
+  for (const route of MOUNTABLE_ROUTES) {
     await openRoute(page, route);
     await setTheme(page, 'light');
     await page.evaluate(() => window.dispatchEvent(new Event('resize')));
@@ -71,13 +73,13 @@ test('all 58 route canvases are nonblank, bounded, and route-owned @visual-all',
   expect(failures).toEqual([]);
 });
 
-test('renderer, behavior, and scene identities are unique across 58 routes @renderer-contract @scene-identity', async ({ page }) => {
+test(`renderer, behavior, and scene identities are unique across ${EXPECTED_MOUNTABLE_ROUTE_COUNT} mountable routes @renderer-contract @scene-identity`, async ({ page }) => {
   test.setTimeout(180000);
   const seenRendererIds = new Map();
   const seenBehaviorIds = new Map();
   const seenStructures = new Map();
   const failures = [];
-  for (const route of ALL_ROUTES) {
+  for (const route of MOUNTABLE_ROUTES) {
     await openRoute(page, route);
     const state = await labState(page);
     if (state.routeId !== route) failures.push(`${route}: route metadata mismatch`);
@@ -99,7 +101,7 @@ test('renderer, behavior, and scene identities are unique across 58 routes @rend
 test('all routes keep readable dark/light shell and no responsive overflow @theme-all', async ({ page }) => {
   test.setTimeout(180000);
   const failures = [];
-  for (const route of ALL_ROUTES) {
+  for (const route of MOUNTABLE_ROUTES) {
     await openRoute(page, route);
     for (const theme of ['dark', 'light']) {
       await setTheme(page, theme);

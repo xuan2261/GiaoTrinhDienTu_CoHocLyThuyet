@@ -5,9 +5,12 @@ const path = require('path');
 const {
   ALL_ROUTES,
   EXPECTED_ROUTE_COUNT,
+  MOUNTABLE_ROUTES,
+  EXPECTED_MOUNTABLE_ROUTE_COUNT,
   ROOT,
   INDEX_FILE,
   ROUTE_GROUPS,
+  MOUNTABLE_ROUTE_GROUPS,
   canvasStats,
   openRoute,
   labState,
@@ -27,7 +30,6 @@ const FORBIDDEN_READOUT_ALIAS_PAIRS = [
   { route: 'ch1-3-2', labels: ['Lực căng', '|T|'] },
   { route: 'ch1-3-7', labels: ['N dọc trục', '|N| dọc trục'] },
   { route: 'ch1-4-4', labels: ['ΣF', '|R| cân bằng'] },
-  { route: 'ch3-7-1', labels: ['F', 'Lực F'] },
 ];
 
 const INTENTIONAL_EQUALITIES = [
@@ -307,12 +309,16 @@ async function topbarOverlaps(page) {
   });
 }
 
-test('manifest lists the canonical 58 DeCuong-style simulation routes @route-mount', async () => {
+test('manifest lists canonical routes and learner-facing mountable routes @route-mount', async () => {
   expect(ALL_ROUTES).toHaveLength(EXPECTED_ROUTE_COUNT);
   expect(new Set(ALL_ROUTES).size).toBe(EXPECTED_ROUTE_COUNT);
   expect(ROUTE_GROUPS.ch1).toHaveLength(25);
   expect(ROUTE_GROUPS.ch2).toHaveLength(15);
   expect(ROUTE_GROUPS.ch3).toHaveLength(18);
+  expect(MOUNTABLE_ROUTES).toHaveLength(EXPECTED_MOUNTABLE_ROUTE_COUNT);
+  expect(MOUNTABLE_ROUTE_GROUPS.ch1).toHaveLength(23);
+  expect(MOUNTABLE_ROUTE_GROUPS.ch2).toHaveLength(13);
+  expect(MOUNTABLE_ROUTE_GROUPS.ch3).toHaveLength(16);
 });
 
 test('runtime exposes required simulation globals and canonical route map @baseline', async ({ page }) => {
@@ -363,7 +369,7 @@ test('current DeCuong helpers are available without speculative V2 assumptions @
   expect(capabilities.interactions).toHaveLength(4);
 });
 
-for (const route of ALL_ROUTES) {
+for (const route of MOUNTABLE_ROUTES) {
   test(`file route mounts DeCuong lab ${route} @route-mount`, async ({ page }) => {
     await openRoute(page, route);
     const state = await labState(page);
@@ -381,7 +387,7 @@ for (const route of ALL_ROUTES) {
 test('overlay contract keeps formulas and dynamic values out of the canvas overlay @overlay-contract', async ({ page }) => {
   test.setTimeout(180000);
   const failures = [];
-  for (const route of ALL_ROUTES) {
+  for (const route of MOUNTABLE_ROUTES) {
     await openRoute(page, route);
     const snapshot = await overlayContractSnapshot(page);
     snapshot.formulaNodes.forEach(item => {
@@ -616,7 +622,7 @@ test.describe('simulation readout dedup normalization @readout-dedup', () => {
   test('readout dedup baseline captures all route cards', async ({ page }) => {
     test.setTimeout(180000);
     const snapshots = [];
-    for (const route of ALL_ROUTES) {
+    for (const route of MOUNTABLE_ROUTES) {
       await openRoute(page, route);
       const state = await labState(page);
       snapshots.push({
@@ -631,7 +637,7 @@ test.describe('simulation readout dedup normalization @readout-dedup', () => {
       });
     }
     if (process.env.READOUT_BASELINE_KIND) writeReadoutReport(process.env.READOUT_BASELINE_KIND, snapshots);
-    expect(snapshots).toHaveLength(EXPECTED_ROUTE_COUNT);
+    expect(snapshots).toHaveLength(EXPECTED_MOUNTABLE_ROUTE_COUNT);
   });
 
   test('readout dedup forbidden duplicate aliases are absent', async ({ page }) => {
@@ -652,7 +658,7 @@ test.describe('simulation readout dedup normalization @readout-dedup', () => {
 
   test('readout dedup control and generic echoes are explicit or policy allowed', async ({ page }) => {
     const failures = [];
-    for (const route of ALL_ROUTES) {
+    for (const route of MOUNTABLE_ROUTES) {
       await openRoute(page, route);
       const snapshot = await page.locator('.sim-container.sim-lab').first().evaluate(lab => {
         const scene = window.SimSceneRegistry?.get?.(lab.getAttribute('data-route-id')) || {};
@@ -766,7 +772,7 @@ test('topbar controls do not overlap on tablet and mobile widths @responsive', a
 test('visible simulation shell text avoids legacy English UI leaks @localization', async ({ page }) => {
   test.setTimeout(120000);
   const leaks = [];
-  for (const route of ALL_ROUTES) {
+  for (const route of MOUNTABLE_ROUTES) {
     await openRoute(page, route);
     const text = (await labState(page)).visibleText;
     const match = text.match(LEGACY_UI_TEXT_PATTERN);
