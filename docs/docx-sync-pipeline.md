@@ -98,6 +98,8 @@ Strict publish yêu cầu đủ 702 hash `reviewed=true` trong `data/equation_ma
 
 `tools\audit.py` mặc định không còn warn figure `<img>` hợp lệ; section `IMAGE RENDERING` phải ghi figure count, unwrapped image count, và missing image count. Khi cần chốt publish image metadata, chạy thêm `python tools\audit.py --strict-images`. Gate này kiểm wrapper/file-size/caption/context/alt của ảnh local, chỉ tính caption gần trong boundary trước/sau của chính figure, caption nhóm cho các figure liền kề, hoặc nearby text context/evidence trong cùng cụm textbook figure; artifact-figure phải dùng reviewed alt.
 
+Phase 05 post-processor giữ `<figcaption>` làm caption canonical. Nếu extractor còn render paragraph DOCX caption ngay sau một `<figure>` đã có `<figcaption>` dưới dạng `p.caption` hoặc plain `<p><strong>Hình...</strong></p>`, post-processor merge số hình vào figcaption fallback khi cần rồi xoá paragraph đó để tránh hai chú thích hình hiển thị cùng lúc. Nếu nhiều `<figure>` liền kề có cùng caption và không có nội dung chen giữa, post-processor gộp thành một multi-image `<figure>` với một `<figcaption>`.
+
 ## Validation
 
 ```powershell

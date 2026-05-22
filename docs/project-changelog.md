@@ -5,18 +5,21 @@
 ### Fixed
 - Removed 32 remaining adjacent DOCX caption paragraphs rendered as plain `<p><strong>Hình...</strong></p>` while keeping `<figcaption>` as the canonical figure caption.
 - Merged numbered DOCX captions into generic fallback figcaptions before removing the paragraph, covering cases such as `Hình 1.21` and `Hình 1.22`.
+- Merged 5 consecutive duplicate figure captions by grouping adjacent figures with the same caption into one semantic multi-image `<figure>`.
+- Updated strict image audit to recognize every `<img>` inside a multi-image `<figure>` and to count an in-figure `<figcaption>` as caption evidence.
 - Regenerated `js/pages.js` from cleaned chapter fragments.
 
 ### Added
 - Extended Phase 05 regression tests to fail on both duplicate `<p class="caption">` and plain strong `Hình...` paragraphs after `<figure>`.
 - Added helper coverage for plain strong duplicate removal and plain strong fallback caption merge.
+- Added regression coverage for adjacent same-caption figure grouping, while preserving separate figures when content appears between them.
 
 ### Verified
 - `python scripts\test-phase-05-alt-text-figcaption-figure-tag-migration.py`: PASS.
 - `python tools\audit.py --strict-images --strict-formula-image`: PASS.
 - `python tools\audit.py --strict-equations`: PASS.
 - `npm run test:equations`: PASS.
-- Independent scan: `adjacent_caption_paragraph_after_figure 0`.
+- Independent scan: `adjacent_caption_paragraph_after_figure 0`, `consecutive_same_figcaption 0`.
 
 ## 2026-05-22 — Quiz Bank Expansion to 100 Questions
 

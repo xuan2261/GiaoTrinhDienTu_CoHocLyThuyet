@@ -1,0 +1,529 @@
+{
+  "counts": {
+    "figure_plus_caption_paragraph": 32,
+    "consecutive_same_figcaption": 12,
+    "same_figcaption_same_file": 10
+  },
+  "records": [
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-II-2.html",
+      "line": 383,
+      "caption": "Hình 1.6. Trượt lực",
+      "paragraph": "Hình 1.6. Trượt lực",
+      "img": "images/ch1/hinh-026.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-II-3.html",
+      "line": 7,
+      "caption": "Hình 1.7. Hình bình hành lực",
+      "paragraph": "Hình 1.7. Hình bình hành lực",
+      "img": "images/ch1/hinh-031.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-II-4.html",
+      "line": 7,
+      "caption": "Hình 1.8. Tác dụng và phản tác dụng",
+      "paragraph": "Hình 1.8. Tác dụng và phản tác dụng",
+      "img": "images/ch1/hinh-032.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-II-5.html",
+      "line": 7,
+      "caption": "Hình 1.9. Trạng thái kéo và nén của lò xo",
+      "paragraph": "Hình 1.9. Trạng thái kéo và nén của lò xo",
+      "img": "images/ch1/hinh-033.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-II-6.html",
+      "line": 12,
+      "caption": "Hình 1.10. Giải phóng liên kết",
+      "paragraph": "Hình 1.10. Giải phóng liên kết",
+      "img": "images/ch1/hinh-035.png"
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch1/muc-II-6.html",
+      "line": 12,
+      "caption": "Hình 1.10. Giải phóng liên kết",
+      "img_prev": "images/ch1/hinh-034.png",
+      "img": "images/ch1/hinh-035.png",
+      "between_chars": 0
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch1/muc-II-6.html",
+      "line": 8,
+      "caption": "Hình 1.10. Giải phóng liên kết",
+      "count": 2,
+      "lines": [
+        8,
+        12
+      ],
+      "imgs": [
+        "images/ch1/hinh-034.png",
+        "images/ch1/hinh-035.png"
+      ]
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-III-1.html",
+      "line": 7,
+      "caption": "Hình 1.11. Liên kết tựa",
+      "paragraph": "Hình 1.11. Liên kết tựa",
+      "img": "images/ch1/hinh-036.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-III-2.html",
+      "line": 8,
+      "caption": "Hình 1.12. Liên kết dây mềm, thẳng",
+      "paragraph": "Hình 1.12. Liên kết dây mềm, thẳng",
+      "img": "images/ch1/hinh-038.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-III-3.html",
+      "line": 9,
+      "caption": "Hình 1.13. Liên kết bản lề",
+      "paragraph": "Hình 1.13. Liên kết bản lề",
+      "img": "images/ch1/hinh-042.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-III-4.html",
+      "line": 7,
+      "caption": "Hình 1.14. Liên kết gối",
+      "paragraph": "Hình 1.14. Liên kết gối",
+      "img": "images/ch1/hinh-043.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-III-5.html",
+      "line": 6,
+      "caption": "Hình 1.15. Liên kết gối cầu",
+      "paragraph": "Hình 1.15. Liên kết gối cầu",
+      "img": "images/ch1/hinh-044.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-III-6.html",
+      "line": 7,
+      "caption": "Hình 1.16. Liên kết ngàm",
+      "paragraph": "Hình 1.16. Liên kết ngàm",
+      "img": "images/ch1/hinh-045.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-III-7.html",
+      "line": 7,
+      "caption": "Hình 1.17. Liên kết thanh",
+      "paragraph": "Hình 1.17. Liên kết thanh",
+      "img": "images/ch1/hinh-046.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-IV-1.html",
+      "line": 119,
+      "caption": "Hình 1.18. Véc tơ chính",
+      "paragraph": "Hình 1.18. Véc tơ chính",
+      "img": "images/ch1/hinh-050.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-IV-2.html",
+      "line": 135,
+      "caption": "Hình 1.19. Mômen chính",
+      "paragraph": "Hình 1.19. Mômen chính",
+      "img": "images/ch1/hinh-056.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-IV-3.html",
+      "line": 875,
+      "caption": "Hình minh họa - Các dạng cơ bản của hệ lực không gian",
+      "paragraph": "Hình 1.21. Hệ lực phân bố đều",
+      "img": "images/ch1/hinh-086.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-IV-3.html",
+      "line": 1010,
+      "caption": "Hình minh họa - Các dạng cơ bản của hệ lực không gian",
+      "paragraph": "Hình 1.22. Hệ lực phân bố tuyến tính",
+      "img": "images/ch1/hinh-090.png"
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch1/muc-IV-3.html",
+      "line": 875,
+      "caption": "Hình minh họa - Các dạng cơ bản của hệ lực không gian",
+      "img_prev": "images/ch1/hinh-078.png",
+      "img": "images/ch1/hinh-086.png",
+      "between_chars": 6628
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch1/muc-IV-3.html",
+      "line": 1010,
+      "caption": "Hình minh họa - Các dạng cơ bản của hệ lực không gian",
+      "img_prev": "images/ch1/hinh-086.png",
+      "img": "images/ch1/hinh-090.png",
+      "between_chars": 2931
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch1/muc-IV-3.html",
+      "line": 614,
+      "caption": "Hình minh họa - Các dạng cơ bản của hệ lực không gian",
+      "count": 3,
+      "lines": [
+        614,
+        875,
+        1010
+      ],
+      "imgs": [
+        "images/ch1/hinh-078.png",
+        "images/ch1/hinh-086.png",
+        "images/ch1/hinh-090.png"
+      ]
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-V-2.html",
+      "line": 27,
+      "caption": "Hình 1.28. Ma sát trượt và ma sát lăn",
+      "paragraph": "Hình 1.28. Ma sát trượt và ma sát lăn",
+      "img": "images/ch1/hinh-118.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-V-2.html",
+      "line": 41,
+      "caption": "Hình 1.29. Ma sát ướt, ma sát khô và ma sát nửa ướt",
+      "paragraph": "Hình 1.29. Ma sát ướt, ma sát khô và ma sát nửa ướt",
+      "img": "images/ch1/hinh-119.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-V-2.html",
+      "line": 54,
+      "caption": "Hình 1.30. Ma sát trong thực tế",
+      "paragraph": "Hình 1.30. Ma sát trong thực tế",
+      "img": "images/ch1/hinh-122.png"
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch1/muc-V-2.html",
+      "line": 27,
+      "caption": "Hình 1.28. Ma sát trượt và ma sát lăn",
+      "img_prev": "images/ch1/hinh-117.png",
+      "img": "images/ch1/hinh-118.png",
+      "between_chars": 0
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch1/muc-V-2.html",
+      "line": 50,
+      "caption": "Hình 1.30. Ma sát trong thực tế",
+      "img_prev": "images/ch1/hinh-120.png",
+      "img": "images/ch1/hinh-121.png",
+      "between_chars": 0
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch1/muc-V-2.html",
+      "line": 54,
+      "caption": "Hình 1.30. Ma sát trong thực tế",
+      "img_prev": "images/ch1/hinh-121.png",
+      "img": "images/ch1/hinh-122.png",
+      "between_chars": 0
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch1/muc-V-2.html",
+      "line": 23,
+      "caption": "Hình 1.28. Ma sát trượt và ma sát lăn",
+      "count": 2,
+      "lines": [
+        23,
+        27
+      ],
+      "imgs": [
+        "images/ch1/hinh-117.png",
+        "images/ch1/hinh-118.png"
+      ]
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch1/muc-V-2.html",
+      "line": 46,
+      "caption": "Hình 1.30. Ma sát trong thực tế",
+      "count": 3,
+      "lines": [
+        46,
+        50,
+        54
+      ],
+      "imgs": [
+        "images/ch1/hinh-120.png",
+        "images/ch1/hinh-121.png",
+        "images/ch1/hinh-122.png"
+      ]
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-V-3.html",
+      "line": 337,
+      "caption": "Hình 1.34",
+      "paragraph": "Hình 1.34",
+      "img": "images/ch1/hinh-136.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-V-3.html",
+      "line": 803,
+      "caption": "Hình 1.36",
+      "paragraph": "Hình 1.36",
+      "img": "images/ch1/hinh-146.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-V-4.html",
+      "line": 57,
+      "caption": "Hình 1.38",
+      "paragraph": "Hình 1.38",
+      "img": "images/ch1/hinh-156.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VI-2.html",
+      "line": 119,
+      "caption": "Hình 1.39",
+      "paragraph": "Hình 1.39",
+      "img": "images/ch1/hinh-161.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VII-1.html",
+      "line": 29,
+      "caption": "Hình 1.40",
+      "paragraph": "Hình 1.40",
+      "img": "images/ch1/hinh-173.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VII-1.html",
+      "line": 572,
+      "caption": "Hình 1.41",
+      "paragraph": "Hình 1.41",
+      "img": "images/ch1/hinh-188.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VII-1.html",
+      "line": 894,
+      "caption": "Hình 1.42",
+      "paragraph": "Hình 1.42",
+      "img": "images/ch1/hinh-195.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VII-1.html",
+      "line": 1235,
+      "caption": "Hình 1.43",
+      "paragraph": "Hình 1.43",
+      "img": "images/ch1/hinh-208.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VII-1.html",
+      "line": 1645,
+      "caption": "Hình 1.44",
+      "paragraph": "Hình 1.44",
+      "img": "images/ch1/hinh-212.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VII-1.html",
+      "line": 2233,
+      "caption": "Hình 1.45",
+      "paragraph": "Hình 1.45",
+      "img": "images/ch1/hinh-217.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VII-1.html",
+      "line": 2240,
+      "caption": "Hình 1.46",
+      "paragraph": "Hình 1.46",
+      "img": "images/ch1/hinh-218.png"
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VII-1.html",
+      "line": 2741,
+      "caption": "Hình 1.47",
+      "paragraph": "Hình 1.47",
+      "img": "images/ch1/hinh-222.png"
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch1/muc-VII-1.html",
+      "line": 24,
+      "caption": "Hình minh họa - Hướng dẫn giải bài tập",
+      "count": 2,
+      "lines": [
+        24,
+        1037
+      ],
+      "imgs": [
+        "images/ch1/hinh-172.png",
+        "images/ch1/hinh-201.png"
+      ]
+    },
+    {
+      "type": "figure_plus_caption_paragraph",
+      "file": "chapters/ch1/muc-VII-2.html",
+      "line": 37,
+      "caption": "Hình 1.55",
+      "paragraph": "Hình 1.55",
+      "img": "images/ch1/hinh-235.png"
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch2/muc-I-1.html",
+      "line": 113,
+      "caption": "Hình minh họa - Phương pháp véc tơ",
+      "img_prev": "images/ch2/hinh-005.png",
+      "img": "images/ch2/hinh-009.png",
+      "between_chars": 1901
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch2/muc-I-1.html",
+      "line": 810,
+      "caption": "Hình minh họa - Phương pháp véc tơ",
+      "img_prev": "images/ch2/hinh-009.png",
+      "img": "images/ch2/hinh-036.png",
+      "between_chars": 15860
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch2/muc-I-1.html",
+      "line": 57,
+      "caption": "Hình minh họa - Phương pháp véc tơ",
+      "count": 3,
+      "lines": [
+        57,
+        113,
+        810
+      ],
+      "imgs": [
+        "images/ch2/hinh-005.png",
+        "images/ch2/hinh-009.png",
+        "images/ch2/hinh-036.png"
+      ]
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch2/muc-IV-4.html",
+      "line": 889,
+      "caption": "Hình minh họa - Định lý về hợp gia tốc",
+      "img_prev": "images/ch2/hinh-182.png",
+      "img": "images/ch2/hinh-189.png",
+      "between_chars": 3845
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch2/muc-IV-4.html",
+      "line": 715,
+      "caption": "Hình minh họa - Định lý về hợp gia tốc",
+      "count": 2,
+      "lines": [
+        715,
+        889
+      ],
+      "imgs": [
+        "images/ch2/hinh-182.png",
+        "images/ch2/hinh-189.png"
+      ]
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch2/muc-VII-1.html",
+      "line": 394,
+      "caption": "Hình minh họa - Hướng dẫn giải bài tập",
+      "img_prev": "images/ch2/hinh-239.png",
+      "img": "images/ch2/hinh-253.png",
+      "between_chars": 9683
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch2/muc-VII-1.html",
+      "line": 13,
+      "caption": "Hình minh họa - Hướng dẫn giải bài tập",
+      "count": 2,
+      "lines": [
+        13,
+        394
+      ],
+      "imgs": [
+        "images/ch2/hinh-239.png",
+        "images/ch2/hinh-253.png"
+      ]
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch3/muc-V-4.html",
+      "line": 927,
+      "caption": "Hình minh họa - Định lý động năng",
+      "img_prev": "images/ch3/hinh-133.png",
+      "img": "images/ch3/hinh-142.png",
+      "between_chars": 14308
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch3/muc-V-4.html",
+      "line": 213,
+      "caption": "Hình minh họa - Định lý động năng",
+      "count": 2,
+      "lines": [
+        213,
+        927
+      ],
+      "imgs": [
+        "images/ch3/hinh-133.png",
+        "images/ch3/hinh-142.png"
+      ]
+    },
+    {
+      "type": "consecutive_same_figcaption",
+      "file": "chapters/ch3/muc-VI-3.html",
+      "line": 1537,
+      "caption": "Hình 3.15",
+      "img_prev": "images/ch3/hinh-199.png",
+      "img": "images/ch3/hinh-200.png",
+      "between_chars": 0
+    },
+    {
+      "type": "same_figcaption_same_file",
+      "file": "chapters/ch3/muc-VI-3.html",
+      "line": 1533,
+      "caption": "Hình 3.15",
+      "count": 2,
+      "lines": [
+        1533,
+        1537
+      ],
+      "imgs": [
+        "images/ch3/hinh-199.png",
+        "images/ch3/hinh-200.png"
+      ]
+    }
+  ]
+}

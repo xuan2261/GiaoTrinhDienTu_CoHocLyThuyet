@@ -268,6 +268,8 @@ python tools\audit.py --strict-images
 | Không dùng generic alt `Hình minh hoạ chương X` | Phải mô tả cụ thể; nếu DOCX không có caption, fallback section title qua `scripts/fill-remaining-figure-alt-and-figcaption-from-section-title-fallback.py` |
 | Mọi `<img>` trong figure phải có `alt` ≤ 120 ký tự | Đáp ứng WCAG, tránh cắt screen reader |
 | Mọi `<figure>` phải có `<figcaption>` ≤ 200 ký tự | Cấu trúc HTML5 semantic |
+| Không để `<p class="caption">` hoặc plain `<p><strong>Hình...</strong></p>` ngay sau `<figure>` đã có `<figcaption>` | Giữ `<figcaption>` là caption canonical; post-processor xoá paragraph DOCX caption trùng |
+| Không để nhiều `<figure>` liền kề lặp cùng `<figcaption>` | Gộp thành một multi-image `<figure>` với một caption chung khi không có nội dung chen giữa |
 | Dùng `<figure><img alt><figcaption></figure>`, không dùng `<div class="figure-container">` | Phù hợp HTML5 semantic; audit tự reject `figure-container` mới |
 | Manual override alt/figcaption qua `data/image_alt_overrides.json` (key: image SHA1[:12]) | Re-extract DOCX vẫn giữ override |
 | Re-extract DOCX kích hoạt `tools/extract_docx.py --auto-fix-known-issues` (default ON) | Idempotent: post-processor tự áp lại 4 fix scripts |

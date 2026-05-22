@@ -149,6 +149,13 @@ def is_external_src(src):
 
 
 def figure_bounds(content, image_match):
+    figure_start = content.rfind('<figure', 0, image_match.start())
+    figure_close_before = content.rfind('</figure>', 0, image_match.start())
+    if figure_start != -1 and figure_start > figure_close_before:
+        figure_end = content.find('</figure>', image_match.end())
+        if figure_end != -1:
+            return figure_start, figure_end + len('</figure>'), True
+
     before = content[max(0, image_match.start() - 240):image_match.start()]
     figure_open = FIGURE_OPEN_RE.search(before)
     if not figure_open:
@@ -237,6 +244,8 @@ def previous_caption_matches_current_figure(before_segment):
 
 
 def has_nearby_caption(content, block_start, block_end):
+    if re.search(r'<figcaption\b[^>]*>.*?</figcaption>', content[block_start:block_end], flags=re.I | re.S):
+        return True
     if caption_after_figure_group(content, block_end):
         return True
 
