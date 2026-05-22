@@ -1,5 +1,64 @@
 # Project Changelog
 
+## 2026-05-22 — Plain Strong Figure Caption Duplicate Cleanup
+
+### Fixed
+- Removed 32 remaining adjacent DOCX caption paragraphs rendered as plain `<p><strong>Hình...</strong></p>` while keeping `<figcaption>` as the canonical figure caption.
+- Merged numbered DOCX captions into generic fallback figcaptions before removing the paragraph, covering cases such as `Hình 1.21` and `Hình 1.22`.
+- Regenerated `js/pages.js` from cleaned chapter fragments.
+
+### Added
+- Extended Phase 05 regression tests to fail on both duplicate `<p class="caption">` and plain strong `Hình...` paragraphs after `<figure>`.
+- Added helper coverage for plain strong duplicate removal and plain strong fallback caption merge.
+
+### Verified
+- `python scripts\test-phase-05-alt-text-figcaption-figure-tag-migration.py`: PASS.
+- `python tools\audit.py --strict-images --strict-formula-image`: PASS.
+- `python tools\audit.py --strict-equations`: PASS.
+- `npm run test:equations`: PASS.
+- Independent scan: `adjacent_caption_paragraph_after_figure 0`.
+
+## 2026-05-22 — Quiz Bank Expansion to 100 Questions
+
+### Added
+- Expanded `data/quiz-ch1.json`, `data/quiz-ch2.json`, and `data/quiz-ch3.json` to exactly 100 questions per chapter.
+- Added `tests/quiz-bank-schema.test.js` for count, schema, duplicate stem, section distribution, unsafe text, and bundle freshness gates.
+- Added `tests/quiz-browser-render.spec.js` for all/random quiz rendering.
+- Added `npm run test:quiz` and `npm run test:quiz:browser`.
+
+### Changed
+- Updated quiz fragments and `tools/gen_quiz_pages.py` learner text from 50 to 100 questions.
+- Normalized Ch1 quiz section `VIII` into `VII`.
+- Replaced the generated no-diacritic template questions in positions 51-100 with Vietnamese-diacritic concept, formula, scenario, and short calculation questions.
+- Regenerated `js/pages.js` from updated fragments and quiz JSON.
+
+### Fixed
+- Removed bad generated quiz stems/options such as `Chon phat bieu dung ve ...`, `Nhan dinh dung: ...`, and `Nhan dinh sai vi ...`.
+- Extended `tests/quiz-bank-schema.test.js` to reject those generated templates and require Vietnamese diacritics for newly added questions.
+
+### Verified
+- `npm run test:quiz`: PASS.
+- `npm run test:quiz:browser`: PASS, 3/3.
+- `node --check js\quiz.js`: PASS.
+- `node --check js\pages.js`: PASS.
+- `python tools\audit.py`: PASS.
+
+## 2026-05-22 — Duplicate Figure Caption Cleanup
+
+### Fixed
+- Removed 52 adjacent duplicate DOCX caption paragraphs after semantic `<figcaption>` while keeping `<figcaption>` as the canonical visible figure caption; fallback captions now merge the DOCX figure number before the paragraph is removed.
+- Updated Phase 05 post-processor to remove duplicate caption paragraphs idempotently after figure migration, so re-extract does not reintroduce two visible captions.
+- Regenerated `js/pages.js` from cleaned chapter fragments.
+
+### Added
+- `scripts/test-phase-05-alt-text-figcaption-figure-tag-migration.py` now fails when a `<figure>` with `<figcaption>` is immediately followed by `<p class="caption">`.
+
+### Verified
+- `python scripts\test-phase-05-alt-text-figcaption-figure-tag-migration.py`: PASS.
+- `npm run test:equations`: PASS.
+- `python tools\audit.py --strict-images --strict-formula-image`: PASS.
+- `python tools\audit.py --strict-equations`: PASS.
+
 ## 2026-05-22 — Section VII Checker Registry Deletion
 
 ### Fixed

@@ -22,6 +22,8 @@
     "test:sim:correctness": "node --test tests/sim-correctness-realism.test.js",
     "test:sim:correctness:browser": "playwright test tests/sim-handle-anchor-invariants.spec.js",
     "test:content": "node tests/author-page-content-regression.test.js",
+    "test:quiz": "node tests/quiz-bank-schema.test.js",
+    "test:quiz:browser": "playwright test tests/quiz-browser-render.spec.js",
     "test:sim:browser:baseline": "node -e \"console.log('Baseline check skipped in V2')\"",
     "test:sim:browser:route-mount": "playwright test tests/simulation-browser.spec.js --grep @route-mount",
     "test:sim:review-2026-05-19": "node tools/run-sim-review-2026-05-19-tests.js",

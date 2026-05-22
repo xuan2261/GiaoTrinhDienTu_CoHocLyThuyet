@@ -648,5 +648,655 @@
     "section": "VII",
     "feedbackCorrect": "✅ vB thay đổi theo hàm sin/cos (cơ cấu tay quay con trượt).",
     "feedbackWrong": "❌ vB = Rω·sinφ → thay đổi hàm sin."
+  },
+  {
+    "question": "Chất điểm có x = 2t² + 3t (m). Vận tốc theo trục x tại t = 2 s bằng bao nhiêu?",
+    "options": [
+      "11 m/s",
+      "8 m/s",
+      "7 m/s",
+      "19 m/s"
+    ],
+    "correct": 0,
+    "section": "I",
+    "feedbackCorrect": "Đúng. v_x = dx/dt = 4t + 3, tại t = 2 được 11 m/s.",
+    "feedbackWrong": "Sai. v_x = dx/dt = 4t + 3, tại t = 2 được 11 m/s."
+  },
+  {
+    "question": "Nếu s = 5t³ (m), gia tốc tiếp tuyến tại t = 1 s bằng bao nhiêu?",
+    "options": [
+      "15 m/s²",
+      "30 m/s²",
+      "5 m/s²",
+      "10 m/s²"
+    ],
+    "correct": 1,
+    "section": "I",
+    "feedbackCorrect": "Đúng. v = 15t² và a_t = dv/dt = 30t.",
+    "feedbackWrong": "Sai. v = 15t² và a_t = dv/dt = 30t."
+  },
+  {
+    "question": "Trong chuyển động tròn đều, thành phần gia tốc nào khác 0?",
+    "options": [
+      "Gia tốc tiếp tuyến",
+      "Gia tốc Coriolis",
+      "Gia tốc pháp tuyến",
+      "Gia tốc tương đối"
+    ],
+    "correct": 2,
+    "section": "I",
+    "feedbackCorrect": "Đúng. Tốc độ không đổi nhưng hướng vận tốc đổi nên có gia tốc pháp tuyến.",
+    "feedbackWrong": "Sai. Tốc độ không đổi nhưng hướng vận tốc đổi nên có gia tốc pháp tuyến."
+  },
+  {
+    "question": "Một điểm chuyển động trên quỹ đạo cong với v = 6 m/s, bán kính cong 3 m. Gia tốc pháp tuyến bằng bao nhiêu?",
+    "options": [
+      "2 m/s²",
+      "18 m/s²",
+      "36 m/s²",
+      "12 m/s²"
+    ],
+    "correct": 3,
+    "section": "I",
+    "feedbackCorrect": "Đúng. a_n = v²/ρ = 36/3 = 12 m/s².",
+    "feedbackWrong": "Sai. a_n = v²/ρ = 36/3 = 12 m/s²."
+  },
+  {
+    "question": "Trong tọa độ tự nhiên, gia tốc tiếp tuyến mô tả sự thay đổi nào?",
+    "options": [
+      "Độ lớn vận tốc",
+      "Khối lượng chất điểm",
+      "Bán kính cong của vật rắn",
+      "Hướng của trục cố định"
+    ],
+    "correct": 0,
+    "section": "I",
+    "feedbackCorrect": "Đúng. a_t = dv/dt nên liên quan đến biến thiên tốc độ.",
+    "feedbackWrong": "Sai. a_t = dv/dt nên liên quan đến biến thiên tốc độ."
+  },
+  {
+    "question": "Vật rắn chuyển động tịnh tiến có đặc điểm nào?",
+    "options": [
+      "Mọi điểm có cùng vị trí",
+      "Mọi điểm có cùng vận tốc và gia tốc tại cùng thời điểm",
+      "Mọi điểm đều đứng yên",
+      "Mọi điểm quay quanh trục riêng"
+    ],
+    "correct": 1,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Trong tịnh tiến, các đoạn thẳng của vật luôn song song với vị trí ban đầu.",
+    "feedbackWrong": "Sai. Trong tịnh tiến, các đoạn thẳng của vật luôn song song với vị trí ban đầu."
+  },
+  {
+    "question": "Một đĩa quay quanh trục cố định với ω = 4 rad/s. Điểm cách trục 0,5 m có tốc độ dài bao nhiêu?",
+    "options": [
+      "8 m/s",
+      "0,125 m/s",
+      "2 m/s",
+      "4,5 m/s"
+    ],
+    "correct": 2,
+    "section": "II",
+    "feedbackCorrect": "Đúng. v = ωr = 4 × 0,5 = 2 m/s.",
+    "feedbackWrong": "Sai. v = ωr = 4 × 0,5 = 2 m/s."
+  },
+  {
+    "question": "Đĩa có gia tốc góc α = 6 rad/s². Điểm cách trục 0,2 m có gia tốc tiếp tuyến bằng bao nhiêu?",
+    "options": [
+      "30 m/s²",
+      "6,2 m/s²",
+      "0,033 m/s²",
+      "1,2 m/s²"
+    ],
+    "correct": 3,
+    "section": "II",
+    "feedbackCorrect": "Đúng. a_t = αr = 6 × 0,2 = 1,2 m/s².",
+    "feedbackWrong": "Sai. a_t = αr = 6 × 0,2 = 1,2 m/s²."
+  },
+  {
+    "question": "Truyền động đai không trượt giữa hai bánh có điều kiện nào?",
+    "options": [
+      "Tốc độ dài tại vành hai bánh bằng nhau",
+      "Tốc độ góc hai bánh luôn bằng nhau",
+      "Bán kính hai bánh luôn bằng nhau",
+      "Gia tốc góc luôn bằng 0"
+    ],
+    "correct": 0,
+    "section": "III",
+    "feedbackCorrect": "Đúng. Không trượt nghĩa là vận tốc tiếp tuyến của đai và vành bánh bằng nhau.",
+    "feedbackWrong": "Sai. Không trượt nghĩa là vận tốc tiếp tuyến của đai và vành bánh bằng nhau."
+  },
+  {
+    "question": "Hai bánh răng ăn khớp ngoài quay theo chiều nào?",
+    "options": [
+      "Cùng chiều nhau",
+      "Ngược chiều nhau",
+      "Cùng đứng yên",
+      "Chỉ bánh nhỏ quay"
+    ],
+    "correct": 1,
+    "section": "III",
+    "feedbackCorrect": "Đúng. Ăn khớp ngoài làm đổi chiều quay.",
+    "feedbackWrong": "Sai. Ăn khớp ngoài làm đổi chiều quay."
+  },
+  {
+    "question": "Bánh 1 có r₁ = 0,1 m quay với ω₁ = 20 rad/s, kéo đai không trượt sang bánh 2 có r₂ = 0,2 m. ω₂ bằng bao nhiêu?",
+    "options": [
+      "20 rad/s",
+      "40 rad/s",
+      "10 rad/s",
+      "2 rad/s"
+    ],
+    "correct": 2,
+    "section": "III",
+    "feedbackCorrect": "Đúng. ω₁r₁ = ω₂r₂ nên ω₂ = 20 × 0,1/0,2 = 10 rad/s.",
+    "feedbackWrong": "Sai. ω₁r₁ = ω₂r₂ nên ω₂ = 20 × 0,1/0,2 = 10 rad/s."
+  },
+  {
+    "question": "Trong truyền động đai chéo, hai bánh thường quay như thế nào?",
+    "options": [
+      "Cùng chiều nhau",
+      "Không truyền được chuyển động",
+      "Chỉ quay khi bán kính bằng nhau",
+      "Ngược chiều nhau"
+    ],
+    "correct": 3,
+    "section": "III",
+    "feedbackCorrect": "Đúng. Đai chéo đổi chiều quay giữa hai trục song song.",
+    "feedbackWrong": "Sai. Đai chéo đổi chiều quay giữa hai trục song song."
+  },
+  {
+    "question": "Cặp bánh răng ngoài có z₁ = 24, z₂ = 48. Nếu ω₁ = 12 rad/s, độ lớn ω₂ là bao nhiêu?",
+    "options": [
+      "6 rad/s",
+      "24 rad/s",
+      "12 rad/s",
+      "36 rad/s"
+    ],
+    "correct": 0,
+    "section": "III",
+    "feedbackCorrect": "Đúng. Tốc độ góc tỉ lệ nghịch số răng: ω₂ = 12 × 24/48 = 6 rad/s.",
+    "feedbackWrong": "Sai. Tốc độ góc tỉ lệ nghịch số răng: ω₂ = 12 × 24/48 = 6 rad/s."
+  },
+  {
+    "question": "Trong hợp chuyển động, vận tốc tuyệt đối của điểm bằng gì?",
+    "options": [
+      "Gia tốc kéo theo cộng vận tốc tương đối",
+      "Vận tốc kéo theo cộng vận tốc tương đối",
+      "Chỉ vận tốc tương đối",
+      "Chỉ vận tốc kéo theo"
+    ],
+    "correct": 1,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. Công thức vận tốc là v = v_kéo theo + v_tương đối.",
+    "feedbackWrong": "Sai. Công thức vận tốc là v = v_kéo theo + v_tương đối."
+  },
+  {
+    "question": "Gia tốc Coriolis xuất hiện khi điều kiện nào đồng thời tồn tại?",
+    "options": [
+      "Hệ động chỉ tịnh tiến đều",
+      "Điểm đứng yên trong hệ động",
+      "Hệ động quay và điểm có vận tốc tương đối",
+      "Không có chuyển động tương đối"
+    ],
+    "correct": 2,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. a_C = 2ω × v_r, cần cả ω và v_r khác 0.",
+    "feedbackWrong": "Sai. a_C = 2ω × v_r, cần cả ω và v_r khác 0."
+  },
+  {
+    "question": "Nếu ω vuông góc v_r, với ω = 3 rad/s và v_r = 2 m/s, độ lớn gia tốc Coriolis bằng bao nhiêu?",
+    "options": [
+      "6 m/s²",
+      "5 m/s²",
+      "1,5 m/s²",
+      "12 m/s²"
+    ],
+    "correct": 3,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. a_C = 2ωv_r = 2 × 3 × 2 = 12 m/s².",
+    "feedbackWrong": "Sai. a_C = 2ωv_r = 2 × 3 × 2 = 12 m/s²."
+  },
+  {
+    "question": "Một con trượt chuyển động trong rãnh đang quay đều. Thành phần gia tốc nào dễ bị bỏ sót?",
+    "options": [
+      "Gia tốc Coriolis",
+      "Gia tốc trọng trường",
+      "Gia tốc của tâm Trái Đất",
+      "Gia tốc do ma sát tĩnh"
+    ],
+    "correct": 0,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. Rãnh quay và con trượt có vận tốc tương đối nên có Coriolis.",
+    "feedbackWrong": "Sai. Rãnh quay và con trượt có vận tốc tương đối nên có Coriolis."
+  },
+  {
+    "question": "Hướng của gia tốc Coriolis được xác định bằng phép toán nào?",
+    "options": [
+      "Tổng đại số ω + v_r",
+      "Tích có hướng 2ω × v_r",
+      "Tích vô hướng ω · v_r",
+      "Thương v_r/ω"
+    ],
+    "correct": 1,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. Coriolis là đại lượng véc tơ xác định bằng tích có hướng.",
+    "feedbackWrong": "Sai. Coriolis là đại lượng véc tơ xác định bằng tích có hướng."
+  },
+  {
+    "question": "Nếu hệ động chỉ tịnh tiến mà không quay, gia tốc Coriolis bằng bao nhiêu?",
+    "options": [
+      "Bằng 2ωv_r",
+      "Bằng gia tốc trọng trường",
+      "Bằng 0",
+      "Bằng vận tốc tương đối"
+    ],
+    "correct": 2,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. Khi ω = 0 thì a_C = 0.",
+    "feedbackWrong": "Sai. Khi ω = 0 thì a_C = 0."
+  },
+  {
+    "question": "Trong công thức hợp gia tốc, thành phần kéo theo phản ánh điều gì?",
+    "options": [
+      "Chỉ chuyển động riêng của điểm trong hệ động",
+      "Chỉ lực ma sát",
+      "Chỉ khối lượng điểm",
+      "Chuyển động của hệ động đối với hệ cố định"
+    ],
+    "correct": 3,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. Gia tốc kéo theo do hệ động tịnh tiến/quay gây ra.",
+    "feedbackWrong": "Sai. Gia tốc kéo theo do hệ động tịnh tiến/quay gây ra."
+  },
+  {
+    "question": "Vận tốc tương đối là vận tốc được quan sát trong hệ nào?",
+    "options": [
+      "Hệ quy chiếu động",
+      "Hệ quy chiếu cố định",
+      "Hệ không gian tuyệt đối",
+      "Hệ gắn với trọng lực"
+    ],
+    "correct": 0,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. Vận tốc tương đối đo chuyển động của điểm so với hệ động.",
+    "feedbackWrong": "Sai. Vận tốc tương đối đo chuyển động của điểm so với hệ động."
+  },
+  {
+    "question": "Chuyển động song phẳng của vật rắn có thể phân tích thành gì?",
+    "options": [
+      "Hai chuyển động tịnh tiến độc lập",
+      "Tịnh tiến của một điểm và quay quanh điểm đó",
+      "Ba chuyển động quay quanh ba trục bất kỳ",
+      "Chỉ chuyển động của trọng tâm"
+    ],
+    "correct": 1,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Vận tốc mọi điểm có dạng v_A = v_O + ω × r_OA.",
+    "feedbackWrong": "Sai. Vận tốc mọi điểm có dạng v_A = v_O + ω × r_OA."
+  },
+  {
+    "question": "Tâm vận tốc tức thời là điểm có đặc điểm nào tại thời điểm xét?",
+    "options": [
+      "Gia tốc bằng 0",
+      "Luôn trùng trọng tâm",
+      "Vận tốc bằng 0",
+      "Luôn nằm trong vật"
+    ],
+    "correct": 2,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Vật song phẳng có thể xem quay tức thời quanh điểm có vận tốc bằng 0.",
+    "feedbackWrong": "Sai. Vật song phẳng có thể xem quay tức thời quanh điểm có vận tốc bằng 0."
+  },
+  {
+    "question": "Bánh xe bán kính R lăn không trượt. Vận tốc tâm C liên hệ với ω như thế nào?",
+    "options": [
+      "v_C = αR",
+      "v_C = R/ω",
+      "v_C = 2ωR",
+      "v_C = ωR"
+    ],
+    "correct": 3,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Điều kiện lăn không trượt cho v_C = ωR.",
+    "feedbackWrong": "Sai. Điều kiện lăn không trượt cho v_C = ωR."
+  },
+  {
+    "question": "Bánh xe lăn không trượt, điểm tiếp xúc với mặt đất có vận tốc tức thời bằng bao nhiêu?",
+    "options": [
+      "0",
+      "v_C",
+      "2v_C",
+      "ω/R"
+    ],
+    "correct": 0,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Tại điểm tiếp xúc, vận tốc tịnh tiến và vận tốc quay triệt nhau.",
+    "feedbackWrong": "Sai. Tại điểm tiếp xúc, vận tốc tịnh tiến và vận tốc quay triệt nhau."
+  },
+  {
+    "question": "Điểm cao nhất của bánh lăn không trượt có tốc độ bằng bao nhiêu so với tốc độ tâm?",
+    "options": [
+      "Bằng 0",
+      "2 lần",
+      "Một nửa",
+      "Bằng 3 lần"
+    ],
+    "correct": 1,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Ở điểm cao nhất, hai thành phần vận tốc cùng chiều nên bằng 2v_C.",
+    "feedbackWrong": "Sai. Ở điểm cao nhất, hai thành phần vận tốc cùng chiều nên bằng 2v_C."
+  },
+  {
+    "question": "Nếu biết tâm vận tốc tức thời I và IA = 0,4 m, ω = 5 rad/s, tốc độ điểm A bằng bao nhiêu?",
+    "options": [
+      "12,5 m/s",
+      "5,4 m/s",
+      "2 m/s",
+      "0,08 m/s"
+    ],
+    "correct": 2,
+    "section": "V",
+    "feedbackCorrect": "Đúng. v_A = ω × IA = 5 × 0,4 = 2 m/s.",
+    "feedbackWrong": "Sai. v_A = ω × IA = 5 × 0,4 = 2 m/s."
+  },
+  {
+    "question": "Thanh AB có A trượt ngang và B trượt đứng. Tâm vận tốc tức thời nằm ở đâu?",
+    "options": [
+      "Trung điểm AB trong mọi trường hợp",
+      "Tại A",
+      "Tại B",
+      "Giao của đường qua A vuông góc v_A và đường qua B vuông góc v_B"
+    ],
+    "correct": 3,
+    "section": "V",
+    "feedbackCorrect": "Đúng. TVTTT được tìm bằng giao các đường vuông góc với vận tốc đã biết.",
+    "feedbackWrong": "Sai. TVTTT được tìm bằng giao các đường vuông góc với vận tốc đã biết."
+  },
+  {
+    "question": "Trong chuyển động song phẳng, tốc độ góc của vật rắn có tính chất nào?",
+    "options": [
+      "Giống nhau cho mọi điểm của vật tại cùng thời điểm",
+      "Khác nhau ở từng điểm",
+      "Chỉ có ở trọng tâm",
+      "Luôn bằng 0"
+    ],
+    "correct": 0,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Vật rắn có một ω chung cho toàn vật.",
+    "feedbackWrong": "Sai. Vật rắn có một ω chung cho toàn vật."
+  },
+  {
+    "question": "Quan hệ vận tốc giữa hai điểm A và B của vật rắn phẳng là gì?",
+    "options": [
+      "v_A = v_B + α × r_BA",
+      "v_A = v_B + ω × r_BA",
+      "v_A = v_B trong mọi trường hợp",
+      "v_A = r_BA/ω"
+    ],
+    "correct": 1,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Công thức phân bố vận tốc dùng tốc độ góc ω.",
+    "feedbackWrong": "Sai. Công thức phân bố vận tốc dùng tốc độ góc ω."
+  },
+  {
+    "question": "Gia tốc tương đối của A đối với B trên vật song phẳng gồm những thành phần quay nào?",
+    "options": [
+      "Chỉ thành phần Coriolis",
+      "Chỉ gia tốc trọng trường",
+      "Thành phần tiếp tuyến do α và pháp tuyến do ω²",
+      "Chỉ vận tốc chia thời gian"
+    ],
+    "correct": 2,
+    "section": "V",
+    "feedbackCorrect": "Đúng. a_A = a_B + α × r_BA + ω × (ω × r_BA).",
+    "feedbackWrong": "Sai. a_A = a_B + α × r_BA + ω × (ω × r_BA)."
+  },
+  {
+    "question": "Khi vật rắn phẳng tịnh tiến thuần túy, tâm vận tốc tức thời được xem ở đâu?",
+    "options": [
+      "Tại trọng tâm",
+      "Tại điểm tiếp xúc",
+      "Tại mọi điểm của vật",
+      "Ở vô cực"
+    ],
+    "correct": 3,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Tịnh tiến thuần túy có ω = 0 nên TVTTT ở vô cực.",
+    "feedbackWrong": "Sai. Tịnh tiến thuần túy có ω = 0 nên TVTTT ở vô cực."
+  },
+  {
+    "question": "Cơ cấu tay quay - con trượt: con trượt bị ràng buộc chuyển động theo đâu?",
+    "options": [
+      "Dọc theo ray trượt",
+      "Theo đường tròn quanh tâm quay",
+      "Theo phương bất kỳ",
+      "Quanh trục cố định của tay quay"
+    ],
+    "correct": 0,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Liên kết trượt chỉ cho phép chuyển động dọc ray.",
+    "feedbackWrong": "Sai. Liên kết trượt chỉ cho phép chuyển động dọc ray."
+  },
+  {
+    "question": "Nếu v_A = 3 m/s và IA = 0,5 m, tốc độ góc của vật bằng bao nhiêu?",
+    "options": [
+      "1,5 rad/s",
+      "6 rad/s",
+      "3,5 rad/s",
+      "0,167 rad/s"
+    ],
+    "correct": 1,
+    "section": "V",
+    "feedbackCorrect": "Đúng. ω = v_A/IA = 3/0,5 = 6 rad/s.",
+    "feedbackWrong": "Sai. ω = v_A/IA = 3/0,5 = 6 rad/s."
+  },
+  {
+    "question": "Có thể dùng tâm vận tốc tức thời để suy trực tiếp gia tốc bằng 0 tại tâm đó không?",
+    "options": [
+      "Có trong mọi trường hợp",
+      "Có nếu vật nặng",
+      "Không, TVTTT chỉ là khái niệm vận tốc",
+      "Có nếu vật có ma sát"
+    ],
+    "correct": 2,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Điểm có vận tốc tức thời bằng 0 không nhất thiết có gia tốc bằng 0.",
+    "feedbackWrong": "Sai. Điểm có vận tốc tức thời bằng 0 không nhất thiết có gia tốc bằng 0."
+  },
+  {
+    "question": "Hai điểm của một vật rắn có vận tốc song song, cùng chiều và cùng độ lớn. Kết luận hợp lý nhất là gì?",
+    "options": [
+      "Vật chắc chắn quay quanh trung điểm",
+      "Vật không thể chuyển động",
+      "Gia tốc mọi điểm bằng 0",
+      "Vật đang tịnh tiến thuần túy tại thời điểm đó"
+    ],
+    "correct": 3,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Nếu hai điểm khác nhau có cùng vận tốc, phần quay tức thời bằng 0.",
+    "feedbackWrong": "Sai. Nếu hai điểm khác nhau có cùng vận tốc, phần quay tức thời bằng 0."
+  },
+  {
+    "question": "Trong phương pháp TVTTT, vận tốc của điểm A có phương thế nào so với IA?",
+    "options": [
+      "Vuông góc với IA",
+      "Song song với IA",
+      "Trùng IA",
+      "Không xác định được"
+    ],
+    "correct": 0,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Vật quay tức thời quanh I nên vận tốc vuông góc bán kính IA.",
+    "feedbackWrong": "Sai. Vật quay tức thời quanh I nên vận tốc vuông góc bán kính IA."
+  },
+  {
+    "question": "Vật rắn quay quanh điểm cố định O. Quỹ đạo của một điểm M trên vật thường nằm trên mặt nào?",
+    "options": [
+      "Mặt phẳng ngang duy nhất",
+      "Mặt cầu tâm O",
+      "Đường thẳng",
+      "Mặt trụ bán kính bất kỳ"
+    ],
+    "correct": 1,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Khoảng cách OM không đổi nên M chuyển động trên mặt cầu tâm O.",
+    "feedbackWrong": "Sai. Khoảng cách OM không đổi nên M chuyển động trên mặt cầu tâm O."
+  },
+  {
+    "question": "Vận tốc của điểm M trên vật quay quanh điểm cố định O có dạng nào?",
+    "options": [
+      "v_M = α + r_OM",
+      "v_M = r_OM/ω",
+      "v_M = ω × r_OM",
+      "v_M = ω · r_OM"
+    ],
+    "correct": 2,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Vận tốc bằng tích có hướng của ω với bán kính vị trí.",
+    "feedbackWrong": "Sai. Vận tốc bằng tích có hướng của ω với bán kính vị trí."
+  },
+  {
+    "question": "Góc Euler dùng để mô tả đại lượng nào của vật rắn?",
+    "options": [
+      "Hệ số ma sát",
+      "Độ lớn trọng lực",
+      "Diện tích tiếp xúc",
+      "Tư thế định hướng trong không gian"
+    ],
+    "correct": 3,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Ba góc Euler xác định định hướng của vật rắn.",
+    "feedbackWrong": "Sai. Ba góc Euler xác định định hướng của vật rắn."
+  },
+  {
+    "question": "Trục quay tức thời của vật quay quanh điểm cố định có hướng theo đại lượng nào?",
+    "options": [
+      "Véc tơ tốc độ góc ω",
+      "Véc tơ trọng lực",
+      "Véc tơ vận tốc của mọi điểm",
+      "Véc tơ phản lực"
+    ],
+    "correct": 0,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Trục quay tức thời đi qua điểm cố định và có hướng của ω.",
+    "feedbackWrong": "Sai. Trục quay tức thời đi qua điểm cố định và có hướng của ω."
+  },
+  {
+    "question": "Gia tốc của điểm trên vật quay quanh điểm cố định gồm các thành phần nào?",
+    "options": [
+      "Chỉ gia tốc Coriolis",
+      "Thành phần do α và thành phần do ω²",
+      "Chỉ gia tốc trọng trường",
+      "Chỉ vận tốc tương đối"
+    ],
+    "correct": 1,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. a = α × r + ω × (ω × r).",
+    "feedbackWrong": "Sai. a = α × r + ω × (ω × r)."
+  },
+  {
+    "question": "Nếu điểm O là điểm cố định của vật rắn, vận tốc của O bằng bao nhiêu?",
+    "options": [
+      "ωR",
+      "αR",
+      "0",
+      "2ωR"
+    ],
+    "correct": 2,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Điểm cố định không chuyển động trong hệ quy chiếu xét.",
+    "feedbackWrong": "Sai. Điểm cố định không chuyển động trong hệ quy chiếu xét."
+  },
+  {
+    "question": "Điểm chuyển động tròn bán kính 2 m với ω = 3 rad/s. Tốc độ dài bằng bao nhiêu?",
+    "options": [
+      "1,5 m/s",
+      "9 m/s",
+      "5 m/s",
+      "6 m/s"
+    ],
+    "correct": 3,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. v = ωr = 3 × 2 = 6 m/s.",
+    "feedbackWrong": "Sai. v = ωr = 3 × 2 = 6 m/s."
+  },
+  {
+    "question": "Điểm có v = 4 m/s trên quỹ đạo cong bán kính 2 m. Gia tốc pháp tuyến bằng bao nhiêu?",
+    "options": [
+      "8 m/s²",
+      "2 m/s²",
+      "16 m/s²",
+      "0,5 m/s²"
+    ],
+    "correct": 0,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. a_n = v²/ρ = 16/2 = 8 m/s².",
+    "feedbackWrong": "Sai. a_n = v²/ρ = 16/2 = 8 m/s²."
+  },
+  {
+    "question": "Đĩa quay có α = 4 rad/s², điểm cách trục 0,5 m. Gia tốc tiếp tuyến bằng bao nhiêu?",
+    "options": [
+      "8 m/s²",
+      "2 m/s²",
+      "0,125 m/s²",
+      "4,5 m/s²"
+    ],
+    "correct": 1,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. a_t = αr = 4 × 0,5 = 2 m/s².",
+    "feedbackWrong": "Sai. a_t = αr = 4 × 0,5 = 2 m/s²."
+  },
+  {
+    "question": "Bánh xe R = 0,25 m lăn không trượt với vận tốc tâm 2 m/s. Tốc độ góc bằng bao nhiêu?",
+    "options": [
+      "0,5 rad/s",
+      "2,25 rad/s",
+      "8 rad/s",
+      "4 rad/s"
+    ],
+    "correct": 2,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. ω = v/R = 2/0,25 = 8 rad/s.",
+    "feedbackWrong": "Sai. ω = v/R = 2/0,25 = 8 rad/s."
+  },
+  {
+    "question": "Một thanh dài 1 m quay tức thời quanh A với ω = 5 rad/s. Tốc độ điểm B bằng bao nhiêu?",
+    "options": [
+      "0,2 m/s",
+      "6 m/s",
+      "25 m/s",
+      "5 m/s"
+    ],
+    "correct": 3,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. v_B = ωAB = 5 × 1 = 5 m/s.",
+    "feedbackWrong": "Sai. v_B = ωAB = 5 × 1 = 5 m/s."
+  },
+  {
+    "question": "Trong rãnh quay, ω = 2 rad/s và v_r = 3 m/s vuông góc ω. Gia tốc Coriolis bằng bao nhiêu?",
+    "options": [
+      "12 m/s²",
+      "6 m/s²",
+      "5 m/s²",
+      "1,5 m/s²"
+    ],
+    "correct": 0,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. a_C = 2ωv_r = 12 m/s².",
+    "feedbackWrong": "Sai. a_C = 2ωv_r = 12 m/s²."
+  },
+  {
+    "question": "Bánh răng ngoài z₁ = 20, z₂ = 40. Nếu ω₁ = 10 rad/s thì độ lớn ω₂ bằng bao nhiêu?",
+    "options": [
+      "20 rad/s",
+      "5 rad/s",
+      "10 rad/s",
+      "30 rad/s"
+    ],
+    "correct": 1,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. ω₂ = ω₁z₁/z₂ = 10 × 20/40 = 5 rad/s.",
+    "feedbackWrong": "Sai. ω₂ = ω₁z₁/z₂ = 10 × 20/40 = 5 rad/s."
   }
 ]

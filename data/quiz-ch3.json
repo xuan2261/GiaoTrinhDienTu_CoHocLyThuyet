@@ -648,5 +648,655 @@
     "section": "VII",
     "feedbackCorrect": "✅ JO=mL²/3=2×0.25/3≈0.167 kg·m².",
     "feedbackWrong": "❌ Thanh quay quanh đầu: J=mL²/3."
+  },
+  {
+    "question": "Trong hệ quy chiếu quán tính, định luật II Newton được viết dưới dạng nào?",
+    "options": [
+      "ΣF = ma",
+      "ΣF = mv",
+      "ΣF = m/a",
+      "ΣF = 0 trong mọi trường hợp"
+    ],
+    "correct": 0,
+    "section": "I",
+    "feedbackCorrect": "Đúng. Trong hệ quán tính, tổng lực bằng khối lượng nhân gia tốc.",
+    "feedbackWrong": "Sai. Trong hệ quán tính, tổng lực bằng khối lượng nhân gia tốc."
+  },
+  {
+    "question": "Khối lượng trong động lực học đặc trưng chủ yếu cho tính chất nào?",
+    "options": [
+      "Độ nhám bề mặt",
+      "Mức quán tính của vật",
+      "Độ cứng liên kết",
+      "Màu sắc vật"
+    ],
+    "correct": 1,
+    "section": "I",
+    "feedbackCorrect": "Đúng. Khối lượng đo mức chống lại thay đổi chuyển động.",
+    "feedbackWrong": "Sai. Khối lượng đo mức chống lại thay đổi chuyển động."
+  },
+  {
+    "question": "Khi mô hình vật là chất điểm, yếu tố nào được bỏ qua?",
+    "options": [
+      "Khối lượng của vật",
+      "Lực tác dụng lên vật",
+      "Kích thước hình học nếu không ảnh hưởng bài toán",
+      "Gia tốc của vật"
+    ],
+    "correct": 2,
+    "section": "I",
+    "feedbackCorrect": "Đúng. Chất điểm vẫn có khối lượng nhưng kích thước được bỏ qua.",
+    "feedbackWrong": "Sai. Chất điểm vẫn có khối lượng nhưng kích thước được bỏ qua."
+  },
+  {
+    "question": "Lực liên kết trong bài toán động lực học thường có vai trò gì?",
+    "options": [
+      "Luôn sinh công dương",
+      "Luôn bằng 0",
+      "Luôn cùng hướng vận tốc",
+      "Đảm bảo điều kiện ràng buộc chuyển động"
+    ],
+    "correct": 3,
+    "section": "I",
+    "feedbackCorrect": "Đúng. Phản lực liên kết xuất hiện để thỏa điều kiện liên kết.",
+    "feedbackWrong": "Sai. Phản lực liên kết xuất hiện để thỏa điều kiện liên kết."
+  },
+  {
+    "question": "Trọng lực của vật khối lượng 3 kg, lấy g = 10 m/s², có độ lớn bao nhiêu?",
+    "options": [
+      "30 N",
+      "3 N",
+      "10 N",
+      "300 N"
+    ],
+    "correct": 0,
+    "section": "I",
+    "feedbackCorrect": "Đúng. P = mg = 3 × 10 = 30 N.",
+    "feedbackWrong": "Sai. P = mg = 3 × 10 = 30 N."
+  },
+  {
+    "question": "Nếu tổng lực tác dụng lên chất điểm bằng 0 trong hệ quán tính, gia tốc của nó bằng bao nhiêu?",
+    "options": [
+      "g",
+      "0",
+      "v/t",
+      "mF"
+    ],
+    "correct": 1,
+    "section": "I",
+    "feedbackCorrect": "Đúng. Theo Newton II, ma = 0 nên a = 0.",
+    "feedbackWrong": "Sai. Theo Newton II, ma = 0 nên a = 0."
+  },
+  {
+    "question": "Vật 2 kg chịu tổng lực 10 N. Gia tốc của vật bằng bao nhiêu?",
+    "options": [
+      "20 m/s²",
+      "12 m/s²",
+      "5 m/s²",
+      "0,2 m/s²"
+    ],
+    "correct": 2,
+    "section": "II",
+    "feedbackCorrect": "Đúng. a = F/m = 10/2 = 5 m/s².",
+    "feedbackWrong": "Sai. a = F/m = 10/2 = 5 m/s²."
+  },
+  {
+    "question": "Vật 5 kg chuyển động với gia tốc 2 m/s². Tổng lực tác dụng bằng bao nhiêu?",
+    "options": [
+      "2,5 N",
+      "7 N",
+      "25 N",
+      "10 N"
+    ],
+    "correct": 3,
+    "section": "II",
+    "feedbackCorrect": "Đúng. ΣF = ma = 5 × 2 = 10 N.",
+    "feedbackWrong": "Sai. ΣF = ma = 5 × 2 = 10 N."
+  },
+  {
+    "question": "Dạng lực quán tính trong nguyên lý D’Alembert của chất điểm là gì?",
+    "options": [
+      "-ma",
+      "mv",
+      "mg",
+      "a/m"
+    ],
+    "correct": 0,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Thêm lực quán tính -ma để đưa bài toán về dạng cân bằng hình thức.",
+    "feedbackWrong": "Sai. Thêm lực quán tính -ma để đưa bài toán về dạng cân bằng hình thức."
+  },
+  {
+    "question": "Phương trình D’Alembert cho chất điểm có thể viết như thế nào?",
+    "options": [
+      "ΣF = mv",
+      "ΣF - ma = 0",
+      "ΣF = 0 cho mọi chuyển động",
+      "ma = 0"
+    ],
+    "correct": 1,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Vì lực quán tính là -ma nên ΣF + F_qt = 0.",
+    "feedbackWrong": "Sai. Vì lực quán tính là -ma nên ΣF + F_qt = 0."
+  },
+  {
+    "question": "Trong tọa độ tự nhiên, phương trình động lực theo tiếp tuyến là gì?",
+    "options": [
+      "ΣF_t = mv²/ρ",
+      "ΣF_t = mg luôn đúng",
+      "ΣF_t = m dv/dt",
+      "ΣF_t = 0 trong mọi chuyển động"
+    ],
+    "correct": 2,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Thành phần tiếp tuyến của gia tốc là dv/dt.",
+    "feedbackWrong": "Sai. Thành phần tiếp tuyến của gia tốc là dv/dt."
+  },
+  {
+    "question": "Trong tọa độ tự nhiên, phương trình pháp tuyến là gì?",
+    "options": [
+      "ΣF_n = m dv/dt",
+      "ΣF_n = mv",
+      "ΣF_n = 0 khi quỹ đạo cong",
+      "ΣF_n = mv²/ρ"
+    ],
+    "correct": 3,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Gia tốc pháp tuyến có độ lớn v²/ρ.",
+    "feedbackWrong": "Sai. Gia tốc pháp tuyến có độ lớn v²/ρ."
+  },
+  {
+    "question": "Vật chuyển động tròn đều bán kính 2 m, v = 4 m/s. Lực hướng tâm với m = 1 kg bằng bao nhiêu?",
+    "options": [
+      "8 N",
+      "2 N",
+      "16 N",
+      "0,5 N"
+    ],
+    "correct": 0,
+    "section": "II",
+    "feedbackCorrect": "Đúng. F_n = mv²/R = 1 × 16/2 = 8 N.",
+    "feedbackWrong": "Sai. F_n = mv²/R = 1 × 16/2 = 8 N."
+  },
+  {
+    "question": "Vật đặt trong thang máy đi lên nhanh dần với gia tốc a. Phản lực sàn so với trọng lượng thế nào?",
+    "options": [
+      "Nhỏ hơn trọng lượng",
+      "Lớn hơn trọng lượng",
+      "Bằng 0",
+      "Không phụ thuộc gia tốc"
+    ],
+    "correct": 1,
+    "section": "II",
+    "feedbackCorrect": "Đúng. N - mg = ma nên N = m(g + a).",
+    "feedbackWrong": "Sai. N - mg = ma nên N = m(g + a)."
+  },
+  {
+    "question": "Vật trong thang máy đi xuống nhanh dần với gia tốc a < g. Phản lực sàn bằng gì?",
+    "options": [
+      "m(g + a)",
+      "ma",
+      "m(g - a)",
+      "0 trong mọi trường hợp"
+    ],
+    "correct": 2,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Chọn chiều xuống: mg - N = ma nên N = m(g - a).",
+    "feedbackWrong": "Sai. Chọn chiều xuống: mg - N = ma nên N = m(g - a)."
+  },
+  {
+    "question": "Một vật treo bằng dây đang đứng yên. Khi dây bị đứt, lực căng dây ngay sau đó bằng bao nhiêu?",
+    "options": [
+      "mg",
+      "2mg",
+      "ma hướng lên",
+      "0"
+    ],
+    "correct": 3,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Dây đứt không còn truyền lực căng.",
+    "feedbackWrong": "Sai. Dây đứt không còn truyền lực căng."
+  },
+  {
+    "question": "Trong sơ đồ lực của một vật riêng lẻ, vì sao không vẽ đồng thời cặp lực tác dụng - phản tác dụng lên cùng vật?",
+    "options": [
+      "Vì hai lực đó đặt lên hai vật khác nhau",
+      "Vì chúng luôn bằng 0",
+      "Vì chúng cùng chiều nhau",
+      "Vì chúng không có độ lớn"
+    ],
+    "correct": 0,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Cặp Newton III tác dụng lên hai vật khác nhau.",
+    "feedbackWrong": "Sai. Cặp Newton III tác dụng lên hai vật khác nhau."
+  },
+  {
+    "question": "Một khối trượt trên mặt phẳng ngang không ma sát dưới lực kéo 12 N, m = 4 kg. Gia tốc bằng bao nhiêu?",
+    "options": [
+      "48 m/s²",
+      "3 m/s²",
+      "8 m/s²",
+      "0,33 m/s²"
+    ],
+    "correct": 1,
+    "section": "II",
+    "feedbackCorrect": "Đúng. a = F/m = 12/4 = 3 m/s².",
+    "feedbackWrong": "Sai. a = F/m = 12/4 = 3 m/s²."
+  },
+  {
+    "question": "Nguyên lý độc lập tác dụng cho phép xử lý nhiều lực như thế nào?",
+    "options": [
+      "Bỏ qua lực nhỏ nhất",
+      "Chỉ lấy lực lớn nhất",
+      "Cộng véc tơ tác dụng của từng lực",
+      "Thay mọi lực bằng trọng lực"
+    ],
+    "correct": 2,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Tác dụng đồng thời bằng tổng véc tơ các tác dụng riêng.",
+    "feedbackWrong": "Sai. Tác dụng đồng thời bằng tổng véc tơ các tác dụng riêng."
+  },
+  {
+    "question": "Trong hệ nhiều vật, nội lực khi xét toàn hệ thường có tính chất nào?",
+    "options": [
+      "Luôn cộng vào ngoại lực",
+      "Luôn bằng trọng lượng",
+      "Không bao giờ xuất hiện",
+      "Triệt tiêu theo từng cặp"
+    ],
+    "correct": 3,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Nội lực là cặp tương tác giữa các vật trong hệ nên triệt tiêu trong phương trình toàn hệ.",
+    "feedbackWrong": "Sai. Nội lực là cặp tương tác giữa các vật trong hệ nên triệt tiêu trong phương trình toàn hệ."
+  },
+  {
+    "question": "Vật chuyển động trên vòng tròn đứng ở vị trí thấp nhất. Phương trình theo bán kính thường chứa đại lượng nào?",
+    "options": [
+      "mv²/R hướng về tâm",
+      "m dv/dt theo tiếp tuyến",
+      "mv theo phương ngang",
+      "m/R theo phương tiếp tuyến"
+    ],
+    "correct": 0,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Thành phần pháp tuyến của ma là mv²/R hướng về tâm.",
+    "feedbackWrong": "Sai. Thành phần pháp tuyến của ma là mv²/R hướng về tâm."
+  },
+  {
+    "question": "Trong hệ quy chiếu phi quán tính tịnh tiến với gia tốc A, lực quán tính thêm vào có dạng nào?",
+    "options": [
+      "mA",
+      "-mA",
+      "mv",
+      "A/m"
+    ],
+    "correct": 1,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Lực quán tính ngược chiều gia tốc của hệ quy chiếu.",
+    "feedbackWrong": "Sai. Lực quán tính ngược chiều gia tốc của hệ quy chiếu."
+  },
+  {
+    "question": "Lực pháp tuyến của mặt tựa lý tưởng có phương nào?",
+    "options": [
+      "Dọc theo mặt tựa",
+      "Cùng chiều vận tốc",
+      "Vuông góc với mặt tựa",
+      "Ngược chiều gia tốc trong mọi trường hợp"
+    ],
+    "correct": 2,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Phản lực pháp tuyến vuông góc mặt tiếp xúc.",
+    "feedbackWrong": "Sai. Phản lực pháp tuyến vuông góc mặt tiếp xúc."
+  },
+  {
+    "question": "Lực căng dây lý tưởng tác dụng lên vật theo phương nào?",
+    "options": [
+      "Vuông góc dây",
+      "Cùng chiều trọng lực trong mọi trường hợp",
+      "Theo phương ngang tuyệt đối",
+      "Dọc theo dây và kéo vật"
+    ],
+    "correct": 3,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Dây lý tưởng chỉ truyền lực kéo dọc theo dây.",
+    "feedbackWrong": "Sai. Dây lý tưởng chỉ truyền lực kéo dọc theo dây."
+  },
+  {
+    "question": "Một vật 1 kg chịu lực ngang 6 N và lực cản 2 N ngược chiều. Gia tốc bằng bao nhiêu?",
+    "options": [
+      "4 m/s²",
+      "8 m/s²",
+      "6 m/s²",
+      "2 m/s²"
+    ],
+    "correct": 0,
+    "section": "II",
+    "feedbackCorrect": "Đúng. Tổng lực theo chiều chuyển động là 6 - 2 = 4 N.",
+    "feedbackWrong": "Sai. Tổng lực theo chiều chuyển động là 6 - 2 = 4 N."
+  },
+  {
+    "question": "Phương trình vi phân chuyển động trong tọa độ Đề-các có dạng nào?",
+    "options": [
+      "m x˙ = ΣF_x",
+      "m x¨ = ΣF_x, m y¨ = ΣF_y, m z¨ = ΣF_z",
+      "x = ΣF_x",
+      "ΣF_x = 0 trong mọi trường hợp"
+    ],
+    "correct": 1,
+    "section": "III",
+    "feedbackCorrect": "Đúng. Gia tốc là đạo hàm bậc hai của tọa độ.",
+    "feedbackWrong": "Sai. Gia tốc là đạo hàm bậc hai của tọa độ."
+  },
+  {
+    "question": "Để xác định nghiệm duy nhất của phương trình vi phân bậc hai, thường cần điều kiện đầu nào?",
+    "options": [
+      "Chỉ khối lượng",
+      "Chỉ thời gian cuối",
+      "Vị trí và vận tốc ban đầu",
+      "Chỉ hệ số ma sát"
+    ],
+    "correct": 2,
+    "section": "III",
+    "feedbackCorrect": "Đúng. Phương trình bậc hai cần hai điều kiện đầu cho mỗi tọa độ.",
+    "feedbackWrong": "Sai. Phương trình bậc hai cần hai điều kiện đầu cho mỗi tọa độ."
+  },
+  {
+    "question": "Nếu lực phụ thuộc vào vị trí x, bài toán động lực thường dẫn đến dạng phương trình nào?",
+    "options": [
+      "Bảng số không cần giải",
+      "Phương trình cân bằng tĩnh học duy nhất",
+      "Đẳng thức hình học không có thời gian",
+      "Phương trình vi phân theo tọa độ"
+    ],
+    "correct": 3,
+    "section": "III",
+    "feedbackCorrect": "Đúng. F(x) trong Newton II tạo phương trình vi phân cho x(t).",
+    "feedbackWrong": "Sai. F(x) trong Newton II tạo phương trình vi phân cho x(t)."
+  },
+  {
+    "question": "Một vật chịu lực đàn hồi F = -kx. Phương trình chuyển động không cản là gì?",
+    "options": [
+      "m x¨ + kx = 0",
+      "m x˙ + kx = 0",
+      "kx = 0 trong mọi lúc",
+      "m x = k"
+    ],
+    "correct": 0,
+    "section": "III",
+    "feedbackCorrect": "Đúng. Newton II cho m x¨ = -kx.",
+    "feedbackWrong": "Sai. Newton II cho m x¨ = -kx."
+  },
+  {
+    "question": "Trong chuyển động thẳng chịu lực không đổi F, nghiệm vận tốc thường có dạng nào nếu m không đổi?",
+    "options": [
+      "v = Ft²",
+      "v = v₀ + (F/m)t",
+      "v = F/m không đổi với mọi điều kiện",
+      "v = m/F"
+    ],
+    "correct": 1,
+    "section": "III",
+    "feedbackCorrect": "Đúng. Gia tốc a = F/m không đổi nên v tăng tuyến tính theo thời gian.",
+    "feedbackWrong": "Sai. Gia tốc a = F/m không đổi nên v tăng tuyến tính theo thời gian."
+  },
+  {
+    "question": "Bài toán thuận động lực học là bài toán nào?",
+    "options": [
+      "Biết lực, tìm chuyển động",
+      "Chỉ tìm trọng tâm",
+      "Biết chuyển động, tìm lực gây ra chuyển động",
+      "Chỉ tìm hệ số ma sát"
+    ],
+    "correct": 2,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. Bài toán thuận dùng quy luật chuyển động để suy ra lực.",
+    "feedbackWrong": "Sai. Bài toán thuận dùng quy luật chuyển động để suy ra lực."
+  },
+  {
+    "question": "Bài toán ngược động lực học là bài toán nào?",
+    "options": [
+      "Biết chuyển động, tìm lực",
+      "Chỉ vẽ sơ đồ lực",
+      "Chỉ kiểm tra đơn vị",
+      "Biết lực và điều kiện đầu, tìm chuyển động"
+    ],
+    "correct": 3,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. Bài toán ngược cần giải phương trình vi phân chuyển động.",
+    "feedbackWrong": "Sai. Bài toán ngược cần giải phương trình vi phân chuyển động."
+  },
+  {
+    "question": "Nếu biết x = t³ (m) của vật m = 2 kg, lực theo phương x tại t = 1 s bằng bao nhiêu?",
+    "options": [
+      "12 N",
+      "6 N",
+      "3 N",
+      "2 N"
+    ],
+    "correct": 0,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. x¨ = 6t, tại t = 1 thì a = 6 m/s², F = ma = 12 N.",
+    "feedbackWrong": "Sai. x¨ = 6t, tại t = 1 thì a = 6 m/s², F = ma = 12 N."
+  },
+  {
+    "question": "Trong bài toán ngược với lực không đổi, bước quan trọng sau khi tìm gia tốc là gì?",
+    "options": [
+      "Bỏ điều kiện đầu",
+      "Tích phân và dùng điều kiện đầu",
+      "Đặt vận tốc bằng 0",
+      "Chỉ tính phản lực liên kết"
+    ],
+    "correct": 1,
+    "section": "IV",
+    "feedbackCorrect": "Đúng. Cần tích phân gia tốc để tìm v(t), x(t) và dùng điều kiện đầu.",
+    "feedbackWrong": "Sai. Cần tích phân gia tốc để tìm v(t), x(t) và dùng điều kiện đầu."
+  },
+  {
+    "question": "Động lượng của chất điểm được định nghĩa như thế nào?",
+    "options": [
+      "p = ma",
+      "p = Fs",
+      "p = mv",
+      "p = Iω"
+    ],
+    "correct": 2,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Động lượng tuyến tính bằng khối lượng nhân vận tốc.",
+    "feedbackWrong": "Sai. Động lượng tuyến tính bằng khối lượng nhân vận tốc."
+  },
+  {
+    "question": "Động năng của chất điểm khối lượng m, tốc độ v bằng gì?",
+    "options": [
+      "mv",
+      "ma",
+      "Ft",
+      "mv²/2"
+    ],
+    "correct": 3,
+    "section": "V",
+    "feedbackCorrect": "Đúng. Động năng tịnh tiến là T = 1/2 mv².",
+    "feedbackWrong": "Sai. Động năng tịnh tiến là T = 1/2 mv²."
+  },
+  {
+    "question": "Định lý biến thiên động lượng phát biểu rằng đạo hàm động lượng bằng gì?",
+    "options": [
+      "Tổng ngoại lực",
+      "Động năng",
+      "Công suất",
+      "Mô men quán tính"
+    ],
+    "correct": 0,
+    "section": "V",
+    "feedbackCorrect": "Đúng. dp/dt = ΣF_ngoài.",
+    "feedbackWrong": "Sai. dp/dt = ΣF_ngoài."
+  },
+  {
+    "question": "Mô men động lượng của chất điểm đối với O có dạng nào?",
+    "options": [
+      "mv²/2",
+      "r × mv",
+      "ma",
+      "F · v"
+    ],
+    "correct": 1,
+    "section": "V",
+    "feedbackCorrect": "Đúng. K_O = r × p = r × mv.",
+    "feedbackWrong": "Sai. K_O = r × p = r × mv."
+  },
+  {
+    "question": "Hệ số phục hồi e trong va chạm thẳng được xác định từ đại lượng nào?",
+    "options": [
+      "Tỉ số khối lượng hai vật",
+      "Tổng động năng sau va chạm",
+      "Tỉ số tốc độ tách xa và tốc độ tiến lại theo phương va chạm",
+      "Độ nhám bề mặt"
+    ],
+    "correct": 2,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. e đo mức phục hồi vận tốc tương đối theo phương va chạm.",
+    "feedbackWrong": "Sai. e đo mức phục hồi vận tốc tương đối theo phương va chạm."
+  },
+  {
+    "question": "Va chạm đàn hồi hoàn toàn có hệ số phục hồi bằng bao nhiêu?",
+    "options": [
+      "0",
+      "0,5",
+      "Lớn hơn 2",
+      "1"
+    ],
+    "correct": 3,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Đàn hồi hoàn toàn tương ứng e = 1.",
+    "feedbackWrong": "Sai. Đàn hồi hoàn toàn tương ứng e = 1."
+  },
+  {
+    "question": "Va chạm mềm hoàn toàn có đặc điểm nào sau va chạm?",
+    "options": [
+      "Hai vật có cùng vận tốc theo phương va chạm",
+      "Động năng luôn bảo toàn",
+      "Hai vật tách ra nhanh nhất",
+      "Hệ số phục hồi bằng 1"
+    ],
+    "correct": 0,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Va chạm mềm hoàn toàn có e = 0.",
+    "feedbackWrong": "Sai. Va chạm mềm hoàn toàn có e = 0."
+  },
+  {
+    "question": "Trong va chạm ngắn, nếu xung ngoại lực bỏ qua được thì đại lượng nào của hệ được bảo toàn?",
+    "options": [
+      "Động năng trong mọi trường hợp",
+      "Động lượng",
+      "Vận tốc từng vật",
+      "Lực tiếp xúc"
+    ],
+    "correct": 1,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Xung ngoại lực nhỏ làm động lượng hệ gần như bảo toàn.",
+    "feedbackWrong": "Sai. Xung ngoại lực nhỏ làm động lượng hệ gần như bảo toàn."
+  },
+  {
+    "question": "Hai vật m₁ = m₂, một vật đứng yên, va chạm đàn hồi trực diện. Sau va chạm lý tưởng, hiện tượng thường gặp là gì?",
+    "options": [
+      "Hai vật dính vào nhau",
+      "Cả hai đứng yên",
+      "Vật đang chuyển động truyền vận tốc cho vật đứng yên",
+      "Động lượng không bảo toàn"
+    ],
+    "correct": 2,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Với hai khối lượng bằng nhau và va chạm đàn hồi trực diện, vận tốc được trao đổi.",
+    "feedbackWrong": "Sai. Với hai khối lượng bằng nhau và va chạm đàn hồi trực diện, vận tốc được trao đổi."
+  },
+  {
+    "question": "Hệ số phục hồi e = 0,6 cho biết loại va chạm nào?",
+    "options": [
+      "Đàn hồi hoàn toàn",
+      "Mềm hoàn toàn",
+      "Không có va chạm",
+      "Đàn hồi không hoàn toàn"
+    ],
+    "correct": 3,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. 0 < e < 1 là va chạm đàn hồi không hoàn toàn.",
+    "feedbackWrong": "Sai. 0 < e < 1 là va chạm đàn hồi không hoàn toàn."
+  },
+  {
+    "question": "Va chạm xuyên tâm giữa hai vật có đường va chạm đi qua đâu?",
+    "options": [
+      "Khối tâm hai vật",
+      "Một điểm bất kỳ trên mép vật",
+      "Luôn theo phương thẳng đứng",
+      "Luôn song song mặt đất"
+    ],
+    "correct": 0,
+    "section": "VI",
+    "feedbackCorrect": "Đúng. Va chạm xuyên tâm có pháp tuyến va chạm đi qua các khối tâm.",
+    "feedbackWrong": "Sai. Va chạm xuyên tâm có pháp tuyến va chạm đi qua các khối tâm."
+  },
+  {
+    "question": "Vật 3 kg chịu tổng lực 12 N. Gia tốc bằng bao nhiêu?",
+    "options": [
+      "36 m/s²",
+      "4 m/s²",
+      "9 m/s²",
+      "0,25 m/s²"
+    ],
+    "correct": 1,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. a = F/m = 12/3 = 4 m/s².",
+    "feedbackWrong": "Sai. a = F/m = 12/3 = 4 m/s²."
+  },
+  {
+    "question": "Vật 5 kg đang đứng yên chịu lực không đổi 10 N trong 2 s. Vận tốc đạt được bằng bao nhiêu?",
+    "options": [
+      "2 m/s",
+      "20 m/s",
+      "4 m/s",
+      "50 m/s"
+    ],
+    "correct": 2,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. a = 10/5 = 2 m/s², v = at = 4 m/s.",
+    "feedbackWrong": "Sai. a = 10/5 = 2 m/s², v = at = 4 m/s."
+  },
+  {
+    "question": "Một vật rơi tự do, bỏ qua cản không khí. Gia tốc của vật là gì?",
+    "options": [
+      "0",
+      "g hướng lên",
+      "Phụ thuộc khối lượng theo mg²",
+      "g hướng xuống"
+    ],
+    "correct": 3,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. Trong trường trọng lực đều, a = g hướng xuống.",
+    "feedbackWrong": "Sai. Trong trường trọng lực đều, a = g hướng xuống."
+  },
+  {
+    "question": "Hai vật dính vào nhau sau va chạm. Đây là dạng va chạm nào?",
+    "options": [
+      "Va chạm mềm hoàn toàn",
+      "Va chạm đàn hồi hoàn toàn",
+      "Va chạm không xung",
+      "Va chạm không bảo toàn động lượng"
+    ],
+    "correct": 0,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. Dính vào nhau sau va chạm là mô hình va chạm mềm hoàn toàn.",
+    "feedbackWrong": "Sai. Dính vào nhau sau va chạm là mô hình va chạm mềm hoàn toàn."
+  },
+  {
+    "question": "Vật 1 kg chuyển động tròn bán kính 0,5 m với v = 2 m/s. Lực hướng tâm bằng bao nhiêu?",
+    "options": [
+      "4 N",
+      "8 N",
+      "2 N",
+      "1 N"
+    ],
+    "correct": 1,
+    "section": "VII",
+    "feedbackCorrect": "Đúng. F_n = mv²/R = 1 × 4/0,5 = 8 N.",
+    "feedbackWrong": "Sai. F_n = mv²/R = 1 × 4/0,5 = 8 N."
   }
 ]

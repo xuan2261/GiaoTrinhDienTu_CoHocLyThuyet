@@ -58,6 +58,8 @@ Các lệnh này chỉ phục vụ phát triển/kiểm thử; runtime offline k
 python tools\smoke_simulation_manifest.py --require-routes 52 --require-objectives --require-direct
 python tools\audit_simulation_quality.py --all --max-js-lines 220
 python tools\smoke_simulation_runtime.py --expect-globals SimCore,SimMath,SimRender,SimInteractions,SimLabUI,SimProfessionalLab,SimRouteRenderers,SimRouteBehaviors --expect-runtime-routes 52 --check-mount-rollback --check-listener-cleanup
+npm run test:quiz
+npm run test:quiz:browser
 npm run test:sim:unit
 npm run test:sim:quality
 npm run test:sim:quality:baseline
