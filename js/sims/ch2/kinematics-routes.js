@@ -25,9 +25,7 @@ registry.registerMany({
   'ch2-4-4': kinematics.simAccelerationComposition,
   'ch2-5-1': kinematics.simPlaneMotion,
   'ch2-5-2': kinematics.simInstantCenterFinder,
-  'ch2-5-3': kinematics.simVelocityDistributionLab,
-  'ch2-7-1': kinematics.simKinematicsGuidedChecker,
-  'ch2-7-2': kinematics.simKinematicsNumericChecker
+  'ch2-5-3': kinematics.simVelocityDistributionLab
 });
 
 })();

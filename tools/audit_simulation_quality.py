@@ -30,7 +30,7 @@ IMPLEMENTATION_EXEMPT = {
     "js/sim-scene-registry.js",
     "js/sim-scene-templates.js",
     "js/sim-professional-lab.js",
-    # Phase 01 infrastructure: foundational libraries serving all 58 routes
+    # Phase 01 infrastructure: foundational libraries serving all 52 routes
     # (exempt from 220-line cap per plan phase-01-infrastructure-animation-engine.md)
     "js/sim-animation-engine.js",
     "js/sim-interaction-enhancements.js",
@@ -50,7 +50,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Audit simulation quality metrics.")
     parser.add_argument("--baseline", action="store_true", help="Report current metrics with lenient gates.")
     parser.add_argument("--all", action="store_true", help="Enable release-oriented quality gates.")
-    parser.add_argument("--route-count", type=int, default=58)
+    parser.add_argument("--route-count", type=int, default=52)
     parser.add_argument("--max-js-lines", type=int)
     parser.add_argument("--allow-legacy-adapters", action="store_true")
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)

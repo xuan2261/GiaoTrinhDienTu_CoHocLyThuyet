@@ -37,7 +37,7 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 | `js/sim-scene-registry.js` | Route-scoped scene catalog registry; keep scene ids/signatures deterministic |
 | `js/sim-scene-templates.js` | Legacy scene template fallback và deterministic signature helpers |
 | `js/sim-route-renderer-primitives.js` | Low-level drawing helpers only; `domMath` suppresses learner-facing canvas formula overlay by default, overlay helpers chỉ giữ short labels; `P.spring` accepts `opts.anchor` / `opts.wallAnchor`; `P.realisticBody` emits `ao:` and `rim:` marks; `P.realisticWheel` emits `shine:` mark; `P.magnitudeArrow` for length-only PhET-scaled arrows; exports: `magnitudeArrow`, `isShortOverlayLabel`, `allowCanvasOverlayText` |
-| `js/sim-route-renderer-registry.js` | 58 dedicated route renderer contracts; renderer id/function/body phải unique |
+| `js/sim-route-renderer-registry.js` | 52 dedicated route renderer contracts; renderer id/function/body phải unique |
 | `js/sim-route-behavior-registry.js` | Route behavior contracts: behavior id, derived/interaction metadata, assessment link |
 | `js/sim-professional-lab.js` | Shared professional lab shell orchestration; resolve scene metadata, renderer contract, behavior contract, route-owned handle descriptors, và active handle metadata qua `data-active-handle-id`; `resolveHandles` fails loudly when a route returns no handles (legacy fallback removed); per-route ARIA overlay layer (`.sim-handle-a11y-layer`), keyboard nudge (Arrow + Shift), Escape blur, polite `sim-aria-live` region; `lab.prefersReducedMotion` flag honored across animation engine |
 | `js/sim-statics.js` | Thin Ch1 adapter cho `SimProfessionalLab.mount(routeId)` |
@@ -45,7 +45,7 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 | `js/sim-dynamics.js` | Thin Ch3 adapter cho `SimProfessionalLab.mount(routeId)` |
 | `js/sims/ch*/` | Scene catalog registrations + route registration modules theo chương |
 | `js/sim-activities.js` | Shared activity/checker namespace và progress guard |
-| `js/sim-route-manifest.js` | 58-route manifest: objective + interaction metadata |
+| `js/sim-route-manifest.js` | 52-route manifest: objective + interaction metadata |
 | `js/simulations.js` | Chỉ lo compatibility registry và runtime route map; route discovery cho QA chỉ đếm canonical P1 routes, compatibility routes vẫn load để fallback |
 | `tools/` | Python script độc lập, một task chính mỗi file |
 | `tests/` | Dev-only QA; focused simulation suites: browser shell/mount, interaction, visual-quality, unit physics/runtime |
@@ -121,9 +121,9 @@ python tools\audit.py
 npm run test:sim:audit
 npm run test:sim:disposal
 python tools\smoke_simulation_routes.py
-python tools\smoke_simulation_scene_catalog.py --strict --require-routes 58
-python tools\smoke_simulation_renderer_contract.py --strict --require-routes 58
-python tools\smoke_simulation_runtime.py --expect-globals SimCore,SimMath,SimRender,SimInteractions,SimLabUI,SimProfessionalLab,SimRouteRenderers,SimRouteBehaviors,SimAnimationEngine,SimPhysicsStatics,SimPhysicsKinematics,SimPhysicsDynamics,SimVisualHelpers --expect-runtime-routes 58 --check-mount-rollback --check-listener-cleanup
+python tools\smoke_simulation_scene_catalog.py --strict --require-routes 52
+python tools\smoke_simulation_renderer_contract.py --strict --require-routes 52
+python tools\smoke_simulation_runtime.py --expect-globals SimCore,SimMath,SimRender,SimInteractions,SimLabUI,SimProfessionalLab,SimRouteRenderers,SimRouteBehaviors,SimAnimationEngine,SimPhysicsStatics,SimPhysicsKinematics,SimPhysicsDynamics,SimVisualHelpers --expect-runtime-routes 52 --check-mount-rollback --check-listener-cleanup
 npm run test:sim:quality
 npm run test:sim:semantic
 npm run test:sim:browser
@@ -143,7 +143,7 @@ Khi chốt P1 simulation expansion, chạy thêm `python tools\smoke_simulation_
 Khi làm professional simulation labs, chạy thêm:
 
 ```powershell
-python tools\smoke_simulation_manifest.py --require-routes 58 --require-objectives --require-direct
+python tools\smoke_simulation_manifest.py --require-routes 52 --require-objectives --require-direct
 python tools\audit_simulation_quality.py --all --max-js-lines 220
 npm run test:sim:unit
 npm run test:sim:quality
@@ -156,11 +156,11 @@ npm run test:sim:browser:route-mount
 ```
 
 `package.json` chỉ dùng cho QA dev-only. Không thêm runtime bundler; app vẫn phải chạy được bằng `file://`.
-`npm run test:sim:release` phải bao gồm `test:sim:quality` và `test:sim:visual-quality` để khóa line-count active simulation sources, 58-route discovery, bounded canvas, route-owned handles, renderer/behavior/scene identity, dark/light readability, và overflow.
+`npm run test:sim:release` phải bao gồm `test:sim:quality` và `test:sim:visual-quality` để khóa line-count active simulation sources, 52-route discovery, bounded canvas, route-owned handles, renderer/behavior/scene identity, dark/light readability, và overflow.
 
 ## Sim renderer types
 
-58 simulation routes split into 3 renderer kinds. Pick by reading the scene's teaching intent, not by whether a route happens to have sliders or handles.
+52 simulation routes split into 3 renderer kinds. Pick by reading the scene's teaching intent, not by whether a route happens to have sliders or handles.
 
 ### 1. Concept diagram (`scene.static === true`)
 

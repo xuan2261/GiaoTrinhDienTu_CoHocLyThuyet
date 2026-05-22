@@ -1,8 +1,8 @@
 /**
- * All 18 Ch3 dynamics route scenes — registered with SimSceneRegistry.
+ * All 16 active Ch3 dynamics route scenes — registered with SimSceneRegistry.
  * Covers: Newton's laws (ch3-1-2..ch3-2-5), ODE solvers (ch3-3-1..ch3-3-2),
  * D'Alembert (ch3-4-1..ch3-4-2), theorems (ch3-5-1..ch3-5-4),
- * collisions (ch3-6-2..ch3-6-3), checkers (ch3-7-1..ch3-7-2).
+ * collisions (ch3-6-2..ch3-6-3).
  */
 (function() {
 'use strict';
@@ -49,13 +49,7 @@ const rows = [
    'Va chạm 2D', 'e', 'm1', 'Hệ số e'],
   ['ch3-6-3', 'collision-solver', 'dynamics',
    'Giải bài va chạm', 'bảo toàn p, e',
-   'Numeric collision', 'v1', 'v2', 'Vận tốc 1'],
-  ['ch3-7-1', 'theorem-selector', 'dynamics',
-   'Chọn định lý phù hợp', 'I/M, W/E, L',
-   'Chọn định lý', 'loai', 'problem', 'Loại bài toán'],
-  ['ch3-7-2', 'dynamics-numeric', 'dynamics',
-   'Kiểm tra số liệu động lực', 'kiểm tra định lý',
-   'Kiểm tra', 'T', 'V', 'Động năng']
+   'Numeric collision', 'v1', 'v2', 'Vận tốc 1']
 ];
 
 function buildInitial(routeId) {
@@ -85,7 +79,6 @@ function buildInitial(routeId) {
     ball2: { x: 380, y: 180, vx: -3, vy: 0 },
     collision: false, collisionX: 0, collisionY: 0
   });
-  if (routeId === 'ch3-7-2') Object.assign(base, { residualScale: 1, score: 100, residual1: 0, residual2: 0, residual3: 0, residual4: 0 });
   return base;
 }
 
@@ -137,12 +130,6 @@ function buildControls(routeId) {
       ctrls.push({ type: 'slider', key: 'v2', label: 'v2', min: -10, max: 10, value: -3, step: 0.5, unit: 'm/s' });
       ctrls.push({ type: 'slider', key: 'e', label: 'e', min: 0, max: 1, value: 0.8, step: 0.05, unit: '' });
       break;
-    case 'ch3-7-1':
-      ctrls.push({ type: 'slider', key: 'problemType', label: 'Bài toán', min: 0, max: 3, value: 0, step: 1, unit: '' });
-      break;
-    case 'ch3-7-2':
-      ctrls.push({ type: 'slider', key: 'residualScale', label: 'Độ nhiễu', min: 0, max: 2, value: 1, step: 0.1, unit: '' });
-      break;
   }
   return ctrls;
 }
@@ -165,10 +152,6 @@ function readoutsFor(routeId) {
     case 'ch3-6-2':
     case 'ch3-6-3':
       return [{ label: 'p trước', key: 'pBefore', digits: 1 }, { label: 'p sau', key: 'pAfter', digits: 1 }, { label: 'e', key: 'e', digits: 2 }];
-    case 'ch3-7-1':
-      return [{ label: 'định lý', key: 'selectedTheorem' }, { label: 'F', key: 'force', digits: 1, unit: 'N' }, { label: 'Bài toán', key: 'problemType', digits: 0 }];
-    case 'ch3-7-2':
-      return [{ label: 'điểm', key: 'score', digits: 0 }, { label: 'r1', key: 'residual1', digits: 3 }, { label: 'Độ nhiễu', key: 'residualScale', digits: 1 }];
     default:
       return [{ label: 'a', key: 'accel', scale: 1, digits: 2, unit: 'm/s²' }, { label: 'v', key: 'v', scale: 1, digits: 2, unit: 'm/s' }, { label: 'F', key: 'force', digits: 1, unit: 'N' }];
   }
@@ -199,7 +182,7 @@ function scene(row, index) {
   };
 }
 
-const STATIC_CH3_CONCEPT = ['ch3-1-3', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1', 'ch3-6-3', 'ch3-7-1'];
+const STATIC_CH3_CONCEPT = ['ch3-1-3', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1', 'ch3-6-3'];
 const TICK_WITHOUT_BUTTON_CH3 = ['ch3-1-3', 'ch3-2-3', 'ch3-6-3'];
 
 function autoplayFor(routeId) {
@@ -208,7 +191,7 @@ function autoplayFor(routeId) {
 }
 
 function readoutPolicyFor(routeId) {
-  return { appendMode: false, appendAlpha: false, appendControls: false, appendTime: ['ch3-1-3', 'ch3-2-3', 'ch3-5-1', 'ch3-5-2', 'ch3-6-3', 'ch3-7-2'].includes(routeId) };
+  return { appendMode: false, appendAlpha: false, appendControls: false, appendTime: ['ch3-1-3', 'ch3-2-3', 'ch3-5-1', 'ch3-5-2', 'ch3-6-3'].includes(routeId) };
 }
 
 registry.registerMany(rows.map(scene));

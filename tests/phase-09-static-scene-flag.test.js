@@ -1,15 +1,13 @@
 /**
  * Phase 09 → Phase 03 — concept-diagram routes carry the `static: true` flag.
  *
- * For the 7 routes that intentionally lack temporal evolution (slider-only
+ * For the routes that intentionally lack temporal evolution (slider-only
  * concept diagrams, FBDs, theorem selectors), the scene metadata must declare
  * `static: true` so the production reader (`js/sim-professional-lab.js`) can
  * suppress the misleading Play button.
  *
  * Three of those 7 also need engine ticks for time-derived readouts and so
- * carry `tickWithoutButton: true` (Phase 03 sub-mode B). One (`ch3-7-1`) is
- * removed from the `appendTime` policy to drop the dead "t=0.00 s" suffix
- * (sub-mode C). ch3-7-2 stays animated and is handled in Phase 05.
+ * carry `tickWithoutButton: true` (Phase 03 sub-mode B).
  */
 'use strict';
 
@@ -38,7 +36,7 @@ function loadCh2Registry() {
   return sandbox.window.SimSceneRegistry;
 }
 
-const STATIC_CH3 = ['ch3-1-3', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1', 'ch3-6-3', 'ch3-7-1'];
+const STATIC_CH3 = ['ch3-1-3', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1', 'ch3-6-3'];
 const TICK_WITHOUT_BUTTON_CH3 = ['ch3-1-3', 'ch3-2-3', 'ch3-6-3'];
 
 const ch3 = loadCh3Registry();
@@ -60,17 +58,6 @@ for (const routeId of TICK_WITHOUT_BUTTON_CH3) {
   );
 }
 
-// ch3-7-2 is animated by Phase 05 — must NOT be static.
-{
-  const scene = ch3.get('ch3-7-2');
-  assert.ok(scene, '[ch3 scene catalog] ch3-7-2 must be registered');
-  assert.notStrictEqual(
-    scene.static,
-    true,
-    '[ch3 scene catalog] ch3-7-2 must stay animated (no static flag) — Phase 05 reclassification'
-  );
-}
-
 // ch3-2-2 is the positive-control: an animated route that must NOT carry static.
 {
   const scene = ch3.get('ch3-2-2');
@@ -82,35 +69,7 @@ for (const routeId of TICK_WITHOUT_BUTTON_CH3) {
   );
 }
 
-// ch3-7-1 must be removed from the appendTime allowlist (sub-mode C — F3).
-{
-  const scene = ch3.get('ch3-7-1');
-  const policy = scene.readoutPolicy || {};
-  const appendTime = policy.appendTime;
-  if (Array.isArray(appendTime)) {
-    assert.ok(
-      !appendTime.includes('ch3-7-1'),
-      '[ch3 scene catalog] appendTime must not include ch3-7-1 (Phase 03 sub-mode C)'
-    );
-  } else {
-    assert.notStrictEqual(
-      appendTime,
-      true,
-      '[ch3 scene catalog] ch3-7-1 readoutPolicy.appendTime must be falsy'
-    );
-  }
-}
-
 const ch2 = loadCh2Registry();
-{
-  const scene = ch2.get('ch2-7-2');
-  assert.ok(scene, '[ch2 scene catalog] ch2-7-2 must be registered');
-  assert.strictEqual(
-    scene.static,
-    true,
-    '[ch2 scene catalog] ch2-7-2 must carry scene.static === true (Phase 03 sub-mode A)'
-  );
-}
 
 // Phase 07 — ch2-5-2 / ch2-5-3 reclassified intentional-static after journal review.
 // ch2-5-2: Option A (static, no engine).
@@ -159,4 +118,4 @@ const ch2 = loadCh2Registry();
   );
 }
 
-console.log('phase-09-static-scene-flag.test.js: 14/14 PASS');
+console.log('phase-09-static-scene-flag.test.js: PASS');

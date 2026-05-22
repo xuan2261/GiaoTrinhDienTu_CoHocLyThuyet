@@ -1,5 +1,5 @@
 /**
- * P1 58-route objective manifest.
+ * P1 52-route objective manifest.
  * Checkpoints removed (simple-lab architecture).
  */
 (function() {
@@ -8,7 +8,7 @@
 const direct = ['direct-manipulation', 'drag-handle', 'touch-handle'];
 
 window.SIM_ROUTE_MANIFEST = {
-  // Ch1 Statics (25 P1)
+  // Ch1 Statics (23 P1)
   'ch1-1-3': { objective: 'Nhận diện điểm đặt, phương chiều và độ lớn của véc tơ lực.', interaction: direct },
   'ch1-1-4': { objective: 'Quan sát quan hệ giữa lực, cánh tay đòn và mô men quanh điểm mốc.', interaction: direct },
   'ch1-1-5': { objective: 'Thu gọn hệ lực phẳng thành hợp lực và mô men tương đương.', interaction: direct },
@@ -32,10 +32,8 @@ window.SIM_ROUTE_MANIFEST = {
   'ch1-5-4': { objective: 'Kiểm tra điều kiện tự hãm của cơ cấu nêm hoặc vít.', interaction: direct },
   'ch1-6-2': { objective: 'Tính trọng tâm hình ghép bằng trung bình trọng số diện tích.', interaction: direct },
   'ch1-6-3': { objective: 'Xác định trọng tâm khi có đối xứng, phần ghép hoặc phần khoét.', interaction: direct },
-  'ch1-7-1': { objective: 'Thực hành quy trình giải bài tập tĩnh học theo từng bước.', interaction: direct },
-  'ch1-7-2': { objective: 'Đối chiếu kết quả số trong bài tập tĩnh học.', interaction: direct },
 
-  // Ch2 Kinematics (15 P1)
+  // Ch2 Kinematics (13 P1)
   'ch2-1-1': { objective: 'Khảo sát quỹ đạo chất điểm cùng véc tơ vận tốc và gia tốc.', interaction: direct },
   'ch2-1-2': { objective: 'Đồng bộ chuyển động với đồ thị tọa độ, vận tốc và gia tốc.', interaction: direct },
   'ch2-1-3': { objective: 'Phân tích tọa độ tự nhiên với tiếp tuyến, pháp tuyến và bán kính cong.', interaction: direct },
@@ -49,10 +47,8 @@ window.SIM_ROUTE_MANIFEST = {
   'ch2-5-1': { objective: 'Khảo sát chuyển động song phẳng của vật rắn.', interaction: direct },
   'ch2-5-2': { objective: 'Xác định tâm vận tốc tức thời của vật rắn phẳng.', interaction: direct },
   'ch2-5-3': { objective: 'Phân bố vận tốc của điểm thuộc vật rắn chuyển động phẳng.', interaction: direct },
-  'ch2-7-1': { objective: 'Thực hành giải bài tập động học theo các bước gợi ý.', interaction: direct },
-  'ch2-7-2': { objective: 'Đối chiếu kết quả số trong bài tập động học.', interaction: direct },
 
-  // Ch3 Dynamics (18 P1)
+  // Ch3 Dynamics (16 P1)
   'ch3-1-2': { objective: 'Liên hệ lực tác dụng với chuyển động của chất điểm.', interaction: direct },
   'ch3-1-3': { objective: 'So sánh hệ quy chiếu quán tính và phi quán tính.', interaction: direct },
   'ch3-2-1': { objective: 'Minh họa định luật quán tính khi tổng lực bằng không.', interaction: direct },
@@ -69,8 +65,6 @@ window.SIM_ROUTE_MANIFEST = {
   'ch3-5-4': { objective: 'Kiểm chứng định lý động năng trong chuyển động có lực tác dụng.', interaction: direct },
   'ch3-6-2': { objective: 'Mô phỏng va chạm với hệ số phục hồi e.', interaction: direct },
   'ch3-6-3': { objective: 'Giải bài toán va chạm đàn hồi, mềm hoặc xiên.', interaction: direct },
-  'ch3-7-1': { objective: 'Chọn định lý động lực học phù hợp cho bài tập.', interaction: direct },
-  'ch3-7-2': { objective: 'Đối chiếu kết quả số trong bài tập động lực học.', interaction: direct },
 };
 
 })();

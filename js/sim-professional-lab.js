@@ -772,43 +772,6 @@ function setCh2MotionPresetPoint(state, point) {
   state.py = state.currentY;
 }
 
-function ch2SolverPoint(state) {
-  const step = c(Math.floor(state.step || 0), 0, 2);
-  const t = state.t || 0;
-  const x = 72 + step * 158 + (t / (Math.PI * 2)) * 60;
-  const phase = (x - (72 + step * 158)) / (12 + step * 3) + t * 0.5;
-  return { x, y: 198 - 20 * Math.sin(phase) - step * 5 };
-}
-
-function setCh2SolverPoint(state, point) {
-  const omega = state.omega || 1;
-  state.step = c(Math.round((point.x - 72) / 158), 0, 2);
-  const baseX = 72 + state.step * 158;
-  state.t = c((point.x - baseX) / 60, 0, 1) * Math.PI * 2;
-  state.xVal = 5 + 3 * Math.sin(state.t);
-  state.vVal = 3 * omega * Math.cos(state.t);
-  state.aVal = -3 * omega * omega * Math.sin(state.t);
-  state.primary = boundedPoint(point);
-}
-
-function setCh2VerifierPoint(state, point) {
-  const omega = state.omega || 1;
-  const amplitude = finiteNumber(state.amplitude, 3);
-  const x0 = finiteNumber(state.x0, 5);
-  state.t = c((point.y - 142) / 88, 0, 1) * Math.PI * 2;
-  const expectedX = x0 + amplitude * Math.sin(state.t);
-  const expectedV = amplitude * omega * Math.cos(state.t);
-  const expectedA = -amplitude * omega * omega * Math.sin(state.t);
-  state.xVal = expectedX;
-  state.vVal = expectedV;
-  state.aVal = expectedA;
-  state.errorX = 0;
-  state.errorV = 0;
-  state.errorA = 0;
-  state.status = 'Đúng';
-  state.primary = boundedPoint(point);
-}
-
 function setCh2GraphCursorPoint(state, point) {
   state.t = c((point.x - 56) / 290, 0, 1) * Math.PI * 2;
   state.cursorX = 56 + (state.t / (Math.PI * 2)) * 290;
@@ -962,11 +925,6 @@ function ch3BodyPoint(routeId, state) {
     return { x: 104, y: 190 - Math.min(120, energy) };
   }
   if (routeId === 'ch3-6-3') return { x: 148 + (state.v1 || 5) * 18, y: 190 };
-  if (routeId === 'ch3-7-1') return { x: 110 + c(Math.floor(state.problemType || 0), 0, 3) * 122, y: 158 };
-  if (routeId === 'ch3-7-2') {
-    const scale = Number.isFinite(Number(state.residualScale)) ? Number(state.residualScale) : 1;
-    return { x: 250 + c(scale, 0, 2) * 80, y: 108 };
-  }
   return { x: 280, y: 180 };
 }
 
@@ -1003,10 +961,6 @@ function setCh3BodyPoint(routeId, state, point) {
     state.kineticEnergy = 0.5 * (state.m || 5) * state.v0 * state.v0;
   } else if (routeId === 'ch3-6-3') {
     state.v1 = c((point.x - 148) / 18, -10, 10);
-  } else if (routeId === 'ch3-7-1') {
-    state.problemType = c(Math.round((point.x - 110) / 122), 0, 3);
-  } else if (routeId === 'ch3-7-2') {
-    state.residualScale = c((point.x - 250) / 80, 0, 2);
   }
   state.primary = boundedPoint(point);
 }
@@ -1117,13 +1071,6 @@ function ch2Handles(routeId, state) {
     state.barAngle = Math.atan2(state.ey - 238, state.ex - 118);
     syncCh2VelocityDistributionState(state);
   }, { visual: { stroke: color('velocity') } })];
-  if (routeId === 'ch2-7-1') return [handle('solver-time-point', 't', () => ch2SolverPoint(state), point => {
-    setCh2SolverPoint(state, point);
-  }, { visual: { stroke: color('gold') } })];
-  if (routeId === 'ch2-7-2') return [handle('verifier-time-row', 't', () => {
-    const index = c(Math.round(((state.t || 0) / (Math.PI * 2)) * 4), 0, 4);
-    return { x: 102, y: 142 + index * 22 };
-  }, point => setCh2VerifierPoint(state, point), { visual: { stroke: color('gold') } })];
   return [handle(`${routeId}-cursor`, 'điểm', () => state.primary || { x: 280, y: 180 }, point => setPrimary(state, point), { visual: { stroke: color('result') } })];
 }
 
@@ -1176,7 +1123,7 @@ function ch3Handles(routeId, state) {
     state.I = Math.max(0.1, Math.pow(state.r / 60, 2));
     state.L = state.I * (state.omega || 2);
   }, { visual: { stroke: color('mass') } })];
-  return [handle(`${routeId}-body`, routeId.startsWith('ch3-7-') ? 'mốc' : 'vật', () => ch3BodyPoint(routeId, state), point => {
+  return [handle(`${routeId}-body`, 'vật', () => ch3BodyPoint(routeId, state), point => {
     setCh3BodyPoint(routeId, state, point);
   }, { visual: { stroke: color('result') } })];
 }

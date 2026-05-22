@@ -1,8 +1,8 @@
 /**
- * Phase 09 → Phase 05 — animation parity for 5 candidate renderers.
+ * Phase 09 → Phase 05 — animation parity for active candidate renderers.
  *
  * Pins the engine-time → canvas evolution contract for ch3-1-2, ch3-5-1,
- * ch3-5-2, ch2-5-1, ch3-7-2. Each sub-test loads the production renderer in a
+ * ch3-5-2, and ch2-5-1. Each sub-test loads the production renderer in a
  * vm sandbox with stubbed primitives that record every draw call, then asserts
  * geometry differs between two engine-time samples.
  *
@@ -12,12 +12,6 @@
  *   5c ch3-5-2      pAfter (barGraph p_sau value) changes with _t
  *   5d ch2-5-1      B point rotates around A as state.phi changes (F5: read phi
  *                   directly; engine integrates it via onTick_ch251)
- *   5e ch3-7-2      residual bars track derived d.residual1..4 (engine-time
- *                   coupled via onTick_ch372 → derived_ch372)
- *
- * 5e is a positive-control / regression guard — the renderer already consumes
- * d.residual1..4 which are populated from `s._t`; the test pins that contract
- * so a future regression cannot silently freeze it.
  */
 'use strict';
 
@@ -207,34 +201,4 @@ let passed = 0;
   passed++;
 }
 
-// ─── 5e: ch3-7-2 numeric checker — residuals track engine time ─────────────
-{
-  const r = loadRenderers(path.join(ROOT, 'js', 'sims', 'ch3', 'ch3-collision-exercises-renderers.js'));
-  // Mirror derived_ch372 (ch3-dynamics-theorem-collision-behaviors.js:180-189)
-  function derivedAt(t) {
-    return {
-      residual1: (0.02 + 0.01 * Math.sin(t * 2)),
-      residual2: (0.03 + 0.01 * Math.cos(t * 1.5)),
-      residual3: (0.01 + 0.005 * Math.sin(t * 3)),
-      residual4: (0.04 + 0.015 * Math.cos(t * 2.5)),
-      score: 50,
-    };
-  }
-  const t0 = r.render('ch3-7-2', { _t: 0 }, derivedAt(0));
-  const t2 = r.render('ch3-7-2', { _t: 2 }, derivedAt(2));
-  const bars0 = t0.filter(c => c.fn === 'barGraph');
-  const bars2 = t2.filter(c => c.fn === 'barGraph');
-  assert.strictEqual(bars0.length, 4, '[ch3-7-2] expected 4 residual bars');
-  assert.strictEqual(bars2.length, 4, '[ch3-7-2] expected 4 residual bars at t=2');
-  let differs = false;
-  for (let i = 0; i < 4; i++) {
-    if (Math.abs(bars0[i].args[5] - bars2[i].args[5]) > 1e-6) { differs = true; break; }
-  }
-  assert.ok(
-    differs,
-    `[ch3-7-2] at least one residual bar value must differ between t=0 and t=2, got t0=${bars0.map(b => b.args[5].toFixed(4))}, t2=${bars2.map(b => b.args[5].toFixed(4))}`
-  );
-  passed++;
-}
-
-console.log(`phase-09-animation-parity.test.js: ${passed}/5 PASS`);
+console.log(`phase-09-animation-parity.test.js: ${passed}/4 PASS`);

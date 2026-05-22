@@ -26,9 +26,7 @@ window.SimKinematics = {
   simAccelerationComposition: route('ch2-4-4'),
   simPlaneMotion: route('ch2-5-1'),
   simInstantCenterFinder: route('ch2-5-2'),
-  simVelocityDistributionLab: route('ch2-5-3'),
-  simKinematicsGuidedChecker: route('ch2-7-1'),
-  simKinematicsNumericChecker: route('ch2-7-2')
+  simVelocityDistributionLab: route('ch2-5-3')
 };
 
 })();

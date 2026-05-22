@@ -11,12 +11,12 @@ Snapshot này dựa trên scout trực tiếp runtime, toolchain, docs hiện c�
 | Input chuẩn | `CoHocLyThuyet_Full_New.docx` |
 | Runtime/source files chính | `index.html`, `js/`, `chapters/`, `data/`, `tools/` |
 | QA harness | `package.json` dev-only scripts + current simulation QA gates: unit, quality, audit, disposal, semantic, visual-quality, browser, browser:evolution, release, scene-identity, renderer-contract, runtime smoke, correctness, correctness:browser, review aggregate, visual/evolution baseline update |
-| Simulation route contracts | `js/sim-scene-registry.js`, `js/sim-route-renderer-registry.js`, `js/sim-route-behavior-registry.js`, 58 canonical route renderers under `js/sims/ch*/`; 52 learner-facing routes currently mount in browser QA |
+| Simulation route contracts | `js/sim-scene-registry.js`, `js/sim-route-renderer-registry.js`, `js/sim-route-behavior-registry.js`, 52 canonical route renderers under `js/sims/ch*/` |
 | Simulation files | 65 active JS files scanned by `audit_simulation_quality.py`; Ch1 route files stay under 220 lines |
 | Shared-first simulation UX | `.sim-lab` shell with 760×440 canvas, chapter accents, 44px touch controls, semantic readout cards, wide right-inspector stack on desktop/tablet, stacked mobile fallback, DeCuong render helpers, and ARIA-backed hint/status/canvas wiring |
 | Static vs animated simulations | Concept routes use `scene.static` to suppress Play; `tickWithoutButton` permits readout ticks without Play. Canvas labels are exact static/animated strings; engine time is exposed through scoped `.sim-lab[data-engine-time]`, not `window.__currentLab`. Animated routes must evolve under the engine-time canvas sweep and the no-dependency tier-2 visual baseline; renderer type rules live in `docs/code-standards.md` → `Sim renderer types`. |
 | Promax pilot scope | 6 routes keep hidden invariant metadata for QA; extra diagnostics, formula readouts, mini graph summaries, and challenge controls are no longer shown to learners |
-| DeCuong rebuild progress | Phase 00 through Phase 12 complete for 58 canonical registry routes; browser QA now mounts 52 learner-facing routes because Section VII `BÀI TẬP` pages are content-only. Dormant checker invariants for `ch2-7-*` and `ch3-7-*` remain covered by Node tests. |
+| DeCuong rebuild progress | Phase 00 through Phase 12 simulation work is complete for the active 52-route registry. Section VII `BÀI TẬP` pages are content-only and are guarded by no-simulation browser tests. |
 | Generated/runtime assets lớn | `images/`, `equation-review.html`, `js/pages.js` |
 | Large generated artifacts | `equation-review.html`, `js/pages.js`, `tools/equation_report.json` |
 
@@ -70,7 +70,7 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `sim-lab-ui.js` | Shared `.sim-lab` shell and UI slots |
 | `sim-professional-lab.js` | Shared mount engine for route-specific scenes/renderers/behaviors |
 | `sim-statics.js`, `sim-kinematics.js`, `sim-dynamics.js` | Thin chapter adapters into `SimProfessionalLab.mount(routeId)` |
-| `simulations.js` | Registry-backed 58-route `window.SIM_MAP`; loader mounts 52 learner-facing routes and skips Section VII exercise pages |
+| `simulations.js` | Registry-backed 52-route `window.SIM_MAP`; loader skips Section VII exercise pages as content-only |
 
 ## Data model
 
@@ -96,9 +96,9 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `tools/smoke_simulation_manifest.py` | Gate Phase 01 cho manifest coverage / route matrix |
 | `tools/audit_simulation_quality.py` | Gate Phase 01 cho simulation quality baseline |
 | `tools/smoke_simulation_routes.py` | QA smoke cho route wiring và coverage matrix; in coverage counts và representative routes |
-| `tools/smoke_simulation_scene_catalog.py` | Gate scene catalog identity và route coverage 58 route |
+| `tools/smoke_simulation_scene_catalog.py` | Gate scene catalog identity và route coverage 52 route |
 | `tools/smoke_simulation_renderer_contract.py` | Strict gate cho rendererId/function/body uniqueness, behavior registrations, no family dispatch |
-| `tools/smoke_simulation_runtime.py` | QA smoke cho split runtime, script order, module globals, registry, lifecycle tokens, `--expect-runtime-routes 58`, `--check-mount-rollback` |
+| `tools/smoke_simulation_runtime.py` | QA smoke cho runtime, script order, module globals, registry, lifecycle tokens, `--expect-runtime-routes 52`, `--check-mount-rollback` |
 | `tests/phase-08-tdd.test.js` | Phase 08 TDD coverage cho relative-motion và plane/instant-center routes |
 | `tools/validate_equation_mapping.py` | Validate mapping JSON, trạng thái `reviewed`, và optional KaTeX parse |
 | `tools/ocr_equation_mapping.py` | Prefill mapping bằng local OCR/Vision LLM và reject OCR LaTeX không render được |
@@ -110,9 +110,9 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `tools/test_simulation_qa_tools.py` | Regression test cho simulation QA tools và browser baseline wiring |
 | `tests/sim-canvas-evolution.spec.js` | 52-route learner-facing engine-time canvas hash sweep; static buckets stay bounded, animated buckets must show `[3,4]` unique frames |
 | `tools/check-canvas-evolution-baseline.js` | Baseline drift gate for `qa-verification/animation-sweep/per-route-animation-sweep-baseline.json`; rejects animated wall-time fallback |
-| `tests/phase-09-12-tdd.test.js` | TDD coverage cho CH2 exercise checker và CH3 dynamics/exercise invariants |
-| `npm run test:sim:scene-identity` | Browser scene identity gate: `tools/smoke_simulation_scene_catalog.py --strict --require-routes 58` + Playwright `@scene-identity` on 52 mountable routes |
-| `npm run test:sim:renderer-contract` | Static + browser gate cho 58 dedicated renderers, 58 behavior ids, và runtime structural identity on 52 mountable routes |
+| `tests/phase-09-12-tdd.test.js` | TDD coverage cho active CH3 dynamics/collision invariants |
+| `npm run test:sim:scene-identity` | Browser scene identity gate: `tools/smoke_simulation_scene_catalog.py --strict --require-routes 52` + Playwright `@scene-identity` |
+| `npm run test:sim:renderer-contract` | Static + browser gate cho 52 dedicated renderers, 52 behavior ids, và runtime structural identity |
 
 ## Khu vực generated / nặng
 
@@ -136,9 +136,9 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 
 Không nên đọc toàn bộ repo cho mọi tác vụ. Với task nhỏ, chỉ cần đọc `index.html`, `js/app.js`, `js/loader.js`, và script liên quan là đủ.
 Khi `audit.py --strict-equations` còn warning figure `<img>` tags, đó là figure thật chứ không phải equation fallback.
-- `tools/smoke_simulation_routes.py --require-p1` hiện cover 58/58 canonical P1 routes; matrix thiếu hoặc rỗng vẫn fail trừ khi explicit opt-in.
+- `tools/smoke_simulation_routes.py --require-p1` hiện cover 52/52 canonical P1 routes; matrix thiếu hoặc rỗng vẫn fail trừ khi explicit opt-in.
 - Simulation lifecycle đã có shared dispose path: `loader.js` dispose active simulation trước khi replace `#content-area`; `sim-core.js` cleanup RAF và resize listener.
 - Professional simulation architecture hiện dùng `js/sim-professional-lab.js`, scene metadata registry, strict renderer/behavior registries, thin adapters, route modules, và registry-backed route map.
-- Runtime smoke gate chuẩn là `python tools\smoke_simulation_runtime.py --expect-runtime-routes 58 --check-mount-rollback --check-listener-cleanup`; semantic gate là `npm run test:sim:semantic`.
-- DeCuong Phase 00-12 foundation/CH1/CH2/CH3 routes yêu cầu canvas 760×440, transparent clear, PI/7 arrows, theme-aware grid, KaTeX equation panel fallback, route-owned handles, no motion trails, synchronized readouts/sliders, manifest-aligned 58 route contracts, 52 learner-facing mountable routes, CH1 release-ready QA evidence, CH2 exercise checker invariants, CH3 spring/collision/checker invariants, và final release gate pass.
+- Runtime smoke gate chuẩn là `python tools\smoke_simulation_runtime.py --expect-runtime-routes 52 --check-mount-rollback --check-listener-cleanup`; semantic gate là `npm run test:sim:semantic`.
+- DeCuong Phase 00-12 foundation/CH1/CH2/CH3 routes yêu cầu canvas 760×440, transparent clear, PI/7 arrows, theme-aware grid, KaTeX equation panel fallback, route-owned handles, no motion trails, synchronized readouts/sliders, manifest-aligned 52 route contracts, CH1 release-ready QA evidence, CH3 spring/collision invariants, và final release gate pass.
 - Browser QA suite hiện có pass; Section VII no-simulation guard, scene identity, route discovery guard, route shell, direct drag, animation tick, readout cards, responsive, `file://`, và server smoke phải giữ sạch.

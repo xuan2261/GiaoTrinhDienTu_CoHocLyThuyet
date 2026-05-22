@@ -35,9 +35,7 @@ registry.registerMany({
   'ch1-5-3': statics.simFrictionConeInclineLab,
   'ch1-5-4': statics.simSelfLockingLab,
   'ch1-6-2': statics.simCenterGravity,
-  'ch1-6-3': statics.simCentroidHoleLab,
-  'ch1-7-1': statics.simStaticsGuidedSolver,
-  'ch1-7-2': statics.simStaticsNumericChecker
+  'ch1-6-3': statics.simCentroidHoleLab
 });
 
 })();

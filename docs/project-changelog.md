@@ -1,21 +1,29 @@
 # Project Changelog
 
-## 2026-05-22 — Exercise Section Simulation Removal
+## 2026-05-22 — Section VII Checker Registry Deletion
 
 ### Fixed
 - Section VII `BÀI TẬP` routes for chapters 1, 2, and 3 are now content-only and no longer auto-mount simulation labs from `SIM_MAP`.
 - Removed stale Ch3 exercise placeholders `sim-ch3-7-4`, `sim-ch3-7-5`, and `sim-ch3-7-6` from fragments and regenerated `js/pages.js`.
-- Browser simulation QA now distinguishes 58 canonical registry routes from 52 learner-facing mountable routes, excluding the six dormant section VII checker labs from page-mount, visual, interaction, and canvas-evolution sweeps.
+- Deleted six dormant Section VII checker ids from the simulation manifest, adapters, route maps, scene/renderer/behavior registries, and shared direct-handle branches: `ch1-7-1`, `ch1-7-2`, `ch2-7-1`, `ch2-7-2`, `ch3-7-1`, `ch3-7-2`.
+- Browser simulation QA now uses a single 52-route canonical model; Section VII `BÀI TẬP` pages stay content-only.
 
 ### Added
 - `tests/exercise-section-no-simulation.spec.js` locks all `ch*-7*` exercise-section routes against `.sim-lab`, `.sim-mount`, `data-sim-mount-route`, and `#sim-*` regressions while confirming a non-exercise route still mounts.
+- `tests/vii-checker-routes-deleted.test.js` locks deleted checker ids out of `SIM_ROUTE_MANIFEST`, `SIM_MAP`, scene registry, renderer registry, and behavior registry.
 
 ### Verified
+- `python tools\smoke_simulation_manifest.py --require-routes 52 --require-objectives --require-direct`: PASS.
+- `python tools\smoke_simulation_scene_catalog.py --strict --require-routes 52`: PASS.
+- `python tools\smoke_simulation_renderer_contract.py --strict --require-routes 52`: PASS.
+- `python tools\smoke_simulation_runtime.py --expect-runtime-routes 52`: PASS.
 - `npx playwright test tests/exercise-section-no-simulation.spec.js --reporter=line --workers=1 --timeout=30000`: PASS, 16/16.
 - `npx playwright test tests/simulation-browser.spec.js -g "route-mount" --reporter=line --workers=1 --timeout=30000`: PASS, 53/53.
 - `npm run test:sim:unit`: PASS.
 - `npm run test:sim:visual-quality`: PASS, 4/4.
-- `npm run test:sim:browser`: PASS, 183/183; canvas evolution baseline OK, 52 routes.
+- `npm run test:sim:browser`: PASS, 199/199; canvas evolution baseline OK, 52 routes.
+- `python tools\test_simulation_architecture.py`: PASS, 7/7.
+- `python tools\test_simulation_qa_tools.py`: PASS, 14/14.
 - `python -m compileall -q tools`: PASS.
 - `python tools\audit.py`: PASS, 102/102 files OK.
 

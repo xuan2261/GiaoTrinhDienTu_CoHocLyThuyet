@@ -102,25 +102,6 @@ function onTick_ch363(scene, state, dt) {
   state._t = (state._t || 0) + dt;
 }
 
-function onTick_ch371(scene, state, dt) {
-  const theorems = ['Định lý khối tâm', 'Định lý động lượng', 'Định lý mô men động lượng', 'Định lý động năng'];
-  const pt = Math.floor(state.problemType || 0) % 4;
-  state.selectedTheorem = theorems[pt]; state.problemType = pt;
-  state._t = (state._t || 0) + dt;
-}
-
-function onTick_ch372(scene, state, dt) {
-  const t = (state._t || 0);
-  const scale = Number.isFinite(Number(state.residualScale)) ? Number(state.residualScale) : 1;
-  state.residual1 = (0.02 + 0.01 * Math.sin(t * 2)) * scale;
-  state.residual2 = (0.03 + 0.01 * Math.cos(t * 1.5)) * scale;
-  state.residual3 = (0.01 + 0.005 * Math.sin(t * 3)) * scale;
-  state.residual4 = (0.04 + 0.015 * Math.cos(t * 2.5)) * scale;
-  state.score = Math.max(0, Math.min(100, 100 -
-    (state.residual1 + state.residual2 + state.residual3 + state.residual4) * 400));
-  state._t = t + dt;
-}
-
 function derived_ch351(s, s2) {
   const masses = s.masses || [{ x: 130, y: 188, m: 2 }, { x: 238, y: 130, m: 1.5 }, { x: 332, y: 204, m: 1 }];
   let totalM = 0, xCM = 0, yCM = 0;
@@ -164,23 +145,6 @@ function derived_ch363(s, s2) {
     { v1, v2 };
   return { collision: result, pBefore: m1 * v1 + m2 * v2, pAfter: m1 * result.v1 + m2 * result.v2 };
 }
-function derived_ch371(s, s2) {
-  const theorems = ['Định lý khối tâm', 'Định lý động lượng', 'Định lý mô men động lượng', 'Định lý động năng'];
-  const index = Math.max(0, Math.min(3, Math.floor(s.problemType || 0)));
-  return { selectedTheorem: theorems[index], force: s.F || 50 };
-}
-function derived_ch372(s, s2) {
-  const scale = Number.isFinite(Number(s.residualScale)) ? Number(s.residualScale) : 1;
-  const t = s._t || 0;
-  const r1 = (0.02 + 0.01 * Math.sin(t * 2)) * scale;
-  const r2 = (0.03 + 0.01 * Math.cos(t * 1.5)) * scale;
-  const r3 = (0.01 + 0.005 * Math.sin(t * 3)) * scale;
-  const r4 = (0.04 + 0.015 * Math.cos(t * 2.5)) * scale;
-  const score = Math.max(0, Math.min(100, 100 - (r1 + r2 + r3 + r4) * 400));
-  return { residual1: r1, residual2: r2, residual3: r3, residual4: r4,
-    score, force: s.F || 50 };
-}
-
 function makeBehavior(routeId, onTickFn, derivedFn) {
   return {
     behaviorId: `ch3-behavior-${routeId}`,
@@ -212,9 +176,7 @@ registry.registerMany({
   'ch3-5-3': makeBehavior('ch3-5-3', onTick_ch353, derived_ch353),
   'ch3-5-4': makeBehavior('ch3-5-4', onTick_ch354, derived_ch354),
   'ch3-6-2': makeBehavior('ch3-6-2', onTick_ch362, derived_ch362),
-  'ch3-6-3': makeBehavior('ch3-6-3', onTick_ch363, derived_ch363),
-  'ch3-7-1': makeBehavior('ch3-7-1', onTick_ch371, derived_ch371),
-  'ch3-7-2': makeBehavior('ch3-7-2', onTick_ch372, derived_ch372)
+  'ch3-6-3': makeBehavior('ch3-6-3', onTick_ch363, derived_ch363)
 });
 
 })();

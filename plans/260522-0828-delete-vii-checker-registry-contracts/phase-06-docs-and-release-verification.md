@@ -1,6 +1,6 @@
 ---
 title: "Phase 06 - Docs và release verification"
-status: planned
+status: completed
 priority: P1
 dependsOn: [phase-05-update-browser-unit-tests.md]
 ---
@@ -66,12 +66,12 @@ Read:
 
 ## Todo List
 
-- [ ] README current route model updated.
-- [ ] System architecture updated.
-- [ ] Code standards updated.
-- [ ] Codebase summary updated.
-- [ ] Roadmap and changelog updated.
-- [ ] Full release gate run and results recorded.
+- [x] README current route model updated.
+- [x] System architecture updated.
+- [x] Code standards updated.
+- [x] Codebase summary updated.
+- [x] Roadmap and changelog updated.
+- [x] Release verification commands run for affected gates.
 
 ## Verification / Tests
 

@@ -1,5 +1,5 @@
 /**
- * Capture screenshots of all 58 simulations into a single folder.
+ * Capture screenshots of all 52 simulations into a single folder.
  * Usage: node tools/capture-all-58-simulations-screenshots.js [outDir] [--routes a,b,c]
  *   outDir defaults to screenshots/sim-review-<timestamp>
  *
@@ -11,29 +11,26 @@ const path = require('path');
 const fs = require('fs');
 
 const ROUTES = [
-  // Ch1 Statics (25)
+  // Ch1 Statics (23)
   'ch1-1-3','ch1-1-4','ch1-1-5','ch1-1-6','ch1-1-8',
   'ch1-2-1','ch1-2-3','ch1-2-6',
   'ch1-3-1','ch1-3-2','ch1-3-3','ch1-3-4','ch1-3-6','ch1-3-7',
   'ch1-4-1','ch1-4-2','ch1-4-4',
   'ch1-5-1','ch1-5-2','ch1-5-3','ch1-5-4',
   'ch1-6-2','ch1-6-3',
-  'ch1-7-1','ch1-7-2',
-  // Ch2 Kinematics (15)
+  // Ch2 Kinematics (13)
   'ch2-1-1','ch2-1-2','ch2-1-3','ch2-1-4',
   'ch2-2-2',
   'ch2-3-2',
   'ch2-4-1','ch2-4-2','ch2-4-3','ch2-4-4',
   'ch2-5-1','ch2-5-2','ch2-5-3',
-  'ch2-7-1','ch2-7-2',
-  // Ch3 Dynamics (18)
+  // Ch3 Dynamics (16)
   'ch3-1-2','ch3-1-3',
   'ch3-2-1','ch3-2-2','ch3-2-3','ch3-2-5',
   'ch3-3-1','ch3-3-2',
   'ch3-4-1','ch3-4-2',
   'ch3-5-1','ch3-5-2','ch3-5-3','ch3-5-4',
   'ch3-6-2','ch3-6-3',
-  'ch3-7-1','ch3-7-2',
 ];
 
 const BASE_URL = process.env.SIM_BASE_URL || 'http://127.0.0.1:8000/';

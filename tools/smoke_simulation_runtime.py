@@ -229,8 +229,8 @@ def check_registry(errors: list[str]) -> None:
         errors.append(f"Cannot parse registered simulation routes: {exc}")
         return
     print(f"SIM_MAP routes: {route_count}")
-    if route_count != 58:
-        errors.append(f"Expected 58 registered simulation routes, found {route_count}")
+    if route_count != 52:
+        errors.append(f"Expected 52 registered simulation routes, found {route_count}")
 
 
 def check_route_filters(errors: list[str], values: list[str]) -> None:

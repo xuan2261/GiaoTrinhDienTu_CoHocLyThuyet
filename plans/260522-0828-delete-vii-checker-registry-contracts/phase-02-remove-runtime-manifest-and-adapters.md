@@ -1,6 +1,6 @@
 ---
 title: "Phase 02 - Xóa manifest, adapters, route maps"
-status: planned
+status: completed
 priority: P1
 dependsOn: [phase-01-baseline-and-red-tests.md]
 ---
@@ -60,11 +60,11 @@ Read:
 
 ## Todo List
 
-- [ ] Remove six manifest entries.
-- [ ] Remove thin adapter aliases.
-- [ ] Remove six chapter route-map entries.
-- [ ] Confirm `window.SIM_MAP` is 52 routes.
-- [ ] Confirm Section VII pages still load content-only.
+- [x] Remove six manifest entries.
+- [x] Remove thin adapter aliases.
+- [x] Remove six chapter route-map entries.
+- [x] Confirm `window.SIM_MAP` is 52 routes.
+- [x] Confirm Section VII pages still load content-only.
 
 ## Verification / Tests
 

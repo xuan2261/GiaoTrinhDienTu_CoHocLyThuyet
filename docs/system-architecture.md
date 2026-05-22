@@ -16,7 +16,7 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 | Behavior | `js/sim-route-behavior-registry.js`, `js/sims/ch*/*-behaviors.js` | Derived model ids, route-owned handles, interaction semantics |
 | Lab orchestration | `js/sim-professional-lab.js` | Resolve scene/renderer/behavior, bind controls/handles, render readouts; `resolveHandles` fails loudly when a route returns no handles (legacy fallback removed); per-route ARIA overlay layer (`.sim-handle-a11y-layer`), keyboard nudge (Arrow + Shift), Escape blur, polite `sim-aria-live` region; `lab.prefersReducedMotion` flag honored across animation engine |
 | Thin adapters | `js/sim-statics.js`, `js/sim-kinematics.js`, `js/sim-dynamics.js` | Chapter route adapters into `SimProfessionalLab.mount(routeId)` |
-| Registry map | `js/sims/ch*/*-routes.js`, `js/simulations.js` | Build `window.SIM_MAP` for 58 canonical P1 routes |
+| Registry map | `js/sims/ch*/*-routes.js`, `js/simulations.js` | Build `window.SIM_MAP` for 52 canonical P1 routes |
 
 ## Load Flow
 
@@ -30,8 +30,8 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 
 ## Runtime Contract
 
-- Canonical route count: 58 P1 routes.
-- Ch1 active route count: 25.
+- Canonical route count: 52 P1 routes.
+- Ch1 active route count: 23.
 - Canvas logical size: 760×440; responsive CSS scales visually without changing simulation coordinates.
 - Canvas clear path is transparent `ctx.clearRect(0, 0, w, h)`, with `.sim-canvas-wrap` owning theme background.
 - Motion trails are disabled in active routes: no `drawTrail` API exposure and no route-owned trail state.
@@ -46,8 +46,8 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 - Controls that matter pedagogically should be declared as explicit scene readouts; the shared engine must not rely on blanket control echo to satisfy learner-facing readout contracts.
 - Drag handlers must update canonical state, sliders, inline control values, and readout cards from the same clamped model state.
 - DeCuong CH1 route rebuilds must keep direct geometry and readouts coupled: `ch1-2-3` uses F1/F2 endpoint state for canvas, `|F₁|`, `|F₂|`, `|R|`, and `α`; support routes use alpha/handle state to redraw normal/tension geometry.
-- DeCuong CH2/CH3 exercise routes must keep checker math canonical: `ch2-7-*` uses one sinusoid derivative chain for `x/v/a`; `ch3-7-2` exposes residual scale and score from the same derived state used by readouts.
-- DeCuong final review fixes keep CH2 control semantics canonical: `ch2-1-3` uses `rho` as the radius slider, `ch2-5-3` uses `L` for endpoint geometry and `vBMag`, `ch2-7-2` preserves valid `x0=0` during direct drag, and CH2 checker labels are localized.
+- Section VII exercise pages are content-only and are not simulation route contracts.
+- DeCuong final review fixes keep CH2 control semantics canonical: `ch2-1-3` uses `rho` as the radius slider, and `ch2-5-3` uses `L` for endpoint geometry and `vBMag`.
 - CH3 dynamics routes keep animated state deterministic: spring/ODE routes seed non-zero displacement for visible energy, coupled-spring routes maintain both trajectory arrays, and collision solver readouts preserve signed momentum.
 - `SimProfessionalLab.mount(routeId)` must return an idempotent disposer and clean route-scoped listeners/RAF on route change or mount rollback.
 - No runtime bundler is required; `package.json` is dev-only QA.
@@ -62,10 +62,10 @@ Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng
 
 ```powershell
 python tools\smoke_simulation_routes.py --require-p1
-python tools\smoke_simulation_manifest.py --require-routes 58 --require-objectives --require-direct
-python tools\smoke_simulation_scene_catalog.py --strict --require-routes 58
-python tools\smoke_simulation_renderer_contract.py --strict --require-routes 58
-python tools\smoke_simulation_runtime.py --expect-runtime-routes 58 --check-mount-rollback --check-listener-cleanup --check-raf-cleanup
+python tools\smoke_simulation_manifest.py --require-routes 52 --require-objectives --require-direct
+python tools\smoke_simulation_scene_catalog.py --strict --require-routes 52
+python tools\smoke_simulation_renderer_contract.py --strict --require-routes 52
+python tools\smoke_simulation_runtime.py --expect-runtime-routes 52 --check-mount-rollback --check-listener-cleanup --check-raf-cleanup
 npm run test:sim:unit
 npm run test:sim:browser
 npm run test:sim:visual-quality

@@ -111,12 +111,12 @@ window.SIM_ROUTE_MANIFEST = {
         result = run_tool(
             "tools/smoke_simulation_manifest.py",
             "--require-routes",
-            "58",
+            "52",
             "--require-objectives",
             "--require-direct",
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Manifest routes: 58", result.stdout)
+        self.assertIn("Manifest routes: 52", result.stdout)
 
     def test_manifest_current_routes_filter_counts_selected_routes(self):
         result = run_tool(
@@ -124,12 +124,12 @@ window.SIM_ROUTE_MANIFEST = {
             "--routes",
             "ch1",
             "--require-routes",
-            "25",
+            "23",
             "--require-objectives",
             "--require-direct",
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Selected routes: 25", result.stdout)
+        self.assertIn("Selected routes: 23", result.stdout)
 
     def test_scene_catalog_current_routes_filter_counts_selected_routes(self):
         result = run_tool(
@@ -138,20 +138,20 @@ window.SIM_ROUTE_MANIFEST = {
             "--routes",
             "ch1",
             "--require-routes",
-            "25",
+            "23",
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Selected routes: 25", result.stdout)
+        self.assertIn("Selected routes: 23", result.stdout)
 
     def test_renderer_contract_current_routes_are_strict(self):
         result = run_tool(
             "tools/smoke_simulation_renderer_contract.py",
             "--strict",
             "--require-routes",
-            "58",
+            "52",
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Unique behaviorId values: 58", result.stdout)
+        self.assertIn("Unique behaviorId values: 52", result.stdout)
         self.assertIn("Family dispatch: no", result.stdout)
         self.assertIn("simulation-renderer-contract: PASS", result.stdout)
 
@@ -166,9 +166,9 @@ window.SIM_ROUTE_MANIFEST = {
             paths.index("js/sims/ch2/ch2-instant-center-plane-motion-renderers.js"),
             paths.index("js/sims/ch2/ch2-trajectory-graph-renderers.js"),
         )
-        self.assertLess(
-            paths.index("js/sims/ch2/ch2-trajectory-graph-renderers.js"),
-            paths.index("js/sims/ch2/ch2-kinematics-exercises-renderers.js"),
+        self.assertNotIn(
+            "js/sims/ch2/ch2-kinematics-exercises-renderers.js",
+            paths,
         )
 
     def test_renderer_contract_detects_direct_family_dispatch_patterns(self):
@@ -271,7 +271,7 @@ window.SIM_ROUTE_MANIFEST = {
     def test_quality_audit_records_current_baseline(self):
         result = run_tool("tools/audit_simulation_quality.py", "--baseline")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertRegex(result.stdout, r"SIM_MAP routes:\s+58")
+        self.assertRegex(result.stdout, r"SIM_MAP routes:\s+52")
         self.assertRegex(result.stdout, r"Sliders:\s+\d+")
         self.assertRegex(result.stdout, r"Canvas drag hooks:\s+\d+")
 
@@ -289,7 +289,7 @@ window.SIM_ROUTE_MANIFEST = {
             "220",
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Selected routes: 25", result.stdout)
+        self.assertIn("Selected routes: 23", result.stdout)
 
     def test_quality_audit_fails_cleanly_for_malformed_manifest(self):
         result = run_tool(

@@ -36,9 +36,7 @@ const SimStatics = {
   simFrictionConeInclineLab: route('ch1-5-3'),
   simSelfLockingLab: route('ch1-5-4'),
   simCenterGravity: route('ch1-6-2'),
-  simCentroidHoleLab: route('ch1-6-3'),
-  simStaticsGuidedSolver: route('ch1-7-1'),
-  simStaticsNumericChecker: route('ch1-7-2')
+  simCentroidHoleLab: route('ch1-6-3')
 };
 
 window.SimStatics = SimStatics;

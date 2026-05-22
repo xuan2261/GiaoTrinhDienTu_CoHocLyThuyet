@@ -1,6 +1,6 @@
 ---
 title: "Phase 04 - Cập nhật tools, counts, baselines"
-status: planned
+status: completed
 priority: P1
 dependsOn: [phase-03-prune-scene-renderer-behavior-contracts.md]
 ---
@@ -67,11 +67,11 @@ Inspect:
 
 ## Todo List
 
-- [ ] Route count constants changed to 52.
-- [ ] Package QA scripts changed to 52.
-- [ ] Python smoke tests changed to 52.
-- [ ] Active canvas/visual baselines aligned to 52.
-- [ ] Transitional 58/52 wording removed from executable tests.
+- [x] Route count constants changed to 52.
+- [x] Package QA scripts changed to 52.
+- [x] Python smoke tests changed to 52.
+- [x] Active canvas/visual baselines aligned to 52.
+- [x] Transitional 58/52 wording removed from executable tests.
 
 ## Verification / Tests
 

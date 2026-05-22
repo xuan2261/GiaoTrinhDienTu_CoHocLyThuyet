@@ -1,5 +1,5 @@
 /**
- * Canonical 58-route renderer contracts.
+ * Canonical 52-route renderer contracts.
  */
 (function() {
 'use strict';
@@ -58,8 +58,6 @@ function renderCh171(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 171
 function renderCh211(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 211); }
 function renderCh212(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 212); }
 function renderCh221(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 221); }
-function renderCh222(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 222); }
-function renderCh231(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 231); }
 function renderCh232(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 232); }
 function renderCh241(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 241); }
 function renderCh242(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 242); }
@@ -73,8 +71,6 @@ function renderCh271(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 271
 function renderCh272(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 272); }
 function renderCh311(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 311); }
 function renderCh312(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 312); }
-function renderCh313(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 313); }
-function renderCh321(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 321); }
 function renderCh322(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 322); }
 function renderCh331(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 331); }
 function renderCh332(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 332); }
@@ -91,9 +87,6 @@ function renderCh371(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 371
 function renderCh372(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 372); }
 function renderCh373(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 373); }
 function renderCh374(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 374); }
-function renderCh375(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 375); }
-function renderCh376(ctx, scene, state, d) { drawRoute(ctx, scene, state, d, 376); }
-
 registry.registerMany([
   ['ch1-1-3','ch1-1-3-contract-renderer',renderCh111],
   ['ch1-1-4','ch1-1-4-contract-renderer',renderCh112],
@@ -118,8 +111,6 @@ registry.registerMany([
   ['ch1-5-4','ch1-5-4-contract-renderer',renderCh211],
   ['ch1-6-2','ch1-6-2-contract-renderer',renderCh212],
   ['ch1-6-3','ch1-6-3-contract-renderer',renderCh221],
-  ['ch1-7-1','ch1-7-1-contract-renderer',renderCh222],
-  ['ch1-7-2','ch1-7-2-contract-renderer',renderCh231],
   ['ch2-1-1','ch2-1-1-contract-renderer',renderCh232],
   ['ch2-1-2','ch2-1-2-contract-renderer',renderCh241],
   ['ch2-1-3','ch2-1-3-contract-renderer',renderCh242],
@@ -133,8 +124,6 @@ registry.registerMany([
   ['ch2-5-1','ch2-5-1-contract-renderer',renderCh272],
   ['ch2-5-2','ch2-5-2-contract-renderer',renderCh311],
   ['ch2-5-3','ch2-5-3-contract-renderer',renderCh312],
-  ['ch2-7-1','ch2-7-1-contract-renderer',renderCh313],
-  ['ch2-7-2','ch2-7-2-contract-renderer',renderCh321],
   ['ch3-1-2','ch3-1-2-contract-renderer',renderCh322],
   ['ch3-1-3','ch3-1-3-contract-renderer',renderCh331],
   ['ch3-2-1','ch3-2-1-contract-renderer',renderCh332],
@@ -151,8 +140,6 @@ registry.registerMany([
   ['ch3-5-4','ch3-5-4-contract-renderer',renderCh372],
   ['ch3-6-2','ch3-6-2-contract-renderer',renderCh373],
   ['ch3-6-3','ch3-6-3-contract-renderer',renderCh374],
-  ['ch3-7-1','ch3-7-1-contract-renderer',renderCh375],
-  ['ch3-7-2','ch3-7-2-contract-renderer',renderCh376],
 ].map(function(row) {
   return { routeId: row[0], rendererId: row[1], render: row[2], metadata: { source: 'canonical-contract' } };
 }));

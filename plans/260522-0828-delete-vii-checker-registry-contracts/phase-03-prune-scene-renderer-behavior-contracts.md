@@ -1,6 +1,6 @@
 ---
 title: "Phase 03 - Prune scene, renderer, behavior contracts"
-status: planned
+status: completed
 priority: P1
 dependsOn: [phase-02-remove-runtime-manifest-and-adapters.md]
 ---
@@ -67,12 +67,12 @@ Modify as needed:
 
 ## Todo List
 
-- [ ] Prune CH1 contracts.
-- [ ] Prune CH2 contracts.
-- [ ] Prune CH3 contracts.
-- [ ] Prune shared lab route-specific branches.
-- [ ] Remove script tags for deleted now-empty modules.
-- [ ] Verify no active runtime JS registry contains deleted route ids.
+- [x] Prune CH1 contracts.
+- [x] Prune CH2 contracts.
+- [x] Prune CH3 contracts.
+- [x] Prune shared lab route-specific branches.
+- [x] Remove script tags for deleted now-empty modules.
+- [x] Verify no active runtime JS registry contains deleted route ids.
 
 ## Verification / Tests
 

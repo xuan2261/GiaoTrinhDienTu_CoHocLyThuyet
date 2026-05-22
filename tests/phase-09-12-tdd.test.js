@@ -18,11 +18,6 @@ function contextWithRegistries(files) {
   return context;
 }
 
-function getCh2Behavior(route) {
-  const context = contextWithRegistries(['js/sims/ch2/ch2-kinematics-behaviors-b.js']);
-  return context.window.SimRouteBehaviors.get(route);
-}
-
 function getCh3Scene(route) {
   const context = { console, window: {} };
   context.window.window = context.window;
@@ -39,59 +34,6 @@ function getCh3Behavior(route) {
     'js/sims/ch3/ch3-dynamics-theorem-collision-behaviors.js'
   ]);
   return context.window.SimRouteBehaviors.get(route);
-}
-
-{
-  const behavior = getCh2Behavior('ch2-7-1');
-  const state = { omega: 4, t: Math.PI * 2 - 0.01 };
-  behavior.onTick({ routeId: 'ch2-7-1' }, state, 2, 2);
-  assert.ok(state.step >= 0 && state.step <= 2, 'ch2-7-1 step must stay within three solver panels');
-  assert.ok(Math.abs(state.vVal - 3 * state.omega * Math.cos(state.t)) < 1e-9,
-    'ch2-7-1 velocity must be derivative of x(t)');
-  assert.ok(Math.abs(state.aVal + 3 * state.omega * state.omega * Math.sin(state.t)) < 1e-9,
-    'ch2-7-1 acceleration must be derivative of v(t)');
-}
-
-{
-  const behavior = getCh2Behavior('ch2-7-2');
-  const state = { omega: 2, t: 1.2, x0: 5, amplitude: 3 };
-  behavior.onTick({ routeId: 'ch2-7-2' }, state, 0, 0);
-  assert.ok(state.errorX < 1e-9, 'ch2-7-2 default x(t) must verify against the canonical sinusoid');
-  assert.ok(state.errorV < 1e-9, 'ch2-7-2 default v(t) must verify against the canonical sinusoid derivative');
-  assert.strictEqual(state.status, 'Đúng', 'ch2-7-2 exact canonical data must be accepted');
-}
-
-{
-  const behavior = getCh2Behavior('ch2-7-2');
-  const state = { omega: 1.5, t: 0.9, x0: 7, amplitude: 4 };
-  behavior.onTick({ routeId: 'ch2-7-2' }, state, 0, 0);
-  assert.ok(Math.abs(state.xVal - (7 + 4 * Math.sin(state.t))) < 1e-9,
-    'ch2-7-2 must honor non-default x0/amplitude for x(t)');
-  assert.ok(Math.abs(state.vVal - (4 * 1.5 * Math.cos(state.t))) < 1e-9,
-    'ch2-7-2 must honor non-default amplitude/omega for v(t)');
-  assert.strictEqual(state.status, 'Đúng', 'ch2-7-2 exact non-default data must be accepted');
-}
-
-{
-  const behavior = getCh2Behavior('ch2-7-2');
-  const state = { omega: 1.5, t: 0.9, x0: 0, amplitude: 4 };
-  behavior.onTick({ routeId: 'ch2-7-2' }, state, 0, 0);
-  assert.ok(Math.abs(state.xVal - (4 * Math.sin(state.t))) < 1e-9,
-    'ch2-7-2 must preserve valid x0=0 instead of falling back to 5');
-  assert.strictEqual(state.status, 'Đúng', 'ch2-7-2 exact zero-offset data must be accepted');
-}
-
-{
-  const source = fs.readFileSync(path.join(ROOT, 'js/sim-professional-lab.js'), 'utf8');
-  assert.ok(!source.includes('(state.x0 || 5)'), 'ch2-7-2 direct-drag path must preserve valid x0=0');
-}
-
-{
-  const source = fs.readFileSync(path.join(ROOT, 'js/sims/ch2/ch2-kinematics-exercises-renderers.js'), 'utf8');
-  assert.ok(!source.includes('state.xVal || 5'), 'ch2 exercise renderer must preserve visible x=0');
-  assert.ok(!source.includes('buoc '), 'ch2 exercise renderer must localize visible step labels');
-  assert.ok(!source.includes('Doc x(t) tai t'), 'ch2 exercise renderer must localize visible step descriptions');
-  assert.ok(!source.includes('bang so lieu'), 'ch2 exercise renderer must localize visible table labels');
 }
 
 {
@@ -129,15 +71,6 @@ function getCh3Behavior(route) {
   assert.strictEqual(state.v2After, 0, 'ch3-6-3 must preserve valid v2=0');
   assert.strictEqual(state.pBefore, 0, 'ch3-6-3 must preserve zero input momentum');
   assert.strictEqual(state.pAfter, 0, 'ch3-6-3 must preserve zero output momentum');
-}
-
-{
-  const behavior = getCh3Behavior('ch3-7-2');
-  const state = { residualScale: 0 };
-  behavior.onTick({ routeId: 'ch3-7-2' }, state, 0.1, 0.1);
-  const derived = behavior.derived({ routeId: 'ch3-7-2' }, state);
-  assert.strictEqual(state.residual1, 0, 'ch3-7-2 zero residual scale must keep residual1 at 0');
-  assert.strictEqual(derived.score, 100, 'ch3-7-2 zero residual scale must score 100');
 }
 
 {

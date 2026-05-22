@@ -29,9 +29,7 @@ window.SimDynamics = {
   simAngularMomentumLab: route('ch3-5-3'),
   simKineticEnergy: route('ch3-5-4'),
   simCollision2D: route('ch3-6-2'),
-  simCollisionSolver: route('ch3-6-3'),
-  simDynamicsTheoremSelector: route('ch3-7-1'),
-  simDynamicsNumericChecker: route('ch3-7-2')
+  simCollisionSolver: route('ch3-6-3')
 };
 
 })();

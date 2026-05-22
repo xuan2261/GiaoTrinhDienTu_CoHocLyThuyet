@@ -1,6 +1,6 @@
 /**
- * Ch2 kinematics behaviors — Part 2: Relative + IC + Exercises.
- * Routes: ch2-4-1, ch2-4-2, ch2-4-3, ch2-4-4, ch2-5-1, ch2-5-2, ch2-5-3, ch2-7-1, ch2-7-2
+ * Ch2 kinematics behaviors — Part 2: Relative + IC.
+ * Routes: ch2-4-1, ch2-4-2, ch2-4-3, ch2-4-4, ch2-5-1, ch2-5-2, ch2-5-3
  */
 (function() {
 'use strict';
@@ -170,40 +170,6 @@ registry.registerMany({
       state.vB = { vx: last.vx, vy: last.vy };
       state.vAMag = 0;
       state.vBMag = last.speed;
-    }
-  },
-  'ch2-7-1': {
-    behaviorId: 'ch2-7-1-kinematics-solver-behavior',
-    derivedModelId: 'kin-solver-derived',
-    interactionSchemaId: 'step-by-step-interactions',
-    onTick(scene, state, dt) {
-      const omega = state.omega || 1.0;
-      state.t = ((state.t || 0) + omega * dt * 0.2) % (Math.PI * 2);
-      state.step = Math.floor((state.t / (Math.PI * 2)) * 3) % 3;
-      state.xVal = 5 + 3 * Math.sin(state.t);
-      state.vVal = 3 * omega * Math.cos(state.t);
-      state.aVal = -3 * omega * omega * Math.sin(state.t);
-    }
-  },
-  'ch2-7-2': {
-    behaviorId: 'ch2-7-2-numeric-verifier-behavior',
-    derivedModelId: 'numeric-verif-derived',
-    interactionSchemaId: 'input-verify-interactions',
-    onTick(scene, state, dt) {
-      const omega = state.omega || 1.0;
-      const amplitude = finiteNumber(state.amplitude, 3);
-      const x0 = finiteNumber(state.x0, 5);
-      state.t = ((state.t || 0) + omega * 0.05 * dt) % (Math.PI * 2);
-      const expectedX = x0 + amplitude * Math.sin(state.t);
-      const expectedV = amplitude * omega * Math.cos(state.t);
-      const expectedA = -amplitude * omega * omega * Math.sin(state.t);
-      state.xVal = Number.isFinite(Number(state.userX)) ? Number(state.userX) : expectedX;
-      state.vVal = Number.isFinite(Number(state.userV)) ? Number(state.userV) : expectedV;
-      state.aVal = Number.isFinite(Number(state.userA)) ? Number(state.userA) : expectedA;
-      state.errorX = Math.abs(state.xVal - expectedX);
-      state.errorV = Math.abs(state.vVal - expectedV);
-      state.errorA = Math.abs(state.aVal - expectedA);
-      state.status = Math.max(state.errorX, state.errorV, state.errorA) < 0.5 ? 'Đúng' : 'Cần kiểm tra';
     }
   }
 });

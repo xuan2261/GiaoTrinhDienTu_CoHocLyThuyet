@@ -15,7 +15,7 @@ const LEGACY_ROUTE_MAP = {
   'ch2-8-3': 'ch2-7-3',
 };
 
-// Keep hook for historical route remaps; current 58-route set mounts by exact page id.
+// Keep hook for historical route remaps; current simulation route set mounts by exact page id.
 const SIM_ROUTE_ALIAS_MAP = {};
 const NO_SIMULATION_PAGE_IDS = new Set([
   'ch1-7', 'ch1-7-1', 'ch1-7-2', 'ch1-7-3',

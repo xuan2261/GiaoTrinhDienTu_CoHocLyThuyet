@@ -1,6 +1,6 @@
 ---
 title: "Phase 05 - Cập nhật unit và browser tests"
-status: planned
+status: completed
 priority: P1
 dependsOn: [phase-04-update-tools-route-counts-and-baselines.md]
 ---
@@ -57,11 +57,11 @@ Modify:
 
 ## Todo List
 
-- [ ] Delete obsolete checker-route tests.
-- [ ] Retarget only generic invariants worth preserving.
-- [ ] Update browser/visual route taxonomy assertions.
-- [ ] Verify no active `tests/` file imports deleted route ids except page-only guard.
-- [ ] Run aggregate test commands.
+- [x] Delete obsolete checker-route tests.
+- [x] Retarget only generic invariants worth preserving.
+- [x] Update browser/visual route taxonomy assertions.
+- [x] Verify no active `tests/` file imports deleted route ids except page-only guard.
+- [x] Run aggregate test commands.
 
 ## Verification / Tests
 

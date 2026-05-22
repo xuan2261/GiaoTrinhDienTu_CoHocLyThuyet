@@ -1,5 +1,5 @@
 /**
- * Canonical 58-route scene metadata used by release QA contracts.
+ * Canonical 52-route scene metadata used by release QA contracts.
  */
 (function() {
 'use strict';
@@ -34,8 +34,6 @@ const rows = [
   ['ch1-5-4','self-locking','friction','Dieu kien tu ham','alpha <= phi','mu','alpha','phi','state'],
   ['ch1-6-2','centroid-composite','centroid','Trong tam hinh ghep','xC = sum A x / sum A','area','x','xC','yC'],
   ['ch1-6-3','centroid-hole','centroid','Trong tam hinh khoet','A am cho phan khoet','area','x','xC','yC'],
-  ['ch1-7-1','guided-statics','checker','Giai bai tap tinh hoc','lap FBD va phuong trinh','step','load','step','verify'],
-  ['ch1-7-2','numeric-statics','checker','Doi chieu so tinh hoc','sai so can bang','case','answer','score','residual'],
   ['ch2-1-1','trajectory-param','kinematics','Quy dao chat diem','r = r(t); v = dr/dt','omega','t','x','v'],
   ['ch2-1-2','motion-graphs','kinematics','Do thi dong hoc','v = dx/dt; a = dv/dt','omega','t','x(t)','v(t)'],
   ['ch2-1-3','natural-coordinates','kinematics','Toa do tu nhien','a = at tau + an n','speed','rho','at','an'],
@@ -49,8 +47,6 @@ const rows = [
   ['ch2-5-1','plane-motion','kinematics','Chuyen dong song phang','vB = vA + omega x AB','omega','theta','vA','vB'],
   ['ch2-5-2','instant-center','kinematics','Tam van toc tuc thoi','v = omega r_IC','omega','r','ICx','ICy'],
   ['ch2-5-3','velocity-distribution','kinematics','Phan bo van toc','vP = vA + omega x AP','omega','theta','vP','r'],
-  ['ch2-7-1','guided-kinematics','checker','Giai bai tap dong hoc','chon cong thuc theo buoc','step','t','x','v'],
-  ['ch2-7-2','numeric-kinematics','checker','Doi chieu so dong hoc','sai so x va v','case','answer','score','error'],
   ['ch3-1-2','force-motion','dynamics','Luc va chuyen dong','F -> a','F','m','a','v'],
   ['ch3-1-3','reference-frame','dynamics','He quy chieu','quan tinh va phi quan tinh','F','m','a','frame'],
   ['ch3-2-1','inertia','dynamics','Dinh luat quan tinh','sum F = 0 -> v const','F','m','v','a'],
@@ -67,8 +63,6 @@ const rows = [
   ['ch3-5-4','work-energy','dynamics','Dinh ly dong nang','A = Delta T','F','s','A','T'],
   ['ch3-6-2','collision-restitution','dynamics','Va cham co he so phuc hoi','e = v_sep/v_app','e','m1','vn','vt'],
   ['ch3-6-3','collision-solver','dynamics','Giai bai toan va cham','bao toan dong luong','e','m1','p','loss'],
-  ['ch3-7-1','theorem-selector','checker','Chon dinh ly dong luc','chon xC, p, L, T','case','theorem','score','verify'],
-  ['ch3-7-2','dynamics-checker','checker','Doi chieu so dong luc','sai so ket qua','case','answer','score','residual'],
 ];
 
 function state(routeId, index) {

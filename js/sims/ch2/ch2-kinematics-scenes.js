@@ -1,5 +1,5 @@
 /**
- * Route scenes for Ch2 kinematics — all 15 routes.
+ * Route scenes for Ch2 kinematics — 13 active simulation routes.
  * Uses the row-array + factory pattern.
  */
 (function() {
@@ -25,9 +25,7 @@ const rows = [
   ['ch2-4-4', 'coriolis-acceleration', 'kinematics', 'Gia tốc Coriolis', '\\vec{a}_c=2\\vec{\\omega}\\times\\vec{v}_r', 'Gia tốc Coriolis', 'omega', 'vrMag', 'Vận tốc tương đối', '|a_c|', 'a_e'],
   ['ch2-5-1', 'plane-translation-rotation', 'kinematics', 'Tịnh tiến + quay phẳng', '\\vec{v}_B=\\vec{v}_A+\\vec{\\omega}\\times\\overrightarrow{AB}', 'Chuyển động phẳng', 'omega', 'phi', 'Tốc độ góc thanh', '|v_A|', '|v_B|'],
   ['ch2-5-2', 'instant-center-velocity', 'kinematics', 'Tâm vận tốc tức thời', '\\vec{v}_A=\\vec{\\omega}\\times\\overrightarrow{IA}', 'Tâm tức thời cơ cấu trượt-quay', 'omega', 'theta', 'Tốc độ góc điều khiển', 'IC_x', 'IC_y'],
-  ['ch2-5-3', 'velocity-distribution', 'kinematics', 'Phân bố vận tốc', '\\vec{v}_A=\\vec{\\omega}\\times\\overrightarrow{IA}', 'Thanh quay', 'omega', 'L', 'Chiều dài thanh', '|v_A|', '|v_B|'],
-  ['ch2-7-1', 'kinematics-solver', 'checker', 'Giải bài động học', 'v = dx/dt; a = dv/dt', 'Giải theo đồ thị', 'omega', 'step', 'Bước', 'Bước giải', 'Kiểm tra'],
-  ['ch2-7-2', 'numeric-verifier', 'checker', 'Kiểm tra số liệu x(t)', 'dv/dt = a, dx/dt = v', 'Kiểm tra nhất quán', 'omega', 'x0', 'Điều kiện đầu', 'Sai số', 'Trạng thái']
+  ['ch2-5-3', 'velocity-distribution', 'kinematics', 'Phân bố vận tốc', '\\vec{v}_A=\\vec{\\omega}\\times\\overrightarrow{IA}', 'Thanh quay', 'omega', 'L', 'Chiều dài thanh', '|v_A|', '|v_B|']
 ];
 
 function scene(row, index) {
@@ -48,12 +46,11 @@ function scene(row, index) {
     controls: buildControls(routeId, forceLabel, secondKey, secondLabel),
     readouts: readoutsFor(routeId, read1, read2),
     // Phase 09 — concept-only scenes drop the misleading Play affordance.
-    //   ch2-7-2: numeric checker (Phase 03 sub-mode A).
     //   ch2-5-2 / ch2-5-3: instant-velocity-center concepts framed as
     //     "tâm vận tốc tức thời" / "phân bố vận tốc" — snapshot at an instant,
     //     not motion over time (Phase 07 decision, see
     //     docs/journals/2026-05-22-ch2-5-2-and-ch2-5-3-motion-intent-decision.md).
-    static: routeId === 'ch2-7-2' || routeId === 'ch2-5-2' || routeId === 'ch2-5-3'
+    static: routeId === 'ch2-5-2' || routeId === 'ch2-5-3'
   };
 }
 
@@ -86,9 +83,7 @@ function readoutsFor(routeId, read1, read2) {
     'ch2-4-4': { label: '|v_r|', key: 'vrMag', digits: 2, unit: 'm/s' },
     'ch2-5-1': { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' },
     'ch2-5-2': { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' },
-    'ch2-5-3': { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' },
-    'ch2-7-1': [{ label: 'Sai số', key: 'error', digits: 2 }, { label: 'x(t)', key: 'xVal', digits: 2, unit: 'm' }, { label: 'v(t)', key: 'vVal', digits: 2, unit: 'm/s', kind: 'velocity' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }],
-    'ch2-7-2': [{ label: 'x0', key: 'x0', digits: 2, unit: 'm' }, { label: 'x(t)', key: 'xVal', digits: 2, unit: 'm' }]
+    'ch2-5-3': { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' }
   };
   const base = [readoutItem(read1), readoutItem(read2)];
   if (extraByRoute[routeId]) base.push(...[].concat(extraByRoute[routeId]));
@@ -141,8 +136,6 @@ function buildInitialState(routeId, index) {
       by: 180
     });
     case 'ch2-5-3': return Object.assign(base, { phi: 0, ex: 338, ey: 238, L: 2.2, vAMag: 0, vBMag: 3.3 });
-    case 'ch2-7-1': return Object.assign(base, { step: 0, xVal: 5, vVal: 0, aVal: 0 });
-    case 'ch2-7-2': return Object.assign(base, { t: Math.PI, xVal: 5, vVal: 0, errorX: 0, errorV: 0, status: 'Đúng', x0: 5, v0: 0, a0: 0 });
     default: return base;
   }
 }
@@ -163,7 +156,7 @@ function buildControls(routeId, forceLabel, secondKey, secondLabel) {
 }
 
 function maxFor(key) {
-  return { alpha: 2, r1: 80, r2: 90, theta: 360, phi: 360, t: 6.28, L: 260, rho: 180, vr: 80, vrMag: 80, step: 2, x0: 20 }[key] || 90;
+  return { alpha: 2, r1: 80, r2: 90, theta: 360, phi: 360, t: 6.28, L: 260, rho: 180, vr: 80, vrMag: 80 }[key] || 90;
 }
 
 function minFor(key) {
@@ -171,15 +164,15 @@ function minFor(key) {
 }
 
 function defaultFor(key) {
-  return { alpha: 0, r1: 50, r2: 90, theta: 0, phi: 0, t: 0, L: 220, rho: 96, vr: 30, vrMag: 30, step: 0, x0: 5 }[key] ?? 30;
+  return { alpha: 0, r1: 50, r2: 90, theta: 0, phi: 0, t: 0, L: 220, rho: 96, vr: 30, vrMag: 30 }[key] ?? 30;
 }
 
 function stepFor(key) {
-  return { alpha: 0.05, t: 0.05, L: 5, step: 1 }[key] || 1;
+  return { alpha: 0.05, t: 0.05, L: 5 }[key] || 1;
 }
 
 function unitFor(key) {
-  return { alpha: 'rad/s²', r1: 'm', r2: 'm', theta: '°', phi: '°', t: 'rad', L: 'm', vr: 'm/s', vrMag: 'm/s', x0: 'm' }[key] || '';
+  return { alpha: 'rad/s²', r1: 'm', r2: 'm', theta: '°', phi: '°', t: 'rad', L: 'm', vr: 'm/s', vrMag: 'm/s' }[key] || '';
 }
 
 function readKey(label) {

@@ -309,12 +309,12 @@ async function topbarOverlaps(page) {
   });
 }
 
-test('manifest lists canonical routes and learner-facing mountable routes @route-mount', async () => {
+test('manifest lists 52 canonical learner-facing simulation routes @route-mount', async () => {
   expect(ALL_ROUTES).toHaveLength(EXPECTED_ROUTE_COUNT);
   expect(new Set(ALL_ROUTES).size).toBe(EXPECTED_ROUTE_COUNT);
-  expect(ROUTE_GROUPS.ch1).toHaveLength(25);
-  expect(ROUTE_GROUPS.ch2).toHaveLength(15);
-  expect(ROUTE_GROUPS.ch3).toHaveLength(18);
+  expect(ROUTE_GROUPS.ch1).toHaveLength(23);
+  expect(ROUTE_GROUPS.ch2).toHaveLength(13);
+  expect(ROUTE_GROUPS.ch3).toHaveLength(16);
   expect(MOUNTABLE_ROUTES).toHaveLength(EXPECTED_MOUNTABLE_ROUTE_COUNT);
   expect(MOUNTABLE_ROUTE_GROUPS.ch1).toHaveLength(23);
   expect(MOUNTABLE_ROUTE_GROUPS.ch2).toHaveLength(13);

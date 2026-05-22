@@ -26,7 +26,7 @@ class SimulationArchitectureTest(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("Expected globals: SimCore, SimMath, SimRender, SimInteractions, SimLabUI", result.stdout)
-        self.assertIn("SIM_MAP routes: 58", result.stdout)
+        self.assertIn("SIM_MAP routes: 52", result.stdout)
 
     def test_runtime_smoke_rejects_unknown_expected_global(self):
         result = run_tool("tools/smoke_simulation_runtime.py", "--expect-globals", "MissingGlobal")
@@ -44,14 +44,14 @@ class SimulationArchitectureTest(unittest.TestCase):
         self.assertIn("Selected routes: 1", result.stdout)
 
     def test_runtime_smoke_executes_registry_not_static_text_only(self):
-        result = run_tool("tools/smoke_simulation_runtime.py", "--expect-runtime-routes", "58")
+        result = run_tool("tools/smoke_simulation_runtime.py", "--expect-runtime-routes", "52")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Executable registry routes: 58", result.stdout)
+        self.assertIn("Executable registry routes: 52", result.stdout)
 
     def test_runtime_smoke_checks_mount_failure_dom_rollback(self):
         result = run_tool("tools/smoke_simulation_runtime.py", "--check-mount-rollback")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Mount rollback (Phase 05): PASS", result.stdout)
+        self.assertIn("Mount rollback (Phase 01): PASS", result.stdout)
 
     def test_runtime_smoke_checks_listener_cleanup_flag(self):
         result = run_tool("tools/smoke_simulation_runtime.py", "--check-listener-cleanup")

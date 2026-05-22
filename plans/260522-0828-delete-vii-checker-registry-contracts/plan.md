@@ -1,7 +1,7 @@
 ---
 title: "Xóa hẳn 6 route checker VII khỏi registry và contract"
 description: "Plan TDD chi tiết để loại bỏ hoàn toàn 6 dormant Section VII checker routes khỏi manifest, adapters, scene/renderer/behavior contracts, QA tools, tests, và docs; canonical simulation route count chuyển từ 58 xuống 52."
-status: planned
+status: completed
 priority: P1
 effort: 1-2 days
 branch: master
@@ -41,12 +41,12 @@ Plan này xóa hẳn 6 route đó khỏi simulation subsystem. Section VII pages
 
 ## Phases
 
-1. [Phase 01 - Baseline và red tests](phase-01-baseline-and-red-tests.md): tạo failing assertions cho việc 6 route vẫn còn trong internal registry/contract.
-2. [Phase 02 - Xóa manifest, adapters, route maps](phase-02-remove-runtime-manifest-and-adapters.md): bỏ 6 route khỏi public simulation route discovery.
-3. [Phase 03 - Prune scene, renderer, behavior contracts](phase-03-prune-scene-renderer-behavior-contracts.md): xóa contract implementation và dead branches.
-4. [Phase 04 - Cập nhật tools, counts, baselines](phase-04-update-tools-route-counts-and-baselines.md): đổi route count 58 -> 52 trong smoke tools, scripts, fixtures.
-5. [Phase 05 - Cập nhật unit/browser tests](phase-05-update-browser-unit-tests.md): xóa/retarget tests phụ thuộc 6 checker route, giữ no-simulation guard.
-6. [Phase 06 - Docs và release verification](phase-06-docs-and-release-verification.md): cập nhật README/docs/changelog/roadmap và chạy full gate.
+1. [Phase 01 - Baseline và red tests](phase-01-baseline-and-red-tests.md): completed.
+2. [Phase 02 - Xóa manifest, adapters, route maps](phase-02-remove-runtime-manifest-and-adapters.md): completed.
+3. [Phase 03 - Prune scene, renderer, behavior contracts](phase-03-prune-scene-renderer-behavior-contracts.md): completed.
+4. [Phase 04 - Cập nhật tools, counts, baselines](phase-04-update-tools-route-counts-and-baselines.md): completed.
+5. [Phase 05 - Cập nhật unit/browser tests](phase-05-update-browser-unit-tests.md): completed.
+6. [Phase 06 - Docs và release verification](phase-06-docs-and-release-verification.md): completed.
 
 ## Dependency Graph
 

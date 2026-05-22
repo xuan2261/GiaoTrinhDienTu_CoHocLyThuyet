@@ -1,6 +1,6 @@
 ---
 title: "Phase 01 - Baseline và red tests"
-status: planned
+status: completed
 priority: P1
 dependsOn: []
 ---
@@ -57,11 +57,11 @@ Read only:
 
 ## Todo List
 
-- [ ] Add deleted-route constant.
-- [ ] Add manifest absence test.
-- [ ] Add browser registry absence test.
-- [ ] Add no-simulation content-only assertion remains green.
-- [ ] Confirm red failure points mention exact remaining registry.
+- [x] Add deleted-route constant.
+- [x] Add manifest absence test.
+- [x] Add browser registry absence test.
+- [x] Add no-simulation content-only assertion remains green.
+- [x] Confirm red failure points mention exact remaining registry.
 
 ## Verification / Tests
 

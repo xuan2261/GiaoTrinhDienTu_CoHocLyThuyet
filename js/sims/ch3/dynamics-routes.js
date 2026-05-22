@@ -28,9 +28,7 @@ registry.registerMany({
   'ch3-5-3': dynamics.simAngularMomentumLab,
   'ch3-5-4': dynamics.simKineticEnergy,
   'ch3-6-2': dynamics.simCollision2D,
-  'ch3-6-3': dynamics.simCollisionSolver,
-  'ch3-7-1': dynamics.simDynamicsTheoremSelector,
-  'ch3-7-2': dynamics.simDynamicsNumericChecker
+  'ch3-6-3': dynamics.simCollisionSolver
 });
 
 })();

@@ -17,9 +17,7 @@ const rows = [
   ['ch2-4-4', 'coriolis-acceleration', 'relative', 'Gia tốc Coriolis', 'a = ae + ar + ac; ac = 2 omega x vr', 'Thành phần Coriolis', 'Đầu mút Coriolis', 'omega', 'Hệ quay omega', 'ac', 'Điều kiện triệt tiêu'],
   ['ch2-5-1', 'plane-motion-rigid-body', 'plane', 'Chuyển động phẳng vật rắn', 'vB = vA + omega x AB', 'Tịnh tiến cộng quay', 'Con trỏ vật', 'omega', 'Omega của vật', 'vB', 'omega'],
   ['ch2-5-2', 'instant-center-finder', 'plane', 'Tìm tâm vận tốc tức thời', 'v = omega r từ IC', 'Tâm vận tốc tức thời', 'Con trỏ IC', 'omega', 'Omega IC', 'P/IC', 'omega'],
-  ['ch2-5-3', 'velocity-distribution', 'plane', 'Phân bố vận tốc', 'vB = vA + omega x AB', 'Phân bố vận tốc trên vật', 'Con trỏ điểm B', 'omega', 'Omega thanh', 'vB', 'Hình chiếu'],
-  ['ch2-7-1', 'kinematics-guided-checker', 'checker', 'Kiểm tra từng bước động học', 'Đọc x(t) -> v(t) -> a(t)', 'Kiểm tra bước động học', 'Dữ liệu đồ thị', 't', 'Thời điểm kiểm', 'Bước', 'Sai lệch'],
-  ['ch2-7-2', 'kinematics-numeric-checker', 'checker', 'Kiểm tra số liệu động học', 'Kiểm x, v, a tại con trỏ t', 'Kiểm tra số động học', 'Con trỏ số liệu', 't', 'Thời gian số liệu', 'v/a', 'Sai số']
+  ['ch2-5-3', 'velocity-distribution', 'plane', 'Phân bố vận tốc', 'vB = vA + omega x AB', 'Phân bố vận tốc trên vật', 'Con trỏ điểm B', 'omega', 'Omega thanh', 'vB', 'Hình chiếu']
 ];
 
 function scene(row, index) {
