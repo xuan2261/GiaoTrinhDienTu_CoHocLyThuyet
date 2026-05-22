@@ -21,13 +21,14 @@
     "test:sim:browser:install": "playwright install chromium",
     "test:sim:correctness": "node --test tests/sim-correctness-realism.test.js",
     "test:sim:correctness:browser": "playwright test tests/sim-handle-anchor-invariants.spec.js",
+    "test:content": "node tests/author-page-content-regression.test.js",
     "test:sim:browser:baseline": "node -e \"console.log('Baseline check skipped in V2')\"",
     "test:sim:browser:route-mount": "playwright test tests/simulation-browser.spec.js --grep @route-mount",
     "test:sim:review-2026-05-19": "node tools/run-sim-review-2026-05-19-tests.js",
     "test:sim:visual-quality:update": "node tools/sim-visual-baseline-update.js",
     "test:equations": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$ErrorActionPreference='Stop'; Get-ChildItem scripts/test-phase-*.py | Sort-Object Name | ForEach-Object { Write-Host \\\"=== $($_.Name) ===\\\"; & python $_.FullName; if ($LASTEXITCODE -ne 0) { exit 1 } }\"",
     "test:audit:strict": "python tools/audit.py --strict-images --strict-formula-image",
-    "test:sim:release": "npm run test:sim:unit && npm run test:sim:quality && npm run test:sim:browser && npm run test:sim:visual-quality && node tools/audit_v2_disposal.js && python tools/audit.py --strict-images --strict-formula-image && python tools/audit.py --strict-equations && python tools/validate_equation_mapping.py --input data/equation_mapping.json --strict --katex"
+    "test:sim:release": "npm run test:content && npm run test:sim:unit && npm run test:sim:quality && npm run test:sim:browser && npm run test:sim:visual-quality && node tools/audit_v2_disposal.js && python tools/audit.py --strict-images --strict-formula-image && python tools/audit.py --strict-equations && python tools/validate_equation_mapping.py --input data/equation_mapping.json --strict --katex"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0"

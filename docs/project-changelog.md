@@ -1,5 +1,19 @@
 # Project Changelog
 
+## 2026-05-22 — Author Page Content Cleanup
+
+### Fixed
+- `authors` page now shows only the author information card grid matching `DeCuong_CoHocLyThuyet.html`, removing cover/front-matter, publication decision placeholder, and assessment council placeholder from the learner-facing page.
+- Regenerated `js/pages.js` from `chapters/tac-gia.html` so offline `file://` bundle matches the fragment.
+
+### Added
+- `tests/author-page-content-regression.test.js` locks the author page against front-matter regression and stale offline bundle content; exposed as `npm run test:content`.
+
+### Verified
+- `node tests\author-page-content-regression.test.js`: PASS.
+- `npm run test:content`: PASS.
+- `python tools\audit.py`: PASS, 102/102 files OK.
+
 ## 2026-05-21 — Phase 09 Concept Diagram Cleanup + Animation Evolution Harness
 
 ### Added
