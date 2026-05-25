@@ -1,5 +1,15 @@
 # Project Changelog
 
+## 2026-05-25 — Home Statistics Quiz Count Fix
+
+### Fixed
+- Updated both embedded home statistic blocks in `index.html` from 150 to 300 quiz questions.
+- Rechecked home statistics against `tools/docx_site_manifest.json` and quiz banks: 3 chapters, 21 sections, 78 subsections, 300 questions.
+
+### Verified
+- `npm run test:quiz`: PASS.
+- Independent scan: no remaining home statistic block shows `150` for `Câu trắc nghiệm`.
+
 ## 2026-05-22 — Plain Strong Figure Caption Duplicate Cleanup
 
 ### Fixed
