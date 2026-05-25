@@ -5,9 +5,9 @@ const ROOT = path.resolve(__dirname, '..');
 const INDEX_FILE_URL = `file:///${path.join(ROOT, 'index.html').replace(/\\/g, '/')}`;
 
 const EXERCISE_SECTION_ROUTES = [
-  'ch1-7', 'ch1-7-1', 'ch1-7-2', 'ch1-7-3',
-  'ch2-7', 'ch2-7-1', 'ch2-7-2', 'ch2-7-3',
-  'ch3-7', 'ch3-7-1', 'ch3-7-2', 'ch3-7-3', 'ch3-7-4', 'ch3-7-5', 'ch3-7-6',
+  'ch1-7', 'ch1-7-1', 'ch1-7-2',
+  'ch2-7', 'ch2-7-1', 'ch2-7-2',
+  'ch3-7', 'ch3-7-1', 'ch3-7-2', 'ch3-7-4', 'ch3-7-5', 'ch3-7-6',
 ];
 
 async function openContentRoute(page, route) {

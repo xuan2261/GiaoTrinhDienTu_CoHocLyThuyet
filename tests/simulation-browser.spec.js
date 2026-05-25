@@ -477,9 +477,9 @@ for (const width of [375, 768, 1280]) {
 
 test('reading pages keep the narrow content measure without page overflow @responsive', async ({ page }) => {
   for (const viewport of [
-    { width: 1366, height: 768, route: 'ch3-7-3' },
-    { width: 768, height: 812, route: 'ch3-7-3' },
-    { width: 390, height: 844, route: 'ch3-7-3' },
+    { width: 1366, height: 768, route: 'ch3-rev' },
+    { width: 768, height: 812, route: 'ch3-rev' },
+    { width: 390, height: 844, route: 'ch3-rev' },
   ]) {
     await page.setViewportSize(viewport);
     await openContentRoute(page, viewport.route);

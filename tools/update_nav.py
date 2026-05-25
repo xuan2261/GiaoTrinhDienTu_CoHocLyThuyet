@@ -21,12 +21,18 @@ LEGACY_ROUTE_MAP = {
     "ch1-8": "ch1-7",
     "ch1-8-1": "ch1-7-1",
     "ch1-8-2": "ch1-7-2",
-    "ch1-8-3": "ch1-7-3",
     "ch2-8": "ch2-7",
     "ch2-8-1": "ch2-7-1",
     "ch2-8-2": "ch2-7-2",
-    "ch2-8-3": "ch2-7-3",
 }
+
+
+def is_review_subsection(section, sub_title):
+    return section["section"] == 7 and clean_title(sub_title) == "Câu hỏi ôn tập"
+
+
+def clean_title(title):
+    return re.sub(r"\s+", " ", str(title or "")).strip()
 
 
 def read(path):
@@ -99,6 +105,8 @@ def gen_sidebar(chapters):
                 )
                 lines.append('            <div class="l3-menu">')
                 for sub_num, sub_title in sorted(section["subs"].items()):
+                    if is_review_subsection(section, sub_title):
+                        continue
                     lines.append(
                         f'              <a href="#" class="l3" onclick="loadPage(\'{pid}-{sub_num}\');return false">{sub_num}. {sub_title}</a>'
                     )
@@ -122,6 +130,8 @@ def page_ids(chapters):
             sid = f"ch{chapter}-{section['section']}"
             ids.append(sid)
             for sub_num in sorted(section["subs"]):
+                if is_review_subsection(section, section["subs"][sub_num]):
+                    continue
                 ids.append(f"{sid}-{sub_num}")
         ids.append(f"ch{chapter}-rev")
         ids.append(f"ch{chapter}-quiz")
@@ -154,6 +164,8 @@ def gen_bc(chapters):
             sid = f"ch{chapter}-{section['section']}"
             lines.append(f"  '{sid}': 'Chương {chapter} › {section['roman']}. {section['title']}',")
             for sub_num, sub_title in sorted(section["subs"].items()):
+                if is_review_subsection(section, sub_title):
+                    continue
                 lines.append(f"  '{sid}-{sub_num}': 'Chương {chapter} › {section['roman']} › {sub_num}. {sub_title}',")
         lines.append(f"  'ch{chapter}-rev': 'Chương {chapter} › Câu hỏi ôn tập',")
         lines.append(f"  'ch{chapter}-quiz': 'Chương {chapter} › Ôn tập trắc nghiệm',")
@@ -177,7 +189,9 @@ def gen_page_map(chapters):
             roman = section["roman"]
             sid = f"ch{chapter}-{section['section']}"
             lines.append(f"  '{sid}': 'chapters/ch{chapter}/muc-{roman}.html',")
-            for sub_num in sorted(section["subs"]):
+            for sub_num, sub_title in sorted(section["subs"].items()):
+                if is_review_subsection(section, sub_title):
+                    continue
                 lines.append(f"  '{sid}-{sub_num}': 'chapters/ch{chapter}/muc-{roman}-{sub_num}.html',")
         lines.append(f"  'ch{chapter}-rev': 'chapters/ch{chapter}/on-tap.html',")
         lines.append(f"  'ch{chapter}-quiz': 'chapters/ch{chapter}/trac-nghiem.html',")

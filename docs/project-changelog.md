@@ -1,5 +1,21 @@
 # Project Changelog
 
+## 2026-05-25 — Review Question Navigation Cleanup
+
+### Fixed
+- Removed orphan `Ôn tập trắc nghiệm` headings at the end of the chapter review-question pages.
+- Removed duplicate `ch*-7-3` review-question routes from runtime maps, Section VII navigation, section TOCs, tests, stale tool snapshots, and generated fragment files; the standalone `❓ Câu hỏi ôn tập` chapter link remains canonical.
+- Updated DOCX extraction/navigation tools so the cleanup survives future regeneration.
+- Added route cleanup regression coverage to `npm run test:content`.
+- Regenerated `js/pages.js`.
+
+### Verified
+- `npm run test:content`: PASS.
+- `node tests\section-vii-review-route-cleanup.test.js`: PASS.
+- `python -m compileall -q tools`: PASS.
+- `python tools\audit.py`: PASS.
+- Independent scans: no runtime route/nav/bundle file references `ch1-7-3`, `ch2-7-3`, `ch3-7-3`; no review-question page ends with `Ôn tập trắc nghiệm`.
+
 ## 2026-05-25 — Home Statistics Quiz Count Fix
 
 ### Fixed

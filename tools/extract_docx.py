@@ -999,6 +999,8 @@ def render_section_page(doc, xml_paras, chapter_num, section, image_writer, rid_
         parts.append("  <h4>Nội dung</h4>")
         parts.append("  <ol>")
         for sub in section["subsections"]:
+            if section["section"] == 7 and "Câu hỏi ôn tập" in sub["title"]:
+                continue
             pid = f"ch{chapter_num}-{section['section']}-{sub['subsection']}"
             parts.append(
                 f'    <li><a href="#" onclick="loadPage(\'{pid}\');return false">{html.escape(sub["title"])}</a></li>'
@@ -1012,6 +1014,11 @@ def render_section_page(doc, xml_paras, chapter_num, section, image_writer, rid_
 def render_subsection_page(doc, xml_paras, chapter_num, section, sub, image_writer, rid_to_media, transformer):
     parts = page_header(chapter_num, sub["title"], section["title"])
     parts.extend(render_paragraphs(doc, xml_paras, sub["start"] + 1, sub["end"], chapter_num, image_writer, rid_to_media, transformer))
+    if "Câu hỏi ôn tập" in sub["title"]:
+        while parts and re.fullmatch(r"<p><br></p>", parts[-1]):
+            parts.pop()
+        if parts and re.fullmatch(r"<h[1-6]>Ôn tập trắc nghiệm</h[1-6]>", parts[-1]):
+            parts.pop()
     parts.append("</div>")
     return "\n".join(parts)
 
@@ -1083,9 +1090,11 @@ def extract(args):
             }
             for sub in section["subsections"]:
                 sub_html = render_subsection_page(doc, xml_paras, chapter_num, section, sub, image_writer, rid_to_media, transformer)
-                write_file(section_path(root, chapter_num, section["section"], sub["subsection"]), sub_html, args.write)
+                is_review_sub = section["section"] == 7 and "Câu hỏi ôn tập" in sub["title"]
+                if not is_review_sub:
+                    write_file(section_path(root, chapter_num, section["section"], sub["subsection"]), sub_html, args.write)
                 section_meta["subsections"].append({"subsection": sub["subsection"], "title": sub["title"]})
-                if "Câu hỏi ôn tập" in sub["title"]:
+                if is_review_sub:
                     write_file(os.path.join(chapter_dir, "on-tap.html"), sub_html, args.write)
             chapter_meta["sections"].append(section_meta)
         manifest["chapters"].append(chapter_meta)

@@ -8,19 +8,17 @@ const LEGACY_ROUTE_MAP = {
   'ch1-8': 'ch1-7',
   'ch1-8-1': 'ch1-7-1',
   'ch1-8-2': 'ch1-7-2',
-  'ch1-8-3': 'ch1-7-3',
   'ch2-8': 'ch2-7',
   'ch2-8-1': 'ch2-7-1',
   'ch2-8-2': 'ch2-7-2',
-  'ch2-8-3': 'ch2-7-3',
 };
 
 // Keep hook for historical route remaps; current simulation route set mounts by exact page id.
 const SIM_ROUTE_ALIAS_MAP = {};
 const NO_SIMULATION_PAGE_IDS = new Set([
-  'ch1-7', 'ch1-7-1', 'ch1-7-2', 'ch1-7-3',
-  'ch2-7', 'ch2-7-1', 'ch2-7-2', 'ch2-7-3',
-  'ch3-7', 'ch3-7-1', 'ch3-7-2', 'ch3-7-3', 'ch3-7-4', 'ch3-7-5', 'ch3-7-6',
+  'ch1-7', 'ch1-7-1', 'ch1-7-2',
+  'ch2-7', 'ch2-7-1', 'ch2-7-2',
+  'ch3-7', 'ch3-7-1', 'ch3-7-2', 'ch3-7-4', 'ch3-7-5', 'ch3-7-6',
 ]);
 
 // ============================================
@@ -76,7 +74,6 @@ const PAGE_MAP = {
   'ch1-7': 'chapters/ch1/muc-VII.html',
   'ch1-7-1': 'chapters/ch1/muc-VII-1.html',
   'ch1-7-2': 'chapters/ch1/muc-VII-2.html',
-  'ch1-7-3': 'chapters/ch1/muc-VII-3.html',
   'ch1-rev': 'chapters/ch1/on-tap.html',
   'ch1-quiz': 'chapters/ch1/trac-nghiem.html',
 
@@ -105,11 +102,9 @@ const PAGE_MAP = {
   'ch2-6': 'chapters/ch2/muc-VI.html',
   'ch2-6-1': 'chapters/ch2/muc-VI-1.html',
   'ch2-6-2': 'chapters/ch2/muc-VI-2.html',
-  'ch2-6-3': 'chapters/ch2/muc-VI-2.html',
   'ch2-7': 'chapters/ch2/muc-VII.html',
   'ch2-7-1': 'chapters/ch2/muc-VII-1.html',
   'ch2-7-2': 'chapters/ch2/muc-VII-2.html',
-  'ch2-7-3': 'chapters/ch2/muc-VII-3.html',
   'ch2-rev': 'chapters/ch2/on-tap.html',
   'ch2-quiz': 'chapters/ch2/trac-nghiem.html',
 
@@ -128,7 +123,6 @@ const PAGE_MAP = {
   'ch3-3': 'chapters/ch3/muc-III.html',
   'ch3-3-1': 'chapters/ch3/muc-III-1.html',
   'ch3-3-2': 'chapters/ch3/muc-III-2.html',
-  'ch3-3-3': 'chapters/ch3/muc-III-2.html',
   'ch3-4': 'chapters/ch3/muc-IV.html',
   'ch3-4-1': 'chapters/ch3/muc-IV-1.html',
   'ch3-4-2': 'chapters/ch3/muc-IV-2.html',
@@ -141,11 +135,9 @@ const PAGE_MAP = {
   'ch3-6-1': 'chapters/ch3/muc-VI-1.html',
   'ch3-6-2': 'chapters/ch3/muc-VI-2.html',
   'ch3-6-3': 'chapters/ch3/muc-VI-3.html',
-  'ch3-6-4': 'chapters/ch3/muc-VI-3.html',
   'ch3-7': 'chapters/ch3/muc-VII.html',
   'ch3-7-1': 'chapters/ch3/muc-VII-1.html',
   'ch3-7-2': 'chapters/ch3/muc-VII-2.html',
-  'ch3-7-3': 'chapters/ch3/muc-VII-3.html',
   'ch3-7-4': 'chapters/ch3/muc-VII-4.html',
   'ch3-7-5': 'chapters/ch3/muc-VII-5.html',
   'ch3-7-6': 'chapters/ch3/muc-VII-6.html',
