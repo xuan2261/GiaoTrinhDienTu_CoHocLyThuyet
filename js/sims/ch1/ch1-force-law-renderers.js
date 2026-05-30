@@ -97,7 +97,9 @@ function renderCh115ForceSystemReducer(ctx, scene, state, d) {
     forces.forEach(f => { P.dashedLine(ctx, f[0], f[1], f[2], f[1], f[4]); P.dashedLine(ctx, f[2], f[1], f[2], f[3], f[4]); });
     P.domMath(ctx, 'force-system-analysis', 520, 86, '\\sum F_x,\\ \\sum F_y,\\ \\sum M_O', { color: P.tone(4), width: 190 });
   } else {
-    arrow(ctx, p.x, p.y, v.x, v.y, P.tone(2), 'R', 3.6);
+    // R drawn from O as the true vector sum of F1..F3, not the drag handle.
+    const rv = d.resultantVec || { ox: 250, oy: 245, x: p.x, y: p.y };
+    arrow(ctx, rv.ox, rv.oy, rv.x, rv.y, P.tone(2), 'R', 3.6);
     drawMomentArc(ctx, 250, 245, 46, P.tone(6), 'M_O');
     P.domMath(ctx, 'force-system-result', 520, 86, `\\vec{R}=\\sum\\vec{F}_i`, { color: P.tone(2), width: 190 });
   }
@@ -158,7 +160,7 @@ function renderCh121TwoForceBody(ctx, scene, state, d) {
   arrow(ctx, b.x, b.y, tip.x, tip.y, P.tone(0), 'F2', 3.2);
   handle(ctx, tip.x, tip.y, P.tone(0));
   P.domMath(ctx, 'two-force-balance', 486, 82, '\\vec{F}_1+\\vec{F}_2=\\vec{0}', { color: P.tone(5), width: 210 });
-  P.domMath(ctx, 'two-force-error', 486, 130, `e=${d.balanceError.toFixed(1)}\\,\\mathrm{px}`, { color: d.balanceError < 6 ? P.tone(2) : P.tone(0), width: 150 });
+  P.domMath(ctx, 'two-force-error', 486, 130, `e=${d.balanceError.toFixed(1)}\\,\\mathrm{N}`, { color: d.balanceError < 3 ? P.tone(2) : P.tone(0), width: 150 });
 }
 
 function renderCh123ParallelogramLaw(ctx, scene, state, d) {

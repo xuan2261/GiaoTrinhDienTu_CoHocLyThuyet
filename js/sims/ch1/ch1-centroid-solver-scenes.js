@@ -41,7 +41,7 @@ const scenes = [
     readouts: [
       { label: 'xG', key: 'gx', digits: 0, unit: 'px', kind: 'result' },
       { label: 'Dịch G', key: 'shift', digits: 1, unit: 'px', kind: 'result' },
-      { label: 'S lỗ', key: 'hole', digits: 0, unit: '', kind: 'default' }
+      { label: 'S lỗ', key: 'load', digits: 0, unit: '%', kind: 'default' }
     ]
   }
 ];

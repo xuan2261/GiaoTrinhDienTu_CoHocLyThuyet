@@ -9,6 +9,12 @@ if (!registry) {
 
 const W = 760, H = 440, colors = { force: '#dc3545', result: '#fd7e14', support: '#0d6efd', moment: '#c9963a' };
 const originO = { x: 150, y: 300 }, PX_PER_M = 60;
+// ch1-1-5: three real coplanar forces {x,y px; ux,uy unit dir; w weight}.
+// R and M_O are the true vector sum reduceToResultant(Σ), not a dragged R.
+const FORCE_SYS = [
+  { x: 315, y: 198, ux: 0.774, uy: -0.633, w: 1 }, { x: 430, y: 226, ux: 0.586, uy: -0.810, w: 0.85 }, { x: 355, y: 252, ux: -0.695, uy: -0.718, w: 0.7 }
+];
+const FORCE_SYS_O = { x: 250, y: 245 };
 const parallelogramO = { x: 200, y: 300 };
 const clamp = (value, min, max) => Math.max(min, Math.min(max, Number(value) || 0));
 const bounded = point => ({ x: clamp(point.x, 28, W - 28), y: clamp(point.y, 28, H - 28) });
@@ -26,10 +32,9 @@ function vectorAngle(state) {
 function setForceByAngle(state, magnitude, angleDeg) {
   const p = ensurePrimary(state), mag = clamp(magnitude, 20, 300), angle = clamp(angleDeg, -90, 90);
   const dx = mag * Math.cos(toRad(angle)), dy = -mag * Math.sin(toRad(angle));
-  const next = { x: clamp(p.x, Math.max(28, 28 - dx), Math.min(W - 28, W - 28 - dx)), y: clamp(p.y, Math.max(28, 28 - dy), Math.min(H - 28, H - 28 - dy)) };
-  state.primary = next;
+  state.primary = { x: clamp(p.x, Math.max(28, 28 - dx), Math.min(W - 28, W - 28 - dx)), y: clamp(p.y, Math.max(28, 28 - dy), Math.min(H - 28, H - 28 - dy)) };
   state.force = mag; state.angle = angle;
-  state.vector = { x: next.x + dx, y: next.y + dy };
+  state.vector = { x: state.primary.x + dx, y: state.primary.y + dy };
 }
 function setVectorFromPoint(state, point, routeId) {
   const p = ensurePrimary(state), raw = bounded(point);
@@ -44,17 +49,13 @@ function setVerticalForce(state, point) {
   state.primary = p; if (isMoment) state.load = (p.x - originO.x) / PX_PER_M; state.vector = { x: p.x, y: p.y + force };
 }
 
-function forceMagnitude(state) {
-  const p = ensurePrimary(state), v = ensureVector(state);
-  return Math.hypot(v.x - p.x, p.y - v.y);
-}
+function forceMagnitude(state) { const p = ensurePrimary(state), v = ensureVector(state); return Math.hypot(v.x - p.x, p.y - v.y); }
 
 function makeHandle(id, label, get, set, stroke, options) {
   const cfg = options || {};
   return { id, label, hitRadius: cfg.hitRadius || 25, nudgeStep: 8, shiftStep: 24, get, set(point) { set(cfg.raw ? point : bounded(point)); }, visual: { stroke } };
 }
 
-function setPrimary(state, point) { state.primary = bounded(point); }
 function setFbdForcePoint(state, point) {
   const p = bounded(point), base = { x: 476, y: 176 };
   state.primary = p;
@@ -67,13 +68,9 @@ function setFbdForceMagnitude(state, value) {
   state.primary = bounded({ x: base.x + dx / len * mag, y: base.y + dy / len * mag });
 }
 function moveForceTail(state, point) {
-  const force = clamp(state.force || forceMagnitude(state), 40, 260);
-  const angle = clamp(Number.isFinite(Number(state.angle)) ? state.angle : vectorAngle(state), -45, 75);
+  const force = clamp(state.force || forceMagnitude(state), 40, 260), angle = clamp(Number.isFinite(Number(state.angle)) ? state.angle : vectorAngle(state), -45, 75);
   const dx = force * Math.cos(toRad(angle)), dy = -force * Math.sin(toRad(angle));
-  state.primary = {
-    x: clamp(point.x, Math.max(28, 28 - dx), Math.min(W - 28, W - 28 - dx)),
-    y: clamp(point.y, Math.max(28, 28 - dy), Math.min(H - 28, H - 28 - dy))
-  };
+  state.primary = { x: clamp(point.x, Math.max(28, 28 - dx), Math.min(W - 28, W - 28 - dx)), y: clamp(point.y, Math.max(28, 28 - dy), Math.min(H - 28, H - 28 - dy)) };
   state.force = force; state.angle = angle; state.vector = { x: state.primary.x + dx, y: state.primary.y + dy };
 }
 
@@ -92,21 +89,18 @@ function setParallelogramPoint(state, key, point) { state[key] = boundParallelog
 
 function setParallelogramMagnitude(state, key, magnitude) {
   const p = key === 'secondary' ? ensureSecondary(state) : ensurePrimary(state);
-  const angle = Math.atan2(p.y - parallelogramO.y, p.x - parallelogramO.x);
-  const mag = clamp(magnitude, 40, 260);
+  const angle = Math.atan2(p.y - parallelogramO.y, p.x - parallelogramO.x), mag = clamp(magnitude, 40, 260);
   setParallelogramPoint(state, key, { x: parallelogramO.x + mag * Math.cos(angle), y: parallelogramO.y + mag * Math.sin(angle) });
 }
 
 function setParallelogramAlpha(state, value) {
-  const data = parallelogramData(state);
-  const next = data.a1 + toRad(clamp(value, 0, 90));
+  const data = parallelogramData(state), next = data.a1 + toRad(clamp(value, 0, 90));
   setParallelogramPoint(state, 'secondary', { x: parallelogramO.x + data.f2Magnitude * Math.cos(next), y: parallelogramO.y + data.f2Magnitude * Math.sin(next) });
 }
 
 function supportInfo(mode) {
   const map = {
-    'Tựa': ['Tựa trơn', 'khóa pháp tuyến', 'N'], 'Dây': ['Dây mềm', 'chỉ chịu kéo', 'T'],
-    'Bản lề': ['Bản lề cố định', 'khóa x, y', 'Rx, Ry'], 'Gối': ['Gối di động', 'khóa 1 phương', 'N nghiêng'], 'Ngàm': ['Ngàm chặt', 'khóa x, y, quay', 'Rx, Ry, M']
+    'Tựa': ['Tựa trơn', 'khóa pháp tuyến', 'N'], 'Dây': ['Dây mềm', 'chỉ chịu kéo', 'T'], 'Bản lề': ['Bản lề cố định', 'khóa x, y', 'Rx, Ry'], 'Gối': ['Gối di động', 'khóa 1 phương', 'N nghiêng'], 'Ngàm': ['Ngàm chặt', 'khóa x, y, quay', 'Rx, Ry, M']
   };
   const row = map[mode] || map['Tựa'];
   return { supportKind: row[0], supportDof: row[1], supportReaction: row[2] };
@@ -120,24 +114,39 @@ function forceLawDerived(scene, state) {
   const angle = routeId === 'ch1-1-6' ? 90 : vectorAngle(state);
   let distance = Math.abs(p.x - originO.x) / PX_PER_M;
   let moment = routeId === 'ch1-1-4' ? baseForce * distance : ((p.x - 250) * dy - (p.y - 235) * dx) / PX_PER_M;
-  let resultantMagnitude = baseForce;
+  let resultantMagnitude = baseForce, resultantVec = null;
   const info = supportInfo(state.mode);
   if (routeId === 'ch1-1-6') {
     distance = clamp(state.distance, 1.3, 4.3);
     moment = baseForce * distance;
   }
   if (routeId === 'ch1-1-5') {
-    resultantMagnitude = baseForce;
+    // R and M_O from the true vector sum of the three forces about O.
+    const S = window.SimPhysicsStatics || {}, O = FORCE_SYS_O;
+    const list = FORCE_SYS.map(f => ({ F: { fx: baseForce * f.w * f.ux, fy: baseForce * f.w * f.uy }, r: { x: f.x - O.x, y: f.y - O.y } }));
+    const red = S.reduceToResultant ? S.reduceToResultant(list) : { Rx: 0, Ry: 0, Mo: 0 };
+    resultantMagnitude = Math.hypot(red.Rx, red.Ry);
+    resultantVec = { x: O.x + red.Rx, y: O.y + red.Ry, ox: O.x, oy: O.y };
+    moment = red.Mo / PX_PER_M;
   }
   if (routeId === 'ch1-2-3') {
     return Object.assign({ dx, dy, force: parallelogramData(state).f1Magnitude, point: ensureSecondary(state) }, parallelogramData(state));
   }
   if (routeId === 'ch1-2-6') {
+    const S = window.SimPhysicsStatics || {};
     const load = clamp(state.load, 0, 160);
     const fbdForce = clamp(state.force || Math.hypot(p.x - 476, p.y - 176), 20, 160);
-    return Object.assign({ dx: p.x - 476, dy: 176 - p.y, fx: p.x - 476, fy: 176 - p.y, force: fbdForce, resultantMagnitude: Math.hypot(fbdForce, load), alpha: angle, forceAngle: angle, distance, moment: (p.x - 476) * fbdForce / PX_PER_M, balanceError: 0, balanceState: 'đã tách', point: p }, info);
+    // M_O of the vertical load about the support = r×F (shared module), not px/60.
+    const armM = (p.x - 476) / PX_PER_M;
+    const moment = S.momentFromVectors ? S.momentFromVectors(armM, 0, 0, -fbdForce) : -armM * fbdForce;
+    return Object.assign({ dx: p.x - 476, dy: 176 - p.y, fx: p.x - 476, fy: 176 - p.y, force: fbdForce, resultantMagnitude: Math.hypot(fbdForce, load), alpha: angle, forceAngle: angle, distance, moment, balanceError: 0, balanceState: 'đã tách', point: p }, info);
   }
-  return Object.assign({ dx, dy, fx: dx, fy: dy, force: baseForce, resultantMagnitude, alpha: angle, forceAngle: angle, distance, moment, balanceError: Math.abs(dy), balanceState: Math.abs(dy) < 6 ? 'đúng' : 'lệch', point: p }, info);
+  // ch1-2-1 two-force body: residual is the transverse component |F·sin α| in N
+  // (real force, vanishes when aligned); other routes keep the geometric |dy|.
+  const isTwoForce = routeId === 'ch1-2-1';
+  const balanceError = isTwoForce ? Math.abs(baseForce * Math.sin(toRad(angle))) : Math.abs(dy);
+  const balanceState = balanceError < (isTwoForce ? 3 : 6) ? 'đúng' : 'lệch';
+  return Object.assign({ dx, dy, fx: dx, fy: dy, force: baseForce, resultantMagnitude, resultantVec, alpha: angle, forceAngle: angle, distance, moment, balanceError, balanceState, point: p }, info);
 }
 
 function updateForceLawState(scene, state, key, value) {
@@ -173,19 +182,13 @@ function forceLawHandles(routeId, state) {
   const primary = () => ensurePrimary(state);
   const vector = () => ensureVector(state);
   const map = {
-    'ch1-1-3': () => [
-      makeHandle('force-tail-a', 'A', primary, point => moveForceTail(state, point), colors.support),
-      makeHandle('force-tip-f', 'F', vector, point => setVectorFromPoint(state, point, 'ch1-1-3'), colors.force)
-    ],
+    'ch1-1-3': () => [makeHandle('force-tail-a', 'A', primary, point => moveForceTail(state, point), colors.support), makeHandle('force-tip-f', 'F', vector, point => setVectorFromPoint(state, point, 'ch1-1-3'), colors.force)],
     'ch1-1-4': () => [makeHandle('moment-load-p', 'P', primary, point => setVerticalForce(state, point), colors.moment)],
     'ch1-1-5': () => [makeHandle('reducer-resultant-r', 'R', vector, point => setVectorFromPoint(state, point, 'ch1-1-5'), colors.result)],
     'ch1-1-6': () => [makeHandle('couple-arm-d', 'd', () => ({ x: 380 + clamp(state.distance, 1.3, 4.3) * PX_PER_M / 2, y: 246 }), point => { state.distance = clamp(Math.abs(point.x - 380) * 2 / PX_PER_M, 1.3, 4.3); }, colors.moment, { raw: true })],
     'ch1-1-8': () => [makeHandle('constraint-load-p', 'P', primary, point => setVerticalForce(state, point), colors.force)],
     'ch1-2-1': () => [makeHandle('two-force-f2', 'F2', vector, point => setVectorFromPoint(state, point, 'ch1-2-1'), colors.force)],
-    'ch1-2-3': () => [
-      makeHandle('parallelogram-f1', 'F1', primary, point => setParallelogramPoint(state, 'primary', point), colors.force, { raw: true }),
-      makeHandle('parallelogram-f2', 'F2', () => ensureSecondary(state), point => setParallelogramPoint(state, 'secondary', point), colors.support, { raw: true })
-    ],
+    'ch1-2-3': () => [makeHandle('parallelogram-f1', 'F1', primary, point => setParallelogramPoint(state, 'primary', point), colors.force, { raw: true }), makeHandle('parallelogram-f2', 'F2', () => ensureSecondary(state), point => setParallelogramPoint(state, 'secondary', point), colors.support, { raw: true })],
     'ch1-2-6': () => [makeHandle('fbd-force-f', 'F', primary, point => setFbdForcePoint(state, point), colors.force)]
   };
   return map[routeId] ? map[routeId]() : [];
@@ -195,7 +198,6 @@ function handlesFor(routeId) {
   return (_scene, state) => forceLawHandles(routeId, state);
 }
 
-const routedForceLaw = new Set(['ch1-1-3', 'ch1-1-4', 'ch1-1-5', 'ch1-1-6', 'ch1-1-8', 'ch1-2-1', 'ch1-2-3', 'ch1-2-6']);
 const specs = [
   ['ch1-1-3', 'ch1-1-3-force-vector-anatomy-behavior', 'force-components-derived', 'point-vector-tip-interactions'],
   ['ch1-1-4', 'ch1-1-4-moment-arm-behavior', 'perpendicular-moment-arm-derived', 'point-load-moment-interactions'],
@@ -208,11 +210,7 @@ const specs = [
 ];
 const entries = {};
 specs.forEach(([routeId, behaviorId, derivedModelId, interactionSchemaId]) => {
-  entries[routeId] = { behaviorId, derivedModelId, interactionSchemaId, handles: handlesFor(routeId) };
-  if (routedForceLaw.has(routeId)) {
-    entries[routeId].derived = forceLawDerived;
-    entries[routeId].updateStateFromSlider = updateForceLawState;
-  }
+  entries[routeId] = { behaviorId, derivedModelId, interactionSchemaId, handles: handlesFor(routeId), derived: forceLawDerived, updateStateFromSlider: updateForceLawState };
 });
 registry.registerMany(entries);
 

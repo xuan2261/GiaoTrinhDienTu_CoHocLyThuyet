@@ -94,13 +94,24 @@ function onTick_ch331(scene, state, dt) {
 
 function onTick_ch332(scene, state, dt) {
   const m1 = state.m || 2, m2 = state.m2 || 2, k = state.k || 20;
-  const x1 = state.x || 0, x2 = state.x2 || 0;
-  const a1 = (k / m1) * (x2 - x1);
-  const a2 = (-k / m2) * (x2 - x1);
-  state.v1 = (state.v1 || 0) + a1 * dt;
-  state.v2 = (state.v2 || 0) + a2 * dt;
-  state.x = x1 + state.v1 * dt;
-  state.x2 = x2 + state.v2 * dt;
+  // Two masses joined by ONE spring (muc-III-2): m1ẍ1 = k(x2−x1), m2ẍ2 = k(x1−x2).
+  // RK4 over the 4-vector (x1,v1,x2,v2) so total mechanical energy stays bounded
+  // — forward Euler injected energy and drifted the orbit each cycle.
+  const deriv = s => ({
+    dx1: s.v1, dv1: (k / m1) * (s.x2 - s.x1),
+    dx2: s.v2, dv2: (k / m2) * (s.x1 - s.x2)
+  });
+  let s = { x1: state.x || 0, v1: state.v1 || 0, x2: state.x2 || 0, v2: state.v2 || 0 };
+  const k1 = deriv(s);
+  const k2 = deriv({ x1: s.x1 + k1.dx1 * dt / 2, v1: s.v1 + k1.dv1 * dt / 2, x2: s.x2 + k1.dx2 * dt / 2, v2: s.v2 + k1.dv2 * dt / 2 });
+  const k3 = deriv({ x1: s.x1 + k2.dx1 * dt / 2, v1: s.v1 + k2.dv1 * dt / 2, x2: s.x2 + k2.dx2 * dt / 2, v2: s.v2 + k2.dv2 * dt / 2 });
+  const k4 = deriv({ x1: s.x1 + k3.dx1 * dt, v1: s.v1 + k3.dv1 * dt, x2: s.x2 + k3.dx2 * dt, v2: s.v2 + k3.dv2 * dt });
+  state.x = s.x1 + (k1.dx1 + 2 * k2.dx1 + 2 * k3.dx1 + k4.dx1) * dt / 6;
+  state.v1 = s.v1 + (k1.dv1 + 2 * k2.dv1 + 2 * k3.dv1 + k4.dv1) * dt / 6;
+  state.x2 = s.x2 + (k1.dx2 + 2 * k2.dx2 + 2 * k3.dx2 + k4.dx2) * dt / 6;
+  state.v2 = s.v2 + (k1.dv2 + 2 * k2.dv2 + 2 * k3.dv2 + k4.dv2) * dt / 6;
+  const rel = state.x - state.x2;
+  state.energy = 0.5 * m1 * state.v1 * state.v1 + 0.5 * m2 * state.v2 * state.v2 + 0.5 * k * rel * rel;
   state.trajectory = state.trajectory || [];
   state.trajectory2 = state.trajectory2 || [];
   state.trajectory.push({ t: (state._t || 0), x: state.x });

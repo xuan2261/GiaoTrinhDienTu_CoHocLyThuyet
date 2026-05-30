@@ -18,14 +18,15 @@ function axes(ctx) {
 function renderCh162CentroidComposite(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Trọng tâm diện tích ghép: trung bình có trọng số', P.tone(1));
   axes(ctx);
+  const c2 = d.c2 || state.primary;
   P.body(ctx, 150, 112, 160, 132, 'rgba(13,110,253,.16)', P.tone(1), 'S1', { radius: 2 });
-  P.body(ctx, 310, 184, 220, 96, 'rgba(25,135,84,.16)', P.tone(2), 'S2', { radius: 2 });
+  // S2 follows the drag point (its centroid G2); G is recomputed, never dragged.
+  P.body(ctx, c2.x - 110, c2.y - 48, 220, 96, 'rgba(25,135,84,.16)', P.tone(2), 'S2', { radius: 2 });
   P.realisticPoint(ctx, 210, 178, { text: 'G1', fill: P.tone(1) });
-  P.realisticPoint(ctx, 402, 224, { text: 'G2', fill: P.tone(2) });
+  P.realisticPoint(ctx, c2.x, c2.y, { text: 'G2', fill: P.tone(2) });
   P.realisticPoint(ctx, d.gx, d.gy, { text: 'G', fill: P.tone(0), radius: 6 });
   P.dashedLine(ctx, 210, 178, d.gx, d.gy, P.tone(6));
-  P.dashedLine(ctx, 402, 224, d.gx, d.gy, P.tone(6));
-  P.neonArrow(ctx, state.primary.x, state.primary.y, d.gx, d.gy, P.tone(0), 'chỉnh G');
+  P.dashedLine(ctx, c2.x, c2.y, d.gx, d.gy, P.tone(6));
   P.domMath(ctx, 'centroid-sum', 520, 92, `x_G=\\frac{S_1x_1+S_2x_2}{S_1+S_2}`, { color: P.tone(1), width: 210 });
   P.domMath(ctx, 'centroid-value', 520, 152, `G(${d.gx.toFixed(0)},${d.gy.toFixed(0)})`, { color: P.tone(0), width: 150 });
 }

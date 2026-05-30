@@ -66,6 +66,8 @@ function buildInitial(routeId) {
     alpha: 0
   };
   if (routeId === 'ch3-3-1') Object.assign(base, { x: 0.8, spring: 0.8 });
+  // ch3-2-1 opens at F=0 to match the concept it teaches (ΣF=0 → v=const).
+  if (routeId === 'ch3-2-1') Object.assign(base, { F: 0 });
   if (routeId === 'ch3-3-2') Object.assign(base, { x: 0.45, x2: -0.25, m2: 2 });
   if (routeId === 'ch3-5-1') Object.assign(base, { masses: [
     { x: 130, y: 188, m: 2 },
@@ -84,7 +86,7 @@ function buildInitial(routeId) {
 
 function buildControls(routeId) {
   const ctrls = [];
-  if (['ch3-1-2', 'ch3-2-1', 'ch3-2-2', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1'].includes(routeId)) ctrls.push({ type: 'slider', key: 'F', label: 'Lực F', min: 0, max: 200, value: 50, step: 5, unit: 'N' });
+  if (['ch3-1-2', 'ch3-2-2', 'ch3-2-3', 'ch3-2-5', 'ch3-4-1'].includes(routeId)) ctrls.push({ type: 'slider', key: 'F', label: 'Lực F', min: 0, max: 200, value: 50, step: 5, unit: 'N' });
   switch (routeId) {
     case 'ch3-1-2':
     case 'ch3-2-2':
@@ -98,6 +100,8 @@ function buildControls(routeId) {
       ctrls.push({ type: 'slider', key: 'a_frame', label: 'a', min: 0, max: 5, value: 2, step: 0.1, unit: 'm/s²' });
       break;
     case 'ch3-2-1':
+      // Default F=0 so the route opens in the state it teaches: ΣF=0 → v=const.
+      ctrls.push({ type: 'slider', key: 'F', label: 'Lực F', min: 0, max: 200, value: 0, step: 5, unit: 'N' });
       ctrls.push({ type: 'slider', key: 'alpha', label: 'Góc', min: 0, max: 90, value: 0, step: 1, unit: 'deg' });
       break;
     case 'ch3-3-1':
@@ -114,8 +118,9 @@ function buildControls(routeId) {
       ctrls.push({ type: 'slider', key: 'm', label: 'm', min: 0.5, max: 5, value: 2, step: 0.5, unit: 'kg' });
       break;
     case 'ch3-5-3':
+      // I is the only free control; ω = L/I follows from conservation of L, so an
+      // independent ω slider would contradict the physics being demonstrated.
       ctrls.push({ type: 'slider', key: 'I', label: 'I', min: 0.1, max: 5, value: 1, step: 0.1, unit: 'kg·m²' });
-      ctrls.push({ type: 'slider', key: 'omega', label: 'ω', min: 0.1, max: 5, value: 2, step: 0.1, unit: 'rad/s' });
       break;
     case 'ch3-5-4':
       ctrls.push({ type: 'slider', key: 'v0', label: 'v0', min: 0, max: 10, value: 3, step: 0.5, unit: 'm/s' });

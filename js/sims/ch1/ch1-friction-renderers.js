@@ -28,9 +28,6 @@ function renderCh151ContactForceDecomposition(ctx, scene, state, d) {
   P.neonArrow(ctx, 324, 304, 218, 304, P.tone(3), 'Fms');
   P.neonArrow(ctx, 324, 304, 246, 186, P.tone(4), 'R');
   P.realisticPoint(ctx, state.primary.x, state.primary.y, { text: 'R', fill: P.tone(0) });
-  P.panel(ctx, 502, 92, 170, 116, 'tam giác tiếp xúc', P.tone(0));
-  P.domMath(ctx, 'mu-contact', 520, 132, `F_{ms}\\le ${d.mu.toFixed(2)}N`, { color: P.tone(3), width: 140 });
-  P.domMath(ctx, 'contact-values', 520, 174, `F_{ms}=${d.friction.toFixed(1)}\\,N`, { color: P.tone(3), width: 140 });
 }
 
 function renderCh152FrictionModeTabs(ctx, scene, state, d) {

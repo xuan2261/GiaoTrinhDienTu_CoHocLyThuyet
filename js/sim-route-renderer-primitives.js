@@ -528,11 +528,14 @@ function ground(ctx, x1, y, x2) {
   }
 }
 function panel(ctx, x, y, w, h, title, color) {
+  // Mark before any draw path so the panel rect is always recorded, even when
+  // glassPanel handles the visuals — structural guards need the geometry to
+  // detect frames left empty by suppressed overlay content.
+  mark('panel', x, y, w, h);
   if (window.SimVisualHelpers && window.SimVisualHelpers.glassPanel) {
     window.SimVisualHelpers.glassPanel(ctx, x, y, w, h, { title, stroke: color });
     return;
   }
-  mark('panel', x, y, w, h);
   ctx.fillStyle = 'rgba(248,249,250,.92)';
   ctx.strokeStyle = color || '#adb5bd';
   ctx.lineWidth = 1.5;

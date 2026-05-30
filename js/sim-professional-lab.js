@@ -181,7 +181,9 @@ function derived(scene, state) {
     vb: vbMag,
     vavevr: vaMag,
     ac: coriolisMag,
-    ae: Math.hypot(pointX - 280, pointY - 180) * Math.pow(state.omega || 0, 2) / 10,
+    ae: physicsKinematics.centrifugalAcceleration
+      ? physicsKinematics.centrifugalAcceleration(state.omega || 0, Math.hypot(pointX - 280, pointY - 180) / 48)
+      : Math.pow(state.omega || 0, 2) * Math.hypot(pointX - 280, pointY - 180) / 48,
     result: state.step !== undefined ? state.step + 1 : state.status,
     verify: state.status || 'Đúng',
     error: state.errorV !== undefined ? state.errorV : (state.errorX || 0),
@@ -1057,14 +1059,18 @@ function ch2Handles(routeId, state) {
     state.vAMag = Math.hypot(state.vA.vx, state.vA.vy);
     state.vBMag = Math.hypot(state.vB.vx, state.vB.vy);
   }, { visual: { stroke: color('velocity') } })];
-  if (routeId === 'ch2-5-2') return [handle('instant-center-point', 'IC', () => pointFromState(state, ['icX', 'icY'], state.primary || { x: 270, y: 245 }), point => {
-    const next = setPointKeys(state, point, 'icX', 'icY');
-    state.P = next;
-    const bx = Number.isFinite(Number(state.bx)) ? state.bx : 360;
-    const by = Number.isFinite(Number(state.by)) ? state.by : 180;
-    state.vB = { vx: -(state.omega || 0) * (by - state.icY), vy: (state.omega || 0) * (bx - state.icX) };
-    state.vBMag = Math.hypot(state.vB.vx, state.vB.vy);
-  }, { visual: { stroke: color('result') } })];
+  if (routeId === 'ch2-5-2') return [handle('slider-end-b', 'B', () => {
+    // B rides the horizontal guide; its position encodes the bar angle θ.
+    const gx = 200, gy = 330, L = 200;
+    const theta = c(Number(state.theta) || 40, 12, 78) * Math.PI / 180;
+    return { x: gx + L * Math.cos(theta), y: gy };
+  }, point => {
+    // Dragging B re-configures the mechanism (sets θ); the IC is still derived
+    // from the velocity normals, never positioned by hand.
+    const gx = 200, L = 200;
+    const cosTheta = c((point.x - gx) / L, Math.cos(78 * Math.PI / 180), Math.cos(12 * Math.PI / 180));
+    state.theta = Math.acos(cosTheta) * 180 / Math.PI;
+  }, { visual: { stroke: color('velocity') } })];
   if (routeId === 'ch2-5-3') return [handle('bar-end', 'B', () => pointFromState(state, ['ex', 'ey'], { x: 338, y: 238 }), point => {
     state.ex = c(point.x, 190, 460); state.ey = c(point.y, 90, 270);
     state.L = Math.hypot(state.ex - 118, state.ey - 238);

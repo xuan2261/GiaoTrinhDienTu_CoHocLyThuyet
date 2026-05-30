@@ -42,8 +42,9 @@ function setFrictionPoint(routeId, state, point) {
 function setCentroidPoint(routeId, state, point) {
   const p = bounded(point);
   if (routeId === 'ch1-6-2') {
+    // Drag moves the SECOND shape's centroid; G is always recomputed from
+    // ΣSx/ΣS, never placed by hand (a centroid is derived, not dragged).
     state.primary = { x: clamp(p.x, 172, 510), y: clamp(p.y, 120, 286) };
-    state._draggedCentroid = true;
   } else {
     state.primary = { x: clamp(p.x, 188, 420), y: clamp(p.y, 112, 232) };
   }
@@ -56,17 +57,20 @@ function frictionDerived(scene, state) {
   const normal = clamp(state.load || 120, 40, 220);
   const applied = clamp(state.force || 92, 20, 190);
   const limit = mu * normal;
-  const fms = routeId === 'ch1-5-1' ? applied : (routeId === 'ch1-5-2' ? Math.min(applied, limit) : limit);
+  // Friction force can never exceed the Coulomb limit μN. ch1-5-1 clamps the
+  // applied tangential force to μN (like ch1-5-2); once demand passes the limit
+  // the contact slips instead of fabricating an above-cone reaction.
+  const fms = routeId === 'ch1-5-1' || routeId === 'ch1-5-2' ? Math.min(applied, limit) : limit;
   const tanAlpha = Math.tan(toRad(alpha));
   const phi = toDeg(Math.atan(mu));
   const lockState = alpha <= phi ? 'tự hãm' : 'không tự hãm';
-  const slipState = routeId === 'ch1-5-1' ? 'hold'
+  const slipState = routeId === 'ch1-5-1' ? (applied <= limit ? 'hold' : 'slip')
     : (routeId === 'ch1-5-3' || routeId === 'ch1-5-4' ? (lockState === 'tự hãm' ? 'hold' : 'slip') : (tanAlpha <= mu && applied <= limit ? 'hold' : 'slip'));
   return {
     point: p, alpha, mu, normal, force: applied, friction: fms,
     resultantMagnitude: Math.hypot(normal, fms),
     threshold: limit, tanAlpha, phi, lockState,
-    slipState, margin: routeId === 'ch1-5-2' ? limit - applied : mu - tanAlpha,
+    slipState, margin: routeId === 'ch1-5-1' || routeId === 'ch1-5-2' ? limit - applied : mu - tanAlpha,
     mode: slipState === 'hold' ? 'bám' : 'trượt'
   };
 }
@@ -74,13 +78,12 @@ function frictionDerived(scene, state) {
 function centroidDerived(scene, state) {
   const routeId = scene.routeId || state.routeId || '';
   const p = primary(state), load = clamp(state.load, 20, 180);
-  const s1 = 120, s2 = load, c1 = { x: 210, y: 178 }, c2 = { x: 402, y: 224 };
+  const s1 = 120, s2 = load, c1 = { x: 210, y: 178 };
+  // ch1-6-2: the drag point IS the second shape's centroid c2 — G follows from
+  // ΣSx/ΣS, so it can never be placed directly by the user.
+  const c2 = routeId === 'ch1-6-2' ? p : { x: 402, y: 224 };
   let gx = (s1 * c1.x + s2 * c2.x) / (s1 + s2), gy = (s1 * c1.y + s2 * c2.y) / (s1 + s2);
   let hole = 0, shift = 0;
-  if (routeId === 'ch1-6-2' && state._draggedCentroid) {
-    gx = p.x;
-    gy = p.y;
-  }
   if (routeId === 'ch1-6-3') {
     const big = 260, holeArea = load * 0.72;
     hole = holeArea;
@@ -88,7 +91,7 @@ function centroidDerived(scene, state) {
     gy = (big * 188 - holeArea * p.y) / Math.max(1, big - holeArea);
     shift = Math.hypot(gx - 300, gy - 188);
   }
-  return { point: p, gx, gy, centroid: { x: gx, y: gy }, load, hole, shift,
+  return { point: p, gx, gy, c2, centroid: { x: gx, y: gy }, load, hole, shift,
     resultantMagnitude: Math.hypot(gx - 180, gy - 260) };
 }
 

@@ -68,50 +68,29 @@ function renderCh331OdeSolver(ctx, scene, state, d) {
 
 function renderCh332CoupledSprings(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Cơ hệ 2 khối nối lò xo', P.tone(2));
-  const x1 = state.x || 0, x2 = state.trajectory2 ? (state.trajectory2[state.trajectory2.length - 1] || { x: 0 }).x : 0;
+  const x1 = state.x || 0, x2 = state.x2 || 0;
   const m1 = state.m || 2;
   const m2 = state.m2 || m1;
   const body1W = Math.round(Math.max(36, Math.min(80, 32 + m1 * 5)));
   const body2W = Math.round(Math.max(36, Math.min(80, 32 + m2 * 5)));
 
-  P.realisticGround(ctx, 58, 120, 76, { material: 'concrete', height: 130 });
-  P.realisticGround(ctx, 492, 120, 510, { material: 'concrete', height: 130 });
   P.realisticGround(ctx, 54, 270, 526, { material: 'concrete', height: 4 });
 
-  const body1X = 130 + x1 * 30;
+  const body1X = 180 + x1 * 30;
   const body2X = 330 + x2 * 30;
-  const body1Anchor = { x: body1X, y: 184 };
-  const body2Anchor = { x: body2X, y: 184 };
 
-  // Left spring: wall(76) → body1 left edge.
-  P.spring(ctx, 76, 184, body1Anchor.x, body1Anchor.y, {
-    anchor: body1Anchor,
-    wallAnchor: { x: 76, y: 184 },
-    coils: 8, width: 10, color: P.tone(0), lineWidth: 2.5
-  });
-
-  // Middle spring: body1 right edge → body2 left edge. Pass right-edge of body1 as wall.
+  // Single spring joins the two free-sliding masses (muc-III-2): no wall springs,
+  // matching m1ẍ1 = k(x2−x1), m2ẍ2 = k(x1−x2).
   const body1RightEdge = { x: body1X + body1W, y: 184 };
+  const body2Anchor = { x: body2X, y: 184 };
   P.spring(ctx, body1RightEdge.x, body1RightEdge.y, body2Anchor.x, body2Anchor.y, {
     anchor: body2Anchor,
     wallAnchor: body1RightEdge,
-    coils: 10, width: 8, color: P.tone(1), lineWidth: 2
-  });
-
-  // Right spring: body2 right edge → wall(490).
-  const body2RightEdge = { x: body2X + body2W, y: 184 };
-  P.spring(ctx, body2RightEdge.x, body2RightEdge.y, 490, 184, {
-    anchor: { x: 490, y: 184 },
-    wallAnchor: body2RightEdge,
-    coils: 8, width: 10, color: P.tone(0), lineWidth: 2.5
+    coils: 10, width: 9, color: P.tone(1), lineWidth: 2.5
   });
 
   P.realisticBody(ctx, body1X, 166, body1W, 36, 'm1', { material: 'metal', radius: 4 });
   P.realisticBody(ctx, body2X, 166, body2W, 36, 'm2', { material: 'metal', radius: 4 });
-
-  P.panel(ctx, 68, 84, 280, 56, 'phương trình hệ', P.tone(2));
-  P.domMath(ctx, '332-eq', 86, 92, 'm_1\\ddot{x}_1 = -k(x_1-x_2)', { color: P.tone(2) });
-  P.domMath(ctx, '332-eq2', 86, 118, 'm_2\\ddot{x}_2 = -k(x_2-x_1)', { color: P.tone(1) });
 }
 
 // ─── ch3-4-1: D'Alembert equilibrium ─────────────────────────────────────────
@@ -124,19 +103,17 @@ function renderCh341DalembertEquilibrium(ctx, scene, state, d) {
   P.neonArrow(ctx, 226, 194, 276, 140, P.tone(0), 'F');
   P.neonArrow(ctx, 166, 194, 116, 244, P.tone(4), 'F*');
   P.realisticPoint(ctx, 196, 194, { fill: P.tone(3), radius: 4 });
-
-  P.panel(ctx, 322, 84, 176, 178, 'cân bằng', P.tone(4));
-  P.domMath(ctx, '341-eq', 338, 92, '\\vec{F} + \\vec{F}^{*} = \\vec{0}', { color: P.tone(3) });
-  P.domMath(ctx, '341-ext', 340, 126, `F_{ext} = ${(state.F||50).toFixed(0)}`, { color: P.tone(0) });
-  P.domMath(ctx, '341-inertia', 340, 158, `F^{*} = ${(-state.m*a).toFixed(0)}`, { color: P.tone(4) });
 }
 
 // ─── ch3-4-2: Inverse dynamics ───────────────────────────────────────────────
 
 function renderCh342InverseDynamics(ctx, scene, state, d) {
   const t = state._t || 0;
-  const a = -Math.pow(0.5, 2) * Math.sin(t * 2) * 10;
-  const F = (state.m || 5) * a;
+  // Read a(t) and F from the behavior (ω=0.5 rad/s) so the plotted curve and the
+  // force arrow share one frequency — the renderer must not invent a 2 rad/s wave.
+  const omega = 0.5;
+  const a = Number.isFinite(Number(state.a)) ? Number(state.a) : -omega * omega * Math.sin(omega * t) * 10;
+  const F = Number.isFinite(Number(state.F)) ? Number(state.F) : (state.m || 5) * a;
   P.frame(ctx, scene, 'Ngược động lực học: a(t) → F', P.tone(4));
   P.panel(ctx, 66, 84, 180, 170, 'biên dạng a(t)', P.tone(4));
 
@@ -144,7 +121,7 @@ function renderCh342InverseDynamics(ctx, scene, state, d) {
   ctx.beginPath(); ctx.moveTo(92, 198);
   for (let i = 0; i <= 160; i += 4) {
     const u = i / 40;
-    const ya = 198 - 40 * Math.sin(u * 0.8 + t * 2) * 0.5;
+    const ya = 198 - 40 * Math.sin(u * 0.8 + omega * t) * 0.5;
     ctx.lineTo(92 + i, ya);
   }
   ctx.stroke();

@@ -17,7 +17,7 @@ const rows = [
   ['ch2-1-2', 'graph-cursor', 'kinematics', 'Đồ thị x(t) v(t) a(t)', 'v=\\dot{x};\\ a=\\ddot{x}', 'Đồ thị động học', 'omega', 't', 'Con trỏ t', 'x(t)', 'v(t)'],
   ['ch2-1-3', 'natural-coords', 'kinematics', 'Tọa độ tự nhiên', '\\vec{v}=v\\vec{\\tau};\\ \\vec{a}=\\dot{v}\\vec{\\tau}+\\frac{v^2}{\\rho}\\vec{n}', 'Tiếp tuyến + pháp tuyến', 'omega', 'rho', 'Bán kính cong', 'a_t', 'a_n'],
   ['ch2-1-4', 'motion-presets', 'kinematics', 'Các dạng chuyển động', '\\vec{r}=\\vec{r}(t);\\ v=\\left|\\dot{\\vec{r}}\\right|', 'Mẫu quỹ đạo', 'omega', 'mode', 'Loại chuyển động', 'x', 'v'],
-  ['ch2-2-2', 'fixed-axis-rotation', 'kinematics', 'Quay quanh trục cố định', '\\omega=\\dot{\\varphi};\\ \\varepsilon=\\dot{\\omega}', 'Đĩa quay quanh O', 'omega', 'alpha', 'Tốc độ góc đầu', 'phi', 'omega'],
+  ['ch2-2-2', 'fixed-axis-rotation', 'kinematics', 'Quay quanh trục cố định', '\\omega=\\dot{\\varphi};\\ \\varepsilon=\\dot{\\omega}', 'Đĩa quay quanh O', 'omega', 'alpha', 'Gia tốc góc ε', 'phi', 'omega'],
   ['ch2-3-2', 'belt-gear-transmission', 'kinematics', 'Truyền động bánh răng', '\\omega_2=\\omega_1\\frac{r_1}{r_2}', 'Truyền động bánh - dây', 'omega', 'r1', 'Bán kính r1', 'omega2', 'v'],
   ['ch2-4-1', 'velocity-composition', 'kinematics', 'Hợp chuyển động', '\\vec{v}_a=\\vec{v}_e+\\vec{v}_r', 'Tam giác vận tốc', 'omega', 't', 'Pha vận tốc', '|v_a|', '|v_r|'],
   ['ch2-4-2', 'absolute-relative-transport', 'kinematics', 'Ba loại vận tốc', '\\vec{v}_a=\\vec{v}_e+\\vec{v}_r', 'Phân biệt v_a, v_r, v_e', 'omega', 't', 'Pha định nghĩa', '|v_a|', '|v_e|'],
@@ -125,15 +125,9 @@ function buildInitialState(routeId, index) {
     case 'ch2-4-4': return Object.assign(base, { theta: 0, px: 360, py: 180, vrx: 30, vry: 0, vrMag: 30, vr: { vx: 30, vy: 0 }, ac: { vx: 0, vy: 90 }, coriolis: 90 });
     case 'ch2-5-1': return Object.assign(base, { phi: 0, ox: 180, oy: 170, ax: 260, ay: 170, bx: 420, by: 170, vAMag: 46.7, vBMag: 245 });
     case 'ch2-5-2': return Object.assign(base, {
-      primary: { x: 270, y: 245 },
-      P: { x: 270, y: 245 },
-      theta: 0,
-      icX: 270,
-      icY: 245,
-      ax: 220,
-      ay: 180,
-      bx: 360,
-      by: 180
+      // Bar angle θ is the only control; IC is derived from the velocity normals.
+      // Start mid-range so dragging end B both raises and lowers θ.
+      theta: 40
     });
     case 'ch2-5-3': return Object.assign(base, { phi: 0, ex: 338, ey: 238, L: 2.2, vAMag: 0, vBMag: 3.3 });
     default: return base;
@@ -156,19 +150,19 @@ function buildControls(routeId, forceLabel, secondKey, secondLabel) {
 }
 
 function maxFor(key) {
-  return { alpha: 2, r1: 80, r2: 90, theta: 360, phi: 360, t: 6.28, L: 260, rho: 180, vr: 80, vrMag: 80 }[key] || 90;
+  return { alpha: 2, r1: 1.6, r2: 90, theta: 360, phi: 360, t: 6.28, L: 260, rho: 180, vr: 80, vrMag: 80 }[key] || 90;
 }
 
 function minFor(key) {
-  return { L: 80, rho: 60 }[key] || 0;
+  return { L: 80, rho: 60, r1: 0.56 }[key] || 0;
 }
 
 function defaultFor(key) {
-  return { alpha: 0, r1: 50, r2: 90, theta: 0, phi: 0, t: 0, L: 220, rho: 96, vr: 30, vrMag: 30 }[key] ?? 30;
+  return { alpha: 0, r1: 1, r2: 90, theta: 0, phi: 0, t: 0, L: 220, rho: 96, vr: 30, vrMag: 30 }[key] ?? 30;
 }
 
 function stepFor(key) {
-  return { alpha: 0.05, t: 0.05, L: 5 }[key] || 1;
+  return { alpha: 0.05, t: 0.05, L: 5, r1: 0.02 }[key] || 1;
 }
 
 function unitFor(key) {

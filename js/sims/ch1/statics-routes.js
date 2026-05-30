@@ -1,5 +1,8 @@
 /**
- * Ch1 route registrations. Implementations remain in SimStatics legacy adapter.
+ * Ch1 route registrations. Each entry is SimProfessionalLab.mount(routeId) routed
+ * through the SimStatics adapter; SimRegistry → buildSimMap() makes these the
+ * active mount path for Ch1 (NOT dead code — they win SIM_MAP over the renderer
+ * fallback, verified against js/simulations.js).
  */
 (function() {
 'use strict';

@@ -1,7 +1,8 @@
 # Danh sách mô phỏng trong giáo trình Cơ học lý thuyết
 
-- Tổng số mô phỏng canonical: **58** (theo `js/sim-route-manifest.js`).
-- Tổng số scene route-specific nạp được: **58**.
+- Tổng số mô phỏng canonical: **52** (theo `js/sim-route-manifest.js`).
+- Tổng số scene route-specific nạp được: **52**.
+- Ghi chú: 6 route Section VII (`ch1-7-1`, `ch1-7-2`, `ch2-7-1`, `ch2-7-2`, `ch3-7-1`, `ch3-7-2`) là `BÀI TẬP` content-only, không thuộc 52 canonical simulation.
 - Kích thước canvas chuẩn: **560 x 340 px** (theo `js/sim-scene-templates.js`).
 - Vùng hiển thị toàn bộ phần nền mô phỏng (inner panel): **524 x 304 px** (lề 18 px mỗi cạnh).
 - Canvas hiển thị responsive theo khung chứa, giữ tỉ lệ gốc 560:340 (theo `js/sim-core.js`).

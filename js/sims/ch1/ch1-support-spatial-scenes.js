@@ -15,7 +15,7 @@ const rows = [
   ['ch1-3-2', 'cable-tension', 'support', 'Lực căng dây mềm', '\\vec{T}\\parallel\\text{dây}', 'Dây mềm chịu kéo', '|T|', 'alpha', 'Hướng dây', 'Lực căng', 'Dây'],
   ['ch1-3-3', 'support-component-selector', 'support', 'Thành phần phản lực bản lề', 'A: Ax, Ay', 'Bản lề hai thành phần', '|R| bản lề', 'load', 'Chọn loại', 'Rx/Ry', 'Loại liên kết'],
   ['ch1-3-4', 'roller-pin-builder', 'support', 'Gối di động và gối cố định', 'Gối di động: N; bản lề: Ax, Ay', 'Gối di động và gối cố định', 'P', 'load', 'Vị trí tải a', 'R_A', 'R_B'],
-  ['ch1-3-6', 'fixed-support', 'support', 'Phản lực tại ngàm', 'Ngàm: Rx, Ry, MA', 'Ngàm có mô men phản lực', '|R| ngàm', 'load', 'Mô men ngàm', 'MA', 'Rx/Ry'],
+  ['ch1-3-6', 'fixed-support', 'support', 'Phản lực tại ngàm', 'Ngàm: Rx, Ry, MA', 'Ngàm có mô men phản lực', '|R| ngàm', 'load', 'Cánh tay đòn', 'MA', 'Rx/Ry'],
   ['ch1-3-7', 'two-force-member', 'support', 'Thanh hai lực theo trục', 'N dọc trục thanh', 'Thanh hai lực', '|N| dọc trục', 'alpha', 'Trục thanh', 'N dọc trục', 'Đường trục'],
   ['ch1-4-1', 'spatial-resultant', 'spatial', 'Hợp lực không gian', 'R = ΣFx i + ΣFy j + ΣFz k', 'Véc tơ chính không gian', '|R| 3D', 'load', 'Tỉ lệ Fz', 'Rxyz', 'Hình chiếu'],
   ['ch1-4-2', 'spatial-moment', 'spatial', 'Hình chiếu mô men không gian', 'MO = r x F; M_axis = MO.e', 'Mô men theo trục chiếu', '|F| theo trục', 'alpha', 'Góc trục', 'M_axis', 'MO'],
@@ -38,6 +38,27 @@ function scene(row, index) {
   const loadMax = isHingeSelector ? 2 : (routeId === 'ch1-3-4' ? 4.6 : (routeId === 'ch1-3-6' ? 1.8 : 180));
   const loadValue = isHingeSelector ? 1 : (routeId === 'ch1-3-4' ? 2.5 : (routeId === 'ch1-3-6' ? 1 : 100));
   const loadUnit = routeId === 'ch1-3-4' || routeId === 'ch1-3-6' ? 'm' : '%';
+  // ch1-4-1 / ch1-4-4 carry explicit readouts: one resultant (no duplicate
+  // |R|), force projections in N, and a true equilibrium badge from ΣF/ΣM.
+  const spatialReadouts = {
+    'ch1-4-1': [
+      { label: '|R|', key: 'resultantMagnitude', digits: 1, unit: 'N', kind: 'result' },
+      { label: 'R_z (hình chiếu)', key: 'rz', digits: 1, unit: 'N', kind: 'force' },
+      { label: '|F|', key: 'force', digits: 1, unit: 'N', kind: 'force' }
+    ],
+    // ch1-4-2: the projected moment reads in N·m (the legacy "MO" card mislabelled
+    // the axis angle as a moment with a degree unit). The axis angle keeps °.
+    'ch1-4-2': [
+      { label: 'M trục', key: 'moment', digits: 1, unit: 'N.m', kind: 'moment' },
+      { label: 'Góc trục', key: 'alpha', digits: 0, unit: '°', kind: 'angle' },
+      { label: '|F|', key: 'force', digits: 1, unit: 'N', kind: 'force' }
+    ],
+    'ch1-4-4': [
+      { label: 'Trạng thái', key: 'balanceLabel', kind: 'mode' },
+      { label: 'ΣF', key: 'resultantMagnitude', digits: 2, unit: 'N', kind: 'result' },
+      { label: 'ΣM', key: 'sumM', digits: 2, unit: 'N.m', kind: 'moment' }
+    ]
+  };
   return {
     routeId,
     sceneId: `${routeId}-${template}`,
@@ -57,7 +78,7 @@ function scene(row, index) {
       { type: 'slider', key: 'force', label: forceLabel, min: routeId === 'ch1-3-4' ? 35 : 20, max: routeId === 'ch1-3-4' ? 190 : 170, value: routeId === 'ch1-3-4' ? 130 : 85, step: 5, unit: 'N' },
       { type: 'slider', key: secondKey, label: secondLabel, min: 0, max: secondKey === 'load' ? loadMax : 55, value: secondKey === 'load' ? loadValue : 20, step: isHingeSelector ? 1 : (secondKey === 'load' ? (loadUnit === 'm' ? 0.1 : 5) : 1), unit: isHingeSelector ? '' : (secondKey === 'load' ? loadUnit : 'deg'), physicalUnit: isHingeSelector ? '' : (secondKey === 'load' ? loadUnit : 'deg'), pxPerUnit: loadUnit === 'm' ? 100 : undefined }
     ],
-    readouts: (isHingeSelector ? [
+    readouts: spatialReadouts[routeId] || ((isHingeSelector ? [
       { label: read1, key: 'resultantMagnitude', digits: 1, unit: 'N', kind: 'result' },
       { label: read2, key: 'supportKind', kind: 'mode' },
       { label: 'Tải P', key: 'force', digits: 1, unit: 'N', kind: 'force' }
@@ -68,7 +89,7 @@ function scene(row, index) {
     ] : [
       { label: read1, key: read1 === 'R_A' ? 'ra' : (read1.indexOf('M') >= 0 ? 'moment' : 'resultantMagnitude'), scale: read1.indexOf('M') >= 0 ? momentScale : 1, digits: 1, unit: read1.indexOf('M') >= 0 ? 'N.m' : 'N', kind: read1.indexOf('T') >= 0 ? 'force' : 'result' },
       { label: read2, key: read2 === 'R_B' ? 'rb' : (index < 2 ? 'direction' : secondKey), digits: 1, unit: read2 === 'R_B' ? 'N' : '', kind: index < 2 ? 'mode' : 'angle' }
-    ])).concat(routeId === 'ch1-4-1' ? [{ label: forceLabel, key: 'force', digits: 1, unit: 'N', kind: 'force' }] : [])
+    ])))
   };
 }
 

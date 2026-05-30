@@ -110,13 +110,14 @@ function renderCh211Trajectory(ctx, scene, state) {
   P.domLabel(ctx, 'particle-mode', 46, 386, `${mode} | t=${(state.t || 0).toFixed(2)}s`, { color: P.tone(6) });
 }
 
-function graphValue(kind, t) {
-  if (kind === 'x') return 54 * Math.sin(t);
-  if (kind === 'v') return 54 * Math.cos(t);
-  return -54 * Math.sin(t);
+function graphValue(kind, t, amp) {
+  const A = Number.isFinite(Number(amp)) ? Number(amp) : 54;
+  if (kind === 'x') return A * Math.sin(t);
+  if (kind === 'v') return A * Math.cos(t);
+  return -A * Math.sin(t);
 }
 
-function drawGraph(ctx, x, y, w, h, label, tone, t) {
+function drawGraph(ctx, x, y, w, h, label, tone, t, amp) {
   const zero = y + h / 2;
   ctx.strokeStyle = P.tone(6); ctx.lineWidth = 1.2;
   ctx.strokeRect(x, y, w, h);
@@ -124,21 +125,24 @@ function drawGraph(ctx, x, y, w, h, label, tone, t) {
   ctx.strokeStyle = P.tone(tone); ctx.lineWidth = 2.6;
   ctx.beginPath();
   for (let i = 0; i <= w; i += 4) {
-    const py = zero - graphValue(label, i / w * Math.PI * 2);
+    const py = zero - graphValue(label, i / w * Math.PI * 2, amp);
     if (i === 0) ctx.moveTo(x + i, py); else ctx.lineTo(x + i, py);
   }
   ctx.stroke();
   const cx = x + ((t % (Math.PI * 2)) / (Math.PI * 2)) * w;
   P.dashedLine(ctx, cx, y, cx, y + h, P.tone(4));
-  P.point(ctx, cx, zero - graphValue(label, t), P.tone(tone), label);
+  P.point(ctx, cx, zero - graphValue(label, t, amp), P.tone(tone), label);
 }
 
 function renderCh212MotionGraphs(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Đồ thị x(t), v(t), a(t) có con trỏ kéo', P.tone(3));
   const t = state.t || 0;
-  drawGraph(ctx, 56, 86, 290, 88, 'x', 0, t);
-  drawGraph(ctx, 398, 86, 290, 88, 'v', 1, t);
-  drawGraph(ctx, 56, 238, 290, 88, 'a', 2, t);
+  // Amplitude tracks the ω control (state.scale), so dragging ω reshapes all
+  // three curves instead of leaving a fixed 54-unit wave.
+  const amp = Number.isFinite(Number(state.scale)) ? Number(state.scale) : 54;
+  drawGraph(ctx, 56, 86, 290, 88, 'x', 0, t, amp);
+  drawGraph(ctx, 398, 86, 290, 88, 'v', 1, t, amp);
+  drawGraph(ctx, 56, 238, 290, 88, 'a', 2, t, amp);
   if (state.diagnostics && (state.diagnostics.graph || state.diagnostics.components)) {
     const values = d && d.invariant && d.invariant.values || {};
     const cx = 56 + ((t % (Math.PI * 2)) / (Math.PI * 2)) * 290;

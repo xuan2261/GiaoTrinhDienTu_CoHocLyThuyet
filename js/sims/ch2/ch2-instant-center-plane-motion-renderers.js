@@ -52,51 +52,39 @@ function renderCh251PlaneTranslationRotation(ctx, scene, state, d) {
 
 function renderCh252InstantCenter(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Tâm vận tốc tức thời: vận tốc vuông góc bán kính IC', P.tone(3));
-  const theta = Number.isFinite(Number(state.theta)) ? Number(state.theta) * Math.PI / 180 : 0;
-  const omega = state.omega || 1.5, r = 80, L = 180;
-  const ox = 140, oy = 260;
-  const ax = state.ax || (ox + r * Math.cos(theta));
-  const ay = state.ay || (oy - r * Math.sin(theta));
-  const bx = state.bx || (ax + L * Math.cos(theta + Math.PI / 4));
-  const by = state.by || (ay + L * Math.sin(theta + Math.PI / 4));
+  d = d || {};
+  const ox = d.ox || 200, oy = d.oy || 330;
+  const ax = d.ax, ay = d.ay, bx = d.bx, by = d.by;
+  const icX = d.icX, icY = d.icY;
+  const omega = d.omega || 1.5;
 
-  P.realisticGround(ctx, ox - 24, oy + 8, ox + 24, { material: 'concrete' });
-  P.realisticBeam(ctx, ox, oy, ax, ay, { material: 'metal', height: 10 });
+  // Guides: A slides on the vertical rail at ox, B on the horizontal rail at oy.
+  P.dashedLine(ctx, ox, oy - 210, ox, oy + 10, P.tone(6));
+  P.dashedLine(ctx, ox - 10, oy, ox + 230, oy, P.tone(6));
   P.realisticBeam(ctx, ax, ay, bx, by, { material: 'metal', height: 10 });
 
-  P.realisticPoint(ctx, ox, oy, { text: 'O', fill: P.tone(4) });
   P.realisticPoint(ctx, ax, ay, { text: 'A', fill: P.tone(0) });
   P.realisticPoint(ctx, bx, by, { text: 'B', fill: P.tone(1) });
 
-  const icX = Number.isFinite(Number(state.icX)) ? Number(state.icX) : ox;
-  const icY = Number.isFinite(Number(state.icY)) ? Number(state.icY) : oy;
-
-  ctx.save();
-  ctx.strokeStyle = P.tone(2);
-  ctx.lineWidth = 2;
-  const pulse = 1 + 0.15 * Math.sin((state.phi || 0) * 3);
-  ctx.beginPath(); ctx.arc(icX, icY, 10 * pulse, 0, Math.PI * 2); ctx.stroke();
-  ctx.restore();
-
-  P.realisticPoint(ctx, icX, icY, { text: 'IC', fill: P.tone(2), radius: 6 });
+  // IC is the geometric intersection of the velocity normals (rectangle corner).
   P.dashedLine(ctx, icX, icY, ax, ay, P.tone(2));
   P.dashedLine(ctx, icX, icY, bx, by, P.tone(2));
+  P.realisticPoint(ctx, icX, icY, { text: 'IC', fill: P.tone(2), radius: 6 });
 
-  const vB = state.vB || { vx: -omega * (by - icY), vy: omega * (bx - icX) };
-  arrowFromVector(ctx, { x: bx, y: by }, vB, 0.38, P.tone(2), 'v_B');
+  // Velocity directions at A (along its guide) and B (computed from IC).
+  arrowFromVector(ctx, { x: ax, y: ay }, { vx: 0, vy: -omega * Math.hypot(ax - icX, ay - icY) }, 0.18, P.tone(0), 'v_A');
+  arrowFromVector(ctx, { x: bx, y: by }, d.vB || { vx: omega * Math.hypot(bx - icX, by - icY), vy: 0 }, 0.18, P.tone(2), 'v_B');
+
   if (state.diagnostics && (state.diagnostics.components || state.diagnostics.error)) {
-    const values = d && d.invariant && d.invariant.values || {};
     const radius = Math.hypot(bx - icX, by - icY);
-    const perp = Number.isFinite(Number(values.perpendicularResidual))
-      ? Number(values.perpendicularResidual)
-      : Math.abs((bx - icX) * (vB.vx || 0) + (by - icY) * (vB.vy || 0));
+    const perp = Number.isFinite(Number(d.perpendicularResidual)) ? Number(d.perpendicularResidual) : 0;
     P.dimension(ctx, icX, icY, bx, by, P.tone(2), `r=${radius.toFixed(0)}`);
-    P.domLabel(ctx, 'ic-diagnostic', 376, 104,
+    P.domLabel(ctx, 'ic-diagnostic', 540, 104,
       `vuông góc residual=${perp.toExponential(1)}`,
       { color: perp < 1e-6 ? P.tone(2) : '#dc3545', width: 240 });
   }
-  P.domMath(ctx, 'ic-eq', 376, 58, `\\vec{v}_B=\\vec{\\omega}\\times\\overrightarrow{IB}`, { color: P.tone(3) });
-  P.domMath(ctx, 'ic-vb', 376, 80, `I(${icX.toFixed(0)},${icY.toFixed(0)});\\ |v_B|=${mag(vB).toFixed(1)}`, { color: P.tone(2) });
+  P.domMath(ctx, 'ic-eq', 540, 58, `\\vec{v}_B=\\vec{\\omega}\\times\\overrightarrow{IB}`, { color: P.tone(3) });
+  P.domMath(ctx, 'ic-vb', 540, 80, `|v_B|=${mag(d.vB || {}).toFixed(1)}`, { color: P.tone(2) });
 }
 
 function renderCh253VelocityDistribution(ctx, scene, state, d) {

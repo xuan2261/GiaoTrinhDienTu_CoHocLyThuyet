@@ -148,6 +148,25 @@ function reduceToResultant(forces) {
   return { Rx, Ry, Mo };
 }
 
+/**
+ * Resultant of a spatial (3D) concurrent force system: R = ΣFᵢ.
+ * Unlike reduceToResultant (2D, returns a planar moment), this returns the full
+ * 3D resultant vector and its magnitude. Each force is given by its components
+ * (pair with spatialForceComponents to convert magnitude+angles first), so a
+ * single |R| is derived from a true vector sum instead of two conflicting values.
+ * @param {Array<{Fx: number, Fy: number, Fz: number}>} forces - Force components in N
+ * @returns {{Rx: number, Ry: number, Rz: number, magnitude: number}}
+ */
+function resultant3D(forces) {
+  let Rx = 0, Ry = 0, Rz = 0;
+  for (const f of (forces || [])) {
+    Rx += Number(f && f.Fx) || 0;
+    Ry += Number(f && f.Fy) || 0;
+    Rz += Number(f && f.Fz) || 0;
+  }
+  return { Rx, Ry, Rz, magnitude: Math.sqrt(Rx * Rx + Ry * Ry + Rz * Rz) };
+}
+
 // ─── Friction ─────────────────────────────────────────────────────────────────
 
 /**
@@ -234,6 +253,7 @@ window.SimPhysicsStatics = {
   spatialForceComponents,
   spatialMoment,
   reduceToResultant,
+  resultant3D,
   frictionNormal,
   tensionInCable,
   centroidComposite,

@@ -160,6 +160,23 @@ function momentumBefore(m1, m2, v1, v2) { return m1 * v1 + m2 * v2; }
 function momentumAfter(result, m1, m2) { return m1 * result.v1 + m2 * result.v2; }
 
 /**
+ * Total 2D linear momentum p = Σ mᵢ·vᵢ for a system of bodies.
+ * Momentum is conserved only when no external impulse acts; callers must read p
+ * from the same live state they render so the readout cannot fake conservation.
+ * @param {Array<{m: number, vx: number, vy: number}>} bodies - Mass + velocity per body
+ * @returns {{x: number, y: number}} Signed momentum components (kg·m/s when inputs are SI)
+ */
+function momentum2d(bodies) {
+  let x = 0, y = 0;
+  for (const b of (bodies || [])) {
+    const m = Number(b && b.m) || 0;
+    x += m * (Number(b && b.vx) || 0);
+    y += m * (Number(b && b.vy) || 0);
+  }
+  return { x, y };
+}
+
+/**
  * 2D collision resolution with normal/tangential decomposition.
  * @param {number} m1, m2 - Masses kg
  * @param {{x: number, y: number}} p1, p2 - Positions
@@ -335,6 +352,7 @@ window.SimPhysicsDynamics = {
   restitutionVelocity,
   momentumBefore,
   momentumAfter,
+  momentum2d,
   resolveCollision2D,
   kineticEnergy,
   potentialEnergy,

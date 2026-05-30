@@ -40,8 +40,12 @@ function renderCh351CenterOfMass(ctx, scene, state, d) {
   });
 
   P.realisticPoint(ctx, xCM, yCM, { text: 'C', fill: P.tone(0), radius: 8 });
-  P.neonArrow(ctx, xCM, yCM, xCM + 120, yCM - 60, P.tone(0), 'ΣF_ext');
-  P.neonArrow(ctx, xCM, yCM, xCM + 80, yCM + 10, P.tone(2), 'a_CM');
+  // m·a_CM = ΣF_ext, so the acceleration is parallel to (and along) the net
+  // external force — both arrows share one direction, scaled by 1/m.
+  const fx = 120, fy = -60;
+  P.neonArrow(ctx, xCM, yCM, xCM + fx, yCM + fy, P.tone(0), 'ΣF_ext');
+  const invM = 1 / totalM;
+  P.neonArrow(ctx, xCM, yCM, xCM + fx * invM * 2.2, yCM + fy * invM * 2.2, P.tone(2), 'a_CM');
 
   P.domMath(ctx, '351-com', 330, 276, `x_C = ${xCM.toFixed(0)}`, { color: P.tone(1) });
   P.domMath(ctx, '351-eq', 330, 296, `m_C \\vec{a}_C = \\sum \\vec{F}_{ext}`, { color: P.tone(1) });
@@ -60,10 +64,11 @@ function renderCh352ImpulseMomentum(ctx, scene, state, d) {
   ctx.restore();
 
   const t = state._t || 0;
-  const F = state.F || 20;
   const J = state.J || 20;
   const pBefore = (state.m || 2) * 6;
-  const pAfter = pBefore + J * Math.min(1, t / 4) + 0.25 * F * t;
+  // Impulse-momentum theorem: Δp = J. The impulse ramps in over ~4 s, so p_after
+  // approaches p_before + J and stops there (no spurious F·t accumulation).
+  const pAfter = pBefore + J * Math.min(1, t / 4);
 
   // Moving cursor in the F(t) panel — sweeps left-to-right with t mod ~3.6 s.
   const cursorX = 96 + ((t * 30) % 110);
@@ -84,26 +89,24 @@ function renderCh352ImpulseMomentum(ctx, scene, state, d) {
 
 function renderCh353AngularMomentum(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Mô men động lượng: L = Iω', P.tone(4));
-  const I = state.I || 1, omega = state.omega || 2, L = I * omega;
+  d = d || {};
+  const I = d.I || state.I || 1, omega = d.omega || state.omega || 2, L = d.L || I * omega;
+  // Drawn radius follows I = mr² so the geometry tracks the inertia slider.
+  const rPx = 40 + (d.r || (state.r || 60) / 60) * 40;
   const angle = (state._t || 0) * omega * 2;
 
   P.realisticPoint(ctx, 148, 242, { text: 'O', fill: P.tone(4) });
-  const rx = 148 + Math.cos(angle) * (state.r || 60);
-  const ry = 242 + Math.sin(angle) * (state.r || 60);
+  const rx = 148 + Math.cos(angle) * rPx;
+  const ry = 242 + Math.sin(angle) * rPx;
   P.dashedLine(ctx, 148, 242, rx, ry, P.tone(6));
 
   P.realisticPoint(ctx, rx, ry, { text: 'm', fill: P.tone(0), radius: 10 });
 
-  const vx = -Math.sin(angle) * omega * (state.r || 60) * 0.5;
-  const vy = Math.cos(angle) * omega * (state.r || 60) * 0.5;
+  const vx = -Math.sin(angle) * omega * rPx * 0.5;
+  const vy = Math.cos(angle) * omega * rPx * 0.5;
   P.neonArrow(ctx, rx, ry, rx + vx * 0.8, ry + vy * 0.8, P.tone(1), 'mv');
 
   P.angleArc(ctx, 148, 242, 30, angle - 0.6, angle + 0.2, P.tone(4), 'r');
-
-  P.panel(ctx, 308, 84, 192, 172, 'mô men động lượng', P.tone(4));
-  P.domMath(ctx, '353-L', 324, 96, `\\vec{L}_O = \\vec{r} \\times m\\vec{v}`, { color: P.tone(4) });
-  P.domMath(ctx, '353-I', 326, 130, `I = ${I.toFixed(2)}`, { color: P.tone(6) });
-  P.domMath(ctx, '353-omega', 326, 160, `\\omega = ${omega.toFixed(2)}`, { color: P.tone(1) });
 }
 
 // ─── ch3-5-4: Work-energy theorem ───────────────────────────────────────────
@@ -117,12 +120,6 @@ function renderCh354WorkEnergy(ctx, scene, state, d) {
   P.barGraph(ctx, 80, 150, 170, 20, T, E, '#0d6efd', 'Động năng T');
   P.barGraph(ctx, 80, 200, 170, 20, V, E, '#fd7e14', 'Thế năng V');
   P.barGraph(ctx, 80, 250, 170, 20, T + V, E, P.tone(3), 'Cơ năng E');
-
-  P.panel(ctx, 290, 82, 210, 180, 'các định lý', P.tone(1));
-  P.domMath(ctx, '354-KE', 306, 96, 'T = \\frac12mv^2', { color: P.tone(1) });
-  P.domMath(ctx, '354-PE', 306, 126, 'V = mgh', { color: P.tone(3) });
-  P.domMath(ctx, '354-W', 306, 156, 'A = \\Delta T', { color: P.tone(2) });
-  P.domMath(ctx, '354-cons', 306, 186, 'T + V = const', { color: P.tone(0) });
 }
 
 // ─── Register ───────────────────────────────────────────────────────────────

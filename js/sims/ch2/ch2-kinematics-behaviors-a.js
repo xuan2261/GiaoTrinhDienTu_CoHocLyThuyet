@@ -85,11 +85,17 @@ function radiusOfCurvature(vx, vy, ax, ay) {
 
 function updateGraphState(state) {
   const t = state.t || 0;
-  state.xVal = 54 * Math.sin(t);
-  state.vVal = 54 * Math.cos(t);
-  state.aVal = -54 * Math.sin(t);
+  // Amplitude responds to the ω control so the waveform is no longer a frozen
+  // 54·sin curve. x, v, a share one amplitude A (state.scale) so the verified
+  // derivative chain v=dx/dt, a=dv/dt still holds for the invariant guard.
+  const omega = state.omega || 1.5;
+  const A = Math.max(12, Math.min(42, omega * 28));
+  state.scale = A;
+  state.xVal = A * Math.sin(t);
+  state.vVal = A * Math.cos(t);
+  state.aVal = -A * Math.sin(t);
   state.cursorX = 56 + ((t % (Math.PI * 2)) / (Math.PI * 2)) * 290;
-  state.cursorY = 130 - 54 * Math.sin(t);
+  state.cursorY = 130 - A * Math.sin(t);
 }
 
 function updateStateFromSlider(scene, state, key, value) {

@@ -12,15 +12,25 @@ const Phys = window.SimPhysicsDynamics || {};
 
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 function finiteNumber(value, fallback) { const n = Number(value); return Number.isFinite(n) ? n : fallback; }
+// Canvas velocities are px/frame; convert to m/s for SI momentum. The box spans
+// ~515 px ≈ 10 m, so pxPerM≈50, and the engine ticks at a nominal 60 fps.
+const PX_PER_M = 50, FPS = 60, VX_TO_MS = FPS / PX_PER_M;
 function momentum2d(b1, b2, m1, m2) {
-  return { x: m1 * finiteNumber(b1.vx, 0) + m2 * finiteNumber(b2.vx, 0),
-    y: m1 * finiteNumber(b1.vy, 0) + m2 * finiteNumber(b2.vy, 0) };
+  const bodies = [
+    { m: m1, vx: finiteNumber(b1.vx, 0) * VX_TO_MS, vy: finiteNumber(b1.vy, 0) * VX_TO_MS },
+    { m: m2, vx: finiteNumber(b2.vx, 0) * VX_TO_MS, vy: finiteNumber(b2.vy, 0) * VX_TO_MS }
+  ];
+  return Phys.momentum2d ? Phys.momentum2d(bodies) : { x: 0, y: 0 };
 }
 function setCollisionMomentum(state, before, after, residual) {
   state.momentumBefore = before; state.momentumAfter = after;
   state.pBefore = before; state.pAfter = after;
   state.restitutionResidual = residual || 0;
 }
+
+// ch3-5-3 conserved angular momentum (kg·m²/s): with no external moment L stays
+// fixed while the I slider changes, so ω = L0/I (muc-V-3).
+const CH353_L0 = 2;
 
 function onTick_ch351(scene, state, dt) {
   const masses = state.masses || [{ x: 130, y: 188, m: 2 }, { x: 238, y: 130, m: 1.5 }, { x: 332, y: 204, m: 1 }];
@@ -47,8 +57,11 @@ function seedImpulseMomentum(state) {
 }
 
 function onTick_ch353(scene, state, dt) {
-  const I = state.I || 1, omega = state.omega || 2, r = state.r || 60;
-  state.L = I * omega; state.angularMomentum = state.L;
+  const I = finiteNumber(state.I, 1);
+  // No external moment → L conserved. ω adjusts as I varies (skater effect):
+  // ω = L0/I. The slider controls I; ω and r are consequences, not free inputs.
+  state.L0 = CH353_L0; state.L = CH353_L0; state.angularMomentum = CH353_L0;
+  state.omega = CH353_L0 / I;
   state._t = (state._t || 0) + dt;
 }
 
@@ -72,7 +85,6 @@ function onTick_ch362(scene, state, dt) {
   if (b2.x < 20 || b2.x > 540) { b2.vx *= -1; b2.x = clamp(b2.x, 20, 540); }
   if (b2.y < 60 || b2.y > 290) { b2.vy *= -1; b2.y = clamp(b2.y, 60, 290); }
   const p0 = momentum2d(b1, b2, m1, m2);
-  setCollisionMomentum(state, p0, p0, 0);
   const dist = Math.hypot(b1.x - b2.x, b1.y - b2.y);
   const r1 = 25, r2 = 20;
   if (dist > 1e-6 && dist < r1 + r2) {
@@ -86,11 +98,17 @@ function onTick_ch362(scene, state, dt) {
       b2.vx -= jx / m2; b2.vy -= jy / m2;
       const postRel = (b1.vx - b2.vx) * nx + (b1.vy - b2.vy) * ny;
       state.preRelativeNormal = vrn; state.postRelativeNormal = postRel;
+      // Genuine pre/post-impulse momentum: the residual proves conservation from
+      // real state, instead of forcing p_before = p_after every tick.
       setCollisionMomentum(state, p0, momentum2d(b1, b2, m1, m2), Math.abs(postRel + e * vrn));
       state.collision = true; state.collisionX = (b1.x + b2.x) / 2; state.collisionY = (b1.y + b2.y) / 2;
       state.impulseFlash = { arrows: [{ x: b1.x, y: b1.y, dx: jx, dy: jy }, { x: b2.x, y: b2.y, dx: -jx, dy: -jy }] };
     }
-  } else { state.collision = false; }
+  } else {
+    state.collision = false;
+    // Free flight conserves momentum; read p from the same live state, no fakery.
+    setCollisionMomentum(state, p0, p0, 0);
+  }
   state.ball1 = b1; state.ball2 = b2; state._t = (state._t || 0) + dt;
 }
 
@@ -121,9 +139,12 @@ function derived_ch352(s, s2) {
 }
 function derived_ch353(s, s2) {
   const I = Number.isFinite(Number(s.I)) ? Number(s.I) : 1;
-  const omega = Number.isFinite(Number(s.omega)) ? Number(s.omega) : 2;
-  const L = Number.isFinite(Number(s.L)) ? Number(s.L) : I * omega;
-  return { L, I, omega, moment: L * 130 };
+  // L is the conserved quantity; ω follows from L = Iω. For a point mass I = mr²,
+  // so r = √(I/m) keeps the drawn radius consistent with the chosen inertia.
+  const L = Number.isFinite(Number(s.L0)) ? Number(s.L0) : CH353_L0;
+  const m = Number.isFinite(Number(s.m)) ? Number(s.m) : 1;
+  const omega = L / I;
+  return { L, I, omega, r: Math.sqrt(Math.max(0, I / m)), moment: L * 130 };
 }
 function derived_ch354(s, s2) {
   const mass = s.m || 5, speed = Number.isFinite(Number(s.v0)) ? Number(s.v0) : 3;

@@ -36,12 +36,6 @@ function renderCh222FixedAxisRotation(ctx, scene, state, d) {
 
   P.angleArc(ctx, cx, cy, 44, -Math.PI / 2, theta - Math.PI / 2, P.tone(6), 'θ');
   P.ground(ctx, cx - 24, cy + r + 16, cx + 24);
-
-  P.panel(ctx, 410, 92, 190, 106, 'quan hệ quay', P.tone(1));
-  P.domMath(ctx, 'rotation-eq', 428, 108, `\\omega=\\dot{\\varphi}`, { color: P.tone(1) });
-  P.domMath(ctx, 'rotation-alpha-eq', 428, 132, `\\varepsilon=\\dot{\\omega}`, { color: P.tone(3) });
-  P.domMath(ctx, 'omega-display', 428, 156, `\\omega=${omegaCur.toFixed(2)}\\ rad/s`, { color: P.tone(1) });
-  P.domMath(ctx, 'alpha-display', 428, 180, `\\varepsilon=${alpha.toFixed(2)}\\ rad/s^2`, { color: P.tone(3) });
 }
 
 function renderCh232GearBeltTransmission(ctx, scene, state, d) {

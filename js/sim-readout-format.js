@@ -2,7 +2,16 @@
 'use strict';
 
 const UNIT_RULES = [
-  [/xg|yg|x_c|ic_|\bx\b|\by\b|x\(t\)|x0|x1|x2|dịch|lệch|hình chiếu|đường trục|s lỗ/i, 'm'],
+  // Dimensionless ratios first: tan α and friction coefficients carry no unit,
+  // so they must win over the angle rule below (which would tag them with °).
+  [/tan\s*α|tan\s*alpha|tanalpha|hệ số ma sát|^μ$|^mu$|^e$/i, ''],
+  // Genuine area labels read in m²; "S lỗ" is a percentage proxy and carries its
+  // own explicit '%' unit at the scene level, so it is intentionally excluded.
+  [/diện tích|\barea\b/i, 'm²'],
+  // Position readouts with a real length anchor read in m. Pure pixel coords
+  // (instant-centre IC_x/IC_y, mass-centre x_C) have NO anchor → no unit, per the
+  // decision not to fabricate an SI scale for raw canvas coordinates.
+  [/xg|yg|\bx\b|\by\b|x\(t\)|x0|x1|x2|dịch|lệch|hình chiếu|đường trục/i, 'm'],
   [/thời gian|time|^t$/i, 's'],
   [/omega|ω/i, 'rad/s'],
   [/phi|epsilon|theta|góc|alpha|α/i, '°'],

@@ -132,7 +132,7 @@ const scenes = [
     ],
     readouts: [
       { label: '|F|', key: 'force', digits: 1, unit: 'N', kind: 'force' },
-      { label: 'Lệch', key: 'balanceError', digits: 1, unit: 'px', kind: 'default' },
+      { label: 'Lệch trục', key: 'balanceError', digits: 1, unit: 'N', kind: 'default' },
       { label: 'Cân bằng', key: 'balanceState', kind: 'result' }
     ]
   },

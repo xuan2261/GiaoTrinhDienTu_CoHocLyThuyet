@@ -29,9 +29,9 @@ const scenes = [
     initialState: { primary: { x: 326, y: 254 }, force: 88, load: 140, mu: 0.38 },
     controls: [slider('load', 'N', 60, 220, 140, 'N', 5), slider('mu', 'μ', 0.1, 1, 0.38, '', 0.05)],
     readouts: [
-      { label: 'N', key: 'normal', digits: 1, unit: 'N', kind: 'force' },
+      { label: 'F kéo', key: 'force', digits: 1, unit: 'N', kind: 'force' },
       { label: 'Fms', key: 'friction', digits: 1, unit: 'N', kind: 'result' },
-      { label: '|R|', key: 'resultantMagnitude', digits: 1, unit: 'N', kind: 'result' }
+      { label: 'Trạng thái', key: 'slipState', kind: 'mode' }
     ]
   },
   {

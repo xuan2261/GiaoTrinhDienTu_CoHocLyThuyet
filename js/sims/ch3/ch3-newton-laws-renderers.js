@@ -25,8 +25,6 @@ function renderCh312ForceAcceleration(ctx, scene, state, d) {
               178 - F * 0.4 * (lenPulse - 1),
               P.tone(0), 'F');
   P.neonArrow(ctx, blockX + 78, 244, blockX + 78 + a * 12 * lenPulse, 244, P.tone(2), `a=${a.toFixed(1)}`);
-  P.panel(ctx, 58, 84, 148, 76, 'quan hệ lực-gia tốc', P.tone(0));
-  P.domMath(ctx, '312-law', 74, 94, 'a = \\frac{\\sum F}{m}', { color: P.tone(0) });
 }
 
 function renderCh313InertialFrames(ctx, scene, state, d) {
@@ -65,9 +63,6 @@ function renderCh321InertiaLaw(ctx, scene, state, d) {
   P.arrow(ctx, bodyX + 82, 218, bodyX + 82 + (state.F || 50), 218 - (state.F || 50) * 0.4, P.tone(0), 'F₁');
   P.arrow(ctx, bodyX, 218, bodyX - 60, 218 + 24, P.tone(0), 'F₂');
   P.arrow(ctx, bodyX + 82, 218, bodyX + 82 + Fnet, 218, P.tone(2), `F_net=${Fnet.toFixed(0)}`);
-  P.panel(ctx, 72, 84, 150, 68, 'quán tính', P.tone(2));
-  P.domMath(ctx, '321-cond', 84, 92, '\\sum F=0', { color: P.tone(2) });
-  P.domMath(ctx, '321-status', 90, 124, Math.abs(Fnet) < 1 ? 'v=const ✓' : 'a≠0', { color: P.tone(2) });
 }
 
 // ─── ch3-2-2: Newton II ──────────────────────────────────────────────────────
@@ -86,9 +81,6 @@ function renderCh322NewtonSecond(ctx, scene, state, d) {
   ctx.beginPath(); ctx.moveTo(420, 230); ctx.lineTo(510, 230); ctx.moveTo(430, 100); ctx.lineTo(430, 244); ctx.stroke();
   ctx.strokeStyle = P.tone(2);
   ctx.beginPath(); ctx.moveTo(430, 230); ctx.lineTo(510, Math.max(100, 230 - v * 4)); ctx.stroke();
-  P.panel(ctx, 68, 84, 138, 88, 'gia tốc', P.tone(1));
-  P.domMath(ctx, '322-law', 78, 92, 'a=\\frac{F}{m}', { color: P.tone(1) });
-  P.domMath(ctx, '322-ratio', 84, 140, `F/m=${a.toFixed(2)}`, { color: P.tone(1) });
 }
 
 // ─── ch3-2-3: Newton III ─────────────────────────────────────────────────────
@@ -97,12 +89,11 @@ function renderCh323NewtonThird(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Định luật Newton III: F_AB = -F_BA', P.tone(3));
   P.body(ctx, 128, 168, 86, 54, 'rgba(253,126,20,.12)', P.tone(3), 'A');
   P.body(ctx, 340, 168, 86, 54, 'rgba(13,110,253,.12)', P.tone(1), 'B');
-  P.arrow(ctx, 214, 195, 326, 195, P.tone(0), 'FAB');
-  P.arrow(ctx, 340, 195, 228, 195, P.tone(0), 'FBA');
+  // Action-reaction pair drawn on separate rows so the F_AB / F_BA labels never
+  // overlap into "FABFBA"; the forces remain equal and opposite (physics unchanged).
+  P.arrow(ctx, 214, 184, 326, 184, P.tone(0), 'F_AB');
+  P.arrow(ctx, 340, 206, 228, 206, P.tone(0), 'F_BA');
   P.dashedLine(ctx, 178, 238, 376, 238, P.tone(6));
-  P.panel(ctx, 204, 84, 158, 60, 'cặp lực', P.tone(3));
-  P.domMath(ctx, '323-law', 222, 92, 'F_{AB}=-F_{BA}', { color: P.tone(3) });
-  P.domMath(ctx, '323-value', 234, 122, `|F|=${(state.F||50).toFixed(1)}N`, { color: P.tone(3) });
 }
 
 // ─── ch3-2-5: Dynamic FBD ───────────────────────────────────────────────────

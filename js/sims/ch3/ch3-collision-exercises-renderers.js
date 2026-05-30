@@ -71,11 +71,6 @@ function renderCh362Collision2D(ctx, scene, state, d) {
 
 function renderCh363CollisionSolver(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Giải bài va chạm: bảo toàn p, e', P.tone(3));
-  const m1 = finiteNumber(state.m1, 1), m2 = finiteNumber(state.m2, 1);
-  const v1 = finiteNumber(state.v1, 5), v2 = finiteNumber(state.v2, -3), e = finiteNumber(state.e, 0.8);
-  const result = window.SimPhysicsDynamics ?
-    window.SimPhysicsDynamics.restitutionVelocity(m1, m2, v1, v2, e) :
-    { v1: v1, v2: v2 };
 
   P.realisticBody(ctx, 88, 168, 60, 44, 'm1', { material: 'metal', radius: 4 });
   P.realisticBody(ctx, 342, 168, 72, 50, 'm2', { material: 'metal', radius: 4 });
@@ -86,10 +81,6 @@ function renderCh363CollisionSolver(ctx, scene, state, d) {
   P.dashedLine(ctx, 90, 268, 430, 268, P.tone(6));
   P.neonArrow(ctx, 88, 252, 168, 252, P.tone(2), `v1'`);
   P.neonArrow(ctx, 342, 252, 252, 252, P.tone(2), `v2'`);
-
-  P.panel(ctx, 180, 82, 192, 72, 'kết quả', P.tone(3));
-  P.domMath(ctx, '363-v1', 196, 96, `v_1' = ${result.v1.toFixed(2)}`, { color: P.tone(2) });
-  P.domMath(ctx, '363-v2', 196, 126, `v_2' = ${result.v2.toFixed(2)}`, { color: P.tone(2) });
 }
 
 // ─── Register ───────────────────────────────────────────────────────────────

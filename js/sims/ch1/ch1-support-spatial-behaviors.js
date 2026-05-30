@@ -22,7 +22,57 @@ const spatialO = { x: 112, y: 286 };
 function supportMoment(routeId, force, load, alphaDeg) {
   const arm = routeId === 'ch1-3-6' ? clamp(load, 0, 1.8) : clamp(load, 0, 180);
   if (routeId === 'ch1-3-6') return force * arm;
-  return force * arm * Math.cos(toRad(routeId === 'ch1-4-2' ? alphaDeg : 0)) / 120;
+  // ch1-4-2: M_axis = (r×F)·e via spatialMoment, r⊥F over a 1.8 m arm → N·m.
+  if (routeId === 'ch1-4-2') {
+    const S = window.SimPhysicsStatics || {};
+    const Mo = S.spatialMoment ? S.spatialMoment(1.8, 0, 0, 0, force, 0) : { Mz: 1.8 * force };
+    return Mo.Mz * Math.cos(toRad(alphaDeg));
+  }
+  return force * arm / 120;
+}
+
+const spatialOrigin = { x: 120, y: 286 };
+const Phys = () => window.SimPhysicsStatics || {};
+
+// ch1-4-1 — single spatial force by the projection method; one |R| from
+// resultant3D of the real component vector = |F| (muc-IV-1), no duplicate value.
+function spatialResultantDerived(state) {
+  const P = Phys();
+  const p = primary(state);
+  const force = clamp(state.force, 20, 170);
+  const azimuth = clamp(toDeg(Math.atan2(spatialOrigin.y - p.y, p.x - spatialOrigin.x)), 0, 80);
+  const beta = clamp((Number(state.load) || 0) / 180 * 60, 0, 60);
+  const fc = P.spatialForceComponents(force, azimuth, beta);
+  const R = P.resultant3D([fc]);
+  return {
+    force, forceComponents: fc, resultantMagnitude: R.magnitude,
+    rx: fc.Fx, ry: fc.Fy, rz: fc.Fz, dx: fc.Fx, dy: fc.Fy, dz: fc.Fz,
+    azimuth, beta, alpha: azimuth, point: p
+  };
+}
+
+// ch1-4-4 — three concurrent forces (two fixed, one controlled); checkEquilibrium
+// sums the real list so ΣF → 0 at the balanced configuration (muc-IV-4).
+const EQ_FIXED = [{ fx: 100, fy: 0 }, { fx: -40, fy: 90 }];
+function spatialEquilibriumDerived(state) {
+  const P = Phys();
+  const p = primary(state);
+  const f3mag = clamp(state.force, 20, 170);
+  const f3deg = (clamp(Number(state.load) || 0, 0, 180) / 180) * 360 - 180;
+  const f3 = P.resolveForceComponents(f3mag, f3deg);
+  const eq = P.checkEquilibrium(EQ_FIXED.concat([{ fx: f3.fx, fy: f3.fy }]), [], 1e-6);
+  return {
+    force: f3mag, sumFx: eq.sumFx, sumFy: eq.sumFy, sumM: eq.sumM,
+    resultantMagnitude: Math.hypot(eq.sumFx, eq.sumFy),
+    balanced: eq.balanced, residual: Math.hypot(eq.sumFx, eq.sumFy) / 100,
+    balanceLabel: Math.hypot(eq.sumFx, eq.sumFy) < 1 ? 'cân bằng' : 'chưa cân bằng',
+    f3, point: p
+  };
+}
+function balancedSpatialState() {
+  const need = { fx: -(100 - 40), fy: -(0 + 90) };
+  const deg = toDeg(Math.atan2(need.fy, need.fx));
+  return { routeId: 'ch1-4-4', force: Math.hypot(need.fx, need.fy), load: (deg + 180) / 2, primary: { x: 214, y: 126 } };
 }
 
 function makeHandle(id, label, get, set, stroke) {
@@ -62,6 +112,8 @@ function setSupportPoint(routeId, state, point) {
 
 function supportDerived(scene, state) {
   const routeId = scene.routeId || state.routeId || '';
+  if (routeId === 'ch1-4-1') return spatialResultantDerived(state);
+  if (routeId === 'ch1-4-4') return spatialEquilibriumDerived(state);
   const p = primary(state);
   const force = clamp(state.force, 20, 170);
   const isHingeSelector = routeId === 'ch1-3-3';
@@ -77,25 +129,26 @@ function supportDerived(scene, state) {
   const ra = beamForce - rb;
   const dx = p.x - 150, dy = 226 - p.y;
   const axial = Math.hypot(dx, dy) || 1;
-  const spatialX = clamp((p.x - 120) / 1.4, 20, 240);
-  const spatialY = clamp((286 - p.y) / 1.2, -40, 180);
+  // ch1-3-3 pin reaction from ΣF=0: A = −P. The load P acts along the line from
+  // the hinge to the drag point, so both components respond to the real load
+  // direction (no frozen 0.55/0.83 ratio). The selector zeroes the locked DOF.
+  const hingeDist = Math.hypot(p.x - 150, p.y - 226) || 1;
+  const loadPx = force * (p.x - 150) / hingeDist;
+  const loadPy = force * (p.y - 226) / hingeDist;
+  const hingeRx = hingeKind === 'Ry' ? 0 : -loadPx;
+  const hingeRy = hingeKind === 'Rx' ? 0 : -loadPy;
   const alphaDeg = clamp(state.alpha, 0, 55);
-  const spatialZ = clamp(force * Math.sin(toRad(alphaDeg)) + 35, 20, 160);
   return {
     force: routeId === 'ch1-3-4' ? beamForce : force,
-    resultantMagnitude: routeId === 'ch1-3-3'
-      ? Math.hypot(hingeKind === 'Ry' ? 0 : force * 0.55, hingeKind === 'Rx' ? 0 : force * 0.83)
-      : (routeId === 'ch1-4-1' ? Math.hypot(spatialX, spatialY, spatialZ) : force),
+    resultantMagnitude: routeId === 'ch1-3-3' ? Math.hypot(hingeRx, hingeRy) : force,
     alpha: routeId === 'ch1-3-2' && Number.isFinite(Number(state.alpha)) ? clamp(state.alpha, 0, 55) : (routeId === 'ch1-3-2' ? cableAngle : clamp(state.alpha, 0, 55)),
     moment: routeId === 'ch1-3-4' ? rb * (span / beam.pxPerM) : supportMoment(routeId, force, state.load, alphaDeg),
     point: p,
     direction: routeId === 'ch1-3-2' ? 'dọc dây' : (routeId === 'ch1-3-7' ? 'dọc trục' : 'pháp tuyến'),
     supportKind: isHingeSelector ? hingeKind : undefined,
-    rx: routeId === 'ch1-3-7' ? force * dx / axial : (hingeKind === 'Ry' ? 0 : force * 0.55),
-    ry: routeId === 'ch1-3-7' ? force * dy / axial : (hingeKind === 'Rx' ? 0 : force * 0.83),
-    ra, rb, a: aPx / beam.pxPerM, length: span / beam.pxPerM,
-    dx: spatialX, dy: spatialY, dz: spatialZ,
-    residual: Math.abs(spatialX - spatialY) / 100
+    rx: routeId === 'ch1-3-7' ? force * dx / axial : hingeRx,
+    ry: routeId === 'ch1-3-7' ? force * dy / axial : hingeRy,
+    ra, rb, a: aPx / beam.pxPerM, length: span / beam.pxPerM
   };
 }
 
@@ -160,7 +213,7 @@ registry.registerMany({
   'ch1-3-7': { behaviorId: 'ch1-3-7-two-force-member-behavior', derivedModelId: 'axial-member-line-derived', derived: supportDerived, updateStateFromSlider: updateSupportState, handles: handlesFor('ch1-3-7') },
   'ch1-4-1': { behaviorId: 'ch1-4-1-spatial-resultant-behavior', derivedModelId: 'xyz-resultant-derived', derived: supportDerived, updateStateFromSlider: updateSupportState, handles: handlesFor('ch1-4-1') },
   'ch1-4-2': { behaviorId: 'ch1-4-2-spatial-moment-behavior', derivedModelId: 'axis-projection-derived', derived: supportDerived, updateStateFromSlider: updateSupportState, handles: handlesFor('ch1-4-2') },
-  'ch1-4-4': { behaviorId: 'ch1-4-4-spatial-equilibrium-behavior', derivedModelId: 'six-equation-board-derived', derived: supportDerived, updateStateFromSlider: updateSupportState, handles: handlesFor('ch1-4-4') }
+  'ch1-4-4': { behaviorId: 'ch1-4-4-spatial-equilibrium-behavior', derivedModelId: 'six-equation-board-derived', derived: supportDerived, updateStateFromSlider: updateSupportState, handles: handlesFor('ch1-4-4'), balancedState: balancedSpatialState }
 });
 
 })();

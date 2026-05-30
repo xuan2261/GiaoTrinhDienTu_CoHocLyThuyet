@@ -31,11 +31,46 @@ function setVelocityComposition(state, ve, vr) {
 }
 
 function computePlaneVelocityState(state) {
-  state.vA = { vx: 46, vy: -8 };
+  if (!state.vA || !Number.isFinite(Number(state.vA.vx))) state.vA = { vx: 46, vy: -8 };
   state.vBA = { vx: -(state.omega || 0) * (state.by - state.ay), vy: (state.omega || 0) * (state.bx - state.ax) };
   state.vB = vectorSum(state.vA, state.vBA);
   state.vAMag = magnitude(state.vA);
   state.vBMag = magnitude(state.vB);
+}
+
+// ch2-5-2 — instant centre of a bar sliding with both ends on guides (the
+// classic ladder problem, muc-V-2). End A rides a vertical guide so v_A is
+// vertical; end B rides a horizontal guide so v_B is horizontal. The IC is the
+// geometric intersection of the two velocity normals — found by locateInstantCenter,
+// NOT a free-drag point. Computed once in derived() because the scene is a
+// static snapshot (no tick): v_B ⟂ (B−IC) is then a consequence, not a fit.
+const IC_GUIDE = { gx: 200, gy: 330, L: 200 };
+function instantCenterDerived(scene, state) {
+  const K = window.SimPhysicsKinematics || {};
+  const { gx, gy, L } = IC_GUIDE;
+  const omega = finiteNumber(state.omega, 1.5);
+  const thetaDeg = Math.max(12, Math.min(78, finiteNumber(state.theta, 40)));
+  const theta = thetaDeg * Math.PI / 180;
+  const A = { x: gx, y: gy - L * Math.sin(theta) };
+  const B = { x: gx + L * Math.cos(theta), y: gy };
+  // Velocity directions from the guides: A slides vertically, B horizontally.
+  const vADir = { vx: 0, vy: -1 };
+  const vBDir = { vx: 1, vy: 0 };
+  const ic = (K.locateInstantCenter && K.locateInstantCenter(A, B, vADir, vBDir)) || { x: B.x, y: A.y };
+  const rA = Math.hypot(A.x - ic.x, A.y - ic.y);
+  const rB = Math.hypot(B.x - ic.x, B.y - ic.y);
+  // Bar's instantaneous angular velocity from |v_A| = ω·|A−IC| (here |v_A| = ωL).
+  const omegaBar = omega;
+  const vB = K.instantCenterVelocity
+    ? K.instantCenterVelocity(omegaBar, B.x - ic.x, B.y - ic.y)
+    : { vx: -omegaBar * (B.y - ic.y), vy: omegaBar * (B.x - ic.x) };
+  const perpendicularResidual = Math.abs((B.x - ic.x) * vB.vx + (B.y - ic.y) * vB.vy);
+  return {
+    ox: gx, oy: gy, ax: A.x, ay: A.y, bx: B.x, by: B.y,
+    icX: ic.x, icY: ic.y, omega, theta: thetaDeg,
+    vB, vBMag: magnitude(vB), radius: rB, radiusA: rA,
+    velocityMagnitude: magnitude(vB), perpendicularResidual
+  };
 }
 
 registry.registerMany({
@@ -110,8 +145,15 @@ registry.registerMany({
     interactionSchemaId: 'plane-drag-interactions',
     onTick(scene, state, dt) {
       state.ox = 180; state.oy = 170;
-      state.ax = (state.ax || 260); state.ay = state.oy;
-      state.bx = (state.bx || 420); state.by = state.ay;
+      if (!state.vA || !Number.isFinite(Number(state.vA.vx))) state.vA = { vx: 46, vy: -8 };
+      // Plane motion = translation + rotation: pole A drifts along vA (bouncing
+      // within a band) instead of spinning in place. B keeps a fixed offset from A
+      // so the bar length is constant while it both translates and rotates.
+      let ax = Number.isFinite(Number(state.ax)) ? state.ax : 260;
+      ax += state.vA.vx * dt;
+      if (ax < 220 || ax > 360) { state.vA.vx *= -1; ax = Math.max(220, Math.min(360, ax)); }
+      state.ax = ax; state.ay = state.oy;
+      state.bx = ax + 160; state.by = state.ay;
       const omega = state.omega || 1.0;
       state.phi = ((state.phi || 0) + omega * dt) % (2 * Math.PI);
       computePlaneVelocityState(state);
@@ -121,21 +163,9 @@ registry.registerMany({
     behaviorId: 'ch2-5-2-instant-center-behavior',
     derivedModelId: 'ic-derived',
     interactionSchemaId: 'ic-slider-interactions',
-    onTick(scene, state, dt) {
-      const omega = state.omega || 1.0;
-      state.icX = Number.isFinite(Number(state.icX)) ? state.icX : ((state.primary && state.primary.x) || 270);
-      state.icY = Number.isFinite(Number(state.icY)) ? state.icY : ((state.primary && state.primary.y) || 245);
-      state.P = state.P || { x: state.icX, y: state.icY };
-      state.phi = ((state.phi || 0) + omega * dt) % (2 * Math.PI);
-      const theta = Number.isFinite(Number(state.theta)) ? Number(state.theta) * Math.PI / 180 : 0;
-      const ox = 140, oy = 260, r = 80, l = 180;
-      state.ax = ox + r * Math.cos(theta);
-      state.ay = oy - r * Math.sin(theta);
-      state.bx = state.ax + l * Math.cos(theta + Math.PI / 4);
-      state.by = state.ay + l * Math.sin(theta + Math.PI / 4);
-      state.vB = { vx: -omega * (state.by - state.icY), vy: omega * (state.bx - state.icX) };
-      state.vBMag = magnitude(state.vB);
-    }
+    // Static snapshot: IC is derived from the mechanism geometry once per draw,
+    // never integrated over time. No onTick — the scene carries static:true.
+    derived: instantCenterDerived
   },
   'ch2-5-3': {
     behaviorId: 'ch2-5-3-velocity-distribution-behavior',
