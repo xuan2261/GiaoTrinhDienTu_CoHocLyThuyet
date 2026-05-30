@@ -1,5 +1,30 @@
 # Project Changelog
 
+## 2026-05-31 — Simulation Physics & Theory-Fidelity Fixes (23-route remediation)
+
+### Fixed
+- Tĩnh học dạy ngược: hợp lực không gian (`ch1-4-1`) chỉ còn một `|R|` từ tổng véc tơ thật (`resultant3D`); cân bằng không gian (`ch1-4-4`) dùng `checkEquilibrium` nên ΣF/ΣM hội tụ →0 tại cấu hình cân bằng (bỏ residual pixel bịa).
+- Tĩnh học physics sai: ma sát `ch1-5-1` clamp `Fms=min(applied, μN)` + badge trượt; phản lực bản lề `ch1-3-3` từ ΣF=0 (bỏ tỉ lệ 0.55/0.83 cứng); mô men `ch1-4-2` = r×F·e (N·m); thu gọn hệ lực `ch1-1-5` R/M_O từ tổng 3 lực thật qua `reduceToResultant`.
+- Tâm vận tốc tức thời `ch2-5-2` tính từ giao pháp tuyến vận tốc (`locateInstantCenter`) trong `derived()` snapshot — bỏ kéo IC tự do, giữ `static:true` không thêm tick.
+- Động lực: va chạm `ch3-6-2` bỏ ép `p_trước=p_sau` mỗi tick, động lượng từ state thật + quy đổi kg·m/s; cơ hệ lò xo `ch3-3-2` chuyển RK4 (drift năng lượng ~0%) + hình 1 lò xo khớp PT; mô men động lượng `ch3-5-3` minh họa bảo toàn L (ω=L/I, ràng buộc I=mr²).
+- Động học: Coriolis `ch2-4-4` a_e = ω²·r qua module chung (bỏ fudge `/10`); truyền động `ch2-3-2` dải slider r1 khớp clamp [0.56,1.6].
+- Đơn vị: bỏ `°` trên mô men/tan α; diện tích → m²; ω₀ → rad/s; mô men ngàm → N·m; tọa độ pixel (IC, x_C) bỏ nhãn "m" thay vì bịa scale SI.
+- Dọn 12 khung panel mồ côi (chỉ chứa overlay đã suppress) trên 52 route; KHÔNG bật lại `SIM_ALLOW_CANVAS_FORMULA_OVERLAY`.
+- WEAK polish: `ch1-2-1` balanceError dùng lực phi-trục (N); `ch1-2-6` mô men từ r×F; `ch1-6-2` G luôn từ ΣSx/ΣS (bỏ kéo-G-tự-do); `ch2-1-2` đường cong x/v/a phản ứng theo ω; `ch2-5-1` cực A tịnh tiến thật; `ch3-2-1` default F=0; `ch3-2-3` giãn nhãn FAB/FBA (giữ Newton III); `ch3-4-2` đồng bộ tần số ω=0.5; `ch3-5-1` a_CM ∥ ΣF_ext; `ch3-5-2` bỏ số hạng `0.25·F·t` phi vật lý.
+
+### Added
+- Helper `momentum2d` (vector 2D) vào `js/sim-physics-dynamics.js`, `resultant3D` (Σ 3D) vào `js/sim-physics-statics.js`, kèm unit test thuần toán.
+- Harness TDD `tests/sim-theory-fidelity.spec.js` (unit-label + empty-panel guard) + `tests/sim-theory-fidelity-physics-source.test.js`; script `npm run test:sim:theory-fidelity`.
+
+### Backlog (cắt khỏi plan — feature-add, không phải fix)
+- `ch3-6-3` va chạm xiên 2D; `ch2-4-1` hệ quy chiếu động; `ch2-1-2` thêm vật chuyển động đồng bộ đồ thị.
+
+### Verified
+- `npm run test:sim:release`: PASS (content + unit + quality + browser + visual-quality + disposal + audit/equation strict).
+- `npm run test:sim:unit`, `simulation-interaction-engine.spec.js` (30/30), canvas-evolution baseline (52 route, 0 drift): PASS.
+- `SimStatics` adapter xác nhận là đường mount Ch1 thật (SimRegistry → SIM_MAP), giữ + ghi chú thay vì xóa.
+- `DanhSach_MoPhong_GiaoTrinh.md`: 58→52 canonical (6 route Section VII là content-only).
+
 ## 2026-05-25 — Review Question Navigation Cleanup
 
 ### Fixed

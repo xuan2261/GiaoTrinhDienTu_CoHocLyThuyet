@@ -1,0 +1,841 @@
+{
+  "generatedAt": "2026-05-30T10:35:10.025Z",
+  "baseUrl": "http://127.0.0.1:8011/",
+  "total": 52,
+  "routes": [
+    "ch1-1-3",
+    "ch1-1-4",
+    "ch1-1-5",
+    "ch1-1-6",
+    "ch1-1-8",
+    "ch1-2-1",
+    "ch1-2-3",
+    "ch1-2-6",
+    "ch1-3-1",
+    "ch1-3-2",
+    "ch1-3-3",
+    "ch1-3-4",
+    "ch1-3-6",
+    "ch1-3-7",
+    "ch1-4-1",
+    "ch1-4-2",
+    "ch1-4-4",
+    "ch1-5-1",
+    "ch1-5-2",
+    "ch1-5-3",
+    "ch1-5-4",
+    "ch1-6-2",
+    "ch1-6-3",
+    "ch2-1-1",
+    "ch2-1-2",
+    "ch2-1-3",
+    "ch2-1-4",
+    "ch2-2-2",
+    "ch2-3-2",
+    "ch2-4-1",
+    "ch2-4-2",
+    "ch2-4-3",
+    "ch2-4-4",
+    "ch2-5-1",
+    "ch2-5-2",
+    "ch2-5-3",
+    "ch3-1-2",
+    "ch3-1-3",
+    "ch3-2-1",
+    "ch3-2-2",
+    "ch3-2-3",
+    "ch3-2-5",
+    "ch3-3-1",
+    "ch3-3-2",
+    "ch3-4-1",
+    "ch3-4-2",
+    "ch3-5-1",
+    "ch3-5-2",
+    "ch3-5-3",
+    "ch3-5-4",
+    "ch3-6-2",
+    "ch3-6-3"
+  ],
+  "results": [
+    {
+      "idx": "01",
+      "route": "ch1-1-3",
+      "status": "ok",
+      "ms": 1892,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "02",
+      "route": "ch1-1-4",
+      "status": "ok",
+      "ms": 1345,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "03",
+      "route": "ch1-1-5",
+      "status": "ok",
+      "ms": 1354,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "04",
+      "route": "ch1-1-6",
+      "status": "ok",
+      "ms": 1352,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "05",
+      "route": "ch1-1-8",
+      "status": "ok",
+      "ms": 1374,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "06",
+      "route": "ch1-2-1",
+      "status": "ok",
+      "ms": 1378,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "07",
+      "route": "ch1-2-3",
+      "status": "ok",
+      "ms": 1368,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "08",
+      "route": "ch1-2-6",
+      "status": "ok",
+      "ms": 1361,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "09",
+      "route": "ch1-3-1",
+      "status": "ok",
+      "ms": 1367,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "10",
+      "route": "ch1-3-2",
+      "status": "ok",
+      "ms": 1366,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "11",
+      "route": "ch1-3-3",
+      "status": "ok",
+      "ms": 1371,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "12",
+      "route": "ch1-3-4",
+      "status": "ok",
+      "ms": 1344,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "13",
+      "route": "ch1-3-6",
+      "status": "ok",
+      "ms": 1368,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "14",
+      "route": "ch1-3-7",
+      "status": "ok",
+      "ms": 1343,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "15",
+      "route": "ch1-4-1",
+      "status": "ok",
+      "ms": 1357,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "16",
+      "route": "ch1-4-2",
+      "status": "ok",
+      "ms": 1343,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "17",
+      "route": "ch1-4-4",
+      "status": "ok",
+      "ms": 1336,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "18",
+      "route": "ch1-5-1",
+      "status": "ok",
+      "ms": 1348,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "19",
+      "route": "ch1-5-2",
+      "status": "ok",
+      "ms": 1352,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "20",
+      "route": "ch1-5-3",
+      "status": "ok",
+      "ms": 1352,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "21",
+      "route": "ch1-5-4",
+      "status": "ok",
+      "ms": 1348,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "22",
+      "route": "ch1-6-2",
+      "status": "ok",
+      "ms": 1346,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "23",
+      "route": "ch1-6-3",
+      "status": "ok",
+      "ms": 1363,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "24",
+      "route": "ch2-1-1",
+      "status": "ok",
+      "ms": 1528,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "25",
+      "route": "ch2-1-2",
+      "status": "ok",
+      "ms": 1352,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "26",
+      "route": "ch2-1-3",
+      "status": "ok",
+      "ms": 1346,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "27",
+      "route": "ch2-1-4",
+      "status": "ok",
+      "ms": 1359,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "28",
+      "route": "ch2-2-2",
+      "status": "ok",
+      "ms": 1374,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "29",
+      "route": "ch2-3-2",
+      "status": "ok",
+      "ms": 1361,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "30",
+      "route": "ch2-4-1",
+      "status": "ok",
+      "ms": 1360,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "31",
+      "route": "ch2-4-2",
+      "status": "ok",
+      "ms": 1350,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "32",
+      "route": "ch2-4-3",
+      "status": "ok",
+      "ms": 1369,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "33",
+      "route": "ch2-4-4",
+      "status": "ok",
+      "ms": 1338,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "34",
+      "route": "ch2-5-1",
+      "status": "ok",
+      "ms": 1353,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "35",
+      "route": "ch2-5-2",
+      "status": "ok",
+      "ms": 1341,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "36",
+      "route": "ch2-5-3",
+      "status": "ok",
+      "ms": 1337,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "37",
+      "route": "ch3-1-2",
+      "status": "ok",
+      "ms": 1354,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "38",
+      "route": "ch3-1-3",
+      "status": "ok",
+      "ms": 1446,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "39",
+      "route": "ch3-2-1",
+      "status": "ok",
+      "ms": 1351,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "40",
+      "route": "ch3-2-2",
+      "status": "ok",
+      "ms": 1347,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "41",
+      "route": "ch3-2-3",
+      "status": "ok",
+      "ms": 1393,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "42",
+      "route": "ch3-2-5",
+      "status": "ok",
+      "ms": 1339,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "43",
+      "route": "ch3-3-1",
+      "status": "ok",
+      "ms": 1375,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "44",
+      "route": "ch3-3-2",
+      "status": "ok",
+      "ms": 1345,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "45",
+      "route": "ch3-4-1",
+      "status": "ok",
+      "ms": 1345,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "46",
+      "route": "ch3-4-2",
+      "status": "ok",
+      "ms": 1335,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "47",
+      "route": "ch3-5-1",
+      "status": "ok",
+      "ms": 1360,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "48",
+      "route": "ch3-5-2",
+      "status": "ok",
+      "ms": 1354,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "49",
+      "route": "ch3-5-3",
+      "status": "ok",
+      "ms": 1354,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "50",
+      "route": "ch3-5-4",
+      "status": "ok",
+      "ms": 1350,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "51",
+      "route": "ch3-6-2",
+      "status": "ok",
+      "ms": 1355,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "52",
+      "route": "ch3-6-3",
+      "status": "ok",
+      "ms": 1397,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    }
+  ]
+}
