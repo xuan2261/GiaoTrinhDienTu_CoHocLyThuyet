@@ -1,0 +1,1 @@
+- [Sim physics RC1 invariant](sim-physics-rc1.md) — every sim readout must come from shared js/sim-physics-* modules, not inline pixel heuristics
