@@ -234,7 +234,9 @@ test('all mountable routes expose route-owned handles and stable readout drag @d
 });
 
 test('Phase 04 friction and centroid handles update semantic readouts @direct-drag', async ({ page }) => {
-  for (const item of [{ route: 'ch1-5-1', label: 'Fms' }, { route: 'ch1-6-2', label: 'xG' }]) {
+  // ch1-5-1 reads the applied pull force, which varies with the drag; Fms is now
+  // correctly clamped at μN so it saturates and must not be the change probe.
+  for (const item of [{ route: 'ch1-5-1', label: 'F kéo' }, { route: 'ch1-6-2', label: 'xG' }]) {
     await openRoute(page, item.route);
     const before = await readoutValue(page, item.label);
     const start = await firstHandlePoint(page);

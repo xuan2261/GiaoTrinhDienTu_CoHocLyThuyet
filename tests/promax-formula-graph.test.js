@@ -91,7 +91,7 @@ const rendererSources = {
   ch3Collision: fs.readFileSync(path.join(ROOT, 'js/sims/ch3/ch3-collision-exercises-renderers.js'), 'utf8'),
 };
 assert.ok(rendererSources.ch2Graph.includes('d && d.invariant && d.invariant.values'));
-assert.ok(rendererSources.ch2Ic.includes('values.perpendicularResidual'));
+assert.ok(rendererSources.ch2Ic.includes('d.perpendicularResidual'));
 assert.ok(!rendererSources.ch3Spring.includes('state.invariant'));
 assert.ok(rendererSources.ch3Spring.includes('values.energyDrift'));
 assert.ok(rendererSources.ch3Collision.includes('d && d.invariant && d.invariant.residual'));

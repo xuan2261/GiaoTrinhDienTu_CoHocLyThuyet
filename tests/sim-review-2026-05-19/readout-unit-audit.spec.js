@@ -6,6 +6,10 @@ const SEMANTIC_VALUE_PATTERN = /^(?:[\p{L}\p{M}\s_]+|v_a = v_e \+ v_r|—|1\/4)$
 const MISSING_UNIT_KEY_PATTERN = /(?:time|thời gian|sai số|điểm|score|omega|phi|epsilon|xg|yg|ic|x_c|moment|force|load|mass|speed|velocity|accel|delta|p trước|p sau|Δp|lệch|dịch|hình chiếu|đường trục|rx\/ry|ΣM|S lỗ|r1|x1|x2)/i;
 const RAW_NUMERIC_PATTERN = /^-?\d+(?:[.,]\d+)?$/;
 const DIMENSIONLESS_LABEL_PATTERN = /^(?:μ|mu|tan α|tan alpha|e)$/i;
+// Pixel-coordinate readouts with no real length anchor are intentionally unitless:
+// fabricating an SI scale for raw canvas coordinates was rejected, so IC_x/IC_y
+// (ch2-5-2) and x_C (ch3-5-1) correctly show bare numbers instead of a fake "m".
+const PIXEL_COORD_LABEL_PATTERN = /^(?:IC_x|IC_y|x_C)$/;
 
 test('sim review readout cards declare learner-facing units or semantic labels', async ({ page }) => {
   test.setTimeout(180000);
@@ -17,6 +21,7 @@ test('sim review readout cards declare learner-facing units or semantic labels',
       const text = `${card.value}`.trim();
       const label = `${card.label} ${card.key}`.trim();
       if (DIMENSIONLESS_LABEL_PATTERN.test(`${card.label}`.trim())) continue;
+      if (PIXEL_COORD_LABEL_PATTERN.test(`${card.label}`.trim())) continue;
       const semantic = SEMANTIC_VALUE_PATTERN.test(text) && !RAW_NUMERIC_PATTERN.test(text);
       const bareCoordinate = /^\(?-?\d+(?:\.\d+)?\s*;\s*-?\d+(?:\.\d+)?\)?$/.test(text);
       const rawNumberNeedsUnit = RAW_NUMERIC_PATTERN.test(text) && MISSING_UNIT_KEY_PATTERN.test(label);

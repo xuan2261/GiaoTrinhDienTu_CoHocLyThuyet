@@ -91,4 +91,25 @@ const rk4 = dynamics.rk4Step({ x: 1, v: 0 }, 0.1, state => ({ dx: state.v, dv: -
 approx(rk4.x, Math.cos(0.1), 1e-5, 'rk4Step.x');
 approx(rk4.v, -Math.sin(0.1), 1e-5, 'rk4Step.v');
 
+// momentum2d: signed 2D system momentum p = Σ mᵢ·vᵢ
+const p2d = dynamics.momentum2d([{ m: 2, vx: 3, vy: -1 }, { m: 1, vx: -4, vy: 2 }]);
+approx(p2d.x, 2 * 3 + 1 * -4, 1e-12, 'momentum2d.x');
+approx(p2d.y, 2 * -1 + 1 * 2, 1e-12, 'momentum2d.y');
+const p2dEmpty = dynamics.momentum2d([]);
+approx(p2dEmpty.x, 0, 1e-12, 'momentum2d empty.x');
+approx(p2dEmpty.y, 0, 1e-12, 'momentum2d empty.y');
+
+// resultant3D: full 3D vector sum R = ΣFᵢ with single magnitude
+const r3d = statics.resultant3D([
+  { Fx: 3, Fy: 0, Fz: 0 },
+  { Fx: 0, Fy: 4, Fz: 0 },
+  { Fx: 0, Fy: 0, Fz: 12 }
+]);
+approx(r3d.Rx, 3, 1e-12, 'resultant3D.Rx');
+approx(r3d.Ry, 4, 1e-12, 'resultant3D.Ry');
+approx(r3d.Rz, 12, 1e-12, 'resultant3D.Rz');
+approx(r3d.magnitude, 13, 1e-12, 'resultant3D.magnitude');
+const r3dComposed = statics.resultant3D([statics.spatialForceComponents(100, 0, 0)]);
+approx(r3dComposed.magnitude, 100, 1e-9, 'resultant3D composed magnitude');
+
 console.log('simulation-physics: PASS');

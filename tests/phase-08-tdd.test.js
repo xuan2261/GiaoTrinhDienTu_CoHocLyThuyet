@@ -79,13 +79,15 @@ function mag(vector) {
 
 {
   const context = contextWithBehaviorRegistry();
-  const state = { omega: 1.2, icX: 210, icY: 260, bx: 360, by: 190 };
-  context.window.SimRouteBehaviors.get('ch2-5-2').onTick({ routeId: 'ch2-5-2' }, state, 0.2, 0.2);
-  const rx = state.bx - state.icX;
-  const ry = state.by - state.icY;
-  assert.ok(state.vB, 'instant center route must expose vB');
-  assert.ok(Math.abs(state.vB.vx + state.omega * ry) < 1e-9, 'IC vB.x must be -omega*rY');
-  assert.ok(Math.abs(state.vB.vy - state.omega * rx) < 1e-9, 'IC vB.y must be omega*rX');
+  const behavior = context.window.SimRouteBehaviors.get('ch2-5-2');
+  // ch2-5-2 is a static snapshot: the instant centre is derived from the
+  // mechanism geometry once per draw (no onTick). v_B is then ⟂ (B − IC).
+  assert.ok(typeof behavior.onTick !== 'function', 'IC route must be a static snapshot (no onTick)');
+  const d = behavior.derived({ routeId: 'ch2-5-2' }, { omega: 1.2, theta: 40 });
+  assert.ok(d.vB, 'instant center route must expose vB');
+  assert.ok(d.perpendicularResidual < 1e-6, 'IC vB must be perpendicular to (B - IC)');
+  assert.ok(Math.abs(d.icX - d.bx) < 1e-6 && Math.abs(d.icY - d.ay) < 1e-6,
+    'IC must be the velocity-normal intersection, not a free-drag point');
 }
 
 {

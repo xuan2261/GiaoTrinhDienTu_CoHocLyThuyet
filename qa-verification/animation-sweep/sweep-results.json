@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-22",
+  "generated": "2026-05-30",
   "routes": {
     "ch1-1-3": {
       "bucket": "static-ch1",
@@ -262,7 +262,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.0375000000029795,
+      "engineTimeReached": 3.0134999999880785,
       "sampleMode": "engine-time"
     },
     "ch2-1-2": {
@@ -273,7 +273,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.00439999999702,
+      "engineTimeReached": 3.0249999999880783,
       "sampleMode": "engine-time"
     },
     "ch2-1-3": {
@@ -284,7 +284,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.015400000002981,
+      "engineTimeReached": 3.0199000000119196,
       "sampleMode": "engine-time"
     },
     "ch2-1-4": {
@@ -295,7 +295,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.029899999991059,
+      "engineTimeReached": 3.040600000023842,
       "sampleMode": "engine-time"
     },
     "ch2-2-2": {
@@ -306,7 +306,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.0351000000029815,
+      "engineTimeReached": 3.0125000000238433,
       "sampleMode": "engine-time"
     },
     "ch2-3-2": {
@@ -317,7 +317,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.031900000002981,
+      "engineTimeReached": 3.0218000000238425,
       "sampleMode": "engine-time"
     },
     "ch2-4-1": {
@@ -328,7 +328,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.033699999997021,
+      "engineTimeReached": 3.0124000000238413,
       "sampleMode": "engine-time"
     },
     "ch2-4-2": {
@@ -339,7 +339,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.0209000000000015,
+      "engineTimeReached": 3.0202000000238405,
       "sampleMode": "engine-time"
     },
     "ch2-4-3": {
@@ -350,7 +350,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.0130999999970225,
+      "engineTimeReached": 3.005800000023839,
       "sampleMode": "engine-time"
     },
     "ch2-4-4": {
@@ -361,7 +361,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.0406999999970212,
+      "engineTimeReached": 3.018900000035763,
       "sampleMode": "engine-time"
     },
     "ch2-5-1": {
@@ -372,7 +372,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.018,
+      "engineTimeReached": 3.0160999999999984,
       "sampleMode": "engine-time"
     },
     "ch2-5-2": {
@@ -405,7 +405,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.022699999994038,
+      "engineTimeReached": 3.044800000011921,
       "sampleMode": "engine-time"
     },
     "ch3-1-3": {
@@ -416,7 +416,7 @@
       ],
       "lastSeenFrames": 1,
       "hasPlayButton": false,
-      "engineTimeReached": 0.2631999999940381,
+      "engineTimeReached": 0.2788999999880762,
       "sampleMode": "static-quick"
     },
     "ch3-2-1": {
@@ -427,7 +427,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.0053000000000027,
+      "engineTimeReached": 3.0469000000000013,
       "sampleMode": "engine-time"
     },
     "ch3-2-2": {
@@ -438,7 +438,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.044699999999997,
+      "engineTimeReached": 3.049499999988082,
       "sampleMode": "engine-time"
     },
     "ch3-2-3": {
@@ -449,7 +449,7 @@
       ],
       "lastSeenFrames": 1,
       "hasPlayButton": false,
-      "engineTimeReached": 0.2502999999970198,
+      "engineTimeReached": 0.25150000003576134,
       "sampleMode": "static-quick"
     },
     "ch3-2-5": {
@@ -471,7 +471,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.026300000002979,
+      "engineTimeReached": 3.011,
       "sampleMode": "engine-time"
     },
     "ch3-3-2": {
@@ -482,7 +482,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.019699999994038,
+      "engineTimeReached": 3.002900000023845,
       "sampleMode": "engine-time"
     },
     "ch3-4-1": {
@@ -504,7 +504,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.0169999999910577,
+      "engineTimeReached": 3.030600000023842,
       "sampleMode": "engine-time"
     },
     "ch3-5-1": {
@@ -515,7 +515,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.04029999999702,
+      "engineTimeReached": 3.005800000011921,
       "sampleMode": "engine-time"
     },
     "ch3-5-2": {
@@ -526,7 +526,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.0181000000029745,
+      "engineTimeReached": 3.017900000011927,
       "sampleMode": "engine-time"
     },
     "ch3-5-3": {
@@ -537,7 +537,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.022999999994034,
+      "engineTimeReached": 3.0351000000119237,
       "sampleMode": "engine-time"
     },
     "ch3-5-4": {
@@ -548,7 +548,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.022800000000003,
+      "engineTimeReached": 3.023299999988085,
       "sampleMode": "engine-time"
     },
     "ch3-6-2": {
@@ -559,7 +559,7 @@
       ],
       "lastSeenFrames": 4,
       "hasPlayButton": true,
-      "engineTimeReached": 3.011199999997014,
+      "engineTimeReached": 3.0113999999999943,
       "sampleMode": "engine-time"
     },
     "ch3-6-3": {
@@ -570,7 +570,7 @@
       ],
       "lastSeenFrames": 1,
       "hasPlayButton": false,
-      "engineTimeReached": 0.26679999999701975,
+      "engineTimeReached": 0.27760000000000584,
       "sampleMode": "static-quick"
     }
   }
