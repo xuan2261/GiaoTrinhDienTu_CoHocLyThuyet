@@ -1838,3 +1838,42 @@ footer b { color: var(--gold); }
   background: var(--gold);
   color: var(--nav);
 }
+
+/* ===== Mô phỏng SVG-first (js/sim2/) — khung khoanh vùng ===== */
+/* Card bao ngoài: tách mô phỏng khỏi nội dung trang */
+.sim-mount {
+  margin: 1.5rem 0;
+  background: var(--nav2);
+  border: 1px solid var(--bdr);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
+}
+/* Header tên mô phỏng */
+.sim2-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--bdr);
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--gold);
+}
+.sim2-header::before {
+  content: "▶";
+  font-size: .65rem;
+}
+/* Viewport: nền sáng cố định → nét SVG (tối) luôn rõ ở CẢ 2 theme; căn giữa */
+.sim2-viewport-host {
+  display: flex;
+  justify-content: center;
+}
+.sim2-root {
+  background: #fdfdfb;
+  border: 1px solid #d9dee5;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 100%;
+}

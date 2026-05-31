@@ -18,6 +18,18 @@ test.describe('sim2 Ch1 — tích hợp index.html (mount + dispose đổi route
     await expect(page.locator('#content-area [data-sim-mount-route="ch1-1-3"] svg')).toHaveCount(1);
     await expect(page.locator('#content-area .sim2-label').first()).toBeVisible();
 
+    // Khung khoanh vùng: card .sim-mount + header tên sim + viewport host + root nền sáng
+    await expect(page.locator('#content-area .sim-mount[data-sim-mount-route="ch1-1-3"]')).toHaveCount(1);
+    const headerText = await page.locator('#content-area .sim2-header').innerText();
+    expect(headerText).toContain('Mô phỏng');
+    await expect(page.locator('#content-area .sim2-viewport-host .sim2-root svg')).toHaveCount(1);
+    // viewport có nền sáng (khác nền trang) → SVG nét tối luôn rõ ở mọi theme
+    const rootBg = await page.evaluate(() => {
+      const el = document.querySelector('#content-area .sim2-root');
+      return getComputedStyle(el).backgroundColor;
+    });
+    expect(rootBg, 'viewport phải có nền sáng cố định').toMatch(/rgb\(25[0-9], 25[0-9], 2[45][0-9]\)/);
+
     // Đổi sang route content-only (ngoài 25-list) → sim cũ dispose, không còn svg sim2
     await page.evaluate(() => window.loadPage('ch1-1-1'));
     await page.waitForFunction(() => window.location.hash.replace('#', '') === 'ch1-1-1');

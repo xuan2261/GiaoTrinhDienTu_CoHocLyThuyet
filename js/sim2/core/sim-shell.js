@@ -28,14 +28,29 @@
     const C = root.Sim2CanvasUnderlay;
 
     const container = cfg.container;
-    const width = cfg.width || container.clientWidth || 480;
-    const height = cfg.height || container.clientHeight || 360;
+    // Viewport KHỚP TỈ LỆ worldBox → transform lấp đầy, không để trống 2 bên/trên-dưới.
+    // (Nếu lấy clientWidth × fallback-height sẽ ra khung bẹt → hình nhỏ dồn giữa.)
+    const worldW = (cfg.worldBox.maxX - cfg.worldBox.minX) || 1;
+    const worldH = (cfg.worldBox.maxY - cfg.worldBox.minY) || 1;
+    const aspect = worldW / worldH;
+    const MAX_W = 720, MAX_H = 440;
+    // bề rộng khả dụng: ưu tiên cfg.width; else clientWidth trừ padding card; else 640
+    const availW = cfg.width || (container.clientWidth ? container.clientWidth - 30 : 0) || 640;
+    let width = Math.min(availW, MAX_W);
+    let height = cfg.height || (width / aspect);
+    if (!cfg.height && height > MAX_H) { height = MAX_H; width = height * aspect; }
+    width = Math.round(width);
+    height = Math.round(height);
 
-    // Root tương đối cho overlay tuyệt đối
+    // Viewport host: căn giữa viewport trong card; root là vùng vẽ nền sáng (CSS .sim2-root).
+    const viewportHost = document.createElement('div');
+    viewportHost.className = 'sim2-viewport-host';
+    container.appendChild(viewportHost);
+
     const rootEl = document.createElement('div');
     rootEl.className = 'sim2-root';
     rootEl.style.cssText = `position:relative;width:${width}px;height:${height}px;`;
-    container.appendChild(rootEl);
+    viewportHost.appendChild(rootEl);
 
     const tf = T.makeTransform({
       worldBox: cfg.worldBox,
@@ -179,7 +194,8 @@
       overlay.dispose();
       if (canvas) canvas.dispose();
       if (svg.parentNode) svg.parentNode.removeChild(svg);
-      if (rootEl.parentNode) rootEl.parentNode.removeChild(rootEl);
+      // gỡ cả viewportHost (cha của rootEl) — không để lại node mồ côi trong mount-point
+      if (viewportHost.parentNode) viewportHost.parentNode.removeChild(viewportHost);
     }
 
     // Gắn dispose lên DOM node để loader gỡ được shell mồ côi nếu factory throw giữa mount.
