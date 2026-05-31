@@ -5,7 +5,8 @@ const ROOT = path.resolve(__dirname, '..');
 const INDEX_FILE_URL = `file:///${path.join(ROOT, 'index.html').replace(/\\/g, '/')}`;
 
 // 1 route đại diện mỗi chương — content hiển thị, 0 console error, KHÔNG sim mount.
-const CONTENT_ROUTES = ['ch1-2-3', 'ch2-1-1', 'ch3-6-2'];
+// Chọn route NGOÀI 25-list (content-only vĩnh viễn) để guard bền qua P2–P4.
+const CONTENT_ROUTES = ['ch1-1-1', 'ch2-1-2', 'ch3-7-1'];
 
 test.describe('content-only smoke (sim đã gỡ)', () => {
   for (const route of CONTENT_ROUTES) {

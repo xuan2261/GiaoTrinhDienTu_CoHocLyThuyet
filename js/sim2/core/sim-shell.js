@@ -117,6 +117,59 @@
       if (rafId != null) { root.cancelAnimationFrame(rafId); rafId = null; }
     }
 
+    /**
+     * Thêm 1 drag-handle (SVG circle) tại world-pt. Kéo → onDrag(worldPt, phase).
+     * Trả { node, move(worldPt) }. Hit-test riêng từng handle (không dùng global drag).
+     */
+    function addHandle(worldPt, opts) {
+      opts = opts || {};
+      let wp = worldPt;
+      const s = tf.toScreen(wp);
+      const node = R.el('circle', {
+        cx: s.x, cy: s.y, r: opts.r || 8,
+        fill: opts.fill || '#ff7043',
+        stroke: opts.stroke || '#fff',
+        'stroke-width': 2,
+        class: 'sim2-handle',
+        style: 'cursor:grab;'
+      });
+      svg.appendChild(node);
+
+      function localScreen(ev) {
+        const rect = svg.getBoundingClientRect();
+        return { x: ev.clientX - rect.left, y: ev.clientY - rect.top };
+      }
+      let dragging = false;
+      function down(ev) {
+        dragging = true;
+        ev.stopPropagation();
+        node.setPointerCapture && ev.pointerId != null && node.setPointerCapture(ev.pointerId);
+        if (opts.onDrag) opts.onDrag(wp, 'start', ev);
+      }
+      function move(ev) {
+        if (!dragging) return;
+        wp = tf.toWorld(localScreen(ev));
+        moveTo(wp);
+        if (opts.onDrag) opts.onDrag(wp, 'move', ev);
+      }
+      function up(ev) {
+        if (!dragging) return;
+        dragging = false;
+        if (opts.onDrag) opts.onDrag(wp, 'end', ev);
+      }
+      function moveTo(newWp) {
+        wp = newWp;
+        const sc = tf.toScreen(wp);
+        node.setAttribute('cx', sc.x);
+        node.setAttribute('cy', sc.y);
+      }
+      addListener(node, 'pointerdown', down);
+      addListener(window, 'pointermove', move);
+      addListener(window, 'pointerup', up);
+
+      return { node, move: moveTo, get worldPt() { return wp; } };
+    }
+
     function dispose() {
       if (disposed) return;
       disposed = true;
@@ -132,7 +185,7 @@
     return {
       root: rootEl, svg, tf, overlay, canvas,
       render: R, // tiện gọi primitives
-      onPointerDrag, onFrame, start, stop, addCleanup, addListener, dispose
+      onPointerDrag, onFrame, start, stop, addHandle, addCleanup, addListener, dispose
     };
   }
 
