@@ -56,4 +56,20 @@ for (const r of manifest) {
   assert.ok(mountSrc.includes(r.id), `route ${r.id} phải có mount case`);
 }
 
-console.log(`sim2-route-coverage: PASS (${N} route, factory + physics + mount đủ)`);
+// 4. Không hex màu stroke/fill rải rác trong sims (phải dùng Sim2Palette).
+//    Cho phép: hex trong \textcolor{} của KaTeX (literal bắt buộc, mirror palette),
+//    #fff (nền lỗ/điểm trắng), rgba(...) cho fill mờ. Kiểm theo dòng (như grep validated).
+const hexLine = /#[0-9a-fA-F]{3,6}\b/;
+for (const r of manifest) {
+  const src = fs.readFileSync(path.join(ROOT, `js/sim2/sims/ch${r.chapter}/${r.id}.js`), 'utf8');
+  src.split('\n').forEach((line, i) => {
+    if (!hexLine.test(line)) return;
+    if (/textcolor/.test(line) || /rgba\(/.test(line)) return;     // KaTeX màu + fill mờ: cho phép
+    const stripped = line.replace(/#fff(fff)?\b/gi, '');           // trắng: cho phép
+    if (hexLine.test(stripped)) {
+      assert.fail(`${r.id}.js:${i + 1} còn hex stroke/fill rải rác (dùng Sim2Palette): ${line.trim()}`);
+    }
+  });
+}
+
+console.log(`sim2-route-coverage: PASS (${N} route, factory + physics + mount + palette đủ)`);

@@ -87,7 +87,8 @@
 
     const vrx = v1.x - v2.x, vry = v1.y - v2.y;
     const vrn = vrx * nnx + vry * nny;
-    if (vrn >= 0) return { v1, v2 };
+    // n̂ trỏ 1→2, v_rel = v1−v2 → đang lao vào nhau ⟺ vrn > 0; tách nhau ⟺ vrn ≤ 0 (bỏ qua).
+    if (vrn <= 0) return { v1, v2 };
 
     const j = -(1 + e) * vrn / (1 / m1 + 1 / m2);
 

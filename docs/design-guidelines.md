@@ -29,27 +29,41 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 
 ## Simulation design tokens
 
-### Current Simulation Architecture
+### Current Simulation Architecture (engine SVG-first `js/sim2/`)
 
 | Yếu tố | Quy ước |
 |---|---|
-| Runtime | Shared `.sim-lab` canvas shell qua `js/sim-professional-lab.js` / `window.SimProfessionalLab` |
-| Rendering | Canvas route renderers for geometry/handles; formulas in right inspector; overlay only for short diagram labels |
-| UI Controls | `SimCore.addSlider`, segmented buttons, reset/play-pause |
-| Interaction | Route-owned drag handles, pointer/touch/keyboard support |
-| Route contracts | Scene registry + renderer registry + behavior registry |
-| Touch Target | Nút bấm và sliders tối thiểu 44px height |
-| Colors | Đồng nhất với chapter accents và dark navy theme |
+| Runtime | `createSimShell` (`js/sim2/core/sim-shell.js`) — SVG + overlay HTML + canvas underlay tùy chọn, RAF loop, `dispose()` gỡ sạch listener+RAF+DOM |
+| Rendering | SVG primitives (`core/svg-render.js`) qua transform `world→screen` dùng chung; nhãn = HTML overlay tuyệt đối (`core/overlay.js`), KHÔNG vẽ chữ trong canvas → hết chồng nhãn |
+| Theory panel | `core/panel.js` — công thức KaTeX **tô màu khớp vector** + legend (swatch) + readout sống (tabular-nums) + dòng quan sát; luôn hiện cạnh viewport (xuống dưới khi hẹp) |
+| Controls | `core/controls.js` — slider có `<output>` value+đơn vị; playback ▶/⏸ + ⏭ step + ↺ reset; **start paused** (quy ước PhET, không autoplay) |
+| Interaction | Drag handle (`shell.addHandle`) ↔ slider đồng bộ 2 chiều; `setValue` set property KHÔNG bắn `input` → tránh vòng lặp cập nhật |
+| Touch Target | Nút playback 32px, slider accent-color theme; reduced-motion tắt transition |
 
-### Legacy/Pilot Reference
+### Palette mô phỏng (token `--sim-c-*` / `Sim2Palette`)
 
-| Token | Giá trị | Dùng cho |
+1 nguồn ý nghĩa màu, 2 mặt dùng: CSS class cho DOM + JS hằng cho SVG stroke. Mọi màu ý nghĩa tương phản ≥3:1 trên nền viewport `#fdfdfb`.
+
+| Ý nghĩa | Màu | Key |
 |---|---|---|
-| Canvas logical size | 760×440 px | Active `.sim-lab` canvas |
-| Canvas aspect ratio | 760:440 ≈ 1.73 | Responsive scale calculation |
-| Animation loop | `requestAnimationFrame` scoped cleanup | Animated routes |
-| Legacy V2/Matter.js files | Reference only | Không active trừ khi plan mới promote qua registry |
-| Pilot Ch1 parallelogram | Reference only | Không tự đăng ký `window.SIM_MAP` |
+| Lực / lực tác dụng | `#e03030` đỏ | `force` |
+| Vận tốc | `#159c3a` lục | `v` |
+| Gia tốc | `#0074d9` lam | `a` |
+| Hợp lực / R | `#e06a00` cam | `resultant` |
+| Phản lực / pháp tuyến | `#b10dc9` tím | `reaction` |
+| Mô men / ω / α | `#7c3aed` tím đậm | `moment` |
+| Coriolis | `#d97706` hổ phách | `coriolis` |
+| Thành phần X / Y | `#d81b60` / `#1565c0` | `x` / `y` |
+| Handle kéo | `#e8501e` coral | `handle` |
+| Trục / lưới | `#64748b` / `#cbd5e1` | `axis` / `grid` |
+
+Thành phần X/Y vẽ **nét đứt** cùng màu parent. KaTeX term tô cùng màu vector qua `\textcolor{#...}` (literal bắt buộc — mirror palette, không đọc được CSS var).
+
+### Legacy Reference
+
+| Token | Trạng thái |
+|---|---|
+| `.sim-lab` shell / `js/sim-professional-lab.js` / Matter.js | ĐÃ GỠ khỏi master (bộ 52 sim cũ) — tag `archive/52-sims-pre-removal` giữ điểm quay đầu |
 
 ## Typography
 

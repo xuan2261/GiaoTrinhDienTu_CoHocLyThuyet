@@ -60,7 +60,10 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `glossary.js` | Gắn tooltip cho thuật ngữ trong content fragment |
 | `notes.js` | Highlight selection, note popup, notes panel |
 | `js/sim2/registry.js` | Build `window.SIM_MAP` từ 25 route factories |
-| `js/sim2/core/sim-shell.js` | Factory chung: SVG+overlay(+canvas), RAF loop, dispose() |
+| `js/sim2/core/sim-shell.js` | Factory chung: SVG+overlay(+canvas), RAF loop, `setTheory()`/`addControls()`, dispose() |
+| `js/sim2/core/palette.js` | `Sim2Palette` — token màu dùng chung (mirror CSS `--sim-c-*`); 1 nguồn ý nghĩa màu |
+| `js/sim2/core/panel.js` | `Sim2Panel` — theory panel: công thức KaTeX tô màu + legend + readout sống + quan sát |
+| `js/sim2/core/controls.js` | `Sim2Controls` — control bar: slider+`<output>` + playback ▶/⏸/⏭/↺ (start paused) |
 | `js/sim2/physics/` | Công thức physics UMD (statics/kinematics/dynamics) |
 
 ## Data model

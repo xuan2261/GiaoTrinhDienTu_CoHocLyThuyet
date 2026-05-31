@@ -110,6 +110,20 @@ const approx = (a, b, tol, msg) =>
   const after = D.momentum2d([{ m: m1, vx: res.v1.x, vy: res.v1.y }, { m: m2, vx: res.v2.x, vy: res.v2.y }]);
   approx(after.x, before.x, 1e-9, 'ch3-6-2 resolveCollision2D bảo toàn px');
   approx(after.y, before.y, 1e-9, 'ch3-6-2 resolveCollision2D bảo toàn py');
+  // Nhánh xung lực PHẢI chạy thật (chống bug guard trả identity → xuyên vật):
+  // n̂ trỏ 1→2, v1=+2 v2=−1 đang lao vào → vận tốc đổi đúng giá trị tính tay, e=1 bảo toàn động năng,
+  // và 2 vật TÁCH nhau (v1' < v2' theo trục n̂).
+  approx(res.v1.x, -1.6, 1e-9, 'ch3-6-2 va chạm e=1: v1 sau đúng (xung lực chạy, không identity)');
+  approx(res.v2.x, 1.4, 1e-9, 'ch3-6-2 va chạm e=1: v2 sau đúng');
+  const tBefore2 = D.kineticEnergy(m1, 2) + D.kineticEnergy(m2, 1);
+  const tAfter2 = D.kineticEnergy(m1, Math.abs(res.v1.x)) + D.kineticEnergy(m2, Math.abs(res.v2.x));
+  approx(tAfter2, tBefore2, 1e-9, 'ch3-6-2 va chạm e=1 bảo toàn động năng 2D');
+  assert.ok(res.v1.x < res.v2.x, 'ch3-6-2 sau va chạm 2 vật phải tách nhau (không xuyên qua)');
+  // Đang tách nhau (vrn ≤ 0) → KHÔNG xử lý lại (giữ nguyên vận tốc)
+  const sep = D.resolveCollision2D(m1, m2, { x: 0, y: 0 }, { x: 1, y: 0 },
+    { x: -1, y: 0 }, { x: 2, y: 0 }, 1);
+  approx(sep.v1.x, -1, 1e-9, 'ch3-6-2 đang tách → v1 giữ nguyên');
+  approx(sep.v2.x, 2, 1e-9, 'ch3-6-2 đang tách → v2 giữ nguyên');
 }
 
 console.log('sim2-ch3-physics: PASS (8/8)');

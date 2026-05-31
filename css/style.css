@@ -1877,3 +1877,102 @@ footer b { color: var(--gold); }
   overflow: hidden;
   max-width: 100%;
 }
+
+/* ===== Token màu mô phỏng (mirror js/sim2/core/palette.js — 1 nguồn ý nghĩa) ===== */
+:root {
+  --sim-c-force: #e03030;
+  --sim-c-v: #159c3a;
+  --sim-c-a: #0074d9;
+  --sim-c-resultant: #e06a00;
+  --sim-c-reaction: #b10dc9;
+  --sim-c-moment: #7c3aed;
+  --sim-c-coriolis: #d97706;
+  --sim-c-x: #d81b60;
+  --sim-c-y: #1565c0;
+  --sim-c-handle: #e8501e;
+  --sim-c-axis: #64748b;
+  --sim-c-grid: #cbd5e1;
+}
+
+/* Stage: viewport + panel lý thuyết cạnh nhau (wrap dọc khi hẹp) */
+.sim2-stage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
+}
+.sim2-stage .sim2-viewport-host { flex: 1 1 320px; }
+
+/* Affordance handle kéo */
+.sim2-handle { cursor: grab; transition: filter .12s ease; }
+.sim2-handle:hover { filter: drop-shadow(0 0 4px rgba(255, 112, 67, .9)); }
+.sim2-handle:active { cursor: grabbing; }
+
+/* ===== Theory panel ===== */
+.sim2-theory {
+  flex: 1 1 220px;
+  min-width: 200px;
+  background: #fdfdfb;
+  border: 1px solid #d9dee5;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #1a1a2e;
+  font-size: .82rem;
+  line-height: 1.5;
+}
+.sim2-formulas { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+.sim2-formula { color: #1a1a2e; }
+.sim2-readout-live { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.sim2-readout-row { display: flex; justify-content: space-between; gap: 10px; }
+.sim2-readout-label { color: #555; }
+.sim2-readout-value {
+  font-weight: 600;
+  color: #1a1a2e;
+  font-variant-numeric: tabular-nums;
+  min-width: 6.5ch;
+  text-align: right;
+}
+.sim2-legend { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0; }
+.sim2-legend-item { display: inline-flex; align-items: center; gap: 4px; color: #333; }
+.sim2-swatch {
+  width: 14px; height: 4px; border-radius: 2px; display: inline-block;
+}
+.sim2-observe { color: #555; font-style: italic; margin-top: 6px; }
+
+/* ===== Control bar ===== */
+.sim2-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--bdr);
+}
+.sim2-slider { display: inline-flex; align-items: center; gap: 6px; }
+.sim2-slider-label { color: var(--tx2); font-size: .82rem; min-width: 1.4em; text-align: right; }
+.sim2-slider input[type="range"] { accent-color: var(--gold); cursor: pointer; }
+.sim2-output {
+  font-variant-numeric: tabular-nums;
+  min-width: 5ch;
+  color: var(--tx);
+  font-size: .82rem;
+  font-weight: 600;
+}
+.sim2-playback { display: inline-flex; gap: 6px; }
+.sim2-playback button {
+  width: 32px; height: 32px;
+  border: 1px solid var(--bdr);
+  border-radius: 6px;
+  background: var(--nav2);
+  color: var(--tx);
+  cursor: pointer;
+  font-size: .9rem;
+  line-height: 1;
+  transition: background .12s ease;
+}
+.sim2-playback button:hover { background: var(--gold); color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sim2-handle, .sim2-playback button { transition: none; }
+}

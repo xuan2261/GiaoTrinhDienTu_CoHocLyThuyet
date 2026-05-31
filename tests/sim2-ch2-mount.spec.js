@@ -37,7 +37,7 @@ test.describe('sim2 Ch2 — 7 sim động học mount', () => {
       expect(isFactory, `SIM_MAP['${route}'] factory`).toBe(true);
 
       await page.evaluate(r => { window.__sim = window.SIM_MAP[r](document.getElementById('host')); }, route);
-      await expect(page.locator('#host svg')).toHaveCount(1);
+      await expect(page.locator('#host svg.sim2-svg')).toHaveCount(1);
       await expect(page.locator('#host .sim2-label').first()).toBeVisible();
 
       // Nhãn không chồng
@@ -47,6 +47,9 @@ test.describe('sim2 Ch2 — 7 sim động học mount', () => {
       // Route có canvas underlay: có <canvas> + hasContent sau vài frame + khớp SVG ≤1px
       if (CANVAS_ROUTES.includes(route)) {
         await expect(page.locator('#host canvas.sim2-canvas')).toHaveCount(1);
+        // start-paused (P3): bấm ▶ TRƯỚC khi chờ (sim animation). ch2-5-3 field tĩnh → không có nút, bỏ qua.
+        const play = page.locator('#host .sim2-playpause');
+        if (await play.count()) await play.click();
         await page.waitForTimeout(350); // vài frame RAF
         const hasContent = await page.evaluate(() => {
           const c = document.querySelector('#host canvas.sim2-canvas');
@@ -94,4 +97,77 @@ test.describe('sim2 Ch2 — 7 sim động học mount', () => {
     });
     expect(stillTicking).toBe(0);
   });
+});
+
+// ─── P3 retrofit: 7 sim Ch2 (panel + legend + control; playback start-paused cho sim động) ───
+const CH2_RETROFIT = [
+  { route: 'ch2-1-1', sliders: 2, playback: true },   // v0, α + canvas quỹ đạo
+  { route: 'ch2-1-3', sliders: 0, playback: false },  // bespoke: kéo điểm ellipse
+  { route: 'ch2-2-2', sliders: 2, playback: true },   // ω0, α góc
+  { route: 'ch2-3-2', sliders: 2, playback: true },   // r1, r2 truyền động
+  { route: 'ch2-4-4', sliders: 2, playback: true },   // ω, v_rel Coriolis (hết hardcode) + canvas
+  { route: 'ch2-5-2', sliders: 0, playback: false },  // bespoke: kéo thanh → IC
+  { route: 'ch2-5-3', sliders: 1, playback: false }   // ω + kéo IC, field tĩnh
+];
+
+test.describe('sim2 Ch2 P3 — retrofit 7 sim (panel + legend + control + playback)', () => {
+  for (const cfg of CH2_RETROFIT) {
+    test(`${cfg.route}: panel + legend + ${cfg.sliders} slider${cfg.playback ? ' + playback' : ''}; dispose sạch`, async ({ page }) => {
+      const errors = [];
+      page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+      page.on('pageerror', e => errors.push(String(e)));
+
+      await page.goto(FIXTURE_URL, { waitUntil: 'domcontentloaded' });
+      await page.evaluate(r => { window.__sim = window.SIM_MAP[r](document.getElementById('host')); }, cfg.route);
+
+      // Panel + legend luôn có
+      await expect(page.locator('#host .sim2-theory')).toHaveCount(1);
+      expect(await page.locator('#host .sim2-formula').count(),
+        `${cfg.route} ≥1 công thức`).toBeGreaterThanOrEqual(1);
+      expect(await page.locator('#host .sim2-legend-item').count(),
+        `${cfg.route} ≥1 legend`).toBeGreaterThanOrEqual(1);
+      expect((await page.locator('#host .sim2-readout-live').innerText()).trim().length,
+        `${cfg.route} readout sống không rỗng`).toBeGreaterThan(0);
+
+      // Slider + playback đúng cấu hình
+      await expect(page.locator('#host .sim2-controls input[type=range]'),
+        `${cfg.route} số slider`).toHaveCount(cfg.sliders);
+      await expect(page.locator('#host .sim2-playback'),
+        `${cfg.route} playback`).toHaveCount(cfg.playback ? 1 : 0);
+
+      // Sim động: start paused → SVG đứng yên trong 200ms (snapshot không đổi)
+      if (cfg.playback) {
+        await expect(page.locator('#host .sim2-playpause')).toHaveText(/▶/);
+        const snap0 = await page.evaluate(() => document.querySelector('#host svg.sim2-svg').innerHTML);
+        await page.waitForTimeout(200);
+        const snapPaused = await page.evaluate(() => document.querySelector('#host svg.sim2-svg').innerHTML);
+        expect(snapPaused, `${cfg.route} start paused (SVG đứng yên)`).toBe(snap0);
+        // ▶ → chạy: SVG đổi sau vài frame
+        await page.locator('#host .sim2-playpause').click();
+        await page.waitForTimeout(200);
+        const snapRun = await page.evaluate(() => document.querySelector('#host svg.sim2-svg').innerHTML);
+        expect(snapRun, `${cfg.route} ▶ làm sim chạy (SVG đổi)`).not.toBe(snap0);
+      }
+
+      // dispose sạch tuyệt đối
+      await page.evaluate(() => {
+        window.__orphan = document.querySelector('#host .sim2-controls input[type=range]');
+        window.__sim.dispose();
+      });
+      await expect(page.locator('#host .sim2-root')).toHaveCount(0);
+      await expect(page.locator('#host .sim2-theory')).toHaveCount(0);
+      await expect(page.locator('#host .sim2-controls')).toHaveCount(0);
+      await expect(page.locator('#host canvas.sim2-canvas')).toHaveCount(0);
+      if (cfg.sliders > 0) {
+        await page.evaluate(() => {
+          if (window.__orphan) {
+            window.__orphan.value = '1';
+            window.__orphan.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+        });
+      }
+
+      expect(errors, `console errors ${cfg.route}:\n${errors.join('\n')}`).toEqual([]);
+    });
+  }
 });

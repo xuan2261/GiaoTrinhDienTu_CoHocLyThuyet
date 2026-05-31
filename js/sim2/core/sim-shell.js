@@ -26,6 +26,8 @@
     const R = root.Sim2SvgRender;
     const O = root.Sim2Overlay;
     const C = root.Sim2CanvasUnderlay;
+    const Ctrl = root.Sim2Controls;
+    const Pnl = root.Sim2Panel;
 
     const container = cfg.container;
     // Viewport KHỚP TỈ LỆ worldBox → transform lấp đầy, không để trống 2 bên/trên-dưới.
@@ -35,7 +37,12 @@
     const aspect = worldW / worldH;
     const MAX_W = 720, MAX_H = 440;
     // bề rộng khả dụng: ưu tiên cfg.width; else clientWidth trừ padding card; else 640
-    const availW = cfg.width || (container.clientWidth ? container.clientWidth - 30 : 0) || 640;
+    let availW = cfg.width || (container.clientWidth ? container.clientWidth - 30 : 0) || 640;
+    // reservePanel: sim sẽ đặt theory panel cạnh viewport → để dành chỗ cho panel,
+    // viewport chỉ lấy ~60% (sàn 280px) → side-by-side thật trên khung rộng, KHÔNG rebuild transform.
+    if (cfg.reservePanel && !cfg.width) {
+      availW = Math.max(280, Math.round(availW * 0.6));
+    }
     let width = Math.min(availW, MAX_W);
     let height = cfg.height || (width / aspect);
     if (!cfg.height && height > MAX_H) { height = MAX_H; width = height * aspect; }
@@ -185,6 +192,35 @@
       return { node, move: moveTo, get worldPt() { return wp; } };
     }
 
+    // ─── Theory panel + control bar (lazy; DOM NGOÀI sim2-root → không chạm drag SVG) ───
+    // Stage wrapper chỉ dựng khi setTheory được gọi → 23 sim chưa retrofit giữ DOM cũ (không hồi quy).
+    let stageEl = null, panel = null, controls = null;
+
+    function ensureStage() {
+      if (stageEl) return stageEl;
+      stageEl = document.createElement('div');
+      stageEl.className = 'sim2-stage';
+      container.insertBefore(stageEl, viewportHost);
+      stageEl.appendChild(viewportHost); // viewport vào trái stage; panel sẽ vào phải
+      return stageEl;
+    }
+
+    /** Gắn theory panel cạnh viewport. opts → Sim2Panel.createPanel. */
+    function setTheory(opts) {
+      ensureStage();
+      if (panel) panel.dispose();
+      panel = Pnl.createPanel(stageEl, opts);
+      overlay.reflow();
+      return panel;
+    }
+
+    /** Gắn control bar dưới stage. opts → Sim2Controls.createControls. */
+    function addControls(opts) {
+      if (controls) controls.dispose();
+      controls = Ctrl.createControls(container, opts);
+      return controls;
+    }
+
     function dispose() {
       if (disposed) return;
       disposed = true;
@@ -193,9 +229,12 @@
       cleanups.length = 0;
       overlay.dispose();
       if (canvas) canvas.dispose();
+      if (controls) controls.dispose();
+      if (panel) panel.dispose();
       if (svg.parentNode) svg.parentNode.removeChild(svg);
-      // gỡ cả viewportHost (cha của rootEl) — không để lại node mồ côi trong mount-point
-      if (viewportHost.parentNode) viewportHost.parentNode.removeChild(viewportHost);
+      // gỡ outer (stage chứa viewportHost+panel nếu có; else viewportHost) — không để node mồ côi
+      const outer = stageEl || viewportHost;
+      if (outer.parentNode) outer.parentNode.removeChild(outer);
     }
 
     // Gắn dispose lên DOM node để loader gỡ được shell mồ côi nếu factory throw giữa mount.
@@ -204,7 +243,8 @@
     return {
       root: rootEl, svg, tf, overlay, canvas,
       render: R, // tiện gọi primitives
-      onPointerDrag, onFrame, start, stop, addHandle, addCleanup, addListener, dispose
+      onPointerDrag, onFrame, start, stop, addHandle, addCleanup, addListener,
+      setTheory, addControls, dispose
     };
   }
 

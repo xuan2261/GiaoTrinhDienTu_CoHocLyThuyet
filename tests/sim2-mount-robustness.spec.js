@@ -24,7 +24,7 @@ test('ch1-2-3: kéo handle lực về gốc — readout không có NaN', async (
   await page.mouse.up();
   await page.waitForTimeout(100);
 
-  const readoutText = await page.locator('#host .sim2-readout').innerText();
+  const readoutText = await page.locator('#host .sim2-readout-live').innerText();
   expect(readoutText).not.toContain('NaN');
 
   await page.evaluate(() => window.__sim.dispose());
@@ -66,7 +66,7 @@ test('shell mồ côi được gỡ khi factory throw giữa mount (chống rò 
 
   // Remount sim thật vẫn OK sau khi đã dọn mồ côi
   await page.evaluate(() => { window.__sim = window.SIM_MAP['ch1-2-3'](document.getElementById('host')); });
-  await expect(page.locator('#host svg')).toHaveCount(1);
+  await expect(page.locator('#host svg.sim2-svg')).toHaveCount(1);
   await page.evaluate(() => window.__sim.dispose());
   await expect(page.locator('#host .sim2-root')).toHaveCount(0);
 });

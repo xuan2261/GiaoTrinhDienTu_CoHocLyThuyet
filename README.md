@@ -59,13 +59,15 @@ npm run test:audit:strict
 
 Bộ 52 mô phỏng cũ đã được gỡ khỏi master (tag `archive/52-sims-pre-removal` giữ điểm quay đầu); thay bằng **25 mô phỏng "ít mà tinh"** dựng trên **engine SVG-first 3 tầng** tại `js/sim2/`: physics port UMD (chạy được Node + browser) · transform `world→screen` dùng chung · render SVG + nhãn HTML overlay tuyệt đối + canvas underlay tùy chọn (4 sim animation dày). Mount contract giữ nguyên `window.SIM_MAP[pageId] → factory(container) → { dispose }`; `loader.js` mount/dispose theo route. Manifest 25 route: `js/sim2/sim2-route-manifest.js`.
 
+**Tầng UI dùng chung** (mọi sim cùng hưởng, DRY): `core/palette.js` (token màu `Sim2Palette` — đỏ=lực, lục=vận tốc, lam=gia tốc, tím=mô men…, mirror CSS `--sim-c-*`, tương phản ≥3:1 trên nền viewport); `core/panel.js` (panel lý thuyết: công thức KaTeX **tô màu khớp vector** + legend + readout sống tabular-nums + dòng quan sát); `core/controls.js` (control bar: slider có `<output>` + playback ▶/⏸/⏭/↺, **start paused** theo quy ước PhET). `sim-shell.js` thêm `setTheory()`/`addControls()`, panel luôn hiện cạnh viewport (xuống dưới khi hẹp). Slider ↔ drag-handle đồng bộ 2 chiều (`setValue` không bắn `input` → không vòng lặp). `dispose()` gỡ sạch cả listener slider.
+
 ```powershell
 npm run test:sim:physics    # node: physics port + transform + ch1/ch2/ch3 invariants + coverage + guards
-npm run test:sim:mount      # playwright: mount 25 route, nhãn không chồng, canvas↔SVG khớp, dispose hủy RAF
+npm run test:sim:mount      # playwright: ui-components + ui-coverage 25 route + mount + dispose hủy RAF
 npm run test:sim:release    # physics + mount + content + quiz (gate offline)
 ```
 
-`test:sim:physics` chạy 8 node test: port snapshot (verified-sticky), transform round-trip, physics dạng đóng 3 chương, coverage 25 route (đọc count từ manifest), guard physics-cũ-đã-gỡ + sim-cũ-đã-gỡ. `test:sim:mount` mount 25 route qua `SIM_MAP`: có SVG, nhãn DOM không chồng (bounding-box), canvas underlay khớp SVG ≤1px, dispose gỡ sạch listener+RAF+DOM. `test:sim:release` là gate tổng, chạy offline.
+`test:sim:physics` chạy 8 node test: port snapshot (verified-sticky), transform round-trip, physics dạng đóng 3 chương, coverage 25 route (đọc count từ manifest + guard 0 hex rải rác — phải dùng `Sim2Palette`), guard physics-cũ-đã-gỡ + sim-cũ-đã-gỡ. `test:sim:mount` mount 25 route qua `SIM_MAP`: `sim2-ui-components` (palette/controls/panel + dispose listener), `sim2-ui-coverage` (mọi route có panel + legend + readout + control), mount từng chương (nhãn DOM không chồng, canvas underlay khớp SVG ≤1px, sim động start-paused — test bấm ▶ trước khi assert chuyển động), dispose gỡ sạch listener+RAF+DOM. `test:sim:release` là gate tổng, chạy offline.
 
 ## Quy ước vận hành
 
