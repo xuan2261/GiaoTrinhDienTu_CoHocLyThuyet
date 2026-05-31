@@ -1,7 +1,7 @@
 ---
 phase: 0
 title: "Gỡ 52 sim cũ + test/tool cũ"
-status: pending
+status: completed
 priority: P1
 effort: "0.5d"
 dependencies: []

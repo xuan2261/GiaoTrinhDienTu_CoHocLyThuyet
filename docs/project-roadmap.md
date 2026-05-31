@@ -11,8 +11,9 @@ Roadmap này phản ánh trạng thái hiện tại của project và các bư�
 | Offline bundle | Đã có |
 | Quiz/progress/notes/glossary/simulations | Đã có; quiz banks hiện 100 câu/chapter với schema + browser gates |
 | Semantic math strict publish | Strict pass; browser QA representative responsive/touch và `file://` pass |
-| Interactive simulation expansion | Done: 52/52 P1 routes have canonical registry contracts; Section VII `BÀI TẬP` pages are content-only |
-| Professional simulation architecture split | Done: shared kernels, `js/sim-professional-lab.js`, thin adapters, registry route modules, executable registry gate, mount rollback gate |
+| Simulation rebuild 52→25 SVG-first | Done (2026-05-31): gỡ toàn bộ 52 route canvas-based cũ; dựng lại 25 route "ít mà tinh" trên engine `js/sim2/` SVG-first 3 tầng; tag `archive/52-sims-pre-removal` giữ bộ cũ; `test:sim:release` pass offline |
+| Interactive simulation expansion | Done (legacy): 52/52 P1 routes — đã thay thế bởi engine `js/sim2/` 25 route |
+| Professional simulation architecture split | Done (legacy): `js/sim-professional-lab.js` — đã thay thế bởi `js/sim2/core/sim-shell.js` |
 | Professional simulation lab shell | Done: 52/52 canonical routes have lab contracts, `.sim-lab` shell, manifest gate, responsive browser checks, và route identity gate |
 | Canvas HTML overlay migration | Done: reuse existing `.sim-lab-overlay`, route renderers dùng DOM overlay/KaTeX qua `domMath`, overlay bám canvas rect + transform scale, late KaTeX fallback rerender, visible UI/objectives localized |
 | Simulation canvas overlay cleanup | Done: 52 canonical routes block formula/value DOM in `.sim-lab-overlay`; right inspector owns formula/readout UI; `@overlay-contract`, browser, visual, semantic, and release gates pass |
@@ -62,6 +63,7 @@ Roadmap này phản ánh trạng thái hiện tại của project và các bư�
 | P9 | Done | DeCuong simulation full rebuild | Phase 00-12 complete; final review fixes landed for canonical route contracts; final release gate pass with 52 registered routes |
 | P10 | Done | Promax simulation correctness pilot | 6-route invariant/challenge shell, diagnostic overlays, route-owned mini graph summaries, targeted unit/browser gates, and 52 remaining routes classified only in the rollout matrix |
 | P11 | Done | Phase 09 concept-diagram cleanup and animation parity | `scene.static` UX cleanup, animated route parity, engine-time canvas evolution baseline, browser drift gate pass |
+| P13 | Done (2026-05-31) | Rebuild simulation 52→25 SVG-first engine | Gỡ 52 route canvas-based; dựng `js/sim2/` 3 tầng; 25 route pass `test:sim:release` offline |
 | P12 | Done | Quiz banks to 100 questions/chapter | Ch1/Ch2/Ch3 mỗi file 100 câu, distribution target pass, random mode giữ 10 câu, bundle regenerated |
 
 ## P2 breakdown

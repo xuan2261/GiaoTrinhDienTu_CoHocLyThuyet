@@ -1,85 +1,77 @@
 # System Architecture
 
-## Current Simulation Runtime
+## Simulation Engine (js/sim2/)
 
-Runtime simulation hiện tại là static `HTML/CSS/JS`, chạy được bằng `file://`. Active path không dùng Matter.js/SVG V2; path đó chỉ còn là legacy/pilot reference nếu xuất hiện trong file cũ.
+Engine SVG-first 3 tầng, thay thế toàn bộ engine canvas-based cũ (52 route). Tag git `archive/52-sims-pre-removal` giữ bộ cũ.
 
-| Layer | File | Trách nhiệm |
-|---|---|---|
-| Shell | `js/sim-lab-ui.js` | Tạo `.sim-lab`, canvas, controls, readout cards, hint, reset/play-pause |
-| Lifecycle/core | `js/sim-core.js` | Scope cleanup, canvas helpers, sliders/buttons, RAF/listener cleanup |
-| Interaction | `js/sim-interactions.js` | Pointer/touch/keyboard handle layer, active handle metadata |
-| Shared DeCuong rendering | `js/sim-rendering.js`, `js/sim-visual-helpers.js` | Theme-aware grid, drag handle dots, PI/7 arrows, dashed guides, readable panels; `getPattern(ctx, material, theme)` / `clearPatternCache()` backed by OffscreenCanvas + seeded LCG noise; MutationObserver clears cache on `data-theme` toggle |
-| Promax pilot invariants | `js/sim-route-invariants.js`, `js/sim-invariant-evaluators.js`, `js/sim-promax-*` | 6-route pilot invariant specs/evaluators run as hidden metadata; diagnostic controls, formula summaries, mini graph summaries, and challenge feedback stay out of the learner UI |
-| Scene data | `js/sim-scene-registry.js`, `js/sims/ch*/*-scenes.js` | Route-scoped scene catalog and deterministic signatures |
-| Rendering | `js/sim-route-renderer-registry.js`, `js/sims/ch*/*-renderers.js` | Dedicated renderer per route; no family final dispatch |
-| Behavior | `js/sim-route-behavior-registry.js`, `js/sims/ch*/*-behaviors.js` | Derived model ids, route-owned handles, interaction semantics |
-| Lab orchestration | `js/sim-professional-lab.js` | Resolve scene/renderer/behavior, bind controls/handles, render readouts; `resolveHandles` fails loudly when a route returns no handles (legacy fallback removed); per-route ARIA overlay layer (`.sim-handle-a11y-layer`), keyboard nudge (Arrow + Shift), Escape blur, polite `sim-aria-live` region; `lab.prefersReducedMotion` flag honored across animation engine |
-| Thin adapters | `js/sim-statics.js`, `js/sim-kinematics.js`, `js/sim-dynamics.js` | Chapter route adapters into `SimProfessionalLab.mount(routeId)` |
-| Registry map | `js/sims/ch*/*-routes.js`, `js/simulations.js` | Build `window.SIM_MAP` for 52 canonical P1 routes |
+### Tầng 1 — Physics
+
+| File | Trách nhiệm |
+|---|---|
+| `js/sim2/physics/statics.js` | Công thức tĩnh học |
+| `js/sim2/physics/kinematics.js` | Công thức động học |
+| `js/sim2/physics/dynamics.js` | Công thức động lực học |
+| `js/sim2/physics/index.js` | Re-export; UMD (Node + browser) |
+
+Nguồn tính toán duy nhất; công thức port từ bộ cũ, đã verify. Chạy được cả Node lẫn browser (UMD).
+
+### Tầng 2 — Core
+
+| File | Trách nhiệm |
+|---|---|
+| `js/sim2/core/transform.js` | World→screen: scale giữ tỉ lệ, flip-y, tự căn giữa; round-trip < 1e-9 |
+| `js/sim2/core/svg-render.js` | SVG primitives (line/arrow/circle/poly/path) nhận transform |
+| `js/sim2/core/overlay.js` | Nhãn + readout card HTML định vị tuyệt đối qua transform; không vẽ chữ trong canvas |
+| `js/sim2/core/canvas-underlay.js` | Canvas tùy chọn cùng transform; vẽ trail/field (ch2-1-1, ch2-4-4, ch2-5-3, ch3-6-2) |
+| `js/sim2/core/sim-shell.js` | Factory chung: dựng SVG+overlay(+canvas), drag handle→toWorld, RAF loop, dispose() |
+
+`overlay.js` dùng HTML định vị tuyệt đối → nhãn không chồng, test bounding-box bắt được.
+`sim-shell.js` dispose() gỡ sạch listener+RAF+DOM, chống rò khi đổi route.
+
+### Tầng 3 — Simulations
+
+| Thư mục | Nội dung |
+|---|---|
+| `js/sim2/sims/ch1/` | 10 sim tĩnh học |
+| `js/sim2/sims/ch2/` | 7 sim động học |
+| `js/sim2/sims/ch3/` | 8 sim động lực học |
+
+### Registry & Manifest
+
+| File | Trách nhiệm |
+|---|---|
+| `js/sim2/registry.js` | `register(routeId, factory)` → `window.SIM_MAP[id]` |
+| `js/sim2/sim2-route-manifest.js` | Metadata 25 route (id+tên+chương); nguồn duy nhất cho test count — không hardcode 25 |
+
+### 25 Route IDs
+
+| Chương | Route IDs |
+|---|---|
+| Ch1 (tĩnh học, 10) | ch1-1-3, ch1-1-4, ch1-1-5, ch1-1-6, ch1-2-3, ch1-1-8, ch1-3-2, ch1-3-6, ch1-5-3, ch1-6-3 |
+| Ch2 (động học, 7) | ch2-1-1, ch2-1-3, ch2-2-2, ch2-3-2, ch2-4-4, ch2-5-2, ch2-5-3 |
+| Ch3 (động lực học, 8) | ch3-2-2, ch3-2-3, ch3-1-3, ch3-3-1, ch3-5-2, ch3-5-3, ch3-5-4, ch3-6-2 |
 
 ## Load Flow
 
-1. `index.html` loads shared simulation foundation modules.
-2. `index.html` loads `js/sims/ch*/` scene, renderer, behavior, and route modules.
-3. `js/simulations.js` builds `window.SIM_MAP` from chapter registries.
-4. `js/loader.js` resolves the page id, injects the fragment, then calls the matching simulation route.
-5. The thin adapter calls `SimProfessionalLab.mount(routeId)`.
-6. The lab resolves route scene + renderer + behavior, creates `.sim-lab`, binds sliders/buttons/handles, and draws canvas/readout state.
-7. On route change, `loader.js` disposes the active simulation before replacing content.
+1. `index.html` loads `js/sim2/` modules.
+2. `js/sim2/registry.js` builds `window.SIM_MAP` từ 25 route factories.
+3. `js/loader.js` → `initSimulations(container, pageId)` tra SIM_MAP, mount factory, lưu dispose.
+4. Khi đổi route, `loader.js` gọi dispose() trước khi replace content.
 
-## Runtime Contract
+## Mount Contract
 
-- Canonical route count: 52 P1 routes.
-- Ch1 active route count: 23.
-- Canvas logical size: 760×440; responsive CSS scales visually without changing simulation coordinates.
-- Canvas clear path is transparent `ctx.clearRect(0, 0, w, h)`, with `.sim-canvas-wrap` owning theme background.
-- Motion trails are disabled in active routes: no `drawTrail` API exposure and no route-owned trail state.
-- Each route must have a unique renderer id, behavior id, named renderer function, and scene signature.
-- Route-owned handles must expose meaningful ids/labels through `data-handle-ids`; fallback `legacy-primary` is not acceptable for active routes.
-- Readouts use `.sim-readout-card` and semantic `data-readout-kind` values.
-- `.sim-lab-overlay` is canvas-aligned but must not show learner-facing formulas or dynamic values; it is reserved for short diagram labels/markers only.
-- Route formulas belong to `.sim-formula-panel`; dynamic computed values belong to `.sim-readout-card`.
-- Promax pilot routes expose `data-promax-level="pilot"` and `data-invariant-status` for QA/logic, but do not show diagnostic toggles, observe/action/check mode buttons, formula summaries, mini graph summaries, or challenge feedback in the learner UI.
-- Route scenes may provide explicit readout item `kind` metadata or set `appendGenericReadouts: false` when their physics model owns all displayed values.
-- Route scenes may set `readoutPolicy` with `appendMode`, `appendAlpha`, `appendControls`, and `appendTime`; absent policy keeps legacy append defaults for backward compatibility, while active routes use explicit readouts or policy flags to avoid undeclared control echoes.
-- Controls that matter pedagogically should be declared as explicit scene readouts; the shared engine must not rely on blanket control echo to satisfy learner-facing readout contracts.
-- Drag handlers must update canonical state, sliders, inline control values, and readout cards from the same clamped model state.
-- DeCuong CH1 route rebuilds must keep direct geometry and readouts coupled: `ch1-2-3` uses F1/F2 endpoint state for canvas, `|F₁|`, `|F₂|`, `|R|`, and `α`; support routes use alpha/handle state to redraw normal/tension geometry.
-- Section VII exercise pages are content-only and are not simulation route contracts.
-- DeCuong final review fixes keep CH2 control semantics canonical: `ch2-1-3` uses `rho` as the radius slider, and `ch2-5-3` uses `L` for endpoint geometry and `vBMag`.
-- CH3 dynamics routes keep animated state deterministic: spring/ODE routes seed non-zero displacement for visible energy, coupled-spring routes maintain both trajectory arrays, and collision solver readouts preserve signed momentum.
-- `SimProfessionalLab.mount(routeId)` must return an idempotent disposer and clean route-scoped listeners/RAF on route change or mount rollback.
-- No runtime bundler is required; `package.json` is dev-only QA.
+`SIM_MAP[pageId]` → `factory(container)` → `{ dispose }`.
 
-## Legacy/Pilot Policy
-
-- `js/routes/ch1/*`, `js/routes/ch2/*`, and `js/routes/ch3/*` are not the active source for canonical routes.
-- `js/routes/pilot-ch1-parallelogram.js` is reference-only and must not self-register into `window.SIM_MAP`.
-- Do not revive Matter.js/SVG V2 route files unless a new plan explicitly promotes them through the current registry/test contracts.
+dispose() hủy sạch RAF + listener + DOM — không rò khi đổi route.
 
 ## QA Gates
 
-```powershell
-python tools\smoke_simulation_routes.py --require-p1
-python tools\smoke_simulation_manifest.py --require-routes 52 --require-objectives --require-direct
-python tools\smoke_simulation_scene_catalog.py --strict --require-routes 52
-python tools\smoke_simulation_renderer_contract.py --strict --require-routes 52
-python tools\smoke_simulation_runtime.py --expect-runtime-routes 52 --check-mount-rollback --check-listener-cleanup --check-raf-cleanup
-npm run test:sim:unit
-npm run test:sim:browser
-npm run test:sim:visual-quality
-npm run test:sim:correctness
-npm run test:sim:correctness:browser
 ```
-
-Promax pilot gates:
-
-```powershell
-node tests\simulation-invariants.test.js
-node tests\promax-challenge-mode.test.js
-node tests\promax-formula-graph.test.js
-npx playwright test tests\promax-pilot-shell.spec.js
+npm run test:sim:physics   # 8 node tests: physics-port, transform, ch1/ch2/ch3 physics,
+                           #   route-coverage, no-legacy-physics, removal-guard
+npm run test:sim:mount     # Playwright: ch1/ch2/ch3 mount + integration + content-only-smoke;
+                           #   mount OK, nhãn không chồng, canvas↔SVG ≤1px, dispose hủy RAF
+npm run test:sim:release   # physics + mount + content + quiz; chạy offline
 ```
 
 ## Persistence Layer

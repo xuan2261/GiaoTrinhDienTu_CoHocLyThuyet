@@ -1,5 +1,27 @@
 # Project Changelog
 
+## 2026-05-31 — Simulation Rebuild: 52 Route Canvas-Based → 25 Route SVG-First Engine
+
+### Removed
+- Gỡ toàn bộ 52 route simulation canvas-based cũ (engine `js/sim-professional-lab.js`, `js/sim-lab-ui.js`, `js/sim-core.js`, `js/sim-interactions.js`, `js/sim-rendering.js`, `js/sim-visual-helpers.js`, `js/sims/ch*/`, scene/renderer/behavior registries, thin adapters). Tag git `archive/52-sims-pre-removal` giữ bộ cũ.
+
+### Added
+- Engine SVG-first 3 tầng tại `js/sim2/`:
+  - **Physics** (`physics/statics.js`, `physics/kinematics.js`, `physics/dynamics.js`, `physics/index.js`): công thức port từ bộ cũ, đã verify, UMD (Node + browser).
+  - **Core** (`core/transform.js`, `core/svg-render.js`, `core/overlay.js`, `core/canvas-underlay.js`, `core/sim-shell.js`): transform world→screen dùng chung (round-trip < 1e-9); SVG primitives; HTML overlay định vị tuyệt đối (nhãn không chồng); canvas-underlay tùy chọn cho trail/field (ch2-1-1, ch2-4-4, ch2-5-3, ch3-6-2); factory sim-shell với RAF loop và dispose() sạch.
+  - **Simulations**: `sims/ch1/` (10 tĩnh học), `sims/ch2/` (7 động học), `sims/ch3/` (8 động lực học).
+  - **Registry**: `registry.js` → `window.SIM_MAP`; `sim2-route-manifest.js` metadata 25 route, nguồn duy nhất cho test count.
+- 25 route IDs: ch1-1-3, ch1-1-4, ch1-1-5, ch1-1-6, ch1-2-3, ch1-1-8, ch1-3-2, ch1-3-6, ch1-5-3, ch1-6-3, ch2-1-1, ch2-1-3, ch2-2-2, ch2-3-2, ch2-4-4, ch2-5-2, ch2-5-3, ch3-2-2, ch3-2-3, ch3-1-3, ch3-3-1, ch3-5-2, ch3-5-3, ch3-5-4, ch3-6-2.
+- QA gates: `test:sim:physics` (8 Node tests: physics-port, transform, ch1/ch2/ch3 physics, route-coverage, no-legacy-physics, removal-guard), `test:sim:mount` (Playwright: mount OK, nhãn không chồng, canvas↔SVG ≤1px, dispose hủy RAF), `test:sim:release` (physics + mount + content + quiz, offline).
+
+### Changed
+- `js/loader.js` → `initSimulations(container, pageId)` tra `SIM_MAP` mới, mount factory, lưu dispose; gọi dispose khi đổi route.
+
+### Verified
+- `npm run test:sim:release`: PASS offline.
+
+---
+
 ## 2026-05-31 — Simulation Physics & Theory-Fidelity Fixes (23-route remediation)
 
 ### Fixed

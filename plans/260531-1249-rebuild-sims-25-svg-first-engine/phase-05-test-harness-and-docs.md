@@ -1,7 +1,7 @@
 ---
 phase: 5
 title: "Test harness 25 route + docs + dọn physics cũ"
-status: pending
+status: completed
 priority: P2
 effort: "1d"
 dependencies: [4]

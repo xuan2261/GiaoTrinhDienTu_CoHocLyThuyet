@@ -1,6 +1,6 @@
 # Codebase Summary
 
-Snapshot này dựa trên scout trực tiếp runtime, toolchain, docs hiện có, và QA metadata ngày 2026-05-20.
+Snapshot này dựa trên scout trực tiếp runtime, toolchain, docs hiện có, và QA metadata ngày 2026-05-31.
 
 ## Snapshot
 
@@ -10,13 +10,9 @@ Snapshot này dựa trên scout trực tiếp runtime, toolchain, docs hiện c�
 | Main subject | Cơ Học Lý Thuyết |
 | Input chuẩn | `CoHocLyThuyet_Full_New.docx` |
 | Runtime/source files chính | `index.html`, `js/`, `chapters/`, `data/`, `tools/` |
-| QA harness | `package.json` dev-only scripts + content/quiz gates (`test:content`, `test:quiz`, `test:quiz:browser`) and current simulation QA gates: unit, quality, audit, disposal, semantic, visual-quality, browser, browser:evolution, release, scene-identity, renderer-contract, runtime smoke, correctness, correctness:browser, review aggregate, visual/evolution baseline update |
-| Simulation route contracts | `js/sim-scene-registry.js`, `js/sim-route-renderer-registry.js`, `js/sim-route-behavior-registry.js`, 52 canonical route renderers under `js/sims/ch*/` |
-| Simulation files | 65 active JS files scanned by `audit_simulation_quality.py`; Ch1 route files stay under 220 lines |
-| Shared-first simulation UX | `.sim-lab` shell with 760×440 canvas, chapter accents, 44px touch controls, semantic readout cards, wide right-inspector stack on desktop/tablet, stacked mobile fallback, DeCuong render helpers, and ARIA-backed hint/status/canvas wiring |
-| Static vs animated simulations | Concept routes use `scene.static` to suppress Play; `tickWithoutButton` permits readout ticks without Play. Canvas labels are exact static/animated strings; engine time is exposed through scoped `.sim-lab[data-engine-time]`, not `window.__currentLab`. Animated routes must evolve under the engine-time canvas sweep and the no-dependency tier-2 visual baseline; renderer type rules live in `docs/code-standards.md` → `Sim renderer types`. |
-| Promax pilot scope | 6 routes keep hidden invariant metadata for QA; extra diagnostics, formula readouts, mini graph summaries, and challenge controls are no longer shown to learners |
-| DeCuong rebuild progress | Phase 00 through Phase 12 simulation work is complete for the active 52-route registry. Section VII `BÀI TẬP` pages are content-only and are guarded by no-simulation browser tests. |
+| QA harness | `package.json` dev-only scripts + content/quiz gates (`test:content`, `test:quiz`, `test:quiz:browser`) and simulation QA gates: `test:sim:physics`, `test:sim:mount`, `test:sim:release` |
+| Simulation engine | `js/sim2/` — SVG-first 3-tầng engine; 25 route; tag `archive/52-sims-pre-removal` giữ bộ cũ 52 route |
+| Simulation route manifest | `js/sim2/sim2-route-manifest.js` — metadata 25 route; nguồn duy nhất cho test count |
 | Generated/runtime assets lớn | `images/`, `equation-review.html`, `js/pages.js` |
 | Large generated artifacts | `equation-review.html`, `js/pages.js`, `tools/equation_report.json` |
 
@@ -29,8 +25,7 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 - quiz trắc nghiệm
 - progress và bookmark
 - notes, highlight, glossary tooltip
-- simulations canvas
-- route-specific scene catalogs, strict renderer/behavior contracts, semantic QA, and lazy professional lab mounts
+- simulations SVG-first (25 route, engine `js/sim2/`)
 - DOCX sync pipeline để regenerate fragment và asset
 
 ## Cấu trúc cấp cao
@@ -38,7 +33,7 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | Đường dẫn | Vai trò | Ghi chú |
 |---|---|---|
 | `index.html` | Shell ứng dụng | Nạp KaTeX local trước, CDN sau |
-| `package.json` | Dev-only QA scripts | `test:content`, `test:quiz`, `test:quiz:browser`, `test:sim:unit`, `test:sim:quality`, `test:sim:semantic`, `test:sim:renderer-contract`, `test:sim:browser`, `test:sim:release`, `test:sim:browser:install`, `test:sim:browser:baseline`, `test:sim:browser:route-mount`, `test:sim:correctness`, `test:sim:correctness:browser`, `test:sim:review-2026-05-19`, `test:sim:visual-quality:update` |
+| `package.json` | Dev-only QA scripts | `test:content`, `test:quiz`, `test:quiz:browser`, `test:sim:physics`, `test:sim:mount`, `test:sim:release` |
 | `css/style.css` | Theme và layout | Dark navy + gold, có light mode |
 | `js/app.js` | UI shell | Breadcrumb, search, theme, font zoom, progress bar |
 | `js/loader.js` | Router và fragment loader | Có fallback bundle offline rồi mới fetch |
@@ -47,14 +42,11 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `js/progress.js` | Reading progress | Bookmark + progress per page/chapter |
 | `js/glossary.js` | Term tooltip | Tự wrap từ khóa technical |
 | `js/notes.js` | Personal notes | Highlight + notes per page |
-| `js/sim-lab-ui.js` | Simulation shell | `.sim-lab` header, canvas, readout cards, hint, reset/play-pause |
-| `js/sim-professional-lab.js` | Simulation orchestration | Resolve scene/renderer/behavior, bind controls/handles, render canvas/readouts |
-| `js/sims/ch*/` | Route contracts | Scene catalogs, dedicated renderers, behavior contracts, route modules |
-| `js/simulations.js` | Simulation registry | Build `window.SIM_MAP` từ active route registries |
+| `js/sim2/` | Simulation engine SVG-first | `physics/`, `core/`, `sims/ch*/`, `registry.js`, `sim2-route-manifest.js` — 25 route |
 | `chapters/` | HTML fragments | Sinh từ DOCX |
 | `data/` | Quiz + equation mapping | Có `quiz-ch1.json`, `quiz-ch2.json`, `quiz-ch3.json` |
 | `tools/` | Build/audit pipeline | Python scripts, manifest, reports |
-| `tests/` | Playwright browser QA + Node unit suites | `tests/simulation-browser.spec.js`, `tests/sim-correctness-realism.test.js`, `tests/sim-handle-anchor-invariants.spec.js`, `tests/sim-correctness-realism-fixtures.js` |
+| `tests/` | Playwright browser QA + Node unit suites | `tests/sim2-physics.test.js`, `tests/sim2-mount.spec.js` (sim2 gates); quiz/content gates |
 | `docs/` | Operational docs | Hiện là lớp tài liệu chuẩn hóa |
 
 ## Runtime surface
@@ -67,10 +59,9 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `progress.js` | Track visited pages, bookmarks, read status |
 | `glossary.js` | Gắn tooltip cho thuật ngữ trong content fragment |
 | `notes.js` | Highlight selection, note popup, notes panel |
-| `sim-lab-ui.js` | Shared `.sim-lab` shell and UI slots |
-| `sim-professional-lab.js` | Shared mount engine for route-specific scenes/renderers/behaviors |
-| `sim-statics.js`, `sim-kinematics.js`, `sim-dynamics.js` | Thin chapter adapters into `SimProfessionalLab.mount(routeId)` |
-| `simulations.js` | Registry-backed 52-route `window.SIM_MAP`; loader skips Section VII exercise pages as content-only |
+| `js/sim2/registry.js` | Build `window.SIM_MAP` từ 25 route factories |
+| `js/sim2/core/sim-shell.js` | Factory chung: SVG+overlay(+canvas), RAF loop, dispose() |
+| `js/sim2/physics/` | Công thức physics UMD (statics/kinematics/dynamics) |
 
 ## Data model
 
@@ -93,13 +84,6 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `tools/update_nav.py` | Đồng bộ sidebar, route map, page order, breadcrumb, legacy redirects |
 | `tools/bundle_pages.py` | Bundle fragment và quiz JSON vào `js/pages.js` |
 | `tools/audit.py` | Audit content, image path, equation rendering; có `--strict-equations` và `--strict-images` publish gates |
-| `tools/smoke_simulation_manifest.py` | Gate Phase 01 cho manifest coverage / route matrix |
-| `tools/audit_simulation_quality.py` | Gate Phase 01 cho simulation quality baseline |
-| `tools/smoke_simulation_routes.py` | QA smoke cho route wiring và coverage matrix; in coverage counts và representative routes |
-| `tools/smoke_simulation_scene_catalog.py` | Gate scene catalog identity và route coverage 52 route |
-| `tools/smoke_simulation_renderer_contract.py` | Strict gate cho rendererId/function/body uniqueness, behavior registrations, no family dispatch |
-| `tools/smoke_simulation_runtime.py` | QA smoke cho runtime, script order, module globals, registry, lifecycle tokens, `--expect-runtime-routes 52`, `--check-mount-rollback` |
-| `tests/phase-08-tdd.test.js` | Phase 08 TDD coverage cho relative-motion và plane/instant-center routes |
 | `tools/validate_equation_mapping.py` | Validate mapping JSON, trạng thái `reviewed`, và optional KaTeX parse |
 | `tools/ocr_equation_mapping.py` | Prefill mapping bằng local OCR/Vision LLM và reject OCR LaTeX không render được |
 | `tools/build_equation_review_html.py` | Tạo `equation-review.html` offline |
@@ -108,11 +92,6 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 | `tools/merge_equation_mapping.py` | Merge reviewed mapping vào publish file |
 | `tools/test_docx_equation_pipeline.py` | Regression test cho mojibake MathML, generated output sạch, và inline spacing |
 | `tools/test_simulation_qa_tools.py` | Regression test cho simulation QA tools và browser baseline wiring |
-| `tests/sim-canvas-evolution.spec.js` | 52-route learner-facing engine-time canvas hash sweep; static buckets stay bounded, animated buckets must show `[3,4]` unique frames |
-| `tools/check-canvas-evolution-baseline.js` | Baseline drift gate for `qa-verification/animation-sweep/per-route-animation-sweep-baseline.json`; rejects animated wall-time fallback |
-| `tests/phase-09-12-tdd.test.js` | TDD coverage cho active CH3 dynamics/collision invariants |
-| `npm run test:sim:scene-identity` | Browser scene identity gate: `tools/smoke_simulation_scene_catalog.py --strict --require-routes 52` + Playwright `@scene-identity` |
-| `npm run test:sim:renderer-contract` | Static + browser gate cho 52 dedicated renderers, 52 behavior ids, và runtime structural identity |
 
 ## Khu vực generated / nặng
 
@@ -136,9 +115,9 @@ Repo cung cấp một textbook reader chạy hoàn toàn phía client:
 
 Không nên đọc toàn bộ repo cho mọi tác vụ. Với task nhỏ, chỉ cần đọc `index.html`, `js/app.js`, `js/loader.js`, và script liên quan là đủ.
 Khi `audit.py --strict-equations` còn warning figure `<img>` tags, đó là figure thật chứ không phải equation fallback.
-- `tools/smoke_simulation_routes.py --require-p1` hiện cover 52/52 canonical P1 routes; matrix thiếu hoặc rỗng vẫn fail trừ khi explicit opt-in.
-- Simulation lifecycle đã có shared dispose path: `loader.js` dispose active simulation trước khi replace `#content-area`; `sim-core.js` cleanup RAF và resize listener.
-- Professional simulation architecture hiện dùng `js/sim-professional-lab.js`, scene metadata registry, strict renderer/behavior registries, thin adapters, route modules, và registry-backed route map.
-- Runtime smoke gate chuẩn là `python tools\smoke_simulation_runtime.py --expect-runtime-routes 52 --check-mount-rollback --check-listener-cleanup`; semantic gate là `npm run test:sim:semantic`.
-- DeCuong Phase 00-12 foundation/CH1/CH2/CH3 routes yêu cầu canvas 760×440, transparent clear, PI/7 arrows, theme-aware grid, KaTeX equation panel fallback, route-owned handles, no motion trails, synchronized readouts/sliders, manifest-aligned 52 route contracts, CH1 release-ready QA evidence, CH3 spring/collision invariants, và final release gate pass.
-- Browser QA suite hiện có pass; Section VII no-simulation guard, scene identity, route discovery guard, route shell, direct drag, animation tick, readout cards, responsive, `file://`, và server smoke phải giữ sạch.
+- Simulation engine mới là `js/sim2/` SVG-first 3 tầng; 25 route thay thế 52 route canvas-based cũ. Tag `archive/52-sims-pre-removal` giữ bộ cũ.
+- Simulation lifecycle: `loader.js` → `initSimulations(container, pageId)` tra `SIM_MAP`, mount factory, lưu dispose; gọi dispose khi đổi route.
+- `js/sim2/sim2-route-manifest.js` là nguồn duy nhất cho route count — không hardcode số 25 trong tests.
+- QA gate chuẩn: `npm run test:sim:physics` (Node), `npm run test:sim:mount` (Playwright), `npm run test:sim:release` (full offline).
+- `js/sim2/core/overlay.js` dùng HTML định vị tuyệt đối qua transform — nhãn không chồng, test bounding-box bắt được.
+- `js/sim2/core/canvas-underlay.js` chỉ dùng cho 4 route cần trail/field: ch2-1-1, ch2-4-4, ch2-5-3, ch3-6-2.

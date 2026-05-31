@@ -1,7 +1,7 @@
 ---
 phase: 4
 title: "Chương 3 — 8 sim động lực học"
-status: pending
+status: completed
 priority: P1
 effort: "3d"
 dependencies: [3]

@@ -1,7 +1,7 @@
 ---
 phase: 2
 title: "Chương 1 — 10 sim tĩnh học"
-status: pending
+status: completed
 priority: P1
 effort: "3d"
 dependencies: [1]

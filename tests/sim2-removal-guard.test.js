@@ -23,10 +23,8 @@ for (const dir of ['js/physics', 'js/render', 'js/routes', 'js/scene', 'js/inter
   assert.ok(!exists(dir), `${dir}/ (SimNew orphan) phải bị xóa`);
 }
 
-// --- 3 file physics nguồn-port phải còn (input cho P1) ---
-assert.ok(exists('js/sim-physics-statics.js'), 'sim-physics-statics.js phải còn (nguồn port)');
-assert.ok(exists('js/sim-physics-kinematics.js'), 'sim-physics-kinematics.js phải còn (nguồn port)');
-assert.ok(exists('js/sim-physics-dynamics.js'), 'sim-physics-dynamics.js phải còn (nguồn port)');
+// --- 3 file physics nguồn-port: P0 giữ lại, P5 đã port + xóa.
+// Bất biến "đã port + xóa" do [[sim2-no-legacy-physics]] sở hữu (tránh trùng/ngược nhau). ---
 
 // --- index.html không còn nạp sim cũ ---
 const indexHtml = read('index.html');

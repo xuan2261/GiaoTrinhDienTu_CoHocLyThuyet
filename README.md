@@ -55,9 +55,17 @@ npm run test:audit:strict
 
 `test:content` khóa author-page content + Section VII cleanup. `test:quiz` validate quiz bank schema; `test:quiz:browser` render quiz qua Playwright. `test:equations` chạy phase equation checks; `test:audit:strict` kiểm caption/alt/wrapper ảnh + formula image.
 
-## Mô phỏng (đang rebuild)
+## Mô phỏng (engine SVG-first)
 
-Bộ 52 mô phỏng cũ đã được gỡ khỏi master (tag `archive/52-sims-pre-removal` giữ điểm quay đầu). Đang dựng lại **25 mô phỏng "ít mà tinh"** trên **engine SVG-first 3 tầng mới** (`js/sim2/`). Chi tiết kế hoạch: `plans/260531-1249-rebuild-sims-25-svg-first-engine/`. Trong thời gian rebuild, app là content-only: mọi route hiện nội dung + công thức KaTeX, không mount sim.
+Bộ 52 mô phỏng cũ đã được gỡ khỏi master (tag `archive/52-sims-pre-removal` giữ điểm quay đầu); thay bằng **25 mô phỏng "ít mà tinh"** dựng trên **engine SVG-first 3 tầng** tại `js/sim2/`: physics port UMD (chạy được Node + browser) · transform `world→screen` dùng chung · render SVG + nhãn HTML overlay tuyệt đối + canvas underlay tùy chọn (4 sim animation dày). Mount contract giữ nguyên `window.SIM_MAP[pageId] → factory(container) → { dispose }`; `loader.js` mount/dispose theo route. Manifest 25 route: `js/sim2/sim2-route-manifest.js`.
+
+```powershell
+npm run test:sim:physics    # node: physics port + transform + ch1/ch2/ch3 invariants + coverage + guards
+npm run test:sim:mount      # playwright: mount 25 route, nhãn không chồng, canvas↔SVG khớp, dispose hủy RAF
+npm run test:sim:release    # physics + mount + content + quiz (gate offline)
+```
+
+`test:sim:physics` chạy 8 node test: port snapshot (verified-sticky), transform round-trip, physics dạng đóng 3 chương, coverage 25 route (đọc count từ manifest), guard physics-cũ-đã-gỡ + sim-cũ-đã-gỡ. `test:sim:mount` mount 25 route qua `SIM_MAP`: có SVG, nhãn DOM không chồng (bounding-box), canvas underlay khớp SVG ≤1px, dispose gỡ sạch listener+RAF+DOM. `test:sim:release` là gate tổng, chạy offline.
 
 ## Quy ước vận hành
 

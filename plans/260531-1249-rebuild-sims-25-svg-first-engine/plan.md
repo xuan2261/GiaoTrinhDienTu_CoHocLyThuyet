@@ -1,6 +1,6 @@
 ---
 title: "Gỡ 52 mô phỏng, dựng lại 25 trên engine SVG-first"
-status: pending
+status: completed
 created: 2026-05-31
 mode: deep+tdd
 blockedBy: []
@@ -34,12 +34,12 @@ P1 đã port xong và verify.
 
 | # | Phase | Trạng thái | Verify chính |
 |---|-------|-----------|--------------|
-| P0 | [Gỡ 52 sim + test/tool cũ](phase-00-remove-52-sims.md) | pending | App content-only · 0 console error · test:quiz+test:content xanh |
-| P1 | [Scaffold engine SVG-first](phase-01-scaffold-svg-engine.md) | pending | 1 sim "hello" mount qua SIM_MAP · transform round-trip test · physics port require() được trong Node |
-| P2 | [Chương 1 — 10 sim tĩnh học](phase-02-chapter1-statics-10-sims.md) | pending | 10/10: physics Node test + smoke mount + nhãn không chồng |
-| P3 | [Chương 2 — 7 sim động học](phase-03-chapter2-kinematics-7-sims.md) | pending | 7/7 nt + canvas underlay #11/#15/#17 khớp toạ độ SVG |
-| P4 | [Chương 3 — 8 sim động lực](phase-04-chapter3-dynamics-8-sims.md) | pending | 8/8 nt + underlay #25 |
-| P5 | [Test harness 25 route + docs](phase-05-test-harness-and-docs.md) | pending | `test:sim:*` mới xanh (25 route) · docs/README khớp · xóa physics cũ |
+| P0 | [Gỡ 52 sim + test/tool cũ](phase-00-remove-52-sims.md) | ✅ completed | App content-only · 0 console error · test:quiz+test:content xanh |
+| P1 | [Scaffold engine SVG-first](phase-01-scaffold-svg-engine.md) | ✅ completed | 1 sim "hello" mount qua SIM_MAP · transform round-trip test · physics port require() được trong Node |
+| P2 | [Chương 1 — 10 sim tĩnh học](phase-02-chapter1-statics-10-sims.md) | ✅ completed | 10/10: physics Node test + smoke mount + nhãn không chồng |
+| P3 | [Chương 2 — 7 sim động học](phase-03-chapter2-kinematics-7-sims.md) | ✅ completed | 7/7 nt + canvas underlay #11/#15/#17 khớp toạ độ SVG |
+| P4 | [Chương 3 — 8 sim động lực](phase-04-chapter3-dynamics-8-sims.md) | ✅ completed | 8/8 nt + underlay #25 |
+| P5 | [Test harness 25 route + docs](phase-05-test-harness-and-docs.md) | ✅ completed | `test:sim:*` mới xanh (25 route) · docs/README khớp · xóa physics cũ |
 
 ## Kiến trúc tóm tắt (chi tiết ở P1)
 ```
