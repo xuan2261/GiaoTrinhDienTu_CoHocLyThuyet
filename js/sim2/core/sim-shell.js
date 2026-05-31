@@ -182,6 +182,9 @@
       if (rootEl.parentNode) rootEl.parentNode.removeChild(rootEl);
     }
 
+    // Gắn dispose lên DOM node để loader gỡ được shell mồ côi nếu factory throw giữa mount.
+    rootEl.__sim2Dispose = dispose;
+
     return {
       root: rootEl, svg, tf, overlay, canvas,
       render: R, // tiện gọi primitives

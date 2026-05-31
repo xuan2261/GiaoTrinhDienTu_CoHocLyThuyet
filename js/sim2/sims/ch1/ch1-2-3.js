@@ -46,11 +46,13 @@
       overlay.moveLabel(lF2, { x: t2.x + 0.3, y: t2.y });
       overlay.moveLabel(lR, { x: tR.x + 0.3, y: tR.y + 0.2 });
       const Rx = f1.fx + f2.fx, Ry = f1.fy + f2.fy;
-      const ang = Math.acos((f1.fx * f2.fx + f1.fy * f2.fy) /
-        (Math.hypot(f1.fx, f1.fy) * Math.hypot(f2.fx, f2.fy))) * 180 / Math.PI;
+      const m1 = Math.hypot(f1.fx, f1.fy), m2 = Math.hypot(f2.fx, f2.fy);
+      // guard: kéo lực về gốc (m=0) → tránh acos(0/0)=NaN ở readout góc
+      const cosA = (m1 > 1e-9 && m2 > 1e-9) ? (f1.fx * f2.fx + f1.fy * f2.fy) / (m1 * m2) : 1;
+      const ang = Math.acos(Math.max(-1, Math.min(1, cosA))) * 180 / Math.PI;
       card.__render([
-        { label: '|F₁|:', value: Math.hypot(f1.fx, f1.fy).toFixed(0) + ' N' },
-        { label: '|F₂|:', value: Math.hypot(f2.fx, f2.fy).toFixed(0) + ' N' },
+        { label: '|F₁|:', value: m1.toFixed(0) + ' N' },
+        { label: '|F₂|:', value: m2.toFixed(0) + ' N' },
         { label: '∠(F₁,F₂):', value: ang.toFixed(0) + '°' },
         { label: '|R|:', value: Math.hypot(Rx, Ry).toFixed(1) + ' N' }
       ]);

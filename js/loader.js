@@ -414,6 +414,13 @@ function initSimulations(container, pageId) {
     }
   } catch (err) {
     activeSimulationDispose = null;
+    // Factory ném giữa mount: gỡ shell mồ côi (RAF + listener + DOM) nếu đã dựng một phần,
+    // rồi reset mount-point để lần đổi route sau remount lại được (không rò, không khoá).
+    const orphan = mountPoint.querySelector('.sim2-root');
+    if (orphan && typeof orphan.__sim2Dispose === 'function') {
+      try { orphan.__sim2Dispose(); } catch (e2) { /* noop */ }
+    }
+    mountPoint.removeAttribute('data-sim-mount-route');
     console.warn('Failed to mount simulation:', pageId, err);
   }
 }
