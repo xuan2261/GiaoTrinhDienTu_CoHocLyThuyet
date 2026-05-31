@@ -36,9 +36,14 @@ function handle(ctx, x, y, color) {
   else P.point(ctx, x, y, color);
 }
 function axes(ctx, ox, oy) {
-  arrow(ctx, ox, oy, ox + 210, oy + 10, P.tone(0), 'x', 2.4);
-  arrow(ctx, ox, oy, ox - 14, oy - 158, P.tone(2), 'y', 2.4);
-  arrow(ctx, ox, oy, ox + 126, oy - 94, P.tone(1), 'z', 2.4);
+  // Axis labels sit at the arrow tips, not the midpoints, so they never collide
+  // with the resultant-component labels (R_x runs along the same x direction).
+  arrow(ctx, ox, oy, ox + 210, oy + 10, P.tone(0), '', 2.4);
+  arrow(ctx, ox, oy, ox - 14, oy - 158, P.tone(2), '', 2.4);
+  arrow(ctx, ox, oy, ox + 126, oy - 94, P.tone(1), '', 2.4);
+  label(ctx, 'x', ox + 216, oy + 16, P.tone(0), 13);
+  label(ctx, 'y', ox - 24, oy - 160, P.tone(2), 13);
+  label(ctx, 'z', ox + 132, oy - 98, P.tone(1), 13);
 }
 function project(ctx, ox, oy, p) {
   P.vectorTriangle(ctx, ox, oy, p.x, oy, p.x, p.y, P.tone(4), 0.14);

@@ -140,7 +140,11 @@ function derived(scene, state) {
   const dx = state.vector.x - state.primary.x;
   const dy = state.primary.y - state.vector.y;
   const force = c(Math.hypot(dx, dy), 1, 220);
-  const alpha = routeId.startsWith('ch1-') && Number.isFinite(Number(state.alpha))
+  // Routes whose alpha is a control-set scalar (incline/support angle on ch1-,
+  // angular acceleration ε on the fixed-axis disk) read it straight from state.
+  // Other routes derive a geometric angle from the dragged point's height; that
+  // fallback is meaningless for the disk, whose primary.y carries no angle.
+  const alpha = (routeId.startsWith('ch1-') || routeId === 'ch2-2-2') && Number.isFinite(Number(state.alpha))
     ? c(Number(state.alpha), 0, 55)
     : c(Math.round((H - state.primary.y) / 5), 0, 55);
   const ratio = c((state.primary.x - 90) / 380, 0.05, 0.95);

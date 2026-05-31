@@ -91,14 +91,17 @@ function renderCh353AngularMomentum(ctx, scene, state, d) {
   P.frame(ctx, scene, 'Mô men động lượng: L = Iω', P.tone(4));
   d = d || {};
   const I = d.I || state.I || 1, omega = d.omega || state.omega || 2, L = d.L || I * omega;
+  // Orbit centred in the canvas so the rotating mass fills the working area
+  // rather than huddling in the top-left corner.
+  const cx = 360, cy = 215;
   // Drawn radius follows I = mr² so the geometry tracks the inertia slider.
-  const rPx = 40 + (d.r || (state.r || 60) / 60) * 40;
+  const rPx = 90 + (d.r || (state.r || 60) / 60) * 70;
   const angle = (state._t || 0) * omega * 2;
 
-  P.realisticPoint(ctx, 148, 242, { text: 'O', fill: P.tone(4) });
-  const rx = 148 + Math.cos(angle) * rPx;
-  const ry = 242 + Math.sin(angle) * rPx;
-  P.dashedLine(ctx, 148, 242, rx, ry, P.tone(6));
+  P.realisticPoint(ctx, cx, cy, { text: 'O', fill: P.tone(4) });
+  const rx = cx + Math.cos(angle) * rPx;
+  const ry = cy + Math.sin(angle) * rPx;
+  P.dashedLine(ctx, cx, cy, rx, ry, P.tone(6));
 
   P.realisticPoint(ctx, rx, ry, { text: 'm', fill: P.tone(0), radius: 10 });
 
@@ -106,7 +109,7 @@ function renderCh353AngularMomentum(ctx, scene, state, d) {
   const vy = Math.cos(angle) * omega * rPx * 0.5;
   P.neonArrow(ctx, rx, ry, rx + vx * 0.8, ry + vy * 0.8, P.tone(1), 'mv');
 
-  P.angleArc(ctx, 148, 242, 30, angle - 0.6, angle + 0.2, P.tone(4), 'r');
+  P.angleArc(ctx, cx, cy, 48, angle - 0.6, angle + 0.2, P.tone(4), 'r');
 }
 
 // ─── ch3-5-4: Work-energy theorem ───────────────────────────────────────────

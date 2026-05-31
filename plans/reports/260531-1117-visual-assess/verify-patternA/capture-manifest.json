@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-05-31T04:50:58.313Z",
+  "baseUrl": "http://127.0.0.1:8023/",
+  "total": 3,
+  "routes": [
+    "ch1-4-1",
+    "ch1-4-2",
+    "ch1-4-4"
+  ],
+  "results": [
+    {
+      "idx": "01",
+      "route": "ch1-4-1",
+      "status": "ok",
+      "ms": 1781,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "02",
+      "route": "ch1-4-2",
+      "status": "ok",
+      "ms": 1348,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    },
+    {
+      "idx": "03",
+      "route": "ch1-4-4",
+      "status": "ok",
+      "ms": 1351,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    }
+  ]
+}

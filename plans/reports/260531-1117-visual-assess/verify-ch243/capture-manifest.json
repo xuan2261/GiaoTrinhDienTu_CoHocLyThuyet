@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-05-31T04:44:25.347Z",
+  "baseUrl": "http://127.0.0.1:8023/",
+  "total": 1,
+  "routes": [
+    "ch2-4-3"
+  ],
+  "results": [
+    {
+      "idx": "01",
+      "route": "ch2-4-3",
+      "status": "ok",
+      "ms": 1744,
+      "mountedSelector": "sim-container sim-lab",
+      "canvasInfo": {
+        "width": 760,
+        "height": 440,
+        "rectW": 729,
+        "rectH": 422,
+        "hasContent": true
+      },
+      "errors": []
+    }
+  ]
+}

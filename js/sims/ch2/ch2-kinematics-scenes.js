@@ -79,7 +79,7 @@ function readoutsFor(routeId, read1, read2) {
     'ch2-3-2': [{ label: 'r1', key: 'r1', digits: 2, unit: 'm' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }],
     'ch2-4-1': [{ label: '|v_e|', key: 'veMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Pha', key: 't', digits: 2, unit: 'rad' }],
     'ch2-4-2': [{ label: '|v_r|', key: 'vrMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Pha', key: 't', digits: 2, unit: 'rad' }],
-    'ch2-4-3': [{ label: '|v_e|', key: 'veMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Quan hệ vận tốc', key: 'velocityRelation', kind: 'default' }],
+    'ch2-4-3': [{ label: '|v_e|', key: 'veMag', digits: 2, unit: 'm/s' }, { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s', kind: 'velocity' }, { label: 'Quan hệ vận tốc', key: 'velocityRelation', kind: 'default', noUnit: true }],
     'ch2-4-4': { label: '|v_r|', key: 'vrMag', digits: 2, unit: 'm/s' },
     'ch2-5-1': { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' },
     'ch2-5-2': { label: 'ω', key: 'omega', digits: 2, unit: 'rad/s' },
@@ -121,7 +121,7 @@ function buildInitialState(routeId, index) {
     case 'ch2-3-2': return Object.assign(base, { phi1: 0, phi2: 0, r1: 1, r2: 1.8, omega2: 1.0 });
     case 'ch2-4-1': return Object.assign(base, { ve: { vx: 60, vy: -30 }, vr: { vx: 40, vy: 40 }, va: { vx: 100, vy: 10 }, vaMag: 100.5, vrMag: 56.6, veMag: 67.1 });
     case 'ch2-4-2': return Object.assign(base, { mode: 'tuyệt đối', va: { vx: 55, vy: 0 }, ve: { vx: 30, vy: 0 }, vr: { vx: 25, vy: 0 }, vaMag: 55, vrMag: 25, veMag: 30 });
-    case 'ch2-4-3': return Object.assign(base, { phi: 0, velocityRelation: 'v_a = v_e + v_r', ve: { vx: 60, vy: 0 }, vr: { vx: 0, vy: 40 }, va: { vx: 60, vy: 40 }, vaMag: 72.1, vrMag: 40 });
+    case 'ch2-4-3': return Object.assign(base, { phi: 0, velocityRelation: 'v_a = v_e + v_r', ve: { vx: 60, vy: 0 }, vr: { vx: 0, vy: 40 }, va: { vx: 60, vy: 40 }, vaMag: 72.1, vrMag: 40, veMag: 60 });
     case 'ch2-4-4': return Object.assign(base, { theta: 0, px: 360, py: 180, vrx: 30, vry: 0, vrMag: 30, vr: { vx: 30, vy: 0 }, ac: { vx: 0, vy: 90 }, coriolis: 90 });
     case 'ch2-5-1': return Object.assign(base, { phi: 0, ox: 180, oy: 170, ax: 260, ay: 170, bx: 420, by: 170, vAMag: 46.7, vBMag: 245 });
     case 'ch2-5-2': return Object.assign(base, {

@@ -33,7 +33,7 @@ const rows = [
    'Ngược từ chuyển động suy lực', 'a → F',
    'Suy lực từ a(t)', 'a', 'm', 'Gia tốc a(t)'],
   ['ch3-5-1', 'center-of-mass', 'dynamics',
-   'Định lý khối tâm', 'm·a_CM = ΣF_ext',
+   'Định lý khối tâm', 'm\\vec{a}_{CM} = \\sum \\vec{F}_{ext}',
    'Khối tâm hệ', 'm1', 'm2', 'Khối lượng 1'],
   ['ch3-5-2', 'impulse-momentum', 'dynamics',
    'Xung lượng - động lượng', 'J = Δp',
@@ -48,7 +48,7 @@ const rows = [
    'Va chạm 2D', 'p_1+p_2=const',
    'Va chạm 2D', 'e', 'm1', 'Hệ số e'],
   ['ch3-6-3', 'collision-solver', 'dynamics',
-   'Giải bài va chạm', 'bảo toàn p, e',
+   'Giải bài va chạm', '\\text{bảo toàn } p,\\ e',
    'Numeric collision', 'v1', 'v2', 'Vận tốc 1']
 ];
 

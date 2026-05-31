@@ -72,7 +72,7 @@ function formatReadout(value, options) {
   const mapped = discreteValue(opts.label, opts.key);
   if (mapped) return { value: mapped, unit: '' };
 
-  const unit = inferUnit(opts.label, opts.key, opts.unit);
+  const unit = opts.noUnit ? '' : inferUnit(opts.label, opts.key, opts.unit);
   if (value === undefined || value === null || value === '') return { value: '—', unit };
   if (value === 'hold') return { value: 'bám', unit: '' };
   if (value === 'slip') return { value: 'trượt', unit: '' };

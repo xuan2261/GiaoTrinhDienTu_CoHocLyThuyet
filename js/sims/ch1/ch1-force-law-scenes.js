@@ -71,7 +71,7 @@ const scenes = [
     angle: 34 * Math.PI / 180,
     appendGenericReadouts: false,
     initialState: { primary: { x: 455, y: 215 }, vector: { x: 560, y: 150 }, force: 125, load: 95, mode: 'Thu gọn' },
-    controls: [slider('force', '|R|', 50, 180, 125, 'N', 5), { type: 'buttons', key: 'mode', label: 'Chế độ', options: ['Thu gọn', 'Phân tích'] }],
+    controls: [slider('force', 'Độ lớn lực', 50, 180, 125, 'N', 5), { type: 'buttons', key: 'mode', label: 'Chế độ', options: ['Thu gọn', 'Phân tích'] }],
     readouts: [
       { label: '|R|', key: 'resultantMagnitude', digits: 1, unit: 'N', kind: 'result' },
       { label: 'M_O', key: 'moment', digits: 1, unit: 'N.m', kind: 'moment' },
@@ -110,7 +110,7 @@ const scenes = [
     readouts: [
       { label: 'Loại', key: 'supportKind', kind: 'mode' },
       { label: 'Khóa', key: 'supportDof', kind: 'default' },
-      { label: 'Phản lực', key: 'supportReaction', kind: 'result' },
+      { label: 'Phản lực', key: 'supportReaction', kind: 'result', noUnit: true },
       { label: 'Tọa độ P', key: 'primary', digits: 0, kind: 'default' }
     ]
   },
