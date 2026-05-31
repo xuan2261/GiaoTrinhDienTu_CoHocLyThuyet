@@ -143,6 +143,15 @@ const PAGE_MAP = {
 const pageCache = {};
 let currentPageId = 'home';
 let loadSequence = 0;
+let activeSimulationDispose = null;
+
+function disposeActiveSimulation() {
+  if (typeof activeSimulationDispose === 'function') {
+    try { activeSimulationDispose(); }
+    catch (err) { console.warn('Simulation dispose error:', err); }
+  }
+  activeSimulationDispose = null;
+}
 
 // ============================================
 // LOADING SKELETON
@@ -180,6 +189,7 @@ async function loadPage(id) {
   }
 
   const loadToken = ++loadSequence;
+  disposeActiveSimulation();
   currentPageId = id;
 
   // Update URL hash
@@ -254,6 +264,9 @@ async function loadPage(id) {
 
     // Render KaTeX if available
     renderMath(ca);
+
+    // Mount simulation if SIM_MAP has this route (BEFORE nav buttons so sim appears above)
+    initSimulations(ca, id);
 
     // Add page navigation buttons
     addPageNavButtons(id);
@@ -374,6 +387,35 @@ function initImageTabs(container) {
       });
     });
   });
+}
+
+// ============================================
+// SIMULATION MOUNT (engine SVG-first js/sim2/)
+// ============================================
+function initSimulations(container, pageId) {
+  if (!window.SIM_MAP || !window.SIM_MAP[pageId]) return;
+
+  let mountPoint = container.querySelector('#sim-' + pageId) ||
+    container.querySelector('.sim-mount');
+  if (!mountPoint) {
+    mountPoint = document.createElement('div');
+    mountPoint.className = 'sim-mount';
+    container.appendChild(mountPoint);
+  }
+
+  if (mountPoint.hasAttribute('data-sim-mount-route')) return;
+  try {
+    mountPoint.setAttribute('data-sim-mount-route', pageId);
+    const mounted = window.SIM_MAP[pageId](mountPoint);
+    if (typeof mounted === 'function') {
+      activeSimulationDispose = mounted;
+    } else if (mounted && typeof mounted.dispose === 'function') {
+      activeSimulationDispose = () => mounted.dispose();
+    }
+  } catch (err) {
+    activeSimulationDispose = null;
+    console.warn('Failed to mount simulation:', pageId, err);
+  }
 }
 
 // ============================================

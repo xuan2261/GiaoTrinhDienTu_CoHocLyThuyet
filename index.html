@@ -312,7 +312,17 @@
   <script src="js/progress.js"></script>
   <script src="js/glossary.js"></script>
   <script src="js/notes.js"></script>
-  <!-- Mô phỏng đang được dựng lại trên engine SVG-first (js/sim2/) — xem plans/260531-1249-rebuild-sims-25-svg-first-engine/ -->
+  <!-- Engine mô phỏng SVG-first (js/sim2/): physics → core → registry → sims -->
+  <script src="js/sim2/physics/statics.js"></script>
+  <script src="js/sim2/physics/kinematics.js"></script>
+  <script src="js/sim2/physics/dynamics.js"></script>
+  <script src="js/sim2/core/transform.js"></script>
+  <script src="js/sim2/core/svg-render.js"></script>
+  <script src="js/sim2/core/overlay.js"></script>
+  <script src="js/sim2/core/canvas-underlay.js"></script>
+  <script src="js/sim2/core/sim-shell.js"></script>
+  <script src="js/sim2/registry.js"></script>
+  <script src="js/sim2/sims/ch1/hello-sim.js"></script>
 </body>
 
 </html>

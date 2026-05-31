@@ -36,11 +36,12 @@ assert.ok(!/js\/sim-route-manifest\.js/.test(indexHtml), 'index.html không còn
 assert.ok(!/js\/sim-physics-/.test(indexHtml), 'index.html không nạp physics ở browser (chỉ là nguồn port Node)');
 assert.ok(!/sim:katex-ready/.test(indexHtml), 'index.html không còn dispatch sim:katex-ready');
 
-// --- loader.js đã rút khối sim ---
+// --- loader.js: dead-code động cũ không tái sinh, không trỏ dir sim cũ ---
+// (P1 dựng lại initSimulations gọn + dispose qua SIM_MAP — đó là mong muốn, KHÔNG assert vắng mặt.)
 const loaderJs = read('js/loader.js');
-assert.ok(!/initSimulations/.test(loaderJs), 'loader.js không còn initSimulations');
-assert.ok(!/loadSimScript/.test(loaderJs), 'loader.js không còn loadSimScript (dead code)');
-assert.ok(!/activeSimulationDispose/.test(loaderJs), 'loader.js không còn activeSimulationDispose');
-assert.ok(!/disposeActiveSimulation/.test(loaderJs), 'loader.js không còn disposeActiveSimulation');
+assert.ok(!/loadSimScript/.test(loaderJs), 'loader.js không tái sinh loadSimScript (dynamic injection dead code)');
+assert.ok(!/js\/sims\//.test(loaderJs), 'loader.js không trỏ js/sims/ (dir cũ)');
+assert.ok(!/js\/routes\//.test(loaderJs), 'loader.js không trỏ js/routes/ (SimNew orphan)');
+assert.ok(!/NO_SIMULATION_PAGE_IDS|SIM_ROUTE_ALIAS_MAP/.test(loaderJs), 'loader.js không còn alias/no-sim map cũ');
 
 console.log('sim2-removal-guard: PASS');
