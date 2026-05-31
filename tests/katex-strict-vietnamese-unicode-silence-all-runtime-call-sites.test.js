@@ -10,8 +10,6 @@
  *
  * Scope:
  *   - js/loader.js (renderMathInElement + katex.render)
- *   - js/sim-lab-ui.js (katex.render for formula panel)
- *   - js/sim-route-renderer-primitives.js (katex.render for overlay math)
  *
  * Excluded (intentional): equation-review*.html — author-facing review tools
  * where the warn-level noise IS the signal.
@@ -28,18 +26,6 @@ const targets = [
     patterns: [
       /renderMathInElement\(container,\s*\{[\s\S]*?\n\s*\}\)/,
       /katex\.render\(el\.textContent,\s*el,\s*\{[\s\S]*?\n\s*\}\)/
-    ]
-  },
-  {
-    file: 'js/sim-lab-ui.js',
-    patterns: [
-      /window\.katex\.render\(text,\s*panel,\s*\{[\s\S]*?\}\)/
-    ]
-  },
-  {
-    file: 'js/sim-route-renderer-primitives.js',
-    patterns: [
-      /window\.katex\.render\(latex[^,]*,\s*node,\s*\{[\s\S]*?\}\)/
     ]
   }
 ];

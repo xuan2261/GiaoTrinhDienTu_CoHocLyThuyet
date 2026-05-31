@@ -1,0 +1,46 @@
+/**
+ * Guard: 52 cũ đã gỡ, 3 file physics nguồn-port còn nguyên.
+ * Định nghĩa "content-only đạt" ở tầng filesystem + grep runtime.
+ * Chạy: node tests/sim2-removal-guard.test.js
+ */
+'use strict';
+
+const assert = require('assert');
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.resolve(__dirname, '..');
+const exists = rel => fs.existsSync(path.join(ROOT, rel));
+const read = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8');
+
+// --- Sim cũ phải biến mất ---
+assert.ok(!exists('js/sims'), 'js/sims/ phải bị xóa');
+assert.ok(!exists('js/simulations.js'), 'js/simulations.js phải bị xóa');
+assert.ok(!exists('js/sim-route-manifest.js'), 'js/sim-route-manifest.js phải bị xóa');
+
+// --- Engine SimNew bỏ dở (dead code orphan) phải biến mất ---
+for (const dir of ['js/physics', 'js/render', 'js/routes', 'js/scene', 'js/interaction', 'js/animation']) {
+  assert.ok(!exists(dir), `${dir}/ (SimNew orphan) phải bị xóa`);
+}
+
+// --- 3 file physics nguồn-port phải còn (input cho P1) ---
+assert.ok(exists('js/sim-physics-statics.js'), 'sim-physics-statics.js phải còn (nguồn port)');
+assert.ok(exists('js/sim-physics-kinematics.js'), 'sim-physics-kinematics.js phải còn (nguồn port)');
+assert.ok(exists('js/sim-physics-dynamics.js'), 'sim-physics-dynamics.js phải còn (nguồn port)');
+
+// --- index.html không còn nạp sim cũ ---
+const indexHtml = read('index.html');
+assert.ok(!/js\/sims\//.test(indexHtml), 'index.html không còn script-tag js/sims/');
+assert.ok(!/js\/simulations\.js/.test(indexHtml), 'index.html không còn js/simulations.js');
+assert.ok(!/js\/sim-route-manifest\.js/.test(indexHtml), 'index.html không còn sim-route-manifest.js');
+assert.ok(!/js\/sim-physics-/.test(indexHtml), 'index.html không nạp physics ở browser (chỉ là nguồn port Node)');
+assert.ok(!/sim:katex-ready/.test(indexHtml), 'index.html không còn dispatch sim:katex-ready');
+
+// --- loader.js đã rút khối sim ---
+const loaderJs = read('js/loader.js');
+assert.ok(!/initSimulations/.test(loaderJs), 'loader.js không còn initSimulations');
+assert.ok(!/loadSimScript/.test(loaderJs), 'loader.js không còn loadSimScript (dead code)');
+assert.ok(!/activeSimulationDispose/.test(loaderJs), 'loader.js không còn activeSimulationDispose');
+assert.ok(!/disposeActiveSimulation/.test(loaderJs), 'loader.js không còn disposeActiveSimulation');
+
+console.log('sim2-removal-guard: PASS');

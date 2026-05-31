@@ -13,14 +13,6 @@ const LEGACY_ROUTE_MAP = {
   'ch2-8-2': 'ch2-7-2',
 };
 
-// Keep hook for historical route remaps; current simulation route set mounts by exact page id.
-const SIM_ROUTE_ALIAS_MAP = {};
-const NO_SIMULATION_PAGE_IDS = new Set([
-  'ch1-7', 'ch1-7-1', 'ch1-7-2',
-  'ch2-7', 'ch2-7-1', 'ch2-7-2',
-  'ch3-7', 'ch3-7-1', 'ch3-7-2', 'ch3-7-4', 'ch3-7-5', 'ch3-7-6',
-]);
-
 // ============================================
 // PAGE MAP: pageId → fragment path
 // ============================================
@@ -150,19 +142,7 @@ const PAGE_MAP = {
 // ============================================
 const pageCache = {};
 let currentPageId = 'home';
-let activeSimulationDispose = null;
 let loadSequence = 0;
-
-function disposeActiveSimulation() {
-  if (typeof activeSimulationDispose === 'function') {
-    try {
-      activeSimulationDispose();
-    } catch (err) {
-      console.warn('Simulation dispose error:', err);
-    }
-  }
-  activeSimulationDispose = null;
-}
 
 // ============================================
 // LOADING SKELETON
@@ -200,7 +180,6 @@ async function loadPage(id) {
   }
 
   const loadToken = ++loadSequence;
-  disposeActiveSimulation();
   currentPageId = id;
 
   // Update URL hash
@@ -276,10 +255,7 @@ async function loadPage(id) {
     // Render KaTeX if available
     renderMath(ca);
 
-    // Init simulations if any (BEFORE nav buttons so sims appear above)
-    await initSimulations(ca, id);
-
-    // Add page navigation buttons (AFTER sims)
+    // Add page navigation buttons
     addPageNavButtons(id);
 
     // Init image tab switchers
@@ -299,7 +275,6 @@ async function loadPage(id) {
         <div class="l3-title">📄 ${BC[id] || id}</div>
         <p class="l3-placeholder"><em>(Nội dung đang được cập nhật. Vui lòng quay lại sau.)</em></p>
       </div>`;
-    initSimulations(ca, id);
     addPageNavButtons(id);
     console.warn('Failed to load page:', path, err);
   }
@@ -399,73 +374,6 @@ function initImageTabs(container) {
       });
     });
   });
-}
-
-// ============================================
-// SIMULATION INIT
-// ============================================
-async function loadSimScript(id) {
-  // If already in map, it's loaded
-  if (window.SIM_MAP && window.SIM_MAP[id]) return;
-
-  // Determine path based on chapter prefix
-  let path = `js/simulations/${id}.js`; // Fallback
-  if (id.startsWith('ch1-')) path = `js/routes/ch1/${id}.js`;
-  else if (id.startsWith('ch2-')) path = `js/routes/ch2/${id}.js`;
-  else if (id.startsWith('ch3-')) path = `js/routes/ch3/${id}.js`;
-  else if (id.startsWith('pilot-')) path = `js/routes/${id}.js`;
-
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = path;
-    script.async = true;
-    script.onload = () => resolve();
-    script.onerror = () => {
-      console.warn(`Simulation script not found: ${path}`);
-      resolve(); // Resolve anyway to not block page load
-    };
-    document.head.appendChild(script);
-  });
-}
-
-async function initSimulations(container, pageId) {
-  if (NO_SIMULATION_PAGE_IDS.has(pageId)) return;
-
-  const simRouteId = SIM_ROUTE_ALIAS_MAP[pageId] || pageId;
-
-  // Try to load script first
-  await loadSimScript(simRouteId);
-
-  // Inject simulation from js/simulations.js if available for current page
-  if (window.SIM_MAP && window.SIM_MAP[simRouteId]) {
-    let mountPoint = container.querySelector('#sim-' + simRouteId) ||
-      container.querySelector('.sim-mount') ||
-      container.querySelector('.sim-container:not(.sim-lab)');
-    if (!mountPoint) {
-      // Create a mount point at the bottom if none exists
-      mountPoint = document.createElement('div');
-      mountPoint.className = 'sim-mount';
-      container.appendChild(mountPoint);
-    }
-    mountPoint.classList.remove('sim-container');
-    mountPoint.classList.add('sim-mount');
-
-    // Don't inject twice
-    if (!mountPoint.hasAttribute('data-sim-mount-route')) {
-      try {
-        mountPoint.setAttribute('data-sim-mount-route', simRouteId);
-        const mounted = window.SIM_MAP[simRouteId](mountPoint);
-        if (typeof mounted === 'function') {
-          activeSimulationDispose = mounted;
-        } else if (mounted && typeof mounted.dispose === 'function') {
-          activeSimulationDispose = () => mounted.dispose();
-        }
-      } catch (err) {
-        activeSimulationDispose = null;
-        console.warn('Failed to initialize simulation:', simRouteId, err);
-      }
-    }
-  }
 }
 
 // ============================================

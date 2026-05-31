@@ -9,30 +9,21 @@ Giáo trình điện tử tĩnh cho môn Cơ Học Lý Thuyết, chạy trực t
 | Mở offline | Mở `index.html` trực tiếp bằng browser |
 | Chạy dev server | `python -m http.server 8000` rồi mở `http://localhost:8000/` |
 | Làm mới nội dung | Chạy lại pipeline DOCX trong phần bên dưới |
-| Cài QA browser dev-only | `npm install` rồi `npm run test:sim:browser:install` |
+| Cài QA browser dev-only | `npm install` rồi `npx playwright install chromium` |
 
 ## Cấu trúc chính
 
 | Đường dẫn | Vai trò |
 |---|---|
-| `index.html` | Shell của ứng dụng, nạp CSS, KaTeX, `js/app.js`, `js/pages.js`, `js/loader.js`, các module phụ và simulation engine |
+| `index.html` | Shell của ứng dụng, nạp CSS, KaTeX, `js/app.js`, `js/pages.js`, `js/loader.js`, các module phụ |
 | `js/app.js` | Theme, search, breadcrumb, sidebar, font zoom, progress bar |
 | `js/pages.js` | Bundle offline của fragment HTML và quiz JSON |
-| `js/loader.js` | Route map, lazy load fragment, fallback bundle/fetch, render math, image tabs, dispose active simulation trước khi đổi route |
+| `js/loader.js` | Route map, lazy load fragment, fallback bundle/fetch, render math, image tabs |
 | `js/quiz.js` | Quiz engine, random mode, lưu điểm vào `localStorage` |
 | `js/progress.js` | Theo dõi trang đã xem, bookmark, tiến trình đọc |
 | `js/glossary.js` | Tooltip thuật ngữ |
 | `js/notes.js` | Highlight và ghi chú cá nhân |
-| `js/sim-core.js` + `js/sim-vector-math.js` + `js/sim-rendering.js` + `js/sim-interactions.js` | Shared simulation kernels, canvas helpers, và interaction kernel |
-| `js/sim-lab-ui.js` | Simple lab shell: `.sim-header`, `.sim-readout-grid`, `.sim-lab-hint`; no checkpoint/feedback panels |
-| `js/sim-professional-lab.js` | Shared professional lab engine; centralize physics, topic selection, và mount helpers |
-| `js/sim-route-renderer-registry.js` + `js/sim-route-behavior-registry.js` | Strict route renderer/behavior contracts; 52 canonical routes phải có renderer function riêng |
-| `js/sim-route-renderer-primitives.js` | Low-level drawing primitives dùng chung, không phải final route renderer |
-| `js/sim-statics.js` + `js/sim-kinematics.js` + `js/sim-dynamics.js` | Thin adapters gắn route id vào `SimProfessionalLab` |
-| `js/sims/ch*/` | Route modules, scene catalogs, 52 canonical route renderers, và behavior contracts theo chương |
-| `js/sim-activities.js` | Shared checker/progress helpers |
-| `js/sim-route-manifest.js` | 52-route objective manifest |
-| `js/simulations.js` | Compatibility layer build `window.SIM_MAP` từ registry |
+| `js/sim-physics-{statics,kinematics,dynamics}.js` | Nguồn công thức physics đã verify — đang được port sang `js/sim2/physics/` (engine SVG-first, đang rebuild) |
 | `chapters/` | HTML fragment sinh từ DOCX |
 | `data/` | Quiz JSON và mapping công thức |
 | `tools/` | Script đồng bộ DOCX, nav, bundle, audit, equation review |
@@ -50,40 +41,23 @@ python tools\audit.py
 
 Khi xử lý semantic math hoặc chốt publish image metadata, dùng thêm luồng review trong [DOCX Sync Pipeline](docs/docx-sync-pipeline.md).
 
-## QA simulation
+## QA (content + quiz)
 
 Các lệnh này chỉ phục vụ phát triển/kiểm thử; runtime offline không phụ thuộc npm.
 
 ```powershell
-python tools\smoke_simulation_manifest.py --require-routes 52 --require-objectives --require-direct
-python tools\audit_simulation_quality.py --all --max-js-lines 220
-python tools\smoke_simulation_runtime.py --expect-globals SimCore,SimMath,SimRender,SimInteractions,SimLabUI,SimProfessionalLab,SimRouteRenderers,SimRouteBehaviors --expect-runtime-routes 52 --check-mount-rollback --check-listener-cleanup
+npm run test:content
 npm run test:quiz
 npm run test:quiz:browser
-npm run test:sim:unit
-npm run test:sim:quality
-npm run test:sim:quality:baseline
-npm run test:sim:audit
-npm run test:sim:semantic
-npm run test:sim:scene-identity
-npm run test:sim:renderer-contract
-npm run test:sim:visual-quality
-npm run test:sim:review-2026-05-19
-npm run test:sim:visual-quality:update -- --routes ch1-3-2,ch1-3-6
-npm run test:sim:browser
-npm run test:sim:browser:evolution
-npm run test:sim:browser:update-evolution-baseline
-npm run test:sim:visual-quality:full
-npm run test:sim:visual-quality:update-evolution-baseline
-npx playwright test tests/promax-pilot-shell.spec.js
-npm run test:sim:disposal
-npm run test:sim:release
-npm run test:sim:browser:baseline
-npm run test:sim:browser:route-mount
+npm run test:equations
+npm run test:audit:strict
 ```
 
-Nếu chưa cài Playwright dependency, chạy `npm install` trước. Python smoke vẫn là fallback nhanh khi không cần browser QA.
-Browser QA dev-only hiện dùng focused suite không còn skipped rollout tests: `npm run test:sim:browser` chạy no-simulation Section VII guard, mass/conversion, simulation browser, interaction engine, Promax shell, canvas-evolution, và static-route no-play specs. Registry/contract hiện giữ 52 canonical routes; toàn bộ Section VII `BÀI TẬP` là content-only. `npm run test:sim:browser:evolution` chạy riêng 52-route engine-time canvas hash sweep + baseline drift check; update baseline bằng `npm run test:sim:browser:update-evolution-baseline` sau review có chủ ý. `npm run test:sim:visual-quality` chạy 4 tests: canonical discovery 52 routes, rồi nonblank/bounded canvas, route-owned handles, renderer/behavior/scene identity, dark/light readability và overflow. `npm run test:sim:visual-quality:full` chạy thêm tier-2 visual evolution JSON pixel-diff baseline; refresh baseline bằng `npm run test:sim:visual-quality:update-evolution-baseline` sau review có chủ ý. `npm run test:sim:review-2026-05-19` là RED aggregate cho plan simulation review priority fixes, chạy cả Node physics invariants và Playwright review specs. `npm run test:sim:visual-quality:update -- --routes ...` refresh capture/report side-by-side cho route bị ảnh hưởng. `npm run test:sim:renderer-contract` kiểm 52 renderer ids/function bodies, 52 behavior ids, và browser structural identity. `npm run test:sim:semantic` gom scene identity + renderer contract. `tests/vii-checker-routes-deleted.test.js` khóa 6 Section VII checker routes không còn trong registry/contract. `npm run test:sim:release` là canonical full release gate, gồm unit + quality + browser + visual-quality + disposal + audit/equation strict checks.
+`test:content` khóa author-page content + Section VII cleanup. `test:quiz` validate quiz bank schema; `test:quiz:browser` render quiz qua Playwright. `test:equations` chạy phase equation checks; `test:audit:strict` kiểm caption/alt/wrapper ảnh + formula image.
+
+## Mô phỏng (đang rebuild)
+
+Bộ 52 mô phỏng cũ đã được gỡ khỏi master (tag `archive/52-sims-pre-removal` giữ điểm quay đầu). Đang dựng lại **25 mô phỏng "ít mà tinh"** trên **engine SVG-first 3 tầng mới** (`js/sim2/`). Chi tiết kế hoạch: `plans/260531-1249-rebuild-sims-25-svg-first-engine/`. Trong thời gian rebuild, app là content-only: mọi route hiện nội dung + công thức KaTeX, không mount sim.
 
 ## Quy ước vận hành
 
@@ -114,5 +88,5 @@ Browser QA dev-only hiện dùng focused suite không còn skipped rollout tests
 - Repo này không có `pyproject.toml`, hoặc `requirements.txt`.
 - Các script Python hiện có dùng trực tiếp theo command trong `tools/`.
 - `index.html` có fallback KaTeX local trước, CDN sau.
-- Bộ simulation professional dùng chung `SimProfessionalLab` cho 52 canonical route contracts; Section VII `BÀI TẬP` là content-only.
+- Mô phỏng đang rebuild trên engine SVG-first (`js/sim2/`); Section VII `BÀI TẬP` là content-only. Xem `plans/260531-1249-rebuild-sims-25-svg-first-engine/`.
 - Bản strict equation publish hiện dùng `data/equation_mapping.json` đã review đủ 702 rows.
