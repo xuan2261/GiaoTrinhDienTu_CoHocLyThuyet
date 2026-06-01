@@ -67,8 +67,9 @@ dispose() hủy sạch RAF + listener + DOM — không rò khi đổi route.
 ## QA Gates
 
 ```
-npm run test:sim:physics   # 8 node tests: physics-port, transform, ch1/ch2/ch3 physics,
-                           #   route-coverage, no-legacy-physics, removal-guard
+npm run test:sim:physics   # 9 node tests: physics-port, transform, ch1/ch2/ch3 physics,
+                           #   visual-physics regression, route-coverage,
+                           #   no-legacy-physics, removal-guard
 npm run test:sim:mount     # Playwright: ch1/ch2/ch3 mount + integration + content-only-smoke;
                            #   mount OK, nhãn không chồng, canvas↔SVG ≤1px, dispose hủy RAF
 npm run test:sim:release   # physics + mount + content + quiz; chạy offline

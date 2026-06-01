@@ -8,7 +8,8 @@
 
   Reg.register('ch1-1-8', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -2, maxX: 11, maxY: 4 }, reservePanel: true
+      container, worldBox: { minX: -1, minY: -1.5, maxX: 11, maxY: 4 }, reservePanel: true,
+      meta: { name: 'Phản lực liên kết + dựng FBD', section: '1.8', chapter: 1 }
     });
     const { svg, tf, overlay, render } = shell;
     const L = 10, VIS = 0.02;
@@ -19,7 +20,7 @@
     function support(pt) {
       svg.appendChild(render.poly(tf,
         [{ x: pt.x, y: 0 }, { x: pt.x - 0.4, y: -0.8 }, { x: pt.x + 0.4, y: -0.8 }],
-        { closed: true, stroke: Pal.axis, fill: 'rgba(100,116,139,0.3)' }));
+        { closed: true, gradient: 'axis', depth: true, stroke: Pal.axis }));
     }
     support(A); support(B);
 
@@ -32,7 +33,7 @@
     overlay.label('B', { x: L, y: -1 }, { anchor: 'top' });
     const lblP = overlay.label('P', { x: state.pos, y: 1 }, { anchor: 'bottom', color: Pal.force });
     const lblRa = overlay.label('Rₐ', { x: 0, y: 1 }, { anchor: 'right', color: Pal.reaction });
-    const lblRb = overlay.label('R_b', { x: L, y: 1 }, { anchor: 'left', color: Pal.reaction });
+    const lblRb = overlay.label('Rᵦ', { x: L, y: 1 }, { anchor: 'left', color: Pal.reaction });
 
     function set(ar, base, tip) {
       const b = tf.toScreen(base), t = tf.toScreen(tip);
@@ -52,7 +53,7 @@
         { label: 'P:', value: state.load + ' N' },
         { label: 'a:', value: state.pos.toFixed(2) + ' m' },
         { label: 'Rₐ:', value: r.ra.toFixed(1) + ' N' },
-        { label: 'R_b:', value: r.rb.toFixed(1) + ' N' }
+        { label: 'Rᵦ:', value: r.rb.toFixed(1) + ' N' }
       ]);
     }
 

@@ -8,7 +8,8 @@
 
   Reg.register('ch3-2-3', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -5, minY: -3, maxX: 5, maxY: 3 }, reservePanel: true
+      container, worldBox: { minX: -5, minY: -2, maxX: 5, maxY: 1.5 }, reservePanel: true,
+      meta: { name: 'Định luật III: lực & phản lực', section: '2.3', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;
     const A = { x: -1.5, y: 0 }, B = { x: 1.5, y: 0 };
@@ -19,8 +20,8 @@
       return [{ x: c.x - 0.6, y: -0.6 }, { x: c.x + 0.6, y: -0.6 },
               { x: c.x + 0.6, y: 0.6 }, { x: c.x - 0.6, y: 0.6 }];
     }
-    svg.appendChild(render.poly(tf, blockPts(A), { closed: true, fill: 'rgba(0,116,217,0.35)', stroke: Pal.a }));
-    svg.appendChild(render.poly(tf, blockPts(B), { closed: true, fill: 'rgba(224,48,48,0.30)', stroke: Pal.force }));
+    svg.appendChild(render.poly(tf, blockPts(A), { closed: true, gradient: 'a', depth: true, stroke: Pal.a }));
+    svg.appendChild(render.poly(tf, blockPts(B), { closed: true, gradient: 'force', depth: true, stroke: Pal.force }));
 
     const fAB = render.arrow(tf, svg, B, B, { stroke: Pal.force, width: 3 }); svg.appendChild(fAB);
     const fBA = render.arrow(tf, svg, A, A, { stroke: Pal.reaction, width: 3 }); svg.appendChild(fBA);

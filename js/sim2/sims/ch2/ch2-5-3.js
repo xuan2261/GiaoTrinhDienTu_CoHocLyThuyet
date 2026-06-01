@@ -9,7 +9,8 @@
 
   Reg.register('ch2-5-3', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -5, minY: -4, maxX: 5, maxY: 4 }, canvas: true, reservePanel: true
+      container, worldBox: { minX: -5, minY: -4, maxX: 5, maxY: 4 }, canvas: true, reservePanel: true,
+      meta: { name: 'Phân bố vận tốc điểm trên vật rắn', section: '5.3', chapter: 2 }
     });
     const { svg, tf, overlay, render, canvas } = shell;
     let IC = { x: -1, y: -1 };

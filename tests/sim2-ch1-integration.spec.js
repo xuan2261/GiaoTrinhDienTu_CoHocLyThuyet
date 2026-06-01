@@ -18,10 +18,12 @@ test.describe('sim2 Ch1 — tích hợp index.html (mount + dispose đổi route
     await expect(page.locator('#content-area [data-sim-mount-route="ch1-1-3"] svg')).toHaveCount(1);
     await expect(page.locator('#content-area .sim2-label').first()).toBeVisible();
 
-    // Khung khoanh vùng: card .sim-mount + header tên sim + viewport host + root nền sáng
+    // Khung khoanh vùng: card .sim-mount + header thẻ duy nhất + viewport host + root nền sáng
     await expect(page.locator('#content-area .sim-mount[data-sim-mount-route="ch1-1-3"]')).toHaveCount(1);
-    const headerText = await page.locator('#content-area .sim2-header').innerText();
-    expect(headerText).toContain('Mô phỏng');
+    await expect(page.locator('#content-area .sim2-header')).toHaveCount(0);
+    await expect(page.locator('#content-area .sim2-card-header')).toHaveCount(1);
+    const headerText = await page.locator('#content-area .sim2-card-header').innerText();
+    expect(headerText).toContain('Véc tơ lực');
     await expect(page.locator('#content-area .sim2-viewport-host .sim2-root svg')).toHaveCount(1);
     // viewport có nền sáng (khác nền trang) → SVG nét tối luôn rõ ở mọi theme
     const rootBg = await page.evaluate(() => {

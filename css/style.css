@@ -1871,12 +1871,58 @@ footer b { color: var(--gold); }
   justify-content: center;
 }
 .sim2-root {
-  background: #fdfdfb;
+  background-color: #fdfdfb;
+  /* Nền lưới graph-paper mờ → cảm giác "phòng thí nghiệm" + dễ ước lượng (PhET) */
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(100, 116, 139, .07) 23px, rgba(100, 116, 139, .07) 24px),
+    repeating-linear-gradient(90deg, transparent, transparent 23px, rgba(100, 116, 139, .07) 23px, rgba(100, 116, 139, .07) 24px);
   border: 1px solid #d9dee5;
   border-radius: 8px;
   overflow: hidden;
   max-width: 100%;
 }
+.sim2-svg {
+  touch-action: none;
+  user-select: none;
+}
+
+/* ===== Header thẻ: tên sim + badge §mục (gradient theo chương) + reset tùy chọn =====
+   Tên class RIÊNG (.sim2-card-header) — .sim2-header đã là heading của theory panel. */
+.sim2-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.sim2-card-title { font-weight: 700; font-size: .95rem; color: var(--tx); }
+.sim2-card-meta { display: inline-flex; align-items: center; gap: 8px; }
+.sim2-badge {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #fff;
+  padding: .25rem .7rem;
+  border-radius: 50px;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #1a5276, #2980b9, #3498db);
+}
+.sim2-card-header[data-chapter="2"] .sim2-badge { background: linear-gradient(135deg, #145a32, #27ae60, #2ecc71); }
+.sim2-card-header[data-chapter="3"] .sim2-badge { background: linear-gradient(135deg, #4a235a, #8e44ad, #a569bd); }
+.sim2-card-reset {
+  width: 30px; height: 30px;
+  border: 1px solid var(--bdr);
+  border-radius: 6px;
+  background: var(--nav2);
+  color: var(--tx);
+  cursor: pointer;
+  font-size: .9rem;
+  line-height: 1;
+  transition: background .12s ease;
+}
+.sim2-card-reset:hover { background: var(--gold); color: #fff; }
 
 /* ===== Token màu mô phỏng (mirror js/sim2/core/palette.js — 1 nguồn ý nghĩa) ===== */
 :root {
@@ -1904,7 +1950,7 @@ footer b { color: var(--gold); }
 .sim2-stage .sim2-viewport-host { flex: 1 1 320px; }
 
 /* Affordance handle kéo */
-.sim2-handle { cursor: grab; transition: filter .12s ease; }
+.sim2-handle { cursor: grab; touch-action: none; user-select: none; transition: filter .12s ease; }
 .sim2-handle:hover { filter: drop-shadow(0 0 4px rgba(255, 112, 67, .9)); }
 .sim2-handle:active { cursor: grabbing; }
 
@@ -1976,3 +2022,15 @@ footer b { color: var(--gold); }
 @media (prefers-reduced-motion: reduce) {
   .sim2-handle, .sim2-playback button { transition: none; }
 }
+
+/* Dark mode: theory panel adapt — viewport giữ nền sáng cố định (ý đồ PhET) */
+[data-theme="dark"] .sim2-theory {
+  background: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+[data-theme="dark"] .sim2-formula { color: #e2e8f0; }
+[data-theme="dark"] .sim2-readout-label { color: #94a3b8; }
+[data-theme="dark"] .sim2-readout-value { color: #f1f5f9; }
+[data-theme="dark"] .sim2-legend-item { color: #cbd5e1; }
+[data-theme="dark"] .sim2-observe { color: #94a3b8; }

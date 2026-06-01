@@ -8,7 +8,10 @@
 
   Reg.register('ch2-1-3', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -5, minY: -4, maxX: 5, maxY: 4 }, reservePanel: true
+      // minY nới xuống -5.5: vòng mật tiếp ở vị trí mặc định có đáy ~y=-4.35 (tâm thấp + R≈3.3),
+      // box cũ minY:-4 cắt mất cung dưới. Đệm thêm để chứa trọn vòng ở khoảng kéo thường gặp.
+      container, worldBox: { minX: -5, minY: -5.5, maxX: 5, maxY: 4 }, reservePanel: true,
+      meta: { name: 'Tiếp/pháp tuyến + bán kính cong', section: '1.3', chapter: 2 }
     });
     const { svg, tf, overlay, render } = shell;
     const a = 4, b = 2.5;

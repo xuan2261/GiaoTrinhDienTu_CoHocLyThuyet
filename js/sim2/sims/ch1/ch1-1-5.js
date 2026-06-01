@@ -8,7 +8,8 @@
 
   Reg.register('ch1-1-5', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -4, minY: -4, maxX: 4, maxY: 4 }, reservePanel: true
+      container, worldBox: { minX: -4, minY: -4, maxX: 4, maxY: 4 }, reservePanel: true,
+      meta: { name: 'Thu gọn hệ lực phẳng → R + Mo', section: '1.5', chapter: 1 }
     });
     const { svg, tf, overlay, render } = shell;
     const VIS = 0.03;

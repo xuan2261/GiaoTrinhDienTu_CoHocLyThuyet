@@ -8,13 +8,14 @@
 
   Reg.register('ch3-2-2', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -3, maxX: 11, maxY: 5 }, reservePanel: true
+      container, worldBox: { minX: -1, minY: -3, maxX: 11, maxY: 5 }, reservePanel: true,
+      meta: { name: 'Định luật II Newton F = m·a', section: '2.2', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;
     const params = { m: 2, F: 6 };
 
     svg.appendChild(render.line(tf, { x: -1, y: 0 }, { x: 11, y: 0 }, { stroke: Pal.axis, width: 1 }));
-    const box = render.poly(tf, [], { closed: true, fill: 'rgba(0,116,217,0.35)', stroke: Pal.a });
+    const box = render.poly(tf, [], { closed: true, gradient: 'a', depth: true, stroke: Pal.a });
     svg.appendChild(box);
     const fArrow = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.force, width: 3 });
     svg.appendChild(fArrow);

@@ -34,7 +34,10 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 | Yếu tố | Quy ước |
 |---|---|
 | Runtime | `createSimShell` (`js/sim2/core/sim-shell.js`) — SVG + overlay HTML + canvas underlay tùy chọn, RAF loop, `dispose()` gỡ sạch listener+RAF+DOM |
+| Card header | `cfg.meta {name, section, chapter}` → `.sim2-card-header`: tên sim + badge `§mục` gradient theo chương (ch1 lam / ch2 lục / ch3 tím, mirror hero DeCuong) + nút ↺ reset tùy chọn; opt-in (không meta → không header) |
 | Rendering | SVG primitives (`core/svg-render.js`) qua transform `world→screen` dùng chung; nhãn = HTML overlay tuyệt đối (`core/overlay.js`), KHÔNG vẽ chữ trong canvas → hết chồng nhãn |
+| Depth (vật thể đặc) | `circle/poly/path` nhận `gradient:'<token>'` + `depth:true` → fill gradient (sáng→token, từ `Sim2Palette`) + drop-shadow `#sim2-shadow` (defs tạo 1 lần trong `createSvg`). CHỈ vật thể khối (khối/bi/dầm/đĩa); **vector (arrow), đường (line), trục, lưới, nét đứt giữ PHẲNG** (chuẩn PhET ít nhiễu). Opt-in (mặc định off) |
+| Play-area | `.sim2-root` nền sáng `#fdfdfb` + lưới graph-paper mờ (`repeating-linear-gradient`, màu `--sim-c-grid` ~7%, ô 24px) → cảm giác phòng thí nghiệm, dễ ước lượng |
 | Theory panel | `core/panel.js` — công thức KaTeX **tô màu khớp vector** + legend (swatch) + readout sống (tabular-nums) + dòng quan sát; luôn hiện cạnh viewport (xuống dưới khi hẹp) |
 | Controls | `core/controls.js` — slider có `<output>` value+đơn vị; playback ▶/⏸ + ⏭ step + ↺ reset; **start paused** (quy ước PhET, không autoplay) |
 | Interaction | Drag handle (`shell.addHandle`) ↔ slider đồng bộ 2 chiều; `setValue` set property KHÔNG bắn `input` → tránh vòng lặp cập nhật |

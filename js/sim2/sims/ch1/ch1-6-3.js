@@ -8,7 +8,8 @@
 
   Reg.register('ch1-6-3', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -1, maxX: 7, maxY: 5 }, reservePanel: true
+      container, worldBox: { minX: -0.8, minY: -0.8, maxX: 6.8, maxY: 4.8 }, reservePanel: true,
+      meta: { name: 'Trọng tâm hình ghép / khoét', section: '6.3', chapter: 1 }
     });
     const { svg, tf, overlay, render } = shell;
 
@@ -17,7 +18,7 @@
 
     svg.appendChild(render.poly(tf,
       [{ x: 0, y: 0 }, { x: 6, y: 0 }, { x: 6, y: 4 }, { x: 0, y: 4 }],
-      { closed: true, fill: 'rgba(100,116,139,0.3)', stroke: Pal.axis }));
+      { closed: true, gradient: 'axis', depth: true, stroke: Pal.axis }));
     const holeCircle = render.circle(tf, { x: hole.cx, y: hole.cy }, hole.r, { fill: '#fff', stroke: Pal.reaction, width: 2 });
     svg.appendChild(holeCircle);
     const cMark = render.circle(tf, { x: plate.cx, y: plate.cy }, 5, { pixel: true, fill: Pal.resultant, stroke: Pal.resultant });

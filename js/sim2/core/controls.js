@@ -79,16 +79,18 @@
       bar.className = 'sim2-playback';
 
       playBtn = mkBtn('sim2-playpause', playing ? '⏸' : '▶', () => {
-        playing = !playing;
-        playBtn.textContent = playing ? '⏸' : '▶';
-        playBtn.setAttribute('aria-label', playing ? 'Tạm dừng' : 'Chạy');
+        setPlaying(!playing);
         if (playing) { if (pb.onPlay) pb.onPlay(); }
         else { if (pb.onPause) pb.onPause(); }
       });
+      playBtn.setAttribute('aria-label', playing ? 'Tạm dừng' : 'Chạy');
       bar.appendChild(playBtn);
 
       bar.appendChild(mkBtn('sim2-step', '⏭', () => { if (pb.onStep) pb.onStep(); }));
-      bar.appendChild(mkBtn('sim2-reset', '↺', () => { if (pb.onReset) pb.onReset(); }));
+      bar.appendChild(mkBtn('sim2-reset', '↺', () => {
+        if (pb.onReset) pb.onReset();
+        setPlaying(false);
+      }));
       root.appendChild(bar);
     }
 

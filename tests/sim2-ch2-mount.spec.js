@@ -97,6 +97,21 @@ test.describe('sim2 Ch2 — 7 sim động học mount', () => {
     });
     expect(stillTicking).toBe(0);
   });
+
+  test('ch2-3-2 thể hiện đủ bánh răng, đai và puli trong cùng route', async ({ page }) => {
+    await page.goto(FIXTURE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => { window.__sim = window.SIM_MAP['ch2-3-2'](document.getElementById('host')); });
+
+    await expect(page.locator('#host .sim2-transmission-gear')).toHaveCount(2);
+    await expect(page.locator('#host .sim2-transmission-belt')).toHaveCount(2);
+    await expect(page.locator('#host .sim2-transmission-pulley')).toHaveCount(2);
+    await expect(page.locator('#host .sim2-label').filter({ hasText: 'đai' })).toHaveCount(1);
+    await expect(page.locator('#host .sim2-label').filter({ hasText: 'puli' })).toHaveCount(1);
+    await expect(page.locator('#host .sim2-legend-item').filter({ hasText: 'đai' })).toHaveCount(1);
+    await expect(page.locator('#host .sim2-legend-item').filter({ hasText: 'puli' })).toHaveCount(1);
+
+    await page.evaluate(() => window.__sim.dispose());
+  });
 });
 
 // ─── P3 retrofit: 7 sim Ch2 (panel + legend + control; playback start-paused cho sim động) ───
@@ -147,6 +162,20 @@ test.describe('sim2 Ch2 P3 — retrofit 7 sim (panel + legend + control + playba
         await page.waitForTimeout(200);
         const snapRun = await page.evaluate(() => document.querySelector('#host svg.sim2-svg').innerHTML);
         expect(snapRun, `${cfg.route} ▶ làm sim chạy (SVG đổi)`).not.toBe(snap0);
+        await page.locator('#host .sim2-reset').click();
+        await expect(page.locator('#host .sim2-playpause')).toHaveText(/▶/);
+      }
+
+      if (cfg.route === 'ch2-1-1') {
+        const accelInsideViewport = await page.evaluate(() => {
+          const svg = document.querySelector('#host svg.sim2-svg');
+          const aArrow = [...svg.querySelectorAll('line')].find(l => l.getAttribute('stroke') === '#0074d9');
+          const h = Number(svg.getAttribute('height'));
+          const y1 = Number(aArrow.getAttribute('y1'));
+          const y2 = Number(aArrow.getAttribute('y2'));
+          return y1 >= 0 && y1 <= h && y2 >= 0 && y2 <= h;
+        });
+        expect(accelInsideViewport, 'ch2-1-1 vector a không bị clip khỏi viewport').toBe(true);
       }
 
       // dispose sạch tuyệt đối

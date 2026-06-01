@@ -8,11 +8,14 @@
 
   Reg.register('ch2-1-1', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -1, maxX: 22, maxY: 12 }, canvas: true, reservePanel: true
+      container, worldBox: { minX: -1, minY: -1, maxX: 22, maxY: 12 }, canvas: true, reservePanel: true,
+      meta: { name: 'Quỹ đạo chất điểm + v, a', section: '1.1', chapter: 2 }
     });
     const { svg, tf, overlay, render, canvas } = shell;
     const g = 9.81;
     const params = { v0: 14, alphaDeg: 55 };
+    const V_SCALE = 0.25;
+    const A_SCALE = 0.08;
 
     svg.appendChild(render.line(tf, { x: -1, y: 0 }, { x: 22, y: 0 }, { stroke: Pal.axis, width: 1 }));
     svg.appendChild(render.line(tf, { x: 0, y: -1 }, { x: 0, y: 12 }, { stroke: Pal.axis, width: 1 }));
@@ -45,11 +48,10 @@
       ptMark.setAttribute('cx', sp.x); ptMark.setAttribute('cy', sp.y);
       const v = K.velocityFromTrajectory(posFn, t);
       const a = K.accelerationFromVelocity(tt => K.velocityFromTrajectory(posFn, tt), t);
-      const VS = 0.25;
-      setArrow(vArrow, p, { x: p.x + v.vx * VS, y: p.y + v.vy * VS });
-      setArrow(aArrow, p, { x: p.x + a.ax * VS, y: p.y + a.ay * VS });
-      overlay.moveLabel(lblV, { x: p.x + v.vx * VS + 0.4, y: p.y + v.vy * VS });
-      overlay.moveLabel(lblA, { x: p.x + a.ax * VS + 0.4, y: p.y + a.ay * VS });
+      setArrow(vArrow, p, { x: p.x + v.vx * V_SCALE, y: p.y + v.vy * V_SCALE });
+      setArrow(aArrow, p, { x: p.x + a.ax * A_SCALE, y: p.y + a.ay * A_SCALE });
+      overlay.moveLabel(lblV, { x: p.x + v.vx * V_SCALE + 0.4, y: p.y + v.vy * V_SCALE });
+      overlay.moveLabel(lblA, { x: p.x + a.ax * A_SCALE + 0.4, y: p.y + a.ay * A_SCALE });
       panel.setReadout([
         { label: 't:', value: t.toFixed(2) + ' s' },
         { label: '|v|:', value: Math.hypot(v.vx, v.vy).toFixed(1) + ' m/s' },

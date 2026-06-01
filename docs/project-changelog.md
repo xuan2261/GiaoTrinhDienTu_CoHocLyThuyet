@@ -1,5 +1,40 @@
 # Project Changelog
 
+## 2026-06-01 — Sim2 Transmission Visual Fixes
+
+### Fixed
+- `ch2-3-2`: mô phỏng "Truyền động bánh răng–đai–puli" nay thể hiện đủ trong cùng route: cặp bánh răng ăn khớp ngoài quay ngược chiều và bộ đai hở kéo hai puli quay cùng chiều, cùng vận tốc tiếp tuyến.
+
+### Added
+- `tests/sim2-ch2-mount.spec.js`: thêm regression test khóa `ch2-3-2` phải có semantic SVG hooks cho bánh răng, đai, puli và legend/label tương ứng.
+
+### Verified
+- `npx playwright test tests/sim2-ch2-mount.spec.js -g "ch2-3-2" --reporter=line`: PASS, 3/3.
+- `npm run test:sim:visual:capture`: PASS, 25/25.
+- `npm run test:sim:release`: PASS, 89 mount tests + physics/content/quiz.
+
+---
+
+## 2026-06-01 — Sim2 Visual-Physics Regression Fixes
+
+### Fixed
+- `ch3-1-3`: con lắc trong HQC phi quán tính lệch đúng chiều lực quán tính `F* = -m·a`; mũi/legend gia tốc toa dùng token `Pal.a`.
+- `ch2-5-2`: clamp kéo điểm A suy từ `Bx - Llen`, giữ thanh cứng dài 5 và tránh IC suy biến khi kéo quá trái.
+- `ch2-4-4`: `v_rel` là đạo hàm có dấu của `rRel`, nên mũi vận tốc tương đối và `a_cor` đổi chiều đúng khi bán kính đang giảm.
+- `ch1-5-3`: trạng thái trượt/cân bằng dùng helper `SimPhysicsDynamics.slipCondition`, tránh reimplement công thức song song.
+
+### Added
+- `tests/sim2-visual-physics-regression.test.js` khóa invariant visual-physics mà unit physics thuần không bắt được.
+- `npm run test:sim:physics` chạy thêm visual-physics regression gate.
+
+### Verified
+- `npm run test:sim:physics`: PASS.
+- `npm run test:sim:mount`: PASS, 88/88.
+- `npm run test:content`: PASS.
+- `npm run test:quiz`: PASS.
+
+---
+
 ## 2026-05-31 — Simulation Rebuild: 52 Route Canvas-Based → 25 Route SVG-First Engine
 
 ### Removed

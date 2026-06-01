@@ -8,7 +8,8 @@
 
   Reg.register('ch3-5-3', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -4, minY: -4, maxX: 4, maxY: 4 }, reservePanel: true
+      container, worldBox: { minX: -4, minY: -4, maxX: 4, maxY: 4 }, reservePanel: true,
+      meta: { name: 'Bảo toàn mô men động lượng', section: '5.3', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;
     const O = { x: 0, y: 0 }, mPoint = 2;
@@ -20,8 +21,8 @@
     svg.appendChild(render.circle(tf, O, 5, { pixel: true, fill: Pal.axis, stroke: Pal.axis }));
     const arm1 = render.line(tf, O, { x: state.r, y: 0 }, { stroke: Pal.moment, width: 3 }); svg.appendChild(arm1);
     const arm2 = render.line(tf, O, { x: -state.r, y: 0 }, { stroke: Pal.moment, width: 3 }); svg.appendChild(arm2);
-    const mass1 = render.circle(tf, { x: state.r, y: 0 }, 7, { pixel: true, fill: Pal.force, stroke: Pal.force }); svg.appendChild(mass1);
-    const mass2 = render.circle(tf, { x: -state.r, y: 0 }, 7, { pixel: true, fill: Pal.force, stroke: Pal.force }); svg.appendChild(mass2);
+    const mass1 = render.circle(tf, { x: state.r, y: 0 }, 7, { pixel: true, gradient: 'force', depth: true, stroke: Pal.force }); svg.appendChild(mass1);
+    const mass2 = render.circle(tf, { x: -state.r, y: 0 }, 7, { pixel: true, gradient: 'force', depth: true, stroke: Pal.force }); svg.appendChild(mass2);
 
     overlay.label('O', O, { anchor: 'right' });
 

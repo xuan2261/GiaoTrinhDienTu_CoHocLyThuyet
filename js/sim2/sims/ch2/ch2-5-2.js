@@ -8,12 +8,16 @@
 
   Reg.register('ch2-5-2', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -5, minY: -3, maxX: 5, maxY: 5 }, reservePanel: true
+      container, worldBox: { minX: -5, minY: -3, maxX: 5, maxY: 5 }, reservePanel: true,
+      meta: { name: 'Tâm vận tốc tức thời (IC)', section: '5.2', chapter: 2 }
     });
     const { svg, tf, overlay, render } = shell;
 
     let A = { x: -2, y: 0 };
     const Llen = 5;
+    const Bx = 2;
+    const minAx = Bx - Llen;
+    const maxAx = 1.5;
 
     const bar = render.line(tf, A, A, { stroke: Pal.axis, width: 4 }); svg.appendChild(bar);
     const vaArrow = render.arrow(tf, svg, A, A, { stroke: Pal.v, width: 2.5 }); svg.appendChild(vaArrow);
@@ -33,7 +37,6 @@
       ln.setAttribute('x2', pb.x); ln.setAttribute('y2', pb.y);
     }
     function render2() {
-      const Bx = 2;
       const dx = Bx - A.x;
       const dyy = Math.sqrt(Math.max(0, Llen * Llen - dx * dx));
       const B = { x: Bx, y: dyy };
@@ -68,7 +71,7 @@
     const handle = shell.addHandle(A, {
       fill: Pal.handle,
       onDrag(wp) {
-        A = { x: Math.min(1.5, Math.max(-4.5, wp.x)), y: 0 };
+        A = { x: Math.min(maxAx, Math.max(minAx, wp.x)), y: 0 };
         render2();
       }
     });

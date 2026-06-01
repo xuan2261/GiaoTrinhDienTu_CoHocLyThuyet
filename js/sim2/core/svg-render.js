@@ -17,7 +17,51 @@
     return node;
   }
 
-  /** Tạo <svg> + <defs> chứa arrow marker dùng chung. */
+  /** Trộn hex về phía trắng theo tỉ lệ amt (0..1) — tạo stop sáng cho gradient chiều sâu. */
+  function lighten(hex, amt) {
+    const n = parseInt(hex.slice(1), 16);
+    let r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+    r = Math.round(r + (255 - r) * amt);
+    g = Math.round(g + (255 - g) * amt);
+    b = Math.round(b + (255 - b) * amt);
+    return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  }
+
+  /**
+   * Chèn 1 lần vào <defs>: soft drop-shadow + gradient theo từng token Sim2Palette.
+   * Shape dùng opts.depth (shadow) / opts.gradient='<token>' (fill gradient) tham chiếu các id này.
+   * Giữ vector (arrow/line) PHẲNG — chỉ khối/bi/dầm có chiều sâu (chuẩn PhET: ít nhiễu).
+   */
+  function ensureDefs(svg) {
+    if (svg.__sim2DefsReady) return;
+    const defs = svg.querySelector('defs');
+    if (!defs) return;
+    const filt = el('filter', { id: 'sim2-shadow', x: '-20%', y: '-20%', width: '140%', height: '140%' });
+    filt.appendChild(el('feDropShadow', {
+      dx: 0, dy: 1, stdDeviation: 1.5, 'flood-color': '#1e293b', 'flood-opacity': 0.28
+    }));
+    defs.appendChild(filt);
+    const pal = (typeof window !== 'undefined' && window.Sim2Palette) || null;
+    if (pal) {
+      for (const key in pal) {
+        const base = pal[key];
+        if (typeof base !== 'string' || base[0] !== '#') continue;
+        const grad = el('linearGradient', { id: 'sim2-grad-' + key, x1: '0', y1: '0', x2: '1', y2: '1' });
+        grad.appendChild(el('stop', { offset: '0%', 'stop-color': lighten(base, 0.45) }));
+        grad.appendChild(el('stop', { offset: '100%', 'stop-color': base }));
+        defs.appendChild(grad);
+      }
+    }
+    svg.__sim2DefsReady = true;
+  }
+
+  /** Fill chiều sâu: gradient token nếu opts.gradient, else opts.fill / fallback. */
+  function depthFill(opts, fallback) {
+    if (opts.gradient) return 'url(#sim2-grad-' + opts.gradient + ')';
+    return opts.fill || fallback;
+  }
+
+  /** Tạo <svg> + <defs> chứa arrow marker + shadow/gradient dùng chung. */
   function createSvg(width, height) {
     const svg = el('svg', {
       width, height,
@@ -35,6 +79,7 @@
     defs.appendChild(marker);
     svg.appendChild(defs);
     svg.__markerId = markerId;
+    ensureDefs(svg); // shadow + gradient token → opts.depth/opts.gradient luôn resolve
     return svg;
   }
 
@@ -67,10 +112,11 @@
     const radius = opts.pixel ? r : r * tf.scale;
     const node = el('circle', {
       cx: c.x, cy: c.y, r: radius,
-      fill: opts.fill || 'none',
+      fill: depthFill(opts, 'none'),
       stroke: opts.stroke || '#333',
-      'stroke-width': opts.width != null ? opts.width : 2
+      'stroke-width': opts.width != null ? opts.width : (opts.depth ? 2.5 : 2)
     });
+    if (opts.depth) node.setAttribute('filter', 'url(#sim2-shadow)');
     if (opts.class) node.setAttribute('class', opts.class);
     return node;
   }
@@ -81,10 +127,11 @@
     const pts = points.map(p => { const s = tf.toScreen(p); return `${s.x},${s.y}`; }).join(' ');
     const node = el(opts.closed ? 'polygon' : 'polyline', {
       points: pts,
-      fill: opts.fill || (opts.closed ? 'rgba(80,140,255,0.15)' : 'none'),
+      fill: depthFill(opts, (opts.closed ? 'rgba(80,140,255,0.15)' : 'none')),
       stroke: opts.stroke || '#333',
-      'stroke-width': opts.width != null ? opts.width : 2
+      'stroke-width': opts.width != null ? opts.width : (opts.depth ? 2.5 : 2)
     });
+    if (opts.depth) node.setAttribute('filter', 'url(#sim2-shadow)');
     if (opts.class) node.setAttribute('class', opts.class);
     return node;
   }
@@ -99,13 +146,14 @@
     });
     const node = el('path', {
       d: d.trim(),
-      fill: opts.fill || 'none',
+      fill: depthFill(opts, 'none'),
       stroke: opts.stroke || '#333',
-      'stroke-width': opts.width != null ? opts.width : 2
+      'stroke-width': opts.width != null ? opts.width : (opts.depth ? 2.5 : 2)
     });
+    if (opts.depth) node.setAttribute('filter', 'url(#sim2-shadow)');
     if (opts.class) node.setAttribute('class', opts.class);
     return node;
   }
 
-  return { NS, el, createSvg, line, arrow, circle, poly, path };
+  return { NS, el, createSvg, ensureDefs, line, arrow, circle, poly, path };
 });

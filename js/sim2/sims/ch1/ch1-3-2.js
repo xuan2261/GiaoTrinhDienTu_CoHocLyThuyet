@@ -8,7 +8,8 @@
 
   Reg.register('ch1-3-2', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -4, minY: -1, maxX: 4, maxY: 5 }, reservePanel: true
+      container, worldBox: { minX: -4, minY: -1.3, maxX: 4, maxY: 4.6 }, reservePanel: true,
+      meta: { name: 'Lực căng dây (ràng buộc 1 chiều)', section: '3.2', chapter: 1 }
     });
     const { svg, tf, overlay, render } = shell;
     const W = 100, VIS = 0.02;
@@ -26,7 +27,7 @@
     const rope1 = render.line(tf, node, node, { stroke: Pal.reaction, width: 2 }); svg.appendChild(rope1);
     const rope2 = render.line(tf, node, node, { stroke: Pal.reaction, width: 2 }); svg.appendChild(rope2);
     const weight = render.arrow(tf, svg, node, node, { stroke: Pal.force, width: 3 }); svg.appendChild(weight);
-    const box = render.poly(tf, [], { closed: true, fill: 'rgba(100,116,139,0.3)', stroke: Pal.axis });
+    const box = render.poly(tf, [], { closed: true, gradient: 'axis', depth: true, stroke: Pal.axis });
     svg.appendChild(box);
 
     const lblT1 = overlay.label('T₁', { x: 0, y: 0 }, { anchor: 'right', color: Pal.reaction });

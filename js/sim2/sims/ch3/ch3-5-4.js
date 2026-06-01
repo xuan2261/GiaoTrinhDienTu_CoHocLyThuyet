@@ -8,7 +8,8 @@
 
   Reg.register('ch3-5-4', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -3, maxX: 11, maxY: 4 }, reservePanel: true
+      container, worldBox: { minX: -0.5, minY: -1.5, maxX: 9, maxY: 2.5 }, reservePanel: true,
+      meta: { name: 'Định lý động năng (công–năng)', section: '5.4', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;
     const m = 2, dDist = 6, v1 = 1;
@@ -19,7 +20,7 @@
     svg.appendChild(render.line(tf, { x: 1 + dDist, y: -0.3 }, { x: 1 + dDist, y: 1.5 }, { stroke: Pal.grid, width: 1, dash: '3 3' }));
     svg.appendChild(render.poly(tf,
       [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 1 }],
-      { closed: true, fill: 'rgba(0,116,217,0.35)', stroke: Pal.a }));
+      { closed: true, gradient: 'a', depth: true, stroke: Pal.a }));
     const fArrow = render.arrow(tf, svg, { x: 2, y: 0.5 }, { x: 2, y: 0.5 }, { stroke: Pal.force, width: 3 });
     svg.appendChild(fArrow);
 

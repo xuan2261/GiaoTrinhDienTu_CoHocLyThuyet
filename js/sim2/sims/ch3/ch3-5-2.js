@@ -8,7 +8,8 @@
 
   Reg.register('ch3-5-2', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -3, maxX: 11, maxY: 4 }, reservePanel: true
+      container, worldBox: { minX: -1, minY: -3, maxX: 11, maxY: 4 }, reservePanel: true,
+      meta: { name: 'Định lý động lượng & xung lượng', section: '5.2', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;
     const m = 2, v1 = 1;
@@ -17,7 +18,7 @@
     svg.appendChild(render.line(tf, { x: -1, y: 0 }, { x: 11, y: 0 }, { stroke: Pal.axis, width: 1 }));
     svg.appendChild(render.poly(tf,
       [{ x: 1, y: 0 }, { x: 2, y: 0 }, { x: 2, y: 1 }, { x: 1, y: 1 }],
-      { closed: true, fill: 'rgba(0,116,217,0.35)', stroke: Pal.a }));
+      { closed: true, gradient: 'a', depth: true, stroke: Pal.a }));
     const fArrow = render.arrow(tf, svg, { x: 2, y: 0.5 }, { x: 2, y: 0.5 }, { stroke: Pal.force, width: 3 });
     svg.appendChild(fArrow);
     const gx0 = 0, gy0 = -2, gw = 9, gh = 1.5;

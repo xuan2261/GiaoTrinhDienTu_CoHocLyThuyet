@@ -8,14 +8,16 @@
 
   Reg.register('ch2-2-2', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -4, minY: -4, maxX: 4, maxY: 4 }, reservePanel: true
+      // worldBox nới ±4→±4.6: đĩa R=3 trước chiếm ~75% khung (nặng mắt); nới biên còn ~65%, nhẹ hơn.
+      container, worldBox: { minX: -4.6, minY: -4.6, maxX: 4.6, maxY: 4.6 }, reservePanel: true,
+      meta: { name: 'Quay quanh trục cố định (ω, α)', section: '2.2', chapter: 2 }
     });
     const { svg, tf, overlay, render } = shell;
     const O = { x: 0, y: 0 }, R = 3;
     const params = { omega0: 0.5, alphaAcc: 0.15 };
     let t = 0;
 
-    svg.appendChild(render.circle(tf, O, R, { stroke: Pal.axis, width: 2, fill: 'rgba(124,58,237,0.10)' }));
+    svg.appendChild(render.circle(tf, O, R, { stroke: Pal.axis, width: 2, gradient: 'moment', depth: true }));
     svg.appendChild(render.circle(tf, O, 5, { pixel: true, fill: Pal.axis, stroke: Pal.axis }));
     const spoke = render.line(tf, O, { x: R, y: 0 }, { stroke: Pal.moment, width: 3 }); svg.appendChild(spoke);
     const ptMark = render.circle(tf, { x: R, y: 0 }, 5, { pixel: true, fill: Pal.moment, stroke: Pal.moment });

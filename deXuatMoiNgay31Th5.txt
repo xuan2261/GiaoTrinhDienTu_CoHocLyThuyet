@@ -1,0 +1,572 @@
+╭─── Claude Code v2.1.158 ─────────────────────────────────────────────────────╮
+│                                           │ Tips for getting started         │
+│               Welcome back!               │ Run /init to create a CLAUDE.md… │
+│                                           │ ──────────────────────────────── │
+│                  ▐▛███▜▌                  │ What's new                       │
+│                 ▝▜█████▛▘                 │ Auto mode is now available on B… │
+│                   ▘▘ ▝▝                   │ Plugins in `.claude/skills` dir… │
+│                                           │ Added `claude plugin init <name… │
+│        Opus 4 · API Usage Billing         │ /release-notes for more          │
+│   C:\Work\GiaoTrinhDienTu_CoHocLyThuyet   │                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+ ⚠Auth conflict: Both a token (ANTHROPIC_AUTH_TOKEN) and an API key (ANTHROPIC_API_KEY) are set. This may lead to unexpected behavior.
+    · Trying to use ANTHROPIC_AUTH_TOKEN? Unset the ANTHROPIC_API_KEY environment variable, or claude /logout then say "No" to the API key approval before login.
+    · Trying to use ANTHROPIC_API_KEY? Unset the ANTHROPIC_AUTH_TOKEN environment variable.
+
+❯ /brainstorm ultrathink hiện tại tôi muốn loại bỏ hoàn toàn tất cả mô phỏng,   
+simulation thì làm thế nào; sau đó bạn kiểm tra,nghiên cứu, đề xuất lại nên làm 
+những mô phỏng nào đại diện, đặc sắc cho những hạng mục kiến thức trong giáo    
+trình điện tử,...để tôi duyệt,...                                               
+
+  Searched for 4 patterns, read 2 files, recalled 1 memory (ctrl+o to expand)
+
+● I'll scout the integration points before advising on removal and the new
+  simulation set.
+
+  Searched for 2 patterns, read 1 file (ctrl+o to expand)
+
+● I have a solid architecture picture. Let me confirm two things before
+  summarizing: how sims mount into pages, and how chapter fragments reference
+  them.
+
+  Searched for 3 patterns (ctrl+o to expand)
+
+● Đã quét xong kiến trúc simulation. Tóm tắt những gì tìm thấy liên quan trực
+  tiếp tới việc gỡ + làm lại:
+
+  Bối cảnh codebase (scout):
+  - 52 mô phỏng canonical, khai báo ở js/sim-route-manifest.js, render qua
+  registry (sim-route-renderer-registry.js + sim-route-behavior-registry.js)
+  chạy trên engine chung js/sim-professional-lab.js.
+  - Mount tự động theo page id: js/loader.js → initSimulations() tra
+  window.SIM_MAP[pageId] rồi tự tạo mount point. Chapters HTML KHÔNG chứa markup
+  sim (inject bằng JS) → gỡ sim không cần sửa từng file chương, chủ yếu là gỡ ở
+  tầng JS + index.html.
+  - Khối lượng code: ~27 file js/sim-*.js + 36 file js/sims/ch*/ + 36 thẻ 
+  <script> trong index.html (dòng 316–376).
+  - Hạ tầng test rất nặng: ~22 file test, ~25 npm script (test:sim:*), nhiều
+  tool Python audit — tất cả khóa quanh con số "52 route". Gỡ sim mà không dọn
+  test ⇒ build/CI đỏ.
+  - Có sẵn công tắc mềm: NO_SIMULATION_PAGE_IDS (loader.js:18) — tắt sim theo
+  page mà không xóa code.
+  - Memory cảnh báo: physics 52 route đã verify đúng (sticky-verified
+  2026-05-31), chỉ còn defect visual/UX nhỏ. Gỡ toàn bộ sẽ bỏ luôn phần physics
+  đã kiểm chứng — nên tôi muốn chốt rõ động cơ trước khi tư vấn.
+
+  Trước khi đề xuất chiến lược gỡ + bộ mô phỏng mới, tôi cần chốt 4 điểm để khỏi
+  tư vấn lệch hướng:
+
+● User answered Claude's questions:
+  ⎿  · Gỡ "hoàn toàn" ở mức nào? Đây là nhánh quyết định lớn nhất vì nó ảnh 
+     hưởng tới khả năng quay đầu và việc có giữ engine để tái dùng hay không. → 
+     Tag + xóa sạch khỏi master (Recommended)
+     · Lý do chính muốn gỡ toàn bộ? (chọn nhiều nếu cần) — điều này định hình bộ
+     mô phỏng đề xuất lại. → Quá nhiều/dàn trải, muốn ít mà tinh, Chất lượng 
+     visual/UX chưa đạt
+     · Quy mô bộ mô phỏng mới bạn hình dung? ("đặc sắc/đại diện" thường = ít mà 
+     tinh) → Để tôi nghiên cứu rồi đề xuất con số
+     · Bộ mô phỏng mới nên dựng trên nền nào? → Xây engine mới hoàn toàn
+
+● Đã rõ 4 quyết định: tag + xóa sạch master, lý do dàn trải + visual/UX chưa 
+  đạt, để tôi đề xuất con số, và xây engine mới. Để đề xuất bộ flagship "đại
+  diện, đặc sắc" cho đúng outline giáo trình, tôi soi nhanh cấu trúc chương/mục
+  thật.
+
+  Searched for 3 patterns (ctrl+o to expand)
+
+● Đã đủ dữ liệu. Trước khi trình đề xuất, một điểm brutal honesty tôi phải nói
+  thẳng (đúng vai trò brainstorm):
+
+  Bạn chọn xây engine mới hoàn toàn. Nhưng memory dự án ghi rõ: tầng physics của
+  52 route đã được verify đúng bằng ảnh tươi (commit 6783b08, phiên 2026-05-31)
+  — defect còn lại chỉ là visual/UX. Vứt engine = vứt luôn phần vật lý đã kiểm
+  chứng, phải tự suy lại + verify lại từ đầu cho từng flagship (đây là phần đắt
+  và rủi ro nhất). Tôi vẫn tôn trọng lựa chọn của bạn, nhưng sẽ nêu phương án 
+  lai để bạn cân nhắc ở mục C. Giờ trình toàn bộ đề xuất:
+
+  ---
+  A. Chiến lược gỡ sạch (tag + xóa khỏi master)
+
+  Bề mặt cần dọn (đã quét thực tế, không đoán):
+
+  Tầng: Script tags
+  Vị trí: index.html dòng 315–376
+  Khối lượng: ~62 thẻ + comment
+  ────────────────────────────────────────
+  Tầng: Engine + helper
+  Vị trí: js/sim-*.js
+  Khối lượng: 27 file
+  ────────────────────────────────────────
+  Tầng: Route renderers/scenes/behaviors
+  Vị trí: js/sims/ch1|ch2|ch3|zz-*
+  Khối lượng: 36 file
+  ────────────────────────────────────────
+  Tầng: Compat layer
+  Vị trí: js/simulations.js
+  Khối lượng: 1 file
+  ────────────────────────────────────────
+  Tầng: Mount logic
+  Vị trí: js/loader.js: initSimulations, loadSimScript, disposeActiveSimulation,
+
+    NO_SIMULATION_PAGE_IDS, SIM_ROUTE_ALIAS_MAP (≈ dòng 16–18, 153–164, 203,
+    279–302, 405–460)
+  Khối lượng: gỡ một phần
+  ────────────────────────────────────────
+  Tầng: Test
+  Vị trí: tests/*sim*, *simulation*
+  Khối lượng: ~22 file
+  ────────────────────────────────────────
+  Tầng: npm scripts
+  Vị trí: package.json test:sim:* + chuỗi test:sim:release
+  Khối lượng: ~25 script
+  ────────────────────────────────────────
+  Tầng: Tooling
+  Vị trí: tools/*sim*, capture-*, audit_simulation_*
+  Khối lượng: 14 file
+  ────────────────────────────────────────
+  Tầng: Docs
+  Vị trí: README.md, docs/codebase-summary.md, system-architecture.md, roadmap,
+    changelog
+  Khối lượng: cập nhật
+
+  Thuận lợi lớn: chapters HTML không nhúng markup sim (inject hoàn toàn bằng JS)
+  → gỡ không phải sửa từng file chương, nội dung text/quiz giữ nguyên.
+
+  Trình tự đề xuất (6 bước, mỗi bước verify được):
+  1. git tag archive/52-sims-pre-removal (+ push tag) — chốt điểm quay đầu.
+  2. Gỡ mount: cắt script tags index.html + rút logic sim khỏi loader.js → app
+  chạy content-only, sim ngừng. Verify: load route, 0 console error.
+  3. Xóa js/sim-*.js + js/sims/ + js/simulations.js.
+  4. Xóa tests/*sim* + tools/*sim* + cắt npm test:sim:*.
+  5. Cập nhật README/docs + prune memory sim cũ.
+  6. Verify cuối: app mở offline, mọi route hiện nội dung, test còn lại (quiz,
+  content, equation) xanh.
+
+  B. Bộ mô phỏng flagship đề xuất — 11 cái (ít mà tinh)
+
+  Tiêu chí chọn: (1) trung tâm chương trình, (2) tương tác/animation cho thấy 
+  điều hình tĩnh không thể, (3) trực quan ấn tượng. Map theo 17 đề mục của giáo
+  trình:
+
+  TĨNH HỌC — 3
+  1. Hợp lực & hình bình hành lực — kéo 2–3 vector lực đồng quy, dựng hợp lực
+  real-time; mở rộng thu gọn hệ lực → hợp lực + mô men. (phủ §1.2, §1.1 thu gọn)
+  2. Mô men lực & FBD phản lực liên kết — kéo điểm đặt / đổi loại gối (tựa, bản
+  lề, ngàm, gối di động), phản lực + mô men cập nhật, dựng sơ đồ vật thể tự do.
+  (phủ §1.1 mô men, §1.3 liên kết)
+  3. Nón ma sát trên mặt nghiêng — chỉnh góc nghiêng + hệ số ma sát, thấy ngưỡng
+  trượt và nón ma sát "bật/tắt". (phủ §1.5)
+
+  ĐỘNG HỌC — 4
+  4. Quỹ đạo điểm + tọa độ tự nhiên — animate chất điểm, hiện v, a, phân tích
+  tiếp tuyến/pháp tuyến + bán kính cong. (phủ §2.1)
+  5. Truyền động bánh răng – đai – puli — bánh răng quay đúng tỉ số, đảo chiều,
+  tính tốc độ. (phủ §2.3)
+  6. Hợp chuyển động & gia tốc Coriolis — khái niệm khó nhất; hệ quy chiếu động
+  + tuyệt đối/tương đối/kéo theo, hiện Coriolis. (phủ §2.4)
+  7. Tâm vận tốc tức thời (chuyển động phẳng vật rắn) — kéo vật rắn, IC vẽ vết,
+  phân bố vận tốc. (phủ §2.5 — gần như bất khả với hình tĩnh)
+
+  ĐỘNG LỰC HỌC — 4
+  8. Định luật II Newton & phương trình vi phân chuyển động — tác lực, tích phân
+  ODE, xem quỹ đạo (ném xiên / dao động). (phủ §3.2, §3.3)
+  9. Bảo toàn mô men động lượng — hệ quay, đổi bán kính → tốc độ góc đổi (hiệu
+  ứng "vận động viên trượt băng"). (phủ §3.5)
+  10. Định lý động năng (công–năng lượng) — theo dõi công của lực vs động năng.
+  (phủ §3.5)
+  11. Va chạm với hệ số phục hồi e — hai vật va chạm, chỉnh e: đàn hồi ↔ mềm ↔
+  xiên. (phủ §3.6)
+
+  Cố ý KHÔNG làm sim (YAGNI — hình tĩnh đủ): ngẫu lực §1.1.6, hệ lực không gian
+  3D §1.4 (tương tác 3D kém hiệu quả, đã gộp ý vào #1), trọng tâm §1.6 (thiên về
+  tính toán), bài toán thuận/ngược §3.4 (thiên về giải, ít trực quan).
+
+  → 52 → 11, mỗi cái đầu tư sâu thay vì dàn mỏng. Có thể co còn ~9 (gộp #8, bỏ
+  #10) hoặc nới ~12 (thêm trọng tâm ghép/khoét nếu bạn thấy đáng).
+
+  C. Engine — trade-off cho lựa chọn "xây mới"
+
+  ┌────────────┬─────────────────────────────────────┬──────────────────────┐
+  │ Phương án  │                Được                 │     Mất / Rủi ro     │
+  ├────────────┼─────────────────────────────────────┼──────────────────────┤
+  │ Xây mới    │                                     │ Phải tái dựng +      │
+  │ hoàn toàn  │ Tự do thiết kế tương tác/kể chuyện, │ verify lại physics   │
+  │ (bạn chọn) │  không gánh nợ engine cũ            │ 11 cái; mất phần đã  │
+  │            │                                     │ kiểm chứng; lâu hơn  │
+  ├────────────┼─────────────────────────────────────┼──────────────────────┤
+  │            │ Giữ lõi physics đã verify           │ Vẫn phải đọc hiểu    │
+  │ Lai (gợi ý │ (sim-physics-*.js) làm thư viện     │ lõi cũ; ít tự do hơn │
+  │  cân nhắc) │ thuần, dựng tầng render/UX mới sạch │  ở tầng số           │
+  │            │  sẽ lên trên                        │                      │
+  └────────────┴─────────────────────────────────────┴──────────────────────┘
+
+  Tôi không tự đảo quyết định của bạn — chỉ đặt phương án lai lên bàn vì nó cắt
+  rủi ro physics đáng kể. Bạn chốt ở mục câu hỏi dưới.
+
+  ---
+  Câu hỏi chốt trước khi tôi viết design doc
+
+  1. Số lượng: chốt 11, hay co ~9 / nới ~12?
+  2. Engine: giữ "xây mới hoàn toàn", hay đổi sang lai (giữ lõi physics đã
+  verify)?
+  3. Danh sách 11: có cái nào bạn muốn bỏ/thêm/đổi không? (vd thêm trọng tâm
+  ghép–khoét, bỏ động năng…)
+  4. Thứ tự ưu tiên làm: làm theo chương (1→2→3) hay làm vài cái "wow" trước (vd
+  #7 IC, #6 Coriolis, #11 va chạm) để demo sớm?
+
+  Trả lời xong tôi sẽ chốt thiết kế và viết báo cáo brainstorm để bạn duyệt
+  (chưa code gì cả).
+
+✻ Baked for 7m 20s
+
+❯ 1. số lượng tầm 25. 2. xây mới hoàn toàn. 4. làm lần lượt từng chương         
+
+● Đã chốt: ~25 mô phỏng, engine mới hoàn toàn, làm lần lượt theo chương (1→2→3).
+
+  ~25 là khoảng nửa bộ cũ — đủ phủ rộng các đề mục trọng tâm nhưng vẫn cắt được
+  phần dàn trải/trùng lặp. Dưới đây là bộ 25 tôi đề xuất, gom theo chương đúng
+  thứ tự build, map về đề mục giáo trình. Tiêu chí giữ: ưu tiên cái mà tương 
+  tác/animation cho thấy điều hình tĩnh không thể; bỏ cái thiên về tính toán
+  thuần hoặc trùng ý.
+
+  Chương 1 — Tĩnh học (10)
+
+  ┌─────┬──────────────────────────────┬─────────────┬──────────────────────┐
+  │  #  │           Mô phỏng           │   Đề mục    │      Vì sao giữ      │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 1   │ Véc tơ lực: điểm đặt, phương │ §1.1.3      │ Nền tảng, kéo trực   │
+  │     │  chiều, độ lớn               │             │ tiếp                 │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 2   │ Mô men lực & cánh tay đòn    │ §1.1.4      │ Quan hệ lực–tay đòn  │
+  │     │                              │             │ động                 │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 3   │ Thu gọn hệ lực phẳng → hợp   │ §1.1.5      │ Lõi tĩnh học phẳng   │
+  │     │ lực + mô men                 │             │                      │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 4   │ Ngẫu lực & mô men ngẫu lực   │ §1.1.6      │ Khái niệm dễ nhầm    │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 5   │ Hình bình hành lực (2 lực    │ §1.2.3      │ Trực quan kinh điển  │
+  │     │ đồng quy)                    │             │                      │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 6   │ Phản lực liên kết + dựng FBD │ §1.1.8 /    │ Gộp: đổi loại gối →  │
+  │     │                              │ §1.2.6      │ FBD                  │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 7   │ Lực căng dây (dây chỉ chịu   │ §1.3.2      │ Ràng buộc 1 chiều    │
+  │     │ kéo)                         │             │                      │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 8   │ Phản lực & mô men ngàm khi   │ §1.3.6      │ Ngàm = khó hình dung │
+  │     │ tải đổi vị trí               │             │                      │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 9   │ Nón ma sát trên mặt nghiêng  │ §1.5.3      │ Ngưỡng trượt         │
+  │     │                              │             │ "bật/tắt"            │
+  ├─────┼──────────────────────────────┼─────────────┼──────────────────────┤
+  │ 10  │ Trọng tâm hình ghép / khoét  │ §1.6.3      │ Cộng/trừ diện tích   │
+  │     │                              │             │ trực quan            │
+  └─────┴──────────────────────────────┴─────────────┴──────────────────────┘
+
+  Chương 2 — Động học (7)
+
+  ┌─────┬─────────────────────────────────────┬────────┬────────────────────┐
+  │  #  │              Mô phỏng               │ Đề mục │     Vì sao giữ     │
+  ├─────┼─────────────────────────────────────┼────────┼────────────────────┤
+  │ 11  │ Quỹ đạo chất điểm + véc tơ v, a     │ §2.1.1 │ Animation lõi      │
+  ├─────┼─────────────────────────────────────┼────────┼────────────────────┤
+  │ 12  │ Tọa độ tự nhiên: tiếp/pháp tuyến +  │ §2.1.3 │ Khó vẽ tĩnh        │
+  │     │ bán kính cong                       │        │                    │
+  ├─────┼─────────────────────────────────────┼────────┼────────────────────┤
+  │ 13  │ Quay quanh trục cố định             │ §2.2.2 │ ω, α trực quan     │
+  ├─────┼─────────────────────────────────────┼────────┼────────────────────┤
+  │ 14  │ Truyền động bánh răng – đai – puli  │ §2.3.2 │ Tỉ số tốc độ, đảo  │
+  │     │                                     │        │ chiều              │
+  ├─────┼─────────────────────────────────────┼────────┼────────────────────┤
+  │ 15  │ Hợp chuyển động & gia tốc Coriolis  │ §2.4.4 │ Khái niệm khó nhất │
+  │     │                                     │        │  Ch2               │
+  ├─────┼─────────────────────────────────────┼────────┼────────────────────┤
+  │ 16  │ Tâm vận tốc tức thời (IC)           │ §2.5.2 │ Gần như bất khả    │
+  │     │                                     │        │ tĩnh               │
+  ├─────┼─────────────────────────────────────┼────────┼────────────────────┤
+  │ 17  │ Phân bố vận tốc điểm trên vật rắn   │ §2.5.3 │ Trường vận tốc     │
+  │     │ phẳng                               │        │ động               │
+  └─────┴─────────────────────────────────────┴────────┴────────────────────┘
+
+  Chương 3 — Động lực học (8)
+
+  ┌─────┬────────────────────────────────────┬────────┬──────────────────────┐
+  │  #  │              Mô phỏng              │ Đề mục │      Vì sao giữ      │
+  ├─────┼────────────────────────────────────┼────────┼──────────────────────┤
+  │ 18  │ Định luật II Newton F = m·a        │ §3.2.2 │ Lõi động lực học     │
+  ├─────┼────────────────────────────────────┼────────┼──────────────────────┤
+  │ 19  │ Định luật III: lực & phản lực      │ §3.2.3 │ Cặp lực trực quan    │
+  ├─────┼────────────────────────────────────┼────────┼──────────────────────┤
+  │ 20  │ Hệ quy chiếu quán tính vs phi quán │ §3.1.3 │ Lực quán tính ảo     │
+  │     │  tính                              │        │                      │
+  ├─────┼────────────────────────────────────┼────────┼──────────────────────┤
+  │ 21  │ Giải phương trình vi phân chuyển   │ §3.3.1 │ Ném xiên/dao động    │
+  │     │ động (ODE)                         │        │                      │
+  ├─────┼────────────────────────────────────┼────────┼──────────────────────┤
+  │ 22  │ Định lý động lượng & xung lượng    │ §3.5.2 │ Tích phân lực–thời   │
+  │     │                                    │        │ gian                 │
+  ├─────┼────────────────────────────────────┼────────┼──────────────────────┤
+  │ 23  │ Bảo toàn mô men động lượng         │ §3.5.3 │ Hiệu ứng "trượt      │
+  │     │                                    │        │ băng"                │
+  ├─────┼────────────────────────────────────┼────────┼──────────────────────┤
+  │ 24  │ Định lý động năng (công–năng       │ §3.5.4 │ Công vs động năng    │
+  │     │ lượng)                             │        │                      │
+  ├─────┼────────────────────────────────────┼────────┼──────────────────────┤
+  │ 25  │ Va chạm với hệ số phục hồi e       │ §3.6.2 │ e: đàn hồi↔mềm↔xiên  │
+  └─────┴────────────────────────────────────┴────────┴──────────────────────┘
+
+  Bỏ khỏi bộ cũ (YAGNI — hình tĩnh đủ hoặc trùng): hệ lực không gian 3D §1.4 (3
+  cái — tương tác 3D kém hiệu quả), các loại gối lẻ §1.3.1/3/4/7 (gộp vào #6),
+  ma sát nghỉ/trượt/lăn §1.5.2 + tự hãm §1.5.4 (giữ nón ma sát đại diện), preset
+  motion §2.1.4, hợp CĐ setup §2.4.1-2 + tam giác vận tốc §2.4.3 (giữ Coriolis
+  đại diện), §2.5.1, Newton I §3.2.1, FBD động §3.2.5, ODE cơ hệ §3.3.2,
+  thuận/ngược §3.4, định lý khối tâm §3.5.1, va chạm xiên §3.6.3 (gộp vào #25).
+
+  ---
+  Engine mới — cần chốt hướng tech
+
+  "Xây mới hoàn toàn" buộc chọn nền. Điểm đáng lưu: defect lớn nhất của bộ cũ là
+  nhãn chồng / readout lệch — chọn nền đúng sẽ trị tận gốc.
+
+  Nền: A. Canvas 2D thuần, mini-engine sạch
+  Được: 0 dependency, chạy file://, full control physics
+  Mất: Tự dựng layout nhãn (nguồn defect cũ)
+  ────────────────────────────────────────
+  Nền: B. Lai Canvas + overlay SVG/HTML cho nhãn (Recommended)
+  Được: Animation mượt trên canvas, nhãn dùng DOM → hết chồng, đo được, 
+    dark/light dễ
+  Mất: Đồng bộ toạ độ canvas↔DOM
+  ────────────────────────────────────────
+  Nền: C. Thư viện (p5.js / two.js / matter.js)
+  Được: Dev nhanh
+  Mất: Dependency, lo file://; matter.js là game-physics gần đúng → SAI chuẩn 
+    giáo trình, không nên
+
+  Tôi loại C cho phần physics (giáo trình cần đúng tuyệt đối). Nghiêng B.
+
+  3 câu chốt cuối trước khi viết design doc
+
+  1. Danh sách 25: OK nguyên trạng, hay đổi/thêm/bớt cái nào? (vd muốn giữ va
+  chạm xiên §3.6.3 thành #26, hay thêm Newton I…)
+  2. Nền engine: chọn B (lai canvas+SVG), A (canvas thuần), hay để tôi nghiên
+  cứu sâu rồi khuyến nghị?
+  3. Route-id: giữ nguyên id cũ (ch1-1-3…) để map page id sẵn có — đúng không?
+  (đây là hợp đồng tích hợp duy nhất phải giữ dù engine mới)
+
+  Trả lời xong tôi viết báo cáo brainstorm đầy đủ để bạn duyệt, chưa code gì.
+
+✻ Sautéed for 1m 31s
+
+❯ nghiên cứu rồi khuyến nghị cho tôi                                            
+
+● Để khuyến nghị có cơ sở, tôi kiểm chứng 2 luận điểm chịu lực chính: (a) SVG vs
+  Canvas cho sim tương tác, (b) thư viện game-physics có cho kết quả đúng chuẩn
+  lý thuyết không.
+
+● 1. Title: SVG vs Canvas vs WebGL: Which Should You Use? (2026 Performance 
+  Comparison)
+  Published: 29 Mar 2026 07:00:00
+  URL: https://www.svggenie.com/blog/svg-vs-canvas-vs-webgl-performance-2025
+  Canvas is faster than ever, SVG handles more nodes than it used to, and WebGL
+  libraries make 3D accessible. But choosing the wrong one can still doom your
+  project to 10fps stuttering.
+  2. Title: How I Choose in Real Projects (Retained Mode vs Pixels, Performance,
+  and Interactivity) – TheLinuxCode
+  Published: 08 Feb 2026 07:00:00
+  URL: https://thelinuxcode.com/svg-vs-html5-canvas-how-i-choose-in-real-project
+  s-retained-mode-vs-pixels-performance-and-interactivity/
+  SVG and HTML5 Canvas can both draw shapes, text, and images. The difference is
+  not the drawing API; the difference is the rendering model and the
+  consequences of that model on performance, interaction, accessibility, and
+  maintainability.
+  3. Title: HTML5 Canvas vs. SVG vs. div
+  Published: 03 Aug 2012 10:32:06
+  URL: https://stackoverflow.com/questions/5882716/html5-canvas-vs-svg-vs-div
+  Short answer: Canvas is to MS Paint as SVG is to MS Powerpoint. Canvas is
+  raster, SVG is vectorial.
+  4. Title: Fast and responsive interactive charts/graphs: SVG, Canvas, other?
+  URL: https://stackoverflow.com/questions/12310024/fast-and-responsive-interact
+  ive-charts-graphs-svg-canvas-other?noredirect=1
+  js, which grew out of Protovis, is SVG-based and is supposed to be better at
+  rendering animations. However, I'm dubious as to how much better and what its
+  performance ceiling is. For that reason, I'm also considering a more complete
+  overhaul using a canvas-based library like KineticJS.
+  5. Title: Claude Interactive Visualizations vs ChatGPT Interactive Learning: 
+  Which Is Better?
+  Published: 14 Mar 2026 07:00:00
+  URL: https://www.mindstudio.ai/blog/claude-interactive-visualizations-vs-chatg
+  pt-interactive-learning
+  When you ask it to visualize a concept — a physics simulation, a financial
+  model, an animated math function — it writes the code and renders a live,
+  working version right in the interface.
+  6. Title: SVG Vs. Canvas: A Comparison. Canvas and SVG are two of the most…
+  Published: 02 May 2023 04:36:30
+  URL: https://medium.com/stackanatomy/svg-vs-canvas-a-comparison-1b58e6c84326
+  For interactive, data-driven, and personalized applications, SVG graphics and
+  images are perfect. On the other hand, bitmaps are used to store image data in
+  the resolution-dependent raster graphics API called Canvas.
+  7. Title: Unraveling Wheel Performance in Spin-the-Wheel Games
+  Published: 28 May 2025 11:37:42
+  URL: https://spinthewheel.cc/blog/svg-vs-canvas-wheel-performance/
+  SV
+  8. Title: Choosing the Right Tool for the Job — SitePoint
+  Published: 14 Nov 2024 07:07:46
+  URL: https://www.sitepoint.com/canvas-vs-svg-how-to-choose/?
+  SVG is preferable for scenarios where scalability is essential, such as
+  high-fidelity, complex graphics like building and engineering diagrams,
+  biological diagrams, and organizational charts. SVG is also better in terms of
+  accessibility as it can be read by both humans and machines.
+  9. Title: SVG vs Canvas Battle Decoded
+  Published: 17 Jul 2025 21:25:15
+  URL: https://spinthewheel.cc/blog/svg-vs-canvas-performance/
+   Canvas core : Handle rapid spins, physics, and particle effects (e.g.,
+  confetti bursts).  SVG shell : Inject branded touchpoints via clickable
+  buttons and text.
+  10. Title: Web Dev Report - Working with Graphics on the Web: Canvas vs. SVG
+     Published: 27 Jan 2016 07:00:00
+     URL: https://learn.microsoft.com/en-us/archive/msdn-magazine/2012/june/web-
+  dev-report-working-with-graphics-on-the-web-canvas-vs-svg
+     Because Canvas uses pixels, it is raster based. Vector graphics use
+  mathematical metadata contained in a file to describe the graphic. The V in
+  SVG stands for vector.
+
+● 1. Title: Unexpected loss of energy in frictionless perfectly elastic setting 
+  · Issue #256 · liabru/matter-js · GitHub
+  Published: 23 Jun 2023 07:00:00
+  URL: https://github.com/liabru/matter-js/issues/256
+  You signed out in another tab or window. Reload to refresh your session.
+  2. Title: Restitution of 1.0 is not an 100% elastic collision · Issue #13 · 
+  liabru/matter-js · GitHub
+  URL: https://github.com/liabru/matter-js/issues/13
+  It is not dependent on density or friction.
+  3. Title: Matter.js How to make bodies (circles) bounce endlessly (perfect 
+  elasticity) in a box with 0 gravity
+  Published: 16 Feb 2018 11:58:42
+  URL: https://stackoverflow.com/questions/48288413/matter-js-how-to-make-bodies
+  -circles-bounce-endlessly-perfect-elasticity-in
+  but the bodies simply move (slowly) to sides of the box (which is made of
+  static rectangles) and either slide along them to corners thereof, or stop
+  completely without bouncing at all.
+  Setting the setAngularVelocity does make things bounce, but then the
+  directions and velocities after each collision become not what's expected.
+  4. Title: Matter.js Physics Engine API Docs
+  URL: https://brm.io/matter-js/docs/classes/Body.html
+  The Matter.Body module contains methods for creating and manipulating rigid
+  bodies.
+  5. Title: Matter.js Bodies bouncing even with restitution set to 0
+  Published: 06 Jun 2022 23:42:50
+  URL: https://stackoverflow.com/questions/72519858/matter-js-bodies-bouncing-ev
+  en-with-restitution-set-to-0
+  Implement a knowledge platform layer to power your enterprise and AI tools.
+  Stack Data Licensing Get access to top-class technical expertise with trusted
+  & attributed content. Stack Ads Connect your brand to the world’s most trusted
+  technologist communities. Releases Keep up-to-date on features we add to
+  Stack Overflow and Stack Internal. About the company Visit the blog
+  javascript python java c# php android html jquery c++ css ios sql mysql r
+  reactjs node.js arrays c asp.net json python-3.x.net ruby-on-rails swift
+  sql-server django angular objective-c excel pandas angularjs regex typescript
+  ruby linux ajax iphone vba xml laravel spring asp.net-mvc database wordpress
+  string flutter postgresql mongodb wpf windows xcode amazon-web-services bash
+  git oracle-database spring-boot dataframe azure firebase list multithreading
+  docker vb.net react-native eclipse algorithm powershell macos visual-studio
+  numpy image forms scala function vue.
+  6. Title: Restitution doesn't seem right sometimes · Issue #305 · 
+  liabru/matter-js · GitHub
+  URL: https://github.com/liabru/matter-js/issues/305
+  The cats bounce normally unless their rotation is set to an angle between 71
+  and 109 degrees (~1.22 to ~1.91 radians). As soon as the rotation goes to 70
+  or 110 degrees the cats bounce normally.
+  7. Title: Engine.update doesn't scale time correctly · Issue #332 · 
+  liabru/matter-js · GitHub
+  Published: 15 Jun 2021 07:00:00
+  URL: https://github.com/liabru/matter-js/issues/332
+  So this seems like a pretty gamebreaking issue to me, but basically it seems
+  like the only timestep that can correctly calculate physics is 1/60th of a
+  second. I tried lowering the step to 10% if that and it seems like the only
+  thing affected is the velocity.
+  8. Title: Matter.js Physics Engine API Docs
+  URL: https://brm.io/matter-js/docs/classes/Engine.html
+  Engine module contains methods for creating and manipulating engines.
+   An engine is a controller that manages updating the simulation of the world.
+   See Matter.Runner for an optional game loop utility.
+  See the included usage examples.
+  Methods
+  Matter. Engine. _bodiesApplyGravity
+  ( bodies, gravity ) private
+  9. Title: Does Matter.js have accurate acceleration?
+  URL: https://stackoverflow.com/questions/62240770/does-matter-js-have-accurate
+  -acceleration
+  Does Matter.js have accurate acceleration?
+  10. Title: Friction? · Issue #432 · liabru/matter-js · GitHub
+     URL: https://github.com/liabru/matter-js/issues/432
+     Sign up for a free GitHub account to open an issue and contact its
+  maintainers and the community.
+  Pick a username
+  Email Address
+  Password Sign up for GitHub
+  By clicking “Sign up for GitHub”, you agree to our terms of service and
+  privacy statement. We’ll occasionally send you account related emails.
+  Already on GitHub? Sign in to your account
+  Jump to bottom
+  Friction? #432
+  Closed
+  dxu opened this issue Jun 19, 2017 · 1 comment
+  Closed
+  Friction? #432
+  dxu opened this issue Jun 19, 2017 · 1 comment
+  Labels
+  need-more-info question
+  Comments
+  Copy link
+  dxu commented Jun 19, 2017
+  Hi, sorry for the basic question, but I'm having trouble understanding how
+  friction actually works with Matter.js.
+  My world has a gravity of 10 in the y direction. Currently I have three
+  objects: Ground, BoxA, and BoxB, with these attributes:
+  All of them have both frictionStatic and friction values of 1. Ground is
+  static, BoxA and BoxB are not BoxA is 32x32, BoxB is 50x50.
+
+✻ Cogitated for 1m 9s
+
+❯ continue                                                                      
+  ⎿  API Error: 422 {"detail":[{"type":"string_type","loc":["body","messages",17
+     ,"content","str"],"msg":"Input should be a valid 
+     string","input":[{"type":"text","text":"Để khuyến nghị có cơ sở, tôi kiểm 
+     chứng 2 luận điểm chịu lực chính: (a) SVG vs Canvas cho sim tương tác, (b) 
+     thư viện game-physics có cho kết quả đúng chuẩn lý thuyết 
+     không."},{"id":"srvtoolu_a0fe7c9a89a5422f941bd4c3eb769ebf","type":"server_t
+     ool_use","name":"web_search","input":{"query":"SVG vs Canvas performance 
+     interactive educational physics simulation when to use which"}},{"type":"we
+     b_search_tool_result","tool_use_id":"srvtoolu_a0fe7c9a89a5422f941bd4c3eb769
+     ebf","content":[{"type":"web_search_result","title":"SVG vs Canvas vs 
+     WebGL: Which Should You Use? (2026 Performance 
+     Comparison)","url":"https://www.svggenie.com/blog/svg-vs-canvas-vs-webgl-pe
+     rformance-2025","encrypted_content":"Canvas is faster than ever, SVG 
+     handles more nodes than it used to, and WebGL libraries make 3D accessible.
+     But choosing the wrong one can sti…
+     (ctrl+o to expand)
+
+✻ Cogitated for 0s
+
+❯ tiếp tục cho tôi                                                              
+  ⎿  API Error: 422 {"detail":[{"type":"string_type","loc":["body","messages",17
+     ,"content","str"],"msg":"Input should be a valid 
+     string","input":[{"type":"text","text":"Để khuyến nghị có cơ sở, tôi kiểm 
+     chứng 2 luận điểm chịu lực chính: (a) SVG vs Canvas cho sim tương tác, (b) 
+     thư viện game-physics có cho kết quả đúng chuẩn lý thuyết 
+     không."},{"id":"srvtoolu_a0fe7c9a89a5422f941bd4c3eb769ebf","type":"server_t
+     ool_use","name":"web_search","input":{"query":"SVG vs Canvas performance 
+     interactive educational physics simulation when to use which"}},{"type":"we
+     b_search_tool_result","tool_use_id":"srvtoolu_a0fe7c9a89a5422f941bd4c3eb769
+     ebf","content":[{"type":"web_search_result","title":"SVG vs Canvas vs 
+     WebGL: Which Should You Use? (2026 Performance 
+     Comparison)","url":"https://www.svggenie.com/blog/svg-vs-canvas-vs-webgl-pe
+     rformance-2025","encrypted_content":"Canvas is faster than ever, SVG 
+     handles more nodes than it used to, and WebGL libraries make 3D accessible.
+     But choosing the wrong one can sti…
+     (ctrl+o to expand)
+
+✻ Cogitated for 0s

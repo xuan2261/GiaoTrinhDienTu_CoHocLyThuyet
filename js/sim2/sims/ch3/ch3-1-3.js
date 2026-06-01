@@ -8,7 +8,8 @@
 
   Reg.register('ch3-1-3', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -5, minY: -1, maxX: 5, maxY: 6 }, reservePanel: true
+      container, worldBox: { minX: -5, minY: -1, maxX: 5, maxY: 6 }, reservePanel: true,
+      meta: { name: 'HQC quán tính vs phi quán tính', section: '1.3', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;
     const m = 1, g = 9.81, VIS = 0.12;
@@ -16,14 +17,14 @@
 
     svg.appendChild(render.poly(tf,
       [{ x: -3.5, y: 0 }, { x: 3.5, y: 0 }, { x: 3.5, y: 5 }, { x: -3.5, y: 5 }],
-      { closed: true, fill: 'rgba(100,116,139,0.08)', stroke: Pal.axis }));
+      { closed: true, gradient: 'axis', depth: true, stroke: Pal.axis }));
     const pivot = { x: 0, y: 5 };
     const bob = render.circle(tf, pivot, 7, { pixel: true, fill: Pal.a, stroke: Pal.a }); svg.appendChild(bob);
     const cord = render.line(tf, pivot, pivot, { stroke: Pal.axis, width: 2 }); svg.appendChild(cord);
-    const aArrow = render.arrow(tf, svg, { x: -2.5, y: 2.5 }, { x: -2.5, y: 2.5 }, { stroke: Pal.moment, width: 3 }); svg.appendChild(aArrow);
+    const aArrow = render.arrow(tf, svg, { x: -2.5, y: 2.5 }, { x: -2.5, y: 2.5 }, { stroke: Pal.a, width: 3 }); svg.appendChild(aArrow);
     const finArrow = render.arrow(tf, svg, pivot, pivot, { stroke: Pal.force, width: 2.5 }); svg.appendChild(finArrow);
 
-    const lblA = overlay.label('a (toa)', { x: -2.5, y: 2.5 }, { anchor: 'bottom', color: Pal.moment });
+    const lblA = overlay.label('a (toa)', { x: -2.5, y: 2.5 }, { anchor: 'bottom', color: Pal.a });
     const lblF = overlay.label('F* qt', pivot, { anchor: 'left', color: Pal.force });
 
     function set(ar, base, tip) {
@@ -34,7 +35,7 @@
     function render2() {
       const theta = Math.atan2(state.aFrame, g);
       const L = 3;
-      const bobPt = { x: pivot.x + L * Math.sin(theta), y: pivot.y - L * Math.cos(theta) };
+      const bobPt = { x: pivot.x - L * Math.sin(theta), y: pivot.y - L * Math.cos(theta) };
       const sp = tf.toScreen(pivot), sb = tf.toScreen(bobPt);
       cord.setAttribute('x1', sp.x); cord.setAttribute('y1', sp.y);
       cord.setAttribute('x2', sb.x); cord.setAttribute('y2', sb.y);
@@ -54,8 +55,8 @@
     }
 
     const panel = shell.setTheory({
-      formulas: ['\\textcolor{#e03030}{F^*} = -m\\,\\textcolor{#7c3aed}{a}', '\\tan\\theta = \\dfrac{a}{g}'],
-      legend: [{ color: Pal.moment, label: 'a (gia tốc toa)' }, { color: Pal.force, label: 'F* quán tính' }],
+      formulas: ['\\textcolor{#e03030}{F^*} = -m\\,\\textcolor{#0074d9}{a}', '\\tan\\theta = \\dfrac{a}{g}'],
+      legend: [{ color: Pal.a, label: 'a (gia tốc toa)' }, { color: Pal.force, label: 'F* quán tính' }],
       observe: 'Trong HQC phi quán tính, con lắc lệch do lực quán tính F* = -m·a. Kéo hoặc đổi a.'
     });
 

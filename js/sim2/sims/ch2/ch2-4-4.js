@@ -9,14 +9,17 @@
 
   Reg.register('ch2-4-4', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -5, minY: -5, maxX: 5, maxY: 5 }, canvas: true, reservePanel: true
+      // worldBox nới ±5→±5.6: đĩa r=4 trước chiếm ~80% khung; nới biên còn ~71%, nhẹ mắt.
+      // Hạt rRel max 3.5 vẫn nằm trong đĩa (không lệch ra rìa). Canvas dùng cùng tf nên vẫn khớp SVG.
+      container, worldBox: { minX: -5.6, minY: -5.6, maxX: 5.6, maxY: 5.6 }, canvas: true, reservePanel: true,
+      meta: { name: 'Hợp chuyển động & Coriolis', section: '4.4', chapter: 2 }
     });
     const { svg, tf, overlay, render, canvas } = shell;
     const O = { x: 0, y: 0 };
     const params = { omega: 1.2, vRel: 1.5 }; // initial = giá trị hardcode cũ
     let t = 0;
 
-    svg.appendChild(render.circle(tf, O, 4, { stroke: Pal.axis, width: 2, fill: 'rgba(124,58,237,0.06)' }));
+    svg.appendChild(render.circle(tf, O, 4, { stroke: Pal.axis, width: 2, gradient: 'moment', depth: true }));
     svg.appendChild(render.circle(tf, O, 5, { pixel: true, fill: Pal.axis, stroke: Pal.axis }));
     const ptMark = render.circle(tf, O, 5, { pixel: true, fill: Pal.force, stroke: Pal.force }); svg.appendChild(ptMark);
     const vrArrow = render.arrow(tf, svg, O, O, { stroke: Pal.v, width: 2.5 }); svg.appendChild(vrArrow);
@@ -33,7 +36,9 @@
       ar.setAttribute('x2', tp.x); ar.setAttribute('y2', tp.y);
     }
     function draw() {
-      const rRel = 2 + 1.5 * Math.sin(params.vRel * t * 0.5);
+      const radialPhase = params.vRel * t * 0.5;
+      const rRel = 2 + 1.5 * Math.sin(radialPhase);
+      const radialSpeed = 0.75 * params.vRel * Math.cos(radialPhase);
       const phi = params.omega * t;
       const p = { x: rRel * Math.cos(phi), y: rRel * Math.sin(phi) };
       absTrail.push(p);
@@ -43,17 +48,17 @@
       const ur = { x: Math.cos(phi), y: Math.sin(phi) };
       const sp = tf.toScreen(p);
       ptMark.setAttribute('cx', sp.x); ptMark.setAttribute('cy', sp.y);
-      setArrow(vrArrow, p, { x: p.x + ur.x * params.vRel, y: p.y + ur.y * params.vRel });
-      const vrx = ur.x * params.vRel, vry = ur.y * params.vRel;
+      setArrow(vrArrow, p, { x: p.x + ur.x * radialSpeed, y: p.y + ur.y * radialSpeed });
+      const vrx = ur.x * radialSpeed, vry = ur.y * radialSpeed;
       const ac = K.coriolisAccelerationVec(params.omega, vrx, vry);
-      const acMag = K.coriolisAcceleration(params.omega, params.vRel);
+      const acMag = K.coriolisAcceleration(params.omega, Math.abs(radialSpeed));
       const VS = 0.3;
       setArrow(acArrow, p, { x: p.x + ac.ax * VS, y: p.y + ac.ay * VS });
-      overlay.moveLabel(lblVr, { x: p.x + ur.x * params.vRel + 0.3, y: p.y + ur.y * params.vRel });
+      overlay.moveLabel(lblVr, { x: p.x + ur.x * radialSpeed + 0.3, y: p.y + ur.y * radialSpeed });
       overlay.moveLabel(lblAc, { x: p.x + ac.ax * VS + 0.3, y: p.y + ac.ay * VS });
       panel.setReadout([
         { label: 'ω:', value: params.omega.toFixed(2) + ' rad/s' },
-        { label: 'v_rel:', value: params.vRel.toFixed(2) + ' m/s' },
+        { label: 'v_rel:', value: radialSpeed.toFixed(2) + ' m/s' },
         { label: '|a_cor|:', value: acMag.toFixed(2) + ' m/s²' }
       ]);
     }
@@ -68,9 +73,9 @@
     shell.addControls({
       sliders: [
         { id: 'omega', label: 'ω', min: 0.4, max: 2.5, step: 0.1, value: params.omega, unit: 'rad/s',
-          onInput: v => { params.omega = v; } },
+          onInput: v => { params.omega = v; absTrail.length = 0; } },
         { id: 'vRel', label: 'v_rel', min: 0.5, max: 3, step: 0.1, value: params.vRel, unit: 'm/s',
-          onInput: v => { params.vRel = v; } }
+          onInput: v => { params.vRel = v; absTrail.length = 0; } }
       ],
       playback: {
         playing: false,

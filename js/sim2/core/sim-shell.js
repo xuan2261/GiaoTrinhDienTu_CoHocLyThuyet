@@ -89,6 +89,39 @@
       cleanups.push(() => target.removeEventListener(type, handler, opts));
     }
 
+    // ─── Header thẻ (tùy chọn): tên sim + badge §mục (gradient theo chương) + reset ───
+    // Đặt LÀM FIRST-CHILD container (trên stage); dispose gỡ kèm. Không meta → không header
+    // (sim chưa retrofit giữ nguyên, không hồi quy).
+    let headerEl = null;
+    if (cfg.meta && cfg.meta.name) {
+      headerEl = document.createElement('div');
+      headerEl.className = 'sim2-card-header';
+      if (cfg.meta.chapter != null) headerEl.setAttribute('data-chapter', String(cfg.meta.chapter));
+      const title = document.createElement('span');
+      title.className = 'sim2-card-title';
+      title.textContent = cfg.meta.name;
+      const metaWrap = document.createElement('span');
+      metaWrap.className = 'sim2-card-meta';
+      if (cfg.meta.section) {
+        const badge = document.createElement('span');
+        badge.className = 'sim2-badge';
+        badge.textContent = '§' + cfg.meta.section;
+        metaWrap.appendChild(badge);
+      }
+      if (typeof cfg.meta.onReset === 'function') {
+        const rst = document.createElement('button');
+        rst.className = 'sim2-card-reset';
+        rst.type = 'button';
+        rst.title = 'Đặt lại';
+        rst.textContent = '↺';
+        addListener(rst, 'click', cfg.meta.onReset);
+        metaWrap.appendChild(rst);
+      }
+      headerEl.appendChild(title);
+      headerEl.appendChild(metaWrap);
+      container.insertBefore(headerEl, container.firstChild);
+    }
+
     /**
      * Đăng ký drag pointer trên svg: callback nhận world-pt khi kéo.
      * onDrag(worldPt, phase) phase ∈ 'start'|'move'|'end'.
@@ -235,6 +268,7 @@
       // gỡ outer (stage chứa viewportHost+panel nếu có; else viewportHost) — không để node mồ côi
       const outer = stageEl || viewportHost;
       if (outer.parentNode) outer.parentNode.removeChild(outer);
+      if (headerEl && headerEl.parentNode) headerEl.parentNode.removeChild(headerEl);
     }
 
     // Gắn dispose lên DOM node để loader gỡ được shell mồ côi nếu factory throw giữa mount.

@@ -4,11 +4,12 @@
  */
 (function(root) {
   'use strict';
-  const Reg = root.Sim2Registry, Shell = root.Sim2Shell, Pal = root.Sim2Palette;
+  const Reg = root.Sim2Registry, Shell = root.Sim2Shell, D = root.SimPhysicsDynamics, Pal = root.Sim2Palette;
 
   Reg.register('ch1-5-3', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -1, maxX: 7, maxY: 5 }, reservePanel: true
+      container, worldBox: { minX: -1, minY: -1, maxX: 7, maxY: 5 }, reservePanel: true,
+      meta: { name: 'Nón ma sát trên mặt nghiêng', section: '5.3', chapter: 1 }
     });
     const { svg, tf, overlay, render } = shell;
     const base = { x: 0, y: 0 };
@@ -22,7 +23,7 @@
 
     const ground = render.line(tf, base, { x: len, y: 0 }, { stroke: Pal.axis, width: 1 }); svg.appendChild(ground);
     const incline = render.line(tf, base, base, { stroke: Pal.axis, width: 3 }); svg.appendChild(incline);
-    const blockPoly = render.poly(tf, [], { closed: true, fill: 'rgba(0,116,217,0.35)', stroke: Pal.a });
+    const blockPoly = render.poly(tf, [], { closed: true, gradient: 'a', depth: true, stroke: Pal.a });
     svg.appendChild(blockPoly);
 
     const lblBeta = overlay.label('β', { x: 1.2, y: 0.15 }, { color: Pal.moment });
@@ -47,8 +48,9 @@
         const s = tf.toScreen(p); return `${s.x},${s.y}`;
       }).join(' '));
       overlay.moveLabel(lblBeta, { x: 1.2, y: 0.15 });
-      const phiDeg = Math.atan(state.mu) * 180 / Math.PI;
-      const slips = state.betaDeg > phiDeg;
+      const slip = D.slipCondition(state.betaDeg, state.mu);
+      const phiDeg = slip.phi;
+      const slips = slip.slips;
       lblState.innerHTML = slips ? 'TRƯỢT' : 'CÂN BẰNG';
       lblState.style.color = slips ? Pal.force : Pal.v;
       overlay.moveLabel(lblState, { x: top.x * 0.6, y: top.y * 0.6 + 0.8 });

@@ -8,7 +8,8 @@
 
   Reg.register('ch3-3-1', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -4, maxX: 11, maxY: 4 }, reservePanel: true
+      container, worldBox: { minX: -1, minY: -4, maxX: 11, maxY: 4 }, reservePanel: true,
+      meta: { name: 'Giải ODE chuyển động (RK4)', section: '3.1', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;
     const dt = 1 / 60;
@@ -18,7 +19,7 @@
     svg.appendChild(render.line(tf, { x: wallX, y: -1.5 }, { x: wallX, y: 1.5 }, { stroke: Pal.axis, width: 4 }));
     const spring = render.el('polyline', { points: '', fill: 'none', stroke: Pal.axis, 'stroke-width': 2 });
     svg.appendChild(spring);
-    const box = render.poly(tf, [], { closed: true, fill: 'rgba(0,116,217,0.35)', stroke: Pal.a });
+    const box = render.poly(tf, [], { closed: true, gradient: 'a', depth: true, stroke: Pal.a });
     svg.appendChild(box);
 
     const gx0 = 0, gy0 = -3, gw = 9, gh = 1.6;

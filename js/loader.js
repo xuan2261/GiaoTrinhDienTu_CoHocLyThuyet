@@ -406,14 +406,6 @@ function initSimulations(container, pageId) {
   if (mountPoint.hasAttribute('data-sim-mount-route')) return;
   try {
     mountPoint.setAttribute('data-sim-mount-route', pageId);
-    // Header tên mô phỏng (từ manifest) — đặt trên viewport để khoanh vùng rõ
-    const meta = (window.SIM2_ROUTE_MANIFEST || []).find(r => r.id === pageId);
-    if (meta && meta.name) {
-      const header = document.createElement('div');
-      header.className = 'sim2-header';
-      header.textContent = 'Mô phỏng: ' + meta.name;
-      mountPoint.appendChild(header);
-    }
     const mounted = window.SIM_MAP[pageId](mountPoint);
     if (typeof mounted === 'function') {
       activeSimulationDispose = mounted;

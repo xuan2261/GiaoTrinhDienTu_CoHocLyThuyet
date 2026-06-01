@@ -10,15 +10,16 @@
 
   Reg.register('ch3-6-2', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -6, minY: -3, maxX: 6, maxY: 3 }, canvas: true, reservePanel: true
+      container, worldBox: { minX: -6, minY: -1.8, maxX: 6, maxY: 1.8 }, canvas: true, reservePanel: true,
+      meta: { name: 'Va chạm với hệ số phục hồi e', section: '6.2', chapter: 3 }
     });
     const { svg, tf, overlay, render, canvas } = shell;
     const R1 = 0.6, R2 = 0.8;
     const params = { m1: 2, m2: 3, e: 0.7 };
 
     svg.appendChild(render.line(tf, { x: -6, y: -1 }, { x: 6, y: -1 }, { stroke: Pal.axis, width: 1 }));
-    const b1 = render.circle(tf, { x: 0, y: 0 }, R1, { fill: 'rgba(216,27,96,0.45)', stroke: Pal.x, width: 2 }); svg.appendChild(b1);
-    const b2 = render.circle(tf, { x: 0, y: 0 }, R2, { fill: 'rgba(21,101,192,0.4)', stroke: Pal.y, width: 2 }); svg.appendChild(b2);
+    const b1 = render.circle(tf, { x: 0, y: 0 }, R1, { gradient: 'x', depth: true, stroke: Pal.x, width: 2 }); svg.appendChild(b1);
+    const b2 = render.circle(tf, { x: 0, y: 0 }, R2, { gradient: 'y', depth: true, stroke: Pal.y, width: 2 }); svg.appendChild(b2);
 
     const lblM1 = overlay.label('m₁', { x: 0, y: 0 }, { anchor: 'center', color: Pal.x });
     const lblM2 = overlay.label('m₂', { x: 0, y: 0 }, { anchor: 'center', color: Pal.y });

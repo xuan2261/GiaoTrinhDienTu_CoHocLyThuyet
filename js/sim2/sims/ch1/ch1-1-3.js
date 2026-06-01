@@ -10,7 +10,8 @@
 
   Reg.register('ch1-1-3', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -1, maxX: 6, maxY: 5 }, reservePanel: true
+      container, worldBox: { minX: -1, minY: -1, maxX: 6, maxY: 5 }, reservePanel: true,
+      meta: { name: 'Véc tơ lực: điểm đặt / phương / độ lớn', section: '1.3', chapter: 1 }
     });
     const { svg, tf, overlay, render } = shell;
     const VIS = 0.04; // 1N → 0.04 world

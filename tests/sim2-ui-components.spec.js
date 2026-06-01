@@ -90,8 +90,12 @@ test.describe('Sim2Controls', () => {
     // ⏭ step, ↺ reset
     await page.locator('#host .sim2-step').click();
     expect(await page.evaluate(() => window.__calls.step)).toBe(1);
+    await page.locator('#host .sim2-playpause').click();
+    expect(await page.locator('#host .sim2-playpause').innerText()).toContain('⏸');
     await page.locator('#host .sim2-reset').click();
     expect(await page.evaluate(() => window.__calls.reset)).toBe(1);
+    expect(await page.locator('#host .sim2-playpause').innerText()).toContain('▶');
+    expect(await page.locator('#host .sim2-playpause').getAttribute('aria-label')).toBe('Chạy');
 
     // setValue cập nhật output NHƯNG KHÔNG bắn onInput (chống vòng lặp drag↔slider)
     const before = await page.evaluate(() => window.__calls.input.length);
@@ -100,9 +104,10 @@ test.describe('Sim2Controls', () => {
     expect(await page.evaluate(() => window.__calls.input.length)).toBe(before);
 
     // setPlaying cập nhật nhãn nút mà không gọi callback
+    const playBeforeSet = await page.evaluate(() => window.__calls.play);
     await page.evaluate(() => window.__c.setPlaying(true));
     expect(await page.locator('#host .sim2-playpause').innerText()).toContain('⏸');
-    expect(await page.evaluate(() => window.__calls.play)).toBe(1);
+    expect(await page.evaluate(() => window.__calls.play)).toBe(playBeforeSet);
 
     // dispose: giữ ref node, gỡ, bắn input lên node mồ côi → KHÔNG gọi callback, KHÔNG nổ
     await page.evaluate(() => {
@@ -179,6 +184,58 @@ test.describe('Sim2Panel', () => {
     const txt = await page.locator('#host .sim2-formula').first().innerText();
     expect(txt).toContain('mc^2');
     await page.evaluate(() => { window.__p.dispose(); window.katex = window.__savedKatex; });
+    expect(errors, errors.join('\n')).toEqual([]);
+  });
+});
+
+test.describe('Sim2Shell — header thẻ + depth defs', () => {
+  test('meta → header + badge §mục (data-chapter); dispose gỡ sạch; không meta → không header', async ({ page }) => {
+    const errors = await gotoFixture(page);
+
+    // Có meta → dựng header + badge
+    await page.evaluate(() => {
+      const host = document.getElementById('host');
+      window.__s = window.Sim2Shell.createSimShell({
+        container: host, worldBox: { minX: 0, minY: 0, maxX: 4, maxY: 3 },
+        meta: { name: 'Va chạm e', section: '6.2', chapter: 3 }
+      });
+    });
+    await expect(page.locator('#host .sim2-card-header')).toHaveCount(1);
+    expect(await page.locator('#host .sim2-card-title').innerText()).toContain('Va chạm');
+    expect(await page.locator('#host .sim2-badge').innerText()).toContain('6.2');
+    expect(await page.locator('#host .sim2-card-header').getAttribute('data-chapter')).toBe('3');
+
+    // dispose → header + root gỡ sạch
+    await page.evaluate(() => window.__s.dispose());
+    await expect(page.locator('#host .sim2-card-header')).toHaveCount(0);
+    await expect(page.locator('#host .sim2-root')).toHaveCount(0);
+
+    // Không meta → không header (23 sim chưa retrofit an toàn)
+    await page.evaluate(() => {
+      const host = document.getElementById('host');
+      window.__s2 = window.Sim2Shell.createSimShell({
+        container: host, worldBox: { minX: 0, minY: 0, maxX: 4, maxY: 3 }
+      });
+    });
+    await expect(page.locator('#host .sim2-card-header')).toHaveCount(0);
+    await page.evaluate(() => window.__s2.dispose());
+
+    expect(errors, errors.join('\n')).toEqual([]);
+  });
+
+  test('createSvg chèn defs chiều sâu: filter #sim2-shadow + gradient #sim2-grad-force', async ({ page }) => {
+    const errors = await gotoFixture(page);
+    const defs = await page.evaluate(() => {
+      const svg = window.Sim2SvgRender.createSvg(200, 150);
+      return {
+        shadow: !!svg.querySelector('#sim2-shadow feDropShadow'),
+        gradForce: !!svg.querySelector('#sim2-grad-force'),
+        marker: !!svg.__markerId
+      };
+    });
+    expect(defs.shadow, 'filter #sim2-shadow tồn tại').toBe(true);
+    expect(defs.gradForce, 'gradient #sim2-grad-force tồn tại').toBe(true);
+    expect(defs.marker, 'arrow marker vẫn còn (không phá vector)').toBe(true);
     expect(errors, errors.join('\n')).toEqual([]);
   });
 });

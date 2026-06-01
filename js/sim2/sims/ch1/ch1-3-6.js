@@ -8,7 +8,8 @@
 
   Reg.register('ch1-3-6', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1.5, minY: -2, maxX: 9, maxY: 3 }, reservePanel: true
+      container, worldBox: { minX: -1.2, minY: -1.8, maxX: 8.7, maxY: 3 }, reservePanel: true,
+      meta: { name: 'Phản lực & mô men ngàm', section: '3.6', chapter: 1 }
     });
     const { svg, tf, overlay, render } = shell;
     const L = 8, VIS = 0.018;
