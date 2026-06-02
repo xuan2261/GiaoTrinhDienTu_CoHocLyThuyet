@@ -48,18 +48,19 @@
       fyLine.setAttribute('x2', ts.x); fyLine.setAttribute('y2', ts.y);
       overlay.moveLabel(lblF, { x: t.x + 0.3, y: t.y + 0.2 });
       handle.move(t);
+      panel.setFormulaHighlight(['components']);
       panel.setReadout([
-        { label: '|F|:', value: state.F.toFixed(0) + ' N' },
-        { label: 'Fₓ:', value: t.c.fx.toFixed(1) + ' N' },
-        { label: 'Fᵧ:', value: t.c.fy.toFixed(1) + ' N' },
-        { label: 'α:', value: state.alphaDeg.toFixed(0) + '°' }
+        { key: 'F', label: '|F|:', value: state.F.toFixed(0) + ' N' },
+        { key: 'Fx', label: 'Fₓ:', value: t.c.fx.toFixed(1) + ' N' },
+        { key: 'Fy', label: 'Fᵧ:', value: t.c.fy.toFixed(1) + ' N' },
+        { key: 'alpha', label: 'α:', value: state.alphaDeg.toFixed(0) + '°' }
       ]);
     }
 
     const panel = shell.setTheory({
       formulas: [
-        '\\textcolor{#d81b60}{F_x} = \\textcolor{#e03030}{F}\\cos\\alpha',
-        '\\textcolor{#1565c0}{F_y} = \\textcolor{#e03030}{F}\\sin\\alpha'
+        { key: 'components', latex: '\\textcolor{#d81b60}{F_x} = \\textcolor{#e03030}{F}\\cos\\alpha' },
+        { key: 'components', latex: '\\textcolor{#1565c0}{F_y} = \\textcolor{#e03030}{F}\\sin\\alpha' }
       ],
       legend: [
         { color: Pal.force, label: 'F' },
@@ -80,6 +81,7 @@
 
     const handle = shell.addHandle(tip(), {
       fill: Pal.handle,
+      hintPulse: true,
       onDrag(wp) {
         state.F = Math.min(120, Math.max(10, Math.hypot(wp.x, wp.y) / VIS));
         let a = Math.atan2(wp.y, wp.x) * 180 / Math.PI;

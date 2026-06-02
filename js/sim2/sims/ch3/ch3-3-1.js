@@ -17,6 +17,7 @@
     const wallX = 0, eqX = 4;
 
     svg.appendChild(render.line(tf, { x: wallX, y: -1.5 }, { x: wallX, y: 1.5 }, { stroke: Pal.axis, width: 4 }));
+    svg.appendChild(render.line(tf, { x: eqX, y: -0.8 }, { x: eqX, y: 0.8 }, { stroke: Pal.moment, width: 1.5, dash: '4 3', class: 'sim2-guide-line sim2-equilibrium-line' }));
     const spring = render.el('polyline', { points: '', fill: 'none', stroke: Pal.axis, 'stroke-width': 2 });
     svg.appendChild(spring);
     const box = render.poly(tf, [], { closed: true, gradient: 'a', depth: true, stroke: Pal.a });
@@ -26,6 +27,10 @@
     svg.appendChild(render.line(tf, { x: gx0, y: gy0 }, { x: gx0 + gw, y: gy0 }, { stroke: Pal.grid, width: 1 }));
     const graphLine = render.el('polyline', { points: '', fill: 'none', stroke: Pal.v, 'stroke-width': 2, class: 'sim2-graph' });
     svg.appendChild(graphLine);
+    const graphCursor = render.line(tf, { x: gx0, y: gy0 - gh }, { x: gx0, y: gy0 + gh }, {
+      stroke: Pal.resultant, width: 1.5, dash: '3 3', class: 'sim2-graph-cursor'
+    });
+    svg.appendChild(graphCursor);
 
     overlay.label('x(t)', { x: gx0 + gw, y: gy0 }, { anchor: 'left', color: Pal.v });
     const lblBox = overlay.label('m', { x: eqX, y: 0.7 }, { color: Pal.a });
@@ -51,11 +56,15 @@
         const sc = tf.toScreen({ x: gx, y: gy }); return `${sc.x},${sc.y}`;
       }).join(' ');
       graphLine.setAttribute('points', gpts);
+      const cx = gx0 + (t / tMax) * gw;
+      const c0 = tf.toScreen({ x: cx, y: gy0 - gh }), c1 = tf.toScreen({ x: cx, y: gy0 + gh });
+      graphCursor.setAttribute('x1', c0.x); graphCursor.setAttribute('y1', c0.y);
+      graphCursor.setAttribute('x2', c1.x); graphCursor.setAttribute('y2', c1.y);
       panel.setReadout([
-        { label: 'k:', value: params.k + ' N/m' },
-        { label: 'm:', value: params.m + ' kg' },
-        { label: 'ω:', value: Math.sqrt(params.k / params.m).toFixed(2) + ' rad/s' },
-        { label: 'x(t):', value: s.x.toFixed(2) + ' m' }
+        { key: 'k', label: 'k:', value: params.k + ' N/m' },
+        { key: 'm', label: 'm:', value: params.m + ' kg' },
+        { key: 'omega', label: 'ω:', value: Math.sqrt(params.k / params.m).toFixed(2) + ' rad/s' },
+        { key: 'x', label: 'x(t):', value: s.x.toFixed(2) + ' m' }
       ]);
     }
     function frame() {

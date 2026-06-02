@@ -28,6 +28,8 @@ Nguồn tính toán duy nhất; công thức port từ bộ cũ, đã verify. Ch
 `overlay.js` dùng HTML định vị tuyệt đối → nhãn không chồng, test bounding-box bắt được.
 `sim-shell.js` dispose() gỡ sạch listener+RAF+DOM, chống rò khi đổi route.
 
+Motion/feedback v1 nằm ở core chung: `controls.js` flash output, `panel.js` flash readout + highlight formula theo key, `sim-shell.js` handle pulse/active, `canvas-underlay.js` trail fade opt-in. Các route chỉ gắn semantic classes/cues; `js/sim2/physics/*` vẫn là nguồn công thức duy nhất.
+
 ### Tầng 3 — Simulations
 
 | Thư mục | Nội dung |
@@ -73,7 +75,10 @@ npm run test:sim:physics   # 9 node tests: physics-port, transform, ch1/ch2/ch3 
 npm run test:sim:mount     # Playwright: ch1/ch2/ch3 mount + integration + content-only-smoke;
                            #   mount OK, nhãn không chồng, canvas↔SVG ≤1px, dispose hủy RAF
 npm run test:sim:release   # physics + mount + content + quiz; chạy offline
+npm run test:sim:visual:baseline  # dev-only selective screenshot baseline; không nằm trong release
 ```
+
+Selective visual baseline hiện khóa 5 route đại diện bằng Playwright snapshot convention dưới `tools/sim2-visual/selective-baseline.spec.js-snapshots/`: `ch1-6-3`, `ch2-3-2`, `ch2-4-4`, `ch3-3-1`, `ch3-6-2`. Baseline này dùng để bắt hồi quy visual sau polish đã duyệt, không thay thế contact-sheet 25 route và không chạy trong `test:sim:release`.
 
 ## Persistence Layer
 

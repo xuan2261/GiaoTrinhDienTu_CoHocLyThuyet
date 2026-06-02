@@ -23,8 +23,8 @@
     svg.appendChild(render.poly(tf, blockPts(A), { closed: true, gradient: 'a', depth: true, stroke: Pal.a }));
     svg.appendChild(render.poly(tf, blockPts(B), { closed: true, gradient: 'force', depth: true, stroke: Pal.force }));
 
-    const fAB = render.arrow(tf, svg, B, B, { stroke: Pal.force, width: 3 }); svg.appendChild(fAB);
-    const fBA = render.arrow(tf, svg, A, A, { stroke: Pal.reaction, width: 3 }); svg.appendChild(fBA);
+    const fAB = render.arrow(tf, svg, B, B, { stroke: Pal.force, width: 3, class: 'sim2-action-reaction-pair' }); svg.appendChild(fAB);
+    const fBA = render.arrow(tf, svg, A, A, { stroke: Pal.reaction, width: 3, class: 'sim2-action-reaction-pair' }); svg.appendChild(fBA);
 
     overlay.label('A', { x: A.x, y: -0.9 }, { anchor: 'top' });
     overlay.label('B', { x: B.x, y: -0.9 }, { anchor: 'top' });
@@ -44,16 +44,17 @@
       overlay.moveLabel(lblAB, { x: tipAB.x + 0.3, y: 0.4 });
       overlay.moveLabel(lblBA, { x: tipBA.x - 0.3, y: 0.4 });
       handle.move({ x: B.x + state.Fmag * VIS, y: 0 });
+      panel.setFormulaHighlight(['pair']);
       panel.setReadout([
-        { label: 'F_AB:', value: '+' + state.Fmag.toFixed(0) + ' N' },
-        { label: 'F_BA:', value: react.fx.toFixed(0) + ' N' },
-        { label: '|F_AB|=|F_BA|:', value: state.Fmag.toFixed(0) + ' N' },
-        { label: 'ΣF cặp:', value: '0' }
+        { key: 'FAB', label: 'F_AB:', value: '+' + state.Fmag.toFixed(0) + ' N' },
+        { key: 'FBA', label: 'F_BA:', value: react.fx.toFixed(0) + ' N' },
+        { key: 'pairMag', label: '|F_AB|=|F_BA|:', value: state.Fmag.toFixed(0) + ' N' },
+        { key: 'sum', label: 'ΣF cặp:', value: '0' }
       ]);
     }
 
     const panel = shell.setTheory({
-      formulas: ['\\textcolor{#e03030}{\\vec{F}_{AB}} = -\\textcolor{#b10dc9}{\\vec{F}_{BA}}'],
+      formulas: [{ key: 'pair', latex: '\\textcolor{#e03030}{\\vec{F}_{AB}} = -\\textcolor{#b10dc9}{\\vec{F}_{BA}}' }],
       legend: [{ color: Pal.force, label: 'F_AB (lên B)' }, { color: Pal.reaction, label: 'F_BA (lên A)' }],
       observe: 'Kéo hoặc đổi F; cặp lực–phản lực luôn cùng độ lớn, ngược chiều, tổng = 0.'
     });

@@ -1,7 +1,7 @@
 ---
 title: "Sim2 Visual Motion Polish v1"
 description: "Nang polish visual, motion clarity, affordance va feedback su pham cho 25 sim SVG-first ma khong rebuild engine hay sua physics."
-status: pending
+status: complete
 priority: P1
 effort: 32h
 issue:
@@ -37,14 +37,14 @@ Nang 25 mo phong `js/sim2/` theo huong PhET+ Premium nhe: motion ro hon, afforda
 
 | Phase | Name | Status |
 |---|---|---|
-| 00 | [Baseline And TDD Harness](./phase-00-baseline-and-tdd-harness.md) | Pending |
-| 01 | [Shared Visual Motion Primitives](./phase-01-shared-visual-motion-primitives.md) | Pending |
-| 02 | [Pilot Three Routes](./phase-02-pilot-three-routes.md) | Pending |
-| 03 | [Chapter 1 Static Affordance Rollout](./phase-03-chapter1-static-affordance-rollout.md) | Pending |
-| 04 | [Chapter 2 Motion Clarity Rollout](./phase-04-chapter2-motion-clarity-rollout.md) | Pending |
-| 05 | [Chapter 3 Dynamics Clarity Rollout](./phase-05-chapter3-dynamics-clarity-rollout.md) | Pending |
-| 06 | [Visual Capture Review And Baseline](./phase-06-visual-capture-review-and-baseline.md) | Pending |
-| 07 | [Docs Release Gates](./phase-07-docs-release-gates.md) | Pending |
+| 00 | [Baseline And TDD Harness](./phase-00-baseline-and-tdd-harness.md) | Complete |
+| 01 | [Shared Visual Motion Primitives](./phase-01-shared-visual-motion-primitives.md) | Complete |
+| 02 | [Pilot Three Routes](./phase-02-pilot-three-routes.md) | Complete |
+| 03 | [Chapter 1 Static Affordance Rollout](./phase-03-chapter1-static-affordance-rollout.md) | Complete |
+| 04 | [Chapter 2 Motion Clarity Rollout](./phase-04-chapter2-motion-clarity-rollout.md) | Complete |
+| 05 | [Chapter 3 Dynamics Clarity Rollout](./phase-05-chapter3-dynamics-clarity-rollout.md) | Complete |
+| 06 | [Visual Capture Review And Baseline](./phase-06-visual-capture-review-and-baseline.md) | Complete |
+| 07 | [Docs Release Gates](./phase-07-docs-release-gates.md) | Complete |
 
 ## Non-Negotiables
 
@@ -76,4 +76,4 @@ Nang 25 mo phong `js/sim2/` theo huong PhET+ Premium nhe: motion ro hon, afforda
 
 ## Unresolved Questions
 
-- User must approve pilot visual after Phase 02 before rollout Phases 03-05.
+- None.

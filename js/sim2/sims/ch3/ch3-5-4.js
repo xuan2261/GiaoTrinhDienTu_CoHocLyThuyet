@@ -24,6 +24,8 @@
     const fArrow = render.arrow(tf, svg, { x: 2, y: 0.5 }, { x: 2, y: 0.5 }, { stroke: Pal.force, width: 3 });
     svg.appendChild(fArrow);
 
+    const workLine = render.line(tf, { x: 1, y: 1.35 }, { x: 1 + dDist, y: 1.35 }, { stroke: Pal.moment, width: 2, dash: '5 4', class: 'sim2-guide-line sim2-work-distance' });
+    svg.appendChild(workLine);
     const lblD = overlay.label('d', { x: 1 + dDist / 2, y: 1.7 }, { color: Pal.moment });
     const lblF = overlay.label('F', { x: 2, y: 0.5 }, { anchor: 'left', color: Pal.force });
 
@@ -37,16 +39,20 @@
       fArrow.setAttribute('x2', ft.x); fArrow.setAttribute('y2', ft.y);
       overlay.moveLabel(lblF, { x: 2 + state.F * VIS + 0.3, y: 0.7 });
       handle.move({ x: 2 + state.F * VIS, y: 0.5 });
+      panel.setFormulaHighlight(['work']);
       panel.setReadout([
-        { label: 'F:', value: state.F.toFixed(1) + ' N' },
-        { label: 'd:', value: dDist + ' m' },
-        { label: 'W = F·d:', value: W.toFixed(1) + ' J' },
-        { label: 'ΔT:', value: dT.toFixed(1) + ' J' }
+        { key: 'F', label: 'F:', value: state.F.toFixed(1) + ' N' },
+        { key: 'd', label: 'd:', value: dDist + ' m' },
+        { key: 'W', label: 'W = F·d:', value: W.toFixed(1) + ' J' },
+        { key: 'dT', label: 'ΔT:', value: dT.toFixed(1) + ' J' }
       ]);
     }
 
     const panel = shell.setTheory({
-      formulas: ['\\textcolor{#e03030}{W} = F \\cdot d = \\Delta T', '\\Delta T = \\tfrac{1}{2}m(v_2^2 - v_1^2)'],
+      formulas: [
+        { key: 'work', latex: '\\textcolor{#e03030}{W} = F \\cdot d = \\Delta T' },
+        { key: 'work', latex: '\\Delta T = \\tfrac{1}{2}m(v_2^2 - v_1^2)' }
+      ],
       legend: [{ color: Pal.force, label: 'F (lực)' }, { color: Pal.a, label: 'vật m' }],
       observe: 'Công của lực W = F·d đúng bằng độ biến thiên động năng ΔT. Kéo hoặc đổi F.'
     });

@@ -11,7 +11,7 @@
 | Item | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Lam ro motion/trajectory/relative vectors cho 7 route Ch2, giu physics verified. |
 
 ## Key Insights
@@ -87,11 +87,11 @@ Delete:
 
 ## Todo List
 
-- [ ] Add Ch2 RED tests.
-- [ ] Add fade trail/current marker to animated Ch2 routes.
-- [ ] Add IC/radius/perpendicular guide clarity.
-- [ ] Preserve `ch2-3-2` semantic hooks.
-- [ ] Capture Ch2 review evidence.
+- [x] Add Ch2 RED tests.
+- [x] Add fade trail/current marker to animated Ch2 routes.
+- [x] Add IC/radius/perpendicular guide clarity.
+- [x] Preserve `ch2-3-2` semantic hooks.
+- [x] Capture Ch2 review evidence.
 
 ## Success Criteria
 

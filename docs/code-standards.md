@@ -100,7 +100,8 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 | Legacy routes | Giữ redirect `ch1-8*` và `ch2-8*` |
 | No duplicate registrations | Mỗi route có đúng 1 renderer registration; xóa file cũ/split khi tạo file mới, và cập nhật `index.html` script load order tương ứng |
 | Route-owned handles | Route simulation mới phải ưu tiên handle descriptors do behavior cung cấp; active handle hiện tại phải được expose qua `data-active-handle-id`, và phải clear khi release/dispose/removeHandle; không phụ thuộc vào generic default handle text khi route đã có handle thật |
-| No motion trails | Active simulation routes không lưu hoặc vẽ motion trail; drag/redraw chỉ hiển thị trạng thái hiện tại |
+| Sim2 motion trails | Chỉ route động/field có canvas underlay mới dùng trail; phải opt-in `drawTrail(...,{fade:true})`, cap số điểm, và tắt fade khi `prefers-reduced-motion`. Route static/drag-only không lưu motion history |
+| Sim2 feedback hooks | Readout cần key ổn định khi giá trị thay đổi thường xuyên; formula highlight dùng `data-key` + `setFormulaHighlight(keys)`, không rerender KaTeX mỗi frame |
 
 ## Python/tool standards
 

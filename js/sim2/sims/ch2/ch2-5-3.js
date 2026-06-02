@@ -16,11 +16,13 @@
     let IC = { x: -1, y: -1 };
     const params = { omega: 1.0 };
 
-    const icMark = render.circle(tf, IC, 6, { pixel: true, fill: Pal.force, stroke: Pal.force });
+    const icMark = render.circle(tf, IC, 6, { pixel: true, fill: Pal.force, stroke: Pal.force, class: 'sim2-current-marker' });
     svg.appendChild(icMark);
     const sampMark = render.circle(tf, { x: 2, y: 1.5 }, 5, { pixel: true, fill: Pal.a, stroke: Pal.a });
     svg.appendChild(sampMark);
-    const sampV = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.v, width: 2.5 });
+    const sampV = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.v, width: 2.5, class: 'sim2-vector-vrel' });
+    const radiusGuide = render.line(tf, IC, { x: 2, y: 1.5 }, { stroke: Pal.moment, width: 1, dash: '5 4', class: 'sim2-guide-line sim2-ic-radius-guide' });
+    svg.appendChild(radiusGuide);
     svg.appendChild(sampV);
 
     const lblIC = overlay.label('P (IC)', IC, { anchor: 'left', color: Pal.force });
@@ -49,6 +51,7 @@
       drawField();
       const sIC = tf.toScreen(IC);
       icMark.setAttribute('cx', sIC.x); icMark.setAttribute('cy', sIC.y);
+      setArrow(radiusGuide, IC, samp);
       const rx = samp.x - IC.x, ry = samp.y - IC.y;
       const v = K.instantCenterVelocity(params.omega, rx, ry);
       const VS = 0.4;
@@ -57,9 +60,9 @@
       overlay.moveLabel(lblSamp, { x: samp.x + 0.3, y: samp.y });
       handle.move(IC);
       panel.setReadout([
-        { label: 'ω:', value: params.omega.toFixed(2) + ' rad/s' },
-        { label: 'r(M,IC):', value: Math.hypot(rx, ry).toFixed(2) },
-        { label: '|v_M|:', value: Math.hypot(v.vx, v.vy).toFixed(2) }
+        { key: 'omega', label: 'ω:', value: params.omega.toFixed(2) + ' rad/s' },
+        { key: 'r', label: 'r(M,IC):', value: Math.hypot(rx, ry).toFixed(2) },
+        { key: 'vM', label: '|v_M|:', value: Math.hypot(v.vx, v.vy).toFixed(2) }
       ]);
     }
 

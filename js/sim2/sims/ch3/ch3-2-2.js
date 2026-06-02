@@ -27,6 +27,10 @@
       points: '', fill: 'none', stroke: Pal.v, 'stroke-width': 2, class: 'sim2-graph'
     });
     svg.appendChild(graphLine);
+    const graphCursor = render.line(tf, { x: gx0, y: gy0 }, { x: gx0, y: gy0 + gh }, {
+      stroke: Pal.resultant, width: 1.5, dash: '3 3', class: 'sim2-graph-cursor'
+    });
+    svg.appendChild(graphCursor);
 
     overlay.label('v(t)', { x: gx0 + gw, y: gy0 + gh }, { anchor: 'left', color: Pal.v });
     const lblBox = overlay.label('m', { x: 0, y: 0.6 }, { anchor: 'center', color: Pal.a });
@@ -52,11 +56,15 @@
         const s = tf.toScreen({ x: gx, y: gy }); return `${s.x},${s.y}`;
       }).join(' ');
       graphLine.setAttribute('points', pts);
+      const c0 = tf.toScreen({ x: gx0 + Math.min(1, t / tMax) * gw, y: gy0 });
+      const c1 = tf.toScreen({ x: gx0 + Math.min(1, t / tMax) * gw, y: gy0 + gh });
+      graphCursor.setAttribute('x1', c0.x); graphCursor.setAttribute('y1', c0.y);
+      graphCursor.setAttribute('x2', c1.x); graphCursor.setAttribute('y2', c1.y);
       panel.setReadout([
-        { label: 'F:', value: params.F + ' N' },
-        { label: 'm:', value: params.m + ' kg' },
-        { label: 'a = F/m:', value: a.toFixed(1) + ' m/s²' },
-        { label: 'v(t):', value: v.toFixed(1) + ' m/s' }
+        { key: 'F', label: 'F:', value: params.F + ' N' },
+        { key: 'm', label: 'm:', value: params.m + ' kg' },
+        { key: 'a', label: 'a = F/m:', value: a.toFixed(1) + ' m/s²' },
+        { key: 'v', label: 'v(t):', value: v.toFixed(1) + ' m/s' }
       ]);
     }
     function frame() {

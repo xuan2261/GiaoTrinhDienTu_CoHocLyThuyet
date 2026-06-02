@@ -21,7 +21,7 @@
     const Fdir = 90;
     const VIS = 0.03;
 
-    const armLine = render.line(tf, O, state.app, { stroke: Pal.moment, width: 2 });
+    const armLine = render.line(tf, O, state.app, { stroke: Pal.moment, width: 2, class: 'sim2-guide-line sim2-moment-arm' });
     const forceArrow = render.arrow(tf, svg, state.app, state.app, { stroke: Pal.force, width: 3 });
     svg.appendChild(armLine); svg.appendChild(forceArrow);
 

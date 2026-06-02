@@ -20,7 +20,7 @@
 
     const upArrow = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.force, width: 3 });
     const dnArrow = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.force, width: 3 });
-    const dLine = render.line(tf, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.moment, width: 1.5, dash: '4 3' });
+    const dLine = render.line(tf, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.moment, width: 1.5, dash: '4 3', class: 'sim2-guide-line sim2-couple-distance' });
     svg.appendChild(dLine); svg.appendChild(upArrow); svg.appendChild(dnArrow);
 
     const lblF1 = overlay.label('F', { x: 0, y: 0 }, { anchor: 'right', color: Pal.force });

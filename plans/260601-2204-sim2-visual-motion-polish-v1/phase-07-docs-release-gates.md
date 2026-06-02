@@ -11,7 +11,7 @@
 | Item | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Dong bo docs va chay release gates sau khi polish v1 duoc duyet. |
 
 ## Key Insights
@@ -80,12 +80,12 @@ Delete:
 
 ## Todo List
 
-- [ ] Update design guidelines.
-- [ ] Update architecture/README if behavior changed.
-- [ ] Update changelog and roadmap.
-- [ ] Run final gates.
-- [ ] Write journal.
-- [ ] Mark plan complete after all gates pass.
+- [x] Update design guidelines.
+- [x] Update architecture/README if behavior changed.
+- [x] Update changelog and roadmap.
+- [x] Run final gates.
+- [x] Write journal.
+- [x] Mark plan complete after all gates pass.
 
 ## Success Criteria
 

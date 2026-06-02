@@ -32,6 +32,25 @@
     function drawTrail(points, opts) {
       opts = opts || {};
       if (!points || points.length < 2) return;
+      if (opts.fade && !prefersReducedMotion()) {
+        const maxAlpha = opts.maxAlpha != null ? opts.maxAlpha : 0.75;
+        const minAlpha = opts.minAlpha != null ? opts.minAlpha : 0.18;
+        const oldAlpha = ctx.globalAlpha;
+        for (let i = 1; i < points.length; i++) {
+          const a = tf.toScreen(points[i - 1]);
+          const b = tf.toScreen(points[i]);
+          const k = points.length <= 2 ? 1 : i / (points.length - 1);
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = opts.stroke || 'rgba(80,140,255,0.7)';
+          ctx.lineWidth = opts.width != null ? opts.width : 1.5;
+          ctx.globalAlpha = minAlpha + (maxAlpha - minAlpha) * k;
+          ctx.stroke();
+        }
+        ctx.globalAlpha = oldAlpha;
+        return;
+      }
       ctx.beginPath();
       points.forEach((p, i) => {
         const s = tf.toScreen(p);
@@ -40,6 +59,11 @@
       ctx.strokeStyle = opts.stroke || 'rgba(80,140,255,0.7)';
       ctx.lineWidth = opts.width != null ? opts.width : 1.5;
       ctx.stroke();
+    }
+
+    function prefersReducedMotion() {
+      return typeof window !== 'undefined' && window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     }
 
     /** Chấm tròn world (pixel radius). */

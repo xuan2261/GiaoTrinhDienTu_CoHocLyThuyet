@@ -19,8 +19,8 @@
     let phi = 0;
 
     svg.appendChild(render.circle(tf, O, 5, { pixel: true, fill: Pal.axis, stroke: Pal.axis }));
-    const arm1 = render.line(tf, O, { x: state.r, y: 0 }, { stroke: Pal.moment, width: 3 }); svg.appendChild(arm1);
-    const arm2 = render.line(tf, O, { x: -state.r, y: 0 }, { stroke: Pal.moment, width: 3 }); svg.appendChild(arm2);
+    const arm1 = render.line(tf, O, { x: state.r, y: 0 }, { stroke: Pal.moment, width: 3, class: 'sim2-guide-line sim2-angular-momentum-radius' }); svg.appendChild(arm1);
+    const arm2 = render.line(tf, O, { x: -state.r, y: 0 }, { stroke: Pal.moment, width: 3, class: 'sim2-guide-line sim2-angular-momentum-radius' }); svg.appendChild(arm2);
     const mass1 = render.circle(tf, { x: state.r, y: 0 }, 7, { pixel: true, gradient: 'force', depth: true, stroke: Pal.force }); svg.appendChild(mass1);
     const mass2 = render.circle(tf, { x: -state.r, y: 0 }, 7, { pixel: true, gradient: 'force', depth: true, stroke: Pal.force }); svg.appendChild(mass2);
 
@@ -44,10 +44,10 @@
       mass2.setAttribute('cx', s2.x); mass2.setAttribute('cy', s2.y);
       handle.move(p1);
       panel.setReadout([
-        { label: 'r:', value: state.r.toFixed(2) + ' m' },
-        { label: 'I:', value: I.toFixed(2) + ' kg·m²' },
-        { label: 'ω:', value: omega.toFixed(2) + ' rad/s' },
-        { label: 'L = I·ω:', value: (I * omega).toFixed(2) + ' (const)' }
+        { key: 'r', label: 'r:', value: state.r.toFixed(2) + ' m' },
+        { key: 'I', label: 'I:', value: I.toFixed(2) + ' kg·m²' },
+        { key: 'omega', label: 'ω:', value: omega.toFixed(2) + ' rad/s' },
+        { key: 'L', label: 'L = I·ω:', value: (I * omega).toFixed(2) + ' (const)' }
       ]);
     }
     function frame() { phi += curOmega() * (1 / 60); draw(); }

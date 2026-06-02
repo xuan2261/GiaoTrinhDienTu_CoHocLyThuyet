@@ -43,6 +43,18 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 | Interaction | Drag handle (`shell.addHandle`) ↔ slider đồng bộ 2 chiều; `setValue` set property KHÔNG bắn `input` → tránh vòng lặp cập nhật |
 | Touch Target | Nút playback 32px, slider accent-color theme; reduced-motion tắt transition |
 
+### Motion/feedback polish v1
+
+| Pattern | Quy ước |
+|---|---|
+| Handle affordance | `.sim2-handle-pulse` mặc định cho handle kéo; `.is-active` khi drag; route có thể opt-out bằng `hintPulse:false` |
+| Readout feedback | `Sim2Panel.setReadout()` dùng `key`/label ổn định để flash `.sim2-readout-changed`; timer thay theo key, không tích lũy khi animation cập nhật liên tục |
+| Formula feedback | Formula có `data-key`; `panel.setFormulaHighlight(keys)` bật `.sim2-formula-highlight` mà không rerender KaTeX |
+| Slider feedback | `<output>` nhận `.sim2-output-changed` khi user input hoặc `setValue()` cập nhật hiển thị; `setValue()` vẫn không dispatch `input` |
+| Trails/cursors | Canvas trail chỉ dùng cho route động/field cần lịch sử chuyển động; dùng `fade:true`, cap điểm trail, và class semantic như `.sim2-graph-cursor`, `.sim2-guide-line` |
+| Pedagogical callouts | Route dày vector dùng stable semantic hooks/callout thay vì pixel-only layout; ví dụ `.sim2-vrel-callout`, `.sim2-coriolis-callout`, `.sim2-impact-state`, `.sim2-negative-area-guide` |
+| Reduced motion | `prefers-reduced-motion: reduce` tắt pulse/flash/fade không thiết yếu; physics/readout vẫn cập nhật bình thường |
+
 ### Palette mô phỏng (token `--sim-c-*` / `Sim2Palette`)
 
 1 nguồn ý nghĩa màu, 2 mặt dùng: CSS class cho DOM + JS hằng cho SVG stroke. Mọi màu ý nghĩa tương phản ≥3:1 trên nền viewport `#fdfdfb`.

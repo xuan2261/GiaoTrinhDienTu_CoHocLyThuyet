@@ -61,15 +61,20 @@ Bộ 52 mô phỏng cũ đã được gỡ khỏi master (tag `archive/52-sims-p
 
 **Tầng UI dùng chung** (mọi sim cùng hưởng, DRY): `core/palette.js` (token màu `Sim2Palette` — đỏ=lực, lục=vận tốc, lam=gia tốc, tím=mô men…, mirror CSS `--sim-c-*`, tương phản ≥3:1 trên nền viewport); `core/panel.js` (panel lý thuyết: công thức KaTeX **tô màu khớp vector** + legend + readout sống tabular-nums + dòng quan sát); `core/controls.js` (control bar: slider có `<output>` + playback ▶/⏸/⏭/↺, **start paused** theo quy ước PhET). `sim-shell.js` thêm `setTheory()`/`addControls()`, panel luôn hiện cạnh viewport (xuống dưới khi hẹp). Slider ↔ drag-handle đồng bộ 2 chiều (`setValue` không bắn `input` → không vòng lặp). `dispose()` gỡ sạch cả listener slider.
 
+**Motion/feedback polish v1**: handle kéo có pulse nhẹ + active state; slider output/readout/công thức có feedback ngắn khi giá trị liên quan đổi; canvas trail dùng fade có kiểm soát cho route động dày; guide/cursor semantic class làm rõ moment arm, IC, graph cursor, impulse/work/radius. `prefers-reduced-motion: reduce` tắt pulse/flash/fade không thiết yếu. Không đổi physics, không thêm dependency runtime.
+
 **Tầng visual "Hybrid"** (chiều sâu DeCuong + tinh giản PhET): header thẻ qua `cfg.meta {name, section, chapter}` → tên sim + badge `§mục` gradient theo chương (ch1 lam / ch2 lục / ch3 tím) + nút ↺; vật thể khối (khối/bi/dầm/đĩa) dùng `gradient`+`depth` (fill gradient + drop-shadow, defs tạo 1 lần trong `createSvg`); nền play-area có lưới graph-paper mờ. Vector/đường/trục/nét đứt giữ phẳng (ít nhiễu). Tất cả opt-in: sim không khai báo `meta`/`depth` chạy y như cũ.
 
 ```powershell
 npm run test:sim:physics    # node: physics port + transform + ch1/ch2/ch3 invariants + coverage + guards
 npm run test:sim:mount      # playwright: ui-components + ui-coverage 25 route + mount + dispose hủy RAF
 npm run test:sim:release    # physics + mount + content + quiz (gate offline)
+npm run test:sim:visual:baseline        # dev-only: selective screenshot baseline 5 route đại diện
+npm run test:sim:visual:baseline:update # dev-only: refresh selective screenshots sau khi đã duyệt mắt
 ```
 
 `test:sim:physics` chạy 9 node test: port snapshot (verified-sticky), transform round-trip, physics dạng đóng 3 chương, visual-physics regression, coverage 25 route (đọc count từ manifest + guard 0 hex rải rác — phải dùng `Sim2Palette`), guard physics-cũ-đã-gỡ + sim-cũ-đã-gỡ. `test:sim:mount` mount 25 route qua `SIM_MAP`: `sim2-ui-components` (palette/controls/panel + dispose listener), `sim2-ui-coverage` (mọi route có panel + legend + readout + control), mount từng chương (nhãn DOM không chồng, canvas underlay khớp SVG ≤1px, sim động start-paused — test bấm ▶ trước khi assert chuyển động), dispose gỡ sạch listener+RAF+DOM. `test:sim:release` là gate tổng, chạy offline.
+`test:sim:visual:baseline` là gate dev-only riêng, không nằm trong release; chỉ khóa 5 route đại diện đã duyệt để tránh baseline toàn bộ 25 route quá brittle.
 
 ## Quy ước vận hành
 

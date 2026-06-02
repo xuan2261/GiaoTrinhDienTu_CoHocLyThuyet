@@ -84,11 +84,11 @@
       overlay.moveLabel(lblBelt, { x: (P1.x + P2.x) / 2, y: P1.y + Math.max(params.r1, params.r2) + 0.28 });
       overlay.moveLabel(lblPulley, { x: P2.x + params.r2 + 0.28, y: P2.y });
       panel.setReadout([
-        { label: 'r₁:', value: params.r1.toFixed(1) },
-        { label: 'r₂:', value: params.r2.toFixed(1) },
-        { label: 'ω₂ bánh răng:', value: gearOmega2.toFixed(2) + ' rad/s' },
-        { label: 'ω₂ đai-puli:', value: beltOmega2.toFixed(2) + ' rad/s' },
-        { label: 'v đai:', value: K.beltVelocity(omega1, params.r1).toFixed(2) }
+        { key: 'r1', label: 'r₁:', value: params.r1.toFixed(1) },
+        { key: 'r2', label: 'r₂:', value: params.r2.toFixed(1) },
+        { key: 'gearOmega', label: 'ω₂ bánh răng:', value: gearOmega2.toFixed(2) + ' rad/s' },
+        { key: 'beltOmega', label: 'ω₂ đai-puli:', value: beltOmega2.toFixed(2) + ' rad/s' },
+        { key: 'beltV', label: 'v đai:', value: K.beltVelocity(omega1, params.r1).toFixed(2) }
       ]);
     }
     function frame() { t += 1 / 60; draw(); }

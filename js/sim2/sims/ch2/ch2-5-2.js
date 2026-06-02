@@ -22,9 +22,9 @@
     const bar = render.line(tf, A, A, { stroke: Pal.axis, width: 4 }); svg.appendChild(bar);
     const vaArrow = render.arrow(tf, svg, A, A, { stroke: Pal.v, width: 2.5 }); svg.appendChild(vaArrow);
     const vbArrow = render.arrow(tf, svg, A, A, { stroke: Pal.v, width: 2.5 }); svg.appendChild(vbArrow);
-    const perpA = render.line(tf, A, A, { stroke: Pal.moment, width: 1, dash: '5 4' }); svg.appendChild(perpA);
-    const perpB = render.line(tf, A, A, { stroke: Pal.moment, width: 1, dash: '5 4' }); svg.appendChild(perpB);
-    const icMark = render.circle(tf, { x: 0, y: 0 }, 5, { pixel: true, fill: Pal.force, stroke: Pal.force });
+    const perpA = render.line(tf, A, A, { stroke: Pal.moment, width: 1, dash: '5 4', class: 'sim2-guide-line sim2-ic-radius-guide' }); svg.appendChild(perpA);
+    const perpB = render.line(tf, A, A, { stroke: Pal.moment, width: 1, dash: '5 4', class: 'sim2-guide-line sim2-ic-radius-guide' }); svg.appendChild(perpB);
+    const icMark = render.circle(tf, { x: 0, y: 0 }, 5, { pixel: true, fill: Pal.force, stroke: Pal.force, class: 'sim2-current-marker' });
     svg.appendChild(icMark);
 
     const lblA = overlay.label('A', A, { anchor: 'right' });
@@ -56,9 +56,9 @@
       overlay.moveLabel(lblB, { x: B.x + 0.3, y: B.y });
       handle.move(A);
       panel.setReadout([
-        { label: 'A:', value: `(${A.x.toFixed(1)}, 0)` },
-        { label: 'B:', value: `(${B.x.toFixed(1)}, ${B.y.toFixed(1)})` },
-        { label: 'IC:', value: ic ? `(${ic.x.toFixed(1)}, ${ic.y.toFixed(1)})` : '∞' }
+        { key: 'A', label: 'A:', value: `(${A.x.toFixed(1)}, 0)` },
+        { key: 'B', label: 'B:', value: `(${B.x.toFixed(1)}, ${B.y.toFixed(1)})` },
+        { key: 'IC', label: 'IC:', value: ic ? `(${ic.x.toFixed(1)}, ${ic.y.toFixed(1)})` : '∞' }
       ]);
     }
 

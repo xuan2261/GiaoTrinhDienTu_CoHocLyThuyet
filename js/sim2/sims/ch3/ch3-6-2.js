@@ -23,6 +23,8 @@
 
     const lblM1 = overlay.label('m₁', { x: 0, y: 0 }, { anchor: 'center', color: Pal.x });
     const lblM2 = overlay.label('m₂', { x: 0, y: 0 }, { anchor: 'center', color: Pal.y });
+    let impactCue = null;
+    let impactState = null;
 
     let p1, p2, v1, v2, trail1, trail2, collided, T0;
 
@@ -30,15 +32,51 @@
       p1 = { x: -4, y: 0 }; p2 = { x: 3, y: 0 };
       v1 = { x: 2.2, y: 0 }; v2 = { x: -1.0, y: 0 };
       trail1 = []; trail2 = []; collided = false;
+      clearImpactCue();
       T0 = D.kineticEnergy(params.m1, Math.hypot(v1.x, v1.y)) +
            D.kineticEnergy(params.m2, Math.hypot(v2.x, v2.y));
       draw();
     }
 
+    function clearImpactCue() {
+      if (impactCue && impactCue.parentNode) impactCue.parentNode.removeChild(impactCue);
+      impactCue = null;
+      if (impactState && impactState.parentNode) impactState.parentNode.removeChild(impactState);
+      impactState = null;
+    }
+
+    function showImpactCue(worldPt) {
+      clearImpactCue();
+      impactCue = render.circle(tf, worldPt, 10, {
+        pixel: true,
+        fill: 'none',
+        stroke: Pal.moment,
+        width: 2.5,
+        class: 'sim2-impact-cue'
+      });
+      svg.appendChild(impactCue);
+      impactState = overlay.label('Sau va chạm', { x: worldPt.x, y: worldPt.y + 1.0 }, {
+        anchor: 'bottom',
+        color: Pal.moment,
+        class: 'sim2-impact-state'
+      });
+    }
+
+    function splitTrail(points, beforeCollision) {
+      if (!beforeCollision) return { before: points, after: [] };
+      const before = [], after = [];
+      for (const p of points) (p.afterImpact ? after : before).push(p);
+      return { before, after };
+    }
+
     function draw() {
       canvas.clear();
-      canvas.drawTrail(trail1, { stroke: 'rgba(216,27,96,0.5)', width: 1.5 });
-      canvas.drawTrail(trail2, { stroke: 'rgba(21,101,192,0.5)', width: 1.5 });
+      const t1 = splitTrail(trail1, collided);
+      const t2 = splitTrail(trail2, collided);
+      canvas.drawTrail(t1.before, { fade: true, stroke: 'rgba(216,27,96,0.35)', width: 1.3, kind: 'before' });
+      canvas.drawTrail(t2.before, { fade: true, stroke: 'rgba(21,101,192,0.35)', width: 1.3, kind: 'before' });
+      canvas.drawTrail(t1.after, { fade: true, stroke: 'rgba(216,27,96,0.78)', width: 2, kind: 'after' });
+      canvas.drawTrail(t2.after, { fade: true, stroke: 'rgba(21,101,192,0.78)', width: 2, kind: 'after' });
       const s1 = tf.toScreen(p1), s2 = tf.toScreen(p2);
       b1.setAttribute('cx', s1.x); b1.setAttribute('cy', s1.y);
       b2.setAttribute('cx', s2.x); b2.setAttribute('cy', s2.y);
@@ -48,9 +86,10 @@
       const T = D.kineticEnergy(params.m1, Math.hypot(v1.x, v1.y)) +
                 D.kineticEnergy(params.m2, Math.hypot(v2.x, v2.y));
       panel.setReadout([
-        { label: 'p tổng:', value: pTot.x.toFixed(2) + ' kg·m/s' },
-        { label: 'T tổng:', value: T.toFixed(2) + ' J' },
-        { label: 'T mất:', value: Math.max(0, T0 - T).toFixed(2) + ' J' }
+        { key: 'phase', label: 'Pha:', value: collided ? 'Sau va chạm' : 'Trước va chạm' },
+        { key: 'momentum', label: 'p tổng:', value: pTot.x.toFixed(2) + ' kg·m/s' },
+        { key: 'energy', label: 'T tổng:', value: T.toFixed(2) + ' J' },
+        { key: 'energyLoss', label: 'T mất:', value: Math.max(0, T0 - T).toFixed(2) + ' J' }
       ]);
     }
 
@@ -62,9 +101,10 @@
       if (dist <= R1 + R2 && !collided) {
         const res = D.resolveCollision2D(params.m1, params.m2, p1, p2, v1, v2, params.e);
         v1 = res.v1; v2 = res.v2; collided = true;
+        showImpactCue({ x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 });
       }
       if (p1.x > 6 || p2.x < -6) reset();
-      trail1.push({ ...p1 }); trail2.push({ ...p2 });
+      trail1.push({ ...p1, afterImpact: collided }); trail2.push({ ...p2, afterImpact: collided });
       if (trail1.length > 300) { trail1.shift(); trail2.shift(); }
       draw();
     }

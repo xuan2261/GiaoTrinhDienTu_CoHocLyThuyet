@@ -25,6 +25,10 @@
     svg.appendChild(render.line(tf, { x: gx0, y: gy0 }, { x: gx0 + gw, y: gy0 }, { stroke: Pal.grid, width: 1 }));
     const pLine = render.el('polyline', { points: '', fill: 'none', stroke: Pal.v, 'stroke-width': 2, class: 'sim2-graph' });
     svg.appendChild(pLine);
+    const impulseSpan = render.line(tf, { x: gx0, y: gy0 }, { x: gx0 + gw, y: gy0 }, {
+      stroke: Pal.resultant, width: 3, class: 'sim2-guide-line sim2-impulse-highlight'
+    });
+    svg.appendChild(impulseSpan);
 
     overlay.label('p(t)', { x: gx0 + gw, y: gy0 }, { anchor: 'left', color: Pal.v });
     const lblF = overlay.label('F', { x: 2, y: 0.5 }, { anchor: 'left', color: Pal.force });
@@ -47,16 +51,17 @@
       }
       pLine.setAttribute('points', pts.join(' '));
       handle.move({ x: 2 + state.F * VIS, y: 0.5 });
+      panel.setFormulaHighlight(['impulse']);
       panel.setReadout([
-        { label: 'F:', value: state.F.toFixed(0) + ' N' },
-        { label: 't:', value: state.tDur.toFixed(1) + ' s' },
-        { label: 'J = F·t:', value: J.toFixed(1) + ' N·s' },
-        { label: 'Δp:', value: dp.toFixed(1) + ' kg·m/s' }
+        { key: 'F', label: 'F:', value: state.F.toFixed(0) + ' N' },
+        { key: 't', label: 't:', value: state.tDur.toFixed(1) + ' s' },
+        { key: 'J', label: 'J = F·t:', value: J.toFixed(1) + ' N·s' },
+        { key: 'dp', label: 'Δp:', value: dp.toFixed(1) + ' kg·m/s' }
       ]);
     }
 
     const panel = shell.setTheory({
-      formulas: ['\\textcolor{#159c3a}{J} = \\textcolor{#e03030}{F} \\cdot t = \\Delta p'],
+      formulas: [{ key: 'impulse', latex: '\\textcolor{#159c3a}{J} = \\textcolor{#e03030}{F} \\cdot t = \\Delta p' }],
       legend: [{ color: Pal.force, label: 'F (lực)' }, { color: Pal.v, label: 'p(t) động lượng' }],
       observe: 'Xung lượng J = F·t bằng độ biến thiên động lượng Δp. Kéo F hoặc đổi t.'
     });

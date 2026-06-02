@@ -22,11 +22,11 @@
     svg.appendChild(render.circle(tf, O, 4, { stroke: Pal.axis, width: 2, gradient: 'moment', depth: true }));
     svg.appendChild(render.circle(tf, O, 5, { pixel: true, fill: Pal.axis, stroke: Pal.axis }));
     const ptMark = render.circle(tf, O, 5, { pixel: true, fill: Pal.force, stroke: Pal.force }); svg.appendChild(ptMark);
-    const vrArrow = render.arrow(tf, svg, O, O, { stroke: Pal.v, width: 2.5 }); svg.appendChild(vrArrow);
-    const acArrow = render.arrow(tf, svg, O, O, { stroke: Pal.coriolis, width: 2.5 }); svg.appendChild(acArrow);
+    const vrArrow = render.arrow(tf, svg, O, O, { stroke: Pal.v, width: 2.5, class: 'sim2-vector-vrel' }); svg.appendChild(vrArrow);
+    const acArrow = render.arrow(tf, svg, O, O, { stroke: Pal.coriolis, width: 2.5, class: 'sim2-vector-coriolis' }); svg.appendChild(acArrow);
 
-    const lblVr = overlay.label('v_rel', O, { anchor: 'left', color: Pal.v });
-    const lblAc = overlay.label('a_cor', O, { anchor: 'left', color: Pal.coriolis });
+    const lblVr = overlay.label('v_rel', O, { anchor: 'left', color: Pal.v, class: 'sim2-vrel-callout' });
+    const lblAc = overlay.label('a_cor', O, { anchor: 'left', color: Pal.coriolis, class: 'sim2-coriolis-callout' });
 
     let absTrail = [];
     function reset() { t = 0; absTrail = []; draw(); }
@@ -44,7 +44,7 @@
       absTrail.push(p);
       if (absTrail.length > 400) absTrail.shift();
       canvas.clear();
-      canvas.drawTrail(absTrail, { stroke: 'rgba(124,58,237,0.5)', width: 1.5 });
+      canvas.drawTrail(absTrail, { fade: true, stroke: 'rgba(124,58,237,0.75)', width: 1.5, minAlpha: 0.16, maxAlpha: 0.72 });
       const ur = { x: Math.cos(phi), y: Math.sin(phi) };
       const sp = tf.toScreen(p);
       ptMark.setAttribute('cx', sp.x); ptMark.setAttribute('cy', sp.y);
@@ -54,12 +54,14 @@
       const acMag = K.coriolisAcceleration(params.omega, Math.abs(radialSpeed));
       const VS = 0.3;
       setArrow(acArrow, p, { x: p.x + ac.ax * VS, y: p.y + ac.ay * VS });
-      overlay.moveLabel(lblVr, { x: p.x + ur.x * radialSpeed + 0.3, y: p.y + ur.y * radialSpeed });
-      overlay.moveLabel(lblAc, { x: p.x + ac.ax * VS + 0.3, y: p.y + ac.ay * VS });
+      const acLen = Math.hypot(ac.ax, ac.ay) || 1;
+      const acDir = { x: ac.ax / acLen, y: ac.ay / acLen };
+      overlay.moveLabel(lblVr, { x: p.x + ur.x * 0.9, y: p.y + ur.y * 0.9 });
+      overlay.moveLabel(lblAc, { x: p.x + acDir.x * 1.15, y: p.y + acDir.y * 1.15 });
       panel.setReadout([
-        { label: 'ω:', value: params.omega.toFixed(2) + ' rad/s' },
-        { label: 'v_rel:', value: radialSpeed.toFixed(2) + ' m/s' },
-        { label: '|a_cor|:', value: acMag.toFixed(2) + ' m/s²' }
+        { key: 'omega', label: 'ω:', value: params.omega.toFixed(2) + ' rad/s' },
+        { key: 'vRel', label: 'v_rel:', value: radialSpeed.toFixed(2) + ' m/s' },
+        { key: 'aCor', label: '|a_cor|:', value: acMag.toFixed(2) + ' m/s²' }
       ]);
     }
     function frame() { t += 1 / 60; draw(); }

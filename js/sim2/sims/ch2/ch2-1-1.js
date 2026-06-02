@@ -20,7 +20,7 @@
     svg.appendChild(render.line(tf, { x: -1, y: 0 }, { x: 22, y: 0 }, { stroke: Pal.axis, width: 1 }));
     svg.appendChild(render.line(tf, { x: 0, y: -1 }, { x: 0, y: 12 }, { stroke: Pal.axis, width: 1 }));
 
-    const ptMark = render.circle(tf, { x: 0, y: 0 }, 5, { pixel: true, fill: Pal.force, stroke: Pal.force });
+    const ptMark = render.circle(tf, { x: 0, y: 0 }, 5, { pixel: true, fill: Pal.force, stroke: Pal.force, class: 'sim2-current-marker' });
     svg.appendChild(ptMark);
     const vArrow = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.v, width: 2.5 }); svg.appendChild(vArrow);
     const aArrow = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.a, width: 2.5 }); svg.appendChild(aArrow);
@@ -43,7 +43,7 @@
     function draw() {
       const p = posFn(t);
       canvas.clear();
-      canvas.drawTrail(trail, { stroke: 'rgba(224,48,48,0.55)', width: 2 });
+      canvas.drawTrail(trail, { fade: true, stroke: 'rgba(224,48,48,0.72)', width: 2, minAlpha: 0.16, maxAlpha: 0.72 });
       const sp = tf.toScreen(p);
       ptMark.setAttribute('cx', sp.x); ptMark.setAttribute('cy', sp.y);
       const v = K.velocityFromTrajectory(posFn, t);
@@ -53,9 +53,9 @@
       overlay.moveLabel(lblV, { x: p.x + v.vx * V_SCALE + 0.4, y: p.y + v.vy * V_SCALE });
       overlay.moveLabel(lblA, { x: p.x + a.ax * A_SCALE + 0.4, y: p.y + a.ay * A_SCALE });
       panel.setReadout([
-        { label: 't:', value: t.toFixed(2) + ' s' },
-        { label: '|v|:', value: Math.hypot(v.vx, v.vy).toFixed(1) + ' m/s' },
-        { label: '|a|:', value: Math.hypot(a.ax, a.ay).toFixed(1) + ' m/s²' }
+        { key: 't', label: 't:', value: t.toFixed(2) + ' s' },
+        { key: 'v', label: '|v|:', value: Math.hypot(v.vx, v.vy).toFixed(1) + ' m/s' },
+        { key: 'a', label: '|a|:', value: Math.hypot(a.ax, a.ay).toFixed(1) + ' m/s²' }
       ]);
     }
     function frame() {

@@ -19,8 +19,8 @@
 
     svg.appendChild(render.circle(tf, O, R, { stroke: Pal.axis, width: 2, gradient: 'moment', depth: true }));
     svg.appendChild(render.circle(tf, O, 5, { pixel: true, fill: Pal.axis, stroke: Pal.axis }));
-    const spoke = render.line(tf, O, { x: R, y: 0 }, { stroke: Pal.moment, width: 3 }); svg.appendChild(spoke);
-    const ptMark = render.circle(tf, { x: R, y: 0 }, 5, { pixel: true, fill: Pal.moment, stroke: Pal.moment });
+    const spoke = render.line(tf, O, { x: R, y: 0 }, { stroke: Pal.moment, width: 3, class: 'sim2-angle-marker' }); svg.appendChild(spoke);
+    const ptMark = render.circle(tf, { x: R, y: 0 }, 5, { pixel: true, fill: Pal.moment, stroke: Pal.moment, class: 'sim2-current-marker' });
     svg.appendChild(ptMark);
     const vArrow = render.arrow(tf, svg, O, O, { stroke: Pal.v, width: 2.5 }); svg.appendChild(vArrow);
 
@@ -42,10 +42,10 @@
       vArrow.setAttribute('x2', sV.x); vArrow.setAttribute('y2', sV.y);
       overlay.moveLabel(lblP, { x: px + 0.3, y: py + 0.2 });
       panel.setReadout([
-        { label: 'ω₀:', value: params.omega0.toFixed(2) + ' rad/s' },
-        { label: 'α (gia tốc góc):', value: params.alphaAcc.toFixed(2) + ' rad/s²' },
-        { label: 'ω(t):', value: omega.toFixed(2) + ' rad/s' },
-        { label: 'φ(t):', value: phi.toFixed(2) + ' rad' }
+        { key: 'omega0', label: 'ω₀:', value: params.omega0.toFixed(2) + ' rad/s' },
+        { key: 'alpha', label: 'α (gia tốc góc):', value: params.alphaAcc.toFixed(2) + ' rad/s²' },
+        { key: 'omega', label: 'ω(t):', value: omega.toFixed(2) + ' rad/s' },
+        { key: 'phi', label: 'φ(t):', value: phi.toFixed(2) + ' rad' }
       ]);
     }
     function frame() { t += 1 / 60; draw(); }

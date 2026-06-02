@@ -1,5 +1,65 @@
 # Project Changelog
 
+## 2026-06-02 — Sim2 Pedagogical Polish + Selective Visual Baselines
+
+### Added
+- `ch2-4-4`: semantic callouts for `v_rel` and `a_cor` so the Coriolis teaching point stays readable in dense vector frames.
+- `ch3-6-2`: explicit before/after collision phase readout and after-impact state label, reset-clean with existing impact cue.
+- `ch1-6-3`: signed `-A lỗ` readout and negative-area wording for the removed-area centroid concept.
+- Dev-only selective screenshot baseline workflow: `test:sim:visual:baseline` and `test:sim:visual:baseline:update`, covering 5 representative routes only.
+
+### Changed
+- `test:sim:mount` now includes the focused pedagogical polish assertions in `tests/sim2-visual-motion-polish.spec.js`.
+- Selective visual baseline remains outside `test:sim:release` to avoid brittle all-route PNG gating.
+
+### Verified
+- `npm run test:sim:visual:baseline`: PASS, 5/5.
+- `npm run test:sim:mount`: PASS, 104/104.
+- `npm run test:sim:release`: PASS.
+- `npm run test:sim:visual:capture`: PASS, 25/25.
+
+---
+
+## 2026-06-02 — Sim2 Visual Motion Polish v1 Rollout
+
+### Added
+- Rollout motion/feedback cues across Ch1/Ch2/Ch3: default handle pulse/active state, guide lines for moment/couple/support/friction/centroid, Ch2 fade/current/IC cues, and Ch3 graph/cause-effect/reset cues.
+- Route-family regression coverage in `tests/sim2-visual-motion-polish.spec.js` for approved rollout hooks.
+
+### Changed
+- `drawTrail(...,{fade:true})` now used for selected dynamic trajectories while keeping reduced-motion opt-out.
+- Readout/formula feedback conventions documented in README, design guidelines, architecture, and code standards.
+
+### Verified
+- `npm run test:sim:release`: PASS, 101 mount tests + physics/content/quiz.
+- `npm run test:sim:visual:capture`: PASS, 25/25.
+- `node tools\sim2-visual\build-contact-sheet.js`: PASS, 25 route, 58 ảnh.
+
+---
+
+## 2026-06-01 — Sim2 Visual Motion Polish Pilot
+
+### Added
+- Shared Sim2 motion/feedback primitives: slider output flash, keyed readout flash, formula highlight hook, handle pulse/active state, faded canvas trails, and reduced-motion opt-out.
+- Pilot visual polish for `ch1-1-3`, `ch2-4-4`, and `ch3-6-2`.
+- `tests/sim2-visual-motion-polish.spec.js` and inclusion in `test:sim:mount`.
+
+### Changed
+- `ch1-1-3`: primary drag handle now signals affordance and readouts use stable keys.
+- `ch2-4-4`: Coriolis trail now fades by sample age; `v_rel` and `a_cor` vectors expose stable hooks.
+- `ch3-6-2`: collision now shows impact cue, before/after trail distinction, and energy-loss readout feedback.
+
+### Verified
+- `npx playwright test tests/sim2-visual-motion-polish.spec.js --reporter=line`: PASS, 9/9.
+- `npm run test:sim:release`: PASS.
+- `npm run test:sim:visual:capture`: PASS, 25/25.
+- `node tools\sim2-visual\build-contact-sheet.js`: PASS, 25 route, 58 ảnh.
+
+### Pending
+- User visual approval before rollout Phases 03-05.
+
+---
+
 ## 2026-06-01 — Sim2 Transmission Visual Fixes
 
 ### Fixed

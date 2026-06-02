@@ -12,7 +12,7 @@
 | Item | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Tao RED tests va baseline artifact truoc khi them visual/motion polish. |
 
 ## Key Insights
@@ -76,11 +76,11 @@ Delete:
 
 ## Todo List
 
-- [ ] Run baseline gates and record result.
-- [ ] Add RED shared component tests.
-- [ ] Add RED pilot route tests.
-- [ ] Add reduced-motion test.
-- [ ] Save baseline capture notes.
+- [x] Run baseline gates and record result.
+- [x] Add RED shared component tests.
+- [x] Add RED pilot route tests.
+- [x] Add reduced-motion test.
+- [x] Save baseline capture notes.
 
 ## Success Criteria
 

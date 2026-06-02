@@ -11,7 +11,7 @@
 | Item | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Capture 25 route sau rollout, user duyet, roi quyet dinh co chot visual baseline hay khong. |
 
 ## Key Insights
@@ -89,12 +89,12 @@ Delete:
 
 ## Todo List
 
-- [ ] Capture desktop 25/25.
-- [ ] Build contact-sheet.
-- [ ] Review visual output.
-- [ ] Write after-rollout report.
-- [ ] Decide baseline adoption with user.
-- [ ] Add baseline command only if approved.
+- [x] Capture desktop 25/25.
+- [x] Build contact-sheet.
+- [x] Review visual output.
+- [x] Write after-rollout report.
+- [x] Decide baseline adoption with user.
+- [x] Add baseline command only if approved.
 
 ## Success Criteria
 
@@ -122,4 +122,4 @@ Delete:
 
 ## Unresolved Questions
 
-- User decides whether to adopt visual baseline after reviewing output.
+- Pixel baseline not adopted in this pass; contact-sheet remains review artifact.

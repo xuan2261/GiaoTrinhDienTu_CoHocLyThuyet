@@ -11,7 +11,7 @@
 | Item | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Lam ro law/energy/momentum/collision dynamics cho 8 route Ch3 bang cues va motion feedback nhe. |
 
 ## Key Insights
@@ -88,11 +88,11 @@ Delete:
 
 ## Todo List
 
-- [ ] Add Ch3 RED tests.
-- [ ] Add graph cursor/current marker cues.
-- [ ] Add readout feedback to dynamic outputs.
-- [ ] Add reset cleanup assertions.
-- [ ] Capture Ch3 review evidence.
+- [x] Add Ch3 RED tests.
+- [x] Add graph cursor/current marker cues.
+- [x] Add readout feedback to dynamic outputs.
+- [x] Add reset cleanup assertions.
+- [x] Capture Ch3 review evidence.
 
 ## Success Criteria
 

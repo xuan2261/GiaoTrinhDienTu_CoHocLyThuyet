@@ -46,16 +46,20 @@
       overlay.moveLabel(lblA, { x: -2.5 + state.aFrame * VIS * 0.5, y: 2.9 });
       overlay.moveLabel(lblF, { x: bobPt.x + fIner.fx * VIS - 0.3, y: bobPt.y + 0.4 });
       handle.move({ x: -2.5 + state.aFrame * VIS, y: 2.5 });
+      panel.setFormulaHighlight(['inertia']);
       panel.setReadout([
-        { label: 'a toa:', value: state.aFrame.toFixed(1) + ' m/s²' },
-        { label: 'F* = -m·a:', value: fIner.fx.toFixed(1) + ' N' },
-        { label: 'θ lệch:', value: (theta * 180 / Math.PI).toFixed(1) + '°' },
-        { label: 'tanθ = a/g:', value: (state.aFrame / g).toFixed(3) }
+        { key: 'aFrame', label: 'a toa:', value: state.aFrame.toFixed(1) + ' m/s²' },
+        { key: 'inertiaForce', label: 'F* = -m·a:', value: fIner.fx.toFixed(1) + ' N' },
+        { key: 'theta', label: 'θ lệch:', value: (theta * 180 / Math.PI).toFixed(1) + '°' },
+        { key: 'tan', label: 'tanθ = a/g:', value: (state.aFrame / g).toFixed(3) }
       ]);
     }
 
     const panel = shell.setTheory({
-      formulas: ['\\textcolor{#e03030}{F^*} = -m\\,\\textcolor{#0074d9}{a}', '\\tan\\theta = \\dfrac{a}{g}'],
+      formulas: [
+        { key: 'inertia', latex: '\\textcolor{#e03030}{F^*} = -m\\,\\textcolor{#0074d9}{a}' },
+        { key: 'inertia', latex: '\\tan\\theta = \\dfrac{a}{g}' }
+      ],
       legend: [{ color: Pal.a, label: 'a (gia tốc toa)' }, { color: Pal.force, label: 'F* quán tính' }],
       observe: 'Trong HQC phi quán tính, con lắc lệch do lực quán tính F* = -m·a. Kéo hoặc đổi a.'
     });

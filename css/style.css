@@ -1950,9 +1950,16 @@ footer b { color: var(--gold); }
 .sim2-stage .sim2-viewport-host { flex: 1 1 320px; }
 
 /* Affordance handle kéo */
-.sim2-handle { cursor: grab; touch-action: none; user-select: none; transition: filter .12s ease; }
+.sim2-handle { cursor: grab; touch-action: none; user-select: none; transition: filter .12s ease, stroke-width .12s ease; }
 .sim2-handle:hover { filter: drop-shadow(0 0 4px rgba(255, 112, 67, .9)); }
 .sim2-handle:active { cursor: grabbing; }
+.sim2-handle-pulse {
+  animation: sim2-handle-pulse 1.4s ease-in-out infinite;
+}
+.sim2-handle.is-active {
+  filter: drop-shadow(0 0 6px rgba(232, 80, 30, .95));
+  stroke-width: 3;
+}
 
 /* ===== Theory panel ===== */
 .sim2-theory {
@@ -1968,8 +1975,25 @@ footer b { color: var(--gold); }
 }
 .sim2-formulas { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
 .sim2-formula { color: #1a1a2e; }
+.sim2-formula-highlight {
+  background: rgba(224, 106, 0, .1);
+  border-radius: 4px;
+}
+.sim2-guide-line {
+  opacity: .82;
+}
+.sim2-current-marker {
+  filter: drop-shadow(0 0 4px rgba(224, 106, 0, .45));
+}
+.sim2-graph-cursor {
+  pointer-events: none;
+}
 .sim2-readout-live { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
 .sim2-readout-row { display: flex; justify-content: space-between; gap: 10px; }
+.sim2-readout-changed {
+  background: rgba(232, 80, 30, .12);
+  border-radius: 4px;
+}
 .sim2-readout-label { color: #555; }
 .sim2-readout-value {
   font-weight: 600;
@@ -2005,6 +2029,9 @@ footer b { color: var(--gold); }
   font-size: .82rem;
   font-weight: 600;
 }
+.sim2-output-changed {
+  color: var(--gold);
+}
 .sim2-playback { display: inline-flex; gap: 6px; }
 .sim2-playback button {
   width: 32px; height: 32px;
@@ -2020,7 +2047,13 @@ footer b { color: var(--gold); }
 .sim2-playback button:hover { background: var(--gold); color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
-  .sim2-handle, .sim2-playback button { transition: none; }
+  .sim2-handle, .sim2-playback button, .sim2-output { transition: none; animation: none; }
+  .sim2-handle-pulse { animation: none; }
+}
+
+@keyframes sim2-handle-pulse {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(232, 80, 30, 0)); }
+  50% { filter: drop-shadow(0 0 7px rgba(232, 80, 30, .75)); }
 }
 
 /* Dark mode: theory panel adapt — viewport giữ nền sáng cố định (ý đồ PhET) */

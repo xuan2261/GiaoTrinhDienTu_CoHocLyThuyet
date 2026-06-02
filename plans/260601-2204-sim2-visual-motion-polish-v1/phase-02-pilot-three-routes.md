@@ -13,7 +13,7 @@
 | Item | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Pilot visual polish tren 1 static force, 1 complex kinematics, 1 collision dynamics route de user duyet. |
 
 ## Key Insights
@@ -93,12 +93,12 @@ Delete:
 
 ## Todo List
 
-- [ ] Add RED pilot tests.
-- [ ] Polish `ch1-1-3`.
-- [ ] Polish `ch2-4-4`.
-- [ ] Polish `ch3-6-2`.
-- [ ] Capture and write pilot review.
-- [ ] Get user approval before rollout.
+- [x] Add RED pilot tests.
+- [x] Polish `ch1-1-3`.
+- [x] Polish `ch2-4-4`.
+- [x] Polish `ch3-6-2`.
+- [x] Capture and write pilot review.
+- [x] Get user approval before rollout.
 
 ## Success Criteria
 
@@ -126,4 +126,4 @@ Delete:
 
 ## Unresolved Questions
 
-- User approval required after pilot capture.
+- None.

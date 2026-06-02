@@ -11,7 +11,7 @@
 | Item | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Rollout affordance tinh hoc: handle, guide, readout/formula feedback, framing nhe cho 10 route Ch1. |
 
 ## Key Insights
@@ -86,11 +86,11 @@ Delete:
 
 ## Todo List
 
-- [ ] Add Ch1 RED matrix tests.
-- [ ] Add stable readout keys for Ch1.
-- [ ] Add handle affordance to Ch1 route primary handles.
-- [ ] Add guide lines to high-value routes.
-- [ ] Capture Ch1 review evidence.
+- [x] Add Ch1 RED matrix tests.
+- [x] Add stable readout keys for Ch1.
+- [x] Add handle affordance to Ch1 route primary handles.
+- [x] Add guide lines to high-value routes.
+- [x] Capture Ch1 review evidence.
 
 ## Success Criteria
 

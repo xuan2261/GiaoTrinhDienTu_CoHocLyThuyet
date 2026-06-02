@@ -89,6 +89,10 @@
       cleanups.push(() => target.removeEventListener(type, handler, opts));
     }
 
+    function prefersReducedMotion() {
+      return root.matchMedia && root.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
     // ─── Header thẻ (tùy chọn): tên sim + badge §mục (gradient theo chương) + reset ───
     // Đặt LÀM FIRST-CHILD container (trên stage); dispose gỡ kèm. Không meta → không header
     // (sim chưa retrofit giữ nguyên, không hồi quy).
@@ -188,6 +192,7 @@
         class: 'sim2-handle',
         style: 'cursor:grab;'
       });
+      if (opts.hintPulse !== false && !prefersReducedMotion()) node.classList.add('sim2-handle-pulse');
       svg.appendChild(node);
 
       function localScreen(ev) {
@@ -197,6 +202,8 @@
       let dragging = false;
       function down(ev) {
         dragging = true;
+        node.classList.add('is-active');
+        node.classList.remove('sim2-handle-pulse');
         ev.stopPropagation();
         node.setPointerCapture && ev.pointerId != null && node.setPointerCapture(ev.pointerId);
         if (opts.onDrag) opts.onDrag(wp, 'start', ev);
@@ -210,6 +217,7 @@
       function up(ev) {
         if (!dragging) return;
         dragging = false;
+        node.classList.remove('is-active');
         if (opts.onDrag) opts.onDrag(wp, 'end', ev);
       }
       function moveTo(newWp) {

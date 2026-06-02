@@ -24,10 +24,10 @@
     }
     support(A); support(B);
 
-    const loadArrow = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.force, width: 3 });
+    const loadArrow = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.force, width: 3, class: 'sim2-load-line' });
     svg.appendChild(loadArrow);
-    const raArrow = render.arrow(tf, svg, A, A, { stroke: Pal.reaction, width: 3 }); svg.appendChild(raArrow);
-    const rbArrow = render.arrow(tf, svg, B, B, { stroke: Pal.reaction, width: 3 }); svg.appendChild(rbArrow);
+    const raArrow = render.arrow(tf, svg, A, A, { stroke: Pal.reaction, width: 3, class: 'sim2-guide-line sim2-support-reaction' }); svg.appendChild(raArrow);
+    const rbArrow = render.arrow(tf, svg, B, B, { stroke: Pal.reaction, width: 3, class: 'sim2-guide-line sim2-support-reaction' }); svg.appendChild(rbArrow);
 
     overlay.label('A', { x: 0, y: -1 }, { anchor: 'top' });
     overlay.label('B', { x: L, y: -1 }, { anchor: 'top' });

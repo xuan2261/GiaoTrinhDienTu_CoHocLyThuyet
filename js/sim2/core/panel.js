@@ -21,6 +21,9 @@
    */
   function createPanel(host, opts) {
     opts = opts || {};
+    const previous = {};
+    const flashUntil = {};
+    const flashTimers = {};
     const root = document.createElement('div');
     root.className = 'sim2-theory';
 
@@ -28,9 +31,12 @@
     if (opts.formulas && opts.formulas.length) {
       const fwrap = document.createElement('div');
       fwrap.className = 'sim2-formulas';
-      for (const latex of opts.formulas) {
+      opts.formulas.forEach((formula, index) => {
+        const latex = typeof formula === 'string' ? formula : formula.latex;
         const f = document.createElement('div');
         f.className = 'sim2-formula';
+        const key = typeof formula === 'object' && formula.key != null ? String(formula.key) : String(index);
+        f.setAttribute('data-key', key);
         if (typeof window.katex !== 'undefined') {
           try { window.katex.render(latex, f, { throwOnError: false, displayMode: false }); }
           catch (e) { f.textContent = latex; }
@@ -38,7 +44,7 @@
           f.textContent = latex;
         }
         fwrap.appendChild(f);
-      }
+      });
       root.appendChild(fwrap);
     }
 
@@ -80,6 +86,8 @@
     function setReadout(rows) {
       live.innerHTML = '';
       for (const it of (rows || [])) {
+        const key = it.key != null ? String(it.key) : String(it.label || '');
+        const value = it.value != null ? String(it.value) : '';
         const row = document.createElement('div');
         row.className = 'sim2-readout-row';
         const lab = document.createElement('span');
@@ -92,18 +100,44 @@
         }
         const val = document.createElement('span');
         val.className = 'sim2-readout-value';
-        val.textContent = it.value != null ? String(it.value) : '';
+        val.textContent = value;
         row.appendChild(lab);
         row.appendChild(val);
+        if (key && previous[key] != null && previous[key] !== value && !prefersReducedMotion()) {
+          if (flashTimers[key]) clearTimeout(flashTimers[key]);
+          flashUntil[key] = Date.now() + 500;
+          flashTimers[key] = setTimeout(() => {
+            delete flashUntil[key];
+            delete flashTimers[key];
+          }, 500);
+        }
+        if (key && flashUntil[key] && Date.now() < flashUntil[key] && !prefersReducedMotion()) {
+          row.classList.add('sim2-readout-changed');
+        }
+        if (key) previous[key] = value;
         live.appendChild(row);
       }
     }
 
+    function prefersReducedMotion() {
+      return typeof window !== 'undefined' && window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function setFormulaHighlight(keys) {
+      const active = {};
+      for (const key of (keys || [])) active[String(key)] = true;
+      root.querySelectorAll('.sim2-formula').forEach(el => {
+        el.classList.toggle('sim2-formula-highlight', !!active[el.getAttribute('data-key')]);
+      });
+    }
+
     function dispose() {
+      for (const key in flashTimers) clearTimeout(flashTimers[key]);
       if (root.parentNode) root.parentNode.removeChild(root);
     }
 
-    return { root, setReadout, dispose };
+    return { root, setReadout, setFormulaHighlight, dispose };
   }
 
   return { createPanel };

@@ -23,6 +23,7 @@
   function createControls(host, opts) {
     opts = opts || {};
     const cleanups = [];
+    const timers = new Map();
     const sliderMap = {}; // id → { input, output, unit }
 
     function add(target, type, handler) {
@@ -35,6 +36,23 @@
 
     function fmtOut(s, value) {
       return value + (s.unit ? ' ' + s.unit : '');
+    }
+
+    function prefersReducedMotion() {
+      return typeof window !== 'undefined' && window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function markOutputChanged(output) {
+      if (prefersReducedMotion()) return;
+      const oldId = timers.get(output);
+      if (oldId) clearTimeout(oldId);
+      output.classList.add('sim2-output-changed');
+      const id = setTimeout(() => {
+        output.classList.remove('sim2-output-changed');
+        timers.delete(output);
+      }, 450);
+      timers.set(output, id);
     }
 
     // ─── Sliders ───
@@ -61,6 +79,7 @@
       add(input, 'input', () => {
         const v = parseFloat(input.value);
         output.textContent = fmtOut(s, input.value);
+        markOutputChanged(output);
         if (typeof s.onInput === 'function') s.onInput(v);
       });
 
@@ -111,6 +130,7 @@
       if (!s) return;
       s.input.value = v; // KHÔNG dispatch 'input' → không gọi onInput
       s.output.textContent = v + (s.unit ? ' ' + s.unit : '');
+      markOutputChanged(s.output);
     }
 
     function setPlaying(bool) {
@@ -123,6 +143,8 @@
     function dispose() {
       for (const fn of cleanups) { try { fn(); } catch (e) { /* noop */ } }
       cleanups.length = 0;
+      for (const id of timers.values()) clearTimeout(id);
+      timers.clear();
       if (root.parentNode) root.parentNode.removeChild(root);
     }
 

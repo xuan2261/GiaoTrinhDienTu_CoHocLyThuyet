@@ -25,7 +25,7 @@
     const norLine = render.arrow(tf, svg, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.a, width: 2.5 });
     const oscCircle = render.circle(tf, { x: 0, y: 0 }, 1, { stroke: Pal.moment, width: 1.5, dash: '5 4' });
     svg.appendChild(oscCircle); svg.appendChild(tanLine); svg.appendChild(norLine);
-    const ptMark = render.circle(tf, { x: 0, y: 0 }, 4, { pixel: true, fill: Pal.force, stroke: Pal.force });
+    const ptMark = render.circle(tf, { x: 0, y: 0 }, 4, { pixel: true, fill: Pal.force, stroke: Pal.force, class: 'sim2-current-marker' });
     svg.appendChild(ptMark);
 
     const lblT = overlay.label('τ', { x: 0, y: 0 }, { anchor: 'left', color: Pal.v });
@@ -57,9 +57,9 @@
       overlay.moveLabel(lblN, { x: p.x + nx * 1.7, y: p.y + ny * 1.7 });
       handle.move(p);
       panel.setReadout([
-        { label: '|v|:', value: speed.toFixed(2) },
-        { label: '|a|:', value: Math.hypot(acc.ax, acc.ay).toFixed(2) },
-        { label: 'R cong:', value: (isFinite(R) ? R.toFixed(2) : '∞') }
+        { key: 'v', label: '|v|:', value: speed.toFixed(2) },
+        { key: 'a', label: '|a|:', value: Math.hypot(acc.ax, acc.ay).toFixed(2) },
+        { key: 'R', label: 'R cong:', value: (isFinite(R) ? R.toFixed(2) : '∞') }
       ]);
     }
 

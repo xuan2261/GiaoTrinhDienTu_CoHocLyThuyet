@@ -23,6 +23,8 @@
 
     const ground = render.line(tf, base, { x: len, y: 0 }, { stroke: Pal.axis, width: 1 }); svg.appendChild(ground);
     const incline = render.line(tf, base, base, { stroke: Pal.axis, width: 3 }); svg.appendChild(incline);
+    const frictionCone = render.line(tf, base, base, { stroke: Pal.moment, width: 1.5, dash: '4 3', class: 'sim2-guide-line sim2-friction-cone' });
+    svg.appendChild(frictionCone);
     const blockPoly = render.poly(tf, [], { closed: true, gradient: 'a', depth: true, stroke: Pal.a });
     svg.appendChild(blockPoly);
 
@@ -51,6 +53,13 @@
       const slip = D.slipCondition(state.betaDeg, state.mu);
       const phiDeg = slip.phi;
       const slips = slip.slips;
+      const coneTip = {
+        x: mid.x + Math.cos((state.betaDeg + phiDeg) * Math.PI / 180),
+        y: mid.y + Math.sin((state.betaDeg + phiDeg) * Math.PI / 180)
+      };
+      const cm = tf.toScreen(mid), ct = tf.toScreen(coneTip);
+      frictionCone.setAttribute('x1', cm.x); frictionCone.setAttribute('y1', cm.y);
+      frictionCone.setAttribute('x2', ct.x); frictionCone.setAttribute('y2', ct.y);
       lblState.innerHTML = slips ? 'TRƯỢT' : 'CÂN BẰNG';
       lblState.style.color = slips ? Pal.force : Pal.v;
       overlay.moveLabel(lblState, { x: top.x * 0.6, y: top.y * 0.6 + 0.8 });

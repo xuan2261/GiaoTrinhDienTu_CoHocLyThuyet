@@ -11,7 +11,7 @@
 | Item | Value |
 |---|---|
 | Priority | P1 |
-| Status | Pending |
+| Status | Complete |
 | Goal | Them shared primitives nhe cho motion clarity va feedback ma khong tao runtime dependency moi. |
 
 ## Key Insights
@@ -92,12 +92,12 @@ Delete:
 
 ## Todo List
 
-- [ ] Add fade trail support.
-- [ ] Add readout changed feedback.
-- [ ] Add output/slider feedback.
-- [ ] Add handle pulse/active state.
-- [ ] Add reduced-motion CSS.
-- [ ] Verify cleanup after dispose.
+- [x] Add fade trail support.
+- [x] Add readout changed feedback.
+- [x] Add output/slider feedback.
+- [x] Add handle pulse/active state.
+- [x] Add reduced-motion CSS.
+- [x] Verify cleanup after dispose.
 
 ## Success Criteria
 
