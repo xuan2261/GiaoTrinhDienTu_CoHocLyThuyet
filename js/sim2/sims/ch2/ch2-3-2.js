@@ -90,6 +90,10 @@
         { key: 'beltOmega', label: 'ω₂ đai-puli:', value: beltOmega2.toFixed(2) + ' rad/s' },
         { key: 'beltV', label: 'v đai:', value: K.beltVelocity(omega1, params.r1).toFixed(2) }
       ]);
+      if (sim3) sim3.setState({
+        r1: params.r1, r2: params.r2, omega1, gearOmega2, beltOmega2,
+        gearPhi1: phi1, gearPhi2, beltPhi2
+      });
     }
     function frame() { t += 1 / 60; draw(); }
     function reset() { t = 0; draw(); }
@@ -104,6 +108,12 @@
       ],
       observe: 'Bấm ▶. Bánh răng ngoài quay ngược chiều; đai hở kéo hai puli quay cùng chiều, cùng v tiếp tuyến.'
     });
+    const sim3 = root.Sim3Mode && root.Sim3Ch232 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch232.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     shell.addControls({
       sliders: [

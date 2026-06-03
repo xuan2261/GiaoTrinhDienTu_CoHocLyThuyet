@@ -49,6 +49,7 @@
         { key: 'omega', label: 'ω:', value: omega.toFixed(2) + ' rad/s' },
         { key: 'L', label: 'L = I·ω:', value: (I * omega).toFixed(2) + ' (const)' }
       ]);
+      if (sim3) sim3.setState({ r: state.r, phi, omega, inertia: I, angularMomentum: I * omega });
     }
     function frame() { phi += curOmega() * (1 / 60); draw(); }
     function reset() { phi = 0; draw(); }
@@ -58,6 +59,12 @@
       legend: [{ color: Pal.force, label: 'khối m' }, { color: Pal.moment, label: 'cánh tay r' }],
       observe: 'Bấm ▶ rồi kéo khối vào/ra: r giảm → I giảm → ω tăng (vũ công xoay co tay). L không đổi.'
     });
+    const sim3 = root.Sim3Mode && root.Sim3Ch353 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch353.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     const controls = shell.addControls({
       sliders: [

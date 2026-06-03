@@ -1,5 +1,24 @@
 # Project Changelog
 
+## 2026-06-03 — Sim3 Three-Route Candidate Rollout
+
+### Added
+- Optional Sim3 3D adapters cho 3 route mới: `ch2-3-2`, `ch2-4-4`, `ch3-5-3`.
+- Shared `js/sim3/core/three-primitives.js` cho arrow/material/cylinder helpers dùng bởi batch mới.
+- Focused Sim3 contract tests cho 5 route pilot: mode toggle, one canvas, state sync, fallback, repeated toggle, dispose cleanup.
+- Visual capture coverage cho cả 5 Sim3 route dưới `plans/260603-1858-sim3-route-candidate-audit-and-rollout-plan/visuals/`.
+
+### Changed
+- Sim3 pilot hiện gồm 5 route tùy chọn; Sim2 SVG-first vẫn là default và contract `SIM_MAP[pageId] -> factory(container) -> { dispose }` giữ nguyên.
+- `ch2-4-4` slider redraw ngay khi đổi `omega`/`vRel`, giúp readout và debug state đồng bộ tức thì.
+
+### Verified
+- `npm run test:sim3:pilot`: PASS, 9/9.
+- `npm run test:sim3:visual:capture`: PASS, 5/5.
+- `npm run test:sim:release`: PASS.
+
+---
+
 ## 2026-06-02 — Sim2 Pedagogical Polish + Selective Visual Baselines
 
 ### Added

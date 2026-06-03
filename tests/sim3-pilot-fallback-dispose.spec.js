@@ -64,6 +64,96 @@ test.describe('sim3 pilot contract', () => {
     await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
   });
 
+  test('ch2-3-2 3D mode follows transmission radii and playback', async ({ page }) => {
+    await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
+    await mount(page, 'ch2-3-2');
+
+    await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(1);
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+    let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-3-2']);
+    expect(debug.r1).toBeCloseTo(1.4, 3);
+    expect(debug.r2).toBeCloseTo(2.0, 3);
+    expect(debug.gearOmega2).toBeLessThan(0);
+    expect(debug.beltOmega2).toBeGreaterThan(0);
+
+    await page.evaluate(() => {
+      const r1 = document.querySelector('#host input[data-id=r1]');
+      r1.value = '2.2';
+      r1.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-3-2']);
+    expect(debug.r1).toBeCloseTo(2.2, 3);
+
+    const beforePhi = debug.gearPhi1;
+    await page.locator('#host .sim2-step').click();
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-3-2']);
+    expect(debug.gearPhi1).toBeGreaterThan(beforePhi);
+
+    await page.evaluate(() => window.__sim.dispose());
+    await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(0);
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+  });
+
+  test('ch2-4-4 3D mode follows Coriolis vectors and repeated toggles', async ({ page }) => {
+    await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
+    await mount(page, 'ch2-4-4');
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+    let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-4-4']);
+    expect(debug.omega).toBeCloseTo(1.2, 3);
+    expect(debug.vRel).toBeDefined();
+    expect(debug.aCor.mag).toBeGreaterThanOrEqual(0);
+
+    await page.evaluate(() => {
+      const omega = document.querySelector('#host input[data-id=omega]');
+      omega.value = '2.1';
+      omega.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-4-4']);
+    expect(debug.omega).toBeCloseTo(2.1, 3);
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="2d"]').click();
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+
+    await page.evaluate(() => window.__sim.dispose());
+    await expect(page.locator('#host .sim3-host')).toHaveCount(0);
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+  });
+
+  test('ch3-5-3 3D mode follows radius and angular momentum state', async ({ page }) => {
+    await page.goto(fixtureUrl('sim2-ch3.html'), { waitUntil: 'domcontentloaded' });
+    await mount(page, 'ch3-5-3');
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+    let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch3-5-3']);
+    expect(debug.r).toBeCloseTo(3, 3);
+    expect(debug.omega).toBeGreaterThan(0);
+    expect(debug.inertia).toBeGreaterThan(0);
+    expect(debug.angularMomentum).toBeGreaterThan(0);
+
+    await page.evaluate(() => {
+      const r = document.querySelector('#host input[data-id=r]');
+      r.value = '1.4';
+      r.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch3-5-3']);
+    expect(debug.r).toBeCloseTo(1.4, 3);
+    expect(Math.abs(debug.mass1.x)).toBeLessThan(2);
+
+    const beforePhi = debug.phi;
+    await page.locator('#host .sim2-step').click();
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch3-5-3']);
+    expect(debug.phi).toBeGreaterThan(beforePhi);
+
+    await page.evaluate(() => window.__sim.dispose());
+    await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(0);
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+  });
+
   test('mode toggle can switch repeatedly without duplicating 3D canvas', async ({ page }) => {
     await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
     await mount(page, 'ch2-2-2');

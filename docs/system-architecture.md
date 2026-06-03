@@ -35,11 +35,14 @@ Motion/feedback v1 nằm ở core chung: `controls.js` flash output, `panel.js` 
 | File/Thư mục | Trách nhiệm |
 |---|---|
 | `lib/three/three.umd.min.js` | Three.js vendored offline cho pilot, không phụ thuộc CDN/bundler runtime |
-| `js/sim3/core/` | WebGL shell, mode toggle, disposal helper |
+| `js/sim3/core/` | WebGL shell, mode toggle, disposal helper, primitive helpers |
 | `js/sim3/sims/ch2-2-2-3d.js` | 3D adapter cho route `ch2-2-2` |
+| `js/sim3/sims/ch2-3-2-3d.js` | 3D adapter cho route `ch2-3-2` |
+| `js/sim3/sims/ch2-4-4-3d.js` | 3D adapter cho route `ch2-4-4` |
+| `js/sim3/sims/ch3-5-3-3d.js` | 3D adapter cho route `ch3-5-3` |
 | `js/sim3/sims/ch3-6-2-3d.js` | 3D adapter cho route `ch3-6-2` |
 
-Pilot Sim3 chỉ bọc thêm nhánh 3D cho 2 route Sim2 đã chọn. Contract mount vẫn giữ nguyên `SIM_MAP[pageId] -> factory(container) -> { dispose }`, Sim2 SVG-first vẫn là default path, và khi WebGL không khả dụng thì route rơi về 2D với thông báo tiếng Việt. Đây là pilot nội bộ, chưa thay đổi phạm vi 25 route Sim2.
+Pilot Sim3 chỉ bọc thêm nhánh 3D cho 5 route Sim2 đã chọn. Contract mount vẫn giữ nguyên `SIM_MAP[pageId] -> factory(container) -> { dispose }`, Sim2 SVG-first vẫn là default path, và khi WebGL không khả dụng thì route rơi về 2D với thông báo tiếng Việt. Đây là pilot nội bộ, chưa thay đổi phạm vi 25 route Sim2.
 
 ### Tầng 3 — Simulations
 
@@ -91,7 +94,7 @@ npm run test:sim:visual:baseline  # dev-only selective screenshot baseline; khô
 
 Selective visual baseline hiện khóa 5 route đại diện bằng Playwright snapshot convention dưới `tools/sim2-visual/selective-baseline.spec.js-snapshots/`: `ch1-6-3`, `ch2-3-2`, `ch2-4-4`, `ch3-3-1`, `ch3-6-2`. Baseline này dùng để bắt hồi quy visual sau polish đã duyệt, không thay thế contact-sheet 25 route và không chạy trong `test:sim:release`.
 
-Sim3 pilot QA là tách riêng theo route. Hai route `ch2-2-2` và `ch3-6-2` có visual artifacts nội bộ và regression coverage cho fallback/dispose; không có gate rollout toàn bộ 25 route.
+Sim3 pilot QA là tách riêng theo route. Năm route `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch3-5-3`, `ch3-6-2` có visual artifacts nội bộ và regression coverage cho fallback/dispose/state sync; không có gate rollout toàn bộ 25 route.
 
 ## Persistence Layer
 

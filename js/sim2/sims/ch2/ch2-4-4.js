@@ -63,6 +63,14 @@
         { key: 'vRel', label: 'v_rel:', value: radialSpeed.toFixed(2) + ' m/s' },
         { key: 'aCor', label: '|a_cor|:', value: acMag.toFixed(2) + ' m/s²' }
       ]);
+      if (sim3) sim3.setState({
+        omega: params.omega,
+        vRel: radialSpeed,
+        phi,
+        point: p,
+        vRelVec: { x: vrx, y: vry },
+        aCor: { x: ac.ax, y: ac.ay, mag: acMag }
+      });
     }
     function frame() { t += 1 / 60; draw(); }
 
@@ -71,13 +79,19 @@
       legend: [{ color: Pal.v, label: 'v_rel' }, { color: Pal.coriolis, label: 'a Coriolis' }],
       observe: 'Bấm ▶. Gia tốc Coriolis luôn vuông góc v_rel; tăng ω hoặc v_rel thấy |a_cor| lớn hơn.'
     });
+    const sim3 = root.Sim3Mode && root.Sim3Ch244 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch244.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     shell.addControls({
       sliders: [
         { id: 'omega', label: 'ω', min: 0.4, max: 2.5, step: 0.1, value: params.omega, unit: 'rad/s',
-          onInput: v => { params.omega = v; absTrail.length = 0; } },
+          onInput: v => { params.omega = v; absTrail.length = 0; draw(); } },
         { id: 'vRel', label: 'v_rel', min: 0.5, max: 3, step: 0.1, value: params.vRel, unit: 'm/s',
-          onInput: v => { params.vRel = v; absTrail.length = 0; } }
+          onInput: v => { params.vRel = v; absTrail.length = 0; draw(); } }
       ],
       playback: {
         playing: false,
