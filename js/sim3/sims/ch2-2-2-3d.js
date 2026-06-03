@@ -26,17 +26,39 @@
   }
 
   function create(opts) {
-    let THREERef, disk, marker, omegaArrow, vArrow, tick = 0;
+    let THREERef, disk, marker, omegaArrow, vArrow, rim, orbit, tickGroup, tick = 0;
     const shell = root.Sim3Shell.create({
       host: opts.host,
       referenceEl: opts.referenceEl,
       label: 'Quay quanh trục cố định 3D',
       onFallback: opts.onFallback,
-      setup({ THREE, scene }) {
+      setup({ THREE, scene, camera }) {
         THREERef = THREE;
+        camera.position.set(4.2, 3.4, 6.2);
+        camera.lookAt(0, 0.1, 0);
         const mat = new THREE.MeshStandardMaterial({ color: 0x7c3aed, roughness: 0.45, metalness: 0.12 });
         disk = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 1.8, 0.25, 64), mat);
         disk.rotation.x = Math.PI / 2;
+        rim = new THREE.Mesh(
+          new THREE.TorusGeometry(1.82, 0.035, 10, 72),
+          new THREE.MeshStandardMaterial({ color: 0x4c1d95, roughness: 0.4 })
+        );
+        orbit = new THREE.Mesh(
+          new THREE.TorusGeometry(1.8, 0.014, 8, 72),
+          new THREE.MeshStandardMaterial({ color: 0xd81b60, roughness: 0.45, emissive: 0x220014 })
+        );
+        tickGroup = new THREE.Group();
+        for (let i = 0; i < 16; i++) {
+          const a = (i / 16) * Math.PI * 2;
+          const tickMark = new THREE.Mesh(
+            new THREE.BoxGeometry(0.18, 0.018, 0.035),
+            new THREE.MeshStandardMaterial({ color: i % 4 === 0 ? 0xffffff : 0xc4b5fd })
+          );
+          tickMark.position.set(1.5 * Math.cos(a), 1.5 * Math.sin(a), 0.16);
+          tickMark.rotation.z = a;
+          tickGroup.add(tickMark);
+        }
+        disk.add(rim, orbit, tickGroup);
         scene.add(disk);
 
         const axisMat = new THREE.LineBasicMaterial({ color: 0x64748b });

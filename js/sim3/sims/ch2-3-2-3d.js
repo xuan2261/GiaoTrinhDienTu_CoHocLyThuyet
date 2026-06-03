@@ -1,53 +1,150 @@
 (function(root) {
   'use strict';
 
+  function makeWheel(THREE, P, color, opts) {
+    opts = opts || {};
+    const group = new THREE.Group();
+    const body = new THREE.Mesh(
+      new THREE.CylinderGeometry(1, 1, opts.thickness || 0.22, 56),
+      P.material(THREE, color, { roughness: 0.48, metalness: 0.08 })
+    );
+    body.rotation.x = Math.PI / 2;
+    group.add(body);
+
+    const rim = new THREE.Mesh(
+      new THREE.TorusGeometry(1.03, opts.rim || 0.035, 10, 56),
+      P.material(THREE, opts.rimColor || color, { roughness: 0.36 })
+    );
+    group.add(rim);
+
+    const hub = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.12, 0.12, (opts.thickness || 0.22) + 0.08, 24),
+      P.material(THREE, 0x334155, { roughness: 0.4 })
+    );
+    hub.rotation.x = Math.PI / 2;
+    group.add(hub);
+
+    const marker = new THREE.Mesh(
+      new THREE.BoxGeometry(0.92, 0.055, 0.05),
+      P.material(THREE, opts.markerColor || 0xffffff, { roughness: 0.35 })
+    );
+    marker.position.x = 0.46;
+    marker.position.z = 0.16;
+    group.add(marker);
+
+    if (opts.teeth) {
+      for (let i = 0; i < 20; i++) {
+        const a = (i / 20) * Math.PI * 2;
+        const tooth = new THREE.Mesh(
+          new THREE.BoxGeometry(0.13, 0.09, 0.12),
+          P.material(THREE, color, { roughness: 0.5 })
+        );
+        tooth.position.set(1.08 * Math.cos(a), 1.08 * Math.sin(a), 0);
+        tooth.rotation.z = a;
+        group.add(tooth);
+      }
+    }
+
+    return group;
+  }
+
   function create(opts) {
     const P = root.Sim3Primitives;
-    let THREERef, gear1, gear2, pulley1, pulley2, gearM1, gearM2, pulleyM1, pulleyM2;
-    let beltTop, beltBottom, tick = 0;
+    let THREERef, gear1, gear2, pulley1, pulley2, beltTop, beltBottom, axis1, axis2, axis3, axis4;
+    let gearArrow1, gearArrow2, pulleyArrow1, pulleyArrow2, beltDots = [], tick = 0;
     const shell = root.Sim3Shell.create({
       host: opts.host,
       referenceEl: opts.referenceEl,
       label: 'Truyền động bánh răng và đai 3D',
       onFallback: opts.onFallback,
-      setup({ THREE, scene }) {
+      setup({ THREE, scene, camera }) {
         THREERef = THREE;
-        gear1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.35, 48), P.material(THREE, 0x159c3a));
-        gear2 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.35, 48), P.material(THREE, 0x1565c0));
-        pulley1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.25, 48), P.material(THREE, 0x159c3a));
-        pulley2 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.25, 48), P.material(THREE, 0x1565c0));
-        [gear1, gear2, pulley1, pulley2].forEach(m => { m.rotation.x = Math.PI / 2; scene.add(m); });
-        gearM1 = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.045, 0x0f7a2c);
-        gearM2 = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.045, 0x0f4f99);
-        pulleyM1 = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.045, 0x0f7a2c);
-        pulleyM2 = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.045, 0x0f4f99);
-        beltTop = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.045, 0x7c3aed);
-        beltBottom = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.045, 0x7c3aed);
-        scene.add(gearM1, gearM2, pulleyM1, pulleyM2, beltTop, beltBottom);
+        camera.position.set(4.8, 3.5, 7.2);
+        camera.lookAt(0, 0.35, 0.05);
+        gear1 = makeWheel(THREE, P, 0x159c3a, { teeth: true, markerColor: 0xb7f7c8 });
+        gear2 = makeWheel(THREE, P, 0x1565c0, { teeth: true, markerColor: 0xbfdbfe });
+        pulley1 = makeWheel(THREE, P, 0x159c3a, { rim: 0.055, markerColor: 0xb7f7c8, thickness: 0.18 });
+        pulley2 = makeWheel(THREE, P, 0x1565c0, { rim: 0.055, markerColor: 0xbfdbfe, thickness: 0.18 });
+        scene.add(gear1, gear2, pulley1, pulley2);
+
+        beltTop = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.055, 0x7c3aed);
+        beltBottom = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.055, 0x7c3aed);
+        axis1 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.025, 0x64748b);
+        axis2 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.025, 0x64748b);
+        axis3 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.025, 0x64748b);
+        axis4 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.025, 0x64748b);
+        gearArrow1 = P.arrow(THREE, 0x159c3a, { radius: 0.035, headRadius: 0.12 });
+        gearArrow2 = P.arrow(THREE, 0x1565c0, { radius: 0.035, headRadius: 0.12 });
+        pulleyArrow1 = P.arrow(THREE, 0x159c3a, { radius: 0.035, headRadius: 0.12 });
+        pulleyArrow2 = P.arrow(THREE, 0x1565c0, { radius: 0.035, headRadius: 0.12 });
+        for (let i = 0; i < 10; i++) {
+          beltDots.push(new THREE.Mesh(
+            new THREE.SphereGeometry(0.075, 14, 10),
+            P.material(THREE, 0xd97706, { roughness: 0.32 })
+          ));
+        }
+        scene.add(
+          beltTop, beltBottom, axis1, axis2, axis3, axis4,
+          gearArrow1, gearArrow2, pulleyArrow1, pulleyArrow2, ...beltDots
+        );
         const grid = new THREE.GridHelper(8, 10, 0xcbd5e1, 0xe2e8f0);
-        grid.position.y = -1.25;
+        grid.position.y = -1.35;
         scene.add(grid);
       }
     });
     if (!shell) return null;
 
-    function radial(cx, z, r, phi) {
-      return { x: cx + r * Math.cos(phi), y: 0, z: z + r * Math.sin(phi) };
+    function positionGroup(group, x, y, z, r, phi) {
+      group.position.set(x, y, z);
+      group.scale.set(r, r, 1);
+      group.rotation.z = phi || 0;
+    }
+    function setAxis(axis, x, y, z, r) {
+      P.setCylinderBetween(THREERef, axis, { x, y: y - r - 0.28, z }, { x, y: y + r + 0.28, z });
+    }
+    function setArrow(arrow, x, y, z, sign) {
+      arrow.position.set(x, y, z);
+      arrow.scale.y = 0.52;
+      P.orientArrow(THREERef, arrow, new THREERef.Vector3(sign < 0 ? 1 : -1, 0, 0));
+    }
+    function placeBeltDots(a, b, c, d, phase) {
+      const loop = [a, b, d, c];
+      for (let i = 0; i < beltDots.length; i++) {
+        const u = (i / beltDots.length + phase) % 1;
+        const edge = Math.floor(u * 4);
+        const local = u * 4 - edge;
+        const p0 = loop[edge], p1 = loop[(edge + 1) % 4];
+        beltDots[i].position.set(
+          p0.x + (p1.x - p0.x) * local,
+          p0.y + (p1.y - p0.y) * local,
+          p0.z + (p1.z - p0.z) * local
+        );
+      }
     }
     function setState(state) {
       tick += 1;
-      const r1 = state.r1 * 0.62, r2 = state.r2 * 0.62, gx1 = -1.7, gz = 1.05, px1 = -1.7, pz = -1.25;
-      const gx2 = gx1 + r1 + r2 + 0.28, px2 = 1.7;
-      gear1.position.set(gx1, 0, gz); gear2.position.set(gx2, 0, gz);
-      pulley1.position.set(px1, 0, pz); pulley2.position.set(px2, 0, pz);
-      gear1.scale.set(r1, r1, 1); gear2.scale.set(r2, r2, 1);
-      pulley1.scale.set(r1, r1, 1); pulley2.scale.set(r2, r2, 1);
-      P.setCylinderBetween(THREERef, gearM1, { x: gx1, y: 0, z: gz }, radial(gx1, gz, r1, state.gearPhi1));
-      P.setCylinderBetween(THREERef, gearM2, { x: gx2, y: 0, z: gz }, radial(gx2, gz, r2, state.gearPhi2));
-      P.setCylinderBetween(THREERef, pulleyM1, { x: px1, y: 0, z: pz }, radial(px1, pz, r1, state.gearPhi1));
-      P.setCylinderBetween(THREERef, pulleyM2, { x: px2, y: 0, z: pz }, radial(px2, pz, r2, state.beltPhi2));
-      P.setCylinderBetween(THREERef, beltTop, { x: px1, y: 0.08, z: pz + r1 }, { x: px2, y: 0.08, z: pz + r2 });
-      P.setCylinderBetween(THREERef, beltBottom, { x: px1, y: 0.08, z: pz - r1 }, { x: px2, y: 0.08, z: pz - r2 });
+      const r1 = state.r1 * 0.5, r2 = state.r2 * 0.5;
+      const gearY = 1.05, pulleyY = -0.05, gz = -1.45, pz = 1.45, gx1 = -1.55, px1 = -1.75, px2 = 1.9;
+      const gx2 = gx1 + r1 + r2 + 0.08;
+      positionGroup(gear1, gx1, gearY, gz, r1, state.gearPhi1);
+      positionGroup(gear2, gx2, gearY, gz, r2, state.gearPhi2);
+      positionGroup(pulley1, px1, pulleyY, pz, r1, state.gearPhi1);
+      positionGroup(pulley2, px2, pulleyY, pz, r2, state.beltPhi2);
+      setAxis(axis1, gx1, gearY, gz, r1);
+      setAxis(axis2, gx2, gearY, gz, r2);
+      setAxis(axis3, px1, pulleyY, pz, r1);
+      setAxis(axis4, px2, pulleyY, pz, r2);
+      setArrow(gearArrow1, gx1, gearY + r1 + 0.35, gz + 0.22, 1);
+      setArrow(gearArrow2, gx2, gearY + r2 + 0.35, gz + 0.22, -1);
+      setArrow(pulleyArrow1, px1, pulleyY + r1 + 0.35, pz + 0.22, 1);
+      setArrow(pulleyArrow2, px2, pulleyY + r2 + 0.35, pz + 0.22, 1);
+      const topA = { x: px1, y: pulleyY + r1, z: pz + 0.02 };
+      const topB = { x: px2, y: pulleyY + r2, z: pz + 0.02 };
+      const bottomA = { x: px1, y: pulleyY - r1, z: pz + 0.02 };
+      const bottomB = { x: px2, y: pulleyY - r2, z: pz + 0.02 };
+      P.setCylinderBetween(THREERef, beltTop, topA, topB);
+      P.setCylinderBetween(THREERef, beltBottom, bottomA, bottomB);
+      placeBeltDots(topA, topB, bottomA, bottomB, ((state.gearPhi1 || 0) / (Math.PI * 2)) % 1);
       shell.setState(state);
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
       root.__SIM3_DEBUG__['ch2-3-2'] = Object.assign({ updatedAt: tick }, state);

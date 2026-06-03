@@ -12,6 +12,10 @@
 - Sim3 pilot hiện gồm 5 route tùy chọn; Sim2 SVG-first vẫn là default và contract `SIM_MAP[pageId] -> factory(container) -> { dispose }` giữ nguyên.
 - `ch2-4-4` slider redraw ngay khi đổi `omega`/`vRel`, giúp readout và debug state đồng bộ tức thì.
 
+### Fixed
+- `ch2-3-2` Sim3: nâng chất lượng visual transmission 3D với gear teeth, hub/axis markers, pulley groove, moving belt segments, direction arrows, và layout/camera tách rõ cặp bánh răng với bộ đai-puli.
+- Các route Sim3 còn lại: thêm visual cues cho `ch2-2-2` (rim/tick/quỹ đạo), `ch2-4-4` (platform rim/radius guide/trail dots), `ch3-5-3` (orbit ring/hub/mass scaling), và `ch3-6-2` (velocity arrows, trail dots, camera/rail framing).
+
 ### Verified
 - `npm run test:sim3:pilot`: PASS, 9/9.
 - `npm run test:sim3:visual:capture`: PASS, 5/5.
