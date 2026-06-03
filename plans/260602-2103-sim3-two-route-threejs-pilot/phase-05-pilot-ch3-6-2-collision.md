@@ -9,7 +9,7 @@
 ## Overview
 
 Priority: P1  
-Status: Pending  
+Status: Done  
 Goal: add 3D collision teaching view after the rotation pilot is stable.
 
 ## Key Insights
@@ -82,17 +82,17 @@ Delete:
 
 ## Todo List
 
-- [ ] Create `ch3-6-2` 3D adapter.
-- [ ] Wire route state into adapter.
-- [ ] Add reset/trail/impact tests.
-- [ ] Verify existing collision tests still pass.
+- [x] Create `ch3-6-2` 3D adapter.
+- [x] Wire route state into adapter.
+- [x] Add reset/trail/impact tests.
+- [x] Verify existing collision tests still pass.
 
 ## Success Criteria
 
 - `ch3-6-2` 3D mode works offline.
 - Impact state is clear in 3D and panel.
 - Reset clears 3D collision artifacts.
-- `npx playwright test tests/sim2-ch3-mount.spec.js -g "ch3-6-2"` passes.
+- `npx playwright test tests/sim2-ch2-mount.spec.js tests/sim2-ch3-mount.spec.js --reporter=line --workers=1 --timeout=30000` passes.
 
 ## Risk Assessment
 

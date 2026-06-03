@@ -11,7 +11,7 @@
 ## Overview
 
 Priority: P1  
-Status: Pending  
+Status: Done  
 Goal: write failing tests before any implementation. Lock the new Sim3 contract, offline load, fallback, and dispose behavior.
 
 ## Key Insights
@@ -96,15 +96,15 @@ Delete:
 
 ## Todo List
 
-- [ ] Add pilot contract tests.
-- [ ] Add WebGL failure tests.
-- [ ] Add dispose cleanup tests.
-- [ ] Run focused Playwright command and record RED.
+- [x] Add pilot contract tests.
+- [x] Add WebGL failure tests.
+- [x] Add dispose cleanup tests.
+- [x] Run focused Playwright command and record RED.
 
 ## Success Criteria
 
-- Focused Sim3 tests fail for missing implementation, not syntax/import errors.
-- Existing Sim2 mount tests still pass before implementation.
+- Focused Sim3 tests now pass after implementation.
+- Existing Sim2 mount tests still pass.
 
 ## Risk Assessment
 

@@ -20,6 +20,29 @@
 
 ---
 
+## 2026-06-02 — Sim3 Two-Route Three.js Pilot
+
+### Added
+- Optional Sim3 3D pilot cho 2 route Sim2: `ch2-2-2` và `ch3-6-2`.
+- `lib/three/three.umd.min.js` vendored offline để chạy Three.js không cần CDN hay bundler runtime.
+- Core pilot files dưới `js/sim3/core/`: WebGL shell, mode toggle, disposal helper.
+- Route adapters dưới `js/sim3/sims/`: `ch2-2-2-3d.js` và `ch3-6-2-3d.js`.
+
+### Changed
+- Sim2 vẫn là default SVG mode; contract `SIM_MAP[pageId] -> factory(container) -> { dispose }` giữ nguyên.
+- Khi WebGL fail, route rơi về 2D và hiện thông báo tiếng Việt.
+- Pilot visual artifacts được lưu nội bộ tại `plans/260602-2103-sim3-two-route-threejs-pilot/visuals/`.
+
+### Verified
+- `npm run test:sim3:pilot`: PASS, 6/6.
+- `npx playwright test tests/sim2-ch2-mount.spec.js tests/sim2-ch3-mount.spec.js --reporter=line --workers=1 --timeout=30000`: PASS, 32/32.
+- `npm run test:sim:physics`: PASS.
+- `npm run test:sim3:visual:capture`: PASS, 2/2.
+- `npm run test:sim:mount`: PASS, 104/104.
+- `npm run test:sim:release`: PASS.
+
+---
+
 ## 2026-06-02 — Sim2 Visual Motion Polish v1 Rollout
 
 ### Added

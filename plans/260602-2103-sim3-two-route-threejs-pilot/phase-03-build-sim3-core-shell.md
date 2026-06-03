@@ -10,7 +10,7 @@
 ## Overview
 
 Priority: P1  
-Status: Pending  
+Status: Done  
 Goal: implement shared Sim3 shell with WebGL detection, constrained camera, scene lifecycle, and disposal.
 
 ## Key Insights
@@ -105,11 +105,11 @@ Delete:
 
 ## Todo List
 
-- [ ] Add Sim3 shell API.
-- [ ] Add mode toggle.
-- [ ] Add disposal helper.
-- [ ] Add scoped CSS.
-- [ ] Make fallback tests pass.
+- [x] Add Sim3 shell API.
+- [x] Add mode toggle.
+- [x] Add disposal helper.
+- [x] Add scoped CSS.
+- [x] Make fallback tests pass.
 
 ## Success Criteria
 

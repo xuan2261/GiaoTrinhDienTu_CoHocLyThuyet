@@ -12,7 +12,7 @@
 ## Overview
 
 Priority: P1  
-Status: Pending  
+Status: Done  
 Goal: verify pilot quality, document Sim3 architecture, and keep release gates honest.
 
 ## Key Insights
@@ -84,11 +84,11 @@ Delete:
 
 ## Todo List
 
-- [ ] Add Sim3 pilot visual test command.
-- [ ] Add 2-route screenshot baseline.
-- [ ] Run full relevant gates.
-- [ ] Update docs and changelog.
-- [ ] Produce completion report.
+- [x] Add Sim3 pilot visual test command.
+- [x] Add 2-route screenshot baseline.
+- [x] Run full relevant gates.
+- [x] Update docs and changelog.
+- [x] Produce completion report.
 
 ## Success Criteria
 

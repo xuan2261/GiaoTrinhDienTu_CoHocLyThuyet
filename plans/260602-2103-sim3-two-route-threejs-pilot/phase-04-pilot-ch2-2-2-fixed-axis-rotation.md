@@ -9,7 +9,7 @@
 ## Overview
 
 Priority: P1  
-Status: Pending  
+Status: Done  
 Goal: add first 3D pilot route. Use current route state and controls to drive a 3D disk/shaft teaching view.
 
 ## Key Insights
@@ -83,17 +83,17 @@ Delete:
 
 ## Todo List
 
-- [ ] Create `ch2-2-2` 3D adapter.
-- [ ] Wire route state into adapter.
-- [ ] Add/adjust tests for slider/playback sync.
-- [ ] Verify fallback and dispose.
+- [x] Create `ch2-2-2` 3D adapter.
+- [x] Wire route state into adapter.
+- [x] Add/adjust tests for slider/playback sync.
+- [x] Verify fallback and dispose.
 
 ## Success Criteria
 
 - `ch2-2-2` 3D mode works offline.
 - Slider/play/step/reset sync 3D scene.
 - 2D mode remains visually unchanged enough to pass existing tests.
-- `npx playwright test tests/sim2-ch2-mount.spec.js -g "ch2-2-2"` passes.
+- `npx playwright test tests/sim2-ch2-mount.spec.js tests/sim3-pilot-fallback-dispose.spec.js --reporter=line --workers=1 --timeout=30000` passes.
 
 ## Risk Assessment
 

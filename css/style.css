@@ -1949,6 +1949,27 @@ footer b { color: var(--gold); }
 }
 .sim2-stage .sim2-viewport-host { flex: 1 1 320px; }
 
+.sim3-mode-toggle {
+  align-items: center;
+  width: max-content;
+}
+
+.sim3-host {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.sim3-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sim3-fallback[hidden] {
+  display: none;
+}
+
 /* Affordance handle kéo */
 .sim2-handle { cursor: grab; touch-action: none; user-select: none; transition: filter .12s ease, stroke-width .12s ease; }
 .sim2-handle:hover { filter: drop-shadow(0 0 4px rgba(255, 112, 67, .9)); }

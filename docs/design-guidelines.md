@@ -43,6 +43,17 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 | Interaction | Drag handle (`shell.addHandle`) ↔ slider đồng bộ 2 chiều; `setValue` set property KHÔNG bắn `input` → tránh vòng lặp cập nhật |
 | Touch Target | Nút playback 32px, slider accent-color theme; reduced-motion tắt transition |
 
+### Sim3 pilot visual language
+
+| Yếu tố | Quy ước |
+|---|---|
+| Scope | Chỉ áp dụng cho pilot 3D của `ch2-2-2` và `ch3-6-2` |
+| Runtime | Three.js offline vendored, không dùng CDN runtime |
+| Shell | Giữ cùng tinh thần lab gọn, đọc được, ít nhiễu; 3D chỉ là lớp bổ sung cho route được chọn |
+| Fallback | Khi WebGL fail, phải quay về 2D với message tiếng Việt rõ ràng, không để blank state |
+| Motion | 3D cần tiết chế, ưu tiên clarity và interaction hơn hiệu ứng nặng |
+| Consistency | Sim2 vẫn là default visual language của project; Sim3 không được kéo theo thay đổi shell toàn cục |
+
 ### Motion/feedback polish v1
 
 | Pattern | Quy ước |

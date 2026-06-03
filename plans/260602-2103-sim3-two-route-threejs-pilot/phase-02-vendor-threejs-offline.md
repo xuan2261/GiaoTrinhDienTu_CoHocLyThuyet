@@ -9,7 +9,7 @@
 ## Overview
 
 Priority: P1  
-Status: Pending  
+Status: Done  
 Goal: add Three.js locally without introducing a runtime bundler or network dependency.
 
 ## Key Insights
@@ -70,15 +70,15 @@ Delete:
 
 ## Todo List
 
-- [ ] Choose local vendoring method.
-- [ ] Add local Three.js files.
-- [ ] Wire fixture load.
-- [ ] Wire `index.html` load.
-- [ ] Verify no CDN dependency.
+- [x] Choose local vendoring method.
+- [x] Add local Three.js files.
+- [x] Wire fixture load.
+- [x] Wire `index.html` load.
+- [x] Verify no CDN dependency.
 
 ## Success Criteria
 
-- Focused fixture can create a minimal Three scene under `file://`.
+- Focused fixture creates a minimal Three scene under `file://`.
 - Network disabled still allows tests to mount pilot routes.
 - Existing Sim2 tests do not fail due to script load order.
 

@@ -24,6 +24,8 @@ Giáo trình điện tử tĩnh cho môn Cơ Học Lý Thuyết, chạy trực t
 | `js/glossary.js` | Tooltip thuật ngữ |
 | `js/notes.js` | Highlight và ghi chú cá nhân |
 | `js/sim-physics-{statics,kinematics,dynamics}.js` | Nguồn công thức physics đã verify — đang được port sang `js/sim2/physics/` (engine SVG-first, đang rebuild) |
+| `js/sim3/core/` | Pilot Three.js shell dùng offline `lib/three/three.umd.min.js`, mode toggle, disposal helper |
+| `js/sim3/sims/` | Pilot adapters cho `ch2-2-2` và `ch3-6-2`; Sim2 vẫn là mặc định, fallback về 2D khi WebGL fail |
 | `chapters/` | HTML fragment sinh từ DOCX |
 | `data/` | Quiz JSON và mapping công thức |
 | `tools/` | Script đồng bộ DOCX, nav, bundle, audit, equation review |
@@ -75,6 +77,20 @@ npm run test:sim:visual:baseline:update # dev-only: refresh selective screenshot
 
 `test:sim:physics` chạy 9 node test: port snapshot (verified-sticky), transform round-trip, physics dạng đóng 3 chương, visual-physics regression, coverage 25 route (đọc count từ manifest + guard 0 hex rải rác — phải dùng `Sim2Palette`), guard physics-cũ-đã-gỡ + sim-cũ-đã-gỡ. `test:sim:mount` mount 25 route qua `SIM_MAP`: `sim2-ui-components` (palette/controls/panel + dispose listener), `sim2-ui-coverage` (mọi route có panel + legend + readout + control), mount từng chương (nhãn DOM không chồng, canvas underlay khớp SVG ≤1px, sim động start-paused — test bấm ▶ trước khi assert chuyển động), dispose gỡ sạch listener+RAF+DOM. `test:sim:release` là gate tổng, chạy offline.
 `test:sim:visual:baseline` là gate dev-only riêng, không nằm trong release; chỉ khóa 5 route đại diện đã duyệt để tránh baseline toàn bộ 25 route quá brittle.
+
+## Sim3 pilot (Three.js offline)
+
+Sim3 là pilot 3D tùy chọn cho 2 route Sim2: `ch2-2-2` và `ch3-6-2`. Luồng mount vẫn giữ nguyên contract `window.SIM_MAP[pageId] -> factory(container) -> { dispose }`; Sim2 SVG-first tiếp tục là mặc định, còn Sim3 chỉ được bật theo route và chỉ khi WebGL chạy ổn.
+
+| Mục | Quy ước |
+|---|---|
+| Runtime Three.js | Vendored offline tại `lib/three/three.umd.min.js`; không dùng CDN hay bundler runtime |
+| Core | `js/sim3/core/` chứa WebGL shell, mode toggle, disposal helper |
+| Adapters | `js/sim3/sims/ch2-2-2-3d.js`, `js/sim3/sims/ch3-6-2-3d.js` |
+| Fallback | Nếu WebGL fail, route quay về 2D và hiện thông báo tiếng Việt |
+| Phạm vi | Pilot, chưa rollout sang toàn bộ 25 route |
+
+Visual artifacts cho pilot được lưu dưới `plans/260602-2103-sim3-two-route-threejs-pilot/visuals/` để đối chiếu nội bộ.
 
 ## Quy ước vận hành
 

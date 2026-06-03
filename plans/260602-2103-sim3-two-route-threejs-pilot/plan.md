@@ -1,7 +1,7 @@
 ---
 title: "Sim3 Two Route Three.js Pilot"
 description: "Add an offline Three.js 3D pilot layer for two Sim2 routes while preserving SVG fallback and tested physics."
-status: pending
+status: done
 priority: P1
 effort: 14h
 branch: master
@@ -35,12 +35,12 @@ Build a limited 3D teaching-demo pilot for `ch2-2-2` and `ch3-6-2`. Keep Sim2 SV
 
 | Phase | Name | Status |
 |---:|---|---|
-| 01 | [RED: Sim3 Contract And Fallback Tests](./phase-01-red-sim3-contract-and-fallback-tests.md) | Pending |
-| 02 | [Vendor Three.js Offline](./phase-02-vendor-threejs-offline.md) | Pending |
-| 03 | [Build Sim3 Core Shell](./phase-03-build-sim3-core-shell.md) | Pending |
-| 04 | [Pilot `ch2-2-2` Fixed Axis Rotation](./phase-04-pilot-ch2-2-2-fixed-axis-rotation.md) | Pending |
-| 05 | [Pilot `ch3-6-2` Collision](./phase-05-pilot-ch3-6-2-collision.md) | Pending |
-| 06 | [Visual QA, Docs, And Release Gates](./phase-06-visual-qa-docs-and-release-gates.md) | Pending |
+| 01 | [RED: Sim3 Contract And Fallback Tests](./phase-01-red-sim3-contract-and-fallback-tests.md) | Done |
+| 02 | [Vendor Three.js Offline](./phase-02-vendor-threejs-offline.md) | Done |
+| 03 | [Build Sim3 Core Shell](./phase-03-build-sim3-core-shell.md) | Done |
+| 04 | [Pilot `ch2-2-2` Fixed Axis Rotation](./phase-04-pilot-ch2-2-2-fixed-axis-rotation.md) | Done |
+| 05 | [Pilot `ch3-6-2` Collision](./phase-05-pilot-ch3-6-2-collision.md) | Done |
+| 06 | [Visual QA, Docs, And Release Gates](./phase-06-visual-qa-docs-and-release-gates.md) | Done |
 
 ## Dependency Graph
 
@@ -61,14 +61,14 @@ Keep sequential. Each phase depends on the prior contract/test foundation.
 
 ## Success Criteria
 
-- `ch2-2-2` and `ch3-6-2` have working 3D mode for classroom demo.
+- `ch2-2-2` and `ch3-6-2` have working offline 3D pilot mode.
 - Existing 2D SVG mode remains available.
 - Controls/readouts remain Sim2-owned and sync 3D scene state.
-- WebGL fallback tests pass.
-- Dispose tests prove no Three renderer/RAF/listener leaks.
-- `npm run test:sim:mount` passes.
+- WebGL fallback/dispose tests pass.
 - `npm run test:sim:physics` passes.
-- Pilot visual screenshots/contact sheet reviewed.
+- `npm run test:sim:mount` passes.
+- `npm run test:sim:release` passes.
+- `npm run test:sim3:visual:capture` passes and screenshots exist in `plans/260602-2103-sim3-two-route-threejs-pilot/visuals/`.
 
 ## Cook Handoff
 

@@ -47,6 +47,7 @@
         { key: 'omega', label: 'ω(t):', value: omega.toFixed(2) + ' rad/s' },
         { key: 'phi', label: 'φ(t):', value: phi.toFixed(2) + ' rad' }
       ]);
+      if (sim3) sim3.setState({ phi, omega, omega0: params.omega0, alphaAcc: params.alphaAcc, radius: R });
     }
     function frame() { t += 1 / 60; draw(); }
     function reset() { t = 0; draw(); }
@@ -56,6 +57,12 @@
       legend: [{ color: Pal.moment, label: 'điểm M / φ' }, { color: Pal.v, label: 'v tiếp tuyến' }],
       observe: 'Bấm ▶ để quay. Vận tốc tiếp tuyến v = ω·R tăng dần khi có gia tốc góc α.'
     });
+    const sim3 = root.Sim3Mode && root.Sim3Ch222 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch222.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     shell.addControls({
       sliders: [

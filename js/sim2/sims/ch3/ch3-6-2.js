@@ -33,6 +33,7 @@
       v1 = { x: 2.2, y: 0 }; v2 = { x: -1.0, y: 0 };
       trail1 = []; trail2 = []; collided = false;
       clearImpactCue();
+      if (sim3) sim3.reset();
       T0 = D.kineticEnergy(params.m1, Math.hypot(v1.x, v1.y)) +
            D.kineticEnergy(params.m2, Math.hypot(v2.x, v2.y));
       draw();
@@ -91,6 +92,10 @@
         { key: 'energy', label: 'T tổng:', value: T.toFixed(2) + ' J' },
         { key: 'energyLoss', label: 'T mất:', value: Math.max(0, T0 - T).toFixed(2) + ' J' }
       ]);
+      if (sim3) sim3.setState({
+        p1, p2, v1, v2, m1: params.m1, m2: params.m2, e: params.e,
+        collided, impactPoint: impactCue ? { x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 } : null
+      });
     }
 
     function frame() {
@@ -120,6 +125,12 @@
       ],
       observe: 'Bấm ▶ để chạy. Đổi e thấy phần động năng mất; động lượng luôn bảo toàn.'
     });
+    const sim3 = root.Sim3Mode && root.Sim3Ch362 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch362.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     shell.addControls({
       sliders: [

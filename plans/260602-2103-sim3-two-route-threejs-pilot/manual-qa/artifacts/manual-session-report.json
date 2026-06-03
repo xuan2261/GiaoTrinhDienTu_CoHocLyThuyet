@@ -1,0 +1,385 @@
+{
+  "baseUrl": "http://127.0.0.1:8765/",
+  "headed": true,
+  "startedAt": "2026-06-03T07:29:31.699Z",
+  "steps": [
+    {
+      "name": "ch2 mounted 2D default",
+      "state": {
+        "route": "#ch2-2-2",
+        "hasCanvas": false,
+        "hasSvg": true,
+        "canvasCount": 0,
+        "mode3dPressed": "false",
+        "fallbackVisible": false,
+        "readout": [
+          "ω₀: 0.50 rad/s",
+          "α (gia tốc góc): 0.15 rad/s²",
+          "ω(t): 0.50 rad/s",
+          "φ(t): 0.00 rad"
+        ]
+      }
+    },
+    {
+      "name": "ch2 3D played 2.5s",
+      "state": {
+        "route": "#ch2-2-2",
+        "hasCanvas": true,
+        "hasSvg": true,
+        "canvasCount": 1,
+        "mode3dPressed": "true",
+        "fallbackVisible": false,
+        "debug": {
+          "updatedAt": 154,
+          "phi": 1.7626874999999962,
+          "omega": 0.8824999999999994,
+          "omega0": 0.5,
+          "alphaAcc": 0.15,
+          "radius": 3
+        },
+        "readout": [
+          "ω₀: 0.50 rad/s",
+          "α (gia tốc góc): 0.15 rad/s²",
+          "ω(t): 0.88 rad/s",
+          "φ(t): 1.76 rad"
+        ]
+      }
+    },
+    {
+      "name": "ch2 high omega/alpha played 2.5s",
+      "state": {
+        "route": "#ch2-2-2",
+        "hasCanvas": true,
+        "hasSvg": true,
+        "canvasCount": 1,
+        "mode3dPressed": "true",
+        "fallbackVisible": false,
+        "debug": {
+          "updatedAt": 309,
+          "phi": 6.053062499999988,
+          "omega": 2.947499999999998,
+          "omega0": 1.8,
+          "alphaAcc": 0.45,
+          "radius": 3
+        },
+        "readout": [
+          "ω₀: 1.80 rad/s",
+          "α (gia tốc góc): 0.45 rad/s²",
+          "ω(t): 2.95 rad/s",
+          "φ(t): 6.05 rad"
+        ]
+      }
+    },
+    {
+      "name": "ch2 toggled 2D->3D and reset",
+      "state": {
+        "route": "#ch2-2-2",
+        "hasCanvas": true,
+        "hasSvg": true,
+        "canvasCount": 1,
+        "mode3dPressed": "true",
+        "fallbackVisible": false,
+        "debug": {
+          "updatedAt": 321,
+          "phi": 0,
+          "omega": 1.8,
+          "omega0": 1.8,
+          "alphaAcc": 0.45,
+          "radius": 3
+        },
+        "readout": [
+          "ω₀: 1.80 rad/s",
+          "α (gia tốc góc): 0.45 rad/s²",
+          "ω(t): 1.80 rad/s",
+          "φ(t): 0.00 rad"
+        ]
+      }
+    },
+    {
+      "name": "route switch ch2->ch3 disposed old sim",
+      "state": {
+        "route": "#ch3-6-2",
+        "hasCanvas": false,
+        "hasSvg": true,
+        "canvasCount": 0,
+        "mode3dPressed": "false",
+        "fallbackVisible": false,
+        "readout": [
+          "Pha: Trước va chạm",
+          "p tổng: 1.40 kg·m/s",
+          "T tổng: 6.34 J",
+          "T mất: 0.00 J"
+        ]
+      }
+    },
+    {
+      "name": "ch3 3D low restitution played 4.2s",
+      "state": {
+        "route": "#ch3-6-2",
+        "hasCanvas": true,
+        "hasSvg": true,
+        "canvasCount": 1,
+        "mode3dPressed": "true",
+        "fallbackVisible": false,
+        "debug": {
+          "updatedAt": 258,
+          "trailLength": 80,
+          "p1": {
+            "x": 2.8666666666666654,
+            "y": 0
+          },
+          "p2": {
+            "x": 6.199999999999994,
+            "y": 0
+          },
+          "v1": {
+            "x": 1.2000000000000002,
+            "y": 0
+          },
+          "v2": {
+            "x": 2,
+            "y": 0
+          },
+          "m1": 4.5,
+          "m2": 1.5,
+          "e": 0.25,
+          "collided": true,
+          "impactPoint": {
+            "x": 4.53333333333333,
+            "y": 0
+          }
+        },
+        "readout": [
+          "Pha: Sau va chạm",
+          "p tổng: 8.40 kg·m/s",
+          "T tổng: 6.24 J",
+          "T mất: 5.40 J"
+        ]
+      }
+    },
+    {
+      "name": "ch3 3D elastic played 4.2s",
+      "state": {
+        "route": "#ch3-6-2",
+        "hasCanvas": true,
+        "hasSvg": true,
+        "canvasCount": 1,
+        "mode3dPressed": "true",
+        "fallbackVisible": false,
+        "debug": {
+          "updatedAt": 513,
+          "trailLength": 80,
+          "p1": {
+            "x": 1.3666666666666638,
+            "y": 0
+          },
+          "p2": {
+            "x": 10.606666666666653,
+            "y": 0
+          },
+          "v1": {
+            "x": 0.5999999999999999,
+            "y": 0
+          },
+          "v2": {
+            "x": 3.8000000000000007,
+            "y": 0
+          },
+          "m1": 4.5,
+          "m2": 1.5,
+          "e": 1,
+          "collided": true,
+          "impactPoint": {
+            "x": 5.986666666666658,
+            "y": 0
+          }
+        },
+        "readout": [
+          "Pha: Sau va chạm",
+          "p tổng: 8.40 kg·m/s",
+          "T tổng: 11.64 J",
+          "T mất: 0.00 J"
+        ]
+      }
+    },
+    {
+      "name": "ch3 toggled 2D->3D and reset",
+      "state": {
+        "route": "#ch3-6-2",
+        "hasCanvas": true,
+        "hasSvg": true,
+        "canvasCount": 1,
+        "mode3dPressed": "true",
+        "fallbackVisible": false,
+        "debug": {
+          "updatedAt": 515,
+          "trailLength": 1,
+          "p1": {
+            "x": -4,
+            "y": 0
+          },
+          "p2": {
+            "x": 3,
+            "y": 0
+          },
+          "v1": {
+            "x": 2.2,
+            "y": 0
+          },
+          "v2": {
+            "x": -1,
+            "y": 0
+          },
+          "m1": 4.5,
+          "m2": 1.5,
+          "e": 1,
+          "collided": false,
+          "impactPoint": null
+        },
+        "readout": [
+          "Pha: Trước va chạm",
+          "p tổng: 8.40 kg·m/s",
+          "T tổng: 11.64 J",
+          "T mất: 0.00 J"
+        ]
+      }
+    },
+    {
+      "name": "route switch back ch3->ch2 clean remount",
+      "state": {
+        "route": "#ch2-2-2",
+        "hasCanvas": false,
+        "hasSvg": true,
+        "canvasCount": 0,
+        "mode3dPressed": "false",
+        "fallbackVisible": false,
+        "debug": {
+          "updatedAt": 321,
+          "phi": 0,
+          "omega": 1.8,
+          "omega0": 1.8,
+          "alphaAcc": 0.45,
+          "radius": 3
+        },
+        "readout": [
+          "ω₀: 0.50 rad/s",
+          "α (gia tốc góc): 0.15 rad/s²",
+          "ω(t): 0.50 rad/s",
+          "φ(t): 0.00 rad"
+        ]
+      }
+    }
+  ],
+  "screenshots": [
+    "plans/260602-2103-sim3-two-route-threejs-pilot/manual-qa/artifacts/ch2-after-long-interaction.png",
+    "plans/260602-2103-sim3-two-route-threejs-pilot/manual-qa/artifacts/ch3-after-low-e-play.png",
+    "plans/260602-2103-sim3-two-route-threejs-pilot/manual-qa/artifacts/ch3-after-elastic-play.png",
+    "plans/260602-2103-sim3-two-route-threejs-pilot/manual-qa/artifacts/ch2-remount-after-ch3.png"
+  ],
+  "console": [
+    {
+      "type": "warning",
+      "text": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    }
+  ],
+  "pageErrors": [],
+  "assertions": [
+    {
+      "name": "no page errors",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "no console errors",
+      "pass": true,
+      "details": [
+        {
+          "type": "warning",
+          "text": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+        }
+      ]
+    },
+    {
+      "name": "single 3D canvas while active",
+      "pass": true,
+      "details": [
+        {
+          "name": "ch2 mounted 2D default",
+          "canvasCount": 0
+        },
+        {
+          "name": "ch2 3D played 2.5s",
+          "canvasCount": 1
+        },
+        {
+          "name": "ch2 high omega/alpha played 2.5s",
+          "canvasCount": 1
+        },
+        {
+          "name": "ch2 toggled 2D->3D and reset",
+          "canvasCount": 1
+        },
+        {
+          "name": "route switch ch2->ch3 disposed old sim",
+          "canvasCount": 0
+        },
+        {
+          "name": "ch3 3D low restitution played 4.2s",
+          "canvasCount": 1
+        },
+        {
+          "name": "ch3 3D elastic played 4.2s",
+          "canvasCount": 1
+        },
+        {
+          "name": "ch3 toggled 2D->3D and reset",
+          "canvasCount": 1
+        },
+        {
+          "name": "route switch back ch3->ch2 clean remount",
+          "canvasCount": 0
+        }
+      ]
+    },
+    {
+      "name": "ch2 and ch3 debug states updated",
+      "pass": true,
+      "details": {
+        "ch2": {
+          "updatedAt": 321,
+          "phi": 0,
+          "omega": 1.8,
+          "omega0": 1.8,
+          "alphaAcc": 0.45,
+          "radius": 3
+        },
+        "ch3": {
+          "updatedAt": 515,
+          "trailLength": 1,
+          "p1": {
+            "x": -4,
+            "y": 0
+          },
+          "p2": {
+            "x": 3,
+            "y": 0
+          },
+          "v1": {
+            "x": 2.2,
+            "y": 0
+          },
+          "v2": {
+            "x": -1,
+            "y": 0
+          },
+          "m1": 4.5,
+          "m2": 1.5,
+          "e": 1,
+          "collided": false,
+          "impactPoint": null
+        }
+      }
+    }
+  ],
+  "finishedAt": "2026-06-03T07:29:50.572Z"
+}
