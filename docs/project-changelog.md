@@ -1,5 +1,23 @@
 # Project Changelog
 
+## 2026-06-03 — Sim3 ch2-5-3 Single Route Rollout
+
+### Added
+- Optional Sim3 adapter `js/sim3/sims/ch2-5-3-3d.js` cho route `ch2-5-3`.
+- TDD contract coverage cho toggle 2D/3D, one canvas, `omega` slider sync, IC drag state sync, repeated toggle, fallback/dispose cleanup.
+- Visual capture artifact `plans/260603-2100-sim3-ch2-5-3-single-route-tdd-rollout/visuals/ch2-5-3-sim3.png`.
+
+### Changed
+- Sim3 pilot hiện gồm 6 route tùy chọn; Sim2 SVG-first vẫn là default.
+- `ch2-5-3` forwards state đã tính từ Sim2 (`omega`, IC, sample M, radius, `v_M`) sang Sim3; Sim3 không tính lại physics riêng.
+
+### Verified
+- `npm run test:sim3:pilot`: PASS, 11/11.
+- `npm run test:sim3:visual:capture`: PASS, 6/6.
+- `npm run test:sim:release`: PASS.
+
+---
+
 ## 2026-06-03 — Sim3 Three-Route Candidate Rollout
 
 ### Added

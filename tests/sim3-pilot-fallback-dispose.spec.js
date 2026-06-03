@@ -123,6 +123,58 @@ test.describe('sim3 pilot contract', () => {
     await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
   });
 
+  test('ch2-5-3 3D mode follows instant-center field state and lifecycle', async ({ page }) => {
+    const errors = [];
+    page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+    page.on('pageerror', e => errors.push(String(e)));
+
+    await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
+    await mount(page, 'ch2-5-3');
+
+    await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(1);
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+
+    let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-5-3']);
+    expect(debug.omega).toBeCloseTo(1, 3);
+    expect(debug.ic).toEqual(expect.objectContaining({ x: -1, y: -1 }));
+    expect(debug.sample).toEqual(expect.objectContaining({ x: 2, y: 1.5 }));
+    expect(debug.radius).toBeCloseTo(Math.hypot(3, 2.5), 3);
+    expect(debug.vM.mag).toBeCloseTo(Math.hypot(-2.5, 3), 3);
+
+    await page.evaluate(() => {
+      const omega = document.querySelector('#host input[data-id=omega]');
+      omega.value = '2.2';
+      omega.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-5-3']);
+    expect(debug.omega).toBeCloseTo(2.2, 3);
+    expect(debug.vM.mag).toBeCloseTo(2.2 * debug.radius, 3);
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="2d"]').click();
+    const handle = page.locator('#host .sim2-handle').first();
+    const box = await handle.boundingBox();
+    expect(box).not.toBeNull();
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width / 2 + 60, box.y + box.height / 2 + 30);
+    await page.mouse.up();
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    const moved = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-5-3']);
+    expect(moved.ic.x).toBeGreaterThan(debug.ic.x);
+    expect(moved.updatedAt).toBeGreaterThan(debug.updatedAt);
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="2d"]').click();
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+
+    await page.evaluate(() => window.__sim.dispose());
+    await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(0);
+    await expect(page.locator('#host .sim3-host')).toHaveCount(0);
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+    expect(errors).toEqual([]);
+  });
+
   test('ch3-5-3 3D mode follows radius and angular momentum state', async ({ page }) => {
     await page.goto(fixtureUrl('sim2-ch3.html'), { waitUntil: 'domcontentloaded' });
     await mount(page, 'ch3-5-3');
@@ -177,6 +229,23 @@ test.describe('sim3 pilot contract', () => {
     await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
     await page.evaluate(() => { window.__SIM3_FORCE_WEBGL_FAIL = true; });
     await mount(page, 'ch2-2-2');
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+
+    await expect(page.locator('#host .sim3-fallback')).toBeVisible();
+    await expect(page.locator('#host .sim3-fallback')).toContainText('3D không khả dụng');
+    await expect(page.locator('#host svg.sim2-svg')).toBeVisible();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+    expect(errors).toEqual([]);
+  });
+
+  test('forced WebGL failure falls back for ch2-5-3 without page errors', async ({ page }) => {
+    const errors = [];
+    page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+    page.on('pageerror', e => errors.push(String(e)));
+
+    await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => { window.__SIM3_FORCE_WEBGL_FAIL = true; });
+    await mount(page, 'ch2-5-3');
     await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
 
     await expect(page.locator('#host .sim3-fallback')).toBeVisible();

@@ -14,7 +14,7 @@ Roadmap này phản ánh trạng thái hiện tại của project và các bư�
 | Simulation rebuild 52→25 SVG-first | Done (2026-05-31): gỡ toàn bộ 52 route canvas-based cũ; dựng lại 25 route "ít mà tinh" trên engine `js/sim2/` SVG-first 3 tầng; tag `archive/52-sims-pre-removal` giữ bộ cũ; `test:sim:release` pass offline |
 | Sim2 visual motion polish v1 | Done (2026-06-02): pilot approved; rollout Ch1/Ch2/Ch3 complete with handle/readout/formula feedback, fade trails, guide/cursor cues; release/capture gates pass |
 | Sim2 pedagogical polish + selective baseline | Done (2026-06-02): route-local teaching polish for `ch2-4-4`, `ch3-6-2`, `ch1-6-3`; added dev-only selective screenshot baselines for 5 representative routes, outside release gate |
-| Sim3 two-route Three.js pilot | Done (2026-06-02): optional 3D pilot for `ch2-2-2` and `ch3-6-2`, offline Three.js vendored at `lib/three/three.umd.min.js`, Sim2 stays default, WebGL fail falls back to 2D |
+| Sim3 optional Three.js pilot | Done (updated 2026-06-03): 6 optional routes `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch2-5-3`, `ch3-5-3`, `ch3-6-2`; offline Three.js vendored at `lib/three/three.umd.min.js`, Sim2 stays default, WebGL fail falls back to 2D |
 | Interactive simulation expansion | Done (legacy): 52/52 P1 routes — đã thay thế bởi engine `js/sim2/` 25 route |
 | Professional simulation architecture split | Done (legacy): `js/sim-professional-lab.js` — đã thay thế bởi `js/sim2/core/sim-shell.js` |
 | Professional simulation lab shell | Done: 52/52 canonical routes have lab contracts, `.sim-lab` shell, manifest gate, responsive browser checks, và route identity gate |

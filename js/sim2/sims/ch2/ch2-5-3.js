@@ -56,14 +56,23 @@
       const v = K.instantCenterVelocity(params.omega, rx, ry);
       const VS = 0.4;
       setArrow(sampV, samp, { x: samp.x + v.vx * VS, y: samp.y + v.vy * VS });
+      const radius = Math.hypot(rx, ry);
+      const vMag = Math.hypot(v.vx, v.vy);
       overlay.moveLabel(lblIC, { x: IC.x + 0.3, y: IC.y - 0.3 });
       overlay.moveLabel(lblSamp, { x: samp.x + 0.3, y: samp.y });
       handle.move(IC);
       panel.setReadout([
         { key: 'omega', label: 'ω:', value: params.omega.toFixed(2) + ' rad/s' },
-        { key: 'r', label: 'r(M,IC):', value: Math.hypot(rx, ry).toFixed(2) },
-        { key: 'vM', label: '|v_M|:', value: Math.hypot(v.vx, v.vy).toFixed(2) }
+        { key: 'r', label: 'r(M,IC):', value: radius.toFixed(2) },
+        { key: 'vM', label: '|v_M|:', value: vMag.toFixed(2) }
       ]);
+      if (sim3) sim3.setState({
+        omega: params.omega,
+        ic: { x: IC.x, y: IC.y },
+        sample: { x: samp.x, y: samp.y },
+        radius,
+        vM: { vx: v.vx, vy: v.vy, mag: vMag }
+      });
     }
 
     const panel = shell.setTheory({
@@ -71,6 +80,12 @@
       legend: [{ color: Pal.force, label: 'P (IC)' }, { color: Pal.v, label: 'trường vận tốc' }, { color: Pal.a, label: 'điểm M' }],
       observe: 'Kéo IC hoặc đổi ω; vận tốc mỗi điểm tỉ lệ khoảng cách tới tâm tức thời P.'
     });
+    const sim3 = root.Sim3Mode && root.Sim3Ch253 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch253.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     shell.addControls({
       sliders: [

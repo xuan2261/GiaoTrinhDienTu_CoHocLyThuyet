@@ -47,7 +47,7 @@ Professional simulation lab hiện dùng chung một shell cho toàn bộ 58 rou
 
 | Yếu tố | Quy ước |
 |---|---|
-| Scope | Chỉ áp dụng cho pilot 3D của `ch2-2-2` và `ch3-6-2` |
+| Scope | Chỉ áp dụng cho các pilot 3D đã chọn: `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch2-5-3`, `ch3-5-3`, `ch3-6-2` |
 | Runtime | Three.js offline vendored, không dùng CDN runtime |
 | Shell | Giữ cùng tinh thần lab gọn, đọc được, ít nhiễu; 3D chỉ là lớp bổ sung cho route được chọn |
 | Fallback | Khi WebGL fail, phải quay về 2D với message tiếng Việt rõ ràng, không để blank state |

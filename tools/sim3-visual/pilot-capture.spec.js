@@ -3,12 +3,13 @@ const path = require('path');
 const fs = require('fs');
 
 const ROOT = path.resolve(__dirname, '../..');
-const OUT_DIR = path.join(ROOT, 'plans/260603-1858-sim3-route-candidate-audit-and-rollout-plan/visuals');
+const OUT_DIR = path.join(ROOT, 'plans/260603-2100-sim3-ch2-5-3-single-route-tdd-rollout/visuals');
 
 const cases = [
   { id: 'ch2-2-2', fixture: 'sim2-ch2.html', steps: 8 },
   { id: 'ch2-3-2', fixture: 'sim2-ch2.html', steps: 8 },
   { id: 'ch2-4-4', fixture: 'sim2-ch2.html', steps: 16 },
+  { id: 'ch2-5-3', fixture: 'sim2-ch2.html', steps: 0 },
   { id: 'ch3-5-3', fixture: 'sim2-ch3.html', steps: 8 },
   { id: 'ch3-6-2', fixture: 'sim2-ch3.html', steps: 24 }
 ];
