@@ -14,6 +14,7 @@
     const { svg, tf, overlay, render } = shell;
     const m = 1, g = 9.81, VIS = 0.12;
     const state = { aFrame: 3 };
+    let sim3 = null;
 
     svg.appendChild(render.poly(tf,
       [{ x: -3.5, y: 0 }, { x: 3.5, y: 0 }, { x: 3.5, y: 5 }, { x: -3.5, y: 5 }],
@@ -53,6 +54,14 @@
         { key: 'theta', label: 'θ lệch:', value: (theta * 180 / Math.PI).toFixed(1) + '°' },
         { key: 'tan', label: 'tanθ = a/g:', value: (state.aFrame / g).toFixed(3) }
       ]);
+      if (sim3) sim3.setState({
+        aFrame: state.aFrame,
+        theta,
+        thetaDeg: theta * 180 / Math.PI,
+        fIner,
+        pivot,
+        bob: bobPt
+      });
     }
 
     const panel = shell.setTheory({
@@ -63,6 +72,13 @@
       legend: [{ color: Pal.a, label: 'a (gia tốc toa)' }, { color: Pal.force, label: 'F* quán tính' }],
       observe: 'Trong HQC phi quán tính, con lắc lệch do lực quán tính F* = -m·a. Kéo hoặc đổi a.'
     });
+
+    sim3 = root.Sim3Mode && root.Sim3Ch313 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch313.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     const controls = shell.addControls({
       sliders: [

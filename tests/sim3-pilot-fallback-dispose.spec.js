@@ -330,6 +330,150 @@ test.describe('sim3 pilot contract', () => {
     await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
   });
 
+  test('ch1-5-3 3D mode follows friction cone threshold', async ({ page }) => {
+    await page.goto(fixtureUrl('sim2-ch1.html'), { waitUntil: 'domcontentloaded' });
+    await mount(page, 'ch1-5-3');
+
+    await expect(page.locator('#host svg.sim2-svg')).toHaveCount(1);
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+    await expect(page.locator('#host .sim3-label')).toContainText(['β', 'φ', 'Nón ma sát']);
+    await expectNoSim3LabelOverlap(page);
+    let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch1-5-3']);
+    expect(debug.visualMetrics.blockGrounding).toBe('contact-shadow-on-incline');
+    expect(debug.visualMetrics.contactShadowOpacityMin).toBeGreaterThanOrEqual(0.32);
+    expect(debug.visualMetrics.equilibriumCue).toBe('inside-friction-cone-band');
+    expect(debug.visualMetrics.coneOpacityMax).toBeLessThanOrEqual(0.28);
+    expect(debug.phiDeg).toBeCloseTo(Math.atan(debug.mu) * 180 / Math.PI, 2);
+    expect(debug.slips).toBe(debug.betaDeg > debug.phiDeg);
+
+    await page.evaluate(() => {
+      const beta = document.querySelector('#host input[data-id=beta]');
+      beta.value = '50';
+      beta.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch1-5-3']);
+    expect(debug.betaDeg).toBeCloseTo(50, 3);
+    expect(debug.slips).toBe(true);
+
+    await page.evaluate(() => window.__sim.dispose());
+    await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(0);
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+  });
+
+  test('ch3-1-3 3D mode follows non-inertial frame state', async ({ page }) => {
+    await page.goto(fixtureUrl('sim2-ch3.html'), { waitUntil: 'domcontentloaded' });
+    await mount(page, 'ch3-1-3');
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+    await expect(page.locator('#host .sim3-label')).toContainText(['a', 'F*', 'θ']);
+    await expectNoSim3LabelOverlap(page);
+    let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch3-1-3']);
+    expect(debug.visualMetrics.carBodyOpacityMin).toBeGreaterThanOrEqual(0.52);
+    expect(debug.visualMetrics.bobRadiusMin).toBeGreaterThanOrEqual(0.22);
+    expect(debug.visualMetrics.thetaCue).toBe('arc-guide-visible');
+    expect(debug.visualMetrics.inertialForceVectorScaleMin).toBeGreaterThanOrEqual(0.34);
+    expect(debug.thetaDeg).toBeCloseTo(Math.atan(debug.aFrame / 9.81) * 180 / Math.PI, 2);
+    expect(debug.inertiaFx).toBeCloseTo(-debug.aFrame, 3);
+
+    await page.evaluate(() => {
+      const a = document.querySelector('#host input[data-id=a]');
+      a.value = '6';
+      a.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch3-1-3']);
+    expect(debug.aFrame).toBeCloseTo(6, 3);
+    expect(debug.bob.x).toBeLessThan(0);
+
+    await page.evaluate(() => window.__sim.dispose());
+    await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(0);
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+  });
+
+  test('ch2-1-3 3D mode follows tangent normal curvature drag state', async ({ page }) => {
+    await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
+    await mount(page, 'ch2-1-3');
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+    await expect(page.locator('#host .sim3-label')).toContainText(['τ', 'n', 'R']);
+    await expectNoSim3LabelOverlap(page);
+    let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-1-3']);
+    expect(Math.hypot(debug.tangent.x, debug.tangent.y)).toBeCloseTo(1, 3);
+    expect(Math.hypot(debug.normal.x, debug.normal.y)).toBeCloseTo(1, 3);
+    expect(debug.radius).toBeGreaterThan(0);
+    expect(debug.visualMetrics.labelClusterReduced).toBe(true);
+    expect(debug.visualMetrics.osculatingCircleContrast).toBe('enhanced');
+    expect(debug.visualMetrics.osculatingCircleOpacityMin).toBeGreaterThanOrEqual(0.72);
+    expect(debug.visualMetrics.radiusGuideStrokeMin).toBeGreaterThanOrEqual(0.018);
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="2d"]').click();
+    await expect(page.locator('#host svg.sim2-svg')).toBeVisible();
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-1-3']);
+    expect(debug.updatedAt).toBeGreaterThanOrEqual(1);
+    expect(debug.point.x).toBeDefined();
+
+    await page.evaluate(() => window.__sim.dispose());
+    await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(0);
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+  });
+
+  test('ch1-1-5 3D mode follows force resultant and moment drag state', async ({ page }) => {
+    await page.goto(fixtureUrl('sim2-ch1.html'), { waitUntil: 'domcontentloaded' });
+    await mount(page, 'ch1-1-5');
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
+    await expect(page.locator('#host .sim3-label')).toContainText(['F1', 'F2', 'R', 'Mo']);
+    await expectNoSim3LabelOverlap(page);
+    let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch1-1-5']);
+    const initialRx = debug.resultant.Rx;
+    expect(debug.visualMetrics.resultantVectorRole).toBe('dominant');
+    expect(debug.visualMetrics.momentCueRole).toBe('near-origin-torque-ring');
+    expect(debug.visualMetrics.momentCueDistanceMax).toBeLessThanOrEqual(1.1);
+    expect(debug.visualMetrics.forceVectorScaleMin).toBeGreaterThanOrEqual(0.28);
+    expect(debug.resultant.Rx).toBeCloseTo(debug.forces[0].F.fx + debug.forces[1].F.fx, 3);
+    expect(debug.resultant.Ry).toBeCloseTo(debug.forces[0].F.fy + debug.forces[1].F.fy, 3);
+    const mo = debug.forces.reduce((sum, f) => sum + f.r.x * f.F.fy - f.r.y * f.F.fx, 0);
+    expect(debug.resultant.Mo).toBeCloseTo(mo, 3);
+
+    await page.locator('#host .sim3-mode-toggle [data-mode="2d"]').click();
+    const handle = page.locator('#host .sim2-handle').first();
+    const box = await handle.boundingBox();
+    expect(box).not.toBeNull();
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width / 2 + 45, box.y + box.height / 2 - 25);
+    await page.mouse.up();
+    await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+    debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch1-1-5']);
+    expect(debug.resultant.Rx).not.toBeCloseTo(initialRx, 3);
+    expect(debug.resultant.Rx).toBeCloseTo(debug.forces[0].F.fx + debug.forces[1].F.fx, 3);
+
+    await page.evaluate(() => window.__sim.dispose());
+    await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(0);
+    await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+  });
+
+  test('new Sim3 routes keep 2D when adapter globals are missing', async ({ page }) => {
+    const cases = [
+      { route: 'ch1-5-3', fixture: 'sim2-ch1.html', globalName: 'Sim3Ch153' },
+      { route: 'ch1-1-5', fixture: 'sim2-ch1.html', globalName: 'Sim3Ch115' },
+      { route: 'ch2-1-3', fixture: 'sim2-ch2.html', globalName: 'Sim3Ch213' },
+      { route: 'ch3-1-3', fixture: 'sim2-ch3.html', globalName: 'Sim3Ch313' }
+    ];
+    for (const cfg of cases) {
+      await page.goto(fixtureUrl(cfg.fixture), { waitUntil: 'domcontentloaded' });
+      await page.evaluate(name => { window[name] = undefined; }, cfg.globalName);
+      await mount(page, cfg.route);
+      await expect(page.locator('#host svg.sim2-svg')).toHaveCount(1);
+      await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(0);
+      await page.evaluate(() => window.__sim.dispose());
+    }
+  });
+
   test('mode toggle can switch repeatedly without duplicating 3D canvas', async ({ page }) => {
     await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
     await mount(page, 'ch2-2-2');
@@ -393,6 +537,29 @@ test.describe('sim3 pilot contract', () => {
     await expect(page.locator('#host svg.sim2-svg')).toBeVisible();
     await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
     expect(errors).toEqual([]);
+  });
+
+  test('forced WebGL failure falls back for all new Sim3 routes', async ({ page }) => {
+    const cases = [
+      { route: 'ch1-5-3', fixture: 'sim2-ch1.html' },
+      { route: 'ch1-1-5', fixture: 'sim2-ch1.html' },
+      { route: 'ch2-1-3', fixture: 'sim2-ch2.html' },
+      { route: 'ch3-1-3', fixture: 'sim2-ch3.html' }
+    ];
+    for (const cfg of cases) {
+      const errors = [];
+      page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+      page.on('pageerror', e => errors.push(String(e)));
+      await page.goto(fixtureUrl(cfg.fixture), { waitUntil: 'domcontentloaded' });
+      await page.evaluate(() => { window.__SIM3_FORCE_WEBGL_FAIL = true; });
+      await mount(page, cfg.route);
+      await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
+      await expect(page.locator('#host .sim3-fallback')).toBeVisible();
+      await expect(page.locator('#host svg.sim2-svg')).toBeVisible();
+      await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
+      await page.evaluate(() => window.__sim.dispose());
+      expect(errors).toEqual([]);
+    }
   });
 
   test('renderer constructor failure falls back without page errors', async ({ page }) => {

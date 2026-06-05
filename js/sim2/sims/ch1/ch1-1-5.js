@@ -14,6 +14,7 @@
     const { svg, tf, overlay, render } = shell;
     const VIS = 0.03;
     const O = { x: 0, y: 0 };
+    let sim3 = null;
 
     svg.appendChild(render.line(tf, { x: -4, y: 0 }, { x: 4, y: 0 }, { stroke: Pal.axis, width: 1 }));
     svg.appendChild(render.line(tf, { x: 0, y: -4 }, { x: 0, y: 4 }, { stroke: Pal.axis, width: 1 }));
@@ -54,6 +55,10 @@
         { label: '|R|:', value: Math.hypot(red.Rx, red.Ry).toFixed(1) + ' N' },
         { label: 'Mo:', value: red.Mo.toFixed(1) + ' N·m' }
       ]);
+      if (sim3) sim3.setState({
+        forces: forces.map(f => ({ r: { x: f.r.x, y: f.r.y }, F: { fx: f.F.fx, fy: f.F.fy } })),
+        resultant: red
+      });
     }
 
     const panel = shell.setTheory({
@@ -61,6 +66,13 @@
       legend: [{ color: Pal.force, label: 'lực thành phần' }, { color: Pal.resultant, label: 'R (hợp lực)' }],
       observe: 'Kéo đầu mỗi lực để đổi hệ; hợp lực R và mô men thu gọn Mo cập nhật theo.'
     });
+
+    sim3 = root.Sim3Mode && root.Sim3Ch115 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch115.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     const handles = forces.map((f) => {
       const tip0 = { x: f.r.x + f.F.fx * VIS, y: f.r.y + f.F.fy * VIS };

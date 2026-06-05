@@ -15,6 +15,7 @@
     const base = { x: 0, y: 0 };
     const len = 6;
     const state = { betaDeg: 18, mu: 0.45 };
+    let sim3 = null;
 
     function inclineTop(b) {
       const r = b * Math.PI / 180;
@@ -70,6 +71,12 @@
         { label: 'β:', value: state.betaDeg.toFixed(1) + '°' },
         { label: 'Trạng thái:', value: slips ? 'β>φ trượt' : 'β≤φ cân bằng' }
       ]);
+      if (sim3) sim3.setState({
+        betaDeg: state.betaDeg,
+        mu: state.mu,
+        phiDeg,
+        slips
+      });
     }
 
     const panel = shell.setTheory({
@@ -77,6 +84,13 @@
       legend: [{ color: Pal.a, label: 'khối' }, { color: Pal.moment, label: 'β (góc nghiêng)' }],
       observe: 'Vật trượt khi góc nghiêng β vượt góc nón ma sát φ (tanφ = μ). Kéo đỉnh hoặc đổi slider.'
     });
+
+    sim3 = root.Sim3Mode && root.Sim3Ch153 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch153.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     const controls = shell.addControls({
       sliders: [

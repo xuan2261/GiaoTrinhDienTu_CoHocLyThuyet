@@ -16,6 +16,7 @@
     const { svg, tf, overlay, render } = shell;
     const a = 4, b = 2.5;
     let tParam = 0.7;
+    let sim3 = null;
 
     const pts = [];
     for (let t = 0; t <= Math.PI * 2 + 0.05; t += 0.05) pts.push(K.ellipsePoint(a, b, t, 0, 0));
@@ -61,6 +62,14 @@
         { key: 'a', label: '|a|:', value: Math.hypot(acc.ax, acc.ay).toFixed(2) },
         { key: 'R', label: 'R cong:', value: (isFinite(R) ? R.toFixed(2) : '∞') }
       ]);
+      if (sim3) sim3.setState({
+        tParam,
+        point: p,
+        tangent: { x: ux, y: uy },
+        normal: { x: nx, y: ny },
+        radius: R,
+        center: { x: cx, y: cy }
+      });
     }
 
     const panel = shell.setTheory({
@@ -68,6 +77,13 @@
       legend: [{ color: Pal.v, label: 'τ (tiếp tuyến)' }, { color: Pal.a, label: 'n (pháp tuyến)' }, { color: Pal.moment, label: 'vòng mật tiếp' }],
       observe: 'Kéo điểm dọc ellipse; bán kính cong R nhỏ nhất ở đỉnh cong (vòng mật tiếp sát).'
     });
+
+    sim3 = root.Sim3Mode && root.Sim3Ch213 ? root.Sim3Mode.attach({
+      container,
+      shell2dRoot: shell.root,
+      create3d: ctx => root.Sim3Ch213.create({ host: ctx.host, referenceEl: shell.root, onFallback: ctx.onFallback })
+    }) : null;
+    if (sim3) shell.addCleanup(() => sim3.dispose());
 
     const handle = shell.addHandle(K.ellipsePoint(a, b, tParam, 0, 0), {
       fill: Pal.handle,
