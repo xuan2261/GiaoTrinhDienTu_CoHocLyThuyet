@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const ROOT = path.resolve(__dirname, '../..');
-const OUT_DIR = path.join(ROOT, 'plans/260603-2100-sim3-ch2-5-3-single-route-tdd-rollout/visuals');
+const OUT_DIR = path.join(ROOT, 'plans/260604-0000-sim3-visual-polish-8-plus-tdd/visuals/final');
 
 const cases = [
   { id: 'ch2-2-2', fixture: 'sim2-ch2.html', steps: 8 },
@@ -11,7 +11,7 @@ const cases = [
   { id: 'ch2-4-4', fixture: 'sim2-ch2.html', steps: 16 },
   { id: 'ch2-5-3', fixture: 'sim2-ch2.html', steps: 0 },
   { id: 'ch3-5-3', fixture: 'sim2-ch3.html', steps: 8 },
-  { id: 'ch3-6-2', fixture: 'sim2-ch3.html', steps: 24 }
+  { id: 'ch3-6-2', fixture: 'sim2-ch3.html', steps: 112, phase: 'after' }
 ];
 
 function fixtureUrl(name) {
@@ -41,6 +41,11 @@ test.describe('sim3 pilot visual capture', () => {
         const step = document.querySelector('#host .sim2-step');
         for (let i = 0; i < n && step; i++) step.click();
       }, cfg.steps);
+      if (cfg.phase === 'after') {
+        await expect.poll(async () => page.evaluate(id => window.__SIM3_DEBUG__ && window.__SIM3_DEBUG__[id] && window.__SIM3_DEBUG__[id].phaseCue, cfg.id), {
+          timeout: 1000
+        }).toBe('after');
+      }
       await page.locator('#host').screenshot({ path: path.join(OUT_DIR, `${cfg.id}-sim3.png`) });
       await page.evaluate(() => window.__sim.dispose());
     });

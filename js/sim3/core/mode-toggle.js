@@ -45,8 +45,8 @@
       fallback.hidden = true;
       cfg.shell2dRoot.style.display = '';
       if (sim3) {
-        if (sim3.stop) sim3.stop();
-        if (sim3.host) sim3.host.hidden = true;
+        if (sim3.dispose) sim3.dispose();
+        sim3 = null;
       }
       if (cfg.onModeChange) cfg.onModeChange(mode);
     }

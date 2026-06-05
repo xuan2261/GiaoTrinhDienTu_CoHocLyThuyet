@@ -3,20 +3,21 @@
 
   function create(opts) {
     const P = root.Sim3Primitives;
-    let THREERef, b1, b2, cue, vArrow1, vArrow2, rail, tick = 0;
+    let THREERef, b1, b2, cue, vArrow1, vArrow2, rail, ghostBefore1, ghostBefore2, ghostAfter1, ghostAfter2, tick = 0;
     const trail = [];
     const trailDots1 = [], trailDots2 = [];
+    let pendingReset = false;
     const shell = root.Sim3Shell.create({
       host: opts.host,
       referenceEl: opts.referenceEl,
+      height: 300,
       label: 'Va chạm 3D',
       onFallback: opts.onFallback,
-      setup({ THREE, scene, camera }) {
+      setup({ THREE, scene, camera, labels }) {
         THREERef = THREE;
-        camera.position.set(3.4, 2.6, 4.4);
-        camera.lookAt(0, -0.05, 0);
+        if (root.Sim3VisualKit) root.Sim3VisualKit.setCamera(camera, { x: 4.15, y: 3.1, z: 5.45 }, { x: 0.08, y: 0, z: 0.02 });
         const railMat = new THREE.MeshStandardMaterial({ color: 0x64748b, roughness: 0.8 });
-        rail = new THREE.Mesh(new THREE.BoxGeometry(6.4, 0.08, 0.1), railMat);
+        rail = new THREE.Mesh(new THREE.BoxGeometry(7.2, 0.12, 0.12), railMat);
         rail.position.y = -0.55;
         scene.add(rail);
         b1 = new THREE.Mesh(
@@ -33,6 +34,13 @@
         );
         cue.rotation.x = Math.PI / 2;
         cue.visible = false;
+        const ghostMat1 = root.Sim3VisualKit ? root.Sim3VisualKit.ghostMaterial(THREE, 'mass1', 0.12) : new THREE.MeshStandardMaterial({ color: 0xd81b60, transparent: true, opacity: 0.12 });
+        const ghostMat2 = root.Sim3VisualKit ? root.Sim3VisualKit.ghostMaterial(THREE, 'mass2', 0.12) : new THREE.MeshStandardMaterial({ color: 0x1565c0, transparent: true, opacity: 0.12 });
+        ghostBefore1 = new THREE.Mesh(new THREE.SphereGeometry(0.34, 24, 12), ghostMat1);
+        ghostBefore2 = new THREE.Mesh(new THREE.SphereGeometry(0.44, 24, 12), ghostMat2);
+        ghostAfter1 = new THREE.Mesh(new THREE.SphereGeometry(0.34, 24, 12), ghostMat1.clone());
+        ghostAfter2 = new THREE.Mesh(new THREE.SphereGeometry(0.44, 24, 12), ghostMat2.clone());
+        ghostAfter1.visible = ghostAfter2.visible = false;
         vArrow1 = P.arrow(THREE, 0xd81b60, { radius: 0.035, headRadius: 0.12 });
         vArrow2 = P.arrow(THREE, 0x1565c0, { radius: 0.035, headRadius: 0.12 });
         for (let i = 0; i < 24; i++) {
@@ -45,10 +53,15 @@
             new THREE.MeshStandardMaterial({ color: 0x1565c0, roughness: 0.45 })
           ));
         }
-        scene.add(b1, b2, cue, vArrow1, vArrow2, ...trailDots1, ...trailDots2);
-        const grid = new THREE.GridHelper(8, 12, 0xcbd5e1, 0xe2e8f0);
+        scene.add(ghostBefore1, ghostBefore2, ghostAfter1, ghostAfter2, b1, b2, cue, vArrow1, vArrow2, ...trailDots1, ...trailDots2);
+        const grid = new THREE.GridHelper(8.8, 14, 0xcbd5e1, 0xe2e8f0);
         grid.position.y = -0.62;
         scene.add(grid);
+        labels.add('before', 'Trước', () => ghostBefore1.position, { dx: -52, dy: -38 });
+        labels.add('impact', 'Va chạm', () => cue.position, { dx: -4, dy: -58 });
+        labels.add('after', 'Sau', () => ghostAfter2.visible ? ghostAfter2.position : b2.position, { dx: 68, dy: 46 });
+        labels.add('v1', 'v₁', () => vArrow1.position, { dx: 48, dy: -42 });
+        labels.add('v2', 'v₂', () => vArrow2.position, { dx: 64, dy: -8 });
       }
     });
     if (!shell) return null;
@@ -73,27 +86,64 @@
     }
     function setState(state) {
       tick += 1;
-      const p1 = { x: mapX(state.p1.x), z: -0.28 };
-      const p2 = { x: mapX(state.p2.x), z: 0.28 };
+      const p1 = { x: mapX(state.p1.x), z: -0.36 };
+      const p2 = { x: mapX(state.p2.x), z: 0.48 };
       b1.position.set(p1.x, 0, p1.z);
       b2.position.set(p2.x, 0, p2.z);
-      b1.scale.setScalar(Math.max(0.85, Math.sqrt(state.m1 || 2) * 0.55));
-      b2.scale.setScalar(Math.max(0.85, Math.sqrt(state.m2 || 3) * 0.5));
+      ghostBefore1.position.set(mapX(-4), 0, p1.z);
+      ghostBefore2.position.set(mapX(3), 0, p2.z);
+      const s1 = Math.max(0.85, Math.sqrt(state.m1 || 2) * 0.55);
+      const s2 = Math.max(0.85, Math.sqrt(state.m2 || 3) * 0.5);
+      b1.scale.setScalar(s1);
+      b2.scale.setScalar(s2);
+      ghostBefore1.scale.setScalar(s1);
+      ghostBefore2.scale.setScalar(s2);
+      ghostAfter1.scale.setScalar(s1);
+      ghostAfter2.scale.setScalar(s2);
       setVelocityArrow(vArrow1, p1, state.v1, p1.z);
       setVelocityArrow(vArrow2, p2, state.v2, p2.z);
       cue.visible = !!state.collided;
       cue.position.set(mapX(state.impactPoint ? state.impactPoint.x : 0), 0.02, 0);
-      trail.push({ x1: state.p1.x, x2: state.p2.x, collided: !!state.collided });
+      if (!pendingReset) trail.push({ x1: state.p1.x, x2: state.p2.x, collided: !!state.collided });
+      pendingReset = false;
       if (trail.length > 80) trail.shift();
+      ghostAfter1.visible = ghostAfter2.visible = !!state.collided;
+      if (state.collided) {
+        ghostAfter1.position.set(p1.x - Math.sign((state.v1 && state.v1.x) || 1) * 0.95, 0, p1.z);
+        ghostAfter2.position.set(p2.x - Math.sign((state.v2 && state.v2.x) || 1) * 0.95, 0, p2.z);
+      }
       updateTrailDots(trail.map(p => ({ x: p.x1 })), trailDots1, p1.z);
       updateTrailDots(trail.map(p => ({ x: p.x2 })), trailDots2, p2.z);
       shell.setState(state);
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
-      root.__SIM3_DEBUG__['ch3-6-2'] = Object.assign({ updatedAt: tick, trailLength: trail.length }, state);
+      root.__SIM3_DEBUG__['ch3-6-2'] = Object.assign({
+        updatedAt: tick,
+        trailLength: trail.length,
+        ghostCount: 4,
+        phaseCue: state.collided ? 'after' : 'before',
+        capturePhase: state.collided ? 'after-impact' : 'before-impact',
+        impactReached: !!state.collided,
+        distanceToImpact: Math.max(0, Math.abs(state.p2.x - state.p1.x) - 1.1),
+        liveScale1: s1,
+        liveScale2: s2,
+        ghostScale1: ghostBefore1.scale.x,
+        ghostScale2: ghostBefore2.scale.x,
+        visualMetrics: root.Sim3VisualKit && root.Sim3VisualKit.visualMetrics({
+          verticalFillTarget: 0.5,
+          labelClusterReduced: true,
+          labelClusterStrategy: 'phase-lanes-separated',
+          postImpactGhostOffset: 0.95,
+          ghostOpacity: 0.12,
+          railContrast: 'enhanced'
+        })
+      }, state);
     }
     function reset() {
       trail.length = 0;
+      pendingReset = true;
       if (cue) cue.visible = false;
+      if (ghostAfter1) ghostAfter1.visible = false;
+      if (ghostAfter2) ghostAfter2.visible = false;
       trailDots1.concat(trailDots2).forEach(dot => { dot.visible = false; });
     }
 

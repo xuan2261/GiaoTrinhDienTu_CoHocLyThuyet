@@ -7,7 +7,9 @@
       color,
       roughness: opts.roughness == null ? 0.55 : opts.roughness,
       metalness: opts.metalness || 0,
-      emissive: opts.emissive || 0x000000
+      emissive: opts.emissive || 0x000000,
+      transparent: !!opts.transparent,
+      opacity: opts.opacity == null ? 1 : opts.opacity
     });
   }
 
@@ -47,6 +49,7 @@
     );
     mesh.position.copy(mid);
     orientArrow(THREE, mesh, to.sub(from));
+    mesh.userData.sim3BaseLength = len;
     return mesh;
   }
 
@@ -55,7 +58,7 @@
     const to = new THREE.Vector3(b.x, b.y, b.z);
     const len = Math.max(0.001, from.distanceTo(to));
     mesh.position.copy(from.clone().add(to).multiplyScalar(0.5));
-    mesh.scale.y = len;
+    mesh.scale.y = len / (mesh.userData.sim3BaseLength || 1);
     orientArrow(THREE, mesh, to.sub(from));
   }
 

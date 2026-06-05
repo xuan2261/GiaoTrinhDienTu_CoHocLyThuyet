@@ -57,10 +57,9 @@
       referenceEl: opts.referenceEl,
       label: 'Truyền động bánh răng và đai 3D',
       onFallback: opts.onFallback,
-      setup({ THREE, scene, camera }) {
+      setup({ THREE, scene, camera, labels }) {
         THREERef = THREE;
-        camera.position.set(4.8, 3.5, 7.2);
-        camera.lookAt(0, 0.35, 0.05);
+        if (root.Sim3VisualKit) root.Sim3VisualKit.setCamera(camera, { x: 4.75, y: 3.45, z: 6.85 }, { x: 0.1, y: 0.5, z: 0.12 });
         gear1 = makeWheel(THREE, P, 0x159c3a, { teeth: true, markerColor: 0xb7f7c8 });
         gear2 = makeWheel(THREE, P, 0x1565c0, { teeth: true, markerColor: 0xbfdbfe });
         pulley1 = makeWheel(THREE, P, 0x159c3a, { rim: 0.055, markerColor: 0xb7f7c8, thickness: 0.18 });
@@ -69,17 +68,21 @@
 
         beltTop = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.055, 0x7c3aed);
         beltBottom = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: 1, y: 0, z: 0 }, 0.055, 0x7c3aed);
-        axis1 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.025, 0x64748b);
-        axis2 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.025, 0x64748b);
-        axis3 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.025, 0x64748b);
-        axis4 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.025, 0x64748b);
-        gearArrow1 = P.arrow(THREE, 0x159c3a, { radius: 0.035, headRadius: 0.12 });
-        gearArrow2 = P.arrow(THREE, 0x1565c0, { radius: 0.035, headRadius: 0.12 });
-        pulleyArrow1 = P.arrow(THREE, 0x159c3a, { radius: 0.035, headRadius: 0.12 });
-        pulleyArrow2 = P.arrow(THREE, 0x1565c0, { radius: 0.035, headRadius: 0.12 });
+        axis1 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.02, 0x64748b);
+        axis2 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.02, 0x64748b);
+        axis3 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.02, 0x64748b);
+        axis4 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.02, 0x64748b);
+        [axis1, axis2, axis3, axis4].forEach(axis => {
+          axis.material.transparent = true;
+          axis.material.opacity = 0.48;
+        });
+        gearArrow1 = P.arrow(THREE, 0x159c3a, { radius: 0.028, headRadius: 0.1 });
+        gearArrow2 = P.arrow(THREE, 0x1565c0, { radius: 0.028, headRadius: 0.1 });
+        pulleyArrow1 = P.arrow(THREE, 0x159c3a, { radius: 0.028, headRadius: 0.1 });
+        pulleyArrow2 = P.arrow(THREE, 0x1565c0, { radius: 0.028, headRadius: 0.1 });
         for (let i = 0; i < 10; i++) {
           beltDots.push(new THREE.Mesh(
-            new THREE.SphereGeometry(0.075, 14, 10),
+            new THREE.SphereGeometry(0.055, 14, 10),
             P.material(THREE, 0xd97706, { roughness: 0.32 })
           ));
         }
@@ -87,9 +90,12 @@
           beltTop, beltBottom, axis1, axis2, axis3, axis4,
           gearArrow1, gearArrow2, pulleyArrow1, pulleyArrow2, ...beltDots
         );
-        const grid = new THREE.GridHelper(8, 10, 0xcbd5e1, 0xe2e8f0);
+        const grid = new THREE.GridHelper(8, 10, 0xdbe3ee, 0xedf2f7);
         grid.position.y = -1.35;
         scene.add(grid);
+        labels.add('gear-1', 'Bánh 1', () => gear1.position, { dx: -46, dy: -34 });
+        labels.add('gear-2', 'Bánh 2', () => gear2.position, { dx: 38, dy: -34 });
+        labels.add('belt', 'Đai cùng chiều', () => beltTop.position, { dx: 18, dy: -36 });
       }
     });
     if (!shell) return null;
@@ -104,7 +110,7 @@
     }
     function setArrow(arrow, x, y, z, sign) {
       arrow.position.set(x, y, z);
-      arrow.scale.y = 0.52;
+      arrow.scale.y = 0.42;
       P.orientArrow(THREERef, arrow, new THREERef.Vector3(sign < 0 ? 1 : -1, 0, 0));
     }
     function placeBeltDots(a, b, c, d, phase) {
@@ -147,7 +153,18 @@
       placeBeltDots(topA, topB, bottomA, bottomB, ((state.gearPhi1 || 0) / (Math.PI * 2)) % 1);
       shell.setState(state);
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
-      root.__SIM3_DEBUG__['ch2-3-2'] = Object.assign({ updatedAt: tick }, state);
+      root.__SIM3_DEBUG__['ch2-3-2'] = Object.assign({
+        updatedAt: tick,
+        visualMetrics: root.Sim3VisualKit && root.Sim3VisualKit.visualMetrics({
+          hierarchy: 'belt-gears-primary-supports-muted',
+          supportOpacity: 0.48,
+          secondaryArrowScale: 0.42,
+          cropMarginTargetPx: 16,
+          labelFaceCoverageMax: 0.12,
+          clutterReduced: true,
+          beltNodeScale: 'reduced'
+        })
+      }, state);
     }
 
     return { host: opts.host, setState, dispose: shell.dispose };

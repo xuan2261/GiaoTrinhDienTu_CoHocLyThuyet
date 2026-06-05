@@ -9,10 +9,9 @@
       referenceEl: opts.referenceEl,
       label: 'Mô men động lượng 3D',
       onFallback: opts.onFallback,
-      setup({ THREE, scene, camera }) {
+      setup({ THREE, scene, camera, labels }) {
         THREERef = THREE;
-        camera.position.set(4.6, 3.3, 6.4);
-        camera.lookAt(0, 0.15, 0);
+        if (root.Sim3VisualKit) root.Sim3VisualKit.setCamera(camera, { x: 4.15, y: 3.1, z: 5.95 }, { x: -0.05, y: 0.15, z: 0 });
         pivot = new THREE.Group();
         mass1 = new THREE.Mesh(new THREE.SphereGeometry(0.18, 24, 16), P.material(THREE, 0xd81b60));
         mass2 = new THREE.Mesh(new THREE.SphereGeometry(0.18, 24, 16), P.material(THREE, 0xd81b60));
@@ -20,19 +19,25 @@
         arm2 = P.cylinderBetween(THREE, { x: 0, y: 0, z: 0 }, { x: -1, y: 0, z: 0 }, 0.035, 0x7c3aed);
         hub = new THREE.Mesh(new THREE.SphereGeometry(0.11, 18, 12), P.material(THREE, 0x334155));
         orbit = new THREE.Mesh(
-          new THREE.TorusGeometry(1, 0.018, 8, 96),
-          P.material(THREE, 0xc4b5fd, { roughness: 0.45 })
+          new THREE.TorusGeometry(1, 0.024, 8, 96),
+          P.material(THREE, 0xc4b5fd, { roughness: 0.62, transparent: true, opacity: 0.68 })
         );
         orbit.rotation.x = Math.PI / 2;
         pivot.add(mass1, mass2, arm1, arm2, hub, orbit);
         scene.add(pivot);
-        const axis = P.cylinderBetween(THREE, { x: 0, y: -1.4, z: 0 }, { x: 0, y: 1.6, z: 0 }, 0.025, 0x64748b);
+        const axis = P.cylinderBetween(THREE, { x: 0, y: -1.4, z: 0 }, { x: 0, y: 1.6, z: 0 }, 0.018, 0x64748b);
+        axis.material.transparent = true;
+        axis.material.opacity = 0.46;
         lArrow = P.arrow(THREE, 0x7c3aed, { radius: 0.045, headRadius: 0.14 });
         lArrow.position.set(-2.2, -0.6, 0);
         scene.add(axis, lArrow);
         const grid = new THREE.GridHelper(6, 10, 0xcbd5e1, 0xe2e8f0);
         grid.position.y = -0.35;
         scene.add(grid);
+        labels.add('mass-1', 'm₁', () => mass1.position, { dx: 22, dy: -12 });
+        labels.add('mass-2', 'm₂', () => mass2.position, { dx: -46, dy: -28 });
+        labels.add('angular-momentum', 'L', () => lArrow.position, { dx: -34, dy: -20 });
+        labels.add('radius', 'r', () => arm1.position, { dx: 24, dy: 34 });
       }
     });
     if (!shell) return null;
@@ -49,12 +54,23 @@
       mass2.scale.copy(mass1.scale);
       P.setCylinderBetween(THREERef, arm1, { x: 0, y: 0, z: 0 }, p1);
       P.setCylinderBetween(THREERef, arm2, { x: 0, y: 0, z: 0 }, p2);
-      pivot.rotation.y += Math.max(-0.05, Math.min(0.05, (state.omega || 0) * 0.006));
       lArrow.scale.y = Math.max(0.7, Math.min(1.8, Math.abs(state.angularMomentum || 0) * 0.06));
       P.orientArrow(THREERef, lArrow, new THREERef.Vector3(0, 1, 0));
       shell.setState(state);
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
-      root.__SIM3_DEBUG__['ch3-5-3'] = Object.assign({ updatedAt: tick, mass1: p1, mass2: p2 }, state);
+      root.__SIM3_DEBUG__['ch3-5-3'] = Object.assign({
+        updatedAt: tick,
+        mass1: p1,
+        mass2: p2,
+        cueLabels: ['m1', 'm2', 'L', 'r'],
+        visualMetrics: root.Sim3VisualKit && root.Sim3VisualKit.visualMetrics({
+          radiusCue: 'dimension',
+          orbitRole: 'secondary',
+          orbitOpacity: 0.68,
+          lLabelAttachmentPx: 24,
+          axisRole: 'subdued'
+        })
+      }, state);
     }
 
     return { host: opts.host, setState, dispose: shell.dispose };
