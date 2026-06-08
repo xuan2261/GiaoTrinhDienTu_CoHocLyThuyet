@@ -1,0 +1,540 @@
+{
+  "ch1-1-3": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "slider", "id": "F", "physInput": "magnitude", "min": 10, "max": 120, "step": 1 },
+      { "kind": "slider", "id": "alpha", "physInput": "angleDeg", "min": 0, "max": 90, "step": 1 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "tip position → F+alpha" }
+    ],
+    "readouts": [
+      { "key": "F",     "selector": ".sim2-readout-value", "physFn": "resolveForceComponents→|F|", "expectSign": "+", "safeRange": [10, 120], "notes": "readout label |F|: tracks slider F directly" },
+      { "key": "Fx",    "selector": ".sim2-readout-value", "physFn": "resolveForceComponents→fx", "expectSign": "+", "safeRange": [1, 89], "notes": "Fx=F*cos(alpha); + for alpha in [0,89]" },
+      { "key": "Fy",    "selector": ".sim2-readout-value", "physFn": "resolveForceComponents→fy", "expectSign": "+", "safeRange": [1, 89], "notes": "Fy=F*sin(alpha); + for alpha in (0,90)" },
+      { "key": "alpha", "selector": ".sim2-readout-value", "physFn": "state.alphaDeg", "expectSign": "+", "safeRange": [0, 90] }
+    ],
+    "bMode": "monotonic",
+    "notes": "Dual input: slider F/alpha + drag-handle (both write same state). Slider F sign on Fx is + when alpha<90."
+  },
+
+  "ch1-1-4": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "slider", "id": "F", "physInput": "force magnitude", "min": 10, "max": 100, "step": 5 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "app.x → arm length d" }
+    ],
+    "readouts": [
+      { "key": "M", "selector": ".sim2-readout-value", "physFn": "computeMoment(F,d,90)=F*d", "expectSign": "+", "safeRange": [0.5, 6.5],
+        "notes": "FD: F=50,d=4→M=200; F=51→M=204; sign=+. d=4→5→M=250; sign=+" }
+    ],
+    "bMode": "monotonic",
+    "notes": "Fdir=90 fixed; M=F*d, both controls increase M monotonically."
+  },
+
+  "ch1-1-5": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "force tip positions F1/F2" }
+    ],
+    "readouts": [
+      { "key": "Rx",  "selector": ".sim2-readout-value", "physFn": "reduceToResultant→Rx", "expectSign": "+", "safeRange": null,
+        "notes": "Rx = fx1+fx2; sign depends on drag direction. Not monotonic in general." },
+      { "key": "Mo",  "selector": ".sim2-readout-value", "physFn": "reduceToResultant→Mo", "expectSign": null, "safeRange": null }
+    ],
+    "bMode": "scene-delta",
+    "reason": "Bespoke 2-handle drag: no slider; resultant direction depends on arbitrary drag. No monotonic scalar control→readout chain. Liveness (Δ≠0) testable by dragging either handle.",
+    "notes": "5 bespoke-drag routes include ch1-1-5. Handle class: .sim2-handle (shell.addHandle)"
+  },
+
+  "ch1-1-5#sim3": {
+    "engine": "sim3",
+    "chapter": 1,
+    "controls": "same as ch1-1-5 (Sim2 controls drive state)",
+    "debugPath": "__SIM3_DEBUG__['ch1-1-5']",
+    "debugFields": ["resultant.Rx", "resultant.Ry", "resultant.Mo"],
+    "readouts": [
+      { "key": "Rx", "debugPath": "__SIM3_DEBUG__['ch1-1-5'].resultant.Rx", "physFn": "reduceToResultant→Rx" },
+      { "key": "Mo", "debugPath": "__SIM3_DEBUG__['ch1-1-5'].resultant.Mo", "physFn": "reduceToResultant→Mo" }
+    ],
+    "bMode": "scene-delta",
+    "reason": "Mirrors ch1-1-5 scene-delta; 3D reads state from same drag-handle input."
+  },
+
+  "ch1-1-6": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "slider", "id": "d", "physInput": "couple distance", "min": 1, "max": 6, "step": 0.5 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "state.half → d/2" }
+    ],
+    "readouts": [
+      { "key": "M_couple", "selector": ".sim2-readout-value", "physFn": "coupleMoment(50,d)=50*d", "expectSign": "+", "safeRange": [1, 6],
+        "notes": "FD: d=3→M=150; d=3.5→M=175; sign=+" }
+    ],
+    "bMode": "monotonic"
+  },
+
+  "ch1-1-8": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "slider", "id": "P", "physInput": "load magnitude", "min": 20, "max": 200, "step": 10 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "state.pos → load position a" }
+    ],
+    "readouts": [
+      { "key": "Ra", "selector": ".sim2-readout-value", "physFn": "beamReactions→ra=P*(L-a)/L", "expectSign": "+", "safeRange": [0.3, 9.7],
+        "notes": "FD slider P: P=100→110 Ra=60→66 sign=+. FD drag a: a=4→5 Ra=60→50 sign=-. Probe slider P for Ra sign=+" },
+      { "key": "Rb", "selector": ".sim2-readout-value", "physFn": "beamReactions→rb=P*a/L", "expectSign": "+", "safeRange": [0.3, 9.7],
+        "notes": "FD drag a: a=4→5 Rb=40→50 sign=+. Probe slider P for Rb also sign=+" }
+    ],
+    "bMode": "monotonic",
+    "notes": "Ra decreases as a increases (load moves toward B); use slider P as probe control for both reactions (sign=+)."
+  },
+
+  "ch1-2-3": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "f1/f2 tip positions" }
+    ],
+    "readouts": [
+      { "key": "|R|", "selector": ".sim2-readout-value", "physFn": "vector sum |R|=|F1+F2|", "expectSign": null }
+    ],
+    "bMode": "a-only",
+    "reason": "Bespoke parallelogram drag (ch1-2-3 is one of the 5 bespoke-drag routes). Both handles move freely in 2D; |R| depends on arbitrary geometry. No scalar monotonic chain. Liveness testable by dragging h1 or h2."
+  },
+
+  "ch1-3-2": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "slider", "id": "alpha", "physInput": "angleDeg", "min": 5, "max": 75, "step": 1 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "anchor position → alpha" }
+    ],
+    "readouts": [
+      { "key": "T", "selector": ".sim2-readout-value", "physFn": "W/(2*cos(alpha))=100/(2*cos(α))", "expectSign": "+", "safeRange": [5, 75],
+        "notes": "FD: alpha=30→31 T=57.735→58.332 sign=+. T monotonically increases as alpha increases (cos decreases)." }
+    ],
+    "bMode": "local-monotonic",
+    "notes": "T→∞ as alpha→90; safe range [5,75] avoids alpha=90 singularity (extremum avoided at upper bound)."
+  },
+
+  "ch1-3-6": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "slider", "id": "P", "physInput": "load magnitude", "min": 20, "max": 150, "step": 10 },
+      { "kind": "slider", "id": "a", "physInput": "load position", "min": 0.5, "max": 8, "step": 0.5 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "state.pos → a" }
+    ],
+    "readouts": [
+      { "key": "M_ngam", "selector": ".sim2-readout-value", "physFn": "P*a", "expectSign": "+", "safeRange": [0.5, 8],
+        "notes": "FD slider P: P=80→90,a=5 M=400→450 sign=+. FD slider a: a=5→5.5 M=400→440 sign=+" },
+      { "key": "R", "selector": ".sim2-readout-value", "physFn": "R=P (constant, R always equals P)", "expectSign": "+", "safeRange": [20, 150],
+        "notes": "R=P; slider P sign=+" }
+    ],
+    "bMode": "monotonic"
+  },
+
+  "ch1-5-3": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "slider", "id": "beta", "physInput": "incline angleDeg", "min": 3, "max": 60, "step": 1 },
+      { "kind": "slider", "id": "mu", "physInput": "friction coefficient", "min": 0.1, "max": 1, "step": 0.05 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "incline top position → beta" }
+    ],
+    "readouts": [
+      { "key": "phi", "selector": ".sim2-readout-value", "physFn": "staticLimitAngle(mu)*180/pi=atan(mu)*180/pi", "expectSign": "+", "safeRange": [0.1, 1.0],
+        "notes": "FD mu=0.45→0.5 phi=24.228→26.565 sign=+. Probe: slider mu." },
+      { "key": "beta", "selector": ".sim2-readout-value", "physFn": "state.betaDeg (identity)", "expectSign": "+", "safeRange": [3, 60] }
+    ],
+    "bMode": "local-monotonic",
+    "notes": "phi=atan(mu) is monotonically increasing (no extrema) over [0.1,1.0]. Trạng_thai readout is categorical (slip/no-slip), not a numeric sign probe."
+  },
+
+  "ch1-5-3#sim3": {
+    "engine": "sim3",
+    "chapter": 1,
+    "controls": "same as ch1-5-3",
+    "debugPath": "__SIM3_DEBUG__['ch1-5-3']",
+    "debugFields": ["betaDeg", "phiDeg", "slips", "mu"],
+    "readouts": [
+      { "key": "phiDeg", "debugPath": "__SIM3_DEBUG__['ch1-5-3'].phiDeg", "physFn": "atan(mu)*180/pi", "expectSign": "+" }
+    ],
+    "bMode": "local-monotonic",
+    "notes": "phiDeg confirmed present in __SIM3_DEBUG__['ch1-5-3'] (ch1-5-3-3d.js line 91)."
+  },
+
+  "ch1-6-3": {
+    "engine": "sim2",
+    "chapter": 1,
+    "controls": [
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "hole center (hole.cx, hole.cy)" }
+    ],
+    "readouts": [
+      { "key": "Cx", "selector": ".sim2-readout-value", "physFn": "centroidWithHole→cx", "expectSign": "-", "safeRange": [1, 5],
+        "notes": "FD: hole.cx=4.5→5 Cx=2.7741→2.6988 sign=-. Moving hole right pulls centroid left (hole is negative area)." },
+      { "key": "Cy", "selector": ".sim2-readout-value", "physFn": "centroidWithHole→cy", "expectSign": "-", "safeRange": [1, 3],
+        "notes": "FD: hole.cy=2.5→3 Cy=1.9247→1.8494 sign=-. Same logic applies to y." }
+    ],
+    "bMode": "a-only",
+    "reason": "Bespoke 2D drag (ch1-6-3 is one of the 5 bespoke-drag routes). Cx and Cy each track one drag dimension with sign=-. However drag controls both axes simultaneously with unconstrained direction — no single scalar control. Probe B can split into Cx-vs-drag-x and Cy-vs-drag-y separately if probe constrains axis.",
+    "notes": "Handle class: .sim2-handle. Drag constrained to [r, 6-r] x [r, 4-r] where r=1."
+  },
+
+  "ch2-1-1": {
+    "engine": "sim2",
+    "chapter": 2,
+    "controls": [
+      { "kind": "slider", "id": "v0",    "physInput": "initial speed", "min": 8,  "max": 20, "step": 1 },
+      { "kind": "slider", "id": "alpha", "physInput": "launch angleDeg", "min": 20, "max": 80, "step": 5 },
+      { "kind": "playback", "selector": ".sim2-playpause" }
+    ],
+    "readouts": [
+      { "key": "v", "selector": ".sim2-readout-value", "physFn": "velocityFromTrajectory→|v|", "expectSign": "+", "safeRange": [8, 20],
+        "notes": "FD v0=14→15 at t=1: speed=8.199→8.953 sign=+. Probe slider v0." },
+      { "key": "a", "selector": ".sim2-readout-value", "physFn": "accelerationFromVelocity→|a|~9.81", "expectSign": "0",
+        "notes": "|a|≈g=9.81 constant regardless of v0/alpha (gravity only); effectively constant." }
+    ],
+    "bMode": "scene-delta",
+    "reason": "Playback-driven: readout changes each frame (t advances). Slider-only readout is at reset state t=0 (speed=v0*cos(alpha)+...). After reset, slider v0 → v at t=0 is v0 itself. Use scene-delta: liveness verified by pressing play and checking readout changes."
+  },
+
+  "ch2-1-3": {
+    "engine": "sim2",
+    "chapter": 2,
+    "controls": [
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "tParam → point on ellipse" }
+    ],
+    "readouts": [
+      { "key": "R",  "selector": ".sim2-readout-value", "physFn": "radiusOfCurvature", "expectSign": null,
+        "notes": "R varies non-monotonically around ellipse (min at tips, max at sides). No single sign." },
+      { "key": "v",  "selector": ".sim2-readout-value", "physFn": "|velocityFromTrajectory|", "expectSign": null }
+    ],
+    "bMode": "a-only",
+    "reason": "Bespoke drag on ellipse (ch2-1-3 is one of the 5 bespoke-drag routes). tParam wraps around [0,2π]; R is non-monotonic. Liveness: drag changes R and |v| — Δ≠0 verifiable."
+  },
+
+  "ch2-1-3#sim3": {
+    "engine": "sim3",
+    "chapter": 2,
+    "controls": "same as ch2-1-3",
+    "debugPath": "__SIM3_DEBUG__['ch2-1-3']",
+    "debugFields": ["radius", "point", "tangent", "normal"],
+    "readouts": [
+      { "key": "radius", "debugPath": "__SIM3_DEBUG__['ch2-1-3'].radius", "physFn": "radiusOfCurvature", "expectSign": null }
+    ],
+    "bMode": "a-only",
+    "reason": "Mirrors ch2-1-3 bespoke drag; radius field confirmed present (ch2-1-3-3d.js line 73)."
+  },
+
+  "ch2-2-2": {
+    "engine": "sim2",
+    "chapter": 2,
+    "controls": [
+      { "kind": "slider",   "id": "omega0",   "physInput": "initial angular velocity", "min": 0,   "max": 2,   "step": 0.1 },
+      { "kind": "slider",   "id": "alphaAcc", "physInput": "angular acceleration",      "min": 0,   "max": 0.5, "step": 0.05 },
+      { "kind": "playback", "selector": ".sim2-playpause" }
+    ],
+    "readouts": [
+      { "key": "omega", "selector": ".sim2-readout-value", "physFn": "angularVelocity(omega0,alpha,t)=omega0+alpha*t", "expectSign": "+", "safeRange": [0, 2],
+        "notes": "FD omega0=0.5→0.6 at t=2: omega=0.8→0.9 sign=+. FD alphaAcc=0.15→0.2: omega=0.8→0.9 sign=+. Both sliders increase omega." },
+      { "key": "phi",   "selector": ".sim2-readout-value", "physFn": "angularDisplacement(omega0,alpha,t)", "expectSign": "+", "safeRange": [0, 2],
+        "notes": "phi increases with both omega0 and alphaAcc at fixed t>0." }
+    ],
+    "bMode": "scene-delta",
+    "reason": "Readout omega at t=0 (reset state) equals omega0 for any alpha. But phi(t=0)=0 always. Meaningful readout only during playback. Use scene-delta: press play, verify omega and phi change.",
+    "notes": "At reset (t=0): omega=omega0 (slider omega0 IS directly probed). This sub-case is local-monotonic."
+  },
+
+  "ch2-2-2#sim3": {
+    "engine": "sim3",
+    "chapter": 2,
+    "controls": "same as ch2-2-2",
+    "debugPath": "__SIM3_DEBUG__['ch2-2-2']",
+    "debugFields": ["phi", "omega", "omega0", "alphaAcc", "radius"],
+    "readouts": [
+      { "key": "omega", "debugPath": "__SIM3_DEBUG__['ch2-2-2'].omega", "physFn": "angularVelocity", "expectSign": "+" }
+    ],
+    "bMode": "scene-delta",
+    "notes": "omega field confirmed present (ch2-2-2-3d.js line 102)."
+  },
+
+  "ch2-3-2": {
+    "engine": "sim2",
+    "chapter": 2,
+    "controls": [
+      { "kind": "slider",   "id": "r1", "physInput": "gear/pulley radius 1", "min": 0.8, "max": 2.5, "step": 0.1 },
+      { "kind": "slider",   "id": "r2", "physInput": "gear/pulley radius 2", "min": 0.8, "max": 2.5, "step": 0.1 },
+      { "kind": "playback", "selector": ".sim2-playpause" }
+    ],
+    "readouts": [
+      { "key": "gearOmega", "selector": ".sim2-readout-value", "physFn": "gearRatio: |omega2|=omega1*r1/r2", "expectSign": "+", "safeRange": [0.8, 2.5],
+        "notes": "FD r1=1.4→1.5 |gearOmega2|=0.700→0.750 sign=+. FD r2=2→2.1 |gearOmega2|=0.700→0.667 sign=−. Probe r1 for sign=+." },
+      { "key": "beltV",     "selector": ".sim2-readout-value", "physFn": "beltVelocity(omega1,r1)=omega1*r1", "expectSign": "+", "safeRange": [0.8, 2.5],
+        "notes": "FD r1=1.4→1.5 beltV=1.4→1.5 sign=+. Probe r1." }
+    ],
+    "bMode": "monotonic",
+    "notes": "gearOmega2 displayed as signed value (negative for external gears). Readout shows signed value; magnitude increases with r1. Probe r1 → both beltV and |gearOmega2| increase."
+  },
+
+  "ch2-3-2#sim3": {
+    "engine": "sim3",
+    "chapter": 2,
+    "controls": "same as ch2-3-2",
+    "debugPath": "__SIM3_DEBUG__['ch2-3-2']",
+    "debugFields": ["r1", "r2", "omega1", "gearOmega2", "beltOmega2", "gearPhi1", "gearPhi2", "beltPhi2"],
+    "readouts": [
+      { "key": "gearOmega2", "debugPath": "__SIM3_DEBUG__['ch2-3-2'].gearOmega2", "physFn": "gearRatio", "expectSign": "-",
+        "notes": "gearOmega2 is negative for external gears. Increasing r1 makes it more negative. Probe: r1 increases → gearOmega2 decreases (more negative) sign=-." }
+    ],
+    "bMode": "monotonic",
+    "notes": "gearOmega2 field confirmed present (ch2-3-2-3d.js line 179)."
+  },
+
+  "ch2-4-4": {
+    "engine": "sim2",
+    "chapter": 2,
+    "controls": [
+      { "kind": "slider",   "id": "omega", "physInput": "frame angular velocity", "min": 0.4, "max": 2.5, "step": 0.1 },
+      { "kind": "slider",   "id": "vRel",  "physInput": "relative radial speed",   "min": 0.5, "max": 3.0, "step": 0.1 },
+      { "kind": "playback", "selector": ".sim2-playpause" }
+    ],
+    "readouts": [
+      { "key": "aCor", "selector": ".sim2-readout-value", "physFn": "coriolisAcceleration(omega,|vRel|)=2*omega*|vRel|", "expectSign": "+", "safeRange": [0.4, 2.5],
+        "notes": "FD omega=1.2→1.3 aCor=3.60→3.90 sign=+. FD vRel=1.5→1.6 aCor=3.60→3.84 sign=+." }
+    ],
+    "bMode": "scene-delta",
+    "reason": "vRel in readout is radialSpeed=0.75*params.vRel*cos(radialPhase); it oscillates during playback. Meaningful as scene-delta. At t=0 radialPhase=0 → radialSpeed=0.75*vRel (slider maps linearly).",
+    "notes": "At reset: vRel_display=0.75*params.vRel; slider vRel monotonically changes aCor_display."
+  },
+
+  "ch2-4-4#sim3": {
+    "engine": "sim3",
+    "chapter": 2,
+    "controls": "same as ch2-4-4",
+    "debugPath": "__SIM3_DEBUG__['ch2-4-4']",
+    "debugFields": ["omega", "vRel", "phi", "point", "vRelVec", "aCor"],
+    "readouts": [
+      { "key": "aCor.mag", "debugPath": "__SIM3_DEBUG__['ch2-4-4'].aCor.mag", "physFn": "coriolisAcceleration", "expectSign": "+" }
+    ],
+    "bMode": "scene-delta",
+    "notes": "aCor field with .mag confirmed present (ch2-4-4-3d.js line 73)."
+  },
+
+  "ch2-5-2": {
+    "engine": "sim2",
+    "chapter": 2,
+    "controls": [
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "A.x → bar end position" }
+    ],
+    "readouts": [
+      { "key": "IC", "selector": ".sim2-readout-value", "physFn": "locateInstantCenter→(ic.x,ic.y)", "expectSign": null,
+        "notes": "IC position changes non-monotonically as A slides. Not scalar monotonic." }
+    ],
+    "bMode": "a-only",
+    "reason": "Bespoke drag (ch2-5-2 is one of the 5 bespoke-drag routes). IC location varies geometrically. Liveness: drag A changes IC position — Δ≠0 verifiable."
+  },
+
+  "ch2-5-3": {
+    "engine": "sim2",
+    "chapter": 2,
+    "controls": [
+      { "kind": "slider",   "id": "omega", "physInput": "angular velocity", "min": 0.3, "max": 2.5, "step": 0.1 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "IC position" }
+    ],
+    "readouts": [
+      { "key": "vM", "selector": ".sim2-readout-value", "physFn": "instantCenterVelocity→|v_M|=omega*r(M,IC)", "expectSign": "+", "safeRange": [0.3, 2.5],
+        "notes": "FD omega=1.0→1.1, r_fixed: vM=3.9051→4.2956 sign=+." }
+    ],
+    "bMode": "monotonic",
+    "notes": "Probe slider omega with IC at default position. |v_M| = omega * dist(M, IC) — linear in omega."
+  },
+
+  "ch2-5-3#sim3": {
+    "engine": "sim3",
+    "chapter": 2,
+    "controls": "same as ch2-5-3",
+    "debugPath": "__SIM3_DEBUG__['ch2-5-3']",
+    "debugFields": ["omega", "ic", "sample", "radius", "vM"],
+    "readouts": [
+      { "key": "vM.mag", "debugPath": "__SIM3_DEBUG__['ch2-5-3'].vM.mag", "physFn": "instantCenterVelocity→|vM|", "expectSign": "+" }
+    ],
+    "bMode": "monotonic",
+    "notes": "vM.mag field confirmed present (ch2-5-3-3d.js line 102)."
+  },
+
+  "ch3-1-3": {
+    "engine": "sim2",
+    "chapter": 3,
+    "controls": [
+      { "kind": "slider", "id": "a", "physInput": "frame acceleration m/s²", "min": 0, "max": 8, "step": 0.5 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "arrow tip → a" }
+    ],
+    "readouts": [
+      { "key": "theta",        "selector": ".sim2-readout-value", "physFn": "atan(a/g)*180/pi", "expectSign": "+", "safeRange": [0, 8],
+        "notes": "FD a=3→3.5 theta=17.004→19.635 sign=+" },
+      { "key": "inertiaForce", "selector": ".sim2-readout-value", "physFn": "dalembertForce(1,a,0).fx=-a", "expectSign": "-", "safeRange": [0, 8],
+        "notes": "F*=-m*a=-a; as a increases F* becomes more negative. Displayed as negative value." }
+    ],
+    "bMode": "monotonic"
+  },
+
+  "ch3-1-3#sim3": {
+    "engine": "sim3",
+    "chapter": 3,
+    "controls": "same as ch3-1-3",
+    "debugPath": "__SIM3_DEBUG__['ch3-1-3']",
+    "debugFields": ["aFrame", "theta", "thetaDeg", "inertiaFx", "bob"],
+    "readouts": [
+      { "key": "thetaDeg", "debugPath": "__SIM3_DEBUG__['ch3-1-3'].thetaDeg", "physFn": "atan(a/g)*180/pi", "expectSign": "+" }
+    ],
+    "bMode": "monotonic",
+    "notes": "thetaDeg field confirmed present (ch3-1-3-3d.js line 77)."
+  },
+
+  "ch3-2-2": {
+    "engine": "sim2",
+    "chapter": 3,
+    "controls": [
+      { "kind": "slider",   "id": "F", "physInput": "force N",       "min": 2,   "max": 20,  "step": 1 },
+      { "kind": "slider",   "id": "m", "physInput": "mass kg",        "min": 1,   "max": 6,   "step": 0.5 },
+      { "kind": "playback", "selector": ".sim2-playpause" }
+    ],
+    "readouts": [
+      { "key": "a", "selector": ".sim2-readout-value", "physFn": "accelerationFromForce(F,m)=F/m", "expectSign": "+", "safeRange": [2, 20],
+        "notes": "FD F=6→7 m=2: a=3.0→3.5 sign=+. FD m=2→2.5 F=6: a=3.0→2.4 sign=-. Probe F for sign=+." }
+    ],
+    "bMode": "monotonic",
+    "notes": "a readout at any t reflects current accel(F,m). Probe slider F (sign=+); slider m sign=."
+  },
+
+  "ch3-2-3": {
+    "engine": "sim2",
+    "chapter": 3,
+    "controls": [
+      { "kind": "slider", "id": "F", "physInput": "force magnitude N", "min": 20, "max": 80, "step": 5 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "arrow tip → Fmag" }
+    ],
+    "readouts": [
+      { "key": "FAB",     "selector": ".sim2-readout-value", "physFn": "state.Fmag (identity)", "expectSign": "+", "safeRange": [20, 80] },
+      { "key": "pairMag", "selector": ".sim2-readout-value", "physFn": "|F_AB|=|F_BA|=Fmag",   "expectSign": "+", "safeRange": [20, 80],
+        "notes": "Both increase linearly with slider F." }
+    ],
+    "bMode": "monotonic"
+  },
+
+  "ch3-3-1": {
+    "engine": "sim2",
+    "chapter": 3,
+    "controls": [
+      { "kind": "slider",   "id": "k", "physInput": "spring constant N/m", "min": 1,   "max": 12,  "step": 1 },
+      { "kind": "slider",   "id": "m", "physInput": "mass kg",              "min": 0.5, "max": 4,   "step": 0.5 },
+      { "kind": "playback", "selector": ".sim2-playpause" }
+    ],
+    "readouts": [
+      { "key": "omega", "selector": ".sim2-readout-value", "physFn": "sqrt(k/m)", "expectSign": "+", "safeRange": [1, 12],
+        "notes": "FD k=4→5 m=1: omega=2.000→2.236 sign=+. FD m=1→1.5 k=4: omega=2.000→1.633 sign=-. Probe k for sign=+." }
+    ],
+    "bMode": "monotonic",
+    "notes": "omega displayed at any time regardless of playback state."
+  },
+
+  "ch3-5-2": {
+    "engine": "sim2",
+    "chapter": 3,
+    "controls": [
+      { "kind": "slider", "id": "F", "physInput": "force N",     "min": 2,   "max": 20,  "step": 1 },
+      { "kind": "slider", "id": "t", "physInput": "duration s",  "min": 0.5, "max": 4,   "step": 0.5 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "arrow tip → F" }
+    ],
+    "readouts": [
+      { "key": "J",  "selector": ".sim2-readout-value", "physFn": "F*t", "expectSign": "+", "safeRange": [2, 20],
+        "notes": "FD F=6→7 t=2: J=12→14 sign=+. FD t=2→2.5: J=12→15 sign=+. Both controls monotonically increase J." },
+      { "key": "dp", "selector": ".sim2-readout-value", "physFn": "m*(v1+a*t)-m*v1=F*t", "expectSign": "+", "safeRange": [2, 20],
+        "notes": "dp=J always (impulse-momentum theorem). Same sign." }
+    ],
+    "bMode": "monotonic"
+  },
+
+  "ch3-5-3": {
+    "engine": "sim2",
+    "chapter": 3,
+    "controls": [
+      { "kind": "slider",   "id": "r", "physInput": "arm radius m", "min": 0.8, "max": 3.5, "step": 0.1 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "mass position → r" },
+      { "kind": "playback", "selector": ".sim2-playpause" }
+    ],
+    "readouts": [
+      { "key": "omega", "selector": ".sim2-readout-value", "physFn": "Ltot/(2*m*r^2)", "expectSign": "-", "safeRange": [0.8, 3.5],
+        "notes": "FD r=3→2.5: omega=1.000→1.440 sign=+ (r decreases → omega increases). FD r=3→3.5: omega=1.000→0.735 sign=-. Probe: increasing slider r → sign=-." }
+    ],
+    "bMode": "monotonic",
+    "notes": "omega inversely proportional to r^2; slider r increase gives sign=-."
+  },
+
+  "ch3-5-3#sim3": {
+    "engine": "sim3",
+    "chapter": 3,
+    "controls": "same as ch3-5-3",
+    "debugPath": "__SIM3_DEBUG__['ch3-5-3']",
+    "debugFields": ["r", "phi", "omega", "inertia", "angularMomentum"],
+    "readouts": [
+      { "key": "omega", "debugPath": "__SIM3_DEBUG__['ch3-5-3'].omega", "physFn": "Ltot/(2*m*r^2)", "expectSign": "-",
+        "notes": "omega field confirmed present (ch3-5-3-3d.js line 61)." }
+    ],
+    "bMode": "monotonic"
+  },
+
+  "ch3-5-4": {
+    "engine": "sim2",
+    "chapter": 3,
+    "controls": [
+      { "kind": "slider", "id": "F", "physInput": "force N", "min": 1, "max": 15, "step": 1 },
+      { "kind": "drag-handle", "selector": ".sim2-handle", "physInput": "arrow tip → F" }
+    ],
+    "readouts": [
+      { "key": "W",  "selector": ".sim2-readout-value", "physFn": "workDone(F,6,0)=F*6", "expectSign": "+", "safeRange": [1, 15],
+        "notes": "FD F=4→5: W=24→30 sign=+." },
+      { "key": "dT", "selector": ".sim2-readout-value", "physFn": "kineticEnergy(m,v2)-kineticEnergy(m,v1)=W", "expectSign": "+", "safeRange": [1, 15],
+        "notes": "dT=W always. Same sign." }
+    ],
+    "bMode": "monotonic"
+  },
+
+  "ch3-6-2": {
+    "engine": "sim2",
+    "chapter": 3,
+    "controls": [
+      { "kind": "slider",   "id": "e",  "physInput": "restitution coefficient", "min": 0,   "max": 1,   "step": 0.05 },
+      { "kind": "slider",   "id": "m1", "physInput": "mass 1 kg",               "min": 1,   "max": 5,   "step": 0.5 },
+      { "kind": "slider",   "id": "m2", "physInput": "mass 2 kg",               "min": 1,   "max": 5,   "step": 0.5 },
+      { "kind": "playback", "selector": ".sim2-playpause" }
+    ],
+    "readouts": [
+      { "key": "T_loss", "selector": ".sim2-readout-value", "physFn": "T0-T_after via restitutionVelocity", "expectSign": "-", "safeRange": [0.05, 0.95],
+        "notes": "FD e=0.7→0.5: T_loss=3.133→4.608 sign=+ (lower e → more loss). FD e=0.7→0.9: T_loss=3.133→1.167 sign=-. Probe: increasing e → T_loss decreases sign=-." },
+      { "key": "p_total", "selector": ".sim2-readout-value", "physFn": "momentum2d→conserved", "expectSign": "0",
+        "notes": "p_total conserved regardless of e/m changes. Not a useful sign probe." }
+    ],
+    "bMode": "scene-delta",
+    "reason": "T_loss only meaningful after collision event (playback-driven). Before collision T_loss=0. Scene-delta: press play, allow collision, verify T_loss > 0.",
+    "notes": "Slider e controls post-collision energy loss. After collision: increasing e → T_loss sign=-."
+  },
+
+  "ch3-6-2#sim3": {
+    "engine": "sim3",
+    "chapter": 3,
+    "controls": "same as ch3-6-2",
+    "debugPath": "__SIM3_DEBUG__['ch3-6-2']",
+    "debugFields": ["p1", "p2", "v1", "v2", "m1", "m2", "e", "collided", "impactPoint", "distanceToImpact"],
+    "readouts": [
+      { "key": "collided", "debugPath": "__SIM3_DEBUG__['ch3-6-2'].collided", "physFn": "collision state bool", "expectSign": null }
+    ],
+    "bMode": "scene-delta",
+    "reason": "scene-delta: collision event-driven. distanceToImpact field allows probe to wait for impact. collided field confirmed (ch3-6-2-3d.js line 93)."
+  }
+}

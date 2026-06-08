@@ -1,0 +1,1793 @@
+{
+  "generatedAt": "2026-06-08T10:39:02.712Z",
+  "epsilon": {
+    "live": 0.0001,
+    "sign": 0.000001
+  },
+  "playbackSteps": 120,
+  "routeCount": 35,
+  "routes": [
+    {
+      "route": "ch1-1-3",
+      "baseId": "ch1-1-3",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:F",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 100,
+          "after": 10,
+          "delta": -90,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:alpha",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 81.9,
+          "after": 0,
+          "delta": -81.9,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 81.9,
+          "after": 104,
+          "delta": 22.099999999999994,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "Fx",
+            "control": "F",
+            "rowIndex": 1,
+            "driveLow": 10,
+            "driveHigh": 120,
+            "readoutLow": 8.2,
+            "readoutHigh": 98.3,
+            "delta": 90.1,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-1-4",
+      "baseId": "ch1-1-4",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:F",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 200,
+          "after": 400,
+          "delta": 200,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 200,
+          "after": 312,
+          "delta": 112,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "M",
+            "control": "F",
+            "rowIndex": 2,
+            "driveLow": 10,
+            "driveHigh": 100,
+            "readoutLow": 40,
+            "readoutHigh": 400,
+            "delta": 360,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-1-5",
+      "baseId": "ch1-1-5",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "scene-delta",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": -20,
+          "after": -158.7,
+          "delta": -138.7,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "scene-delta: liveness-only (no monotonic scalar chain)"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-1-5#sim3",
+      "baseId": "ch1-1-5",
+      "engine": "sim3",
+      "chapter": 1,
+      "bMode": "scene-delta",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "drag-handle",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "resultant.Mo",
+          "before": -20,
+          "after": -158.6666777639678,
+          "delta": -138.6666777639678,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "scene-delta: no target — sign not applicable"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-1-6",
+      "baseId": "ch1-1-6",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:d",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 150,
+          "after": 300,
+          "delta": 150,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 150,
+          "after": 62.8,
+          "delta": -87.2,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "M_couple",
+            "control": "d",
+            "rowIndex": 2,
+            "driveLow": 1,
+            "driveHigh": 6,
+            "readoutLow": 50,
+            "readoutHigh": 300,
+            "delta": 250,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-1-8",
+      "baseId": "ch1-1-8",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:P",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 100,
+          "after": 200,
+          "delta": 100,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 60,
+          "after": 26.4,
+          "delta": -33.6,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "Ra",
+            "control": "P",
+            "rowIndex": 2,
+            "driveLow": 20,
+            "driveHigh": 200,
+            "readoutLow": 12,
+            "readoutHigh": 120,
+            "delta": 108,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          },
+          {
+            "key": "Rb",
+            "control": "P",
+            "rowIndex": 3,
+            "driveLow": 20,
+            "driveHigh": 200,
+            "readoutLow": 8,
+            "readoutHigh": 80,
+            "delta": 72,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-2-3",
+      "baseId": "ch1-2-3",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "a-only",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 82,
+          "after": 135,
+          "delta": 53,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "a-only: liveness-only (no monotonic scalar chain)"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-3-2",
+      "baseId": "ch1-3-2",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "local-monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:alpha",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 57.7,
+          "after": 193.2,
+          "delta": 135.5,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 30,
+          "after": 5,
+          "delta": -25,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "T",
+            "control": "alpha",
+            "rowIndex": 2,
+            "driveLow": 5,
+            "driveHigh": 75,
+            "readoutLow": 50.2,
+            "readoutHigh": 193.2,
+            "delta": 143,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-3-6",
+      "baseId": "ch1-3-6",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:P",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 400,
+          "after": 750,
+          "delta": 350,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:a",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 400,
+          "after": 40,
+          "delta": -360,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 400,
+          "after": 621.8,
+          "delta": 221.79999999999995,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "M_ngam",
+            "control": "P",
+            "rowIndex": 3,
+            "driveLow": 20,
+            "driveHigh": 150,
+            "readoutLow": 100,
+            "readoutHigh": 750,
+            "delta": 650,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-5-3",
+      "baseId": "ch1-5-3",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "local-monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:beta",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 18,
+          "after": 60,
+          "delta": 42,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:mu",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 24.2,
+          "after": 45,
+          "delta": 20.8,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 18,
+          "after": 36.6,
+          "delta": 18.6,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "phi",
+            "control": "mu",
+            "rowIndex": 1,
+            "driveLow": 0.1,
+            "driveHigh": 1,
+            "readoutLow": 5.7,
+            "readoutHigh": 45,
+            "delta": 39.3,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-5-3#sim3",
+      "baseId": "ch1-5-3",
+      "engine": "sim3",
+      "chapter": 1,
+      "bMode": "local-monotonic",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:beta",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "betaDeg",
+          "before": 3,
+          "after": 60,
+          "delta": 57,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:mu",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "phiDeg",
+          "before": 5.710593137499643,
+          "after": 45,
+          "delta": 39.28940686250036,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "betaDeg",
+          "before": 3,
+          "after": 15.420781358201623,
+          "delta": 12.420781358201623,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "channel": "sim3-webgl",
+        "items": [
+          {
+            "field": "phiDeg",
+            "control": "mu",
+            "driveLow": 0.1,
+            "driveHigh": 1,
+            "readoutLow": 5.710593137499643,
+            "readoutHigh": 45,
+            "delta": 39.28940686250036,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch1-6-3",
+      "baseId": "ch1-6-3",
+      "engine": "sim2",
+      "chapter": 1,
+      "bMode": "a-only",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 2.77,
+          "after": 3.09,
+          "delta": 0.31999999999999984,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "a-only: liveness-only (no monotonic scalar chain)"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-1-1",
+      "baseId": "ch2-1-1",
+      "engine": "sim2",
+      "chapter": 2,
+      "bMode": "scene-delta",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:v0",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 14,
+          "after": 8,
+          "delta": -6,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:alpha",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": null,
+          "after": null,
+          "delta": null,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "playback",
+          "before": 14,
+          "after": 11.7,
+          "delta": -2.3000000000000007,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "scene-delta: liveness-only (no monotonic scalar chain)"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-1-3",
+      "baseId": "ch2-1-3",
+      "engine": "sim2",
+      "chapter": 2,
+      "bMode": "a-only",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 3.3,
+          "after": 6.38,
+          "delta": 3.08,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "a-only: liveness-only (no monotonic scalar chain)"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-1-3#sim3",
+      "baseId": "ch2-1-3",
+      "engine": "sim3",
+      "chapter": 2,
+      "bMode": "a-only",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "drag-handle",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "radius",
+          "before": 3.3039141396202116,
+          "after": 6.379767229741198,
+          "delta": 3.075853090120986,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "a-only: no target — sign not applicable"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-2-2",
+      "baseId": "ch2-2-2",
+      "engine": "sim2",
+      "chapter": 2,
+      "bMode": "scene-delta",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:omega0",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 0.5,
+          "after": 2,
+          "delta": 1.5,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:alphaAcc",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 0.15,
+          "after": 0.5,
+          "delta": 0.35,
+          "sceneChanged": false,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "playback",
+          "before": 0,
+          "after": 1.33,
+          "delta": 1.33,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "scene-delta: liveness-only (no monotonic scalar chain)"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-2-2#sim3",
+      "baseId": "ch2-2-2",
+      "engine": "sim3",
+      "chapter": 2,
+      "bMode": "scene-delta",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:omega0",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "omega",
+          "before": 0,
+          "after": 2,
+          "delta": 2,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:alphaAcc",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "updatedAt",
+          "before": 8,
+          "after": 9,
+          "delta": 1,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "updatedAt",
+          "before": 12,
+          "after": 134,
+          "delta": 122,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "scene-delta: no target — sign not applicable"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-3-2",
+      "baseId": "ch2-3-2",
+      "engine": "sim2",
+      "chapter": 2,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:r1",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 1.4,
+          "after": 2.5,
+          "delta": 1.1,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:r2",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 2,
+          "after": 0.8,
+          "delta": -1.2,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "playback",
+          "before": null,
+          "after": null,
+          "delta": null,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "beltV",
+            "control": "r1",
+            "rowIndex": 4,
+            "driveLow": 0.8,
+            "driveHigh": 2.5,
+            "readoutLow": 0.8,
+            "readoutHigh": 2.5,
+            "delta": 1.7,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-3-2#sim3",
+      "baseId": "ch2-3-2",
+      "engine": "sim3",
+      "chapter": 2,
+      "bMode": "monotonic",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:r1",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "gearOmega2",
+          "before": -1,
+          "after": -3.125,
+          "delta": -2.125,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:r2",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "r2",
+          "before": 0.8,
+          "after": 2.5,
+          "delta": 1.7,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "updatedAt",
+          "before": 12,
+          "after": 134,
+          "delta": 122,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "channel": "sim3-webgl",
+        "items": [
+          {
+            "field": "gearOmega2",
+            "control": "r1",
+            "driveLow": 0.8,
+            "driveHigh": 2.5,
+            "readoutLow": -1,
+            "readoutHigh": -3.125,
+            "delta": -2.125,
+            "observedSign": "-",
+            "expectSign": "-",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-4-4",
+      "baseId": "ch2-4-4",
+      "engine": "sim2",
+      "chapter": 2,
+      "bMode": "scene-delta",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:omega",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 2.7,
+          "after": 5.63,
+          "delta": 2.9299999999999997,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:vRel",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 2.7,
+          "after": 5.4,
+          "delta": 2.7,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "playback",
+          "before": 2.7,
+          "after": 0.12,
+          "delta": -2.58,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "scene-delta: liveness-only (no monotonic scalar chain)"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-4-4#sim3",
+      "baseId": "ch2-4-4",
+      "engine": "sim3",
+      "chapter": 2,
+      "bMode": "scene-delta",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:omega",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "omega",
+          "before": 0.4,
+          "after": 2.5,
+          "delta": 2.1,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:vRel",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "vRel",
+          "before": 0.375,
+          "after": 2.25,
+          "delta": 1.875,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "updatedAt",
+          "before": 12,
+          "after": 134,
+          "delta": 122,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "scene-delta: no target — sign not applicable"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-5-2",
+      "baseId": "ch2-5-2",
+      "engine": "sim2",
+      "chapter": 2,
+      "bMode": "a-only",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": -2,
+          "after": 0.8,
+          "delta": 2.8,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "a-only: liveness-only (no monotonic scalar chain)"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-5-3",
+      "baseId": "ch2-5-3",
+      "engine": "sim2",
+      "chapter": 2,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:omega",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 3.91,
+          "after": 9.76,
+          "delta": 5.85,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 3.91,
+          "after": 1.55,
+          "delta": -2.3600000000000003,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "vM",
+            "control": "omega",
+            "rowIndex": 2,
+            "driveLow": 0.3,
+            "driveHigh": 2.5,
+            "readoutLow": 1.17,
+            "readoutHigh": 9.76,
+            "delta": 8.59,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch2-5-3#sim3",
+      "baseId": "ch2-5-3",
+      "engine": "sim3",
+      "chapter": 2,
+      "bMode": "monotonic",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:omega",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "vM.mag",
+          "before": 1.1715374513859982,
+          "after": 9.76281209488332,
+          "delta": 8.591274643497322,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "updatedAt",
+          "before": 4,
+          "after": 1,
+          "delta": -3,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "channel": "sim3-webgl",
+        "items": [
+          {
+            "field": "vM.mag",
+            "control": "omega",
+            "driveLow": 0.3,
+            "driveHigh": 2.5,
+            "readoutLow": 0.46587987885660165,
+            "readoutHigh": 3.882332323805014,
+            "delta": 3.416452444948412,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-1-3",
+      "baseId": "ch3-1-3",
+      "engine": "sim2",
+      "chapter": 3,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:a",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 17,
+          "after": 39.2,
+          "delta": 22.200000000000003,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 17,
+          "after": 39.2,
+          "delta": 22.200000000000003,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "theta",
+            "control": "a",
+            "rowIndex": 2,
+            "driveLow": 0,
+            "driveHigh": 8,
+            "readoutLow": 0,
+            "readoutHigh": 39.2,
+            "delta": 39.2,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          },
+          {
+            "key": "inertiaForce",
+            "control": "a",
+            "rowIndex": 1,
+            "driveLow": 0,
+            "driveHigh": 8,
+            "readoutLow": 0,
+            "readoutHigh": -8,
+            "delta": -8,
+            "observedSign": "-",
+            "expectSign": "-",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-1-3#sim3",
+      "baseId": "ch3-1-3",
+      "engine": "sim3",
+      "chapter": 3,
+      "bMode": "monotonic",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:a",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "thetaDeg",
+          "before": 0,
+          "after": 39.197050897473275,
+          "delta": 39.197050897473275,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "thetaDeg",
+          "before": 0,
+          "after": 39.197050897473275,
+          "delta": 39.197050897473275,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "channel": "sim3-webgl",
+        "items": [
+          {
+            "field": "thetaDeg",
+            "control": "a",
+            "driveLow": 0,
+            "driveHigh": 8,
+            "readoutLow": 0,
+            "readoutHigh": 39.197050897473275,
+            "delta": 39.197050897473275,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-2-2",
+      "baseId": "ch3-2-2",
+      "engine": "sim2",
+      "chapter": 3,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:F",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 6,
+          "after": 20,
+          "delta": 14,
+          "sceneChanged": false,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:m",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 2,
+          "after": 6,
+          "delta": 4,
+          "sceneChanged": false,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "playback",
+          "before": 0,
+          "after": 6.1,
+          "delta": 6.1,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "a",
+            "control": "F",
+            "rowIndex": 2,
+            "driveLow": 2,
+            "driveHigh": 20,
+            "readoutLow": 1,
+            "readoutHigh": 10,
+            "delta": 9,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-2-3",
+      "baseId": "ch3-2-3",
+      "engine": "sim2",
+      "chapter": 3,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:F",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 60,
+          "after": 20,
+          "delta": -40,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 60,
+          "after": 20,
+          "delta": -40,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "pairMag",
+            "control": "F",
+            "rowIndex": 2,
+            "driveLow": 20,
+            "driveHigh": 80,
+            "readoutLow": 20,
+            "readoutHigh": 80,
+            "delta": 60,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-3-1",
+      "baseId": "ch3-3-1",
+      "engine": "sim2",
+      "chapter": 3,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:k",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 4,
+          "after": 12,
+          "delta": 8,
+          "sceneChanged": false,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:m",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 1,
+          "after": 4,
+          "delta": 3,
+          "sceneChanged": false,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "playback",
+          "before": 2,
+          "after": -1.2,
+          "delta": -3.2,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "omega",
+            "control": "k",
+            "rowIndex": 2,
+            "driveLow": 1,
+            "driveHigh": 12,
+            "readoutLow": 1,
+            "readoutHigh": 3.46,
+            "delta": 2.46,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-5-2",
+      "baseId": "ch3-5-2",
+      "engine": "sim2",
+      "chapter": 3,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:F",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 12,
+          "after": 40,
+          "delta": 28,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:t",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 12,
+          "after": 24,
+          "delta": 12,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 12,
+          "after": 40,
+          "delta": 28,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "J",
+            "control": "F",
+            "rowIndex": 2,
+            "driveLow": 2,
+            "driveHigh": 20,
+            "readoutLow": 4,
+            "readoutHigh": 40,
+            "delta": 36,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-5-3",
+      "baseId": "ch3-5-3",
+      "engine": "sim2",
+      "chapter": 3,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:r",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 36,
+          "after": 2.56,
+          "delta": -33.44,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 36,
+          "after": 6,
+          "delta": -30,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "playback",
+          "before": null,
+          "after": null,
+          "delta": null,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "omega",
+            "control": "r",
+            "rowIndex": 2,
+            "driveLow": 0.8,
+            "driveHigh": 3.5,
+            "readoutLow": 14.06,
+            "readoutHigh": 0.73,
+            "delta": -13.33,
+            "observedSign": "-",
+            "expectSign": "-",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-5-3#sim3",
+      "baseId": "ch3-5-3",
+      "engine": "sim3",
+      "chapter": 3,
+      "bMode": "monotonic",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:r",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "inertia",
+          "before": 2.5600000000000005,
+          "after": 49,
+          "delta": 46.44,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "inertia",
+          "before": 2.5600000000000005,
+          "after": 40.6528036931822,
+          "delta": 38.0928036931822,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "updatedAt",
+          "before": 3,
+          "after": 125,
+          "delta": 122,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "channel": "sim3-webgl",
+        "items": [
+          {
+            "field": "omega",
+            "control": "r",
+            "driveLow": 0.8,
+            "driveHigh": 3.5,
+            "readoutLow": 14.062499999999996,
+            "readoutHigh": 0.7346938775510204,
+            "delta": -13.327806122448976,
+            "observedSign": "-",
+            "expectSign": "-",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-5-4",
+      "baseId": "ch3-5-4",
+      "engine": "sim2",
+      "chapter": 3,
+      "bMode": "monotonic",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:F",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 24,
+          "after": 90,
+          "delta": 66,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        },
+        {
+          "control": "drag-handle",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "drag-handle",
+          "before": 24,
+          "after": 90,
+          "delta": 66,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": true,
+        "items": [
+          {
+            "key": "W",
+            "control": "F",
+            "rowIndex": 2,
+            "driveLow": 1,
+            "driveHigh": 15,
+            "readoutLow": 6,
+            "readoutHigh": 90,
+            "delta": 84,
+            "observedSign": "+",
+            "expectSign": "+",
+            "match": true
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-6-2",
+      "baseId": "ch3-6-2",
+      "engine": "sim2",
+      "chapter": 3,
+      "bMode": "scene-delta",
+      "channel": "sim2-dom",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:e",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": null,
+          "after": null,
+          "delta": null,
+          "sceneChanged": false,
+          "deltaNonZero": false
+        },
+        {
+          "control": "slider:m1",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 6.34,
+          "after": 13.6,
+          "delta": 7.26,
+          "sceneChanged": false,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:m2",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "slider",
+          "before": 1.4,
+          "after": 3.4,
+          "delta": 2,
+          "sceneChanged": false,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim2-dom",
+          "driven": true,
+          "detail": "playback",
+          "before": 6.34,
+          "after": 3.21,
+          "delta": -3.13,
+          "sceneChanged": true,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "scene-delta: liveness-only (no monotonic scalar chain)"
+      },
+      "pageErrors": []
+    },
+    {
+      "route": "ch3-6-2#sim3",
+      "baseId": "ch3-6-2",
+      "engine": "sim3",
+      "chapter": 3,
+      "bMode": "scene-delta",
+      "channel": "sim3-webgl",
+      "mounted": true,
+      "probeA": [
+        {
+          "control": "slider:e",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": null,
+          "before": null,
+          "after": null,
+          "delta": null,
+          "deltaNonZero": false
+        },
+        {
+          "control": "slider:m1",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "m1",
+          "before": 1,
+          "after": 5,
+          "delta": 4,
+          "deltaNonZero": true
+        },
+        {
+          "control": "slider:m2",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "m2",
+          "before": 1,
+          "after": 5,
+          "delta": 4,
+          "deltaNonZero": true
+        },
+        {
+          "control": "playback",
+          "channel": "sim3-webgl",
+          "driven": true,
+          "field": "updatedAt",
+          "before": 1,
+          "after": 123,
+          "delta": 122,
+          "deltaNonZero": true
+        }
+      ],
+      "probeB": {
+        "feasible": false,
+        "bSkipped": true,
+        "reason": "scene-delta: no target — sign not applicable"
+      },
+      "pageErrors": []
+    }
+  ]
+}
