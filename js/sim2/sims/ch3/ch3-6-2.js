@@ -16,6 +16,8 @@
     const { svg, tf, overlay, render, canvas } = shell;
     const R1 = 0.6, R2 = 0.8;
     const params = { m1: 2, m2: 3, e: 0.7 };
+    // Điều kiện đầu dùng chung cho reset() + predictLoss() (DRY).
+    const INIT = { p1: { x: -4, y: 0 }, p2: { x: 3, y: 0 }, v1: { x: 2.2, y: 0 }, v2: { x: -1.0, y: 0 } };
 
     svg.appendChild(render.line(tf, { x: -6, y: -1 }, { x: 6, y: -1 }, { stroke: Pal.axis, width: 1 }));
     const b1 = render.circle(tf, { x: 0, y: 0 }, R1, { gradient: 'x', depth: true, stroke: Pal.x, width: 2 }); svg.appendChild(b1);
@@ -29,14 +31,25 @@
     let p1, p2, v1, v2, trail1, trail2, collided, T0;
 
     function reset() {
-      p1 = { x: -4, y: 0 }; p2 = { x: 3, y: 0 };
-      v1 = { x: 2.2, y: 0 }; v2 = { x: -1.0, y: 0 };
+      p1 = { x: INIT.p1.x, y: INIT.p1.y }; p2 = { x: INIT.p2.x, y: INIT.p2.y };
+      v1 = { x: INIT.v1.x, y: INIT.v1.y }; v2 = { x: INIT.v2.x, y: INIT.v2.y };
       trail1 = []; trail2 = []; collided = false;
       clearImpactCue();
       if (sim3) sim3.reset();
       T0 = D.kineticEnergy(params.m1, Math.hypot(v1.x, v1.y)) +
            D.kineticEnergy(params.m2, Math.hypot(v2.x, v2.y));
       draw();
+    }
+
+    // Dự đoán T mất hậu-va-chạm ở điều kiện đầu (va chạm trực diện trên y=0 → normal +x,
+    // v không đổi trước va chạm nên kết quả khớp lúc va chạm thật). Dùng đúng hàm port.
+    function predictLoss(e) {
+      const r = D.resolveCollision2D(params.m1, params.m2, INIT.p1, INIT.p2, INIT.v1, INIT.v2, e);
+      const Tin = D.kineticEnergy(params.m1, Math.hypot(INIT.v1.x, INIT.v1.y)) +
+                  D.kineticEnergy(params.m2, Math.hypot(INIT.v2.x, INIT.v2.y));
+      const Tout = D.kineticEnergy(params.m1, Math.hypot(r.v1.x, r.v1.y)) +
+                   D.kineticEnergy(params.m2, Math.hypot(r.v2.x, r.v2.y));
+      return Math.max(0, Tin - Tout);
     }
 
     function clearImpactCue() {
@@ -90,7 +103,8 @@
         { key: 'phase', label: 'Pha:', value: collided ? 'Sau va chạm' : 'Trước va chạm' },
         { key: 'momentum', label: 'p tổng:', value: pTot.x.toFixed(2) + ' kg·m/s' },
         { key: 'energy', label: 'T tổng:', value: T.toFixed(2) + ' J' },
-        { key: 'energyLoss', label: 'T mất:', value: Math.max(0, T0 - T).toFixed(2) + ' J' }
+        { key: 'energyLoss', label: 'T mất:', value: Math.max(0, T0 - T).toFixed(2) + ' J' },
+        { key: 'lossPredict', label: 'ΔT dự đoán:', value: predictLoss(params.e).toFixed(2) + ' J' }
       ]);
       if (sim3) sim3.setState({
         p1, p2, v1, v2, m1: params.m1, m2: params.m2, e: params.e,
@@ -135,7 +149,7 @@
     shell.addControls({
       sliders: [
         { id: 'e', label: 'e', min: 0, max: 1, step: 0.05, value: params.e, unit: '',
-          onInput: v => { params.e = v; } },
+          onInput: v => { params.e = v; draw(); } },
         { id: 'm1', label: 'm₁', min: 1, max: 5, step: 0.5, value: params.m1, unit: 'kg',
           onInput: v => { params.m1 = v; reset(); } },
         { id: 'm2', label: 'm₂', min: 1, max: 5, step: 0.5, value: params.m2, unit: 'kg',

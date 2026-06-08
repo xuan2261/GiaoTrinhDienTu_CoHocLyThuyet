@@ -56,8 +56,9 @@
       setArrow(acArrow, p, { x: p.x + ac.ax * VS, y: p.y + ac.ay * VS });
       const acLen = Math.hypot(ac.ax, ac.ay) || 1;
       const acDir = { x: ac.ax / acLen, y: ac.ay / acLen };
-      overlay.moveLabel(lblVr, { x: p.x + ur.x * 0.9, y: p.y + ur.y * 0.9 });
-      overlay.moveLabel(lblAc, { x: p.x + acDir.x * 1.15, y: p.y + acDir.y * 1.15 });
+      // Đẩy nhãn xa hơn theo 2 hướng vuông góc (v_rel dọc bán kính, a_cor dọc Coriolis) → không chồng khi vector ngắn.
+      overlay.moveLabel(lblVr, { x: p.x + ur.x * 1.25, y: p.y + ur.y * 1.25 });
+      overlay.moveLabel(lblAc, { x: p.x + acDir.x * 1.95, y: p.y + acDir.y * 1.95 });
       panel.setReadout([
         { key: 'omega', label: 'ω:', value: params.omega.toFixed(2) + ' rad/s' },
         { key: 'vRel', label: 'v_rel:', value: radialSpeed.toFixed(2) + ' m/s' },

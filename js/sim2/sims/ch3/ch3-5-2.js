@@ -30,7 +30,9 @@
     });
     svg.appendChild(impulseSpan);
 
-    overlay.label('p(t)', { x: gx0 + gw, y: gy0 }, { anchor: 'left', color: Pal.v });
+    // p(t) bám đỉnh đường lục (gy0+gh, luôn cố định do chuẩn hóa theo pMax); nhãn J cho đường cam baseline.
+    overlay.label('p(t)', { x: gx0 + gw, y: gy0 + gh }, { anchor: 'left', color: Pal.v });
+    overlay.label('J = F·t', { x: gx0 + gw * 0.5, y: gy0 }, { anchor: 'top', color: Pal.resultant });
     const lblF = overlay.label('F', { x: 2, y: 0.5 }, { anchor: 'left', color: Pal.force });
 
     function render2() {
