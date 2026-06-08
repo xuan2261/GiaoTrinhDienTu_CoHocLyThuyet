@@ -328,23 +328,18 @@ if (fontZoomLevel !== 0) applyFontZoom();
 // ============================================
 // PROGRESS TRACKING
 // ============================================
-function getReadPages() {
+// Nguồn duy nhất: chlyt_progress (ghi bởi js/progress.js). Topbar đếm theo
+// visits>0 (phản hồi tức thì khi mở trang); home per-chương dùng cờ read (8s).
+function getReadingProgress() {
   try {
-    return JSON.parse(localStorage.getItem('readPages') || '{}');
+    return JSON.parse(localStorage.getItem('chlyt_progress') || '{}');
   } catch { return {}; }
 }
 
-function markPageRead(id) {
-  const pages = getReadPages();
-  pages[id] = Date.now();
-  localStorage.setItem('readPages', JSON.stringify(pages));
-  updateProgress();
-}
-
 function updateProgress() {
-  const pages = getReadPages();
+  const pages = getReadingProgress();
   const total = PAGE_ORDER.length;
-  const read = PAGE_ORDER.filter(p => pages[p]).length;
+  const read = PAGE_ORDER.filter(p => pages[p] && pages[p].visits > 0).length;
   const pct = total > 0 ? Math.round(read / total * 100) : 0;
   const fill = document.querySelector('.progress-fill');
   if (fill) fill.style.width = pct + '%';

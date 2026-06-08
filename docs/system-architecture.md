@@ -103,9 +103,8 @@ Sim3 pilot QA là tách riêng theo route. Sáu route `ch2-2-2`, `ch2-3-2`, `ch2
 |---|---|---|
 | `theme` | `js/app.js` | Sáng/tối |
 | `fontZoom` | `js/app.js` | Mức zoom chữ |
-| `readPages` | `js/app.js` | Trang đã đọc |
 | `quizScores` | `js/quiz.js` | Score quiz |
-| `chlyt_progress` | `js/progress.js` | Visit/read state |
+| `chlyt_progress` | `js/progress.js` | Nguồn duy nhất tiến trình đọc (topbar + home) |
 | `chlyt_bookmarks` | `js/progress.js` | Bookmark |
 | `chlyt_notes` | `js/notes.js` | Highlight và note |
 | `chlyt_activity_progress_v1` | `js/sim-activities.js` | Micro-checker progress |

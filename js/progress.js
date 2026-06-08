@@ -123,6 +123,8 @@
   function onPageChange() {
     const pageId = getCurrentPageId();
     trackPage(pageId);
+    // Topbar bar nuôi từ cùng store chlyt_progress (updateProgress định nghĩa ở app.js).
+    if (typeof updateProgress === 'function') updateProgress();
     setTimeout(() => {
       injectBookmarkBtn();
       injectProgressBars();

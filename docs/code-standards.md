@@ -66,9 +66,8 @@ Mục tiêu của file này là giữ code ổn định, dễ regenerate, và kh
 |---|---|---|
 | `theme` | `js/app.js` | Ghi mode sáng/tối |
 | `fontZoom` | `js/app.js` | Ghi level zoom |
-| `readPages` | `js/app.js` | Track trang đã đọc |
 | `quizScores` | `js/quiz.js` | Lưu score quiz |
-| `chlyt_progress` | `js/progress.js` | Track visits/read per page |
+| `chlyt_progress` | `js/progress.js` | Nguồn DUY NHẤT tiến trình đọc: visits/read per page (topbar đếm visits>0, home per-chương dùng read) |
 | `chlyt_bookmarks` | `js/progress.js` | Lưu bookmark |
 | `chlyt_notes` | `js/notes.js` | Lưu highlight và note |
 | `chlyt_activity_progress_v1` | `js/sim-activities.js` | Lưu tiến trình micro-checker theo route |

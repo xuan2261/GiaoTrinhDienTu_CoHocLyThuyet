@@ -218,7 +218,6 @@ async function loadPage(id) {
     }
     addPageNavButtons(baseId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    markPageRead(baseId);
     return;
   }
 
@@ -266,7 +265,7 @@ async function loadPage(id) {
     renderMath(ca);
 
     // Mount simulation if SIM_MAP has this route (BEFORE nav buttons so sim appears above)
-    initSimulations(ca, id);
+    initSimulations(ca, baseId);
 
     // Add page navigation buttons
     addPageNavButtons(id);
@@ -276,9 +275,6 @@ async function loadPage(id) {
 
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // Mark as read
-    markPageRead(id);
 
   } catch (err) {
     if (loadToken !== loadSequence) return;

@@ -98,7 +98,7 @@ Visual artifacts cho batch mới được lưu dưới `plans/260603-2100-sim3-c
 |---|---|
 | Bundle offline | `js/pages.js` là file sinh tự động, không sửa tay |
 | DOCX source of truth | `CoHocLyThuyet_Full_New.docx` quyết định text, outline, figure, reference |
-| State client-side | `theme`, `fontZoom`, `readPages`, `quizScores`, `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes` |
+| State client-side | `theme`, `fontZoom`, `quizScores`, `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes` |
 | Chạy lại nav | Sau khi đổi fragment, luôn chạy `tools/update_nav.py` |
 | Chạy audit | Luôn chạy `tools/audit.py` trước khi chốt bản build |
 | Strict image publish | Chạy `tools/audit.py --strict-images` khi cần kiểm caption/alt/wrapper ảnh trước publish |

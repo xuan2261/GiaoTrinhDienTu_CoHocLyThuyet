@@ -31,7 +31,9 @@ async function loadQuizData(chId) {
     return data;
   } catch (e) {
     console.warn(`Quiz data not found for ${chId}`, e);
-    return [];
+    // Cache cả kết quả rỗng → render lại (vd "Làm lại") không fetch lặp.
+    quizState[key] = [];
+    return quizState[key];
   }
 }
 

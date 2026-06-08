@@ -84,8 +84,10 @@
     if (noteText !== null) doHighlight(noteText);
   }
 
-  // Restore highlights from localStorage (visual indicator)
-  function restoreHighlights() {
+  // Cập nhật badge đếm số ghi chú của trang hiện tại (đọc từ localStorage).
+  // KHÔNG vẽ lại vùng highlight: dữ liệu lưu không có anchor để re-wrap đáng tin.
+  // Danh sách note đầy đủ xem qua panel (showNotesPanel).
+  function refreshNotesIndicator() {
     const pid = getPageId();
     const notes = getNotes();
     const pageNotes = notes[pid];
@@ -139,7 +141,7 @@
         if (notes2[pid]) { notes2[pid].splice(idx, 1); saveNotes(notes2); }
         panel.remove();
         showNotesPanel();
-        restoreHighlights();
+        refreshNotesIndicator();
       });
     });
   }
@@ -159,14 +161,14 @@
 
   // Init on content change
   const obs = new MutationObserver(() => {
-    setTimeout(restoreHighlights, 500);
+    setTimeout(refreshNotesIndicator, 500);
   });
 
   function init() {
     const ca = document.getElementById('content-area');
     if (ca) obs.observe(ca, { childList: true });
     document.addEventListener('mouseup', onMouseUp);
-    restoreHighlights();
+    refreshNotesIndicator();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
