@@ -92,9 +92,9 @@ test.describe('sim3 pilot visual capture', () => {
       }
       if (cfg.id === 'ch3-6-2') {
         routeFlags.push(
-          { severity: audit.metrics.ghostLiveSeparationPx >= 48 ? 'ok' : 'high', note: `ghostLiveSep=${Math.round(audit.metrics.ghostLiveSeparationPx || 0)}px` },
-          { severity: audit.metrics.ghostOpacity >= 0.16 && audit.metrics.ghostOpacity <= 0.28 ? 'ok' : 'high', note: `ghostOpacity=${Number(audit.metrics.ghostOpacity || 0).toFixed(2)}` },
-          { severity: audit.metrics.ghostStateCue === 'ghost-before-after-live-current' ? 'ok' : 'high', note: `ghostCue=${audit.metrics.ghostStateCue || 'missing'}` }
+          { severity: audit.metrics.noGhostTrail === true ? 'ok' : 'high', note: `noGhostTrail=${audit.metrics.noGhostTrail === true}` },
+          { severity: audit.metrics.ghostCount === 0 ? 'ok' : 'high', note: `ghostCount=${Number(audit.metrics.ghostCount || 0)}` },
+          { severity: audit.metrics.trailDotCountMax === 0 ? 'ok' : 'high', note: `trailDots=${Number(audit.metrics.trailDotCountMax || 0)}` }
         );
       }
       if (cfg.id === 'ch2-3-2') {

@@ -190,6 +190,7 @@ test.describe('sim3 pilot contract', () => {
     await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
     await expect(page.locator('#host canvas.sim3-canvas')).toBeVisible();
     await expect(page.locator('#host .sim3-label')).toContainText(['Trước', 'Va chạm', 'Sau']);
+    await expect(page.locator('#host .sim3-cue-note')).toHaveCount(0);
     await expectNoSim3LabelOverlap(page);
     await expect(page.locator('#host .sim2-readout-row').filter({ hasText: 'Pha:' })).toContainText('Trước va chạm');
 
@@ -204,16 +205,12 @@ test.describe('sim3 pilot contract', () => {
     const debugAfterReset = await page.evaluate(() => window.__SIM3_DEBUG__['ch3-6-2']);
     expect(debugAfterReset.collided).toBe(false);
     expect(debugAfterReset.trailLength).toBe(0);
-    expect(debugAfterReset.ghostCount).toBeGreaterThanOrEqual(2);
+    expect(debugAfterReset.ghostCount).toBe(0);
     expect(debugAfterReset.phaseCue).toBe('before');
-    expect(debugAfterReset.ghostScale1).toBeCloseTo(debugAfterReset.liveScale1, 3);
-    expect(debugAfterReset.ghostScale2).toBeCloseTo(debugAfterReset.liveScale2, 3);
     expect(debugAfterReset.visualMetrics.verticalFillTarget).toBeGreaterThanOrEqual(0.45);
     expect(debugAfterReset.visualMetrics.labelClusterReduced).toBe(true);
     expect(debugAfterReset.visualMetrics.labelClusterStrategy).toBe('phase-lanes-separated');
-    expect(debugAfterReset.visualMetrics.postImpactGhostOffset).toBeGreaterThanOrEqual(0.7);
-    expect(debugAfterReset.visualMetrics.ghostOpacity).toBeGreaterThanOrEqual(0.16);
-    expect(debugAfterReset.visualMetrics.ghostOpacity).toBeLessThanOrEqual(0.28);
+    expect(debugAfterReset.visualMetrics.noGhostTrail).toBe(true);
     await page.evaluate(() => {
       const step = document.querySelector('#host .sim2-step');
       for (let i = 0; i < 112 && step; i++) step.click();
@@ -227,11 +224,10 @@ test.describe('sim3 pilot contract', () => {
       primarySceneFillRatio: 0.45,
       visibleLabelCount: 4,
       primaryObjectDominanceRatio: 1.4,
-      phaseLaneSeparationPx: 48,
       routeMetrics: {
-        ghostLiveSeparationPx: { min: 48 },
-        ghostStateCue: 'ghost-before-after-live-current',
-        ghostOpacityBand: 'subtle-readable',
+        ghostCount: 0,
+        trailDotCountMax: 0,
+        noGhostTrail: true,
         beforeAfterCueReadable: true
       }
     });
@@ -296,6 +292,7 @@ test.describe('sim3 pilot contract', () => {
     await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
     await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
     await expect(page.locator('#host .sim3-label')).toContainText(['ω', 'v_rel', 'a_cor']);
+    await expect(page.locator('#host .sim3-cue-note')).toHaveCount(0);
     await expectNoSim3LabelOverlap(page);
     let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-4-4']);
     expect(debug.visualMetrics.hasRotatingFrameCue).toBe(true);
@@ -303,6 +300,9 @@ test.describe('sim3 pilot contract', () => {
     expect(debug.visualMetrics.centralCluster).toBe('centered');
     expect(debug.visualMetrics.planeCueOpacity).toBeGreaterThanOrEqual(0.42);
     expect(debug.visualMetrics.perpendicularCueStrength).toBe('high-contrast-sector');
+    expect(debug.visualMetrics.noTrailDots).toBe(true);
+    expect(debug.visualMetrics.trailDotCountMax).toBe(0);
+    expect(debug.trailLength).toBe(0);
     expect(debug.omega).toBeCloseTo(1.2, 3);
     expect(debug.vRel).toBeDefined();
     expect(debug.aCor.mag).toBeGreaterThanOrEqual(0);

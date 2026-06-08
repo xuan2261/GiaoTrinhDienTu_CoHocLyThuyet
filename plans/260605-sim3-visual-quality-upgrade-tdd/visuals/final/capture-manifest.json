@@ -18,7 +18,31 @@
       },
       {
         "severity": "ok",
-        "note": "safeCrop=true margin=134px"
+        "note": "safeCrop=true margin=76px"
+      },
+      {
+        "severity": "ok",
+        "note": "cue=force-system-resultant-moment"
+      },
+      {
+        "severity": "ok",
+        "note": "fill=0.63"
+      },
+      {
+        "severity": "ok",
+        "note": "labels=3"
+      },
+      {
+        "severity": "ok",
+        "note": "R-ratio=1.13"
+      },
+      {
+        "severity": "ok",
+        "note": "R-role=functional-resultant-not-decoration"
+      },
+      {
+        "severity": "ok",
+        "note": "R-decorative=low"
       },
       {
         "severity": "ok",
@@ -126,7 +150,31 @@
       },
       {
         "severity": "ok",
-        "note": "safeCrop=true margin=78px"
+        "note": "safeCrop=true margin=50px"
+      },
+      {
+        "severity": "ok",
+        "note": "cue=gear-contact-belt-transfer"
+      },
+      {
+        "severity": "ok",
+        "note": "fill=0.64"
+      },
+      {
+        "severity": "ok",
+        "note": "labels=2"
+      },
+      {
+        "severity": "ok",
+        "note": "beltLabel=belt-span"
+      },
+      {
+        "severity": "ok",
+        "note": "beltSpan=0.72"
+      },
+      {
+        "severity": "ok",
+        "note": "faceCover=0.04"
       },
       {
         "severity": "ok",
@@ -261,7 +309,31 @@
       },
       {
         "severity": "ok",
-        "note": "safeCrop=true margin=64px"
+        "note": "safeCrop=true margin=62px"
+      },
+      {
+        "severity": "ok",
+        "note": "cue=before-impact-after-lane"
+      },
+      {
+        "severity": "ok",
+        "note": "fill=0.44"
+      },
+      {
+        "severity": "ok",
+        "note": "labels=3"
+      },
+      {
+        "severity": "ok",
+        "note": "noGhostTrail=true"
+      },
+      {
+        "severity": "ok",
+        "note": "ghostCount=0"
+      },
+      {
+        "severity": "ok",
+        "note": "trailDots=0"
       },
       {
         "severity": "ok",

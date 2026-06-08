@@ -4,8 +4,6 @@
   function create(opts) {
     const P = root.Sim3Primitives;
     let THREERef, platform, bead, omegaArrow, vArrow, aArrow, radiusGuide, rim, vectorPlane, tick = 0;
-    const trail = [];
-    const trailDots = [];
     const shell = root.Sim3Shell.create({
       host: opts.host,
       referenceEl: opts.referenceEl,
@@ -38,15 +36,7 @@
           (root.Sim3VisualKit ? root.Sim3VisualKit.ghostMaterial(THREE, 'coriolis', 0.44) : P.material(THREE, 0xf97316, { transparent: true, opacity: 0.44 }))
         );
         vectorPlane.rotation.x = -Math.PI / 2;
-        for (let i = 0; i < 28; i++) {
-          const dot = new THREE.Mesh(
-            new THREE.SphereGeometry(0.035, 10, 8),
-            P.material(THREE, 0xd81b60, { roughness: 0.4 })
-          );
-          dot.visible = false;
-          trailDots.push(dot);
-        }
-        scene.add(radiusGuide, omegaArrow, vArrow, aArrow, vectorPlane, ...trailDots);
+        scene.add(radiusGuide, omegaArrow, vArrow, aArrow, vectorPlane);
         const grid = new THREE.GridHelper(6, 12, 0xcbd5e1, 0xe2e8f0);
         grid.position.y = -0.14;
         scene.add(grid);
@@ -63,18 +53,6 @@
       obj.scale.y = Math.max(0.2, Math.min(1.8, vec.length() * scale));
       P.orientArrow(THREERef, obj, vec);
     }
-    function updateTrailDots() {
-      const start = Math.max(0, trail.length - trailDots.length);
-      for (let i = 0; i < trailDots.length; i++) {
-        const item = trail[start + i];
-        trailDots[i].visible = !!item;
-        if (item) {
-          const s = 0.45 + i / trailDots.length * 0.75;
-          trailDots[i].scale.setScalar(s);
-          trailDots[i].position.set(item.x, 0.12, item.z);
-        }
-      }
-    }
     function setState(state) {
       tick += 1;
       const p = new THREERef.Vector3(state.point.x * 0.55, 0.1, state.point.y * 0.55);
@@ -90,14 +68,11 @@
       setArrow(aArrow, aBase, aVec, 0.13);
       vectorPlane.position.set(p.x, 0.035, p.z);
       vectorPlane.rotation.y = state.phi || 0;
-      trail.push({ x: p.x, z: p.z });
-      if (trail.length > 80) trail.shift();
-      updateTrailDots();
       shell.setState(state);
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
       root.__SIM3_DEBUG__['ch2-4-4'] = Object.assign({
         updatedAt: tick,
-        trailLength: trail.length,
+        trailLength: 0,
         cueLabels: ['omega', 'v_rel', 'a_cor'],
         visualMetrics: root.Sim3VisualKit && root.Sim3VisualKit.visualMetrics({
           vectorSeparation: vBase.distanceTo(aBase),
@@ -105,13 +80,14 @@
           perpendicularCue: true,
           centralCluster: 'centered',
           planeCueOpacity: 0.44,
+          noTrailDots: true,
+          trailDotCountMax: 0,
           perpendicularCueStrength: 'high-contrast-sector'
         })
       }, state);
     }
     function reset() {
-      trail.length = 0;
-      trailDots.forEach(dot => { dot.visible = false; });
+      tick = 0;
     }
 
     return { host: opts.host, setState, reset, dispose: shell.dispose };
