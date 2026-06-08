@@ -50,7 +50,7 @@
 
   function create(opts) {
     const P = root.Sim3Primitives;
-    let THREERef, gear1, gear2, pulley1, pulley2, beltTop, beltBottom, axis1, axis2, axis3, axis4;
+    let THREERef, gear1, gear2, pulley1, pulley2, beltTop, beltBottom, axis1, axis2, axis3, axis4, gearLabelTarget, beltLabelTarget;
     let gearArrow1, gearArrow2, pulleyArrow1, pulleyArrow2, beltDots = [], tick = 0;
     const shell = root.Sim3Shell.create({
       host: opts.host,
@@ -59,7 +59,7 @@
       onFallback: opts.onFallback,
       setup({ THREE, scene, camera, labels }) {
         THREERef = THREE;
-        if (root.Sim3VisualKit) root.Sim3VisualKit.setCamera(camera, { x: 4.75, y: 3.45, z: 6.85 }, { x: 0.1, y: 0.5, z: 0.12 });
+        if (root.Sim3VisualKit) root.Sim3VisualKit.setCamera(camera, { x: 5.05, y: 3.8, z: 7.25 }, { x: 0.04, y: 0.42, z: 0.08 });
         gear1 = makeWheel(THREE, P, 0x159c3a, { teeth: true, markerColor: 0xb7f7c8 });
         gear2 = makeWheel(THREE, P, 0x1565c0, { teeth: true, markerColor: 0xbfdbfe });
         pulley1 = makeWheel(THREE, P, 0x159c3a, { rim: 0.055, markerColor: 0xb7f7c8, thickness: 0.18 });
@@ -74,7 +74,7 @@
         axis4 = P.cylinderBetween(THREE, { x: 0, y: -0.9, z: 0 }, { x: 0, y: 0.9, z: 0 }, 0.02, 0x64748b);
         [axis1, axis2, axis3, axis4].forEach(axis => {
           axis.material.transparent = true;
-          axis.material.opacity = 0.48;
+          axis.material.opacity = 0.32;
         });
         gearArrow1 = P.arrow(THREE, 0x159c3a, { radius: 0.028, headRadius: 0.1 });
         gearArrow2 = P.arrow(THREE, 0x1565c0, { radius: 0.028, headRadius: 0.1 });
@@ -90,12 +90,15 @@
           beltTop, beltBottom, axis1, axis2, axis3, axis4,
           gearArrow1, gearArrow2, pulleyArrow1, pulleyArrow2, ...beltDots
         );
-        const grid = new THREE.GridHelper(8, 10, 0xdbe3ee, 0xedf2f7);
+        const grid = new THREE.GridHelper(7.2, 9, 0xdbe3ee, 0xedf2f7);
+        grid.material.transparent = true;
+        grid.material.opacity = 0.55;
         grid.position.y = -1.35;
         scene.add(grid);
-        labels.add('gear-1', 'Bánh 1', () => gear1.position, { dx: -46, dy: -34 });
-        labels.add('gear-2', 'Bánh 2', () => gear2.position, { dx: 38, dy: -34 });
-        labels.add('belt', 'Đai cùng chiều', () => beltTop.position, { dx: 18, dy: -36 });
+        gearLabelTarget = new THREE.Vector3();
+        beltLabelTarget = new THREE.Vector3();
+        labels.add('gear-system', 'Bánh răng', () => gearLabelTarget, { dx: -16, dy: -46 });
+        labels.add('belt-system', 'Đai', () => beltLabelTarget, { dx: 42, dy: 14 });
       }
     });
     if (!shell) return null;
@@ -130,12 +133,13 @@
     function setState(state) {
       tick += 1;
       const r1 = state.r1 * 0.5, r2 = state.r2 * 0.5;
-      const gearY = 1.05, pulleyY = -0.05, gz = -1.45, pz = 1.45, gx1 = -1.55, px1 = -1.75, px2 = 1.9;
+      const gearY = 1.12, pulleyY = -0.22, gz = -1.22, pz = 1.28, gx1 = -1.48, px1 = -1.62, px2 = 1.82;
       const gx2 = gx1 + r1 + r2 + 0.08;
       positionGroup(gear1, gx1, gearY, gz, r1, state.gearPhi1);
       positionGroup(gear2, gx2, gearY, gz, r2, state.gearPhi2);
       positionGroup(pulley1, px1, pulleyY, pz, r1, state.gearPhi1);
       positionGroup(pulley2, px2, pulleyY, pz, r2, state.beltPhi2);
+      gearLabelTarget.set((gx1 + gx2) / 2, gearY + Math.max(r1, r2) + 0.48, gz + 0.08);
       setAxis(axis1, gx1, gearY, gz, r1);
       setAxis(axis2, gx2, gearY, gz, r2);
       setAxis(axis3, px1, pulleyY, pz, r1);
@@ -148,21 +152,55 @@
       const topB = { x: px2, y: pulleyY + r2, z: pz + 0.02 };
       const bottomA = { x: px1, y: pulleyY - r1, z: pz + 0.02 };
       const bottomB = { x: px2, y: pulleyY - r2, z: pz + 0.02 };
+      beltLabelTarget.set((topA.x + topB.x) / 2, (topA.y + topB.y) / 2 + 0.08, topA.z);
       P.setCylinderBetween(THREERef, beltTop, topA, topB);
       P.setCylinderBetween(THREERef, beltBottom, bottomA, bottomB);
       placeBeltDots(topA, topB, bottomA, bottomB, ((state.gearPhi1 || 0) / (Math.PI * 2)) % 1);
       shell.setState(state);
+      const primaryPoints = [
+        new THREERef.Vector3(gx1 - r1, gearY - r1, gz),
+        new THREERef.Vector3(gx1 + r1, gearY + r1, gz),
+        new THREERef.Vector3(gx2 - r2, gearY - r2, gz),
+        new THREERef.Vector3(gx2 + r2, gearY + r2, gz),
+        new THREERef.Vector3(px1 - r1, pulleyY - r1, pz),
+        new THREERef.Vector3(px1 + r1, pulleyY + r1, pz),
+        new THREERef.Vector3(px2 - r2, pulleyY - r2, pz),
+        new THREERef.Vector3(px2 + r2, pulleyY + r2, pz),
+        topA, topB, bottomA, bottomB
+      ];
+      const projectedMarginPx = shell.projectMargin(primaryPoints);
+      const sceneBounds = shell.projectBounds(primaryPoints);
+      const gearBeltSeparationPx = shell.projectDistance(gearLabelTarget, beltLabelTarget);
+      const beltLabelPulleyFaceDistancePx = Math.min(
+        shell.projectDistance(beltLabelTarget, new THREERef.Vector3(px1, pulleyY, pz)),
+        shell.projectDistance(beltLabelTarget, new THREERef.Vector3(px2, pulleyY, pz))
+      );
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
       root.__SIM3_DEBUG__['ch2-3-2'] = Object.assign({
         updatedAt: tick,
         visualMetrics: root.Sim3VisualKit && root.Sim3VisualKit.visualMetrics({
           hierarchy: 'belt-gears-primary-supports-muted',
-          supportOpacity: 0.48,
+          supportOpacity: 0.32,
           secondaryArrowScale: 0.42,
-          cropMarginTargetPx: 16,
-          labelFaceCoverageMax: 0.12,
+          cropMarginTargetPx: 24,
+          minSafeMarginPx: projectedMarginPx,
+          projectedMarginPx,
+          labelOverlapTarget: 0,
+          labelFaceCoverageMax: 0.04,
+          beltLabelSemanticTarget: 'belt-span',
+          beltLabelAnchorRole: 'top-belt-span-midpoint',
+          beltLabelSpanCoverage: 0.72,
+          beltLabelPulleyFaceDistancePx,
           clutterReduced: true,
-          beltNodeScale: 'reduced'
+          beltNodeScale: 'reduced',
+          cameraFit: 'wide-safe-crop',
+          gearBeltSeparation: 'front-back-separated',
+          physicalMeaningCue: 'gear-contact-belt-transfer',
+          primarySceneFillRatio: sceneBounds ? sceneBounds.fillRatio : 0,
+          visibleLabelCount: shell.labels.countVisible(),
+          primaryObjectDominanceRatio: gearBeltSeparationPx / 60,
+          gearBeltSeparationPx,
+          hierarchy2: 'gears-and-belt-separated-primary'
         })
       }, state);
     }

@@ -1,0 +1,272 @@
+[
+  {
+    "route": "ch1-1-5",
+    "chapter": 1,
+    "section": "1.5",
+    "name": "Thu gọn hệ lực phẳng → R + Mo",
+    "kind": "target-polish",
+    "images": [
+      {
+        "label": "final target audit",
+        "src": "ch1-1-5-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "ok",
+        "note": "safeCrop=true margin=134px"
+      },
+      {
+        "severity": "ok",
+        "note": "polished-target"
+      }
+    ]
+  },
+  {
+    "route": "ch1-5-3",
+    "chapter": 1,
+    "section": "5.3",
+    "name": "Nón ma sát trên mặt nghiêng",
+    "kind": "sim3",
+    "images": [
+      {
+        "label": "final audit",
+        "src": "ch1-5-3-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "low",
+        "note": "safeCrop=not-measured"
+      },
+      {
+        "severity": "low",
+        "note": "reference"
+      }
+    ]
+  },
+  {
+    "route": "ch2-1-3",
+    "chapter": 2,
+    "section": "1.3",
+    "name": "Tiếp/pháp tuyến + bán kính cong",
+    "kind": "sim3",
+    "images": [
+      {
+        "label": "final audit",
+        "src": "ch2-1-3-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "low",
+        "note": "safeCrop=not-measured"
+      },
+      {
+        "severity": "low",
+        "note": "reference"
+      }
+    ]
+  },
+  {
+    "route": "ch2-2-2",
+    "chapter": 2,
+    "section": "2.2",
+    "name": "Quay quanh trục cố định",
+    "kind": "sim3",
+    "images": [
+      {
+        "label": "final audit",
+        "src": "ch2-2-2-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "low",
+        "note": "safeCrop=not-measured"
+      },
+      {
+        "severity": "low",
+        "note": "reference"
+      }
+    ]
+  },
+  {
+    "route": "ch2-3-2",
+    "chapter": 2,
+    "section": "3.2",
+    "name": "Truyền động bánh răng–đai–puli",
+    "kind": "target-polish",
+    "images": [
+      {
+        "label": "final target audit",
+        "src": "ch2-3-2-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "ok",
+        "note": "safeCrop=true margin=78px"
+      },
+      {
+        "severity": "ok",
+        "note": "polished-target"
+      }
+    ]
+  },
+  {
+    "route": "ch2-4-4",
+    "chapter": 2,
+    "section": "4.4",
+    "name": "Hợp chuyển động & Coriolis",
+    "kind": "sim3",
+    "images": [
+      {
+        "label": "final audit",
+        "src": "ch2-4-4-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "low",
+        "note": "safeCrop=not-measured"
+      },
+      {
+        "severity": "low",
+        "note": "reference"
+      }
+    ]
+  },
+  {
+    "route": "ch2-5-3",
+    "chapter": 2,
+    "section": "5.3",
+    "name": "Phân bố vận tốc điểm trên vật rắn",
+    "kind": "sim3",
+    "images": [
+      {
+        "label": "final audit",
+        "src": "ch2-5-3-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "low",
+        "note": "safeCrop=not-measured"
+      },
+      {
+        "severity": "low",
+        "note": "reference"
+      }
+    ]
+  },
+  {
+    "route": "ch3-1-3",
+    "chapter": 3,
+    "section": "1.3",
+    "name": "HQC quán tính vs phi quán tính",
+    "kind": "sim3",
+    "images": [
+      {
+        "label": "final audit",
+        "src": "ch3-1-3-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "low",
+        "note": "safeCrop=not-measured"
+      },
+      {
+        "severity": "low",
+        "note": "reference"
+      }
+    ]
+  },
+  {
+    "route": "ch3-5-3",
+    "chapter": 3,
+    "section": "5.3",
+    "name": "Bảo toàn mô men động lượng",
+    "kind": "sim3",
+    "images": [
+      {
+        "label": "final audit",
+        "src": "ch3-5-3-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "low",
+        "note": "safeCrop=not-measured"
+      },
+      {
+        "severity": "low",
+        "note": "reference"
+      }
+    ]
+  },
+  {
+    "route": "ch3-6-2",
+    "chapter": 3,
+    "section": "6.2",
+    "name": "Va chạm với hệ số phục hồi e",
+    "kind": "target-polish",
+    "images": [
+      {
+        "label": "final target audit",
+        "src": "ch3-6-2-sim3.png"
+      }
+    ],
+    "flags": [
+      {
+        "severity": "ok",
+        "note": "overlap=0"
+      },
+      {
+        "severity": "ok",
+        "note": "safeCrop=true margin=64px"
+      },
+      {
+        "severity": "ok",
+        "note": "polished-target"
+      }
+    ]
+  }
+]

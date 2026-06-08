@@ -30,6 +30,68 @@ async function expectNoSim3LabelOverlap(page) {
   expect(overlaps).toBe(0);
 }
 
+async function expectSim3SafeCrop(page, route, minMarginPx = 24) {
+  const crop = await page.locator('#host').evaluate((host) => {
+    const hostBox = host.getBoundingClientRect();
+    const labels = Array.from(host.querySelectorAll('.sim3-label'))
+      .filter(el => getComputedStyle(el).display !== 'none')
+      .map(el => {
+        const r = el.getBoundingClientRect();
+        return {
+          text: el.textContent,
+          left: Math.round(r.left - hostBox.left),
+          right: Math.round(hostBox.right - r.right),
+          top: Math.round(r.top - hostBox.top),
+          bottom: Math.round(hostBox.bottom - r.bottom)
+        };
+      });
+    return labels.filter(r => r.left < 8 || r.right < 8 || r.top < 8 || r.bottom < 8);
+  });
+  expect(crop, `${route} cropped labels`).toEqual([]);
+  const metrics = await page.evaluate(r => window.__SIM3_DEBUG__ && window.__SIM3_DEBUG__[r] && window.__SIM3_DEBUG__[r].visualMetrics, route);
+  expect(metrics && metrics.projectedMarginPx, `${route} measured projectedMarginPx`).toBeGreaterThanOrEqual(minMarginPx);
+  expect(metrics && metrics.minSafeMarginPx, `${route} minSafeMarginPx`).toBeGreaterThanOrEqual(minMarginPx);
+  expect(metrics && metrics.labelOverlapTarget, `${route} labelOverlapTarget`).toBe(0);
+}
+
+async function expectSim3StrongRedesign(page, route, expected) {
+  const metrics = await page.evaluate(r => window.__SIM3_DEBUG__ && window.__SIM3_DEBUG__[r] && window.__SIM3_DEBUG__[r].visualMetrics, route);
+  const visibleLabelCount = await page.locator('#host .sim3-label').evaluateAll(labels =>
+    labels.filter(el => getComputedStyle(el).display !== 'none').length
+  );
+  expect(metrics && metrics.physicalMeaningCue, `${route} physicalMeaningCue`).toBe(expected.physicalMeaningCue);
+  expect(metrics && metrics.primarySceneFillRatio, `${route} primarySceneFillRatio`).toBeGreaterThanOrEqual(expected.primarySceneFillRatio || 0.58);
+  expect(visibleLabelCount, `${route} DOM visibleLabelCount`).toBeLessThanOrEqual(expected.visibleLabelCount);
+  expect(metrics && metrics.visibleLabelCount, `${route} metric visibleLabelCount`).toBe(visibleLabelCount);
+  expect(metrics && metrics.primaryObjectDominanceRatio, `${route} primaryObjectDominanceRatio`).toBeGreaterThanOrEqual(expected.primaryObjectDominanceRatio || 1.4);
+  if (expected.resultantDominanceRatio != null) {
+    if (typeof expected.resultantDominanceRatio === 'object') {
+      expect(metrics.resultantDominanceRatio, `${route} resultantDominanceRatio min`).toBeGreaterThanOrEqual(expected.resultantDominanceRatio.min);
+      expect(metrics.resultantDominanceRatio, `${route} resultantDominanceRatio max`).toBeLessThanOrEqual(expected.resultantDominanceRatio.max);
+    } else {
+      expect(metrics.resultantDominanceRatio, `${route} resultantDominanceRatio`).toBeGreaterThanOrEqual(expected.resultantDominanceRatio);
+    }
+  }
+  if (expected.phaseLaneSeparationPx != null) {
+    expect(metrics.phaseLaneSeparationPx, `${route} phaseLaneSeparationPx`).toBeGreaterThanOrEqual(expected.phaseLaneSeparationPx);
+  }
+  if (expected.gearBeltSeparationPx != null) {
+    expect(metrics.gearBeltSeparationPx, `${route} gearBeltSeparationPx`).toBeGreaterThanOrEqual(expected.gearBeltSeparationPx);
+  }
+  if (expected.routeMetrics) {
+    for (const [key, assertion] of Object.entries(expected.routeMetrics)) {
+      const value = metrics && metrics[key];
+      if (typeof assertion === 'object' && assertion !== null) {
+        if ('min' in assertion) expect(value, `${route} ${key} min`).toBeGreaterThanOrEqual(assertion.min);
+        if ('max' in assertion) expect(value, `${route} ${key} max`).toBeLessThanOrEqual(assertion.max);
+        if ('equals' in assertion) expect(value, `${route} ${key}`).toBe(assertion.equals);
+      } else {
+        expect(value, `${route} ${key}`).toBe(assertion);
+      }
+    }
+  }
+}
+
 test.describe('sim3 pilot contract', () => {
   test('shared primitives preserve material opacity and reusable cylinder length', async ({ page }) => {
     await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
@@ -149,8 +211,30 @@ test.describe('sim3 pilot contract', () => {
     expect(debugAfterReset.visualMetrics.verticalFillTarget).toBeGreaterThanOrEqual(0.45);
     expect(debugAfterReset.visualMetrics.labelClusterReduced).toBe(true);
     expect(debugAfterReset.visualMetrics.labelClusterStrategy).toBe('phase-lanes-separated');
-    expect(debugAfterReset.visualMetrics.postImpactGhostOffset).toBeGreaterThanOrEqual(0.9);
-    expect(debugAfterReset.visualMetrics.ghostOpacity).toBeLessThanOrEqual(0.14);
+    expect(debugAfterReset.visualMetrics.postImpactGhostOffset).toBeGreaterThanOrEqual(0.7);
+    expect(debugAfterReset.visualMetrics.ghostOpacity).toBeGreaterThanOrEqual(0.16);
+    expect(debugAfterReset.visualMetrics.ghostOpacity).toBeLessThanOrEqual(0.28);
+    await page.evaluate(() => {
+      const step = document.querySelector('#host .sim2-step');
+      for (let i = 0; i < 112 && step; i++) step.click();
+    });
+    await expect.poll(async () => page.evaluate(() => window.__SIM3_DEBUG__['ch3-6-2'].phaseCue), {
+      timeout: 1000
+    }).toBe('after');
+    await expectSim3SafeCrop(page, 'ch3-6-2');
+    await expectSim3StrongRedesign(page, 'ch3-6-2', {
+      physicalMeaningCue: 'before-impact-after-lane',
+      primarySceneFillRatio: 0.45,
+      visibleLabelCount: 4,
+      primaryObjectDominanceRatio: 1.4,
+      phaseLaneSeparationPx: 48,
+      routeMetrics: {
+        ghostLiveSeparationPx: { min: 48 },
+        ghostStateCue: 'ghost-before-after-live-current',
+        ghostOpacityBand: 'subtle-readable',
+        beforeAfterCueReadable: true
+      }
+    });
 
     await page.evaluate(() => window.__sim.dispose());
     await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
@@ -163,13 +247,24 @@ test.describe('sim3 pilot contract', () => {
     await expect(page.locator('#host .sim3-mode-toggle')).toHaveCount(1);
     await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
     await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
-    await expect(page.locator('#host .sim3-label')).toContainText(['Bánh 1', 'Bánh 2', 'Đai']);
+    await expect(page.locator('#host .sim3-label')).toContainText(['Bánh răng', 'Đai']);
     await expectNoSim3LabelOverlap(page);
     let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-3-2']);
     expect(debug.visualMetrics.hierarchy).toBe('belt-gears-primary-supports-muted');
     expect(debug.visualMetrics.supportOpacity).toBeLessThan(0.6);
-    expect(debug.visualMetrics.cropMarginTargetPx).toBeGreaterThanOrEqual(16);
-    expect(debug.visualMetrics.labelFaceCoverageMax).toBeLessThanOrEqual(0.15);
+    expect(debug.visualMetrics.cropMarginTargetPx).toBeGreaterThanOrEqual(24);
+    await expectSim3SafeCrop(page, 'ch2-3-2');
+    await expectSim3StrongRedesign(page, 'ch2-3-2', {
+      physicalMeaningCue: 'gear-contact-belt-transfer',
+      visibleLabelCount: 3,
+      primaryObjectDominanceRatio: 1.1,
+      gearBeltSeparationPx: 44
+    });
+    expect(debug.visualMetrics.labelFaceCoverageMax).toBeLessThanOrEqual(0.05);
+    expect(debug.visualMetrics.beltLabelSemanticTarget).toBe('belt-span');
+    expect(debug.visualMetrics.beltLabelAnchorRole).toMatch(/belt-span/);
+    expect(debug.visualMetrics.beltLabelSpanCoverage).toBeGreaterThanOrEqual(0.55);
+    expect(debug.visualMetrics.beltLabelPulleyFaceDistancePx).toBeGreaterThanOrEqual(28);
     expect(debug.visualMetrics.clutterReduced).toBe(true);
     expect(debug.r1).toBeCloseTo(1.4, 3);
     expect(debug.r2).toBeCloseTo(2.0, 3);
@@ -426,14 +521,27 @@ test.describe('sim3 pilot contract', () => {
 
     await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
     await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(1);
-    await expect(page.locator('#host .sim3-label')).toContainText(['F1', 'F2', 'R', 'Mo']);
+    await expect(page.locator('#host .sim3-label')).toContainText(['F', 'R', 'Mo']);
     await expectNoSim3LabelOverlap(page);
     let debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch1-1-5']);
     const initialRx = debug.resultant.Rx;
-    expect(debug.visualMetrics.resultantVectorRole).toBe('dominant');
+    expect(debug.visualMetrics.resultantVectorRole).toBe('functional');
+    expect(debug.visualMetrics.resultantCueRole).toBe('functional-resultant-not-decoration');
+    expect(debug.visualMetrics.resultantDecorativeRisk).toBe('low');
     expect(debug.visualMetrics.momentCueRole).toBe('near-origin-torque-ring');
     expect(debug.visualMetrics.momentCueDistanceMax).toBeLessThanOrEqual(1.1);
     expect(debug.visualMetrics.forceVectorScaleMin).toBeGreaterThanOrEqual(0.28);
+    await expectSim3SafeCrop(page, 'ch1-1-5');
+    await expectSim3StrongRedesign(page, 'ch1-1-5', {
+      physicalMeaningCue: 'force-system-resultant-moment',
+      primarySceneFillRatio: 0.35,
+      visibleLabelCount: 3,
+      primaryObjectDominanceRatio: 1.05,
+      resultantDominanceRatio: { min: 1.05, max: 1.25 },
+      routeMetrics: {
+        componentForceReadablePxMin: { min: 34 }
+      }
+    });
     expect(debug.resultant.Rx).toBeCloseTo(debug.forces[0].F.fx + debug.forces[1].F.fx, 3);
     expect(debug.resultant.Ry).toBeCloseTo(debug.forces[0].F.fy + debug.forces[1].F.fy, 3);
     const mo = debug.forces.reduce((sum, f) => sum + f.r.x * f.F.fy - f.r.y * f.F.fx, 0);

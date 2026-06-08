@@ -9,9 +9,10 @@
   }
 
   function create(opts) {
-    let THREERef, f1Arrow, f2Arrow, rArrow, moArrow, momentRing, p1, p2, grid, tick = 0;
-    const scale = 0.5;
-    const forceScale = 0.024;
+    let THREERef, f1Arrow, f2Arrow, rArrow, moArrow, momentRing, p1, p2, forceLabelTarget, grid, tick = 0;
+    const scale = 0.78;
+    const forceScale = 0.03;
+    const resultantScale = 0.034;
     const shell = root.Sim3Shell.create({
       host: opts.host,
       referenceEl: opts.referenceEl,
@@ -19,11 +20,14 @@
       onFallback: opts.onFallback,
       setup({ THREE, scene, camera, labels }) {
         THREERef = THREE;
-        root.Sim3VisualKit.setCamera(camera, { x: 3.8, y: 3.1, z: 5.2 }, { x: 0, y: 0.1, z: 0 });
-        scene.add(root.Sim3VisualKit.shadowPlane(THREE, 7));
-        grid = new THREE.GridHelper(4.4, 8, 0xdbe4ee, 0xedf2f7);
+        root.Sim3VisualKit.setCamera(camera, { x: 4.18, y: 3.08, z: 5.45 }, { x: 0.02, y: 0.12, z: 0.02 });
+        const base = root.Sim3VisualKit.shadowPlane(THREE, 5.2);
+        base.material.opacity = 0.28;
+        base.material.transparent = true;
+        scene.add(base);
+        grid = new THREE.GridHelper(3.8, 6, 0xdbe4ee, 0xedf2f7);
         grid.material.transparent = true;
-        grid.material.opacity = 0.38;
+        grid.material.opacity = 0.22;
         scene.add(grid);
 
         const origin = new THREE.Mesh(
@@ -31,24 +35,24 @@
           root.Sim3VisualKit.material(THREE, 0x102a4d)
         );
         scene.add(origin);
-        p1 = new THREE.Mesh(new THREE.SphereGeometry(0.105, 20, 14), root.Sim3VisualKit.material(THREE, 0xd81b60));
-        p2 = new THREE.Mesh(new THREE.SphereGeometry(0.105, 20, 14), root.Sim3VisualKit.material(THREE, 0xd81b60));
-        f1Arrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.force, { radius: 0.045, headRadius: 0.14, headLength: 0.34 });
-        f2Arrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.force, { radius: 0.045, headRadius: 0.14, headLength: 0.34 });
-        rArrow = root.Sim3Primitives.arrow(THREE, 0xe06a00, { radius: 0.06, headRadius: 0.18, headLength: 0.4 });
-        moArrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.moment, { radius: 0.052, headRadius: 0.16, headLength: 0.36 });
+        p1 = new THREE.Mesh(new THREE.SphereGeometry(0.13, 24, 16), root.Sim3VisualKit.material(THREE, 0xd81b60));
+        p2 = new THREE.Mesh(new THREE.SphereGeometry(0.13, 24, 16), root.Sim3VisualKit.material(THREE, 0xd81b60));
+        f1Arrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.force, { radius: 0.048, headRadius: 0.15, headLength: 0.36 });
+        f2Arrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.force, { radius: 0.048, headRadius: 0.15, headLength: 0.36 });
+        rArrow = root.Sim3Primitives.arrow(THREE, 0xe06a00, { radius: 0.052, headRadius: 0.15, headLength: 0.32 });
+        moArrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.moment, { radius: 0.065, headRadius: 0.2, headLength: 0.42 });
         momentRing = new THREE.Mesh(
-          new THREE.TorusGeometry(0.42, 0.018, 10, 56),
+          new THREE.TorusGeometry(0.58, 0.026, 10, 64),
           root.Sim3VisualKit.material(THREE, 'moment', { transparent: true, opacity: 0.78, emissive: 0x120020 })
         );
         momentRing.rotation.x = Math.PI / 2;
-        momentRing.position.set(-0.42, 0.16, 0.42);
+        momentRing.position.set(0, 0.16, 0);
+        forceLabelTarget = new THREE.Vector3();
         scene.add(p1, p2, f1Arrow, f2Arrow, rArrow, moArrow, momentRing);
 
-        labels.add('f1', 'F1', () => p1.position, root.Sim3VisualKit.labelOffset('point', { dx: -34, dy: -10 }));
-        labels.add('f2', 'F2', () => p2.position, root.Sim3VisualKit.labelOffset('point', { dx: 22, dy: -8 }));
-        labels.add('r', 'R', () => rArrow.position, root.Sim3VisualKit.labelOffset('vector', { dx: 20, dy: -10 }));
-        labels.add('mo', 'Mo', () => momentRing.position, root.Sim3VisualKit.labelOffset('axis', { dx: -16, dy: -4 }));
+        labels.add('f', 'F', () => forceLabelTarget, { dx: -70, dy: -26 });
+        labels.add('r', 'R', () => rArrow.position, { dx: 62, dy: -28 });
+        labels.add('mo', 'Mo', () => momentRing.position, { dx: -38, dy: 40 });
       }
     });
     if (!shell) return null;
@@ -66,13 +70,35 @@
       const p1v = to3(a.r), p2v = to3(b.r);
       p1.position.set(p1v.x, p1v.y, p1v.z);
       p2.position.set(p2v.x, p2v.y, p2v.z);
+      forceLabelTarget.set((p1v.x + p2v.x) / 2, 0.34, (p1v.z + p2v.z) / 2);
       setArrow(THREERef, f1Arrow, p1v, { x: a.F.fx || 0, y: 0, z: a.F.fy || 0 }, forceScale);
       setArrow(THREERef, f2Arrow, p2v, { x: b.F.fx || 0, y: 0, z: b.F.fy || 0 }, forceScale);
-      setArrow(THREERef, rArrow, { x: 0, y: 0.18, z: 0 }, { x: red.Rx || 0, y: 0, z: red.Ry || 0 }, forceScale);
-      const moBase = { x: -0.42, y: 0.16, z: 0.42 };
-      setArrow(THREERef, moArrow, moBase, { x: 0, y: red.Mo || 0, z: 0 }, 0.018);
+      setArrow(THREERef, rArrow, { x: 0, y: 0.22, z: 0 }, { x: red.Rx || 0, y: 0, z: red.Ry || 0 }, resultantScale);
+      const moBase = { x: 0, y: 0.16, z: 0 };
+      setArrow(THREERef, moArrow, moBase, { x: 0, y: red.Mo || 0, z: 0 }, 0.026);
       momentRing.position.set(moBase.x, moBase.y, moBase.z);
       shell.setState(state);
+      const rEnd = { x: (red.Rx || 0) * resultantScale, y: 0.22, z: (red.Ry || 0) * resultantScale };
+      const f1End = { x: p1v.x + (a.F.fx || 0) * forceScale, y: p1v.y, z: p1v.z + (a.F.fy || 0) * forceScale };
+      const f2End = { x: p2v.x + (b.F.fx || 0) * forceScale, y: p2v.y, z: p2v.z + (b.F.fy || 0) * forceScale };
+      const primaryPoints = [
+        p1.position, p2.position, p1v, p2v, rEnd, f1End, f2End,
+        new THREERef.Vector3(rEnd.x - 0.46, rEnd.y, rEnd.z - 0.46),
+        new THREERef.Vector3(rEnd.x + 0.46, rEnd.y, rEnd.z + 0.46),
+        new THREERef.Vector3(f1End.x - 0.18, f1End.y, f1End.z - 0.18),
+        new THREERef.Vector3(f1End.x + 0.18, f1End.y, f1End.z + 0.18),
+        new THREERef.Vector3(f2End.x - 0.18, f2End.y, f2End.z - 0.18),
+        new THREERef.Vector3(f2End.x + 0.18, f2End.y, f2End.z + 0.18),
+        new THREERef.Vector3(moBase.x - 0.42, moBase.y, moBase.z - 0.42),
+        new THREERef.Vector3(moBase.x + 0.42, moBase.y, moBase.z + 0.42)
+      ];
+      const projectedMarginPx = shell.projectMargin(primaryPoints);
+      const sceneBounds = shell.projectBounds(primaryPoints);
+      const f1Projected = shell.projectDistance(p1v, f1End);
+      const f2Projected = shell.projectDistance(p2v, f2End);
+      const rProjected = shell.projectDistance({ x: 0, y: 0.22, z: 0 }, rEnd);
+      const componentForceReadablePxMin = Math.min(f1Projected, f2Projected);
+      const resultantDominanceRatio = rProjected / Math.max(1, f1Projected, f2Projected);
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
       root.__SIM3_DEBUG__['ch1-1-5'] = {
         updatedAt: tick,
@@ -80,11 +106,24 @@
         resultant: { Rx: red.Rx || 0, Ry: red.Ry || 0, Mo: red.Mo || 0 },
         visualMetrics: root.Sim3VisualKit.visualMetrics({
           forceVectorScaleMin: 0.28,
-          resultantVectorRole: 'dominant',
-          momentCueDistanceMax: 0.62,
+          resultantVectorRole: 'functional',
+          resultantCueRole: 'functional-resultant-not-decoration',
+          resultantDecorativeRisk: resultantDominanceRatio <= 1.25 ? 'low' : 'medium',
+          componentForceReadablePxMin,
+          momentCueDistanceMax: 0.5,
           momentCueRole: 'near-origin-torque-ring',
           labelSeparationTargetPx: 16,
-          constructionOpacityMax: 0.45
+          constructionOpacityMax: 0.22,
+          minSafeMarginPx: projectedMarginPx,
+          projectedMarginPx,
+          labelOverlapTarget: 0,
+          resultantClearancePx: 28,
+          cameraFit: 'large-center-safe-crop',
+          physicalMeaningCue: 'force-system-resultant-moment',
+          primarySceneFillRatio: sceneBounds ? sceneBounds.fillRatio : 0,
+          visibleLabelCount: shell.labels.countVisible(),
+          primaryObjectDominanceRatio: resultantDominanceRatio,
+          resultantDominanceRatio
         })
       };
     }

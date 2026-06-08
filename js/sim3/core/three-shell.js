@@ -70,7 +70,7 @@
     }
 
     let disposed = false, rafId = null, lastState = null;
-    const api = { THREE, scene, camera, renderer, host: cfg.host, labels: { add: addLabel, remove: removeLabel, update: updateLabels }, setState, render, resize, start, stop, dispose };
+    const api = { THREE, scene, camera, renderer, host: cfg.host, labels: { add: addLabel, remove: removeLabel, update: updateLabels, countVisible: countVisibleLabels }, projectMargin, projectBounds, projectDistance, setState, render, resize, start, stop, dispose };
     try {
       if (cfg.setup) cfg.setup(api);
     } catch (e) {
@@ -102,6 +102,39 @@
       camera.updateProjectionMatrix();
       renderer.setSize(next.width, next.height, false);
       render();
+    }
+    function projectMargin(points) {
+      const b = projectBounds(points);
+      if (!b) return 0;
+      return Math.floor(Math.min(b.left, b.top, b.canvasWidth - b.right, b.canvasHeight - b.bottom));
+    }
+    function projectBounds(points) {
+      const rect = renderer.domElement.getBoundingClientRect();
+      const xs = [], ys = [];
+      (points || []).forEach(point => {
+        if (!point) return;
+        const p = point.clone ? point.clone() : new THREE.Vector3(point.x || 0, point.y || 0, point.z || 0);
+        p.project(camera);
+        if (p.z < -1 || p.z > 1) return;
+        xs.push((p.x * 0.5 + 0.5) * rect.width);
+        ys.push((-p.y * 0.5 + 0.5) * rect.height);
+      });
+      if (!xs.length || !ys.length) return null;
+      const left = Math.min.apply(null, xs), right = Math.max.apply(null, xs);
+      const top = Math.min.apply(null, ys), bottom = Math.max.apply(null, ys);
+      return {
+        left, right, top, bottom,
+        width: right - left,
+        height: bottom - top,
+        canvasWidth: rect.width,
+        canvasHeight: rect.height,
+        fillRatio: Math.max((right - left) / rect.width, (bottom - top) / rect.height)
+      };
+    }
+    function projectDistance(a, b) {
+      const bounds = projectBounds([a, b]);
+      if (!bounds) return 0;
+      return Math.hypot(bounds.width, bounds.height);
     }
     function labelPosition(target) {
       if (!target) return null;
@@ -143,6 +176,13 @@
       if (!entry) return;
       if (entry.el.parentNode) entry.el.parentNode.removeChild(entry.el);
       labels.delete(id);
+    }
+    function countVisibleLabels() {
+      let count = 0;
+      labels.forEach(entry => {
+        if (entry.el && root.getComputedStyle(entry.el).display !== 'none') count++;
+      });
+      return count;
     }
     function updateLabels() {
       if (!labelLayer) return;
