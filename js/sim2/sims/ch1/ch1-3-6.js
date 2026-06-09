@@ -4,11 +4,11 @@
  */
 (function(root) {
   'use strict';
-  const Reg = root.Sim2Registry, Shell = root.Sim2Shell, Pal = root.Sim2Palette;
+  const Reg = root.Sim2Registry, Shell = root.Sim2Shell, P = root.SimPhysicsStatics, Pal = root.Sim2Palette;
 
   Reg.register('ch1-3-6', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1.2, minY: -1.8, maxX: 8.7, maxY: 3 }, reservePanel: true,
+      container, worldBox: { minX: -1.2, minY: -1.2, maxX: 8.7, maxY: 3.6 }, reservePanel: true,
       meta: { name: 'Phản lực & mô men ngàm', section: '3.6', chapter: 1 }
     });
     const { svg, tf, overlay, render } = shell;
@@ -26,6 +26,21 @@
     svg.appendChild(loadArrow);
     const rArrow = render.arrow(tf, svg, wall, wall, { stroke: Pal.reaction, width: 3 }); svg.appendChild(rArrow);
 
+    // Cung mũi tên chỉ CHIỀU mô men ngàm quanh ngàm. Chiều từ tích có hướng
+    // tau = rx·fy − ry·fx (tải hướng XUỐNG ở x>0 → tau<0 → CW), KHÔNG từ |M|=P·a luôn dương.
+    const momentArc = render.el('path', {
+      class: 'sim2-moment-arc', fill: 'none', stroke: Pal.moment, 'stroke-width': 2.5
+    });
+    momentArc.setAttribute('marker-end', `url(#${svg.__markerId})`);
+    svg.appendChild(momentArc);
+    function arcD(c, r, ccw) {
+      const a0 = -Math.PI / 4;
+      const a1 = a0 + (ccw ? -1 : 1) * 1.5 * Math.PI;
+      const x0 = c.x + r * Math.cos(a0), y0 = c.y + r * Math.sin(a0);
+      const x1 = c.x + r * Math.cos(a1), y1 = c.y + r * Math.sin(a1);
+      return `M ${x0.toFixed(2)} ${y0.toFixed(2)} A ${r} ${r} 0 1 ${ccw ? 0 : 1} ${x1.toFixed(2)} ${y1.toFixed(2)}`;
+    }
+
     const lblP = overlay.label('P', { x: state.pos, y: 1 }, { anchor: 'bottom', color: Pal.force });
     const lblR = overlay.label('R', { x: 0, y: 0 }, { anchor: 'right', color: Pal.reaction });
     const lblM = overlay.label('M', { x: 0.2, y: -0.8 }, { color: Pal.moment });
@@ -42,6 +57,13 @@
       overlay.moveLabel(lblP, { x: state.pos, y: state.load * VIS + 0.3 });
       overlay.moveLabel(lblR, { x: -0.3, y: R * VIS });
       handle.move({ x: state.pos, y: 0 });
+      // Chiều quay quanh ngàm: r=(pos,0), f=(0,−load) (tải xuống) → tau=−pos·load<0 → CW.
+      const tau = P.momentFromVectors(state.pos, 0, 0, -state.load);
+      const ccw = tau > 0;
+      const r = 14 + Math.min(M, 1200) / 1200 * 20;
+      const wc = tf.toScreen(wall);
+      momentArc.setAttribute('d', arcD(wc, r, ccw));
+      momentArc.setAttribute('data-dir', ccw ? 'ccw' : 'cw');
       panel.setReadout([
         { label: 'P:', value: state.load + ' N' },
         { label: 'a:', value: state.pos.toFixed(2) + ' m' },

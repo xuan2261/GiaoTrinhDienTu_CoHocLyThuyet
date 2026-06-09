@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-08T10:39:02.712Z",
+  "generatedAt": "2026-06-09T05:01:09.104Z",
   "epsilon": {
     "live": 0.0001,
     "sign": 0.000001
@@ -1685,11 +1685,11 @@
           "channel": "sim2-dom",
           "driven": true,
           "detail": "slider",
-          "before": null,
-          "after": null,
-          "delta": null,
+          "before": 3.13,
+          "after": 6.14,
+          "delta": 3.01,
           "sceneChanged": false,
-          "deltaNonZero": false
+          "deltaNonZero": true
         },
         {
           "control": "slider:m1",
@@ -1745,11 +1745,11 @@
           "control": "slider:e",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": null,
-          "before": null,
-          "after": null,
-          "delta": null,
-          "deltaNonZero": false
+          "field": "updatedAt",
+          "before": 1,
+          "after": 2,
+          "delta": 1,
+          "deltaNonZero": true
         },
         {
           "control": "slider:m1",

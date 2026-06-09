@@ -24,10 +24,18 @@
 
     const ground = render.line(tf, base, { x: len, y: 0 }, { stroke: Pal.axis, width: 1 }); svg.appendChild(ground);
     const incline = render.line(tf, base, base, { stroke: Pal.axis, width: 3 }); svg.appendChild(incline);
-    const frictionCone = render.line(tf, base, base, { stroke: Pal.moment, width: 1.5, dash: '4 3', class: 'sim2-guide-line sim2-friction-cone' });
-    svg.appendChild(frictionCone);
+    // Nón ma sát = miền ±φ quanh PHÁP TUYẾN mặt nghiêng (không phải 1 tia). Fill mờ + 2 cạnh.
+    // Vẽ trước khối (z-order dưới) để không che khối. rgba cho phép (coverage guard).
+    const coneFill = render.el('path', { class: 'sim2-guide-line sim2-friction-cone', fill: 'rgba(124,58,237,0.13)', stroke: 'none' });
+    svg.appendChild(coneFill);
+    const coneEdge1 = render.el('line', { class: 'sim2-friction-cone-edge', stroke: Pal.moment, 'stroke-width': 1.5, 'stroke-dasharray': '4 3' });
+    const coneEdge2 = render.el('line', { class: 'sim2-friction-cone-edge', stroke: Pal.moment, 'stroke-width': 1.5, 'stroke-dasharray': '4 3' });
+    svg.appendChild(coneEdge1); svg.appendChild(coneEdge2);
     const blockPoly = render.poly(tf, [], { closed: true, gradient: 'a', depth: true, stroke: Pal.a });
     svg.appendChild(blockPoly);
+    // Vector phản lực R thẳng đứng (chống trọng lực). Trong nón ⟺ β≤φ. Trên khối → vẽ sau.
+    const reactionLine = render.arrow(tf, svg, base, base, { stroke: Pal.v, width: 3, class: 'sim2-reaction-line' });
+    svg.appendChild(reactionLine);
 
     const lblBeta = overlay.label('β', { x: 1.2, y: 0.15 }, { color: Pal.moment });
     const lblState = overlay.label('', { x: 3, y: 3.5 }, { color: Pal.force });
@@ -54,13 +62,25 @@
       const slip = D.slipCondition(state.betaDeg, state.mu);
       const phiDeg = slip.phi;
       const slips = slip.slips;
-      const coneTip = {
-        x: mid.x + Math.cos((state.betaDeg + phiDeg) * Math.PI / 180),
-        y: mid.y + Math.sin((state.betaDeg + phiDeg) * Math.PI / 180)
-      };
-      const cm = tf.toScreen(mid), ct = tf.toScreen(coneTip);
-      frictionCone.setAttribute('x1', cm.x); frictionCone.setAttribute('y1', cm.y);
-      frictionCone.setAttribute('x2', ct.x); frictionCone.setAttribute('y2', ct.y);
+      // Pháp tuyến mặt nghiêng (góc β): hướng (−sinβ, cosβ) ⇒ góc từ +x = 90+β.
+      // Nón = miền ±φ quanh pháp tuyến. R thẳng đứng (0,+1) lệch pháp tuyến đúng góc β.
+      const DEG = Math.PI / 180;
+      const normalDeg = 90 + state.betaDeg;
+      const cl = 2.2; // chiều dài cạnh nón (world)
+      const tip = a => ({ x: mid.x + cl * Math.cos(a * DEG), y: mid.y + cl * Math.sin(a * DEG) });
+      const e1 = tip(normalDeg - phiDeg), e2 = tip(normalDeg + phiDeg);
+      const pm = tf.toScreen(mid), pe1 = tf.toScreen(e1), pe2 = tf.toScreen(e2);
+      const setLn = (ln, p) => { ln.setAttribute('x1', pm.x); ln.setAttribute('y1', pm.y); ln.setAttribute('x2', p.x); ln.setAttribute('y2', p.y); };
+      setLn(coneEdge1, pe1); setLn(coneEdge2, pe2);
+      const rPx = cl * tf.scale;
+      coneFill.setAttribute('d', `M ${pm.x.toFixed(2)} ${pm.y.toFixed(2)} L ${pe1.x.toFixed(2)} ${pe1.y.toFixed(2)} A ${rPx.toFixed(2)} ${rPx.toFixed(2)} 0 0 1 ${pe2.x.toFixed(2)} ${pe2.y.toFixed(2)} Z`);
+      coneFill.setAttribute('data-half-angle', phiDeg.toFixed(2));
+      // Vector phản lực R thẳng đứng từ khối. Góc R↔pháp tuyến = β (data cho test).
+      const rTip = tf.toScreen({ x: mid.x, y: mid.y + cl });
+      reactionLine.setAttribute('x1', pm.x); reactionLine.setAttribute('y1', pm.y);
+      reactionLine.setAttribute('x2', rTip.x); reactionLine.setAttribute('y2', rTip.y);
+      reactionLine.setAttribute('stroke', slips ? Pal.force : Pal.v);
+      reactionLine.setAttribute('data-r-angle', state.betaDeg.toFixed(2));
       lblState.innerHTML = slips ? 'TRƯỢT' : 'CÂN BẰNG';
       lblState.style.color = slips ? Pal.force : Pal.v;
       overlay.moveLabel(lblState, { x: top.x * 0.6, y: top.y * 0.6 + 0.8 });

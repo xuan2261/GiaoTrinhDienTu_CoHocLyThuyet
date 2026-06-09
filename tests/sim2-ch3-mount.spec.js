@@ -168,6 +168,85 @@ test.describe('sim2 Ch3 pilot — ch3-6-2 (playback + slider + panel)', () => {
   });
 });
 
+// ─── No-clip: nội dung + nhãn nằm trong play-area ở cực trị slider/playback ───
+// Transform khớp aspect → world map đúng lên .sim2-root. Clip = bbox element vượt root.
+// Chỉ assert no-clip (KHÔNG fill-ratio số): axis span hết khung làm ratio≈100% không fail-first.
+async function rootBox(page) {
+  return page.$eval('#host .sim2-root', el => {
+    const r = el.getBoundingClientRect();
+    return { x: r.x, y: r.y, w: r.width, h: r.height };
+  });
+}
+async function contentBoxes(page, selector) {
+  return page.$$eval(selector, els => els.map(el => {
+    const r = el.getBoundingClientRect();
+    return { x: r.x, y: r.y, w: r.width, h: r.height,
+             tag: el.tagName.toLowerCase(), cls: el.getAttribute('class') || '',
+             text: (el.textContent || '').trim().slice(0, 12) };
+  })).then(bs => bs.filter(b => b.w > 0 || b.h > 0));
+}
+// Trả mô tả clip nếu box vượt root quá tol (stroke-width ~2px), else null.
+function clipDesc(box, root, tol) {
+  tol = tol == null ? 2 : tol;
+  const over = [];
+  if (box.x < root.x - tol) over.push('trái');
+  if (box.y < root.y - tol) over.push('trên');
+  if (box.x + box.w > root.x + root.w + tol) over.push('phải');
+  if (box.y + box.h > root.y + root.h + tol) over.push('dưới');
+  return over.length ? `${box.tag}.${box.cls}|"${box.text}" clip ${over.join(',')}` : null;
+}
+async function assertNoClip(page, selectors) {
+  const root = await rootBox(page);
+  for (const sel of selectors) {
+    for (const box of await contentBoxes(page, sel)) {
+      const c = clipDesc(box, root);
+      expect(c, `no-clip ${sel}: ${c}`).toBeNull();
+    }
+  }
+}
+
+test.describe('sim2 Ch3 — no-clip nội dung + nhãn ở cực trị', () => {
+  test('ch3-3-1: đồ thị x(t) gồm lobe âm nằm trong khung (step tới ωt=π)', async ({ page }) => {
+    await page.goto(FIXTURE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => { window.__sim = window.SIM_MAP['ch3-3-1'](document.getElementById('host')); });
+    // Pin k=4, m=1 (default) → ω=2 → x=2cos(ωt), min x=-2 tại ωt=π → t=π/2 → ~94 frame.
+    // Click step deterministic (KHÔNG real-time wait) tới vừa quá π để bắt lobe âm sâu nhất.
+    await page.evaluate(() => {
+      const btn = document.querySelector('#host .sim2-step');
+      for (let i = 0; i < 95; i++) btn.click();
+    });
+    const pts = await page.evaluate(() =>
+      (document.querySelector('#host .sim2-graph').getAttribute('points') || '').trim().split(/\s+/).length);
+    expect(pts, 'đồ thị phải có nhiều điểm sau 95 step').toBeGreaterThan(50);
+    await assertNoClip(page, ['#host .sim2-graph']);
+    await page.evaluate(() => window.__sim.dispose());
+  });
+
+  test('ch3-5-4: nội dung + nhãn không clip khi F max (slider + drag biên)', async ({ page }) => {
+    await page.goto(FIXTURE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => { window.__sim = window.SIM_MAP['ch3-5-4'](document.getElementById('host')); });
+    await page.evaluate(() => {
+      const f = document.querySelector('#host .sim2-controls input[data-id=F]');
+      f.value = f.max; f.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    await assertNoClip(page, ['#host svg line[marker-end]', '#host svg polygon',
+                              '#host svg polyline', '#host .sim2-label']);
+    await page.evaluate(() => window.__sim.dispose());
+  });
+
+  test('ch3-2-3: cặp lực + nhãn A/B không clip khi F max', async ({ page }) => {
+    await page.goto(FIXTURE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => { window.__sim = window.SIM_MAP['ch3-2-3'](document.getElementById('host')); });
+    await page.evaluate(() => {
+      const f = document.querySelector('#host .sim2-controls input[data-id=F]');
+      f.value = f.max; f.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    await assertNoClip(page, ['#host svg line[marker-end]', '#host svg polygon',
+                              '#host svg polyline', '#host .sim2-label']);
+    await page.evaluate(() => window.__sim.dispose());
+  });
+});
+
 // ─── P4 retrofit: 7 sim Ch3 còn lại (panel + legend + control; playback start-paused cho sim động) ───
 const CH3_RETROFIT = [
   { route: 'ch3-2-2', sliders: 2, playback: true },   // F, m + graph v(t)

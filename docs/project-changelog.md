@@ -1,5 +1,22 @@
 # Project Changelog
 
+## 2026-06-09 — Sim2 visual + sư phạm fixes (TDD, deep-review)
+
+### Changed
+- **ch3-3-1**: worldBox `minY −4 → −5` → đồ thị x(t) gồm lobe âm (đáy) không còn cụt khung.
+- **ch3-5-4**: worldBox co `[0.3..7.5]×[−0.8..2.2]` → hết ~45% dải trống, nội dung cân khung.
+- **ch3-2-3**: worldBox co dọc `[−1.7..1.0]` + nới ngang `±6` → hết dead-space dọc; nhãn `A`/`B` (anchor-top) + `F_AB` (anchor-left) không clip ở F max.
+- **ch1-1-4**: worldBox co `[−0.9..3.8]` (maxY tính từ F=100) + thêm cung mũi tên mô men quanh O — chiều **CCW** từ tích có hướng `momentFromVectors(x,0,0,+F)`.
+- **ch1-3-6**: worldBox `[−1.2..3.6]` (chừa nhãn P ở P=150) + cung mô men quanh ngàm — chiều **CW** từ `momentFromVectors(pos,0,0,−load)` (tải xuống ở x>0), KHÔNG lấy dấu từ |M|=P·a luôn dương.
+- **ch1-5-3**: thay tia ma sát 1-đường → **nón 2D quanh pháp tuyến** mặt nghiêng (fill mờ `rgba` + 2 cạnh ±φ) + **vector phản lực R thẳng đứng**; R trong nón khi β≤φ (cân bằng), ra ngoài khi β>φ (trượt); đổi màu theo trạng thái. φ=atan μ.
+
+### Added
+- No-clip test (bbox content ⊆ `.sim2-root` ở cực trị slider, enumerate cả `.sim2-label`) cho ch3-3-1/ch3-5-4/ch3-2-3 trong `sim2-ch3-mount.spec.js`.
+- Test arc-tồn-tại + **chiều-đúng** (data-dir CCW/CW) + no-clip cho ch1-1-4/ch1-3-6; test 2-cạnh-nón + R + góc-mở-theo-μ + R-ra-ngoài-khi-trượt cho ch1-5-3 trong `sim2-ch1-mount.spec.js`.
+
+### Verified
+- `test:sim:physics` 9/9 KHÔNG đổi (không chạm `physics/`); `test:sim:mount` 110 pass; `test:sim:probe` 35/35 + unit 68 assertion (rowIndex ch1-1-4/ch1-3-6/ch1-5-3 không lệch); `test:sim:visual:capture` 25 + soi mắt 6 route đạt từng finding.
+
 ## 2026-06-09 — Sim quality triage + visual/interaction fixes + Sim3 docs sync
 
 ### Added

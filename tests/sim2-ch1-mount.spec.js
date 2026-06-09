@@ -133,6 +133,151 @@ test.describe('sim2 Ch1 P2 — retrofit 9 sim (panel + legend + control)', () =>
     });
   }
 });
+// ─── No-clip + mũi tên cong mô men (ch1-1-4, ch1-3-6) ───
+// Transform khớp aspect → world map đúng lên .sim2-root. Clip = bbox element vượt root.
+async function rootBox(page) {
+  return page.$eval('#host .sim2-root', el => {
+    const r = el.getBoundingClientRect();
+    return { x: r.x, y: r.y, w: r.width, h: r.height };
+  });
+}
+async function contentBoxes(page, selector) {
+  return page.$$eval(selector, els => els.map(el => {
+    const r = el.getBoundingClientRect();
+    return { x: r.x, y: r.y, w: r.width, h: r.height,
+             tag: el.tagName.toLowerCase(), cls: el.getAttribute('class') || '',
+             text: (el.textContent || '').trim().slice(0, 12) };
+  })).then(bs => bs.filter(b => b.w > 0 || b.h > 0));
+}
+function clipDesc(box, root, tol) {
+  tol = tol == null ? 2 : tol;
+  const over = [];
+  if (box.x < root.x - tol) over.push('trái');
+  if (box.y < root.y - tol) over.push('trên');
+  if (box.x + box.w > root.x + root.w + tol) over.push('phải');
+  if (box.y + box.h > root.y + root.h + tol) over.push('dưới');
+  return over.length ? `${box.tag}.${box.cls}|"${box.text}" clip ${over.join(',')}` : null;
+}
+async function assertNoClip(page, selectors) {
+  const root = await rootBox(page);
+  for (const sel of selectors) {
+    for (const box of await contentBoxes(page, sel)) {
+      const c = clipDesc(box, root);
+      expect(c, `no-clip ${sel}: ${c}`).toBeNull();
+    }
+  }
+}
+async function setSliderMax(page, id) {
+  await page.evaluate(i => {
+    const s = document.querySelector(`#host .sim2-controls input[data-id=${i}]`);
+    s.value = s.max; s.dispatchEvent(new Event('input', { bubbles: true }));
+  }, id);
+}
+async function arcAttr(page, attr) {
+  return page.evaluate(a => {
+    const p = document.querySelector('#host path.sim2-moment-arc');
+    return p ? p.getAttribute(a) : null;
+  }, attr);
+}
+
+test.describe('sim2 Ch1 — mô men: arc chỉ chiều + no-clip (ch1-1-4, ch1-3-6)', () => {
+  test('ch1-1-4: arc mô men tồn tại, chiều CCW (lực lên, x>0), bán kính đổi theo |M|, no-clip ở F max', async ({ page }) => {
+    await page.goto(FIXTURE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => { window.__sim = window.SIM_MAP['ch1-1-4'](document.getElementById('host')); });
+
+    // Arc tồn tại + chiều: r=(x,0), f=(0,+F) → tau=x·F>0 → CCW (chuẩn tích có hướng, KHÔNG |M|).
+    expect(await arcAttr(page, 'data-dir'), 'ch1-1-4 arc chiều CCW (lực lên, điểm đặt x>0)').toBe('ccw');
+
+    // |M| đổi → arc đổi (bán kính scale theo |M|): F min vs F max → path d khác.
+    await page.evaluate(() => {
+      const s = document.querySelector('#host .sim2-controls input[data-id=F]');
+      s.value = s.min; s.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    const dMin = await arcAttr(page, 'd');
+    await setSliderMax(page, 'F');
+    const dMax = await arcAttr(page, 'd');
+    expect(dMin && dMax && dMin !== dMax, 'arc d phải đổi khi |M| đổi (bán kính theo |M|)').toBe(true);
+
+    // no-clip ở F max (lực cao nhất) — enumerate cả label + arc.
+    await assertNoClip(page, ['#host svg line[marker-end]', '#host svg polygon', '#host svg polyline',
+                              '#host path.sim2-moment-arc', '#host .sim2-label']);
+    await page.evaluate(() => window.__sim.dispose());
+  });
+
+  test('ch1-3-6: arc mô men tồn tại, chiều CW (tải xuống, x>0), bán kính đổi theo |M|, no-clip ở P/a max', async ({ page }) => {
+    await page.goto(FIXTURE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => { window.__sim = window.SIM_MAP['ch1-3-6'](document.getElementById('host')); });
+
+    // Chiều: r=(pos,0), f=(0,−load) → tau=−pos·load<0 → CW. Nếu lấy dấu từ |M| (P·a>0) sẽ ra CCW SAI.
+    expect(await arcAttr(page, 'data-dir'), 'ch1-3-6 arc chiều CW (tải hướng xuống ở x>0)').toBe('cw');
+
+    await page.evaluate(() => {
+      const s = document.querySelector('#host .sim2-controls input[data-id=P]');
+      s.value = s.min; s.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    const dMin = await arcAttr(page, 'd');
+    await setSliderMax(page, 'P');
+    const dMax = await arcAttr(page, 'd');
+    expect(dMin && dMax && dMin !== dMax, 'arc d phải đổi khi |M| đổi').toBe(true);
+
+    await setSliderMax(page, 'a');
+    await assertNoClip(page, ['#host svg line[marker-end]', '#host svg polygon', '#host svg polyline',
+                              '#host path.sim2-moment-arc', '#host .sim2-label']);
+    await page.evaluate(() => window.__sim.dispose());
+  });
+});
+
+// ─── Nón ma sát 2D ch1-5-3: 2 cạnh quanh pháp tuyến + vector phản lực R ───
+async function setSlider(page, id, v) {
+  await page.evaluate(({ i, val }) => {
+    const s = document.querySelector(`#host .sim2-controls input[data-id=${i}]`);
+    s.value = String(val); s.dispatchEvent(new Event('input', { bubbles: true }));
+  }, { i: id, val: v });
+}
+async function coneNum(page, sel, attr) {
+  return page.evaluate(({ s, a }) => {
+    const el = document.querySelector(`#host ${s}`);
+    return el ? parseFloat(el.getAttribute(a)) : null;
+  }, { s: sel, a: attr });
+}
+
+test.describe('sim2 Ch1 — nón ma sát 2D + phản lực R (ch1-5-3)', () => {
+  test('ch1-5-3: 2 cạnh nón quanh pháp tuyến + R thẳng đứng; mở rộng theo μ; R ra ngoài khi β>φ', async ({ page }) => {
+    await page.goto(FIXTURE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => { window.__sim = window.SIM_MAP['ch1-5-3'](document.getElementById('host')); });
+
+    // Nón = 2 cạnh (pháp tuyến xoay ±φ) + 1 vector phản lực R (thẳng đứng).
+    await expect(page.locator('#host .sim2-friction-cone-edge')).toHaveCount(2);
+    await expect(page.locator('#host .sim2-reaction-line')).toHaveCount(1);
+    // Vẫn giữ đúng 1 .sim2-friction-cone (miền nón) — motion-polish guard đếm =1.
+    await expect(page.locator('#host .sim2-friction-cone')).toHaveCount(1);
+
+    // μ tăng (0.45→0.9) → nửa-góc nón φ tăng (atan: 24.2°→42.0°).
+    await setSlider(page, 'mu', 0.45);
+    const phiLo = await coneNum(page, '.sim2-friction-cone', 'data-half-angle');
+    await setSlider(page, 'mu', 0.9);
+    const phiHi = await coneNum(page, '.sim2-friction-cone', 'data-half-angle');
+    expect(phiLo, 'φ tồn tại').toBeGreaterThan(0);
+    expect(phiHi, 'φ mở rộng khi μ tăng').toBeGreaterThan(phiLo);
+
+    // β>φ (trượt): góc giữa R và pháp tuyến (=β) > nửa-góc nón (φ) → R NGOÀI nón.
+    await setSlider(page, 'mu', 0.45); // φ≈24.2°
+    await setSlider(page, 'beta', 60); // β=60 > φ → trượt
+    const rAngleOut = await coneNum(page, '.sim2-reaction-line', 'data-r-angle');
+    const phiOut = await coneNum(page, '.sim2-friction-cone', 'data-half-angle');
+    expect(rAngleOut, 'β=60 → góc R-pháp tuyến').toBeGreaterThan(phiOut);
+
+    // β≤φ (cân bằng): R TRONG nón. μ=1.0 → φ=45°, β=3 → góc R < φ.
+    await setSlider(page, 'mu', 1.0);
+    await setSlider(page, 'beta', 3);
+    const rAngleIn = await coneNum(page, '.sim2-reaction-line', 'data-r-angle');
+    const phiIn = await coneNum(page, '.sim2-friction-cone', 'data-half-angle');
+    expect(rAngleIn, 'β=3 → R trong nón (góc R < φ)').toBeLessThan(phiIn);
+
+    await page.evaluate(() => window.__sim.dispose());
+  });
+});
+
 test.describe('sim2 Ch1 pilot — ch1-1-3 (control + panel + drag↔slider)', () => {
   test('ch1-1-3: 2 slider + panel + legend; slider→vector; drag→slider; dispose sạch', async ({ page }) => {
     const errors = [];

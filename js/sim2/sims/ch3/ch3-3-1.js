@@ -8,7 +8,7 @@
 
   Reg.register('ch3-3-1', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -4, maxX: 11, maxY: 4 }, reservePanel: true,
+      container, worldBox: { minX: -1, minY: -5, maxX: 11, maxY: 4 }, reservePanel: true,
       meta: { name: 'Giải ODE chuyển động (RK4)', section: '3.1', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;
