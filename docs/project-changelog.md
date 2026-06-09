@@ -1,5 +1,20 @@
 # Project Changelog
 
+## 2026-06-09 — Sim quality triage + visual/interaction fixes + Sim3 docs sync
+
+### Added
+- Dev-only interaction probe harness `tools/sim-probe/` (mount 35 route qua SIM_MAP, đo liveness A + dấu đơn điệu B vs physics, emit `interaction-probe.json`); tách hoàn toàn khỏi `test:sim:release`. Scripts `test:sim:probe`, `test:sim:probe:unit`.
+- Triage report 35 route 3 trục `plans/260608-1559-sim-fullquality-triage/` (0 lỗi physics, 23/23 B match, 81/83 control live, 10/10 Sim3 true-3D).
+
+### Changed
+- `ch3-5-2`: nhãn `p(t)` dời lên đường lục động lượng + nhãn riêng `J = F·t` cho đường cam xung lượng (trước đây 1 nhãn baseline gây đọc nhầm).
+- `ch2-4-4`: đẩy nhãn `v_rel`/`a_cor` xa hơn theo 2 hướng vuông góc → hết chồng khi vector ngắn.
+- `ch3-6-2`: slider `e` redraw on input + readout `ΔT dự đoán` (gọi `resolveCollision2D` ở điều kiện đầu) → phản hồi tức thì thay vì chỉ tác động ở va chạm kế.
+- **Sim3 docs sync (drift fix):** README + `system-architecture.md` + `project-overview-pdr.md` + `project-roadmap.md` cập nhật Sim3 pilot 6→**10 route** (thêm `ch1-1-5`, `ch1-5-3`, `ch2-1-3`, `ch3-1-3`) khớp `index.html` + `js/sim3/sims/`.
+
+### Verified
+- `test:sim:physics` 9/9 không đổi; `test:sim:mount` 104 pass; `test:sim:release` xanh; probe xác nhận ch3-6-2 e-slider chuyển live (dead 2→0). Physics KHÔNG đổi.
+
 ## 2026-06-03 — Sim3 ch2-5-3 Single Route Rollout
 
 ### Added

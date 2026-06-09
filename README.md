@@ -25,7 +25,7 @@ Giáo trình điện tử tĩnh cho môn Cơ Học Lý Thuyết, chạy trực t
 | `js/notes.js` | Highlight và ghi chú cá nhân |
 | `js/sim-physics-{statics,kinematics,dynamics}.js` | Nguồn công thức physics đã verify — đang được port sang `js/sim2/physics/` (engine SVG-first, đang rebuild) |
 | `js/sim3/core/` | Pilot Three.js shell dùng offline `lib/three/three.umd.min.js`, mode toggle, disposal helper |
-| `js/sim3/sims/` | Pilot adapters cho `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch2-5-3`, `ch3-5-3`, `ch3-6-2`; Sim2 vẫn là mặc định, fallback về 2D khi WebGL fail |
+| `js/sim3/sims/` | Pilot adapters cho `ch1-1-5`, `ch1-5-3`, `ch2-1-3`, `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch2-5-3`, `ch3-1-3`, `ch3-5-3`, `ch3-6-2`; Sim2 vẫn là mặc định, fallback về 2D khi WebGL fail |
 | `chapters/` | HTML fragment sinh từ DOCX |
 | `data/` | Quiz JSON và mapping công thức |
 | `tools/` | Script đồng bộ DOCX, nav, bundle, audit, equation review |
@@ -80,15 +80,15 @@ npm run test:sim:visual:baseline:update # dev-only: refresh selective screenshot
 
 ## Sim3 pilot (Three.js offline)
 
-Sim3 là pilot 3D tùy chọn cho 6 route Sim2: `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch2-5-3`, `ch3-5-3`, `ch3-6-2`. Luồng mount vẫn giữ nguyên contract `window.SIM_MAP[pageId] -> factory(container) -> { dispose }`; Sim2 SVG-first tiếp tục là mặc định, còn Sim3 chỉ được bật theo route và chỉ khi WebGL chạy ổn.
+Sim3 là pilot 3D tùy chọn cho 10 route Sim2: `ch1-1-5`, `ch1-5-3`, `ch2-1-3`, `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch2-5-3`, `ch3-1-3`, `ch3-5-3`, `ch3-6-2`. Luồng mount vẫn giữ nguyên contract `window.SIM_MAP[pageId] -> factory(container) -> { dispose }`; Sim2 SVG-first tiếp tục là mặc định, còn Sim3 chỉ được bật theo route và chỉ khi WebGL chạy ổn.
 
 | Mục | Quy ước |
 |---|---|
 | Runtime Three.js | Vendored offline tại `lib/three/three.umd.min.js`; không dùng CDN hay bundler runtime |
 | Core | `js/sim3/core/` chứa WebGL shell, mode toggle, disposal helper, primitive helpers |
-| Adapters | `js/sim3/sims/ch2-2-2-3d.js`, `ch2-3-2-3d.js`, `ch2-4-4-3d.js`, `ch2-5-3-3d.js`, `ch3-5-3-3d.js`, `ch3-6-2-3d.js` |
+| Adapters | `js/sim3/sims/ch1-1-5-3d.js`, `ch1-5-3-3d.js`, `ch2-1-3-3d.js`, `ch2-2-2-3d.js`, `ch2-3-2-3d.js`, `ch2-4-4-3d.js`, `ch2-5-3-3d.js`, `ch3-1-3-3d.js`, `ch3-5-3-3d.js`, `ch3-6-2-3d.js` |
 | Fallback | Nếu WebGL fail, route quay về 2D và hiện thông báo tiếng Việt |
-| Phạm vi | Pilot 6 route, chưa rollout sang toàn bộ 25 route |
+| Phạm vi | Pilot 10 route, chưa rollout sang toàn bộ 25 route |
 
 Visual artifacts cho batch mới được lưu dưới `plans/260603-2100-sim3-ch2-5-3-single-route-tdd-rollout/visuals/` để đối chiếu nội bộ.
 

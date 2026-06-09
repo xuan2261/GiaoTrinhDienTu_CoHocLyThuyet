@@ -36,14 +36,18 @@ Motion/feedback v1 nằm ở core chung: `controls.js` flash output, `panel.js` 
 |---|---|
 | `lib/three/three.umd.min.js` | Three.js vendored offline cho pilot, không phụ thuộc CDN/bundler runtime |
 | `js/sim3/core/` | WebGL shell, mode toggle, disposal helper, primitive helpers |
+| `js/sim3/sims/ch1-1-5-3d.js` | 3D adapter cho route `ch1-1-5` |
+| `js/sim3/sims/ch1-5-3-3d.js` | 3D adapter cho route `ch1-5-3` |
+| `js/sim3/sims/ch2-1-3-3d.js` | 3D adapter cho route `ch2-1-3` |
 | `js/sim3/sims/ch2-2-2-3d.js` | 3D adapter cho route `ch2-2-2` |
 | `js/sim3/sims/ch2-3-2-3d.js` | 3D adapter cho route `ch2-3-2` |
 | `js/sim3/sims/ch2-4-4-3d.js` | 3D adapter cho route `ch2-4-4` |
 | `js/sim3/sims/ch2-5-3-3d.js` | 3D adapter cho route `ch2-5-3` |
+| `js/sim3/sims/ch3-1-3-3d.js` | 3D adapter cho route `ch3-1-3` |
 | `js/sim3/sims/ch3-5-3-3d.js` | 3D adapter cho route `ch3-5-3` |
 | `js/sim3/sims/ch3-6-2-3d.js` | 3D adapter cho route `ch3-6-2` |
 
-Pilot Sim3 chỉ bọc thêm nhánh 3D cho 6 route Sim2 đã chọn. Contract mount vẫn giữ nguyên `SIM_MAP[pageId] -> factory(container) -> { dispose }`, Sim2 SVG-first vẫn là default path, và khi WebGL không khả dụng thì route rơi về 2D với thông báo tiếng Việt. Đây là pilot nội bộ, chưa thay đổi phạm vi 25 route Sim2.
+Pilot Sim3 chỉ bọc thêm nhánh 3D cho 10 route Sim2 đã chọn. Contract mount vẫn giữ nguyên `SIM_MAP[pageId] -> factory(container) -> { dispose }`, Sim2 SVG-first vẫn là default path, và khi WebGL không khả dụng thì route rơi về 2D với thông báo tiếng Việt. Đây là pilot nội bộ, chưa thay đổi phạm vi 25 route Sim2.
 
 ### Tầng 3 — Simulations
 

@@ -22,7 +22,7 @@ Cập nhật: 2026-05-06.
 | 3 chương: Tĩnh học, Động học, Động lực học | Backend, user account, sync cloud |
 | Fragment HTML sinh từ DOCX | CMS hoặc editor WYSIWYG trực tuyến |
 | Quiz JSON, progress, notes, glossary | Analytics server-side |
-| Mô phỏng canonical trong `js/sim2/`; Sim3 pilot 6 route tùy chọn | 3D engine hoặc WebGL nặng toàn cục |
+| Mô phỏng canonical trong `js/sim2/`; Sim3 pilot 10 route tùy chọn | 3D engine hoặc WebGL nặng toàn cục |
 
 ## Người dùng chính
 
@@ -81,7 +81,7 @@ Cập nhật: 2026-05-06.
 | DOCX sync pipeline | Có sẵn |
 | Offline bundle | Có sẵn |
 | Quiz/progress/notes/glossary/simulations | Có sẵn |
-| Current simulation runtime | Active `.sim-lab` canvas + scene/renderer/behavior registries; Sim3 chỉ là pilot 6 route tùy chọn, Sim2 vẫn default; Ch1 pilot parallelogram là reference-only |
+| Current simulation runtime | Active `.sim-lab` canvas + scene/renderer/behavior registries; Sim3 chỉ là pilot 10 route tùy chọn, Sim2 vẫn default; Ch1 pilot parallelogram là reference-only |
 | QA harness | Có sẵn: dev-only Playwright baseline + Python manifest/quality/runtime gates |
 
 | Semantic math strict publish | Automated strict pass; browser QA 100% |
