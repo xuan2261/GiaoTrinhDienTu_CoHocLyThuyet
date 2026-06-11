@@ -43,3 +43,5 @@ status: completed
 | ch3-2-3 | **giữ −1.7** | **DROP** — nhãn A/B `anchor:'top'` (chữ dưới điểm y=−0.9) → thu minY làm clip chữ ở no-clip test (slider F max). 2 lần thu (−1.15, −1.4) đều fail gate. Dead-space cosmetic nhẹ, không đáng đánh đổi no-clip. Revert. |
 
 Bài học: nhãn anchor 'top' ở mép dưới worldBox = ràng buộc no-clip cứng, không thu minY được. Route nào nhãn nằm trong vùng nội dung mới thu an toàn.
+
+**Bổ sung (10:16) — ch3-2-3 gần như FALSE-POSITIVE:** đo clearance qua các lần thử: config gốc (nhãn y=−0.9, minY=−1.7) cho 0.8 world-unit; lần thử −1.4 chỉ còn 0.5 → fail. Chữ nhãn A/B (cao cố định px) cần ~0.8 u dưới điểm neo ở scale này. "Nửa dưới trống" mà grader mù thấy **chính là vùng chứa text nhãn A/B**, không phải khoảng trống thật. Mọi đòn bẩy (dời nhãn lên block = đè fill màu hại readability; dời lên vùng trên = rủi ro top-clip) đều tệ hơn. **Kết luận: giữ nguyên ch3-2-3, không sửa.**
