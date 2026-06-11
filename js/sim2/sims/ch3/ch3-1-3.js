@@ -8,7 +8,9 @@
 
   Reg.register('ch3-1-3', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -5, minY: -1, maxX: 5, maxY: 6 }, reservePanel: true,
+      // worldBox thu DỌC -1..6 → -0.5..5.5: thân toa (y 0..5) lấp ~83% chiều cao (hết dead-space
+      // trên+dưới). GIỮ maxX=5: thu ngang sẽ clip thân toa (x ±3.5). pivot y=5, bob hạ xuống vẫn trong khung.
+      container, worldBox: { minX: -5, minY: -0.5, maxX: 5, maxY: 5.5 }, reservePanel: true,
       meta: { name: 'HQC quán tính vs phi quán tính', section: '1.3', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;
@@ -18,7 +20,7 @@
 
     svg.appendChild(render.poly(tf,
       [{ x: -3.5, y: 0 }, { x: 3.5, y: 0 }, { x: 3.5, y: 5 }, { x: -3.5, y: 5 }],
-      { closed: true, gradient: 'axis', depth: true, stroke: Pal.axis }));
+      { closed: true, gradient: 'axis', depth: true, stroke: Pal.axis, width: 3.5 }));
     const pivot = { x: 0, y: 5 };
     const bob = render.circle(tf, pivot, 7, { pixel: true, fill: Pal.a, stroke: Pal.a }); svg.appendChild(bob);
     const cord = render.line(tf, pivot, pivot, { stroke: Pal.axis, width: 2 }); svg.appendChild(cord);

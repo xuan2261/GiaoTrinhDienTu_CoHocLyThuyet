@@ -8,7 +8,8 @@
 
   Reg.register('ch1-1-8', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -1.5, maxX: 11, maxY: 4 }, reservePanel: true,
+      // minY -1.5→-1.2: bỏ dead-space dưới dầm (gối chân y=-0.8 còn margin 0.4). GIỮ maxY=4 (P=200 sát mép trên).
+      container, worldBox: { minX: -1, minY: -1.2, maxX: 11, maxY: 4 }, reservePanel: true,
       meta: { name: 'Phản lực liên kết + dựng FBD', section: '1.8', chapter: 1 }
     });
     const { svg, tf, overlay, render } = shell;

@@ -8,7 +8,8 @@
 
   Reg.register('ch3-3-1', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -5, maxX: 11, maxY: 4 }, reservePanel: true,
+      // minY -5→-5.25: nới margin để trace x(t) đáy (gy0=-3, biên độ tới gy0-gh≈-4.6) không chạm mép.
+      container, worldBox: { minX: -1, minY: -5.25, maxX: 11, maxY: 4 }, reservePanel: true,
       meta: { name: 'Giải ODE chuyển động (RK4)', section: '3.1', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;

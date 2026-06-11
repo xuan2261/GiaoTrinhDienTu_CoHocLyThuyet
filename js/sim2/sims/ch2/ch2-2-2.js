@@ -8,8 +8,9 @@
 
   Reg.register('ch2-2-2', function(container) {
     const shell = Shell.createSimShell({
-      // worldBox nới ±4→±4.6: đĩa R=3 trước chiếm ~75% khung (nặng mắt); nới biên còn ~65%, nhẹ hơn.
-      container, worldBox: { minX: -4.6, minY: -4.6, maxX: 4.6, maxY: 4.6 }, reservePanel: true,
+      // GIỮ world R=3 (dính physics vt=ωR). Thu đĩa-trên-màn bằng worldBox nới ±4.6→±5.5:
+      // đĩa R=3 từ ~65% còn ~55% khung, thôi nặng mắt. Coupling vt=ω·R không đổi.
+      container, worldBox: { minX: -5.5, minY: -5.5, maxX: 5.5, maxY: 5.5 }, reservePanel: true,
       meta: { name: 'Quay quanh trục cố định (ω, α)', section: '2.2', chapter: 2 }
     });
     const { svg, tf, overlay, render } = shell;
@@ -36,7 +37,7 @@
       spoke.setAttribute('x2', sP.x); spoke.setAttribute('y2', sP.y);
       ptMark.setAttribute('cx', sP.x); ptMark.setAttribute('cy', sP.y);
       const vt = K.tangentialVelocity(omega, R);
-      const vx = -Math.sin(phi) * vt * 0.15, vy = Math.cos(phi) * vt * 0.15;
+      const vx = -Math.sin(phi) * vt * 0.2, vy = Math.cos(phi) * vt * 0.2;
       const sV = tf.toScreen({ x: px + vx, y: py + vy });
       vArrow.setAttribute('x1', sP.x); vArrow.setAttribute('y1', sP.y);
       vArrow.setAttribute('x2', sV.x); vArrow.setAttribute('y2', sV.y);

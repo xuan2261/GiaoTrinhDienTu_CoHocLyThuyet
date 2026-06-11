@@ -8,7 +8,8 @@
 
   Reg.register('ch3-5-4', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: 0.3, minY: -0.8, maxX: 7.5, maxY: 2.2 }, reservePanel: true,
+      // minY -0.8→-0.4: bỏ nửa dưới trống (nét đứt mốc đáy y=-0.3 còn margin 0.1).
+      container, worldBox: { minX: 0.3, minY: -0.4, maxX: 7.5, maxY: 2.2 }, reservePanel: true,
       meta: { name: 'Định lý động năng (công–năng)', section: '5.4', chapter: 3 }
     });
     const { svg, tf, overlay, render } = shell;

@@ -9,9 +9,9 @@
 
   Reg.register('ch2-4-4', function(container) {
     const shell = Shell.createSimShell({
-      // worldBox nới ±5→±5.6: đĩa r=4 trước chiếm ~80% khung; nới biên còn ~71%, nhẹ mắt.
-      // Hạt rRel max 3.5 vẫn nằm trong đĩa (không lệch ra rìa). Canvas dùng cùng tf nên vẫn khớp SVG.
-      container, worldBox: { minX: -5.6, minY: -5.6, maxX: 5.6, maxY: 5.6 }, canvas: true, reservePanel: true,
+      // Đĩa thu 4→3.6 (vẫn ≥ rRel max 3.5 nên hạt không văng ra ngoài) + worldBox nới ±5.6→±6.4:
+      // đĩa-trên-màn từ ~71% còn ~56% khung, thôi nuốt viewport. Canvas dùng cùng tf nên vẫn khớp SVG.
+      container, worldBox: { minX: -6.4, minY: -6.4, maxX: 6.4, maxY: 6.4 }, canvas: true, reservePanel: true,
       meta: { name: 'Hợp chuyển động & Coriolis', section: '4.4', chapter: 2 }
     });
     const { svg, tf, overlay, render, canvas } = shell;
@@ -19,7 +19,7 @@
     const params = { omega: 1.2, vRel: 1.5 }; // initial = giá trị hardcode cũ
     let t = 0;
 
-    svg.appendChild(render.circle(tf, O, 4, { stroke: Pal.axis, width: 2, gradient: 'moment', depth: true }));
+    svg.appendChild(render.circle(tf, O, 3.6, { stroke: Pal.axis, width: 2, gradient: 'moment', depth: true }));
     svg.appendChild(render.circle(tf, O, 5, { pixel: true, fill: Pal.axis, stroke: Pal.axis }));
     const ptMark = render.circle(tf, O, 5, { pixel: true, fill: Pal.force, stroke: Pal.force }); svg.appendChild(ptMark);
     const vrArrow = render.arrow(tf, svg, O, O, { stroke: Pal.v, width: 2.5, class: 'sim2-vector-vrel' }); svg.appendChild(vrArrow);
@@ -48,11 +48,14 @@
       const ur = { x: Math.cos(phi), y: Math.sin(phi) };
       const sp = tf.toScreen(p);
       ptMark.setAttribute('cx', sp.x); ptMark.setAttribute('cy', sp.y);
-      setArrow(vrArrow, p, { x: p.x + ur.x * radialSpeed, y: p.y + ur.y * radialSpeed });
+      // VREL_VS: chỉ kéo dài mũi tên HIỂN THỊ cho dễ đọc khi worldBox rộng hơn — readout v_rel dưới panel
+      // vẫn lấy radialSpeed gốc (không đụng physics).
+      const VREL_VS = 1.6;
+      setArrow(vrArrow, p, { x: p.x + ur.x * radialSpeed * VREL_VS, y: p.y + ur.y * radialSpeed * VREL_VS });
       const vrx = ur.x * radialSpeed, vry = ur.y * radialSpeed;
       const ac = K.coriolisAccelerationVec(params.omega, vrx, vry);
       const acMag = K.coriolisAcceleration(params.omega, Math.abs(radialSpeed));
-      const VS = 0.3;
+      const VS = 0.42;
       setArrow(acArrow, p, { x: p.x + ac.ax * VS, y: p.y + ac.ay * VS });
       const acLen = Math.hypot(ac.ax, ac.ay) || 1;
       const acDir = { x: ac.ax / acLen, y: ac.ay / acLen };
