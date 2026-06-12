@@ -60,4 +60,42 @@ assert.strictEqual(j163.section, '6.3', 'ch1-6-3 → section 6.3');
 const j362 = buildCapturePlan(manifest, {}).find(j => j.route === 'ch3-6-2');
 assert.strictEqual(j362.section, '6.2', 'ch3-6-2 → section 6.2');
 
+// 9. interactionTargets rỗng/không truyền → shots y hệt hành vi cũ (regression guard).
+const id0 = manifest[0].id;
+const noIT = buildCapturePlan(manifest, {}, { interactionTargets: {} });
+assert.deepStrictEqual(noIT[0].shots.map(s => s.label), ['init', 'live'],
+  'interactionTargets rỗng → shots không đổi');
+
+// 10. slider-far: route có entry kind slider → shot cuối label 'slider-far', giữ control.
+const sliderPlan = buildCapturePlan(manifest, {},
+  { interactionTargets: { [id0]: { kind: 'slider', control: 'F', lo: null, hi: null } } });
+const sJob = sliderPlan[0];
+assert.strictEqual(sJob.shots.length, 3, 'static + slider-far → 3 shots (init/live/slider-far)');
+const sLast = sJob.shots[sJob.shots.length - 1];
+assert.strictEqual(sLast.label, 'slider-far', 'shot cuối label slider-far');
+assert.strictEqual(sLast.kind, 'slider', 'shot slider-far kind slider');
+assert.strictEqual(sLast.control, 'F', 'shot slider-far giữ control');
+assert.strictEqual(sLast.frame, undefined, 'shot tương tác KHÔNG có frame (spec set control rồi chụp)');
+
+// 11. drag-far: route có entry kind drag → shot cuối label 'drag-far', giữ selector.
+const dragPlan = buildCapturePlan(manifest, {},
+  { interactionTargets: { [id0]: { kind: 'drag', selector: '.sim2-handle' } } });
+const dLast = dragPlan[0].shots[dragPlan[0].shots.length - 1];
+assert.strictEqual(dLast.label, 'drag-far', 'shot cuối label drag-far');
+assert.strictEqual(dLast.kind, 'drag', 'shot drag-far kind drag');
+assert.strictEqual(dLast.selector, '.sim2-handle', 'shot drag-far giữ selector');
+
+// 12. interaction-far áp được cho dynamic route: shots = t0/mid/end + slider-far.
+const dynIT = buildCapturePlan(manifest, { [id0]: 'dynamic' },
+  { interactionTargets: { [id0]: { kind: 'slider', control: 'k' } } });
+assert.deepStrictEqual(dynIT[0].shots.map(s => s.label), ['t0', 'mid', 'end', 'slider-far'],
+  'dynamic + slider-far → t0/mid/end/slider-far');
+
+// 13. lo/hi override giữ nguyên trong shot slider (local-monotonic clamp).
+const clampPlan = buildCapturePlan(manifest, {},
+  { interactionTargets: { [id0]: { kind: 'slider', control: 'mu', lo: 0.1, hi: 1.0 } } });
+const cLast = clampPlan[0].shots[clampPlan[0].shots.length - 1];
+assert.strictEqual(cLast.lo, 0.1, 'shot slider-far giữ lo override');
+assert.strictEqual(cLast.hi, 1.0, 'shot slider-far giữ hi override');
+
 console.log(`sim2-visual-capture-plan: PASS (${planAll.length} route)`);

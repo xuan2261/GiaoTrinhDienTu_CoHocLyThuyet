@@ -21,7 +21,8 @@
   /**
    * @param {Array<{id,chapter,name}>} manifest - nguồn route + count
    * @param {Object<string,'static'|'dynamic'>} classifyMap - phân loại runtime (mặc định static)
-   * @param {{stepDefaults?:{N1,N2}, overrides?:Object<string,{N1,N2}>}} [opts]
+   * @param {{stepDefaults?:{N1,N2}, overrides?:Object<string,{N1,N2}>,
+   *          interactionTargets?:Object<string,{kind:'slider'|'drag',control?,selector?,lo?,hi?}>}} [opts]
    * @returns {Array<{route,chapter,section,name,kind,shots:Array<{label,frame}>}>}
    */
   function buildCapturePlan(manifest, classifyMap, opts) {
@@ -29,6 +30,7 @@
     opts = opts || {};
     const sd = opts.stepDefaults || {};
     const overrides = opts.overrides || {};
+    const interactionTargets = opts.interactionTargets || {};
     const dN1 = sd.N1 != null ? sd.N1 : DEFAULT_N1;
     const dN2 = sd.N2 != null ? sd.N2 : DEFAULT_N2;
 
@@ -49,6 +51,22 @@
           { label: 'init', frame: 0 },
           { label: 'live', frame: null }
         ];
+      }
+      // Interaction-far: route có entry → thêm 1 shot tương tác (KHÔNG có frame; spec set
+      // control/drag handle tới biên XA init runtime rồi chụp). Áp cho cả static lẫn dynamic.
+      const it = interactionTargets[r.id];
+      if (it && it.kind === 'slider') {
+        shots = shots.concat([{
+          label: 'slider-far', kind: 'slider',
+          control: it.control,
+          lo: it.lo != null ? it.lo : null,
+          hi: it.hi != null ? it.hi : null
+        }]);
+      } else if (it && it.kind === 'drag') {
+        shots = shots.concat([{
+          label: 'drag-far', kind: 'drag',
+          selector: it.selector
+        }]);
       }
       return {
         route: r.id,

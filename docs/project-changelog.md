@@ -1,5 +1,17 @@
 # Project Changelog
 
+## 2026-06-12 — Interaction-far visual capture review for 35 simulations
+
+### Added
+- Dev-only visual capture now supports `interactionTargets` so Sim2 routes can capture `slider-far` / `drag-far` frames in addition to static or animation frames.
+- Sim3 visual capture adds bespoke `slider-far` screenshots for routes with `#sim3` probe targets, plus an afterAll count guard to prevent silent missing frames.
+- Review report: `plans/reports/visual-quality-review-260611-1042-35-sim-interactive-report.md`.
+
+### Verified
+- `npm run test:sim:visual:unit`: PASS.
+- Prior full run in the plan: Sim2 visual capture 25/25, Sim3 visual capture 10/10, `test:sim:release` PASS.
+- 35/35 routes graded fresh with 0 P1 real bugs; remaining findings are 3 P2 visual polish items.
+
 ## 2026-06-09 — Sim2 visual + sư phạm fixes (TDD, deep-review)
 
 ### Changed

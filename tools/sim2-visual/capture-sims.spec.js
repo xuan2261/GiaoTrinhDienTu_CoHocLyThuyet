@@ -13,6 +13,25 @@ const fs = require('fs');
 const ROOT = path.resolve(__dirname, '../..');
 const manifest = require(path.join(ROOT, 'js/sim2/sim2-route-manifest.js'));
 const { buildCapturePlan, artifactName } = require('./capture-plan.js');
+const { SIM2: SIM2_TARGETS } = require(path.join(ROOT, 'tools/sim-probe/probe-targets.js'));
+
+// 5 route bespoke-drag (0 slider) → frame drag-far. Selector từ route-map (mọi route .sim2-handle).
+const DRAG_ROUTES = ['ch1-1-5', 'ch1-2-3', 'ch1-6-3', 'ch2-1-3', 'ch2-5-2'];
+
+/**
+ * interactionTargets cho buildCapturePlan: 16 slider (probe-targets SIM2, control chính =
+ * targets[0]) + 5 drag (.sim2-handle). lo/hi clamp local-monotonic giữ nguyên từ probe-targets.
+ */
+function buildInteractionTargets() {
+  const it = {};
+  for (const id of Object.keys(SIM2_TARGETS)) {
+    const t = SIM2_TARGETS[id][0];
+    it[id] = { kind: 'slider', control: t.control, lo: t.lo != null ? t.lo : null, hi: t.hi != null ? t.hi : null };
+  }
+  for (const id of DRAG_ROUTES) it[id] = { kind: 'drag', selector: '.sim2-handle' };
+  return it;
+}
+const INTERACTION_TARGETS = buildInteractionTargets();
 
 const OUT_DIR = path.join(ROOT, 'plans/260531-2122-sim2-visual-quality-eval-pipeline/visuals');
 const fixtureFor = ch =>
@@ -48,6 +67,80 @@ async function waitRaf(page, k) {
   }), k);
 }
 
+/** Set slider value + bắn 'input' (kích hoạt onInput → render). Trả false nếu không tìm thấy. */
+async function setSlider(page, id, value) {
+  return page.evaluate(({ sid, v }) => {
+    const el = document.querySelector(`#host input[data-id="${sid}"]`);
+    if (!el) return false;
+    el.value = String(v);
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    return true;
+  }, { sid: id, v: value });
+}
+
+/** Đọc {min,max} + value hiện tại của slider. null nếu không có. */
+async function sliderRange(page, id) {
+  return page.evaluate((sid) => {
+    const el = document.querySelector(`#host input[data-id="${sid}"]`);
+    if (!el) return null;
+    return { min: parseFloat(el.min), max: parseFloat(el.max), value: parseFloat(el.value) };
+  }, id);
+}
+
+/** Biên XA init nhất (clamp lo/hi nếu có): init>=mid ? lo??min : hi??max (red-team #4). */
+function farTarget(range, lo, hi) {
+  const mid = (range.min + range.max) / 2;
+  return range.value >= mid ? (lo != null ? lo : range.min) : (hi != null ? hi : range.max);
+}
+
+/** Click .sim2-reset nếu có (đưa playback về t=0, stop). Trả true nếu đã click. */
+async function resetPlayback(page) {
+  return page.evaluate(() => {
+    const r = document.querySelector('#host .sim2-reset');
+    if (r) { r.click(); return true; }
+    return false;
+  });
+}
+
+/**
+ * Poll readout panel ổn định: chụp signature toàn bộ readout-value 2 lần liên tiếp giống
+ * nhau (feedback có thể ở readout-số, không chỉ scene). Fallback waitRaf(4) nếu không ổn định.
+ */
+async function pollReadoutStable(page, tries) {
+  const sig = () => page.evaluate(() =>
+    Array.from(document.querySelectorAll('#host .sim2-readout-value')).map(e => e.textContent).join('|'));
+  let prev = await sig();
+  for (let i = 0; i < (tries || 6); i++) {
+    await waitRaf(page, 2);
+    const cur = await sig();
+    if (cur === prev) return;
+    prev = cur;
+  }
+  await waitRaf(page, 4);
+}
+
+/** Kéo handle đầu tiên một đoạn xác định trong vùng SVG (tái dùng logic probe-runner). */
+async function dragHandle(page, selector) {
+  const handle = page.locator(`#host ${selector}`).first();
+  if (await handle.count() === 0) return false;
+  const hb = await handle.boundingBox();
+  const sb = await page.locator('#host .sim2-root').boundingBox();
+  if (!hb || !sb) return false;
+  const sx = hb.x + hb.width / 2, sy = hb.y + hb.height / 2;
+  let dx = sb.width * 0.28;
+  if (sx + dx > sb.x + sb.width - 12) dx = -dx;
+  let ex = sx + dx;
+  let ey = sy - sb.height * 0.12;
+  ex = Math.max(sb.x + 12, Math.min(sb.x + sb.width - 12, ex));
+  ey = Math.max(sb.y + 12, Math.min(sb.y + sb.height - 12, ey));
+  await page.mouse.move(sx, sy);
+  await page.mouse.down();
+  await page.mouse.move(ex, ey, { steps: 10 });
+  await page.mouse.up();
+  await waitRaf(page, 2);
+  return true;
+}
+
 test.describe('sim2 visual capture — 25 route (manifest-driven, dev-only)', () => {
   for (const r of manifest) {
     test(`capture ${r.id}`, async ({ page }) => {
@@ -78,7 +171,7 @@ test.describe('sim2 visual capture — 25 route (manifest-driven, dev-only)', ()
       // Phân loại runtime: có playback bar → dynamic.
       const isDynamic = (await page.locator('#host .sim2-playback').count()) > 0;
       const [job] = buildCapturePlan([r], { [r.id]: isDynamic ? 'dynamic' : 'static' },
-        { stepDefaults: STEP_DEFAULTS, overrides: OVERRIDES });
+        { stepDefaults: STEP_DEFAULTS, overrides: OVERRIDES, interactionTargets: INTERACTION_TARGETS });
 
       // Chụp TOÀN card (#host): viewport + theory panel + legend + control bar.
       // .sim2-root chỉ là vùng SVG → chụp riêng sẽ mất panel/control (bug eval lần trước).
@@ -88,7 +181,24 @@ test.describe('sim2 visual capture — 25 route (manifest-driven, dev-only)', ()
       const images = [];
       let curFrame = 0;
       for (const shot of job.shots) {
-        if (job.kind === 'dynamic') {
+        if (shot.kind === 'slider' || shot.kind === 'drag') {
+          // Interaction-far: set control tới biên XA init rồi chụp. Nhánh này đặt TRƯỚC
+          // nhánh dynamic (red-team #2) — shot frame-null KHÔNG được rơi vào logic step.
+          // Dynamic eligible: reset playback (t=0, stop) TRƯỚC khi set control (ràng buộc #7).
+          if (job.kind === 'dynamic') { await resetPlayback(page); await waitRaf(page, 1); }
+          if (shot.kind === 'slider') {
+            const range = await sliderRange(page, shot.control);
+            if (range) {
+              await setSlider(page, shot.control, farTarget(range, shot.lo, shot.hi));
+              await pollReadoutStable(page, 6);
+            } else {
+              console.warn(`[capture] ${r.id} slider-far: control "${shot.control}" not found → fallback frame`);
+            }
+          } else {
+            const ok = await dragHandle(page, shot.selector);
+            if (!ok) console.warn(`[capture] ${r.id} drag-far: handle "${shot.selector}" not found → fallback frame`);
+          }
+        } else if (job.kind === 'dynamic') {
           if (shot.frame != null && shot.frame > curFrame) {
             await stepN(page, shot.frame - curFrame);
             curFrame = shot.frame;
