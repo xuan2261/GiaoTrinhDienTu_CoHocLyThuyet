@@ -32,8 +32,8 @@
         aArrow = P.arrow(THREE, 0xd97706, { radius: 0.04, headRadius: 0.13 });
         omegaArrow.position.set(-2.8, -0.4, 0);
         vectorPlane = new THREE.Mesh(
-          new THREE.RingGeometry(0.25, 1.15, 48, 1, 0, Math.PI * 0.62),
-          (root.Sim3VisualKit ? root.Sim3VisualKit.ghostMaterial(THREE, 'coriolis', 0.44) : P.material(THREE, 0xf97316, { transparent: true, opacity: 0.44 }))
+          new THREE.RingGeometry(0.22, 0.86, 48, 1, 0, Math.PI * 0.54),
+          (root.Sim3VisualKit ? root.Sim3VisualKit.ghostMaterial(THREE, 'coriolis', 0.28) : P.material(THREE, 0xf97316, { transparent: true, opacity: 0.28 }))
         );
         vectorPlane.rotation.x = -Math.PI / 2;
         scene.add(radiusGuide, omegaArrow, vArrow, aArrow, vectorPlane);
@@ -79,10 +79,12 @@
           hasRotatingFrameCue: true,
           perpendicularCue: true,
           centralCluster: 'centered',
-          planeCueOpacity: 0.44,
+          planeCueOpacity: 0.28,
+          planeCueOuterRadius: 0.86,
+          planeCueRole: 'subtle-contained-sector',
           noTrailDots: true,
           trailDotCountMax: 0,
-          perpendicularCueStrength: 'high-contrast-sector'
+          perpendicularCueStrength: 'subtle-contained-sector'
         })
       }, state);
     }

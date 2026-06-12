@@ -15,6 +15,10 @@ route có frame tương tác mới** (slider-far hoặc drag-far); 9 route anima
 carry-forward verdict report 2231 (kèm note "pixel không đổi từ 06-10"). Tránh re-litigate verdict
 đã chốt trên pixel y hệt.
 
+**Execution note 2026-06-11:** carry-forward qua git KHÔNG khả thi vì `plans/**/visuals/*.png`
+bị `.gitignore` và capture mới đã ghi đè batch hiện hành. Controller đã nâng scope thành
+**grade-fresh toàn bộ 35 route** trong report cuối để tránh kế thừa verdict mù.
+
 ## SCOPE quyết định (red-team #3 + validation Q1)
 
 - **Grade MỚI (26):** 16 Sim2 slider-far + 5 Sim2 drag-far + 5 Sim3 slider-far.
@@ -45,9 +49,9 @@ carry-forward verdict report 2231 (kèm note "pixel không đổi từ 06-10"). 
 5. Reject mọi finding "feedback" thiếu probe-cite (red-team #6).
 
 ## Success Criteria
-- [ ] 26 route mới có verdict 3 tiêu chí; 9 route carry-forward có verdict 2231 + note.
-- [ ] MỌI finding "feedback yếu/none" kèm `probe.match`/`deltaNonZero` của đúng route (HARD gate).
-- [ ] Bảng phủ đủ 35 route (26 fresh + 9 carried), phân biệt rõ nguồn verdict.
+- [x] 35 route có verdict 3 tiêu chí dựa trên capture hiện tại; không dùng carry-forward mù.
+- [x] MỌI finding "feedback yếu/none" kèm `probe.match`/`deltaNonZero` của đúng route (HARD gate).
+- [x] Bảng phủ đủ 35 route; report nêu rõ lý do chuyển từ carry-forward sang grade-fresh.
 
 ## Risk Assessment
 - Risk: grader vẫn anchor dù cấm. Mitigation: prompt không nêu grade cũ; chỉ artifact thô.

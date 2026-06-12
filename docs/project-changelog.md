@@ -1,5 +1,16 @@
 # Project Changelog
 
+## 2026-06-12 — P2 visual polish + review artifact policy
+
+### Changed
+- `ch2-4-4` Sim3: reduced Coriolis sector cue from a strong peach sweep to a smaller subtle-contained sector, keeping `omega`, `v_rel`, and `a_cor` labels/readouts unchanged.
+- Visual review policy clarified: PNG screenshots remain git-ignored; review plans must keep manifest/contact-sheet/report paths explicit, and handoff evidence should be exported as a zip artifact outside git when needed.
+
+### Verified
+- Focused Sim3 TDD guard for `ch2-4-4`: PASS.
+- Sim2 regression guard for `ch3-5-4` minY and no-clip guards for `ch3-5-4` / `ch3-2-3`: PASS.
+- `ch3-2-3` kept unchanged because current lower space is label-clearance protected by no-clip tests.
+
 ## 2026-06-12 — Interaction-far visual capture review for 35 simulations
 
 ### Added

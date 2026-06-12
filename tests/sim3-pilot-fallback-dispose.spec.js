@@ -298,8 +298,11 @@ test.describe('sim3 pilot contract', () => {
     expect(debug.visualMetrics.hasRotatingFrameCue).toBe(true);
     expect(debug.visualMetrics.vectorSeparation).toBeGreaterThan(0.1);
     expect(debug.visualMetrics.centralCluster).toBe('centered');
-    expect(debug.visualMetrics.planeCueOpacity).toBeGreaterThanOrEqual(0.42);
-    expect(debug.visualMetrics.perpendicularCueStrength).toBe('high-contrast-sector');
+    expect(debug.visualMetrics.planeCueOpacity).toBeGreaterThanOrEqual(0.24);
+    expect(debug.visualMetrics.planeCueOpacity).toBeLessThanOrEqual(0.32);
+    expect(debug.visualMetrics.planeCueOuterRadius).toBeLessThanOrEqual(0.9);
+    expect(debug.visualMetrics.planeCueRole).toBe('subtle-contained-sector');
+    expect(debug.visualMetrics.perpendicularCueStrength).toBe('subtle-contained-sector');
     expect(debug.visualMetrics.noTrailDots).toBe(true);
     expect(debug.visualMetrics.trailDotCountMax).toBe(0);
     expect(debug.trailLength).toBe(0);

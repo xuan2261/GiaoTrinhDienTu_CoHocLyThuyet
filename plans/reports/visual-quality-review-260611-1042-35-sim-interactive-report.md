@@ -90,6 +90,11 @@ Cột frame: `slider`/`drag` = interaction-far mới; `anim` = animation t0/mid/
 
 → 3 mục P2 gom được vào 1 plan polish-visual nhỏ nếu user muốn (review-only: chưa sửa vòng này).
 
+**Post-review cook 2026-06-12:** mở plan `260612-visual-polish-p2-and-review-artifact-policy`.
+`ch2-4-4` Sim3 đã giảm sector Coriolis thành cue nhỏ, mờ hơn, có TDD guard. `ch3-5-4`
+đã có worldBox `minY:-0.4` + no-clip guard; không đổi thêm. `ch3-2-3` giữ nguyên vì khoảng dưới
+là label-clearance cho nhãn A/B, đã có no-clip guard ở F max; ép thu viewport dễ clip nhãn.
+
 ## False-fail đã xác minh (KHÔNG hành động)
 
 | route | nghi cũ | bằng chứng minh oan |
@@ -112,6 +117,8 @@ Cả 2 là bespoke-drag (0 slider) → capture tĩnh cũ không chạm → post-
    này đã ghi đè baseline cũ). **Quyết định:** nâng scope grade-fresh TOÀN BỘ 35 route thay vì carry 9 —
    kết quả MẠNH hơn split 26+9 (mọi verdict dựa ảnh hiện tại, 0 verdict kế thừa mù). Đánh đổi: tốn thêm
    1 grader (5 Sim3 base) nhưng loại rủi ro carry giấu regression.
+   **Policy sau cook:** tiếp tục ignore PNG; mỗi review phải track report + manifest/contact-sheet path rõ,
+   và xuất zip artifact ngoài git khi cần nghiệm thu ảnh.
 2. ch3-2-2 / ch3-3-1: scene hình học gần đứng yên khi kéo slider là ĐÚNG thiết kế — feedback nằm ở
    readout-số (a, ω). Probe live + grader đọc panel xác nhận. KHÔNG phải lỗi.
 3. Lỗi thật vòng này = 0 → KHÔNG cần mở plan sửa P1. 3 mục P2 thẩm mỹ chờ user quyết có gom polish không.

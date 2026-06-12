@@ -195,6 +195,13 @@ CSS mới cho lab phải scope dưới `.sim-lab`; tránh selector global như `
 | Giữ control rõ chữ, dễ chạm | Nhét quá nhiều micro-interaction |
 | Giữ visual hierarchy theo chapter | Dùng style ngẫu nhiên giữa các chapter |
 
+## Visual review artifacts
+
+- PNG visual evidence under `plans/**/visuals/` stays git-ignored to keep the repo light.
+- Every visual review must keep a tracked report plus tracked `capture-manifest.json` / `contact-sheet.html` path references clear enough to locate the exact screenshot batch.
+- For handoff or nghiệm thu, export a separate zip artifact containing PNG screenshots, manifest, contact-sheet, and report; do not add Git LFS for this project unless release workflow changes.
+- If historical PNG is unavailable or overwritten, do not claim carry-forward visual verdicts; grade the current capture fresh and record that decision in the report.
+
 ## Ghi chú
 
 - `dark-mode` chỉ là fallback style cho một số output generated, còn primary switch là `data-theme`.
