@@ -13,6 +13,10 @@
       {
         "label": "live",
         "src": "ch1-1-3__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch1-1-3__slider-far.png"
       }
     ]
   },
@@ -30,6 +34,10 @@
       {
         "label": "live",
         "src": "ch1-1-4__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch1-1-4__slider-far.png"
       }
     ]
   },
@@ -47,6 +55,10 @@
       {
         "label": "live",
         "src": "ch1-1-5__live.png"
+      },
+      {
+        "label": "drag-far",
+        "src": "ch1-1-5__drag-far.png"
       }
     ]
   },
@@ -64,6 +76,10 @@
       {
         "label": "live",
         "src": "ch1-1-6__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch1-1-6__slider-far.png"
       }
     ]
   },
@@ -81,6 +97,10 @@
       {
         "label": "live",
         "src": "ch1-2-3__live.png"
+      },
+      {
+        "label": "drag-far",
+        "src": "ch1-2-3__drag-far.png"
       }
     ]
   },
@@ -98,6 +118,10 @@
       {
         "label": "live",
         "src": "ch1-1-8__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch1-1-8__slider-far.png"
       }
     ]
   },
@@ -115,6 +139,10 @@
       {
         "label": "live",
         "src": "ch1-3-2__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch1-3-2__slider-far.png"
       }
     ]
   },
@@ -132,6 +160,10 @@
       {
         "label": "live",
         "src": "ch1-3-6__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch1-3-6__slider-far.png"
       }
     ]
   },
@@ -149,6 +181,10 @@
       {
         "label": "live",
         "src": "ch1-5-3__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch1-5-3__slider-far.png"
       }
     ]
   },
@@ -166,6 +202,10 @@
       {
         "label": "live",
         "src": "ch1-6-3__live.png"
+      },
+      {
+        "label": "drag-far",
+        "src": "ch1-6-3__drag-far.png"
       }
     ]
   },
@@ -204,6 +244,10 @@
       {
         "label": "live",
         "src": "ch2-1-3__live.png"
+      },
+      {
+        "label": "drag-far",
+        "src": "ch2-1-3__drag-far.png"
       }
     ]
   },
@@ -246,6 +290,10 @@
       {
         "label": "end",
         "src": "ch2-3-2__end.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch2-3-2__slider-far.png"
       }
     ]
   },
@@ -284,6 +332,10 @@
       {
         "label": "live",
         "src": "ch2-5-2__live.png"
+      },
+      {
+        "label": "drag-far",
+        "src": "ch2-5-2__drag-far.png"
       }
     ]
   },
@@ -301,6 +353,10 @@
       {
         "label": "live",
         "src": "ch2-5-3__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch2-5-3__slider-far.png"
       }
     ]
   },
@@ -322,6 +378,10 @@
       {
         "label": "end",
         "src": "ch3-2-2__end.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch3-2-2__slider-far.png"
       }
     ]
   },
@@ -339,6 +399,10 @@
       {
         "label": "live",
         "src": "ch3-2-3__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch3-2-3__slider-far.png"
       }
     ]
   },
@@ -356,6 +420,10 @@
       {
         "label": "live",
         "src": "ch3-1-3__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch3-1-3__slider-far.png"
       }
     ]
   },
@@ -377,6 +445,10 @@
       {
         "label": "end",
         "src": "ch3-3-1__end.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch3-3-1__slider-far.png"
       }
     ]
   },
@@ -394,6 +466,10 @@
       {
         "label": "live",
         "src": "ch3-5-2__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch3-5-2__slider-far.png"
       }
     ]
   },
@@ -415,6 +491,10 @@
       {
         "label": "end",
         "src": "ch3-5-3__end.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch3-5-3__slider-far.png"
       }
     ]
   },
@@ -432,6 +512,10 @@
       {
         "label": "live",
         "src": "ch3-5-4__live.png"
+      },
+      {
+        "label": "slider-far",
+        "src": "ch3-5-4__slider-far.png"
       }
     ]
   },
