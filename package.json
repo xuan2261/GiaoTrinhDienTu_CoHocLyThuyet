@@ -4,7 +4,7 @@
   "private": true,
   "description": "Dev-only QA scripts for the offline mechanics textbook reader.",
   "scripts": {
-    "test:content": "node tests/author-page-content-regression.test.js && node tests/section-vii-review-route-cleanup.test.js",
+    "test:content": "node tests/author-page-content-regression.test.js && node tests/section-vii-review-route-cleanup.test.js && node tests/no-placeholder-equation-numbers.test.js",
     "test:quiz": "node tests/quiz-bank-schema.test.js",
     "test:quiz:browser": "playwright test tests/quiz-browser-render.spec.js",
     "test:sim:physics": "node tests/sim2-physics-port.test.js && node tests/sim2-transform.test.js && node tests/sim2-ch1-physics.test.js && node tests/sim2-ch2-physics.test.js && node tests/sim2-ch3-physics.test.js && node tests/sim2-visual-physics-regression.test.js && node tests/sim2-route-coverage.test.js && node tests/sim2-no-legacy-physics.test.js && node tests/sim2-removal-guard.test.js",

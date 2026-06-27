@@ -637,6 +637,9 @@ def render_run_segments(run, chapter, paragraph_index, paragraph_text, image_wri
     def flush_text():
         if text_buffer:
             text = "".join(text_buffer)
+            if clean_text(text) == "(.)":
+                text_buffer.clear()
+                return
             html_text = format_run_xml_text(text, rpr)
             if html_text:
                 segments.append({"kind": "inline", "html": html_text})
@@ -685,7 +688,7 @@ def paragraph_segments(xml_para, chapter, paragraph_index, paragraph_text, image
                 segments.extend(render_run_segments(run, chapter, paragraph_index, paragraph_text, image_writer, rid_to_media, transformer))
         elif child.tag in (qn("m", "oMath"), qn("m", "oMathPara")):
             segments.extend(render_omml_segments(child, transformer))
-    return [segment for segment in segments if segment and segment.get("html")]
+    return [segment for segment in segments if segment and segment.get("html") and clean_text(visible_text(segment.get("html"))) != "(.)"]
 
 
 INLINE_MATH_CLASS_RE = re.compile(r'class="(?:mathml-inline|math-tex)\b')
@@ -805,6 +808,8 @@ def render_paragraphs(doc, xml_paras, start, end, chapter, image_writer, rid_to_
 
         level = heading_level(para)
         text = clean_text(para.text)
+        if text == "(.)":
+            continue
         segments = paragraph_segments(xml_para, chapter, idx, para.text, image_writer, rid_to_media, transformer)
 
         if not segments:

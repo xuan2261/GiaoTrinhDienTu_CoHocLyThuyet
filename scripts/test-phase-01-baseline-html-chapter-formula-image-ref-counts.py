@@ -21,7 +21,7 @@ chapter_files = helpers.chapter_files
 iter_imgs = helpers.iter_imgs
 assert_or_exit = helpers.assert_or_exit
 
-EXPECTED_FILES = 120
+EXPECTED_FILES = 117
 EXPECTED_IMGS = 127
 
 CRITICAL = [
