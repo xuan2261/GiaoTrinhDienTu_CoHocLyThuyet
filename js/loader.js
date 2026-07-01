@@ -130,9 +130,6 @@ const PAGE_MAP = {
   'ch3-7': 'chapters/ch3/muc-VII.html',
   'ch3-7-1': 'chapters/ch3/muc-VII-1.html',
   'ch3-7-2': 'chapters/ch3/muc-VII-2.html',
-  'ch3-7-4': 'chapters/ch3/muc-VII-4.html',
-  'ch3-7-5': 'chapters/ch3/muc-VII-5.html',
-  'ch3-7-6': 'chapters/ch3/muc-VII-6.html',
   'ch3-rev': 'chapters/ch3/on-tap.html',
   'ch3-quiz': 'chapters/ch3/trac-nghiem.html',
 };

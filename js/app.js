@@ -115,9 +115,6 @@ const BC = {
   'ch3-7': 'Chương 3 › VII. BÀI TẬP',
   'ch3-7-1': 'Chương 3 › VII › 1. Hướng dẫn giải bài tập',
   'ch3-7-2': 'Chương 3 › VII › 2. Bài tập',
-  'ch3-7-4': 'Chương 3 › VII › 4. Hệ số phục hồi (Va chạm 1D)',
-  'ch3-7-5': 'Chương 3 › VII › 5. Phân tích năng lượng va chạm',
-  'ch3-7-6': 'Chương 3 › VII › 6. Bài tập tổng hợp',
   'ch3-rev': 'Chương 3 › Câu hỏi ôn tập',
   'ch3-quiz': 'Chương 3 › Ôn tập trắc nghiệm',
 };
@@ -362,7 +359,7 @@ const PAGE_ORDER = [
   'ch3-1-3', 'ch3-2', 'ch3-2-1', 'ch3-2-2', 'ch3-2-3', 'ch3-2-4', 'ch3-2-5', 'ch3-3',
   'ch3-3-1', 'ch3-3-2', 'ch3-4', 'ch3-4-1', 'ch3-4-2', 'ch3-5', 'ch3-5-1', 'ch3-5-2',
   'ch3-5-3', 'ch3-5-4', 'ch3-6', 'ch3-6-1', 'ch3-6-2', 'ch3-6-3', 'ch3-7', 'ch3-7-1',
-  'ch3-7-2', 'ch3-7-4', 'ch3-7-5', 'ch3-7-6', 'ch3-rev', 'ch3-quiz', 'authors', 'refs'
+  'ch3-7-2', 'ch3-rev', 'ch3-quiz', 'authors', 'refs'
 ];
 
 // ============================================
