@@ -1,126 +1,62 @@
 # Codebase Summary
 
-Snapshot này dựa trên scout trực tiếp runtime, toolchain, docs hiện có, và QA metadata ngày 2026-05-31.
+Snapshot theo HEAD `455870b`, ngày 2026-07-01.
 
-## Snapshot
+## Tổng quan
 
 | Mục | Giá trị |
 |---|---|
-| Repo type | Static electronic textbook |
-| Main subject | Cơ Học Lý Thuyết |
-| Input chuẩn | `CoHocLyThuyet_Full_New.docx` |
-| Runtime/source files chính | `index.html`, `js/`, `chapters/`, `data/`, `tools/` |
-| QA harness | `package.json` dev-only scripts + content/quiz gates (`test:content`, `test:quiz`, `test:quiz:browser`) and simulation QA gates: `test:sim:physics`, `test:sim:mount`, `test:sim:release` |
-| Simulation engine | `js/sim2/` — SVG-first 3-tầng engine; 25 route; tag `archive/52-sims-pre-removal` giữ bộ cũ 52 route |
-| Simulation route manifest | `js/sim2/sim2-route-manifest.js` — metadata 25 route; nguồn duy nhất cho test count |
-| Generated/runtime assets lớn | `images/`, `equation-review.html`, `js/pages.js` |
-| Large generated artifacts | `equation-review.html`, `js/pages.js`, `tools/equation_report.json` |
+| Loại repo | Static electronic textbook |
+| Nguồn nội dung | `CoHocLyThuyet_Full_New.docx` |
+| Runtime | `index.html`, `css/`, `js/`, `chapters/`, `images/`, `data/`, `lib/` |
+| Toolchain | Python scripts trong `tools/`; npm/Playwright chỉ cho QA |
+| Sim canonical | Sim2 SVG-first, 25 route |
+| Sim tùy chọn | Sim3 Three.js, 10 route |
+| Release hiện có | Folder và `.rar` ngày 2026-07-01 trong `release/` |
 
-## Những gì repo này làm
+## Thành phần chính
 
-Repo cung cấp một textbook reader chạy hoàn toàn phía client:
-
-- điều hướng theo chương / mục / tiểu mục
-- search nội dung
-- quiz trắc nghiệm
-- progress và bookmark
-- notes, highlight, glossary tooltip
-- simulations SVG-first (25 route, engine `js/sim2/`)
-- DOCX sync pipeline để regenerate fragment và asset
-
-## Cấu trúc cấp cao
-
-| Đường dẫn | Vai trò | Ghi chú |
-|---|---|---|
-| `index.html` | Shell ứng dụng | Nạp KaTeX local trước, CDN sau |
-| `package.json` | Dev-only QA scripts | `test:content`, `test:quiz`, `test:quiz:browser`, `test:sim:physics`, `test:sim:mount`, `test:sim:release` |
-| `css/style.css` | Theme và layout | Dark navy + gold, có light mode |
-| `js/app.js` | UI shell | Breadcrumb, search, theme, font zoom, progress bar |
-| `js/loader.js` | Router và fragment loader | Có fallback bundle offline rồi mới fetch |
-| `js/pages.js` | Offline bundle | Sinh từ `tools/bundle_pages.py` |
-| `js/quiz.js` | Quiz engine | Lưu điểm vào `localStorage` |
-| `js/progress.js` | Reading progress | Bookmark + progress per page/chapter |
-| `js/glossary.js` | Term tooltip | Tự wrap từ khóa technical |
-| `js/notes.js` | Personal notes | Highlight + notes per page |
-| `js/sim2/` | Simulation engine SVG-first | `physics/`, `core/`, `sims/ch*/`, `registry.js`, `sim2-route-manifest.js` — 25 route |
-| `chapters/` | HTML fragments | Sinh từ DOCX |
-| `data/` | Quiz + equation mapping | Có `quiz-ch1.json`, `quiz-ch2.json`, `quiz-ch3.json` |
-| `tools/` | Build/audit pipeline | Python scripts, manifest, reports |
-| `tests/` | Playwright browser QA + Node unit suites | `tests/sim2-physics.test.js`, `tests/sim2-mount.spec.js` (sim2 gates); quiz/content gates |
-| `docs/` | Operational docs | Hiện là lớp tài liệu chuẩn hóa |
-
-## Runtime surface
-
-| Module | Trách nhiệm |
+| Đường dẫn | Trách nhiệm |
 |---|---|
-| `app.js` | Tạo base UX: search, breadcrumb, sidebar state, theme, zoom, read tracking |
-| `loader.js` | Resolve route, load content, render math, call sim/image-tab hooks |
-| `quiz.js` | Load JSON quiz data, render câu hỏi, chấm đáp án, lưu score |
-| `progress.js` | Track visited pages, bookmarks, read status |
-| `glossary.js` | Gắn tooltip cho thuật ngữ trong content fragment |
-| `notes.js` | Highlight selection, note popup, notes panel |
-| `js/sim2/registry.js` | Build `window.SIM_MAP` từ 25 route factories |
-| `js/sim2/core/sim-shell.js` | Factory chung: SVG+overlay(+canvas), RAF loop, `setTheory()`/`addControls()`, dispose() |
-| `js/sim2/core/palette.js` | `Sim2Palette` — token màu dùng chung (mirror CSS `--sim-c-*`); 1 nguồn ý nghĩa màu |
-| `js/sim2/core/panel.js` | `Sim2Panel` — theory panel: công thức KaTeX tô màu + legend + readout sống + quan sát |
-| `js/sim2/core/controls.js` | `Sim2Controls` — control bar: slider+`<output>` + playback ▶/⏸/⏭/↺ (start paused) |
-| `js/sim2/physics/` | Công thức physics UMD (statics/kinematics/dynamics) |
+| `index.html` | Shell và thứ tự load script |
+| `js/app.js` | Search, breadcrumb, sidebar, theme, zoom, progress UI |
+| `js/loader.js` | Resolve route, load fragment/bundle, render math, mount/dispose sim |
+| `js/pages.js` | Bundle offline sinh bởi `tools/bundle_pages.py` |
+| `js/quiz.js` | Render/chấm quiz và lưu `quizScores` |
+| `js/progress.js` | Reading progress và bookmark |
+| `js/glossary.js`, `js/notes.js` | Tooltip thuật ngữ, highlight và ghi chú |
+| `js/sim2/` | Physics, core, 25 simulation factories, registry và manifest |
+| `js/sim3/` | Core 3D và 10 adapters tùy chọn |
+| `chapters/`, `images/` | Output từ extractor DOCX |
+| `data/` | Ba quiz bank và equation/image mapping |
+| `tools/` | Analyze, extract, nav, bundle, audit, equation review |
+| `tests/` | Node và Playwright QA |
 
-## Data model
+## Luồng runtime
 
-| Data | Vị trí | Ý nghĩa |
-|---|---|---|
-| Route map | `js/loader.js` | Ánh xạ route -> fragment |
-| Breadcrumb map | `js/app.js` | Ánh xạ route -> nhãn UI |
-| Route order | `js/app.js` | Thứ tự trang cho page nav |
-| Quiz banks | `data/quiz-ch*.json` | 100 câu hỏi theo chapter; schema/count/distribution/bundle guard ở `tests/quiz-bank-schema.test.js` |
-| Equation report | `tools/equation_report.json` | Media equation review queue |
-| Equation mapping | `data/equation_mapping.json` | 702 reviewed rows; formula rows use LaTeX/MathML, artifact rows are explicit |
-| Site manifest | `tools/docx_site_manifest.json` | Snapshot chapter/section/subsection từ extractor |
+1. `index.html` nạp shell, bundle và module runtime.
+2. `loader.js` resolve route, lấy fragment từ `js/pages.js` hoặc fetch.
+3. KaTeX/MathML và các hook nội dung được khởi tạo sau khi fragment vào DOM.
+4. Nếu route có simulation, `SIM_MAP[pageId]` mount factory; route change gọi `dispose()` trước khi thay nội dung.
 
-## Toolchain
+## Nội dung và dữ liệu
 
-| Script | Vai trò |
-|---|---|
-| `tools/analyze_docx.py` | Preview outline và route mapping từ DOCX |
-| `tools/extract_docx.py` | Xuất `chapters/`, `images/`, `tools/docx_site_manifest.json`, equation report |
-| `tools/update_nav.py` | Đồng bộ sidebar, route map, page order, breadcrumb, legacy redirects |
-| `tools/bundle_pages.py` | Bundle fragment và quiz JSON vào `js/pages.js` |
-| `tools/audit.py` | Audit content, image path, equation rendering; có `--strict-equations` và `--strict-images` publish gates |
-| `tools/validate_equation_mapping.py` | Validate mapping JSON, trạng thái `reviewed`, và optional KaTeX parse |
-| `tools/ocr_equation_mapping.py` | Prefill mapping bằng local OCR/Vision LLM và reject OCR LaTeX không render được |
-| `tools/build_equation_review_html.py` | Tạo `equation-review.html` offline |
-| `tools/auto_review_equation_mapping.py` | Auto-review MathType/Microsoft Equation OLE sang MathML bằng local Ruby |
-| `tools/apply_manual_equation_reviews.py` | Áp manual review/triage vào mapping bằng file dữ liệu riêng |
-| `tools/merge_equation_mapping.py` | Merge reviewed mapping vào publish file |
-| `tools/test_docx_equation_pipeline.py` | Regression test cho mojibake MathML, generated output sạch, và inline spacing |
-| `tools/test_simulation_qa_tools.py` | Regression test cho simulation QA tools và browser baseline wiring |
+- `tools/docx_site_manifest.json` là snapshot outline sinh từ extractor.
+- `data/equation_mapping.json` có 702 row đã review cho semantic math publish.
+- Quiz banks nằm tại `data/quiz-ch1.json`, `quiz-ch2.json`, `quiz-ch3.json`.
+- Chương 3 Section VII-4, VII-5 và VII-6 không còn trong route/fragment hiện tại.
+- Asset ảnh hiện tại đã được chuẩn hóa tên; asset không dùng đã được loại.
+- Extractor bỏ placeholder `(.)`; `tests/no-placeholder-equation-numbers.test.js` ngăn hồi quy.
 
-## Khu vực generated / nặng
+## Mô phỏng
 
-| File hoặc thư mục | Ghi chú |
-|---|---|
-| `js/pages.js` | Generated bundle, không sửa tay |
-| `equation-review.html` | Generated review UI, rất lớn |
-| `tools/equation_report.json` | Output review data lớn |
-| `backups/` | Snapshot lịch sử, chủ yếu để rollback |
-| `Old/` | Legacy material, không phải source of truth hiện tại |
+`js/sim2/sim2-route-manifest.js` là nguồn count canonical 25 route. Sim2 dùng physics UMD, transform chung, SVG + HTML overlay và canvas underlay tùy chọn. Sim3 mở rộng 10 route nhưng không thay đổi default Sim2. Bộ canvas `.sim-lab` 52 route đã gỡ, chỉ còn trong tag lịch sử `archive/52-sims-pre-removal`.
 
-## Gợi ý đọc tiếp
+## Generated và release artifacts
 
-1. `README.md`
-2. `docs/system-architecture.md`
-3. `docs/docx-sync-pipeline.md`
-4. `js/loader.js`
-5. `tools/extract_docx.py`
+Không sửa tay `js/pages.js`, `chapters/`, `images/`, `tools/docx_site_manifest.json`, `tools/equation_report.json`. Release hiện tại:
 
-## Ghi chú
+- `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260812/`
+- `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260812.rar`
 
-Không nên đọc toàn bộ repo cho mọi tác vụ. Với task nhỏ, chỉ cần đọc `index.html`, `js/app.js`, `js/loader.js`, và script liên quan là đủ.
-Khi `audit.py --strict-equations` còn warning figure `<img>` tags, đó là figure thật chứ không phải equation fallback.
-- Simulation engine mới là `js/sim2/` SVG-first 3 tầng; 25 route thay thế 52 route canvas-based cũ. Tag `archive/52-sims-pre-removal` giữ bộ cũ.
-- Simulation lifecycle: `loader.js` → `initSimulations(container, pageId)` tra `SIM_MAP`, mount factory, lưu dispose; gọi dispose khi đổi route.
-- `js/sim2/sim2-route-manifest.js` là nguồn duy nhất cho route count — không hardcode số 25 trong tests.
-- QA gate chuẩn: `npm run test:sim:physics` (Node), `npm run test:sim:mount` (Playwright), `npm run test:sim:release` (full offline).
-- `js/sim2/core/overlay.js` dùng HTML định vị tuyệt đối qua transform — nhãn không chồng, test bounding-box bắt được.
-- `js/sim2/core/canvas-underlay.js` chỉ dùng cho 4 route cần trail/field: ch2-1-1, ch2-4-4, ch2-5-3, ch3-6-2.
+Release `20260701` được giữ nguyên làm artifact lịch sử.

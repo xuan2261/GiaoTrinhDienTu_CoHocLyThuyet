@@ -1,11 +1,12 @@
 ---
 title: "Nâng cấp 25 sim SVG-first: pro · trực quan · sinh động · gắn lý thuyết"
-status: pending
+status: cancelled
 created: 2026-05-31
 mode: deep+tdd
 blockedBy: []
 blocks: []
 source: brainstorm
+supersededBy: 260713-1524-fix-all-sim2-sim3-defects-deep-tdd
 ---
 
 # Plan — Nâng cấp diện mạo + UX + lý thuyết cho 25 sim SVG-first

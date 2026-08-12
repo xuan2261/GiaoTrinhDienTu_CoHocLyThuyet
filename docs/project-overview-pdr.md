@@ -1,103 +1,63 @@
 # Project Overview & PDR
 
-Cập nhật: 2026-05-06.
+Cập nhật theo HEAD `455870b`, ngày 2026-07-01.
 
 ## Tổng quan
 
-Đây là giáo trình điện tử tĩnh cho môn Cơ Học Lý Thuyết, triển khai bằng `HTML/CSS/JS` và thiết kế để chạy trực tiếp trên browser mà không cần backend. Nội dung gốc và thứ tự hiển thị được lấy từ `CoHocLyThuyet_Full_New.docx`.
+Giáo trình điện tử Cơ Học Lý Thuyết là ứng dụng static `HTML/CSS/JS`, chạy qua `file://` hoặc static hosting, không cần backend. `CoHocLyThuyet_Full_New.docx` là nguồn chuẩn cho text, outline và hình ảnh.
 
-## Mục tiêu sản phẩm
+## Mục tiêu và phạm vi
 
-| Mục tiêu | Mô tả |
+| Mục tiêu | Yêu cầu |
 |---|---|
-| Offline-first | Mở được bằng `file://` hoặc copy qua USB |
-| Học tương tác | Có search, quiz, progress, bookmark, notes, glossary, simulations |
-| Đồng bộ DOCX | Có pipeline để xuất fragment, ảnh, nav, bundle, audit từ DOCX |
-| Dễ bảo trì | Script rõ vai trò, không cần package manager phức tạp |
+| Offline-first | Reader, nội dung, KaTeX và mô phỏng hoạt động không cần mạng |
+| Học tương tác | Search, quiz, progress, bookmark, notes, glossary và simulation |
+| Đồng bộ tái lập | DOCX sinh fragment, ảnh, nav, bundle và audit output |
+| Dễ bảo trì | Runtime tĩnh; npm chỉ dùng cho QA dev-only |
+| Đọc PDF nội tuyến | Nút topbar mở bản PDF local trong dialog, cùng hành vi qua `file://` và HTTP |
 
-## Phạm vi
+Phạm vi gồm ba chương Tĩnh học, Động học, Động lực học. Không gồm backend, tài khoản, cloud sync, CMS hoặc analytics server-side.
 
-| Trong phạm vi | Ngoài phạm vi |
-|---|---|
-| 3 chương: Tĩnh học, Động học, Động lực học | Backend, user account, sync cloud |
-| Fragment HTML sinh từ DOCX | CMS hoặc editor WYSIWYG trực tuyến |
-| Quiz JSON, progress, notes, glossary | Analytics server-side |
-| Mô phỏng canonical trong `js/sim2/`; Sim3 pilot 10 route tùy chọn | 3D engine hoặc WebGL nặng toàn cục |
+## Yêu cầu chính
 
-## Người dùng chính
-
-| Vai trò | Nhu cầu |
-|---|---|
-| Học viên | Đọc bài, làm quiz, lưu tiến trình, ghi chú |
-| Giảng viên | Kiểm tra outline, nội dung, câu hỏi ôn tập |
-| Maintainer | Chạy lại extract, update nav, bundle, audit |
-
-## Yêu cầu chức năng
-
-| ID | Yêu cầu |
-|---|---|
-| FR-01 | Mở được toàn bộ nội dung khi không có internet |
-| FR-02 | Điều hướng đúng theo route map và page order |
-| FR-03 | Search hoạt động trên sidebar và trang hệ thống |
-| FR-04 | Quiz hỗ trợ all/random mode và lưu điểm cục bộ |
-| FR-05 | Progress, bookmark, notes phải giữ qua lần mở sau |
-| FR-06 | Glossary tooltip và simulations phải gắn theo DOM fragment hiện tại |
-| FR-07 | Pipeline DOCX phải sinh được fragment, ảnh, manifest, bundle, audit report |
-
-## Yêu cầu phi chức năng
-
-| ID | Yêu cầu |
-|---|---|
-| NFR-01 | Chạy ổn trên static hosting và `file://` |
-| NFR-02 | Không phụ thuộc backend runtime |
-| NFR-03 | Tái tạo được nội dung từ DOCX nguồn chuẩn |
-| NFR-04 | Audit phải fail rõ khi có lỗi content hoặc equation fallback sai |
-| NFR-05 | Mỗi file docs nên ngắn, dễ đọc, dễ sửa |
-
-## Tiêu chí chấp nhận
-
-| Tiêu chí | Dấu hiệu đạt |
-|---|---|
-| Đọc được | `index.html` mở ra và load được trang home |
-| Điều hướng được | Sidebar, breadcrumb, page nav khớp route |
-| Tương tác được | Quiz, progress, notes, glossary, simulations chạy |
-| Đồng bộ được | `extract_docx.py`, `update_nav.py`, `bundle_pages.py` hoàn tất |
-| Audit được | `python tools\audit.py` không báo lỗi thật |
-
-## Ràng buộc
-
-| Ràng buộc | Hệ quả |
-|---|---|
-| Không có package manager | Dùng script có sẵn, không thêm workflow cài đặt thừa |
-| DOCX là source of truth | Sửa nội dung phải đi qua pipeline, không sửa tay fragment đã sinh |
-| Bản offline cần bundle | `js/pages.js` phải được regenerate khi fragment thay đổi |
-| Semantic math strict | Mapping publish phải pass strict trước khi regenerate release |
+- Điều hướng, breadcrumb và page order phải khớp nội dung được sinh.
+- Quiz hỗ trợ all/random và lưu điểm cục bộ.
+- Progress, bookmark và notes giữ qua `localStorage`.
+- Sim2 SVG-first là runtime canonical 25 route; Sim3 là pilot tùy chọn 10 route và fallback về Sim2 khi WebGL lỗi.
+- Pipeline phải không xuất placeholder `(.)`, phải chuẩn hóa tên ảnh, và audit phải phát hiện content/equation/image regression.
+- PDF viewer phải lazy-load toàn bộ asset local, giữ nguyên route/DOM/scroll/simulation/state bài học và không chạy PDF JavaScript.
 
 ## Trạng thái hiện tại
 
 | Hạng mục | Trạng thái |
 |---|---|
-| Shell đọc nội dung | Xong |
-| DOCX sync pipeline | Có sẵn |
-| Offline bundle | Có sẵn |
-| Quiz/progress/notes/glossary/simulations | Có sẵn |
-| Current simulation runtime | Active `.sim-lab` canvas + scene/renderer/behavior registries; Sim3 chỉ là pilot 10 route tùy chọn, Sim2 vẫn default; Ch1 pilot parallelogram là reference-only |
-| QA harness | Có sẵn: dev-only Playwright baseline + Python manifest/quality/runtime gates |
+| Reader shell và offline bundle | Hoàn tất |
+| DOCX sync và semantic math | Có pipeline và strict gates |
+| Quiz/progress/notes/glossary | Hoàn tất |
+| Sim2 | 25 route canonical trong `js/sim2/` |
+| Sim3 | 10 route pilot tùy chọn trong `js/sim3/` |
+| PDF viewer | Hoàn tất: PDF.js 6.2.108 local, canvas + text layer, `file://`/HTTP parity |
+| Cleanup nội dung | Chương 3 VII-4/VII-5/VII-6 đã bỏ; ảnh đã chuẩn hóa tên; `(.)` bị extractor và content test chặn |
+| Release | Có folder và `.rar` `GiaoTrinhDienTu_CoHocLyThuyet_release_20260812` trong `release/`; bản `20260701` giữ nguyên làm lịch sử |
 
-| Semantic math strict publish | Automated strict pass; browser QA 100% |
+Bộ `.sim-lab` 52 route chỉ là lịch sử tại tag `archive/52-sims-pre-removal`, không phải runtime hiện tại.
 
-## Rủi ro chính
+## Tiêu chí chấp nhận
 
-| Rủi ro | Tác động | Giảm thiểu |
-|---|---|---|
-| Fragment lệch DOCX | Nội dung sai hoặc thiếu | Chạy `extract_docx.py` và `audit.py` sau mỗi lần sync |
-| Equation fallback còn ảnh | Bản publish không đạt strict | Chạy strict audit sau khi merge mapping |
-| Generated files bị sửa tay | Lệch nguồn sự thật | Gắn rõ file sinh tự động và không edit trực tiếp |
-| LocalStorage đổi key | Mất progress/notes | Giữ ổn định key hiện tại |
+1. `index.html` mở được bằng `file://` và static server.
+2. Nav, fragment, quiz và state client-side hoạt động đúng.
+3. PDF viewer mở từ **Xem bản PDF**, chuyển/nhập trang, zoom/vừa chiều rộng, tải đúng source PDF và đóng bằng nút/Escape/Browser Back.
+4. `npm run test:pdf:release` và các gate content/quiz/simulation liên quan phải pass khi chốt thay đổi tương ứng.
+5. `python tools\audit.py`, cùng strict image/equation gates khi publish, không báo lỗi thật.
+6. Generated files chỉ được cập nhật qua pipeline.
 
-## Câu hỏi chưa rõ
+## Rủi ro và kiểm soát
 
-| Câu hỏi | Ảnh hưởng |
+| Rủi ro | Kiểm soát |
 |---|---|
-| Browser QA representative pages cần mức sâu nào trước release | Ảnh hưởng thời gian chốt release |
-| `backups/` và `Old/` có tiếp tục nằm trong repo phát hành hay chỉ phục vụ lưu trữ nội bộ | Ảnh hưởng kích thước repo và snapshot công cụ |
+| Fragment lệch DOCX | Regenerate rồi chạy nav, bundle và audit |
+| Route cũ quay lại | `test:content` và manifest/runtime coverage |
+| Placeholder hoặc ảnh sai tên quay lại | Extractor normalization và content/audit tests |
+| Rò lifecycle simulation | Mount/dispose Playwright coverage |
+| PDF runtime/data lệch source hoặc bị thiếu khi ship | Deterministic builder, SHA/provenance, vendor/transport/browser gates |
+| Sửa tay generated output | Giữ DOCX và scripts là nguồn sự thật |

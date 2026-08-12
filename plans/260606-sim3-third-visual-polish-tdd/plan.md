@@ -1,12 +1,13 @@
 ---
 title: "Sim3 third visual polish TDD"
 description: "Concise TDD plan for third-pass Sim3 visual polish on ch1-1-5, ch3-6-2, and ch2-3-2."
-status: pending
+status: cancelled
 priority: P2
 effort: 4h
 branch: master
 tags: [sim3, tdd, visual-polish, playwright]
 created: 2026-06-06
+supersededBy: 260713-1524-fix-all-sim2-sim3-defects-deep-tdd
 ---
 
 # Sim3 third visual polish TDD

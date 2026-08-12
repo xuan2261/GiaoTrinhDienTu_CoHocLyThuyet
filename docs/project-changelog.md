@@ -1,5 +1,36 @@
 # Project Changelog
 
+## 2026-08-12 — Trình đọc PDF nội tuyến offline
+
+### Added
+- Nút topbar **Xem bản PDF** mở native full-screen dialog với canvas, selectable text layer, chuyển/nhập trang, zoom, vừa chiều rộng và tải xuống.
+- PDF.js `6.2.108` được bundle local thành classic IIFE; PDF source được đóng thành lazy JavaScript `Uint8Array` để chạy đồng nhất qua `file://`, USB và HTTP.
+- Deterministic builder, provenance/SHA/license contract và Playwright gates cho transport, lifecycle, responsive, error fallback và download integrity.
+
+### Security and lifecycle
+- PDF scripting và WASM bị tắt; runtime không dùng CDN, module import hoặc external request.
+- Đóng bằng nút, Escape hoặc Browser Back giữ nguyên hash, DOM bài học, scroll, simulation, localStorage và trả focus về trigger.
+
+### Released
+- Added `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260812/` and matching `.rar`.
+- Package contains 342 runtime files; RAR SHA-256: `4c96ca48115ff711866ae63f77209bdbb79b83fec3f9a0c2623fd2f3af0f6e65`.
+- Verified exact folder/archive checksum parity, local PDF/provenance hashes, and direct `file://` lesson/PDF smoke without console errors.
+
+## 2026-07-01 — Content stabilization and release package
+
+### Changed
+- Removed the extra Chapter 3 exercise routes for Section VII-4, VII-5, and VII-6 from the current content/runtime surface.
+- Normalized image asset filenames and removed unused image assets.
+- Updated the DOCX extractor to suppress the placeholder equation number `(.)`; `test:content` now includes a dedicated regression guard.
+
+### Released
+- Added `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260701/`.
+- Added `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260701.rar`.
+
+### Current simulation scope
+- Sim2 remains the canonical SVG-first runtime with 25 routes.
+- Sim3 remains an optional 10-route pilot; the removed `.sim-lab` 52-route implementation is historical only.
+
 ## 2026-06-12 — P2 visual polish + review artifact policy
 
 ### Changed

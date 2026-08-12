@@ -1,37 +1,36 @@
 # Giáo trình điện tử Cơ Học Lý Thuyết
 
-Giáo trình điện tử tĩnh cho môn Cơ Học Lý Thuyết, chạy trực tiếp bằng `HTML/CSS/JS`, phù hợp cho `file://`, USB offline, hoặc mở qua static server. Nguồn chuẩn nội dung hiện tại là `CoHocLyThuyet_Full_New.docx`.
+Giáo trình điện tử tĩnh chạy bằng `HTML/CSS/JS`, dùng được qua `file://`, USB offline hoặc static server. Nguồn chuẩn nội dung là `CoHocLyThuyet_Full_New.docx`.
 
 ## Chạy nhanh
 
 | Mục | Cách làm |
 |---|---|
-| Mở offline | Mở `index.html` trực tiếp bằng browser |
-| Chạy dev server | `python -m http.server 8000` rồi mở `http://localhost:8000/` |
-| Làm mới nội dung | Chạy lại pipeline DOCX trong phần bên dưới |
-| Cài QA browser dev-only | `npm install` rồi `npx playwright install chromium` |
+| Mở offline | Mở `index.html` bằng browser |
+| Dev server | `python -m http.server 8000`, rồi mở `http://localhost:8000/` |
+| Đọc bản PDF | Nhấn **Xem bản PDF** trên topbar; hỗ trợ `file://`, HTTP và USB offline |
+| Cài QA browser | `npm install` và `npx playwright install chromium` |
 
-## Cấu trúc chính
+## Cấu trúc
 
 | Đường dẫn | Vai trò |
 |---|---|
-| `index.html` | Shell của ứng dụng, nạp CSS, KaTeX, `js/app.js`, `js/pages.js`, `js/loader.js`, các module phụ |
-| `js/app.js` | Theme, search, breadcrumb, sidebar, font zoom, progress bar |
-| `js/pages.js` | Bundle offline của fragment HTML và quiz JSON |
-| `js/loader.js` | Route map, lazy load fragment, fallback bundle/fetch, render math, image tabs |
-| `js/quiz.js` | Quiz engine, random mode, lưu điểm vào `localStorage` |
-| `js/progress.js` | Theo dõi trang đã xem, bookmark, tiến trình đọc |
-| `js/glossary.js` | Tooltip thuật ngữ |
-| `js/notes.js` | Highlight và ghi chú cá nhân |
-| `js/sim-physics-{statics,kinematics,dynamics}.js` | Nguồn công thức physics đã verify — đang được port sang `js/sim2/physics/` (engine SVG-first, đang rebuild) |
-| `js/sim3/core/` | Pilot Three.js shell dùng offline `lib/three/three.umd.min.js`, mode toggle, disposal helper |
-| `js/sim3/sims/` | Pilot adapters cho `ch1-1-5`, `ch1-5-3`, `ch2-1-3`, `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch2-5-3`, `ch3-1-3`, `ch3-5-3`, `ch3-6-2`; Sim2 vẫn là mặc định, fallback về 2D khi WebGL fail |
-| `chapters/` | HTML fragment sinh từ DOCX |
-| `data/` | Quiz JSON và mapping công thức |
-| `tools/` | Script đồng bộ DOCX, nav, bundle, audit, equation review |
-| `docs/` | Tài liệu vận hành, kiến trúc, roadmap, standards |
+| `index.html`, `css/` | Shell và giao diện |
+| `js/app.js` | Theme, search, breadcrumb, sidebar, zoom, progress bar |
+| `js/loader.js` | Route map, load fragment, render math, mount/dispose simulation |
+| `js/pages.js` | Bundle offline sinh tự động, không sửa tay |
+| `js/{quiz,progress,glossary,notes}.js` | Tính năng học tập và state cục bộ |
+| `js/sim2/` | Runtime mô phỏng canonical SVG-first, 25 route |
+| `js/sim3/` | Pilot Three.js tùy chọn cho 10 route, Sim2 vẫn mặc định |
+| `js/pdf-viewer*.js`, `lib/pdfjs/` | Trình đọc PDF.js nội tuyến và artifact runtime/data local |
+| `chapters/`, `images/` | Nội dung và ảnh sinh từ DOCX |
+| `data/` | Quiz và equation mapping |
+| `tools/` | Pipeline đồng bộ, bundle và audit |
+| `tests/` | QA dev-only |
 
-## Pipeline đồng bộ DOCX
+PDF viewer chỉ nạp `lib/pdfjs/pdfjs-runtime.iife.min.js` và `pdf-data.js` sau lần nhấn đầu tiên. Bản PDF mở trong dialog toàn màn hình với chuyển/nhập trang, zoom, vừa chiều rộng, tải xuống, Escape và Browser Back; không đổi route hoặc trạng thái bài học. Không có tìm kiếm, thumbnail, annotation hay bookmark riêng cho PDF.
+
+## Đồng bộ DOCX
 
 ```powershell
 python tools\analyze_docx.py --input CoHocLyThuyet_Full_New.docx --routes
@@ -41,11 +40,11 @@ python tools\bundle_pages.py
 python tools\audit.py
 ```
 
-Khi xử lý semantic math hoặc chốt publish image metadata, dùng thêm luồng review trong [DOCX Sync Pipeline](docs/docx-sync-pipeline.md).
+Extractor chuẩn hóa tên asset ảnh khi xuất và bỏ placeholder số công thức `(.)`. Sau khi đổi nội dung, `npm run test:content` bảo vệ cả cleanup route Section VII và placeholder này. Chi tiết semantic math và image publish gate xem [DOCX Sync Pipeline](docs/docx-sync-pipeline.md).
 
-## QA (content + quiz)
+## QA
 
-Các lệnh này chỉ phục vụ phát triển/kiểm thử; runtime offline không phụ thuộc npm.
+Các lệnh chỉ phục vụ phát triển, runtime phát hành không phụ thuộc npm.
 
 ```powershell
 npm run test:content
@@ -53,57 +52,40 @@ npm run test:quiz
 npm run test:quiz:browser
 npm run test:equations
 npm run test:audit:strict
+npm run test:sim:physics
+npm run test:sim:mount
+npm run test:sim:release
+npm run test:sim3:pilot
+npm run test:pdf:release
 ```
 
-`test:content` khóa author-page content + Section VII cleanup. `test:quiz` validate quiz bank schema; `test:quiz:browser` render quiz qua Playwright. `test:equations` chạy phase equation checks; `test:audit:strict` kiểm caption/alt/wrapper ảnh + formula image.
+`test:sim:release` chạy physics, mount, app, content và quiz. Visual capture/baseline là luồng dev-only riêng.
 
-## Mô phỏng (engine SVG-first)
+Khi `CoHocLyThuyet.pdf` hoặc phiên bản PDF.js thay đổi, chạy `npm run build:pdf-assets`; không sửa tay file trong `lib/pdfjs/`. `test:pdf:release` kiểm provenance/vendor, transport `file://` + HTTP, viewer và các regression app/content.
 
-Bộ 52 mô phỏng cũ đã được gỡ khỏi master (tag `archive/52-sims-pre-removal` giữ điểm quay đầu); thay bằng **25 mô phỏng "ít mà tinh"** dựng trên **engine SVG-first 3 tầng** tại `js/sim2/`: physics port UMD (chạy được Node + browser) · transform `world→screen` dùng chung · render SVG + nhãn HTML overlay tuyệt đối + canvas underlay tùy chọn (4 sim animation dày). Mount contract giữ nguyên `window.SIM_MAP[pageId] → factory(container) → { dispose }`; `loader.js` mount/dispose theo route. Manifest 25 route: `js/sim2/sim2-route-manifest.js`.
+## Mô phỏng
 
-**Tầng UI dùng chung** (mọi sim cùng hưởng, DRY): `core/palette.js` (token màu `Sim2Palette` — đỏ=lực, lục=vận tốc, lam=gia tốc, tím=mô men…, mirror CSS `--sim-c-*`, tương phản ≥3:1 trên nền viewport); `core/panel.js` (panel lý thuyết: công thức KaTeX **tô màu khớp vector** + legend + readout sống tabular-nums + dòng quan sát); `core/controls.js` (control bar: slider có `<output>` + playback ▶/⏸/⏭/↺, **start paused** theo quy ước PhET). `sim-shell.js` thêm `setTheory()`/`addControls()`, panel luôn hiện cạnh viewport (xuống dưới khi hẹp). Slider ↔ drag-handle đồng bộ 2 chiều (`setValue` không bắn `input` → không vòng lặp). `dispose()` gỡ sạch cả listener slider.
+Sim2 là runtime canonical với 25 route, khai báo tại `js/sim2/sim2-route-manifest.js`. Engine dùng physics UMD, transform world-to-screen, SVG, HTML overlay và canvas underlay tùy chọn. Contract mount là `window.SIM_MAP[pageId] -> factory(container) -> { dispose }`.
 
-**Motion/feedback polish v1**: handle kéo có pulse nhẹ + active state; slider output/readout/công thức có feedback ngắn khi giá trị liên quan đổi; canvas trail dùng fade có kiểm soát cho route động dày; guide/cursor semantic class làm rõ moment arm, IC, graph cursor, impulse/work/radius. `prefers-reduced-motion: reduce` tắt pulse/flash/fade không thiết yếu. Không đổi physics, không thêm dependency runtime.
+Sim3 là pilot 3D tùy chọn cho 10 route: `ch1-1-5`, `ch1-5-3`, `ch2-1-3`, `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch2-5-3`, `ch3-1-3`, `ch3-5-3`, `ch3-6-2`. Three.js được vendored tại `lib/three/three.umd.min.js`; nếu WebGL lỗi, route quay về Sim2.
 
-**Tầng visual "Hybrid"** (chiều sâu DeCuong + tinh giản PhET): header thẻ qua `cfg.meta {name, section, chapter}` → tên sim + badge `§mục` gradient theo chương (ch1 lam / ch2 lục / ch3 tím) + nút ↺; vật thể khối (khối/bi/dầm/đĩa) dùng `gradient`+`depth` (fill gradient + drop-shadow, defs tạo 1 lần trong `createSvg`); nền play-area có lưới graph-paper mờ. Vector/đường/trục/nét đứt giữ phẳng (ít nhiễu). Tất cả opt-in: sim không khai báo `meta`/`depth` chạy y như cũ.
+Bộ canvas `.sim-lab` 52 route là lịch sử, đã gỡ khỏi master và chỉ được giữ ở tag `archive/52-sims-pre-removal`.
 
-```powershell
-npm run test:sim:physics    # node: physics port + transform + ch1/ch2/ch3 invariants + coverage + guards
-npm run test:sim:mount      # playwright: ui-components + ui-coverage 25 route + mount + dispose hủy RAF
-npm run test:sim:release    # physics + mount + content + quiz (gate offline)
-npm run test:sim:visual:baseline        # dev-only: selective screenshot baseline 5 route đại diện
-npm run test:sim:visual:baseline:update # dev-only: refresh selective screenshots sau khi đã duyệt mắt
-```
+## Trạng thái nội dung và phát hành
 
-`test:sim:physics` chạy 9 node test: port snapshot (verified-sticky), transform round-trip, physics dạng đóng 3 chương, visual-physics regression, coverage 25 route (đọc count từ manifest + guard 0 hex rải rác — phải dùng `Sim2Palette`), guard physics-cũ-đã-gỡ + sim-cũ-đã-gỡ. `test:sim:mount` mount 25 route qua `SIM_MAP`: `sim2-ui-components` (palette/controls/panel + dispose listener), `sim2-ui-coverage` (mọi route có panel + legend + readout + control), mount từng chương (nhãn DOM không chồng, canvas underlay khớp SVG ≤1px, sim động start-paused — test bấm ▶ trước khi assert chuyển động), dispose gỡ sạch listener+RAF+DOM. `test:sim:release` là gate tổng, chạy offline.
-`test:sim:visual:baseline` là gate dev-only riêng, không nằm trong release; chỉ khóa 5 route đại diện đã duyệt để tránh baseline toàn bộ 25 route quá brittle.
-
-## Sim3 pilot (Three.js offline)
-
-Sim3 là pilot 3D tùy chọn cho 10 route Sim2: `ch1-1-5`, `ch1-5-3`, `ch2-1-3`, `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch2-5-3`, `ch3-1-3`, `ch3-5-3`, `ch3-6-2`. Luồng mount vẫn giữ nguyên contract `window.SIM_MAP[pageId] -> factory(container) -> { dispose }`; Sim2 SVG-first tiếp tục là mặc định, còn Sim3 chỉ được bật theo route và chỉ khi WebGL chạy ổn.
-
-| Mục | Quy ước |
-|---|---|
-| Runtime Three.js | Vendored offline tại `lib/three/three.umd.min.js`; không dùng CDN hay bundler runtime |
-| Core | `js/sim3/core/` chứa WebGL shell, mode toggle, disposal helper, primitive helpers |
-| Adapters | `js/sim3/sims/ch1-1-5-3d.js`, `ch1-5-3-3d.js`, `ch2-1-3-3d.js`, `ch2-2-2-3d.js`, `ch2-3-2-3d.js`, `ch2-4-4-3d.js`, `ch2-5-3-3d.js`, `ch3-1-3-3d.js`, `ch3-5-3-3d.js`, `ch3-6-2-3d.js` |
-| Fallback | Nếu WebGL fail, route quay về 2D và hiện thông báo tiếng Việt |
-| Phạm vi | Pilot 10 route, chưa rollout sang toàn bộ 25 route |
-
-Visual artifacts cho batch mới được lưu dưới `plans/260603-2100-sim3-ch2-5-3-single-route-tdd-rollout/visuals/` để đối chiếu nội bộ.
+- Các route bài tập Chương 3 Section VII-4, VII-5 và VII-6 đã được loại khỏi nội dung/runtime hiện tại.
+- Tên file ảnh đã được chuẩn hóa và các asset không dùng đã được dọn khỏi nguồn hiện tại.
+- Placeholder `(.)` được extractor bỏ qua và được khóa bằng `tests/no-placeholder-equation-numbers.test.js`.
+- Bản phát hành hiện tại ngày 2026-08-12 có tại `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260812/` và file `.rar` cùng tên. Bản `20260701` được giữ nguyên làm lịch sử.
 
 ## Quy ước vận hành
 
-| Mục | Quy ước |
-|---|---|
-| Bundle offline | `js/pages.js` là file sinh tự động, không sửa tay |
-| DOCX source of truth | `CoHocLyThuyet_Full_New.docx` quyết định text, outline, figure, reference |
-| State client-side | `theme`, `fontZoom`, `quizScores`, `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes` |
-| Chạy lại nav | Sau khi đổi fragment, luôn chạy `tools/update_nav.py` |
-| Chạy audit | Luôn chạy `tools/audit.py` trước khi chốt bản build |
-| Strict image publish | Chạy `tools/audit.py --strict-images` khi cần kiểm caption/alt/wrapper ảnh trước publish |
+- Không sửa tay `chapters/*.html`, `images/`, `js/pages.js` hoặc manifest sinh tự động.
+- Khi fragment đổi, chạy `tools/update_nav.py`, `tools/bundle_pages.py` và `tools/audit.py`.
+- Dùng `tools/audit.py --strict-images` và `--strict-equations` khi chốt publish.
+- State browser giữ trong `localStorage`: `theme`, `fontZoom`, `quizScores`, `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes`.
 
-## Tài liệu tham chiếu
+## Tài liệu
 
 - [Project Overview & PDR](docs/project-overview-pdr.md)
 - [Codebase Summary](docs/codebase-summary.md)
@@ -114,12 +96,3 @@ Visual artifacts cho batch mới được lưu dưới `plans/260603-2100-sim3-c
 - [Project Roadmap](docs/project-roadmap.md)
 - [Project Changelog](docs/project-changelog.md)
 - [DOCX Sync Pipeline](docs/docx-sync-pipeline.md)
-
-## Ghi chú
-
-- Repo này có `package.json` cho QA dev-only; không có runtime bundler/build step.
-- Repo này không có `pyproject.toml`, hoặc `requirements.txt`.
-- Các script Python hiện có dùng trực tiếp theo command trong `tools/`.
-- `index.html` có fallback KaTeX local trước, CDN sau.
-- Mô phỏng đang rebuild trên engine SVG-first (`js/sim2/`); Section VII `BÀI TẬP` là content-only. Xem `plans/260531-1249-rebuild-sims-25-svg-first-engine/`.
-- Bản strict equation publish hiện dùng `data/equation_mapping.json` đã review đủ 702 rows.

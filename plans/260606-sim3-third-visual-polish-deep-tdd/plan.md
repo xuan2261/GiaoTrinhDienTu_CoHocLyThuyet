@@ -1,12 +1,13 @@
 ---
 title: "Sim3 third-pass visual polish deep TDD"
 description: "Deep test-first plan for equal third-pass visual polish of ch1-1-5, ch3-6-2, and ch2-3-2 without physics or dependency changes."
-status: pending
+status: cancelled
 priority: P2
 effort: 6h
 branch: master
 tags: [sim3, tdd, visual-polish, playwright, no-physics-change]
 created: 2026-06-06
+supersededBy: 260713-1524-fix-all-sim2-sim3-defects-deep-tdd
 ---
 
 # Sim3 third-pass visual polish deep TDD

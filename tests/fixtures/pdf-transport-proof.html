@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>PDF transport proof</title>
+</head>
+<body>
+  <p id="status" role="status">Đang tải</p>
+  <div id="page" style="position:relative;width:max-content">
+    <canvas id="canvas"></canvas>
+    <div id="text" class="textLayer"></div>
+  </div>
+  <script src="../../lib/pdfjs/pdfjs-runtime.iife.min.js"></script>
+  <script src="../../lib/pdfjs/pdf-data.js"></script>
+  <script>
+    (async function () {
+      try {
+        const task = PdfTextbookRuntime.openDocument({ data: PdfTextbookData.getBytes() });
+        const pdf = await task.promise;
+        const page = await pdf.getPage(1);
+        const viewport = page.getViewport({ scale: 1 });
+        const canvas = document.getElementById('canvas');
+        canvas.width = Math.ceil(viewport.width);
+        canvas.height = Math.ceil(viewport.height);
+        await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+        const text = document.getElementById('text');
+        const layer = new PdfTextbookRuntime.TextLayer({
+          textContentSource: page.streamTextContent({ includeMarkedContent: true }),
+          container: text,
+          viewport,
+        });
+        await layer.render();
+        document.getElementById('status').textContent = `Trang 1 trên ${pdf.numPages}`;
+      } catch (error) {
+        document.getElementById('status').textContent = `Lỗi: ${error.message}`;
+      }
+    })();
+  </script>
+</body>
+</html>

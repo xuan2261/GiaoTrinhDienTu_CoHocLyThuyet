@@ -4,6 +4,12 @@
   "private": true,
   "description": "Dev-only QA scripts for the offline mechanics textbook reader.",
   "scripts": {
+    "build:pdf-assets": "node tools/pdf-viewer/build-assets.mjs",
+    "test:pdf:vendor": "node tests/pdf-vendor-contract.test.js",
+    "test:pdf:transport": "playwright test tests/pdf-transport.spec.js --config=tools/pdf-viewer/playwright.pdf.config.cjs",
+    "test:pdf:browser": "playwright test tests/pdf-viewer.spec.js --config=tools/pdf-viewer/playwright.pdf.config.cjs",
+    "test:pdf:installed": "playwright test tests/pdf-viewer.spec.js --config=tools/pdf-viewer/playwright.installed.config.cjs --grep \"mở nội tuyến\"",
+    "test:pdf:release": "npm run test:pdf:vendor && npm run test:pdf:transport && npm run test:pdf:browser && npm run test:pdf:installed && npm run test:sim:release && npm run test:sim3:pilot",
     "test:content": "node tests/author-page-content-regression.test.js && node tests/section-vii-review-route-cleanup.test.js && node tests/no-placeholder-equation-numbers.test.js",
     "test:quiz": "node tests/quiz-bank-schema.test.js",
     "test:quiz:browser": "playwright test tests/quiz-browser-render.spec.js",
@@ -24,6 +30,8 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
+    "esbuild": "0.28.2",
+    "pdfjs-dist": "6.2.108",
     "three": "^0.160.1"
   }
 }
