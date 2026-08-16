@@ -20,6 +20,7 @@
     "test:sim:visual:baseline:update": "playwright test --config=tools/sim2-visual/playwright.baseline.config.cjs --update-snapshots",
     "test:sim:mount": "playwright test tests/sim2-ui-components.spec.js tests/sim2-visual-motion-polish.spec.js tests/sim2-ui-coverage.spec.js tests/sim2-ch1-mount.spec.js tests/sim2-ch1-integration.spec.js tests/sim2-ch2-mount.spec.js tests/sim2-ch3-mount.spec.js tests/sim2-mount-robustness.spec.js tests/content-only-smoke.spec.js",
     "test:app": "playwright test tests/progress-single-source.spec.js tests/notes-indicator-refresh.spec.js tests/loader-sim-mount-baseid.spec.js tests/quiz-empty-result-cache.spec.js",
+    "test:gif": "python gif-conversion-workspace/publish-gifs.py --check && playwright test tests/gif-figures.spec.js",
     "test:sim:release": "npm run test:sim:physics && npm run test:sim:mount && npm run test:app && npm run test:content && npm run test:quiz",
     "test:sim:probe": "playwright test --config=tools/sim-probe/playwright.sim-probe.config.cjs",
     "test:sim:probe:unit": "node tests/sim-probe-delta.test.js && node tests/sim-probe-a-logic.test.js && node tests/sim-probe-b-sign.test.js",

@@ -36,6 +36,11 @@
       </svg>
       <span class="pdf-trigger-label">Xem bản PDF</span>
     </button>
+    <button class="gif-motion-toggle" type="button" id="gifMotionBtn" aria-label="Ảnh động minh họa" aria-pressed="false" title="Bật hoạt ảnh GIF">
+      <span class="gif-motion-icon" aria-hidden="true">▶</span>
+      <span class="gif-motion-label">Ảnh động</span>
+      <span class="gif-motion-state" aria-hidden="true">Tắt</span>
+    </button>
     <button onclick="togTheme()" title="Sáng/Tối" id="themeBtn">🌙</button>
     <div class="font-zoom">
       <button onclick="zoomFont(-1)" title="Thu nhỏ chữ">A−</button>
@@ -354,6 +359,7 @@
   <script>if(typeof renderMathInElement==='undefined'){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';document.head.appendChild(s)}</script>
   <script src="js/app.js"></script>
   <script src="js/pages.js"></script>
+  <script src="js/gif-figures.js"></script>
   <script src="js/loader.js"></script>
   <script src="js/quiz.js"></script>
   <script src="js/progress.js"></script>

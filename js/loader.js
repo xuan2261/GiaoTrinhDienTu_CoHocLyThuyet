@@ -164,6 +164,26 @@ function showLoading() {
     </div>`;
 }
 
+function renderPageContent(container, html) {
+  let renderedHtml = html;
+  try {
+    if (window.GifFigures && typeof window.GifFigures.transform === 'function') {
+      renderedHtml = window.GifFigures.transform(html);
+    }
+  } catch (err) {
+    console.warn('GIF figure transform failed; using static images:', err);
+  }
+
+  container.innerHTML = renderedHtml;
+  try {
+    if (window.GifFigures && typeof window.GifFigures.mount === 'function') {
+      window.GifFigures.mount(container);
+    }
+  } catch (err) {
+    console.warn('GIF figure mount failed; using rendered image sources:', err);
+  }
+}
+
 // ============================================
 // LOAD PAGE
 // ============================================
@@ -211,7 +231,7 @@ async function loadPage(id) {
     const ca = document.getElementById('content-area');
     const homePage = document.getElementById('page-home-content');
     if (homePage) {
-      ca.innerHTML = homePage.innerHTML;
+      renderPageContent(ca, homePage.innerHTML);
     }
     addPageNavButtons(baseId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -245,7 +265,7 @@ async function loadPage(id) {
     if (loadToken !== loadSequence) return;
 
     const ca = document.getElementById('content-area');
-    ca.innerHTML = pageCache[baseId];
+    renderPageContent(ca, pageCache[baseId]);
 
     // Execute inline scripts (e.g. quiz renderQuiz calls)
     ca.querySelectorAll('script').forEach(oldScript => {
