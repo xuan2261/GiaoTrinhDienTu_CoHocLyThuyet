@@ -1,5 +1,21 @@
 # Project Changelog
 
+## 2026-08-16 — 20 minh họa cơ học dạng GIF
+
+### Added
+- Phát hành 20 GIF đã duyệt: Chương 1 có 6, Chương 2 có 7, Chương 3 có 7; mỗi file 60 frame, 60 ms/frame, lặp vô hạn và có PNG canonical dự phòng.
+- Manifest `js/gif-figures.js` chỉ thay đúng 20 hình; nút **Ảnh động** đồng bộ toàn trang, lưu `gifMotionEnabled` và tự trở về PNG khi GIF tải lỗi.
+- Workspace tái tạo gồm prompt PNG/TXT, generator, dependency Pillow cố định, publisher thay an toàn từng file và check mode chạy không cần output bị ignore.
+
+### Accessibility
+- Khi chưa có lựa chọn lưu, `prefers-reduced-motion: reduce` dùng PNG; người học vẫn có thể ghi đè bằng nút trạng thái `aria-pressed`.
+- Control có accessible name ổn định, touch target 44 px và responsive icon-only ở viewport nhỏ.
+
+### Released
+- Added `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260816/` and matching `.zip`.
+- Package contains 377 runtime files, including exactly 20 GIFs; ZIP size 75.09 MiB; SHA-256: `f5617ca6976403a88a44353543ab32434a192da3370090add102d63f03d638e4`.
+- Verified folder/archive checksum parity, direct `file://` GIF→PNG toggle smoke, `test:gif` 4/4, `test:app` 6/6, `test:sim:mount` 110/110, content regression and strict audit.
+
 ## 2026-08-12 — Trình đọc PDF nội tuyến offline
 
 ### Added

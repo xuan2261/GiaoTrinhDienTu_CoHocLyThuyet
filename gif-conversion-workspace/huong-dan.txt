@@ -1,0 +1,44 @@
+THƯ MỤC CHUYỂN HÌNH TĨNH THÀNH GIF — CƠ HỌC LÝ THUYẾT
+
+Phạm vi: 20 hình đại diện có chuyển động rõ, chọn từ 126 hình đang dùng trong giáo trình:
+- Chương 1: 6 hình.
+- Chương 2: 7 hình.
+- Chương 3: 7 hình.
+
+HỢP ĐỒNG CHUNG CHO MỌI GIF
+- Dùng PNG và ý nghĩa hình trong chương làm tài liệu tham chiếu; dựng lại bằng hình học vector học thuật, không đặt ảnh raster nguồn làm nền và không dùng pixel nguồn trong frame.
+- Đúng 60 frame lưu trữ, đúng 60 ms/frame, tổng đúng 3.600 ms (3,600 ms), loop=0; mọi frame cùng kích thước và vòng lặp nối mượt.
+- Giữ đúng tỷ lệ, cạnh dài tối đa 1.200 px, dung lượng mỗi GIF dưới 12 MiB.
+- Ít nhất 55/59 cặp frame kề nhau phải có thay đổi hình ảnh có ý nghĩa; không để tối ưu hóa gộp frame.
+- Bốn trạng thái đại diện của mỗi GIF là frame 0, 15, 30 và 45.
+- Cơ học và phần cố định/chuyển động phải đúng prompt riêng; nhãn gắn vật đi cùng vật, còn nhãn hệ quy chiếu hoặc công thức không gắn vật giữ cố định.
+
+CÁCH DÙNG VỚI CHATGPT WEB
+1. Mở đúng thư mục ch1, ch2 hoặc ch3.
+2. Tải PNG lên ChatGPT Web bằng “Add photos & files”.
+3. Mở TXT cùng tên, sao chép toàn bộ nội dung và dán vào ChatGPT.
+4. Tải về đủ ba artifact thật: `<tên>.gif`, `<tên>.py` chứa đúng mã nguồn bộ sinh đã thực thi, và `<tên>-contact-sheet.png` gồm đúng bốn trạng thái đại diện.
+5. Đối chiếu bảng kiểm tra ChatGPT trả về với HỢP ĐỒNG CHUNG; không chấp nhận chỉ có mã hoặc mô tả mà thiếu file GIF thật.
+
+Ví dụ:
+- Đính kèm: ch2/hinh-2-09.png.
+- Sao chép prompt: ch2/hinh-2-09.txt.
+- Kết quả: hinh-2-09.gif, hinh-2-09.py, hinh-2-09-contact-sheet.png.
+
+CÁCH DÙNG CỤC BỘ
+- Mã nguồn bộ sinh đã thực thi: `gif-conversion-workspace/generate-gifs.py`.
+- Cài dependency cố định: `python -m pip install -r gif-conversion-workspace/requirements.txt`.
+- Chạy từ thư mục gốc dự án: `python gif-conversion-workspace/generate-gifs.py`.
+- 20 GIF thật nằm trong `gif-conversion-workspace/output/ch1`, `output/ch2`, `output/ch3` và tuân thủ đúng HỢP ĐỒNG CHUNG.
+- Bảng tổng hợp chứa bốn trạng thái 0/15/30/45 của từng GIF: `gif-conversion-workspace/output/contact-sheet.png`.
+
+PHÁT HÀNH VÀ KIỂM TRA TRONG GIÁO TRÌNH
+- Sau khi duyệt đủ 20 GIF: `python gif-conversion-workspace/publish-gifs.py`.
+- Lệnh trên kiểm tra đúng bộ 20 file, rồi thay an toàn từng GIF trong `assets/gifs/` mà không gỡ cây ảnh đang dùng khỏi đường dẫn phát hành.
+- Chỉ kiểm tra 20 GIF đã phát hành trong `assets/gifs/`, không cần workspace output và không ghi file: `python gif-conversion-workspace/publish-gifs.py --check`.
+- Kiểm tra cả asset, manifest, nút bật/tắt, reduced-motion và PNG fallback: `npm run test:gif`.
+
+LƯU Ý
+- Xử lý một hình mỗi cuộc hội thoại để tránh nhầm tệp và ngữ cảnh.
+- Kiểm tra bốn trạng thái đại diện và nội dung vật lý trước khi dùng GIF trong giáo trình.
+- Đây là workspace phái sinh. Không sửa hoặc thay thế trực tiếp ảnh nguồn trong thư mục `images/`.

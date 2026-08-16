@@ -54,6 +54,7 @@ Sim3 chỉ là lớp 3D tùy chọn cho 10 route. Nó phải giữ cùng hierarc
 | Notes/glossary | Không che hoặc phá nhịp đọc |
 | Math | KaTeX/MathML, không dùng raster figure cho công thức |
 | Images | `max-width: 100%`, alt/caption cụ thể, filename từ pipeline normalized |
+| Ảnh động | Chỉ thay ảnh có trong manifest; giữ alt/caption, PNG fallback và nút trạng thái 44 px |
 | PDF viewer | Native full-screen dialog, navy-gold toolbar, trang giấy sáng, focus ring rõ, canvas + selectable text |
 
 ## Motion và feedback
@@ -63,6 +64,8 @@ Sim3 chỉ là lớp 3D tùy chọn cho 10 route. Nó phải giữ cùng hierarc
 - Formula/readout không rerender mỗi frame nếu có thể cập nhật theo key.
 - Sim2 và Sim3 đều không autoplay mặc định.
 - PDF page/zoom render không animation; button transition phải tắt khi `prefers-reduced-motion`.
+- GIF minh họa mặc định hoạt động, nhưng dùng PNG khi `prefers-reduced-motion: reduce` nếu người học chưa lưu lựa chọn; nút **Ảnh động** cho phép ghi đè rõ ràng.
+- GIF chỉ mô tả chuyển động có ý nghĩa vật lý, không autoplay âm thanh, không dùng làm nền trang và phải tự fallback về PNG khi tải lỗi.
 
 ## Legacy
 
@@ -77,3 +80,4 @@ Sim3 chỉ là lớp 3D tùy chọn cho 10 route. Nó phải giữ cùng hierarc
 | Đặt clarity và physics trước hiệu ứng | Thêm motion/3D chỉ để trang trí |
 | Review light/dark và mobile | Chỉ kiểm một viewport |
 | Giữ trigger **Xem bản PDF** rõ trên desktop và accessible name trên mobile | Nhét thumbnail/sidebar hoặc công cụ ngoài scope vào viewer |
+| Giữ PNG canonical và chỉ phát hành GIF đã duyệt qua manifest | Đổi hàng loạt mọi hình sang GIF hoặc ghi đè ảnh trong `images/` |
