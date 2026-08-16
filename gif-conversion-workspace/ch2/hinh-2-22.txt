@@ -1,0 +1,25 @@
+Bạn đang làm việc trên ChatGPT Web có khả năng phân tích ảnh và chạy Python. Tôi đã đính kèm tệp `hinh-2-22.png`.
+
+MỤC TIÊU
+Tạo GIF minh họa Cơ học lý thuyết chất lượng cao cho chủ đề: Chuyển động song phẳng của vật rắn.
+
+BẮT BUỘC VẬT LÝ
+Điểm A tịnh tiến theo quỹ đạo kín nhỏ trong khi vật quay góc φ quanh A. Hệ OXY cố định; hệ Aξη và các nhãn/điểm gắn vật đi cùng vật; hình dạng và mọi khoảng cách trên vật không đổi.
+
+PHƯƠNG PHÁP DỰNG
+- Phân tích ảnh đính kèm và ý nghĩa của hình trong chương trước khi dựng; dùng chúng làm tài liệu tham chiếu cho bố cục, ký hiệu và cơ học.
+- Dựng lại toàn bộ bằng hình học vector học thuật với Python (Pillow/NumPy hoặc thư viện vector phù hợp): nền sáng, nét navy, lực đỏ, chuyển động xanh, tham chiếu xanh lam, đại lượng kích hoạt vàng. Không đặt ảnh raster nguồn làm nền và không dùng pixel của ảnh nguồn trong bất kỳ frame nào.
+- Chỉ cho các bộ phận được mô tả trong mục BẮT BUỘC VẬT LÝ chuyển động; mọi nền, gối tựa, trục hoặc vật được chỉ định cố định phải đứng yên. Không ép mọi vật thể/cơ cấu đều chuyển động.
+- Nhãn, điểm và véc tơ gắn với vật phải đi cùng vật; nhãn hệ quy chiếu hoặc công thức không gắn vật giữ cố định. Mọi chữ luôn sắc nét, dễ đọc và không bị che; không tự phát minh lực, vận tốc, kích thước hay số liệu.
+
+HỢP ĐỒNG ARTIFACT
+- Tạo file thật `hinh-2-22.gif`, `hinh-2-22.py` chứa đúng mã nguồn bộ sinh đã thực thi, và `hinh-2-22-contact-sheet.png`.
+- GIF có đúng 60 frame lưu trữ, đúng 60 ms/frame, tổng đúng 3.600 ms (3,600 ms), `loop=0`; vòng lặp nối mượt.
+- Mọi frame cùng kích thước, giữ đúng tỷ lệ, cạnh dài tối đa 1.200 px; file GIF phải dưới 12 MiB.
+- Contact sheet gồm đúng bốn trạng thái đại diện tại frame 0, 15, 30 và 45.
+- Không watermark, không chữ ký pixel ẩn, không frame trắng/hỏng và không để tối ưu hóa làm gộp frame.
+
+KIỂM TRA TRƯỚC KHI TRẢ
+- Mở lại chính file GIF bằng Pillow và xác nhận `is_animated=True`, `n_frames=60`, `loop=0`, mỗi frame `duration=60`, tổng duration 3.600 ms, kích thước đồng nhất, cạnh dài tối đa 1.200 px và dung lượng dưới 12 MiB.
+- Xác nhận ít nhất 55/59 cặp frame kề nhau có thay đổi hình ảnh có ý nghĩa, đồng thời bốn trạng thái contact sheet thể hiện đúng cơ học.
+- Trả link tải ba file thật và bảng kiểm tra. Không tuyên bố hoàn thành nếu chưa tạo được file tải xuống.
