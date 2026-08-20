@@ -10,6 +10,7 @@ Giáo trình điện tử tĩnh chạy bằng `HTML/CSS/JS`, dùng được qua 
 | Dev server | `python -m http.server 8000`, rồi mở `http://localhost:8000/` |
 | Đọc bản PDF | Nhấn **Xem bản PDF** trên topbar; hỗ trợ `file://`, HTTP và USB offline |
 | Cài QA browser | `npm install` và `npx playwright install chromium` |
+| Cài QA/authoring GIF | `python -m pip install -r gif-conversion-workspace/requirements.txt` |
 
 ## Cấu trúc
 
@@ -19,16 +20,20 @@ Giáo trình điện tử tĩnh chạy bằng `HTML/CSS/JS`, dùng được qua 
 | `js/app.js` | Theme, search, breadcrumb, sidebar, zoom, progress bar |
 | `js/loader.js` | Route map, load fragment, render math, mount/dispose simulation |
 | `js/pages.js` | Bundle offline sinh tự động, không sửa tay |
+| `js/gif-figures.js` | Manifest 20 ảnh động, điều khiển motion và PNG fallback |
 | `js/{quiz,progress,glossary,notes}.js` | Tính năng học tập và state cục bộ |
 | `js/sim2/` | Runtime mô phỏng canonical SVG-first, 25 route |
 | `js/sim3/` | Pilot Three.js tùy chọn cho 10 route, Sim2 vẫn mặc định |
 | `js/pdf-viewer*.js`, `lib/pdfjs/` | Trình đọc PDF.js nội tuyến và artifact runtime/data local |
 | `chapters/`, `images/` | Nội dung và ảnh sinh từ DOCX |
+| `assets/gifs/` | 20 GIF phát hành, tách khỏi ảnh PNG canonical trong `images/` |
 | `data/` | Quiz và equation mapping |
 | `tools/` | Pipeline đồng bộ, bundle và audit |
 | `tests/` | QA dev-only |
 
 PDF viewer chỉ nạp `lib/pdfjs/pdfjs-runtime.iife.min.js` và `pdf-data.js` sau lần nhấn đầu tiên. Bản PDF mở trong dialog toàn màn hình với chuyển/nhập trang, zoom, vừa chiều rộng, tải xuống, Escape và Browser Back; không đổi route hoặc trạng thái bài học. Không có tìm kiếm, thumbnail, annotation hay bookmark riêng cho PDF.
+
+Hai mươi hình cơ học đã chọn có bản GIF trong `assets/gifs/`. Runtime chỉ thay đúng ảnh có trong manifest `js/gif-figures.js`; nút **Ảnh động** đổi đồng thời giữa GIF và PNG, lưu lựa chọn cục bộ và mặc định dùng PNG khi hệ điều hành bật `prefers-reduced-motion: reduce`. Nếu GIF lỗi, ảnh tự trở về PNG.
 
 ## Đồng bộ DOCX
 
@@ -52,6 +57,7 @@ npm run test:quiz
 npm run test:quiz:browser
 npm run test:equations
 npm run test:audit:strict
+npm run test:gif
 npm run test:sim:physics
 npm run test:sim:mount
 npm run test:sim:release
@@ -76,14 +82,15 @@ Bộ canvas `.sim-lab` 52 route là lịch sử, đã gỡ khỏi master và ch�
 - Các route bài tập Chương 3 Section VII-4, VII-5 và VII-6 đã được loại khỏi nội dung/runtime hiện tại.
 - Tên file ảnh đã được chuẩn hóa và các asset không dùng đã được dọn khỏi nguồn hiện tại.
 - Placeholder `(.)` được extractor bỏ qua và được khóa bằng `tests/no-placeholder-equation-numbers.test.js`.
-- Bản phát hành hiện tại ngày 2026-08-12 có tại `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260812/` và file `.rar` cùng tên. Bản `20260701` được giữ nguyên làm lịch sử.
+- Bản phát hành GIF ngày 2026-08-16 có tại `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260816/` và file `.zip` cùng tên. Các bản `20260812` và `20260701` được giữ nguyên làm lịch sử.
 
 ## Quy ước vận hành
 
 - Không sửa tay `chapters/*.html`, `images/`, `js/pages.js` hoặc manifest sinh tự động.
 - Khi fragment đổi, chạy `tools/update_nav.py`, `tools/bundle_pages.py` và `tools/audit.py`.
 - Dùng `tools/audit.py --strict-images` và `--strict-equations` khi chốt publish.
-- State browser giữ trong `localStorage`: `theme`, `fontZoom`, `quizScores`, `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes`.
+- State browser giữ trong `localStorage`: `theme`, `fontZoom`, `gifMotionEnabled`, `quizScores`, `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes`.
+- Không sửa trực tiếp `assets/gifs/`; tái tạo trong `gif-conversion-workspace/`, kiểm tra nội dung vật lý, rồi chạy `python gif-conversion-workspace/publish-gifs.py`.
 
 ## Tài liệu
 

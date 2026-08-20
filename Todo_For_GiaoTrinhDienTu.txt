@@ -1,0 +1,445 @@
+Tôi đã đối chiếu lại **đề cương hiện tại**, trạng thái `master` của giáo trình và các chuẩn/văn bản chính thức. Theo đề cương, sản phẩm phục vụ **đào tạo sĩ quan cấp phân đội, trình độ đại học**; phần “Quy cách...” hiện đã xác định các thành phần như điều hướng, sáng/tối, tìm kiếm, trắc nghiệm và mô phỏng.   Repository hiện là ứng dụng tĩnh HTML/CSS/JS, chạy được `file://`/USB/static server, lấy DOCX làm nguồn chuẩn; có 25 mô phỏng Sim2, 10 route 3D pilot, PDF viewer và một hệ thống QA tương đối khá.
+
+Theo tôi, để **hoàn thiện thành bản có thể chốt nghiệm thu**, không nên tiếp tục bổ sung chức năng rời rạc. Nên xử lý theo **12 gói công việc** dưới đây, với ba mức: **P0 = phải hoàn thành trước khi chốt**, **P1 = nên hoàn thành để sản phẩm thực sự tốt**, **P2 = tích hợp mở rộng khi có nhu cầu/LMS**.
+
+---
+
+# 1. P0 — Khóa yêu cầu pháp lý, học thuật và tiêu chí nghiệm thu
+
+Đây là việc cần làm đầu tiên, vì nếu không có “baseline” thì sau này rất khó kết luận giáo trình đã hoàn thiện hay chưa.
+
+* [ ] Lập **ma trận yêu cầu chính thức** gồm: yêu cầu → chức năng đáp ứng → phép kiểm → bằng chứng → trạng thái.
+* [ ] Ánh xạ nội dung từng chương với **mục tiêu học phần và chuẩn đầu ra**.
+* [ ] Kiểm tra toàn bộ kiến thức, công thức, ví dụ, bài tập và câu hỏi có phù hợp nội dung chương trình đào tạo.
+* [ ] Kiểm tra cân đối **lý thuyết – ví dụ – mô phỏng – bài tập – tự kiểm tra**.
+* [ ] Chuẩn hóa tài liệu tham khảo và nguồn của hình, bảng, nội dung trích dẫn.
+* [ ] Rà soát quyền sử dụng đối với hình ảnh, font, thư viện JavaScript, PDF.js, Three.js và các tài sản khác.
+* [ ] Tạo danh mục **phiên bản giáo trình – ngày phát hành – người kiểm tra – người phê duyệt**.
+* [ ] Xác định rõ trong hồ sơ những chức năng nào là **đã triển khai**, **pilot**, **định hướng**, tuyệt đối không mô tả chức năng chưa có như đã hoàn thành.
+
+Thông tư 35/2021/TT-BGDĐT hiện còn hiệu lực và yêu cầu giáo trình phải phù hợp mục tiêu/chương trình, đáp ứng chuẩn đầu ra, trình bày khoa học – logic, cân đối lý thuyết và thực hành, cập nhật tri thức đã được kiểm chứng, đồng thời các nội dung trích dẫn phải có nguồn rõ ràng. ([CSDL quốc gia về pháp luật][1]) Thông tư 49/2026/TT-BGDĐT về ứng dụng công nghệ trong giáo dục đại học đã có hiệu lực từ ngày 15/08/2026, nên nên được đưa vào bộ căn cứ hiện hành của hồ sơ. ([Văn Bản Chính Phủ][2])
+
+**Tiêu chí hoàn thành:** có một `Requirement Traceability Matrix` và không còn yêu cầu nào ở trạng thái “không biết kiểm bằng gì”.
+
+---
+
+# 2. P0 — Chuẩn hóa nguồn nội dung và pipeline DOCX → giáo trình điện tử
+
+Repo hiện đã có pipeline tốt: phân tích DOCX → extract → update navigation → bundle → audit.  Việc cần làm là nâng nó thành **quy trình phát hành có kiểm soát**.
+
+* [ ] Giữ `CoHocLyThuyet_Full_New.docx` là **single source of truth**.
+* [ ] Không sửa thủ công `chapters/*.html`, bundle, manifest hoặc ảnh đã sinh.
+* [ ] Chuẩn hóa Heading 1/2/3 trong DOCX để route sinh ra ổn định.
+* [ ] Chuẩn hóa numbering chương–mục–tiểu mục.
+* [ ] Chuẩn hóa tên hình, bảng, công thức.
+* [ ] Kiểm soát duplicate heading/ID.
+* [ ] Sinh tự động `content-manifest.json`.
+* [ ] Manifest phải lưu: `routeId`, chương, mục, title, source reference, version.
+* [ ] Thêm kiểm tra route bị mất/thừa sau mỗi lần regenerate.
+* [ ] Thêm kiểm tra orphan asset và unused asset.
+* [ ] Tạo một lệnh duy nhất, chẳng hạn `build:release`, để thực hiện toàn pipeline.
+* [ ] Build phải **fail ngay** nếu content/image/equation audit không đạt.
+
+**Tiêu chí hoàn thành:** từ một bản DOCX sạch có thể tái tạo **100% cùng cấu trúc giáo trình** mà không chỉnh HTML bằng tay.
+
+---
+
+# 3. P0 — Rà soát toàn bộ nội dung chuyên môn và công thức
+
+Đây nên là một **quality gate riêng**, không gộp chung với kiểm thử giao diện.
+
+* [ ] Lập danh mục toàn bộ công thức.
+* [ ] Mỗi công thức phải xác nhận: ký hiệu, dấu, chỉ số, vector, đơn vị, số phương trình.
+* [ ] Kiểm tra công thức sau chuyển đổi DOCX → MathML/KaTeX.
+* [ ] So sánh bản web với tài liệu nguồn.
+* [ ] Kiểm tra công thức trên desktop và mobile.
+* [ ] Kiểm tra text fallback khi engine toán không chạy.
+* [ ] Kiểm tra hình công thức cũ còn sót.
+* [ ] Kiểm tra các ký hiệu cơ học thống nhất giữa ba chương.
+* [ ] Xây dựng **glossary ký hiệu**: (F, M, v, a, \omega, \varepsilon,\dots)
+* [ ] Kiểm tra đơn vị SI.
+* [ ] Kiểm tra câu chữ chuyên môn, thuật ngữ Cơ học lý thuyết và lỗi chính tả.
+* [ ] Mỗi chỉnh sửa chuyên môn quan trọng cần có lịch sử review.
+
+Repo hiện đã có nhóm `test:equations`, `test:audit:strict` và content regression; cần giữ chúng làm release gate thay vì chỉ chạy khi có lỗi.
+
+---
+
+# 4. P0 — Hoàn thiện hình ảnh, sơ đồ và minh họa
+
+Không chỉ cần “ảnh hiện đúng”, mà cần **ảnh có giá trị sư phạm và có khả năng truy vết**.
+
+* [ ] Audit toàn bộ ảnh theo từng chương.
+* [ ] Loại ảnh trùng, ảnh mờ, ảnh công thức lỗi thời.
+* [ ] Chuẩn hóa kích thước và tỉ lệ ảnh.
+* [ ] Mỗi hình có **số hình + caption** nhất quán.
+* [ ] Mỗi hình có `alt` mang ý nghĩa, không viết kiểu `image1`.
+* [ ] Hình phức tạp có phần mô tả mở rộng nếu alt không đủ.
+* [ ] Vector ưu tiên SVG khi phù hợp.
+* [ ] Ảnh raster cần có độ phân giải đủ cho màn hình độ phân giải cao.
+* [ ] Không upscale giả ảnh chất lượng thấp.
+* [ ] Ghi nguồn/nguồn tác giả cho hình không phải tự xây dựng.
+* [ ] Với hình từ mô phỏng, tạo ảnh chụp có cùng style với giáo trình.
+* [ ] Tạo **visual regression baseline** cho các hình/mô phỏng quan trọng.
+
+Điều này đồng thời hỗ trợ yêu cầu accessibility: WCAG 2.2 yêu cầu non-text content có text alternative tương đương về mục đích. ([W3C][3])
+
+---
+
+# 5. P0 — Nâng tìm kiếm thành Full-text Search thực sự
+
+Đây là một trong những thiếu hụt lớn nhất nên xử lý.
+
+Search hiện tại chủ yếu lập chỉ mục từ mục điều hướng và so khớp chuỗi tiêu đề, chưa phải tìm kiếm toàn văn. Vì vậy cần xây:
+
+* [ ] `search-index.json` được sinh lúc build.
+* [ ] Index: `title`.
+* [ ] Index: heading.
+* [ ] Index: nội dung thân bài.
+* [ ] Index: từ khóa.
+* [ ] Index: thuật ngữ/glossary.
+* [ ] Index: caption hình.
+* [ ] Index: tên mô phỏng.
+* [ ] Chuẩn hóa Unicode tiếng Việt.
+* [ ] Không phân biệt hoa/thường.
+* [ ] Hỗ trợ tìm cụm từ.
+* [ ] Hiển thị **snippet** chứa từ khóa.
+* [ ] Highlight từ khóa.
+* [ ] Kết quả đưa tới **đúng mục/anchor**, không chỉ đầu trang.
+* [ ] Ranking: title > heading > keyword > body.
+* [ ] Có thông báo “không tìm thấy”.
+* [ ] Hỗ trợ bàn phím.
+* [ ] Hoạt động hoàn toàn offline.
+* [ ] Test riêng cho tiếng Việt có dấu/không dấu nếu muốn hỗ trợ cả hai.
+
+**Tiêu chí:** tìm một thuật ngữ nằm giữa nội dung bất kỳ phải trả về đúng trang và đúng ngữ cảnh.
+
+---
+
+# 6. P0 — Chuẩn hóa 2D simulation thành “mô phỏng học tập có kiểm chứng”
+
+Sim2 hiện là lớp canonical với 25 route.  Với từng route cần tạo **Simulation Specification**.
+
+Mỗi mô phỏng phải có:
+
+* [ ] Mã route.
+* [ ] Tên.
+* [ ] Chương/mục liên quan.
+* [ ] Mục tiêu học tập.
+* [ ] Hiện tượng cần trực quan hóa.
+* [ ] Giả thiết vật lý.
+* [ ] Công thức cơ sở.
+* [ ] Input.
+* [ ] Output.
+* [ ] Khoảng hợp lệ của input.
+* [ ] Đơn vị.
+* [ ] Điều kiện biên.
+* [ ] Invariant/bảo toàn nếu có.
+* [ ] Giá trị mẫu dùng kiểm thử.
+* [ ] Ý nghĩa của slider/button.
+* [ ] Reset.
+* [ ] Pause/play nếu chuyển động.
+* [ ] Responsive.
+* [ ] Keyboard operation.
+* [ ] Text description.
+* [ ] Expected result.
+* [ ] Physics unit test.
+* [ ] Visual regression test.
+
+Quan trọng nhất: **animation không được là nguồn chân lý**. Kết quả vật lý phải được tính trước; hình chỉ render `state(t)`.
+
+---
+
+# 7. P1 — Hoàn thiện 3D và định nghĩa lại 4D
+
+Repo hiện có 10 route Sim3 pilot và fallback về 2D khi WebGL không hoạt động.  Không nên mở rộng toàn bộ chương sang 3D chỉ để tăng số lượng.
+
+* [ ] Review từng route xem **3D có thực sự tăng khả năng hiểu bài** hay không.
+* [ ] Chỉ giữ 3D cho bài có quan hệ không gian khó diễn đạt bằng 2D.
+* [ ] Chuẩn hóa camera.
+* [ ] Chuẩn hóa trục tọa độ.
+* [ ] Chuẩn hóa màu vector.
+* [ ] Chuẩn hóa ánh sáng.
+* [ ] Thêm reset camera.
+* [ ] Giới hạn camera để người học không “lạc”.
+* [ ] Thêm labels 3D dễ đọc.
+* [ ] Đồng bộ trạng thái giữa 2D và 3D.
+* [ ] Test WebGL failure.
+* [ ] Test dispose memory/resource.
+* [ ] Kiểm tra thiết bị cấu hình thấp.
+* [ ] Với mô hình phức tạp, thiết lập pipeline `Blender/CAD → GLB → validation → Three.js`.
+
+glTF 2.0 hiện là phiên bản hiện hành của chuẩn Khronos; Khronos định nghĩa glTF là **API-neutral runtime asset delivery format**, không phải authoring format và không quy định logic runtime. ([Khronos Registry][4])
+
+**4D** nên định nghĩa trong tài liệu dự án là:
+
+**3D + thời gian + trạng thái vật lý + tương tác người học**.
+
+Không cần phát minh “file 4D”.
+
+---
+
+# 8. P1 — Video và audio: chỉ bổ sung theo Learning Objective
+
+Không nên thêm video chỉ để hồ sơ trông “đa phương tiện”.
+
+Mỗi video cần pipeline:
+
+* [ ] Learning objective.
+* [ ] Script.
+* [ ] Storyboard.
+* [ ] Technical review.
+* [ ] Record/render.
+* [ ] Edit.
+* [ ] Voice.
+* [ ] Caption.
+* [ ] Transcript.
+* [ ] Poster.
+* [ ] Metadata.
+* [ ] Compression.
+* [ ] Offline playback test.
+* [ ] Accessibility test.
+
+Audio:
+
+* [ ] Script.
+* [ ] Thu âm sạch.
+* [ ] Chuẩn hóa âm lượng.
+* [ ] Thuật ngữ chính xác.
+* [ ] Transcript.
+* [ ] Play/pause.
+* [ ] Không autoplay.
+* [ ] Điều chỉnh âm lượng.
+* [ ] Có phương án tương đương bằng text.
+
+WCAG 2.2 có tiêu chí riêng cho prerecorded audio/video, captions, text alternatives và khả năng điều khiển nội dung chuyển động; nếu đặt mục tiêu accessibility, media phải được thiết kế từ đầu theo các tiêu chí này. ([W3C][3])
+
+---
+
+# 9. P0/P1 — Nâng hệ thống kiểm tra, đánh giá người học
+
+Quiz hiện tại đã có JSON, chế độ toàn bộ/ngẫu nhiên, phản hồi và lưu local; đây là nền tảng tốt.
+
+### P0 — hoàn thiện local assessment
+
+* [ ] Mỗi câu hỏi có ID ổn định.
+* [ ] Mapping câu hỏi → chapter/section.
+* [ ] Mapping → learning outcome.
+* [ ] Difficulty.
+* [ ] Question type.
+* [ ] Đáp án.
+* [ ] Explanation.
+* [ ] Source/reference nếu cần.
+* [ ] Version.
+* [ ] Randomization.
+* [ ] Question pool.
+* [ ] Số lần làm.
+* [ ] StartedAt/finishedAt.
+* [ ] Score raw.
+* [ ] Score percent.
+* [ ] Passed/failed.
+* [ ] Time spent.
+* [ ] Lịch sử attempt.
+* [ ] Cho phép xem lại đáp án theo policy.
+* [ ] Test schema.
+* [ ] Test rendering.
+* [ ] Test persistence.
+
+### P1 — đánh giá sư phạm
+
+* [ ] Tỉ lệ câu nhận biết/thông hiểu/vận dụng.
+* [ ] Bao phủ chuẩn đầu ra.
+* [ ] Không có câu mơ hồ.
+* [ ] Distractor hợp lý.
+* [ ] Không để lộ đáp án bằng độ dài/format.
+* [ ] Kiểm tra nội dung mỗi lần đổi chương.
+
+### P2 — QTI
+
+Nếu muốn trao đổi ngân hàng câu hỏi với LMS, xây **JSON ↔ QTI 3 exporter/importer**. QTI 3 là specification hiện hành của 1EdTech cho interoperability assessment, với cải tiến về web-friendly markup và accessibility. ([1EdTech][5])
+
+Không cần thay JSON runtime hiện tại bằng QTI.
+
+---
+
+# 10. P0 — Accessibility: đặt mục tiêu WCAG 2.2 AA
+
+Tôi khuyến nghị đây trở thành một **release gate**, không chỉ là câu viết trong báo cáo.
+
+* [ ] `lang="vi"`.
+* [ ] Heading hierarchy hợp lệ.
+* [ ] `alt` cho hình.
+* [ ] Label cho control.
+* [ ] ARIA khi HTML native không đủ.
+* [ ] Tất cả chức năng thao tác được bằng keyboard.
+* [ ] Focus visible.
+* [ ] Không focus trap ngoài dialog hợp lệ.
+* [ ] Skip link.
+* [ ] Contrast AA.
+* [ ] Zoom 200% không mất nội dung.
+* [ ] Text spacing không làm vỡ bố cục.
+* [ ] Responsive ở mobile/tablet.
+* [ ] Target size đủ dùng.
+* [ ] Không phụ thuộc duy nhất vào màu.
+* [ ] Error message rõ ràng.
+* [ ] Mô phỏng có text alternative.
+* [ ] Video có caption.
+* [ ] Audio có transcript.
+* [ ] Animation có pause/stop khi phù hợp.
+* [ ] `prefers-reduced-motion`.
+* [ ] Test bằng keyboard.
+* [ ] Test ít nhất một screen reader.
+* [ ] Kết hợp automated audit + manual review.
+
+W3C khuyến nghị WCAG 2.2 là mục tiêu hiện hành; để tuyên bố **AA**, toàn bộ các tiêu chí Level A và AA áp dụng phải được đáp ứng, không thể chỉ đạt một vài tiêu chí. ([W3C][3])
+
+**Cách viết hồ sơ trước khi test xong:**
+“Hướng tới WCAG 2.2 Level AA.”
+
+**Chỉ sau khi audit đầy đủ mới viết:**
+“Đáp ứng WCAG 2.2 Level AA.”
+
+---
+
+# 11. P0 — Chuẩn hóa đóng gói, versioning và phát hành
+
+Hiện repo có package standalone và bản release ngày 12/08/2026.  Cần nâng thành release engineering hoàn chỉnh.
+
+Gói chuẩn đề xuất:
+
+```text
+GiaoTrinhDienTu/
+├── index.html
+├── css/
+├── js/
+├── lib/
+├── chapters/
+├── images/
+├── media/
+├── data/
+├── CoHocLyThuyet.pdf
+├── release-manifest.json
+├── THIRD_PARTY_NOTICES.txt
+├── CHANGELOG.md
+├── VERSION
+└── SHA256SUMS
+```
+
+Công việc:
+
+* [ ] Chuyển ZIP thành archive trao đổi chính.
+* [ ] `.rar` chỉ giữ nếu quy trình nội bộ cần.
+* [ ] Semantic versioning hoặc release date rõ ràng.
+* [ ] `release-manifest.json`.
+* [ ] SHA-256 từng artifact quan trọng.
+* [ ] Third-party notices.
+* [ ] License inventory.
+* [ ] Dependency version inventory.
+* [ ] Release notes.
+* [ ] Build timestamp.
+* [ ] Commit SHA.
+* [ ] Source DOCX checksum.
+* [ ] PDF checksum.
+* [ ] Không ship `node_modules`.
+* [ ] Không ship test/debug screenshot không cần thiết.
+* [ ] Smoke test `file://`.
+* [ ] Smoke test HTTP.
+* [ ] Test USB/offline.
+* [ ] Test clean Windows machine.
+
+---
+
+# 12. P2 — LMS interoperability: chỉ làm sau khi bản standalone ổn định
+
+Không nên ép core runtime phụ thuộc LMS.
+
+Nên kiến trúc:
+
+```text
+                Giáo trình canonical
+                       │
+        ┌──────────────┼──────────────┐
+        ▼              ▼              ▼
+ Standalone ZIP    SCORM adapter   xAPI/cmi5
+        │
+        └────── QTI export ───────────┘
+```
+
+### SCORM
+
+* [ ] Tạo `imsmanifest.xml`.
+* [ ] Xác định SCO.
+* [ ] Adapter LMS API.
+* [ ] Map completion.
+* [ ] Map success.
+* [ ] Map score.
+* [ ] Suspend/resume.
+* [ ] Package ZIP.
+* [ ] Test LMS thực tế.
+* [ ] Lưu log test.
+
+ADL có Test Suite riêng để kiểm Content Package, SCO, manifest và LMS đối với SCORM 2004 4th Edition; ADL cũng lưu ý việc chạy test suite **không đồng nghĩa tự động với chứng nhận**. ([GitHub][6])
+
+### xAPI
+
+Chỉ triển khai nếu cần analytics:
+
+* [ ] Mở bài.
+* [ ] Hoàn thành bài.
+* [ ] Khởi động simulation.
+* [ ] Thay đổi parameter.
+* [ ] Trả lời quiz.
+* [ ] Hoàn thành quiz.
+* [ ] Pass/fail.
+* [ ] Session duration.
+* [ ] Offline event queue.
+* [ ] Sync khi có mạng.
+* [ ] Idempotency.
+* [ ] Privacy/data policy.
+
+ADL xác định **xAPI 2.0 là phiên bản hiện hành**. ([GitHub][7])
+
+### Common Cartridge
+
+Chỉ cần khi trường muốn trao đổi cả **course resources + assessment + LMS structures**. Common Cartridge 1.4 hiện có hỗ trợ QTI 3 ZIP và accessibility metadata. ([1EdTech][8])
+
+---
+
+# Thứ tự tôi khuyến nghị thực hiện
+
+| Giai đoạn | Việc chính                                     | Mức |
+| --------- | ---------------------------------------------- | --: |
+| **G0**    | Khóa yêu cầu, chuẩn đầu ra, ma trận nghiệm thu |  P0 |
+| **G1**    | Audit nội dung + công thức + hình ảnh          |  P0 |
+| **G2**    | Chuẩn hóa DOCX pipeline/build                  |  P0 |
+| **G3**    | Full-text search                               |  P0 |
+| **G4**    | Simulation Specification + physics QA          |  P0 |
+| **G5**    | Quiz schema + assessment QA                    |  P0 |
+| **G6**    | WCAG 2.2 AA remediation/audit                  |  P0 |
+| **G7**    | Release manifest/version/checksum/package      |  P0 |
+| **G8**    | Video/audio có mục tiêu học tập                |  P1 |
+| **G9**    | Hoàn thiện có chọn lọc 3D/4D                   |  P1 |
+| **G10**   | QTI export                                     |  P2 |
+| **G11**   | SCORM/xAPI/cmi5/CC adapter                     |  P2 |
+| **G12**   | Final acceptance + evidence package            |  P0 |
+
+## 10 đầu việc cần làm **ngay**
+
+Nếu cần chốt một backlog thực tế để bắt đầu phát triển, tôi sẽ ưu tiên theo thứ tự này:
+
+**① Requirement Traceability Matrix → ② audit toàn bộ nội dung/công thức/hình → ③ full-text search → ④ Simulation Specification cho 25 Sim2 + review 10 Sim3 → ⑤ chuẩn hóa quiz/learning outcome mapping → ⑥ WCAG 2.2 AA audit → ⑦ release manifest/version/SHA-256 → ⑧ one-command release build → ⑨ evidence package cho nghiệm thu → ⑩ sau khi standalone ổn định mới làm multimedia và LMS interoperability.**
+
+Điểm quan trọng nhất là **không lấy số lượng công nghệ làm tiêu chí hoàn thiện**. Một giáo trình có 2D được kiểm chứng vật lý, tìm kiếm tốt, accessibility tốt, assessment có cấu trúc và release có bằng chứng sẽ thuyết phục hơn một sản phẩm có thêm “3D/4D/SCORM/xAPI” nhưng chưa được kiểm thử.
+
+Nếu lấy đúng hiện trạng repository hiện nay làm baseline, tôi đánh giá các khối **DOCX pipeline, offline runtime, PDF viewer, Sim2 và QA kỹ thuật đã có nền tốt**; khoảng trống đáng ưu tiên nhất là **traceability với chuẩn đầu ra, full-text search, accessibility conformance, assessment metadata, release packaging/evidence và quy trình nghiệm thu chính thức**.
+
+Nếu bạn muốn, bước kế tiếp hợp lý nhất là tôi **chuyển toàn bộ danh sách trên thành một “MASTER BACKLOG” dạng bảng Excel gồm khoảng 80–120 đầu việc**, với các cột **ID – Nhóm – Công việc – Hiện trạng – Mức ưu tiên P0/P1/P2 – Người phụ trách – Tiêu chí nghiệm thu – Bằng chứng – Trạng thái – Ghi chú**, để bạn dùng trực tiếp quản lý việc nâng cấp giáo trình.
+
+[1]: https://vbpl.vn/TW/Pages/vbpq-toanvan.aspx?ItemID=157189&utm_source=chatgpt.com "Trung ương"
+[2]: https://vanban.chinhphu.vn/?classid=1&docid=218756&pageid=27160&utm_source=chatgpt.com "Thông tư số 49/2026/TT-BGDĐT của Bộ Giáo dục và Đào tạo: Quy định ứng dụng công nghệ trong giáo dục đại học, giáo dục nghề nghiệp"
+[3]: https://www.w3.org/TR/WCAG22/?utm_source=chatgpt.com "Web Content Accessibility Guidelines (WCAG) 2.2"
+[4]: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html?utm_source=chatgpt.com "glTF™ 2.0 Specification"
+[5]: https://www.1edtech.org/standards/qti/index?utm_source=chatgpt.com "QTI Specification Documents | 1EdTech"
+[6]: https://github.com/adlnet/SCORM-2004-4ed-Test-Suite?utm_source=chatgpt.com "GitHub - adlnet/SCORM-2004-4ed-Test-Suite: A collection of tests designed to validate software conforming to the SCORM 2004 4th Edition · GitHub"
+[7]: https://github.com/adlnet/xAPI-Spec/blob/master/README.md?utm_source=chatgpt.com "xAPI-Spec/README.md at master · adlnet/xAPI-Spec · GitHub"
+[8]: https://www.1edtech.org/standards/cc?utm_source=chatgpt.com "Common Cartridge® | 1EdTech"

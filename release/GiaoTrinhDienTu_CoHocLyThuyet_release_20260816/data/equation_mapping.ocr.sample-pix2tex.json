@@ -1,0 +1,450 @@
+[
+  {
+    "hash": "4d91f8b86d48e3257fe0ff38817bdfbce9b992453ed6da54702d562498e19d4b",
+    "latex": "\\overline{{{m}}}_{O}(\\overline{{{F}}})=\\overline{{{O A}}}\\supset\\overline{{{F}}}=\\stackrel{\\rightharpoonup}{r}\\supset\\overline{{{F}}}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image5.wmf",
+        "output": "images/ch1/hinh-005.png",
+        "kind": "math-display",
+        "chapter": 1,
+        "paragraph_index": 344,
+        "text_context": "(.)"
+      }
+    ]
+  },
+  {
+    "hash": "6c5a4040408a0ffeec3d378f9add921d660c2a3ac8dfe833891436b5284214ee",
+    "latex": "\\sum_{k=1}^{n}{\\cal F}_{k x}=0;\\sum_{k=1}^{n}{\\cal F}_{k y}=0;\\sum_{k=1}^{n}{\\cal F}_{k z}=0\\qquad\\qquad\\qquad\\qquad\\qquad\\qquad\\qquad\\qquad\\qquad\\qquad\\qquad",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image97.wmf",
+        "output": "images/ch1/hinh-097.png",
+        "kind": "math-display",
+        "chapter": 1,
+        "paragraph_index": 564,
+        "text_context": "(.)"
+      }
+    ]
+  },
+  {
+    "hash": "9012efb744663e4704820e09bf37d87e7e3f8af64cb8c0a6041197ddb320fced",
+    "latex": "\\sum\\overline{{{F}}}_{k x}=X_{d}+{\\cal O}+P\\cos30^{0}=0",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image181.wmf",
+        "output": "images/ch1/hinh-180.png",
+        "kind": "math-display",
+        "chapter": 1,
+        "paragraph_index": 807,
+        "text_context": ""
+      }
+    ]
+  },
+  {
+    "hash": "3df0ffad94f8d32e7e8df4c2592678754f633e7fa638af3f722f662759f951c6",
+    "latex": "Y_{c}=-288N\\cdotp X_{c}=-T=-5222N\\cdotp\\ \\ \\ T=522N",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image229.wmf",
+        "output": "images/ch1/hinh-228.png",
+        "kind": "math-display",
+        "chapter": 1,
+        "paragraph_index": 890,
+        "text_context": "Giải hệ phương trình trên, ta được:"
+      }
+    ]
+  },
+  {
+    "hash": "728d7b49fa9534e2a4086e6e644e9d2d7b173f2db06c535cbb3cbb16f4c4ca5e",
+    "latex": "\\overline{{{\\mathcal{F}}}}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image1.wmf",
+        "output": "images/ch1/hinh-001.png",
+        "kind": "math-inline",
+        "chapter": 1,
+        "paragraph_index": 336,
+        "text_context": "Do đó có thể dùng véc tơ biểu diễn các đặc trưng của lực, gọi là véc tơ lực, ký hiệu là . Điểm đặt của véc tơ là điểm đặt lực, phương, chiều của véc tơ trùng với phương, chiều tác "
+      }
+    ]
+  },
+  {
+    "hash": "96d73011977dae956006d09d69fb2877dbf741457fd7348691d0cab07a843664",
+    "latex": "\\overline{{\\to\\overbrace{I}^{\\vee}}}\\,",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image69.wmf",
+        "output": "images/ch1/hinh-069.png",
+        "kind": "math-inline",
+        "chapter": 1,
+        "paragraph_index": 511,
+        "text_context": "Véc tơ chính của hệ lực song song có phương song song với các lực thành phần. Ngoài ra, vuông góc với lực , tức vuông góc với phương của véc tơ chính . Do đó mô men chính của hệ lự"
+      }
+    ]
+  },
+  {
+    "hash": "f79626e4915d8d1549df25a452cde54e9d36670895878481eef71f21b0050b97",
+    "latex": "\\overline{{\\Lambda V}}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image151.wmf",
+        "output": "images/ch1/hinh-150.png",
+        "kind": "math-inline",
+        "chapter": 1,
+        "paragraph_index": 713,
+        "text_context": "Ta có thể diễn tả khả năng chống lăn bằng cách dời song song phản lực pháp tuyến về phía bánh xe có xu hướng lăn đến, một đoạn d = M1 / N."
+      }
+    ]
+  },
+  {
+    "hash": "ff7b1897b4c4dc62393c020ccc74358a8362cab825f988254ec729caf5ce9481",
+    "latex": "\\overline{{\\land\\bigvee}}_{B}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image208.wmf",
+        "output": "images/ch1/hinh-207.png",
+        "kind": "math-inline",
+        "chapter": 1,
+        "paragraph_index": 839,
+        "text_context": "Khảo sát dầm AB cân bằng dưới tác dụng của hệ lực phẳng gồm các lực hoạt động và và hai phản lực liên kết của gối đỡ A và B (phản lực tại A gồm thành phần thẳng đứng và nằm ngang c"
+      }
+    ]
+  },
+  {
+    "hash": "b40136fcca7640e4752fde02b3a2221436f73446338321df4f8155b1f7694618",
+    "latex": "{\\underset{J}{\\rightarrow}}~{\\overset{\\rightarrow}{\\longrightarrow}}~J^{*}\\!\\left(\\frac{}{}f\\right)",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image240.wmf",
+        "output": "images/ch2/hinh-004.png",
+        "kind": "math-display",
+        "chapter": 2,
+        "paragraph_index": 944,
+        "text_context": "(2.1)"
+      }
+    ]
+  },
+  {
+    "hash": "8021705e33b9c336143486da461a11a0aeae27ce264e1a39961b05ff0f2d8ff5",
+    "latex": "\\bar{\\epsilon}={\\frac{\\mathrm{d}\\bar{\\omega}}{\\mathrm{dt}}}={\\frac{\\mathrm{d}^{2}\\bar{\\varphi}}{\\mathrm{dt}^{2}}}={\\frac{\\cdots}{\\bar{\\Phi}}}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image328.png",
+        "output": "images/ch2/hinh-092.png",
+        "kind": "math-display",
+        "chapter": 2,
+        "paragraph_index": 1115,
+        "text_context": ""
+      }
+    ]
+  },
+  {
+    "hash": "70e715caccede65aa5cf730f7ef74e17e2be8bce755a51a7a4e1438b393435d4",
+    "latex": "\\overline{{{\\Psi}}}_{M}\\;\\longrightarrow\\;\\overline{{{\\Psi}}}_{A}\\;\\mp\\;\\overline{{{\\Psi}}}_{A}\\;\\mp\\;\\overline{{{\\Psi}}}_{A}\\;\\mp\\;\\overline{{{\\Psi}}}_{\\;A}\\;\\mp\\;\\overline{{{Q}}}_{\\;B}\\;\\Lambda\\overline{{{\\Lambda}}}_{\\big0}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image438.wmf",
+        "output": "images/ch2/hinh-202.png",
+        "kind": "math-display",
+        "chapter": 2,
+        "paragraph_index": 1330,
+        "text_context": ""
+      }
+    ]
+  },
+  {
+    "hash": "e724046394c5b6f59fc54bdd3cbe0bb80452c16b7790eb84a9b83e4f57a9af90",
+    "latex": "\\begin{array}{l l}{{\\ }}&{{\\ }}&{{\\ }}\\\\ {{\\ }}&{{\\ }}\\\\ {{\\downarrow}}&{{\\downarrow}}\\\\ {{\\downarrow}}&{{\\downarrow}}\\\\ {{\\downarrow}}&{{\\downarrow}}\\\\ {{\\downarrow}}&{{\\downarrow}}\\end{array}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image531.wmf",
+        "output": "images/ch2/hinh-294.png",
+        "kind": "math-display",
+        "chapter": 2,
+        "paragraph_index": 1515,
+        "text_context": "vuông góc với AB:"
+      }
+    ]
+  },
+  {
+    "hash": "a5a72c73764fe3f1ca857ee4d024b015315774cbd9e14f24721a874ab5982536",
+    "latex": "\\overline{{\\bigcup_{}}}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image239.wmf",
+        "output": "images/ch2/hinh-003.png",
+        "kind": "math-inline",
+        "chapter": 2,
+        "paragraph_index": 943,
+        "text_context": "Vị trí của điểm M được xác định bởi véc-tơ . Điểm M chuyển động do đó thay đổi theo thời gian:"
+      }
+    ]
+  },
+  {
+    "hash": "4921107894507cbbf9ef65367e6b02e367662285988f1eb30d3bc38a15033b3c",
+    "latex": "{\\overline{{\\ \\ w}}}=\\,c o v s t",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image331.wmf",
+        "output": "images/ch2/hinh-095.png",
+        "kind": "math-inline",
+        "chapter": 2,
+        "paragraph_index": 1118,
+        "text_context": "Gia tốc góc đặc trưng cho sự biến thiên của vận tốc góc theo thời gian. Khi thì , vật chuyển động quay đều. Khi , vật chuyển động quay biến đổi. Nếu tăng theo thời gian, thì vật rắ"
+      }
+    ]
+  },
+  {
+    "hash": "7565dccb5f5b79a7045269d65bb16f32abedcdd5b4d94680bc49c187e607c10f",
+    "latex": "x=\\begin{array}{l}{{\\mathcal{V}}}\\\\ {{\\overline{{{u}}}}}\\end{array}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image430.wmf",
+        "output": "images/ch2/hinh-194.png",
+        "kind": "math-inline",
+        "chapter": 2,
+        "paragraph_index": 1292,
+        "text_context": "Vị trí cập bến của con thuyền sẽ bị lùi một đoạn so với điểm xuất phát là:"
+      }
+    ]
+  },
+  {
+    "hash": "8ace0e4cf6f8477f6f359d515156d9bbadb90619a9e366503c5998fb89f2a6d5",
+    "latex": "\\begin{array}{l l}{{\\mathrm{~{dj}}\\mathrm{d}\\mathrm{l}}}&{{\\mathrm{~{dj}}\\mathrm{l}\\mathrm{d}\\mathrm{d}\\mathrm{l}}}\\\\ {{\\mathrm{~}\\mathcal{V}}}&{{\\longrightarrow}}&{{\\mathcal{V}\\big\\langle\\underline{{{D}}}\\big>\\mathcal{J}_{\\mathcal{M}}}}\\end{array}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image539.wmf",
+        "output": "images/ch2/hinh-302.png",
+        "kind": "math-inline",
+        "chapter": 2,
+        "paragraph_index": 1540,
+        "text_context": "Câu 5. Thiết lập công thức Ơle:"
+      }
+    ]
+  },
+  {
+    "hash": "611802f964c9aa8e83dc999524495fd8b26d2a20a18eb1c1bf6aa8f7387e5125",
+    "latex": "\\stackrel{\\mathrm{u}}{\\cal F}=\\mathrm{O}\\,\\mathrm{G}\\stackrel{\\mathrm{u}}{\\cal P}=\\,m\\nu=\\,c o n s t",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image544.wmf",
+        "output": "images/ch3/hinh-005.png",
+        "kind": "math-display",
+        "chapter": 3,
+        "paragraph_index": 1580,
+        "text_context": "(3.1)"
+      }
+    ]
+  },
+  {
+    "hash": "a8672cc3590c79f7b616bc648bb31c1ecc4fbc8e92ca287ad6b8e1e5a4fcf252",
+    "latex": "\\begin{array}{l l l}{{\\displaystyle{\\cal L}_{z}\\ \\underline{{{\\rightarrow\\ Q}}}}}&{{\\qquad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\mathrm{~}}}\\\\ {{\\qquad\\qquad\\qquad\\qquad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad\\quad k=1}}\\end{array}\\quad",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image653.wmf",
+        "output": "images/ch3/hinh-114.png",
+        "kind": "math-display",
+        "chapter": 3,
+        "paragraph_index": 1799,
+        "text_context": ""
+      }
+    ]
+  },
+  {
+    "hash": "195e4b1c561e962d1438d5dcf293e9676ecb7918e90ac004e250a6c3f1806d9c",
+    "latex": "\\nu_{2}=\\nu_{2}+(1+k){\\frac{m_{1}m_{2}}{m_{1}+m_{2}}}(\\nu_{1}-\\nu_{2})",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image725.wmf",
+        "output": "images/ch3/hinh-186.png",
+        "kind": "math-display",
+        "chapter": 3,
+        "paragraph_index": 1961,
+        "text_context": "(3.56)"
+      }
+    ]
+  },
+  {
+    "hash": "fb55a9f9d7f0aead6b07d8d07261871a0c44208c649cda8fec326b7be0c3239b",
+    "latex": "\\nu=\\sqrt{2\\frac{F}{\\sqrt{2\\frac{2\\sqrt{2\\sqrt{3}}}{R^{2}}+1}}s}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image837.wmf",
+        "output": "images/ch3/hinh-298.png",
+        "kind": "math-display",
+        "chapter": 3,
+        "paragraph_index": 2204,
+        "text_context": ""
+      }
+    ]
+  },
+  {
+    "hash": "ef6f88dfff344987bbd50eb7fe4a00c65eeba890da7a2f0461066f3a4fe10854",
+    "latex": "\\overline{{{P^{\\prime}}}}\\ \\longrightarrow\\ \\overline{{{P^{\\prime}}}}\\left(\\Big/\\sum_{,}\\,\\rlap/V_{,}\\,\\stackrel{\\rightarrow}{\\to}\\Big)",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image540.wmf",
+        "output": "images/ch3/hinh-001.png",
+        "kind": "math-inline",
+        "chapter": 3,
+        "paragraph_index": 1567,
+        "text_context": "- Các đặc trưng của lực là: phương, chiều, điểm đặt và cường độ. ."
+      }
+    ]
+  },
+  {
+    "hash": "7754008ca6cb3d27dde581a831299a0d4f54e1d3a80d0f67331b536ae66cd6b7",
+    "latex": "\\stackrel{\\rightarrow}{Q}_{k}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image618.wmf",
+        "output": "images/ch3/hinh-079.png",
+        "kind": "math-inline",
+        "chapter": 3,
+        "paragraph_index": 1730,
+        "text_context": "Giả sử hệ có n chất điểm. Ta xét chất điểm thứ k có khối lượng mk chuyển động với gia tốc do tác dụng của ngoại lực và nội lực . Theo định luật 2, ta có:"
+      }
+    ]
+  },
+  {
+    "hash": "36b9ded123b487aa879eab64c83e53cdb6c2e63d4f6c7741fa64741ed62cbd3f",
+    "latex": "{\\overline{{F}}}_{C}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image742.wmf",
+        "output": "images/ch3/hinh-203.png",
+        "kind": "math-inline",
+        "chapter": 3,
+        "paragraph_index": 1999,
+        "text_context": "Sau va chạm, cọc di chuyển được một đoạn là d. Khi đó trên cọc chịu tác dụng của lực cản môi trường (giả thiết bỏ qua tác dụng của trọng lượng). Áp dụng định lý biến thiên động năn"
+      }
+    ]
+  },
+  {
+    "hash": "7bec91c753c358f8341e5398f8485cad5c6e2229eabe329e1fbba8c4b1eb66e7",
+    "latex": "\\overline{{{\\mathcal{F}}}}",
+    "mathml": "",
+    "source": "pix2tex:local",
+    "reviewed": false,
+    "notes": "Local pix2tex prefill; manual review required.",
+    "examples": [
+      {
+        "media": "image829.wmf",
+        "output": "images/ch3/hinh-290.png",
+        "kind": "math-inline",
+        "chapter": 3,
+        "paragraph_index": 2186,
+        "text_context": "Khảo sát cơ hệ chuyển động gồm thùng xe chở vật liệu và hai bánh xe. Thùng xe chuyển động tịnh tiến, các bánh xe chuyển động song phẳng. Lực tác dụng lên cơ hệ: chỉ có lực sinh côn"
+      },
+      {
+        "media": "image829.wmf",
+        "output": "images/ch3/hinh-290.png",
+        "kind": "math-inline",
+        "chapter": 3,
+        "paragraph_index": 2192,
+        "text_context": "Công nguyên tố của lực bằng: dA = Fds = Fvdt"
+      },
+      {
+        "media": "image829.wmf",
+        "output": "images/ch3/hinh-290.png",
+        "kind": "math-inline",
+        "chapter": 3,
+        "paragraph_index": 2200,
+        "text_context": "Để tìm biểu thức của vận tốc của thùng xe theo quãng đường đi ta áp dụng định lý động năng dạng hữu hạn (do tính được biểu thức của công hữu hạn). Sau đoạn đường di chuyển s của th"
+      }
+    ]
+  }
+]

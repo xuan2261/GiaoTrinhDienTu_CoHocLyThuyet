@@ -45,3 +45,6 @@ backups/
 
 # sim2 visual QA: ảnh chụp nặng (giữ contact-sheet.html + *.json + report)
 plans/**/visuals/*.png
+
+# GIF authoring workspace outputs are published once under assets/gifs.
+gif-conversion-workspace/output/
