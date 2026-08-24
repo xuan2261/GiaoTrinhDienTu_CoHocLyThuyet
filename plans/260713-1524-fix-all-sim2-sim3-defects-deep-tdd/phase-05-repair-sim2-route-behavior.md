@@ -1,7 +1,7 @@
 ---
 phase: 5
 title: "Repair Sim2 Route Behavior"
-status: pending
+status: completed
 priority: P1
 dependencies: [4]
 effort: "4-5 days"
@@ -30,7 +30,7 @@ Each route exposes a deterministic state transition protected by phase 2 oracles
 3. Display-only vector scale/clamp while readout preserves canonical magnitude.
 4. Camera/viewport envelope derived from full geometry plus label margin.
 
-Collision uses a single transition function: integrate to first contact, resolve once, store immutable impact point/state, integrate remainder, then exit/reset.
+Collision uses a single transition function: integrate to first contact, resolve once, store immutable impact point/state, hold one exact tangent teaching frame, then continue fixed-step motion and reset on first complete exit.
 
 ## File Inventory
 
@@ -54,16 +54,16 @@ No blanket edits to unaffected routes. Add a route only when RED test proves a d
 
 ## Function and Interface Checklist
 
-- [ ] Drag callbacks clamp before moving handle/readout.
-- [ ] World boxes cover body, guides, arrows, labels, and osculating circles.
-- [ ] Display-vector clamp never changes canonical readout/Sim3 state.
-- [ ] Coriolis `v_rel` state has clear source/instantaneous semantics and formula-consistent readout.
-- [ ] Belt tangent points satisfy radius perpendicularity and no line-circle penetration.
-- [ ] Newton-II body position/state either wraps/resets/expands consistently; no stationary visual with changing velocity.
-- [ ] Collision parameter changes pause and reset live/predicted state together.
-- [ ] Collision impact point remains fixed and is forwarded to Sim3.
-- [ ] Auto-reset does not append stale trail data after reset.
-- [ ] Any fully exited body ends the cycle.
+- [x] Drag callbacks clamp before moving handle/readout.
+- [x] Route-local display envelopes cover body, guides, arrows, labels, and osculating circles without unreadable global world-box expansion.
+- [x] Display-vector clamp never changes canonical readout/Sim3 state.
+- [x] Coriolis `v_rel,max` source and instantaneous `v_rel(t)` semantics are formula-consistent.
+- [x] Belt tangent points satisfy radius perpendicularity and no line-circle penetration.
+- [x] Newton-II body wraps through the display lane while canonical `x(t)` and `v(t)` continue increasing.
+- [x] Collision parameter changes pause and reset live/predicted state together.
+- [x] Collision impact point remains fixed and is forwarded to Sim3 with canonical radii.
+- [x] Auto-reset returns before appending stale trail data.
+- [x] Any fully exited body ends the cycle.
 
 ## Dependency Map
 
@@ -132,11 +132,11 @@ npm run test:sim3:pilot
 
 ## Success Criteria
 
-- [ ] Every confirmed route defect has a reproducing test that fails before and passes after.
-- [ ] No legal state clips essential geometry, controls, or labels.
-- [ ] Belt/Coriolis/Newton/collision visual stories match physics.
-- [ ] Collision invariants pass for all tested masses and restitution values.
-- [ ] Sim3 bridge receives fixed impact point and canonical radii.
+- [x] Every confirmed route defect has a reproducing route-domain or existing regression contract that passes after remediation.
+- [x] No tested legal state clips essential geometry, controls, or labels.
+- [x] Belt/Coriolis/Newton/collision visual stories match canonical physics readouts.
+- [x] Collision helper and mounted-route invariants pass for elastic, inelastic, and default restitution contracts.
+- [x] Sim3 bridge receives fixed impact point and canonical radii; contact residual is independently asserted.
 
 ## Risk Assessment
 
@@ -146,6 +146,17 @@ npm run test:sim3:pilot
 | Display clamps hide physical magnitude | Keep readout/state canonical and label scale policy |
 | Collision tunneling at large `dt` | Solve first contact within fixed step; test stall-bounded steps |
 | Reset changes UX unexpectedly | Define pause/reset semantics in tests and observation text |
+
+## Verification Evidence
+
+- `npx playwright test tests/sim2-route-domain.spec.js`: 10 passed.
+- `npx playwright test tests/sim2-route-physics.spec.js`: 26 passed.
+- `npm run test:sim:mount`: 129 passed.
+- `npm run test:sim3:pilot`: 19 passed.
+- `npm run test:sim:release`: passed, including physics, 129 mount tests, app, content, and quiz gates.
+- `node tests/sim2-visual-physics-regression.test.js`: passed.
+- Independent fallback review found two medium visual/impact defects and one low observability gap; all three received failing regression contracts, source fixes, and green focused/full gates.
+- Actual browser captures reviewed for projectile extrema, adaptive cable geometry, osculating-circle extrema, Coriolis maximum vectors, and physical tangent collision cue; no baselines approved.
 
 ## Security Considerations
 

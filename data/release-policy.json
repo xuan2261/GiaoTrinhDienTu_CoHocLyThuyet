@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "packageSlug": "co-hoc-ly-thuyet",
+  "launchPath": "index.html",
+  "maximumPackageBytes": 125829120,
+  "versionPolicy": {
+    "pattern": "^[0-9]{4}\\.[0-9]{2}\\.[0-9]{2}(?:-[a-z0-9.-]+)?$",
+    "channel": "candidate",
+    "allowedChannels": ["candidate", "stable"]
+  },
+  "epochPolicy": {
+    "source": "explicit-cli",
+    "minimum": 315532800,
+    "zipTimestampResolutionSeconds": 2
+  },
+  "shipList": [
+    {"path": "index.html", "kind": "file"},
+    {"path": "chapters", "kind": "directory"},
+    {"path": "css", "kind": "directory"},
+    {"path": "js", "kind": "directory"},
+    {"path": "images", "kind": "directory"},
+    {"path": "assets/gifs", "kind": "directory"},
+    {"path": "lib", "kind": "directory"},
+    {"path": "CoHocLyThuyet.pdf", "kind": "file"},
+    {"path": ".nojekyll", "kind": "file"},
+    {"path": "data/quiz-ch1.json", "kind": "file"},
+    {"path": "data/quiz-ch2.json", "kind": "file"},
+    {"path": "data/quiz-ch3.json", "kind": "file"}
+  ],
+  "requiredPaths": [
+    "index.html",
+    "js/pages.js",
+    "js/loader.js",
+    "js/app.js",
+    "js/quiz.js",
+    "lib/katex/katex.min.js",
+    "lib/katex/katex.min.css",
+    "lib/pdfjs/pdfjs-runtime.iife.min.js",
+    "lib/pdfjs/pdf-data.js",
+    "CoHocLyThuyet.pdf"
+  ],
+  "exclusions": [
+    {"path": "CoHocLyThuyet_Full_New.docx", "reason": "authoring source, not runtime content"},
+    {"path": "DeCuongChiTietNop.docx", "reason": "submission report source, not runtime content"},
+    {"path": "tests", "reason": "development-only verification"},
+    {"path": "tools", "reason": "authoring and build tooling"},
+    {"path": "plans", "reason": "project management records"},
+    {"path": "release", "reason": "historical releases must not contaminate a new package"},
+    {"path": "node_modules", "reason": "development dependencies"},
+    {"path": "package-lock.json", "reason": "development dependency lock"}
+  ],
+  "thirdParty": [
+    {"name": "KaTeX", "version": "0.16.11", "license": "MIT", "source": "https://github.com/KaTeX/KaTeX"},
+    {"name": "Three.js", "version": "0.160.1", "license": "MIT", "source": "https://github.com/mrdoob/three.js"},
+    {"name": "Matter.js", "version": "0.19.0", "license": "MIT", "source": "https://github.com/liabru/matter-js"},
+    {"name": "Chart.js", "version": "4.5.1", "license": "MIT", "source": "https://github.com/chartjs/Chart.js"},
+    {"name": "PDF.js", "version": "6.2.108", "license": "Apache-2.0", "source": "https://github.com/mozilla/pdf.js/releases/tag/v6.2.108"}
+  ]
+}

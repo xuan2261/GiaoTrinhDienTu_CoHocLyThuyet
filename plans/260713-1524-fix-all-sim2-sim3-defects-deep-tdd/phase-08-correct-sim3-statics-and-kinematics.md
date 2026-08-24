@@ -1,7 +1,7 @@
 ---
 phase: 8
 title: "Correct Sim3 Statics and Kinematics"
-status: pending
+status: completed
 priority: P1
 dependencies: [7]
 effort: "3-4 days"
@@ -34,13 +34,13 @@ Migrate four Sim3 adapters to the shared coordinate contract and correct their p
 
 ## Function and Interface Checklist
 
-- [ ] Adapters call `Sim3Coordinates`, no manual source-y to `+z`.
-- [ ] World mesh/vector values are inspectable without trusting debug labels.
-- [ ] `ch1-1-5`: `sign((r×F)·axis) === sign(Mo)`.
-- [ ] `ch1-5-3`: tangent/normal orthogonal; block contacts plane; cone radius/height ratio equals `tan(phi)`.
-- [ ] `ch2-1-3`: tangent/normal unit and perpendicular; circle center/radius exact.
-- [ ] `ch2-2-2`: disk face normal parallel axis; marker remains on rim; velocity tangent and sign-correct.
-- [ ] Zero/negative synthetic states remain finite and meaningful.
+- [x] Adapters call `Sim3Coordinates`, no manual source-y to `+z`.
+- [x] World mesh/vector values are inspectable without trusting debug labels.
+- [x] `ch1-1-5`: `sign((r×F)·axis) === sign(Mo)`.
+- [x] `ch1-5-3`: tangent/normal orthogonal; block contacts plane; cone radius/height ratio equals `tan(phi)`.
+- [x] `ch2-1-3`: tangent/normal unit and perpendicular; circle center/radius exact.
+- [x] `ch2-2-2`: disk face normal parallel axis; marker remains on rim; velocity tangent and sign-correct.
+- [x] Zero/negative synthetic states remain finite and meaningful.
 
 ## Dependency Map
 
@@ -99,10 +99,10 @@ npm run test:sim:mount
 
 ## Success Criteria
 
-- [ ] Four adapters satisfy independent sign/geometry contracts.
-- [ ] Friction cone visibly and numerically changes with μ.
-- [ ] Fixed-axis scene uses one coherent plane and axis.
-- [ ] No new lifecycle, crop, overlap, or fallback regression.
+- [x] Four adapters satisfy independent sign/geometry contracts.
+- [x] Friction cone visibly and numerically changes with μ.
+- [x] Fixed-axis scene uses one coherent plane and axis.
+- [x] No new lifecycle, crop, overlap, or fallback regression.
 
 ## Risk Assessment
 

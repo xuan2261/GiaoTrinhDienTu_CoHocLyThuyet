@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pilot-draft",
+  "assetId": "media-ch1-centroid-steps",
+  "parentLearningOutcomeId": "lo-ch1-statics",
+  "localObjective": {
+    "id": "obj-ch1-centroid-steps",
+    "verb": "calculate",
+    "condition": "Given a 6 cm by 4 cm plate with a radius 1 cm circular hole centered at (4.5 cm, 2.5 cm)",
+    "criterion": "calculate the remaining centroid with signed areas and predict the direction of its shift before the final arithmetic"
+  },
+  "contentRoutes": ["ch1-6-2", "ch1-6-3"],
+  "simulationId": "ch1-6-3",
+  "gapDecision": {
+    "decision": "selected",
+    "currentCoverage": "The chapter provides centroid formulas and Sim2 allows dragging a hole, but neither isolates the signed-area reasoning sequence for a fixed worked example.",
+    "modalityRationale": "A four-step interaction controls disclosure of assumptions, signed area, signed moments, and the final coordinate without adding motion for decoration.",
+    "misconceptionTarget": "A hole can be handled by calculating the full-plate centroid and then subtracting the hole coordinates.",
+    "evidenceTarget": "Learner assigns negative area to the hole, writes signed moment sums, and predicts a shift away from the removed material."
+  },
+  "authoring": {
+    "script": [
+      "Identify the base plate area and centroid.",
+      "Represent the hole as a negative area at its own centroid.",
+      "Build signed first moments for x and y.",
+      "Divide by remaining area and interpret the shift direction."
+    ],
+    "storyboard": [
+      { "beat": 1, "visual": "Full plate", "narrativePurpose": "Establish the positive area" },
+      { "beat": 2, "visual": "Hole marked negative", "narrativePurpose": "Make the sign convention explicit" },
+      { "beat": 3, "visual": "Signed moment equations", "narrativePurpose": "Connect geometry to calculation" },
+      { "beat": 4, "visual": "Centroid and guides", "narrativePurpose": "Check the numerical result against the predicted direction" }
+    ],
+    "math": {
+      "expression": "xC = sum(Ai xi)/sum(Ai); yC = sum(Ai yi)/sum(Ai), with Ahole < 0",
+      "units": "Coordinates are in centimeters; areas are in square centimeters.",
+      "assumptions": [
+        "Uniform areal density",
+        "The rectangular plate and circular hole lie in one plane",
+        "The hole is fully contained within the plate",
+        "The chosen origin is the lower-left plate corner"
+      ]
+    }
+  },
+  "accessibility": {
+    "keyboard": "Previous and next buttons are native controls; Left, Right, Home, and End keys work in the diagram region.",
+    "reducedMotion": "State changes are immediate and use no animation.",
+    "staticFallback": "prototypes/media/centroid-reasoning.html#loi-giai-tinh",
+    "textAlternative": "The ordered step list, live formula, SVG title and description, and full static solution expose the same reasoning.",
+    "transcript": null,
+    "captions": { "required": false, "reason": "The asset has no audio or timed dialogue." },
+    "autoplay": false
+  },
+  "offline": {
+    "prototype": "prototypes/media/centroid-reasoning.html",
+    "primarySource": "js/sim2/physics/statics.js",
+    "remoteDependenciesAllowed": false
+  },
+  "sourceEvidence": [
+    { "path": "chapters/ch1/muc-VI-2.html", "sha256": "52d521160bfcc2aee027321073e320a8a3b209e36b6947004854dc21f8b56775" },
+    { "path": "chapters/ch1/muc-VI-3.html", "sha256": "27ed7502e4bdd32c687c6a03257d5dc4b40481b60ae05179b29a0dc0bae91c7a" },
+    { "path": "js/sim2/sims/ch1/ch1-6-3.js", "sha256": "ef9c394a6bdc1e83fd2501b267de1496d50b4b2d13d97569561eb18c255de62d" },
+    { "path": "js/sim2/physics/statics.js", "sha256": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0" }
+  ],
+  "review": {
+    "ownerRole": "Multimedia author",
+    "reviewerRole": "Subject-matter technical reviewer",
+    "reviewUnit": "Internal project technical review",
+    "status": "technical-review",
+    "reviewerIdentity": null,
+    "efficacyEvidence": null,
+    "claim": "Pilot artifact only. No learner outcome or institutional acceptance claim is made."
+  }
+}

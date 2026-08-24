@@ -1,5 +1,6 @@
 {
-  "generatedAt": "2026-06-10T07:15:09.602Z",
+  "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+  "generatedAt": "2026-08-24T08:58:44.333Z",
   "epsilon": {
     "live": 0.0001,
     "sign": 0.000001
@@ -8,6 +9,7 @@
   "routeCount": 35,
   "routes": [
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-1-3",
       "baseId": "ch1-1-3",
       "engine": "sim2",
@@ -44,8 +46,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 81.9,
-          "after": 104,
-          "delta": 22.099999999999994,
+          "after": 103.4,
+          "delta": 21.5,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -71,6 +73,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-1-4",
       "baseId": "ch1-1-4",
       "engine": "sim2",
@@ -96,8 +99,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 200,
-          "after": 312,
-          "delta": 112,
+          "after": 312.3,
+          "delta": 112.30000000000001,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -123,6 +126,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-1-5",
       "baseId": "ch1-1-5",
       "engine": "sim2",
@@ -137,8 +141,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": -20,
-          "after": -158.7,
-          "delta": -138.7,
+          "after": -159.3,
+          "delta": -139.3,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -151,6 +155,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-1-5#sim3",
       "baseId": "ch1-1-5",
       "engine": "sim3",
@@ -165,8 +170,8 @@
           "driven": true,
           "field": "resultant.Mo",
           "before": -20,
-          "after": -158.6666777639678,
-          "delta": -138.6666777639678,
+          "after": -159.29983664502475,
+          "delta": -139.29983664502475,
           "deltaNonZero": true
         }
       ],
@@ -178,6 +183,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-1-6",
       "baseId": "ch1-1-6",
       "engine": "sim2",
@@ -203,8 +209,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 150,
-          "after": 62.8,
-          "delta": -87.2,
+          "after": 300,
+          "delta": 150,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -230,6 +236,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-1-8",
       "baseId": "ch1-1-8",
       "engine": "sim2",
@@ -255,8 +262,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 60,
-          "after": 26.4,
-          "delta": -33.6,
+          "after": 26.2,
+          "delta": -33.8,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -295,6 +302,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-2-3",
       "baseId": "ch1-2-3",
       "engine": "sim2",
@@ -308,9 +316,9 @@
           "channel": "sim2-dom",
           "driven": true,
           "detail": "drag-handle",
-          "before": 82,
-          "after": 135,
-          "delta": 53,
+          "before": 138.3,
+          "after": 176.8,
+          "delta": 38.5,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -323,6 +331,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-3-2",
       "baseId": "ch1-3-2",
       "engine": "sim2",
@@ -348,8 +357,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 30,
-          "after": 5,
-          "delta": -25,
+          "after": 6,
+          "delta": -24,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -375,6 +384,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-3-6",
       "baseId": "ch1-3-6",
       "engine": "sim2",
@@ -411,8 +421,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 400,
-          "after": 621.8,
-          "delta": 221.79999999999995,
+          "after": 622.2,
+          "delta": 222.20000000000005,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -438,6 +448,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-5-3",
       "baseId": "ch1-5-3",
       "engine": "sim2",
@@ -474,8 +485,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 18,
-          "after": 36.6,
-          "delta": 18.6,
+          "after": 37.7,
+          "delta": 19.700000000000003,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -501,6 +512,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-5-3#sim3",
       "baseId": "ch1-5-3",
       "engine": "sim3",
@@ -535,8 +547,8 @@
           "driven": true,
           "field": "betaDeg",
           "before": 3,
-          "after": 15.420781358201623,
-          "delta": 12.420781358201623,
+          "after": 16.868337859795158,
+          "delta": 13.868337859795158,
           "deltaNonZero": true
         }
       ],
@@ -561,6 +573,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch1-6-3",
       "baseId": "ch1-6-3",
       "engine": "sim2",
@@ -575,8 +588,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 2.77,
-          "after": 3.09,
-          "delta": 0.31999999999999984,
+          "after": 2.7,
+          "delta": -0.06999999999999984,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -589,6 +602,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-1-1",
       "baseId": "ch2-1-1",
       "engine": "sim2",
@@ -625,8 +639,8 @@
           "driven": true,
           "detail": "playback",
           "before": 14,
-          "after": 11.7,
-          "delta": -2.3000000000000007,
+          "after": 11.9,
+          "delta": -2.0999999999999996,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -639,6 +653,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-1-3",
       "baseId": "ch2-1-3",
       "engine": "sim2",
@@ -653,8 +668,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 3.3,
-          "after": 6.38,
-          "delta": 3.08,
+          "after": 6.37,
+          "delta": 3.0700000000000003,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -667,6 +682,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-1-3#sim3",
       "baseId": "ch2-1-3",
       "engine": "sim3",
@@ -679,10 +695,10 @@
           "control": "drag-handle",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": "radius",
-          "before": 3.3039141396202116,
-          "after": 6.379767229741198,
-          "delta": 3.075853090120986,
+          "field": "point.x",
+          "before": 3.059368749137954,
+          "after": -0.3034010249293214,
+          "delta": -3.3627697740672753,
           "deltaNonZero": true
         }
       ],
@@ -694,6 +710,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-2-2",
       "baseId": "ch2-2-2",
       "engine": "sim2",
@@ -744,6 +761,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-2-2#sim3",
       "baseId": "ch2-2-2",
       "engine": "sim3",
@@ -756,10 +774,10 @@
           "control": "slider:omega0",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": "omega",
+          "field": "physics.velocity.z",
           "before": 0,
-          "after": 2,
-          "delta": 2,
+          "after": -6,
+          "delta": -6,
           "deltaNonZero": true
         },
         {
@@ -778,8 +796,8 @@
           "driven": true,
           "field": "updatedAt",
           "before": 12,
-          "after": 134,
-          "delta": 122,
+          "after": 133,
+          "delta": 121,
           "deltaNonZero": true
         }
       ],
@@ -791,6 +809,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-3-2",
       "baseId": "ch2-3-2",
       "engine": "sim2",
@@ -854,6 +873,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-3-2#sim3",
       "baseId": "ch2-3-2",
       "engine": "sim3",
@@ -888,8 +908,8 @@
           "driven": true,
           "field": "updatedAt",
           "before": 12,
-          "after": 134,
-          "delta": 122,
+          "after": 133,
+          "delta": 121,
           "deltaNonZero": true
         }
       ],
@@ -914,6 +934,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-4-4",
       "baseId": "ch2-4-4",
       "engine": "sim2",
@@ -927,9 +948,9 @@
           "channel": "sim2-dom",
           "driven": true,
           "detail": "slider",
-          "before": 2.7,
-          "after": 5.63,
-          "delta": 2.9299999999999997,
+          "before": 3.6,
+          "after": 7.5,
+          "delta": 3.9,
           "sceneChanged": true,
           "deltaNonZero": true
         },
@@ -938,9 +959,9 @@
           "channel": "sim2-dom",
           "driven": true,
           "detail": "slider",
-          "before": 2.7,
-          "after": 5.4,
-          "delta": 2.7,
+          "before": 3.6,
+          "after": 7.2,
+          "delta": 3.6,
           "sceneChanged": true,
           "deltaNonZero": true
         },
@@ -949,9 +970,9 @@
           "channel": "sim2-dom",
           "driven": true,
           "detail": "playback",
-          "before": 2.7,
-          "after": 0.12,
-          "delta": -2.58,
+          "before": 1.5,
+          "after": -0.69,
+          "delta": -2.19,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -964,6 +985,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-4-4#sim3",
       "baseId": "ch2-4-4",
       "engine": "sim3",
@@ -976,7 +998,7 @@
           "control": "slider:omega",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": "omega",
+          "field": "physics.omegaAxis.z",
           "before": 0.4,
           "after": 2.5,
           "delta": 2.1,
@@ -986,10 +1008,10 @@
           "control": "slider:vRel",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": "vRel",
-          "before": 0.375,
-          "after": 2.25,
-          "delta": 1.875,
+          "field": "physics.vRel.vector.x",
+          "before": 0.5,
+          "after": 3,
+          "delta": 2.5,
           "deltaNonZero": true
         },
         {
@@ -998,8 +1020,8 @@
           "driven": true,
           "field": "updatedAt",
           "before": 12,
-          "after": 134,
-          "delta": 122,
+          "after": 133,
+          "delta": 121,
           "deltaNonZero": true
         }
       ],
@@ -1011,6 +1033,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-5-2",
       "baseId": "ch2-5-2",
       "engine": "sim2",
@@ -1039,6 +1062,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-5-3",
       "baseId": "ch2-5-3",
       "engine": "sim2",
@@ -1091,6 +1115,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch2-5-3#sim3",
       "baseId": "ch2-5-3",
       "engine": "sim3",
@@ -1103,7 +1128,7 @@
           "control": "slider:omega",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": "vM.mag",
+          "field": "physics.sampleVelocity.magnitude",
           "before": 1.1715374513859982,
           "after": 9.76281209488332,
           "delta": 8.591274643497322,
@@ -1125,13 +1150,13 @@
         "channel": "sim3-webgl",
         "items": [
           {
-            "field": "vM.mag",
+            "field": "physics.sampleVelocity.magnitude",
             "control": "omega",
             "driveLow": 0.3,
             "driveHigh": 2.5,
-            "readoutLow": 0.46587987885660165,
-            "readoutHigh": 3.882332323805014,
-            "delta": 3.416452444948412,
+            "readoutLow": 0.4640131672050657,
+            "readoutHigh": 3.8667763933755475,
+            "delta": 3.4027632261704817,
             "observedSign": "+",
             "expectSign": "+",
             "match": true
@@ -1141,6 +1166,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-1-3",
       "baseId": "ch3-1-3",
       "engine": "sim2",
@@ -1206,6 +1232,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-1-3#sim3",
       "baseId": "ch3-1-3",
       "engine": "sim3",
@@ -1256,6 +1283,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-2-2",
       "baseId": "ch3-2-2",
       "engine": "sim2",
@@ -1319,6 +1347,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-2-3",
       "baseId": "ch3-2-3",
       "engine": "sim2",
@@ -1371,6 +1400,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-3-1",
       "baseId": "ch3-3-1",
       "engine": "sim2",
@@ -1407,8 +1437,8 @@
           "driven": true,
           "detail": "playback",
           "before": 2,
-          "after": -1.2,
-          "delta": -3.2,
+          "after": -1.15,
+          "delta": -3.15,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -1434,6 +1464,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-5-2",
       "baseId": "ch3-5-2",
       "engine": "sim2",
@@ -1497,6 +1528,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-5-3",
       "baseId": "ch3-5-3",
       "engine": "sim2",
@@ -1522,8 +1554,8 @@
           "driven": true,
           "detail": "drag-handle",
           "before": 36,
-          "after": 6,
-          "delta": -30,
+          "after": 5.97,
+          "delta": -30.03,
           "sceneChanged": true,
           "deltaNonZero": true
         },
@@ -1560,6 +1592,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-5-3#sim3",
       "baseId": "ch3-5-3",
       "engine": "sim3",
@@ -1572,7 +1605,7 @@
           "control": "slider:r",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": "inertia",
+          "field": "physics.inertia",
           "before": 2.5600000000000005,
           "after": 49,
           "delta": 46.44,
@@ -1582,10 +1615,10 @@
           "control": "drag-handle",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": "inertia",
+          "field": "physics.inertia",
           "before": 2.5600000000000005,
-          "after": 40.6528036931822,
-          "delta": 38.0928036931822,
+          "after": 40.93571188048644,
+          "delta": 38.375711880486435,
           "deltaNonZero": true
         },
         {
@@ -1594,8 +1627,8 @@
           "driven": true,
           "field": "updatedAt",
           "before": 3,
-          "after": 125,
-          "delta": 122,
+          "after": 124,
+          "delta": 121,
           "deltaNonZero": true
         }
       ],
@@ -1620,6 +1653,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-5-4",
       "baseId": "ch3-5-4",
       "engine": "sim2",
@@ -1672,6 +1706,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-6-2",
       "baseId": "ch3-6-2",
       "engine": "sim2",
@@ -1733,6 +1768,7 @@
       "pageErrors": []
     },
     {
+      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
       "route": "ch3-6-2#sim3",
       "baseId": "ch3-6-2",
       "engine": "sim3",
@@ -1745,9 +1781,9 @@
           "control": "slider:e",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": "updatedAt",
-          "before": 1,
-          "after": 2,
+          "field": "e",
+          "before": 0,
+          "after": 1,
           "delta": 1,
           "deltaNonZero": true
         },
@@ -1775,10 +1811,10 @@
           "control": "playback",
           "channel": "sim3-webgl",
           "driven": true,
-          "field": "updatedAt",
-          "before": 1,
-          "after": 123,
-          "delta": 122,
+          "field": "trailLength",
+          "before": 0,
+          "after": 270,
+          "delta": 270,
           "deltaNonZero": true
         }
       ],

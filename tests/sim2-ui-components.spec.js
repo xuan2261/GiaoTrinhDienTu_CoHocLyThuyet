@@ -138,7 +138,7 @@ test.describe('Sim2Panel', () => {
         legend: [{ color: '#e03030', label: 'F' }, { color: '#2ecc40', label: 'v' }],
         observe: 'Quan sát: kéo đầu mũi tên để đổi góc.'
       });
-      window.__p.setReadout([{ label: '|F|:', value: '100 N' }, { label: 'α:', value: '30°' }]);
+      window.__p.setReadout([{ key: 'force', label: '|F|:', value: '100 N' }, { key: 'alpha', label: 'α:', value: '30°' }]);
     });
 
     await expect(page.locator('#host .sim2-theory')).toHaveCount(1);
@@ -158,9 +158,11 @@ test.describe('Sim2Panel', () => {
     const rd = await page.locator('#host .sim2-readout-live').innerText();
     expect(rd).toContain('100 N');
     expect(rd).toContain('30°');
+    await expect(page.locator('#host .sim2-readout-row[data-readout-key="force"]')).toContainText('100 N');
+    await expect(page.locator('#host .sim2-readout-row[data-readout-key="alpha"]')).toContainText('30°');
 
     // setReadout cập nhật lại
-    await page.evaluate(() => window.__p.setReadout([{ label: '|F|:', value: '42 N' }]));
+    await page.evaluate(() => window.__p.setReadout([{ key: 'force', label: '|F|:', value: '42 N' }]));
     expect(await page.locator('#host .sim2-readout-live').innerText()).toContain('42 N');
 
     // observe
@@ -223,19 +225,86 @@ test.describe('Sim2Shell — header thẻ + depth defs', () => {
     expect(errors, errors.join('\n')).toEqual([]);
   });
 
-  test('createSvg chèn defs chiều sâu: filter #sim2-shadow + gradient #sim2-grad-force', async ({ page }) => {
+  test('createSvg chèn defs chiều sâu với id riêng cho từng SVG', async ({ page }) => {
     const errors = await gotoFixture(page);
     const defs = await page.evaluate(() => {
       const svg = window.Sim2SvgRender.createSvg(200, 150);
       return {
-        shadow: !!svg.querySelector('#sim2-shadow feDropShadow'),
-        gradForce: !!svg.querySelector('#sim2-grad-force'),
+        shadow: !!svg.querySelector(`#${svg.__sim2Ids.shadow} feDropShadow`),
+        gradForce: !!svg.querySelector(`#${svg.__sim2Ids.gradients.force}`),
         marker: !!svg.__markerId
       };
     });
-    expect(defs.shadow, 'filter #sim2-shadow tồn tại').toBe(true);
-    expect(defs.gradForce, 'gradient #sim2-grad-force tồn tại').toBe(true);
+    expect(defs.shadow, 'filter chiều sâu tồn tại').toBe(true);
+    expect(defs.gradForce, 'gradient lực tồn tại').toBe(true);
     expect(defs.marker, 'arrow marker vẫn còn (không phá vector)').toBe(true);
     expect(errors, errors.join('\n')).toEqual([]);
+  });
+});
+
+test.describe('Sim2Shell — deterministic clock lifecycle', () => {
+  test('anchor, fixed step, pause/resume, manual step, rapid toggle, dispose', async ({ page }) => {
+    await gotoFixture(page);
+    const result = await page.evaluate(() => {
+      const savedRaf = window.requestAnimationFrame;
+      const savedCancel = window.cancelAnimationFrame;
+      const callbacks = new Map();
+      const cancelled = [];
+      let nextId = 1;
+      window.requestAnimationFrame = cb => { const id = nextId++; callbacks.set(id, cb); return id; };
+      window.cancelAnimationFrame = id => { cancelled.push(id); callbacks.delete(id); };
+
+      const host = document.getElementById('host');
+      const shell = window.Sim2Shell.createSimShell({
+        container: host, worldBox: { minX: 0, minY: 0, maxX: 4, maxY: 3 }
+      });
+      const updates = [];
+      let draws = 0;
+      shell.onFrame((dt, time) => updates.push({ dt, time }), () => { draws += 1; });
+      shell.start();
+
+      function fire(timestamp) {
+        const entry = callbacks.entries().next().value;
+        if (!entry) throw new Error('missing owned RAF callback');
+        callbacks.delete(entry[0]);
+        entry[1](timestamp);
+      }
+
+      const pendingAfterRapidStart = callbacks.size;
+      fire(1000);
+      const afterAnchor = { updates: updates.length, draws, pending: callbacks.size };
+      fire(1017);
+      const afterFrame = { updates: updates.length, draws, pending: callbacks.size };
+      shell.stop();
+      const afterStop = { updates: updates.length, draws, pending: callbacks.size };
+      shell.stepOnce();
+      const afterStep = { updates: updates.length, draws, pending: callbacks.size };
+      shell.start(); shell.start();
+      const pendingAfterResume = callbacks.size;
+      fire(5000);
+      const afterResumeAnchor = { updates: updates.length, draws };
+      fire(5017);
+      shell.dispose();
+      const afterDispose = { updates: updates.length, draws, pending: callbacks.size };
+
+      window.requestAnimationFrame = savedRaf;
+      window.cancelAnimationFrame = savedCancel;
+      return {
+        pendingAfterRapidStart, afterAnchor, afterFrame, afterStop, afterStep,
+        pendingAfterResume, afterResumeAnchor, afterDispose, cancelled: cancelled.length,
+        finalTime: updates.at(-1).time
+      };
+    });
+
+    expect(result.pendingAfterRapidStart).toBe(1);
+    expect(result.afterAnchor).toEqual({ updates: 0, draws: 0, pending: 1 });
+    expect(result.afterFrame).toEqual({ updates: 1, draws: 1, pending: 1 });
+    expect(result.afterStop).toEqual({ updates: 1, draws: 1, pending: 0 });
+    expect(result.afterStep).toEqual({ updates: 2, draws: 2, pending: 0 });
+    expect(result.pendingAfterResume).toBe(1);
+    expect(result.afterResumeAnchor).toEqual({ updates: 2, draws: 2 });
+    expect(result.afterDispose).toEqual({ updates: 3, draws: 3, pending: 0 });
+    expect(result.cancelled).toBeGreaterThanOrEqual(2);
+    expect(result.finalTime).toBeCloseTo(3 / 60, 12);
   });
 });

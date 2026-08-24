@@ -1,6 +1,6 @@
 ---
 title: "Phase 6: Nâng cấp đánh giá và lưu tiến trình"
-status: pending
+status: completed
 priority: P0
 effort: "6-8 ngày"
 dependencies: [phase-03]
@@ -62,11 +62,11 @@ Attempt: `attemptId`, schemaVersion, chapter/mode/section, seed, questionIds/ord
 
 ## Todo
 
-- [ ] Record quiz metadata vocabulary and pass policy.
-- [ ] Add stable IDs and LO mappings.
-- [ ] Add deterministic attempt/state migration.
-- [ ] Convert UI to semantic keyboard controls.
-- [ ] Regenerate bundle and verify all 300 items.
+- [x] Record quiz metadata vocabulary and pass policy.
+- [x] Add stable IDs and LO mappings.
+- [x] Add deterministic attempt/state migration.
+- [x] Convert UI to semantic keyboard controls.
+- [x] Regenerate bundle and verify all 300 items.
 
 ## Success Criteria
 

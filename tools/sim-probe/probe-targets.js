@@ -53,11 +53,11 @@
   };
 
   // Sim3 targets: drive slider Sim2 `control` low→high, đo field trong __SIM3_DEBUG__.
-  // field = đường dẫn sau `].` (vd "gearOmega2", "vM.mag", "aCor.mag").
+  // field = đường dẫn sau `].` (vd "gearOmega2", "physics.sampleVelocity.magnitude", "aCor.mag").
   const SIM3 = {
     'ch1-5-3#sim3': [{ control: 'mu', field: 'phiDeg', expectSign: '+', lo: 0.1, hi: 1.0 }],
     'ch2-3-2#sim3': [{ control: 'r1', field: 'gearOmega2', expectSign: '-' }],
-    'ch2-5-3#sim3': [{ control: 'omega', field: 'vM.mag', expectSign: '+' }],
+    'ch2-5-3#sim3': [{ control: 'omega', field: 'physics.sampleVelocity.magnitude', expectSign: '+' }],
     'ch3-1-3#sim3': [{ control: 'a', field: 'thetaDeg', expectSign: '+' }],
     'ch3-5-3#sim3': [{ control: 'r', field: 'omega', expectSign: '-' }]
   };

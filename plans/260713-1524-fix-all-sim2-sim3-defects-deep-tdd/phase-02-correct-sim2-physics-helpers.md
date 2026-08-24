@@ -1,7 +1,7 @@
 ---
 phase: 2
 title: "Correct Sim2 Physics Helpers"
-status: pending
+status: completed
 priority: P1
 dependencies: [1]
 effort: "3-4 days"
@@ -56,14 +56,14 @@ Tests may use canonical physics helpers where the route should delegate to them,
 
 ## Function and Interface Checklist
 
-- [ ] `sliderCrankRodAngle(r,L,theta) = asin((r/L)sin(theta))` for valid geometry.
-- [ ] Invalid slider-crank geometry returns a documented safe value/error consistently.
-- [ ] `potentialEnergy(m,0,h) === 0`; default gravity only when omitted.
-- [ ] Gear helper names and return ratio match formulas/readouts.
-- [ ] External gear sign applied explicitly; open belt sign remains same.
-- [ ] `Panel.setReadout()` emits stable keys and escapes text as before.
-- [ ] Every route reports finite values at min/max/zero/sign-changing inputs.
-- [ ] Route contract result includes actual executed ID.
+- [x] `sliderCrankRodAngle(r,L,theta) = asin((r/L)sin(theta))` for valid geometry.
+- [x] Invalid slider-crank geometry returns a documented safe value/error consistently.
+- [x] `potentialEnergy(m,0,h) === 0`; default gravity only when omitted.
+- [x] Gear helper names and return ratio match formulas/readouts.
+- [x] External gear sign applied explicitly; open belt sign remains same.
+- [x] `Panel.setReadout()` emits stable keys and escapes text as before.
+- [x] Every route reports finite values at min/max/zero/sign-changing inputs.
+- [x] Route contract result includes actual executed ID.
 
 ## Dependency Map
 
@@ -132,11 +132,11 @@ npm run test:sim:mount
 
 ## Success Criteria
 
-- [ ] Verified helper examples return exact expected values.
-- [ ] 25/25 mounted routes execute independent numeric contracts.
-- [ ] Every contract includes at least one state transition.
-- [ ] No comment/name grep counts as physics coverage.
-- [ ] No existing mount or offline behavior regression.
+- [x] Verified helper examples return exact expected values.
+- [x] 25/25 mounted routes execute independent numeric contracts.
+- [x] Every contract includes at least one state transition.
+- [x] No comment/name grep counts as physics coverage.
+- [x] No existing mount or offline behavior regression.
 
 ## Risk Assessment
 

@@ -3,21 +3,30 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const INDEX = `file:///${path.join(ROOT, 'index.html').replace(/\\/g, '/')}`;
-const STATIC_SOURCE = 'images/ch1/hinh-1-06.png';
+const STATIC_SOURCE = 'images/ch1/hinh-026.png';
 const GIF_SOURCE = 'assets/gifs/ch1/hinh-1-06.gif';
-const EXPECTED_BASENAMES = {
-  ch1: ['hinh-1-06', 'hinh-1-09', 'hinh-1-28b', 'hinh-1-34', 'hinh-1-35', 'hinh-1-minh-hoa-02'],
-  ch2: ['hinh-2-07', 'hinh-2-09', 'hinh-2-15', 'hinh-2-16', 'hinh-2-22', 'hinh-2-26', 'hinh-2-34'],
-  ch3: ['hinh-3-06', 'hinh-3-10', 'hinh-3-11', 'hinh-3-17', 'hinh-3-20', 'hinh-3-21', 'hinh-3-22']
+const EXPECTED_MANIFEST = {
+  'images/ch1/hinh-026.png': 'assets/gifs/ch1/hinh-1-06.gif',
+  'images/ch1/hinh-033.png': 'assets/gifs/ch1/hinh-1-09.gif',
+  'images/ch1/hinh-118.png': 'assets/gifs/ch1/hinh-1-28b.gif',
+  'images/ch1/hinh-136.png': 'assets/gifs/ch1/hinh-1-34.gif',
+  'images/ch1/hinh-138.png': 'assets/gifs/ch1/hinh-1-35.gif',
+  'images/ch1/hinh-149.png': 'assets/gifs/ch1/hinh-1-minh-hoa-02.gif',
+  'images/ch2/hinh-072.png': 'assets/gifs/ch2/hinh-2-07.gif',
+  'images/ch2/hinh-080.png': 'assets/gifs/ch2/hinh-2-09.gif',
+  'images/ch2/hinh-143.png': 'assets/gifs/ch2/hinh-2-15.gif',
+  'images/ch2/hinh-147.png': 'assets/gifs/ch2/hinh-2-16.gif',
+  'images/ch2/hinh-196.png': 'assets/gifs/ch2/hinh-2-22.gif',
+  'images/ch2/hinh-219.png': 'assets/gifs/ch2/hinh-2-26.gif',
+  'images/ch2/hinh-276.png': 'assets/gifs/ch2/hinh-2-34.gif',
+  'images/ch3/hinh-101.png': 'assets/gifs/ch3/hinh-3-06.gif',
+  'images/ch3/hinh-151.png': 'assets/gifs/ch3/hinh-3-10.gif',
+  'images/ch3/hinh-169.png': 'assets/gifs/ch3/hinh-3-11.gif',
+  'images/ch3/hinh-216.png': 'assets/gifs/ch3/hinh-3-17.gif',
+  'images/ch3/hinh-225.png': 'assets/gifs/ch3/hinh-3-20.gif',
+  'images/ch3/hinh-237.png': 'assets/gifs/ch3/hinh-3-21.gif',
+  'images/ch3/hinh-244.png': 'assets/gifs/ch3/hinh-3-22.gif'
 };
-const EXPECTED_MANIFEST = Object.fromEntries(
-  Object.entries(EXPECTED_BASENAMES).flatMap(([chapter, basenames]) =>
-    basenames.map(basename => [
-      `images/${chapter}/${basename}.png`,
-      `assets/gifs/${chapter}/${basename}.gif`
-    ])
-  )
-);
 
 async function openMappedFigure(page) {
   await page.goto(`${INDEX}#ch1-2-2`, { waitUntil: 'domcontentloaded' });
@@ -39,13 +48,13 @@ test.describe('ảnh minh họa GIF có PNG dự phòng', () => {
 
     const contract = await page.evaluate(() => ({
       manifest: { ...window.GifFigures.manifest },
-      mapped: window.GifFigures.manifest['images/ch1/hinh-1-06.png'],
-      unmapped: window.GifFigures.transform('<img src="images/ch1/hinh-1-01.png" alt="Mô men">')
+      mapped: window.GifFigures.manifest['images/ch1/hinh-026.png'],
+      unmapped: window.GifFigures.transform('<img src="images/ch1/hinh-002.png" alt="Mô men">')
     }));
     expect(contract).toEqual({
       manifest: EXPECTED_MANIFEST,
       mapped: GIF_SOURCE,
-      unmapped: '<img src="images/ch1/hinh-1-01.png" alt="Mô men">'
+      unmapped: '<img src="images/ch1/hinh-002.png" alt="Mô men">'
     });
   });
 

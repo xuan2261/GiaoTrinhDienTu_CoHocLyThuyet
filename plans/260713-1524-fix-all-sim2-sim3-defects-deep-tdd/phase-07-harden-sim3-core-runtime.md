@@ -1,7 +1,7 @@
 ---
 phase: 7
 title: "Harden Sim3 Core Runtime"
-status: pending
+status: completed
 priority: P1
 dependencies: [6]
 effort: "3-4 days"
@@ -48,17 +48,17 @@ Make Sim3 demand-rendered, responsive, DPR-aware, safely disposable, accessible,
 
 ## Function and Interface Checklist
 
-- [ ] `continuous` defaults false; no idle RAF.
-- [ ] `setState` and resize each render exactly once.
-- [ ] `ResizeObserver` observes visible host; window fallback removable.
-- [ ] `renderer.setPixelRatio(min(devicePixelRatio,2))`.
-- [ ] Host sizing does not reuse stale fixed inline width after layout change.
-- [ ] Fallback callback fires at most once with stable reason and original error.
-- [ ] Mode toggle catches `create3d`, `setState`, `reset`, and shell failures.
-- [ ] Fallback restores button state, visible 2D, focus, and usable controls.
-- [ ] Canvas has route-specific label/role; projected labels are `aria-hidden`.
-- [ ] Disposal cancels RAF, observer/listener, render lists, geometry, material, all textures, renderer, context, DOM.
-- [ ] Double dispose is safe.
+- [x] `continuous` defaults false; no idle RAF.
+- [x] `setState` and resize each render exactly once.
+- [x] `ResizeObserver` observes visible host; window fallback removable.
+- [x] `renderer.setPixelRatio(min(devicePixelRatio,2))`.
+- [x] Host sizing does not reuse stale fixed inline width after layout change.
+- [x] Fallback callback fires at most once with stable reason and original error.
+- [x] Mode toggle catches `create3d`, `setState`, `reset`, and shell failures.
+- [x] Fallback restores button state, visible 2D, focus, and usable controls.
+- [x] Canvas has route-specific label/role; projected labels are `aria-hidden`.
+- [x] Disposal cancels RAF, observer/listener, render lists, geometry, material, all textures, renderer, context, DOM.
+- [x] Double dispose is safe.
 
 ## Dependency Map
 
@@ -124,10 +124,10 @@ npm run test:sim:release
 
 ## Success Criteria
 
-- [ ] Static paused Sim3 consumes no continuous RAF.
-- [ ] Resize/DPR/fallback/accessibility matrices pass.
-- [ ] Resource spies show zero owned callbacks and complete GPU disposal.
-- [ ] 10/10 adapters still mount through existing pilot tests.
+- [x] Static paused Sim3 consumes no continuous RAF.
+- [x] Resize/DPR/fallback/accessibility matrices pass.
+- [x] Resource spies show zero owned callbacks and complete GPU disposal.
+- [x] 10/10 adapters still mount through existing pilot tests.
 
 ## Risk Assessment
 
@@ -137,6 +137,15 @@ npm run test:sim:release
 | DPR increases GPU memory | Cap at 2 and dispose backing resources |
 | Catching errors hides programming defect | Preserve reason + original error; warn contextually while falling back |
 | Shared texture disposed twice | Track resources by identity |
+
+## Verification Evidence
+
+- Initial RED run: 5 core-runtime failures and 2 lifecycle passes exposed idle RAF, missing observer/DPR, uncaught update/create failures, missing label module, and incomplete disposal.
+- `npm run test:sim3:core`: 12 passed, including DPR 1/1.5/2/3, callback-time disposal, removable window fallback, original-error classification, 20 toggle cycles, cross-route cleanup, and narrow/wide framing for the two changed adapters.
+- `npm run test:sim3:pilot`: coordinate gate, 12 core/lifecycle tests, and 20 adapter browser tests passed on the final reviewed code.
+- `npm run test:sim:release`: 26 route-physics, 129 mount, 6 app, 3 content, and 2 quiz checks passed.
+- Browser smoke at DPR 1.25 verified a 520×261 responsive route-specific canvas, hidden projected labels, safe margins, and generic Vietnamese fallback restoring visible 2D, pressed state, focus, and zero canvas residue.
+- Independent fallback review found no blocking runtime defect and one P2 framing coverage gap; narrow/wide Ch1 and Ch3 projection assertions now close that gap.
 
 ## Security and Performance
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import shutil
 import tempfile
@@ -35,6 +36,43 @@ EXPECTED_PATHS = (
     "ch3/hinh-3-21.gif",
     "ch3/hinh-3-22.gif",
 )
+
+STATIC_SOURCES = {
+    "ch1/hinh-1-06.gif": "images/ch1/hinh-026.png",
+    "ch1/hinh-1-09.gif": "images/ch1/hinh-033.png",
+    "ch1/hinh-1-28b.gif": "images/ch1/hinh-118.png",
+    "ch1/hinh-1-34.gif": "images/ch1/hinh-136.png",
+    "ch1/hinh-1-35.gif": "images/ch1/hinh-138.png",
+    "ch1/hinh-1-minh-hoa-02.gif": "images/ch1/hinh-149.png",
+    "ch2/hinh-2-07.gif": "images/ch2/hinh-072.png",
+    "ch2/hinh-2-09.gif": "images/ch2/hinh-080.png",
+    "ch2/hinh-2-15.gif": "images/ch2/hinh-143.png",
+    "ch2/hinh-2-16.gif": "images/ch2/hinh-147.png",
+    "ch2/hinh-2-22.gif": "images/ch2/hinh-196.png",
+    "ch2/hinh-2-26.gif": "images/ch2/hinh-219.png",
+    "ch2/hinh-2-34.gif": "images/ch2/hinh-276.png",
+    "ch3/hinh-3-06.gif": "images/ch3/hinh-101.png",
+    "ch3/hinh-3-10.gif": "images/ch3/hinh-151.png",
+    "ch3/hinh-3-11.gif": "images/ch3/hinh-169.png",
+    "ch3/hinh-3-17.gif": "images/ch3/hinh-216.png",
+    "ch3/hinh-3-20.gif": "images/ch3/hinh-225.png",
+    "ch3/hinh-3-21.gif": "images/ch3/hinh-237.png",
+    "ch3/hinh-3-22.gif": "images/ch3/hinh-244.png",
+}
+
+
+def validate_static_sources() -> None:
+    require(set(STATIC_SOURCES) == set(EXPECTED_PATHS), "GIF static mapping set is incomplete")
+    manifest = json.loads((PROJECT_ROOT / "data" / "content-manifest.json").read_text(encoding="utf-8"))
+    figure_refs = {reference for route in manifest["routes"] for reference in route["figureRefs"]}
+    for gif_relative, static_relative in STATIC_SOURCES.items():
+        authoring_png = WORKSPACE / Path(gif_relative).with_suffix(".png")
+        canonical_png = PROJECT_ROOT / static_relative
+        require(static_relative in figure_refs, f"canonical PNG is not referenced by content: {static_relative}")
+        require(canonical_png.is_file(), f"missing canonical PNG: {canonical_png}")
+        require(authoring_png.is_file(), f"missing authoring PNG: {authoring_png}")
+        with Image.open(canonical_png) as image:
+            require(image.format == "PNG", f"canonical fallback is not PNG: {canonical_png}")
 
 
 def require(condition: bool, message: str) -> None:
@@ -107,6 +145,7 @@ def validate_published() -> None:
     require(published == set(EXPECTED_PATHS), "published GIF set is incomplete")
     for relative in EXPECTED_PATHS:
         validate_gif(DESTINATION_ROOT / relative)
+    validate_static_sources()
 
 
 def main() -> None:

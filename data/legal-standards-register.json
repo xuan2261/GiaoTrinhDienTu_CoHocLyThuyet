@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "status": "provisional",
+  "records": [
+    {
+      "id": "legal-tt35-2021",
+      "title": "Thông tư 35/2021/TT-BGDĐT",
+      "authority": "Bộ Giáo dục và Đào tạo",
+      "officialSource": "https://vanban.chinhphu.vn/default.aspx?docid=205065&pageid=27160",
+      "accessedOn": "2026-08-21",
+      "effectiveOn": null,
+      "reviewStatus": "provisional",
+      "ownerRole": "Academic governance",
+      "reviewRole": "Legal and academic review"
+    },
+    {
+      "id": "legal-tt49-2026",
+      "title": "Thông tư 49/2026/TT-BGDĐT",
+      "authority": "Bộ Giáo dục và Đào tạo",
+      "officialSource": "https://vanban.chinhphu.vn/?classid=1&docid=218756&pageid=27160",
+      "accessedOn": "2026-08-21",
+      "effectiveOn": "2026-08-15",
+      "reviewStatus": "provisional",
+      "ownerRole": "Academic governance",
+      "reviewRole": "Legal and academic review"
+    }
+  ]
+}

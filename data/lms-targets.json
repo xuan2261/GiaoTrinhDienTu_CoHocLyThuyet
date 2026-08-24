@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "not-executed",
+  "stages": {
+    "qti3": {
+      "readiness": "adapter-validated",
+      "targets": [],
+      "executionEvidence": [],
+      "scope": "Canonical single-choice items only; local package validation is not LMS import proof.",
+      "maximumValidationItems": 10
+    },
+    "commonCartridge": {
+      "readiness": "adapter-validated",
+      "targets": [],
+      "executionEvidence": [],
+      "scope": "Static webcontent launch package only; local package validation is not LMS import proof."
+    },
+    "xapiCmi5": {
+      "readiness": "blocked",
+      "targets": [],
+      "executionEvidence": [],
+      "scope": "No adapter is authorized before a target LMS/LRS, profile, actor/privacy model and retry semantics are recorded."
+    },
+    "scorm": {
+      "readiness": "blocked",
+      "targets": [],
+      "executionEvidence": [],
+      "scope": "No adapter is authorized before a target LMS, SCORM edition, completion model and launch/runtime evidence are recorded."
+    }
+  }
+}

@@ -1,7 +1,7 @@
 ---
 phase: 11
 title: "Strengthen Visual and Release Gates"
-status: pending
+status: completed
 priority: P1
 dependencies: [5, 8, 9, 10]
 effort: "4-5 days"
@@ -57,15 +57,15 @@ Artifact writers use one worker and a fresh run-specific output directory. Valid
 
 ## Function and Interface Checklist
 
-- [ ] Production tests use `index.html`, `loadPage`, real script order, and navigation.
-- [ ] Every route mounts exactly once and disposes on navigation/back.
-- [ ] RAF instrumentation proves zero owned pending callbacks/post-dispose ticks.
-- [ ] GPU spies prove geometry/material/texture/renderer/render-list/context disposal.
-- [ ] Fallback callback once, 2D remains interactive, status announced.
-- [ ] Capture missing control/drag is fatal; no fallback-frame masquerading as far state.
-- [ ] Contact-sheet rejects missing/extra/duplicate/unknown routes/shots/files.
-- [ ] Probe rejects page/console errors, dead controls, missing sign delta, fallback-only Sim3.
-- [ ] Snapshot update command remains explicit and outside release.
+- [x] Production tests use `index.html`, `loadPage`, real script order, and navigation.
+- [x] Every route mounts exactly once and disposes on navigation/back.
+- [x] RAF instrumentation proves zero owned pending callbacks/post-dispose ticks.
+- [x] GPU spies prove geometry/material/texture/renderer/render-list/context disposal.
+- [x] Fallback callback once, 2D remains interactive, status announced.
+- [x] Capture missing control/drag is fatal; no fallback-frame masquerading as far state.
+- [x] Contact-sheet rejects missing/extra/duplicate/unknown routes/shots/files.
+- [x] Probe rejects page/console errors, dead controls, missing sign delta, fallback-only Sim3.
+- [x] Snapshot update command remains explicit and outside release.
 
 ## Dependency Map
 
@@ -160,12 +160,12 @@ npm run test:sim:release:full
 
 ## Success Criteria
 
-- [ ] 35/35 production engine-route paths pass.
-- [ ] Objective lifecycle tests show zero CPU/GPU/listener/observer residue.
-- [ ] 10/10 route fallback and all shared failure branches pass.
-- [ ] Strict captures/probes/contact sheets reject every tested incomplete/stale mutation.
-- [ ] Baseline has 0 unexplained differences.
-- [ ] Deterministic release passes three consecutive runs; full shipping gate passes fresh.
+- [x] 35/35 production engine-route paths pass.
+- [x] Objective lifecycle tests show zero CPU/GPU/listener/observer residue.
+- [x] 10/10 route fallback and all shared failure branches pass.
+- [x] Strict captures/probes/contact sheets reject every tested incomplete/stale mutation.
+- [x] Baseline has 0 unexplained differences.
+- [x] Deterministic release passes three consecutive runs; full shipping gate passes fresh.
 
 ## Risk Assessment
 

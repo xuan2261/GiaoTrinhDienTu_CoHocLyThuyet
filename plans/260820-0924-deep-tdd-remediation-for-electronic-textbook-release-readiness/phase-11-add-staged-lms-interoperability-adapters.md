@@ -1,6 +1,6 @@
 ---
 title: "Phase 11: Thêm adapter LMS theo từng tầng"
-status: pending
+status: completed
 priority: P2
 effort: "QTI/CC 8-12 ngày; xAPI/cmi5/SCORM phụ thuộc target"
 dependencies: [phase-03, phase-06, phase-10]
@@ -61,11 +61,11 @@ Xây canonical course/assessment export rồi adapter QTI 3, Common Cartridge, x
 
 ## Todo
 
-- [ ] Record target LMS/LRS/version/plugin when executing a target-specific stage.
-- [ ] Build canonical schemas and boundary tests.
-- [ ] Implement/validate QTI 3.
-- [ ] Implement/validate Common Cartridge.
-- [ ] Implement xAPI/cmi5 and SCORM only when their privacy/launch/target inputs exist.
+- [x] Record target LMS/LRS/version/plugin when executing a target-specific stage.
+- [x] Build canonical schemas and boundary tests.
+- [x] Implement/validate QTI 3.
+- [x] Implement/validate Common Cartridge.
+- [x] Implement xAPI/cmi5 and SCORM only when their privacy/launch/target inputs exist.
 
 ## Success Criteria
 

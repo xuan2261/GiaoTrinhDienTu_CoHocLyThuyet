@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0",
+  "status": "provisional",
+  "learningOutcomes": [
+    {
+      "id": "lo-course-foundation",
+      "title": "Định hướng học phần",
+      "status": "provisional",
+      "authorityStatus": "provisional",
+      "source": "Content-derived provisional baseline; not institutionally approved.",
+      "verb": "identify",
+      "condition": "When navigating the electronic textbook",
+      "criterion": "identify the course structure and learning resources for all three chapters",
+      "assessmentException": null,
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review"
+    },
+    {
+      "id": "lo-ch1-statics",
+      "title": "Tĩnh học",
+      "status": "provisional",
+      "authorityStatus": "provisional",
+      "source": "Content-derived provisional baseline from Chapter 1; not institutionally approved.",
+      "verb": "analyze",
+      "condition": "Given a rigid-body statics problem",
+      "criterion": "analyze forces, moments, constraints, equilibrium, friction, and centroids using Chapter 1 content",
+      "assessmentException": null,
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review"
+    },
+    {
+      "id": "lo-ch2-kinematics",
+      "title": "Động học",
+      "status": "provisional",
+      "authorityStatus": "provisional",
+      "source": "Content-derived provisional baseline from Chapter 2; not institutionally approved.",
+      "verb": "determine",
+      "condition": "Given particle or rigid-body motion data",
+      "criterion": "determine kinematic quantities and motion relationships using Chapter 2 content",
+      "assessmentException": null,
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review"
+    },
+    {
+      "id": "lo-ch3-dynamics",
+      "title": "Động lực học",
+      "status": "provisional",
+      "authorityStatus": "provisional",
+      "source": "Content-derived provisional baseline from Chapter 3; not institutionally approved.",
+      "verb": "solve",
+      "condition": "Given a mechanics system and stated assumptions",
+      "criterion": "solve dynamics relations involving force, momentum, energy, and collision using Chapter 3 content",
+      "assessmentException": null,
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review"
+    }
+  ]
+}

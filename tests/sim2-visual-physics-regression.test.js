@@ -49,10 +49,10 @@ const read = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8');
 
 {
   const src = read('js/sim2/sims/ch2/ch2-4-4.js');
-  assert.ok(src.includes('const radialPhase = params.vRel * t * 0.5;'),
-    'ch2-4-4 phải dùng phase radial chung cho rRel và vận tốc tương đối');
-  assert.ok(src.includes('const radialSpeed = 0.75 * params.vRel * Math.cos(radialPhase);'),
-    'ch2-4-4 v_rel phải là đạo hàm có dấu của rRel');
+  assert.ok(src.includes('const radialPhase = params.vRelMax * t / 1.5;'),
+    'ch2-4-4 phải dùng v_rel,max làm biên độ vận tốc và phase chung cho chuyển động bán kính');
+  assert.ok(src.includes('const radialSpeed = params.vRelMax * Math.cos(radialPhase);'),
+    'ch2-4-4 readout v_rel(t) phải là đạo hàm có dấu với biên độ đúng bằng slider v_rel,max');
   assert.ok(src.includes('ur.x * radialSpeed'),
     'ch2-4-4 mũi v_rel phải đổi chiều khi radialSpeed âm');
   assert.ok(src.includes('Math.abs(radialSpeed)'),
@@ -66,10 +66,12 @@ const read = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8');
     'ch2-4-4 worldBox nới ±6.4 để đĩa-trên-màn còn ~56% (không nuốt khung)');
   assert.ok(!src.includes('maxX: 5.6'),
     'ch2-4-4 worldBox ±5.6 cũ chưa đủ — phải nới rộng hơn');
-  assert.ok(src.includes('VREL_VS'),
-    'ch2-4-4 mũi v_rel phải có viz-scale (số nhân hiển thị, KHÔNG đụng readout physics)');
-  assert.ok(src.includes('const VS = 0.42;'),
-    'ch2-4-4 a_cor viz-scale tăng 0.3→0.42 để vector đọc được khi worldBox rộng hơn');
+  assert.ok(src.includes('displayVector({ x: ur.x * radialSpeed, y: ur.y * radialSpeed }, 1.6, 2.2)'),
+    'ch2-4-4 mũi v_rel phải tăng tỉ lệ rồi clamp riêng phần hiển thị');
+  assert.ok(src.includes('displayVector({ x: ac.ax, y: ac.ay }, 0.42, 2.3)'),
+    'ch2-4-4 a_cor phải tăng tỉ lệ rồi clamp riêng phần hiển thị');
+  assert.ok(src.includes('vRel: radialSpeed') && src.includes('aCor: { x: ac.ax, y: ac.ay, mag: acMag }'),
+    'ch2-4-4 state/readout phải giữ vận tốc và gia tốc Coriolis vật lý');
 }
 
 {
@@ -83,10 +85,10 @@ const read = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8');
     'ch2-2-2 worldBox nới ±4.6→±5.5 để đĩa R=3 còn ~55% khung');
   assert.ok(!src.includes('maxX: 4.6'),
     'ch2-2-2 worldBox ±4.6 cũ làm đĩa nuốt khung');
-  assert.ok(src.includes('vt * 0.2'),
-    'ch2-2-2 mũi v tiếp tuyến boost viz-scale 0.15→0.2 (bù worldBox rộng hơn)');
-  assert.ok(!src.includes('vt * 0.15'),
-    'ch2-2-2 viz-scale cũ 0.15 quá ngắn khi worldBox rộng hơn');
+  assert.ok(src.includes('Math.min(Math.abs(vt) * 0.2, 1.8)'),
+    'ch2-2-2 mũi v giữ viz-scale 0.2 nhưng phải clamp chiều dài ở ω lớn');
+  assert.ok(src.includes('const direction = vt < 0 ? -1 : 1;'),
+    'ch2-2-2 clamp hiển thị không được làm mất hướng vận tốc vật lý');
 }
 
 {

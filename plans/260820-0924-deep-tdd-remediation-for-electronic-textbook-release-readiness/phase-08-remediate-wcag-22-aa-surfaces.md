@@ -52,15 +52,15 @@ Shared shell/CSS/search/quiz surfaces được sửa trước, rồi route-speci
 
 ## Tests After
 
-- `npx playwright test tests/wcag-axe.spec.js tests/wcag-keyboard.spec.js`.
+- `npm run test:accessibility` (axe, landmarks, keyboard flows, reflow, and deterministic contrast).
 - Quiz/search/PDF/simulation focused browser regression suites.
 - Manual checks: keyboard-only, NVDA/target screen reader, 200%/400% zoom where applicable, text spacing, light/dark contrast, reduced motion.
 
 ## Todo
 
-- [ ] Freeze route/theme/assistive-tech matrix.
-- [ ] Add axe and keyboard RED suites.
-- [ ] Remediate shared shell/search/quiz/sim/PDF surfaces.
+- [x] Freeze route/theme/assistive-tech matrix.
+- [x] Add axe and keyboard RED suites.
+- [x] Remediate shared shell/search/quiz/sim/PDF surfaces.
 - [ ] Complete manual WCAG evidence.
 - [ ] Obtain independent accessibility disposition.
 

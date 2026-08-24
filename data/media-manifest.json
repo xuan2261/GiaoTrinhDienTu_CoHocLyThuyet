@@ -1,0 +1,518 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pilot-draft",
+  "parentLearningOutcomeId": "lo-ch1-statics",
+  "scope": {
+    "chapter": 1,
+    "pilotCap": 4,
+    "selectedCount": 4,
+    "remoteDependenciesAllowed": false,
+    "claim": "Technical pilot only. No learner outcome or institutional acceptance claim is made."
+  },
+  "assets": [
+    {
+      "id": "media-ch1-force-sliding",
+      "localObjectiveId": "obj-ch1-force-sliding",
+      "parentLearningOutcomeId": "lo-ch1-statics",
+      "contentRoutes": [
+        "ch1-2-2"
+      ],
+      "simulationId": null,
+      "modality": "animated-figure",
+      "modalityRationale": "The proof requires a visible add-cancel-retain sequence; no new animation is produced.",
+      "misconceptionTarget": "A force may be moved to a point outside its original line of action without changing its effect.",
+      "evidenceTarget": "Name direction, sense, and magnitude as preserved, and state the same-line limitation.",
+      "math": {
+        "expression": "F_A ≡ F_B on one line of action",
+        "units": "Qualitative figure; any force magnitude would be measured in newtons.",
+        "assumptions": [
+          "Rigid-body statics",
+          "A and B share one line of action",
+          "Direction, sense, and magnitude are unchanged"
+        ]
+      },
+      "runtime": {
+        "offlineSourcePath": "prototypes/media/force-sliding.html",
+        "primary": {
+          "path": "assets/gifs/ch1/hinh-1-06.gif",
+          "sha256": "fd557ca9f9aac7f46a3fef7b08a006a6422f2cc8d33073d43c43f08d3f095d41"
+        },
+        "staticFallback": {
+          "path": "prototypes/media/assets/force-sliding-poster.png",
+          "sha256": "4f26c9e442737d24d14d8aab0798eb52081914a2c6736cafc9c08af2af54dc48",
+          "kind": "poster"
+        },
+        "textAlternative": {
+          "path": "prototypes/media/force-sliding-transcript.txt",
+          "sha256": "0a3c077227ea937a9d4616581bc5e8a9b6461bb5f09b32eece83d53cf037d6a9"
+        },
+        "captions": {
+          "required": false,
+          "reason": "No audio or dialogue"
+        },
+        "keyboard": "Animated and static mode buttons are native keyboard controls.",
+        "reducedMotion": "The poster is the default. The GIF is requested only after the learner activates the animation control; reduced motion keeps the poster selected.",
+        "loadFailure": "Keep the poster visible and report the failed animated load."
+      },
+      "posterDerivation": {
+        "source": "assets/gifs/ch1/hinh-1-06.gif",
+        "frame": 0,
+        "outputSize": [
+          720,
+          416
+        ],
+        "method": "Pillow first-frame extraction with deterministic Lanczos resize and optimized PNG output"
+      },
+      "authoringPacket": {
+        "path": "media/pilot/media-ch1-force-sliding/authoring-packet.json",
+        "sha256": "470d405f7e0a123d0fb7edb6cef40c866cb7ce13c2253c43bc004ffbae53387c"
+      },
+      "sourceFiles": [
+        {
+          "path": "media/pilot/media-ch1-force-sliding/authoring-packet.json",
+          "sha256": "470d405f7e0a123d0fb7edb6cef40c866cb7ce13c2253c43bc004ffbae53387c",
+          "bytes": 3661
+        },
+        {
+          "path": "prototypes/media/force-sliding.html",
+          "sha256": "bc0501d9f870fa428abcd8093648f02c7d377080449044f405aab2db618cff18",
+          "bytes": 3438
+        },
+        {
+          "path": "prototypes/media/force-sliding.js",
+          "sha256": "77d9e5660fa020f08fb14bcd20341ab66620e9cac84caeb6706411e033a891e1",
+          "bytes": 1351
+        },
+        {
+          "path": "prototypes/media/force-sliding-transcript.txt",
+          "sha256": "0a3c077227ea937a9d4616581bc5e8a9b6461bb5f09b32eece83d53cf037d6a9",
+          "bytes": 844
+        },
+        {
+          "path": "prototypes/media/assets/force-sliding-poster.png",
+          "sha256": "4f26c9e442737d24d14d8aab0798eb52081914a2c6736cafc9c08af2af54dc48",
+          "bytes": 57639
+        },
+        {
+          "path": "assets/gifs/ch1/hinh-1-06.gif",
+          "sha256": "fd557ca9f9aac7f46a3fef7b08a006a6422f2cc8d33073d43c43f08d3f095d41",
+          "bytes": 1987184
+        },
+        {
+          "path": "prototypes/media/shared/media-pilot.css",
+          "sha256": "d9a3b61dc051479538109a78d5ea7be93055aa9b05ca24112bacae8f15b724a8",
+          "bytes": 5464
+        },
+        {
+          "path": "prototypes/media/shared/media-pilot-runtime.js",
+          "sha256": "73a895f0f016300ef37427c63f9d1c66fc1b0cfd0efd62459d75f02faa1a2554",
+          "bytes": 1842
+        },
+        {
+          "path": "prototypes/media/shared/media-loader.js",
+          "sha256": "a02a017bfb9503a22f70e0611dc4209e8daf264881fb61134ced57632476ad12",
+          "bytes": 3570
+        }
+      ],
+      "budget": {
+        "measuredBytes": 2064993,
+        "maximumBytes": 2500000,
+        "maintenanceTier": "reuse-only",
+        "ownerRole": "Multimedia maintainer",
+        "reviewTrigger": "Any source, poster, transcript, loader, or GIF hash change"
+      },
+      "provenance": {
+        "sourceType": "existing-published-gif",
+        "newHeavyMediaGenerated": false,
+        "licenseReviewStatus": "technical-review"
+      },
+      "review": {
+        "ownerRole": "Multimedia author",
+        "reviewerRole": "Subject-matter technical reviewer",
+        "status": "technical-review",
+        "efficacyClaim": false,
+        "institutionalAcceptanceClaim": false
+      }
+    },
+    {
+      "id": "media-ch1-resultant-angle",
+      "localObjectiveId": "obj-ch1-resultant-angle",
+      "parentLearningOutcomeId": "lo-ch1-statics",
+      "contentRoutes": [
+        "ch1-2-3"
+      ],
+      "simulationId": "ch1-2-3",
+      "modality": "quantitative-chart",
+      "modalityRationale": "The chart compares resultant magnitude across the complete angle domain while retaining canonical Sim2 for vector manipulation.",
+      "misconceptionTarget": "The resultant is always the scalar sum F1 + F2.",
+      "evidenceTarget": "Identify and calculate the maximum at 0 degrees and minimum at 180 degrees.",
+      "math": {
+        "expression": "R = sqrt(F1^2 + F2^2 + 2 F1 F2 cos(theta))",
+        "units": "F1, F2, and R in newtons; theta in degrees.",
+        "assumptions": [
+          "Concurrent coplanar forces",
+          "F1 = 80 N",
+          "F2 = 60 N",
+          "0 <= theta <= 180 degrees"
+        ]
+      },
+      "runtime": {
+        "offlineSourcePath": "prototypes/media/resultant-angle-chart.html",
+        "primary": {
+          "path": "prototypes/media/resultant-angle-chart.js",
+          "sha256": "cbd604e2e2e8561a67db553770bbc9a18a484d1435a606ac0efc9b71265de082"
+        },
+        "staticFallback": {
+          "path": "prototypes/media/resultant-angle-chart.html",
+          "anchor": "bang-gia-tri",
+          "sha256": "aa4d3c284ea678f1e8d378ea43a1660a2d4b259c1289dd81cba3fa3e36859bfe",
+          "kind": "data-table"
+        },
+        "textAlternative": {
+          "path": "prototypes/media/resultant-angle-chart.html",
+          "anchor": "bang-gia-tri",
+          "sha256": "aa4d3c284ea678f1e8d378ea43a1660a2d4b259c1289dd81cba3fa3e36859bfe"
+        },
+        "captions": {
+          "required": false,
+          "reason": "No audio or timed dialogue"
+        },
+        "keyboard": "Native range input plus reset button.",
+        "reducedMotion": "Redraw directly without interpolation or continuous animation.",
+        "loadFailure": "Keep the five-row static table visible."
+      },
+      "authoringPacket": {
+        "path": "media/pilot/media-ch1-resultant-angle/authoring-packet.json",
+        "sha256": "b1c50c80620617e1a513bc261930c07ace1ed544200155d85eb0169fce081a9a"
+      },
+      "sourceFiles": [
+        {
+          "path": "media/pilot/media-ch1-resultant-angle/authoring-packet.json",
+          "sha256": "b1c50c80620617e1a513bc261930c07ace1ed544200155d85eb0169fce081a9a",
+          "bytes": 3561
+        },
+        {
+          "path": "prototypes/media/resultant-angle-chart.html",
+          "sha256": "aa4d3c284ea678f1e8d378ea43a1660a2d4b259c1289dd81cba3fa3e36859bfe",
+          "bytes": 3156
+        },
+        {
+          "path": "prototypes/media/resultant-angle-chart.js",
+          "sha256": "cbd604e2e2e8561a67db553770bbc9a18a484d1435a606ac0efc9b71265de082",
+          "bytes": 4074
+        },
+        {
+          "path": "prototypes/media/shared/media-pilot.css",
+          "sha256": "d9a3b61dc051479538109a78d5ea7be93055aa9b05ca24112bacae8f15b724a8",
+          "bytes": 5464
+        },
+        {
+          "path": "prototypes/media/shared/media-pilot-runtime.js",
+          "sha256": "73a895f0f016300ef37427c63f9d1c66fc1b0cfd0efd62459d75f02faa1a2554",
+          "bytes": 1842
+        },
+        {
+          "path": "prototypes/media/shared/media-loader.js",
+          "sha256": "a02a017bfb9503a22f70e0611dc4209e8daf264881fb61134ced57632476ad12",
+          "bytes": 3570
+        },
+        {
+          "path": "js/sim2/physics/statics.js",
+          "sha256": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+          "bytes": 3828
+        }
+      ],
+      "budget": {
+        "measuredBytes": 25495,
+        "maximumBytes": 65536,
+        "maintenanceTier": "small-script",
+        "ownerRole": "Multimedia maintainer",
+        "reviewTrigger": "Any formula helper, chart, fallback table, or loader hash change"
+      },
+      "provenance": {
+        "sourceType": "project-authored-code",
+        "newHeavyMediaGenerated": false,
+        "licenseReviewStatus": "technical-review"
+      },
+      "review": {
+        "ownerRole": "Multimedia author",
+        "reviewerRole": "Subject-matter technical reviewer",
+        "status": "technical-review",
+        "efficacyClaim": false,
+        "institutionalAcceptanceClaim": false
+      }
+    },
+    {
+      "id": "media-ch1-friction-cone",
+      "localObjectiveId": "obj-ch1-friction-cone",
+      "parentLearningOutcomeId": "lo-ch1-statics",
+      "contentRoutes": [
+        "ch1-5-3"
+      ],
+      "simulationId": "ch1-5-3",
+      "modality": "mounted-simulation",
+      "modalityRationale": "The focused surface mounts canonical Sim2 so learners can cross the beta equals phi boundary without duplicate physics.",
+      "misconceptionTarget": "Friction always has magnitude mu times N below the limiting state.",
+      "evidenceTarget": "Predict and verify equilibrium or slip from beta compared with phi.",
+      "math": {
+        "expression": "tan(phi) = mu; slip iff beta > phi",
+        "units": "beta and phi in degrees; mu dimensionless.",
+        "assumptions": [
+          "Dry static friction",
+          "Rigid block",
+          "Planar incline",
+          "Two-dimensional cone section"
+        ]
+      },
+      "runtime": {
+        "offlineSourcePath": "prototypes/media/friction-cone-sim2.html",
+        "primary": {
+          "path": "js/sim2/sims/ch1/ch1-5-3.js",
+          "sha256": "dcbd85eb530739598cda39fd5644c5f4ef8ccf7e8177e8d9eb9cad5a6838c1eb"
+        },
+        "staticFallback": {
+          "path": "prototypes/media/friction-cone-sim2.html",
+          "anchor": "phuong-an-tinh",
+          "sha256": "aba2a6764adee0acbbd03bd8b2af907132cfb12a41f66c5bcde0bc8a645443c1",
+          "kind": "diagram-and-worked-value"
+        },
+        "textAlternative": {
+          "path": "prototypes/media/friction-cone-sim2.html",
+          "anchor": "phuong-an-tinh",
+          "sha256": "aba2a6764adee0acbbd03bd8b2af907132cfb12a41f66c5bcde0bc8a645443c1"
+        },
+        "captions": {
+          "required": false,
+          "reason": "No audio or timed dialogue"
+        },
+        "keyboard": "Two native sliders and the canonical Sim2 keyboard drag handle.",
+        "reducedMotion": "No playback; Sim2 motion cues are suppressed by the shared reduced-motion rule.",
+        "loadFailure": "Keep the static cone diagram and worked threshold visible."
+      },
+      "authoringPacket": {
+        "path": "media/pilot/media-ch1-friction-cone/authoring-packet.json",
+        "sha256": "2405d8ee7ad1c229d87ca80b35b3373417a1d528ed52ec5f82460c12ee9c76b1"
+      },
+      "sourceFiles": [
+        {
+          "path": "media/pilot/media-ch1-friction-cone/authoring-packet.json",
+          "sha256": "2405d8ee7ad1c229d87ca80b35b3373417a1d528ed52ec5f82460c12ee9c76b1",
+          "bytes": 3691
+        },
+        {
+          "path": "prototypes/media/friction-cone-sim2.html",
+          "sha256": "aba2a6764adee0acbbd03bd8b2af907132cfb12a41f66c5bcde0bc8a645443c1",
+          "bytes": 4630
+        },
+        {
+          "path": "prototypes/media/friction-cone-sim2.js",
+          "sha256": "c6223b27a88e7edbbe5067b56d0f03bb18da00815fe6d5da21f160c62f64f490",
+          "bytes": 1410
+        },
+        {
+          "path": "prototypes/media/shared/media-pilot.css",
+          "sha256": "d9a3b61dc051479538109a78d5ea7be93055aa9b05ca24112bacae8f15b724a8",
+          "bytes": 5464
+        },
+        {
+          "path": "prototypes/media/shared/media-pilot-runtime.js",
+          "sha256": "73a895f0f016300ef37427c63f9d1c66fc1b0cfd0efd62459d75f02faa1a2554",
+          "bytes": 1842
+        },
+        {
+          "path": "prototypes/media/shared/media-loader.js",
+          "sha256": "a02a017bfb9503a22f70e0611dc4209e8daf264881fb61134ced57632476ad12",
+          "bytes": 3570
+        },
+        {
+          "path": "css/style.css",
+          "sha256": "a9d94d132d6261cf2aee81b9fef5ba5d376157802381943531dfe1196d3a3414",
+          "bytes": 75947
+        },
+        {
+          "path": "js/sim2/physics/dynamics.js",
+          "sha256": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+          "bytes": 5134
+        },
+        {
+          "path": "js/sim2/core/palette.js",
+          "sha256": "115988da542fc86e273a9691e0e8066ce6beb3887dcf8098e0174345601b383b",
+          "bytes": 1726
+        },
+        {
+          "path": "js/sim2/core/transform.js",
+          "sha256": "a4a54e7b270a86a6ec8896e9b9250dec3fc39543365c26e0f0868887f7261d96",
+          "bytes": 1491
+        },
+        {
+          "path": "js/sim2/core/svg-render.js",
+          "sha256": "395149a003459f3bd24369d5364f757ae34a7fbab5e5cdc4f0b974f56c021207",
+          "bytes": 6585
+        },
+        {
+          "path": "js/sim2/core/overlay.js",
+          "sha256": "d6c3172e0dc108253b51e5e3ff9390e06d78ea5c9118a746549c25eebf6573d5",
+          "bytes": 5674
+        },
+        {
+          "path": "js/sim2/core/canvas-underlay.js",
+          "sha256": "2770ad206b639928190f8d6840e182a437148642f70540e0e7747daa291ffc22",
+          "bytes": 4411
+        },
+        {
+          "path": "js/sim2/core/controls.js",
+          "sha256": "f67f4c7b4a161901a5c09531d95e88f47418bd4271a87d24aed59c3499552575",
+          "bytes": 5780
+        },
+        {
+          "path": "js/sim2/core/panel.js",
+          "sha256": "01717bc53285a0bd6dec4607260395948a8d1efa61411abe5b6714f0e16b1d3d",
+          "bytes": 5459
+        },
+        {
+          "path": "js/sim2/core/sim-shell.js",
+          "sha256": "a4c8e6a043dde7bf87ecd4880f8ca984689fa7226e73592feab7ed24fdc91a29",
+          "bytes": 16142
+        },
+        {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec",
+          "bytes": 1000
+        },
+        {
+          "path": "js/sim2/sims/ch1/ch1-5-3.js",
+          "sha256": "dcbd85eb530739598cda39fd5644c5f4ef8ccf7e8177e8d9eb9cad5a6838c1eb",
+          "bytes": 7671
+        }
+      ],
+      "budget": {
+        "measuredBytes": 157627,
+        "maximumBytes": 196608,
+        "maintenanceTier": "canonical-runtime-mount",
+        "ownerRole": "Sim2 and multimedia maintainers",
+        "reviewTrigger": "Any Sim2 dependency, fallback diagram, or loader hash change"
+      },
+      "provenance": {
+        "sourceType": "canonical-sim2-reuse",
+        "newHeavyMediaGenerated": false,
+        "licenseReviewStatus": "technical-review"
+      },
+      "review": {
+        "ownerRole": "Multimedia author",
+        "reviewerRole": "Subject-matter technical reviewer",
+        "status": "technical-review",
+        "efficacyClaim": false,
+        "institutionalAcceptanceClaim": false
+      }
+    },
+    {
+      "id": "media-ch1-centroid-steps",
+      "localObjectiveId": "obj-ch1-centroid-steps",
+      "parentLearningOutcomeId": "lo-ch1-statics",
+      "contentRoutes": [
+        "ch1-6-2",
+        "ch1-6-3"
+      ],
+      "simulationId": "ch1-6-3",
+      "modality": "step-interaction",
+      "modalityRationale": "Step control separates signed area, signed moments, and final coordinates while reusing the canonical centroid helper.",
+      "misconceptionTarget": "Subtracting hole coordinates after averaging produces the remaining centroid.",
+      "evidenceTarget": "Use a negative hole area, form both signed first moments, and predict movement away from removed material.",
+      "math": {
+        "expression": "xC = sum(Ai xi)/sum(Ai); yC = sum(Ai yi)/sum(Ai), with Ahole < 0",
+        "units": "Coordinates in centimeters; areas in square centimeters.",
+        "assumptions": [
+          "Uniform areal density",
+          "Planar plate",
+          "Contained circular hole",
+          "Origin at lower-left corner"
+        ]
+      },
+      "runtime": {
+        "offlineSourcePath": "prototypes/media/centroid-reasoning.html",
+        "primary": {
+          "path": "prototypes/media/centroid-reasoning.js",
+          "sha256": "3784ca26b616d1728bab7d6c678acd466127da1c6ae6306b93c81a620484794a"
+        },
+        "staticFallback": {
+          "path": "prototypes/media/centroid-reasoning.html",
+          "anchor": "loi-giai-tinh",
+          "sha256": "3ce3a9f38752a53df4867f031a9f986591139a088e5a296ffa69f7893fbe5fc7",
+          "kind": "worked-solution"
+        },
+        "textAlternative": {
+          "path": "prototypes/media/centroid-reasoning.html",
+          "anchor": "loi-giai-tinh",
+          "sha256": "3ce3a9f38752a53df4867f031a9f986591139a088e5a296ffa69f7893fbe5fc7"
+        },
+        "captions": {
+          "required": false,
+          "reason": "No audio or timed dialogue"
+        },
+        "keyboard": "Native previous and next buttons plus Left, Right, Home, and End keys in the diagram region.",
+        "reducedMotion": "Immediate state changes without animation.",
+        "loadFailure": "Keep the complete worked solution visible."
+      },
+      "authoringPacket": {
+        "path": "media/pilot/media-ch1-centroid-steps/authoring-packet.json",
+        "sha256": "e2dc2a33e5d7287d5039655198c5801b7c3b465d7d50d9a3ef3906b28edbf8c7"
+      },
+      "sourceFiles": [
+        {
+          "path": "media/pilot/media-ch1-centroid-steps/authoring-packet.json",
+          "sha256": "e2dc2a33e5d7287d5039655198c5801b7c3b465d7d50d9a3ef3906b28edbf8c7",
+          "bytes": 4093
+        },
+        {
+          "path": "prototypes/media/centroid-reasoning.html",
+          "sha256": "3ce3a9f38752a53df4867f031a9f986591139a088e5a296ffa69f7893fbe5fc7",
+          "bytes": 5349
+        },
+        {
+          "path": "prototypes/media/centroid-reasoning.js",
+          "sha256": "3784ca26b616d1728bab7d6c678acd466127da1c6ae6306b93c81a620484794a",
+          "bytes": 3503
+        },
+        {
+          "path": "prototypes/media/shared/media-pilot.css",
+          "sha256": "d9a3b61dc051479538109a78d5ea7be93055aa9b05ca24112bacae8f15b724a8",
+          "bytes": 5464
+        },
+        {
+          "path": "prototypes/media/shared/media-pilot-runtime.js",
+          "sha256": "73a895f0f016300ef37427c63f9d1c66fc1b0cfd0efd62459d75f02faa1a2554",
+          "bytes": 1842
+        },
+        {
+          "path": "prototypes/media/shared/media-loader.js",
+          "sha256": "a02a017bfb9503a22f70e0611dc4209e8daf264881fb61134ced57632476ad12",
+          "bytes": 3570
+        },
+        {
+          "path": "js/sim2/physics/statics.js",
+          "sha256": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+          "bytes": 3828
+        }
+      ],
+      "budget": {
+        "measuredBytes": 27649,
+        "maximumBytes": 65536,
+        "maintenanceTier": "small-script",
+        "ownerRole": "Multimedia maintainer",
+        "reviewTrigger": "Any centroid helper, step logic, worked solution, or loader hash change"
+      },
+      "provenance": {
+        "sourceType": "project-authored-code",
+        "newHeavyMediaGenerated": false,
+        "licenseReviewStatus": "technical-review"
+      },
+      "review": {
+        "ownerRole": "Multimedia author",
+        "reviewerRole": "Subject-matter technical reviewer",
+        "status": "technical-review",
+        "efficacyClaim": false,
+        "institutionalAcceptanceClaim": false
+      }
+    }
+  ]
+}

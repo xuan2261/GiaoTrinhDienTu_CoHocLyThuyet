@@ -150,6 +150,19 @@ test.describe('sim2 Ch3 pilot — ch3-6-2 (playback + slider + panel)', () => {
     });
     expect(await page.locator('#host .sim2-controls input[data-id=e]').inputValue()).toBe('0.2');
 
+    // Đổi slider khi đang chạy phải dừng clock và đồng bộ nút/accessible name về trạng thái paused.
+    await page.locator('#host .sim2-playpause').click();
+    await expect(page.locator('#host .sim2-playpause')).toHaveAttribute('aria-label', 'Tạm dừng');
+    await page.evaluate(() => {
+      const m1 = document.querySelector('#host .sim2-controls input[data-id=m1]');
+      m1.value = '3'; m1.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    await expect(page.locator('#host .sim2-playpause')).toHaveText(/▶/);
+    await expect(page.locator('#host .sim2-playpause')).toHaveAttribute('aria-label', 'Chạy');
+    const cxSliderReset = await page.evaluate(bodyCx);
+    await page.waitForTimeout(120);
+    expect(await page.evaluate(bodyCx), 'slider reset phải giữ simulation paused').toBe(cxSliderReset);
+
     // dispose sạch: 0 root/controls/theory/canvas; bắn input sau dispose không nổ
     await page.evaluate(() => {
       window.__orphanSlider = document.querySelector('#host .sim2-controls input[data-id=e]');

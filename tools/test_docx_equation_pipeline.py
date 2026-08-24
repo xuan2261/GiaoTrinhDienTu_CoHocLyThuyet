@@ -3,15 +3,16 @@ import json
 import re
 import unittest
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 from lxml import etree
 
 try:
     from validate_equation_mapping import mathml_errors
-    from extract_docx import render_mapped_equation
+    from extract_docx import _prune_unreferenced_images, render_mapped_equation
 except ImportError:
     from tools.validate_equation_mapping import mathml_errors
-    from tools.extract_docx import render_mapped_equation
+    from tools.extract_docx import _prune_unreferenced_images, render_mapped_equation
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -82,29 +83,28 @@ class DocxEquationPipelineTest(unittest.TestCase):
         self.assertEqual(len(INLINE_MATH_AFTER_RE.findall(decoded)), 0)
         self.assertEqual(len(INLINE_MATH_BEFORE_RE.findall(decoded)), 0)
 
-    def test_front_matter_is_transferred_to_author_page(self):
-        content = html.unescape((ROOT / "chapters" / "tac-gia.html").read_text(encoding="utf-8"))
-        content = re.sub(r"<[^>]+>", "", content)
-        required = [
-            "QUÂN CHỦNG HẢI QUÂN",
-            "HỌC VIỆN HẢI QUÂN",
-            "KHÁNH HÒA - 2026",
-            "HỘI ĐỒNG THẨM ĐỊNH",
-            "Chủ biên: Đại tá, TS Nguyễn Lê Văn",
-            "Bùi Thanh Xuân",
-        ]
-        for text in required:
-            with self.subTest(text=text):
-                self.assertIn(text, content)
-        excluded = [
-            "MỤC LỤC",
-            "Trang",
-            "LỜI NÓI ĐẦU",
-            "Chương 1 TĨNH HỌC",
-        ]
-        for text in excluded:
+    def test_author_page_excludes_front_matter_and_renders_three_cards(self):
+        source = (ROOT / "chapters" / "tac-gia.html").read_text(encoding="utf-8")
+        content = html.unescape(re.sub(r"<[^>]+>", "", source))
+        for text in ("QUÂN CHỦNG HẢI QUÂN", "GIÁO TRÌNH ĐIỆN TỬ", "HỘI ĐỒNG THẨM ĐỊNH", "Quyết định ban hành"):
             with self.subTest(excluded=text):
                 self.assertNotIn(text, content)
+        for text in ("Nguyễn Lê Văn", "Đinh Văn Tứ", "Bùi Thanh Xuân"):
+            with self.subTest(author=text):
+                self.assertIn(text, content)
+        self.assertEqual(source.count('class="ac2'), 3)
+
+    def test_unreferenced_images_are_pruned_after_extract(self):
+        with TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "chapters").mkdir()
+            (root / "images" / "ch1").mkdir(parents=True)
+            (root / "chapters" / "page.html").write_text('<img src="images/ch1/keep.png">', encoding="utf-8")
+            (root / "images" / "ch1" / "keep.png").write_bytes(b"keep")
+            (root / "images" / "ch1" / "orphan.png").write_bytes(b"orphan")
+            _prune_unreferenced_images(root)
+            self.assertTrue((root / "images" / "ch1" / "keep.png").is_file())
+            self.assertFalse((root / "images" / "ch1" / "orphan.png").exists())
 
     def test_artifact_figure_mapping_uses_reviewed_alt_text(self):
         rendered = render_mapped_equation(

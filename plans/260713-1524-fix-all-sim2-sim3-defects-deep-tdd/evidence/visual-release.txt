@@ -1,0 +1,10 @@
+Simulation visual release evidence
+Date: 2026-08-22
+Command: npm run test:sim:release:full
+Result: PASS
+Retries: 0
+Workers: 1
+Fresh Sim2 capture: 25/25 routes; strict validator PASS; contact sheet rebuilt with 25 routes and 79 images.
+Fresh Sim3 capture: 10/10 routes; strict validator PASS.
+Strict interaction probe: 35/35 routes PASS.
+Selective baseline: 5/5 PASS after user-approved visual triage of the five intended contract changes.

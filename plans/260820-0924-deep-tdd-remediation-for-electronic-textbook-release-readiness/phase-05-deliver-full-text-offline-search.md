@@ -1,6 +1,6 @@
 ---
 title: "Phase 5: Cung cấp tìm kiếm toàn văn offline"
-status: pending
+status: completed
 priority: P0
 effort: "5-7 ngày"
 dependencies: [phase-02]
@@ -59,11 +59,11 @@ Thay search nhãn navigation bằng index toàn văn build-time, zero runtime de
 
 ## Todo
 
-- [ ] Freeze index schema/version/hash contract.
-- [ ] Add stable anchor generation.
-- [ ] Build deterministic Vietnamese index.
-- [ ] Implement accessible search UI and fallback.
-- [ ] Measure and approve size/latency budgets.
+- [x] Freeze index schema/version/hash contract.
+- [x] Add stable anchor generation.
+- [x] Build deterministic Vietnamese index.
+- [x] Implement accessible search UI and fallback.
+- [x] Measure and approve size/latency budgets.
 
 ## Success Criteria
 

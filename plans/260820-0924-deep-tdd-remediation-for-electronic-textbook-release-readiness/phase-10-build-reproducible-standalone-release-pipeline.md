@@ -1,6 +1,6 @@
 ---
 title: "Phase 10: Xây pipeline release standalone tái lập"
-status: pending
+status: completed
 priority: P0
 effort: "6-9 ngày"
 dependencies: [phase-02, phase-04, phase-05, phase-06, phase-07, phase-08, phase-09]
@@ -61,11 +61,11 @@ Tạo một lệnh fail-fast chạy trong staging sạch: regenerate, validate, 
 
 ## Todo
 
-- [ ] Record version/build-epoch and ship-list policies.
-- [ ] Implement fail-fast orchestrator/staging.
-- [ ] Generate manifest/checksums/notices/evidence summary.
-- [ ] Add reproducibility and package-content tests.
-- [ ] Reconcile docs and preserve historical releases.
+- [x] Record version/build-epoch and ship-list policies.
+- [x] Implement fail-fast orchestrator/staging.
+- [x] Generate manifest/checksums/notices/evidence summary.
+- [x] Add reproducibility and package-content tests.
+- [x] Reconcile docs and preserve historical releases.
 
 ## Success Criteria
 

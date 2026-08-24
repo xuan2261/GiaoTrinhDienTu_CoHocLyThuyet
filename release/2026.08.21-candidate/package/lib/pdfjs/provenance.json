@@ -1,0 +1,18 @@
+{
+  "pdfjsVersion": "6.2.108",
+  "pdfjsBuild": "0365cbde0",
+  "pdfjsSource": "https://github.com/mozilla/pdf.js/releases/tag/v6.2.108",
+  "buildCommand": "npm run build:pdf-assets",
+  "buildTool": "esbuild@0.28.2",
+  "enableScripting": false,
+  "useWasm": false,
+  "fileTransport": "javascript-wrapped-uint8array",
+  "preloadedWorkerMessageHandler": true,
+  "pdfSource": "CoHocLyThuyet.pdf",
+  "pdfSha256": "b755b06cf919a979e278f635aa2fedfe249a97342ccd93d2d15875e87ff835d9",
+  "artifacts": {
+    "LICENSE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+    "pdf-data.js": "e2440946d4f4f27186aad1cb8090807a43c3d69a66dfea038ae656224472e981",
+    "pdfjs-runtime.iife.min.js": "0d9b7bcdca5178f91cf90d1468994d17825af484e6318a014431dd63cf0aa908"
+  }
+}

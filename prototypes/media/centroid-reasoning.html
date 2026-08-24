@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lập luận trọng tâm phần khoét</title>
+  <link rel="stylesheet" href="shared/media-pilot.css">
+</head>
+<body data-media-id="media-ch1-centroid-steps">
+  <a class="skip-link" href="#main">Bỏ qua phần giới thiệu</a>
+  <header class="pilot-header">
+    <strong>Thí điểm đa phương tiện Chương 1</strong>
+    <span>Bản nháp kỹ thuật, không phải kết luận về hiệu quả học tập</span>
+  </header>
+  <main id="main" class="pilot-shell">
+    <section class="pilot-intro" aria-labelledby="page-title">
+      <p class="pilot-state">Mục tiêu cục bộ: obj-ch1-centroid-steps</p>
+      <h1 id="page-title">Giải trọng tâm bằng diện tích âm</h1>
+      <p>Đi qua bốn bước để tính trọng tâm tấm chữ nhật 6 cm × 4 cm có lỗ tròn bán kính 1 cm.</p>
+    </section>
+
+    <div class="pilot-grid">
+      <section class="pilot-panel" aria-labelledby="interaction-title">
+        <h2 id="interaction-title">Lập luận từng bước</h2>
+        <div data-interactive hidden>
+          <div class="media-stage" data-centroid-keyboard tabindex="0"
+            aria-label="Sơ đồ trọng tâm. Dùng mũi tên trái và phải để đổi bước.">
+            <svg viewBox="0 0 640 400" role="img" aria-labelledby="centroid-svg-title centroid-svg-desc">
+              <title id="centroid-svg-title">Tấm chữ nhật có lỗ tròn lệch tâm</title>
+              <desc id="centroid-svg-desc">Tấm rộng 6 cm, cao 4 cm. Lỗ tròn bán kính 1 cm có tâm tại 4,5 cm và 2,5 cm. Trọng tâm còn lại ở khoảng 2,77 cm và 1,92 cm.</desc>
+              <rect x="50" y="60" width="540" height="280" fill="var(--media-surface)" stroke="var(--media-navy)" stroke-width="4"/>
+              <circle data-centroid-hole cx="455" cy="165" r="70" fill="var(--media-paper)" stroke="var(--media-danger)" stroke-width="4" hidden/>
+              <line data-centroid-guide-x x1="300" y1="60" x2="300" y2="340" stroke="var(--media-resultant)" stroke-width="3" stroke-dasharray="8 8" hidden/>
+              <line data-centroid-guide-y x1="50" y1="205" x2="590" y2="205" stroke="var(--media-resultant)" stroke-width="3" stroke-dasharray="8 8" hidden/>
+              <circle data-centroid-mark cx="300" cy="205" r="10" fill="var(--media-resultant)" hidden/>
+              <text data-centroid-label x="316" y="194" fill="var(--media-resultant)" font-size="24" hidden>C</text>
+              <text x="68" y="92" fill="var(--media-ink)" font-size="22">A₁ = 24 cm²</text>
+              <text data-hole-label x="424" y="170" fill="var(--media-danger)" font-size="20" hidden>−A₀</text>
+            </svg>
+          </div>
+          <ol class="step-list" data-step-list>
+            <li data-step="0">Xác định tấm gốc: A₁ = 24 cm², C₁ = (3; 2) cm.</li>
+            <li data-step="1">Đổi lỗ thành diện tích âm: A₀ = −π cm², C₀ = (4,5; 2,5) cm.</li>
+            <li data-step="2">Lập tổng mô men diện tích có dấu theo x và y.</li>
+            <li data-step="3">Chia mô men có dấu cho diện tích còn lại để tìm C.</li>
+          </ol>
+          <p class="formula" data-centroid-formula aria-live="polite"></p>
+          <div class="pilot-controls">
+            <button type="button" class="secondary" data-step-previous>Bước trước</button>
+            <button type="button" data-step-next>Bước tiếp</button>
+          </div>
+        </div>
+
+        <section class="static-fallback" data-static-fallback id="loi-giai-tinh" aria-labelledby="static-title">
+          <h2 id="static-title">Lời giải tĩnh</h2>
+          <ol>
+            <li>A₁ = 6 × 4 = 24 cm², C₁ = (3; 2) cm.</li>
+            <li>A₀ = −π × 1² = −3,142 cm², C₀ = (4,5; 2,5) cm.</li>
+            <li>A = 24 − π = 20,858 cm².</li>
+            <li>x<sub>C</sub> = (24×3 − π×4,5)/(24 − π) = 2,77 cm.</li>
+            <li>y<sub>C</sub> = (24×2 − π×2,5)/(24 − π) = 1,92 cm.</li>
+          </ol>
+          <p>Lỗ nằm phía trên bên phải nên trọng tâm phần còn lại dịch xuống dưới và sang trái.</p>
+        </section>
+        <p class="status-line" data-media-status role="status" aria-live="polite">Đang chuẩn bị các bước.</p>
+      </section>
+
+      <aside class="pilot-panel flat" aria-labelledby="reasoning-title">
+        <h2 id="reasoning-title">Bằng chứng cần tạo</h2>
+        <div class="formula">x<sub>C</sub> = Σ(Aᵢxᵢ)/ΣAᵢ; y<sub>C</sub> = Σ(Aᵢyᵢ)/ΣAᵢ</div>
+        <p>Phần khoét phải mang dấu âm trong cả diện tích và mô men diện tích. Không được trừ tọa độ riêng lẻ sau khi đã lấy trung bình.</p>
+        <p class="evidence-prompt"><strong>Tự kiểm:</strong> Trước bước cuối, hãy dự đoán trọng tâm dịch về phía nào và giải thích bằng phân bố diện tích còn lại.</p>
+      </aside>
+    </div>
+  </main>
+  <script src="../../js/sim2/physics/statics.js"></script>
+  <script src="shared/media-pilot-runtime.js"></script>
+  <script src="shared/media-loader.js"></script>
+  <script src="centroid-reasoning.js"></script>
+</body>
+</html>

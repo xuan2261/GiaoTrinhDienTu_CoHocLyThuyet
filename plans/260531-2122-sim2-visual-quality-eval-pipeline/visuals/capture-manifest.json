@@ -1,543 +1,964 @@
-[
-  {
-    "route": "ch1-1-3",
-    "chapter": 1,
-    "section": "1.3",
-    "name": "Véc tơ lực: điểm đặt / phương / độ lớn",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-1-3__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-1-3__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch1-1-3__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch1-1-4",
-    "chapter": 1,
-    "section": "1.4",
-    "name": "Mô men lực & cánh tay đòn",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-1-4__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-1-4__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch1-1-4__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch1-1-5",
-    "chapter": 1,
-    "section": "1.5",
-    "name": "Thu gọn hệ lực phẳng → R + Mo",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-1-5__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-1-5__live.png"
-      },
-      {
-        "label": "drag-far",
-        "src": "ch1-1-5__drag-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch1-1-6",
-    "chapter": 1,
-    "section": "1.6",
-    "name": "Ngẫu lực & mô men ngẫu",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-1-6__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-1-6__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch1-1-6__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch1-2-3",
-    "chapter": 1,
-    "section": "2.3",
-    "name": "Hình bình hành lực (2 đồng quy)",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-2-3__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-2-3__live.png"
-      },
-      {
-        "label": "drag-far",
-        "src": "ch1-2-3__drag-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch1-1-8",
-    "chapter": 1,
-    "section": "1.8",
-    "name": "Phản lực liên kết + dựng FBD",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-1-8__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-1-8__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch1-1-8__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch1-3-2",
-    "chapter": 1,
-    "section": "3.2",
-    "name": "Lực căng dây (ràng buộc 1 chiều)",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-3-2__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-3-2__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch1-3-2__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch1-3-6",
-    "chapter": 1,
-    "section": "3.6",
-    "name": "Phản lực & mô men ngàm",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-3-6__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-3-6__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch1-3-6__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch1-5-3",
-    "chapter": 1,
-    "section": "5.3",
-    "name": "Nón ma sát trên mặt nghiêng",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-5-3__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-5-3__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch1-5-3__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch1-6-3",
-    "chapter": 1,
-    "section": "6.3",
-    "name": "Trọng tâm hình ghép / khoét",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch1-6-3__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch1-6-3__live.png"
-      },
-      {
-        "label": "drag-far",
-        "src": "ch1-6-3__drag-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch2-1-1",
-    "chapter": 2,
-    "section": "1.1",
-    "name": "Quỹ đạo chất điểm + v, a",
-    "kind": "dynamic",
-    "images": [
-      {
-        "label": "t0",
-        "src": "ch2-1-1__t0.png"
-      },
-      {
-        "label": "mid",
-        "src": "ch2-1-1__mid.png"
-      },
-      {
-        "label": "end",
-        "src": "ch2-1-1__end.png"
-      }
-    ]
-  },
-  {
-    "route": "ch2-1-3",
-    "chapter": 2,
-    "section": "1.3",
-    "name": "Tiếp/pháp tuyến + bán kính cong",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch2-1-3__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch2-1-3__live.png"
-      },
-      {
-        "label": "drag-far",
-        "src": "ch2-1-3__drag-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch2-2-2",
-    "chapter": 2,
-    "section": "2.2",
-    "name": "Quay quanh trục cố định (ω, α)",
-    "kind": "dynamic",
-    "images": [
-      {
-        "label": "t0",
-        "src": "ch2-2-2__t0.png"
-      },
-      {
-        "label": "mid",
-        "src": "ch2-2-2__mid.png"
-      },
-      {
-        "label": "end",
-        "src": "ch2-2-2__end.png"
-      }
-    ]
-  },
-  {
-    "route": "ch2-3-2",
-    "chapter": 2,
-    "section": "3.2",
-    "name": "Truyền động bánh răng–đai–puli",
-    "kind": "dynamic",
-    "images": [
-      {
-        "label": "t0",
-        "src": "ch2-3-2__t0.png"
-      },
-      {
-        "label": "mid",
-        "src": "ch2-3-2__mid.png"
-      },
-      {
-        "label": "end",
-        "src": "ch2-3-2__end.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch2-3-2__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch2-4-4",
-    "chapter": 2,
-    "section": "4.4",
-    "name": "Hợp chuyển động & Coriolis",
-    "kind": "dynamic",
-    "images": [
-      {
-        "label": "t0",
-        "src": "ch2-4-4__t0.png"
-      },
-      {
-        "label": "mid",
-        "src": "ch2-4-4__mid.png"
-      },
-      {
-        "label": "end",
-        "src": "ch2-4-4__end.png"
-      }
-    ]
-  },
-  {
-    "route": "ch2-5-2",
-    "chapter": 2,
-    "section": "5.2",
-    "name": "Tâm vận tốc tức thời (IC)",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch2-5-2__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch2-5-2__live.png"
-      },
-      {
-        "label": "drag-far",
-        "src": "ch2-5-2__drag-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch2-5-3",
-    "chapter": 2,
-    "section": "5.3",
-    "name": "Phân bố vận tốc điểm trên vật rắn",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch2-5-3__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch2-5-3__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch2-5-3__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch3-2-2",
-    "chapter": 3,
-    "section": "2.2",
-    "name": "Định luật II Newton F = m·a",
-    "kind": "dynamic",
-    "images": [
-      {
-        "label": "t0",
-        "src": "ch3-2-2__t0.png"
-      },
-      {
-        "label": "mid",
-        "src": "ch3-2-2__mid.png"
-      },
-      {
-        "label": "end",
-        "src": "ch3-2-2__end.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch3-2-2__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch3-2-3",
-    "chapter": 3,
-    "section": "2.3",
-    "name": "Định luật III: lực & phản lực",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch3-2-3__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch3-2-3__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch3-2-3__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch3-1-3",
-    "chapter": 3,
-    "section": "1.3",
-    "name": "HQC quán tính vs phi quán tính",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch3-1-3__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch3-1-3__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch3-1-3__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch3-3-1",
-    "chapter": 3,
-    "section": "3.1",
-    "name": "Giải ODE chuyển động (RK4)",
-    "kind": "dynamic",
-    "images": [
-      {
-        "label": "t0",
-        "src": "ch3-3-1__t0.png"
-      },
-      {
-        "label": "mid",
-        "src": "ch3-3-1__mid.png"
-      },
-      {
-        "label": "end",
-        "src": "ch3-3-1__end.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch3-3-1__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch3-5-2",
-    "chapter": 3,
-    "section": "5.2",
-    "name": "Định lý động lượng & xung lượng",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch3-5-2__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch3-5-2__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch3-5-2__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch3-5-3",
-    "chapter": 3,
-    "section": "5.3",
-    "name": "Bảo toàn mô men động lượng",
-    "kind": "dynamic",
-    "images": [
-      {
-        "label": "t0",
-        "src": "ch3-5-3__t0.png"
-      },
-      {
-        "label": "mid",
-        "src": "ch3-5-3__mid.png"
-      },
-      {
-        "label": "end",
-        "src": "ch3-5-3__end.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch3-5-3__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch3-5-4",
-    "chapter": 3,
-    "section": "5.4",
-    "name": "Định lý động năng (công–năng)",
-    "kind": "static",
-    "images": [
-      {
-        "label": "init",
-        "src": "ch3-5-4__init.png"
-      },
-      {
-        "label": "live",
-        "src": "ch3-5-4__live.png"
-      },
-      {
-        "label": "slider-far",
-        "src": "ch3-5-4__slider-far.png"
-      }
-    ]
-  },
-  {
-    "route": "ch3-6-2",
-    "chapter": 3,
-    "section": "6.2",
-    "name": "Va chạm với hệ số phục hồi e",
-    "kind": "dynamic",
-    "images": [
-      {
-        "label": "t0",
-        "src": "ch3-6-2__t0.png"
-      },
-      {
-        "label": "mid",
-        "src": "ch3-6-2__mid.png"
-      },
-      {
-        "label": "end",
-        "src": "ch3-6-2__end.png"
-      }
-    ]
-  }
-]
+{
+  "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+  "generatedAt": "2026-08-24T08:57:38.418Z",
+  "artifactDir": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+  "routes": [
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-1-3",
+      "chapter": 1,
+      "section": "1.3",
+      "name": "Véc tơ lực: điểm đặt / phương / độ lớn",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-1-3__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-3__init.png",
+          "bytes": 28961,
+          "sha256": "1f0dfbd05405de08e460a367f760ef87a8d1fa9d66a405ed919e71c03d141f3d"
+        },
+        {
+          "label": "live",
+          "file": "ch1-1-3__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-3__live.png",
+          "bytes": 29553,
+          "sha256": "402d38b5ca47225a7a4c7ab23f68985346d0e232b275e2f18e2f71d1046397b8"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch1-1-3__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-3__slider-far.png",
+          "bytes": 26724,
+          "sha256": "088f171bdf93596d19f2b547b91d78ad300edd2e23c6f4b126b40ba2b0ab4dc5"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-1-4",
+      "chapter": 1,
+      "section": "1.4",
+      "name": "Mô men lực & cánh tay đòn",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-1-4__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-4__init.png",
+          "bytes": 20374,
+          "sha256": "34de3f34e5830cedb253b0588816b356440aeb49cb89a0db6ce31da71d750a80"
+        },
+        {
+          "label": "live",
+          "file": "ch1-1-4__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-4__live.png",
+          "bytes": 20967,
+          "sha256": "58d91e982e34e12cd3644a551be3a604abd605b16774010a013cdf2d2fd1b201"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch1-1-4__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-4__slider-far.png",
+          "bytes": 22442,
+          "sha256": "200e19cc90ea869b4281fcc053bd53c0754c55a622fcb0d9841dfa66016dcf74"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-1-5",
+      "chapter": 1,
+      "section": "1.5",
+      "name": "Thu gọn hệ lực phẳng → R + Mo",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "drag-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-1-5__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-5__init.png",
+          "bytes": 27961,
+          "sha256": "e2dfed5ae3741bf69a81340d735cc62bb9366d75abd15f6f20650738e05eb396"
+        },
+        {
+          "label": "live",
+          "file": "ch1-1-5__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-5__live.png",
+          "bytes": 28960,
+          "sha256": "467f85f7c584b41252f6aabd3bf36d11b805bda6b8f3b4d24b84ce357b11c6e8"
+        },
+        {
+          "label": "drag-far",
+          "file": "ch1-1-5__drag-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-5__drag-far.png",
+          "bytes": 35678,
+          "sha256": "cfa3819f735269d06146dca582d8b6055ff68d88487aade4f5db5fd648137d48"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-1-6",
+      "chapter": 1,
+      "section": "1.6",
+      "name": "Ngẫu lực & mô men ngẫu",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-1-6__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-6__init.png",
+          "bytes": 23003,
+          "sha256": "9bfc48107b140990caf6d25190c03e00200d5f7464c79de7cd2e075bd97f0314"
+        },
+        {
+          "label": "live",
+          "file": "ch1-1-6__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-6__live.png",
+          "bytes": 23538,
+          "sha256": "e38fdae14a041ae903ce9889236d101b2d61d6601d12a634617415c57e73e930"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch1-1-6__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-6__slider-far.png",
+          "bytes": 25363,
+          "sha256": "8c76d021231c09b515fc4ec1d0ea6ad89afc770aaf76c32cb1e140344fae1a35"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-2-3",
+      "chapter": 1,
+      "section": "2.3",
+      "name": "Hình bình hành lực (2 đồng quy)",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "drag-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-2-3__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-2-3__init.png",
+          "bytes": 30498,
+          "sha256": "edbf7ab3efc8d291c71f2561e50811a1267faa1b2be05d21c9b0856464a092d0"
+        },
+        {
+          "label": "live",
+          "file": "ch1-2-3__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-2-3__live.png",
+          "bytes": 31464,
+          "sha256": "102f8243187879a670ba8b3018b7eab759a7900e0a9465c0484d89c4326e408f"
+        },
+        {
+          "label": "drag-far",
+          "file": "ch1-2-3__drag-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-2-3__drag-far.png",
+          "bytes": 37889,
+          "sha256": "6837622e5931130861068325e97dca4d613953551a6a4b1ca3319494176f9026"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-1-8",
+      "chapter": 1,
+      "section": "1.8",
+      "name": "Phản lực liên kết + dựng FBD",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-1-8__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-8__init.png",
+          "bytes": 26102,
+          "sha256": "a9a36035c07ca02f51807d1690155783b47941f7eb8a4fac7afbad8ff201776f"
+        },
+        {
+          "label": "live",
+          "file": "ch1-1-8__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-8__live.png",
+          "bytes": 26808,
+          "sha256": "565f7e9185dbe9952d2be7924a55916032011e1ce36ac46d9795e6c455bf354d"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch1-1-8__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-1-8__slider-far.png",
+          "bytes": 28198,
+          "sha256": "1d055205831741d1a716f00498776c7ffa46a9dd67dbdb749f22d73fc9ea7539"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-3-2",
+      "chapter": 1,
+      "section": "3.2",
+      "name": "Lực căng dây (ràng buộc 1 chiều)",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-3-2__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-3-2__init.png",
+          "bytes": 29497,
+          "sha256": "5fa86148b262d63886838cbae5683671bdff52764b3e3223c6f53c0571db1702"
+        },
+        {
+          "label": "live",
+          "file": "ch1-3-2__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-3-2__live.png",
+          "bytes": 30152,
+          "sha256": "b3896d59bd5e5fac5021ab80620f36b9bcc2c47a1be5c1b4cf8318baf97ac57f"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch1-3-2__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-3-2__slider-far.png",
+          "bytes": 29171,
+          "sha256": "1199049a5466c661f52c615d4d4893ad13e95aa0aac8d5b4535e762d6a0991ac"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-3-6",
+      "chapter": 1,
+      "section": "3.6",
+      "name": "Phản lực & mô men ngàm",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-3-6__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-3-6__init.png",
+          "bytes": 22974,
+          "sha256": "c18752235f2823456817f085d5318bb43d7eca81ddb9d45c9200e3f31b58bc6c"
+        },
+        {
+          "label": "live",
+          "file": "ch1-3-6__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-3-6__live.png",
+          "bytes": 23581,
+          "sha256": "39c16dffd5a25c631378f770af0257b9f7ae4f66f04243673a261ba9a6a97da4"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch1-3-6__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-3-6__slider-far.png",
+          "bytes": 25246,
+          "sha256": "0b3fcc169972f1d2533a140c56b083525b4278b51e6b78d488dbc26871af6bd7"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-5-3",
+      "chapter": 1,
+      "section": "5.3",
+      "name": "Nón ma sát trên mặt nghiêng",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-5-3__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-5-3__init.png",
+          "bytes": 36383,
+          "sha256": "70a277b9f88a644825ca71f73dbd0049064d03e508197665851adea8beb67100"
+        },
+        {
+          "label": "live",
+          "file": "ch1-5-3__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-5-3__live.png",
+          "bytes": 36880,
+          "sha256": "8e4d5a45987f448f0ac57d64c81a65b1f64213e629755672833baf577fba5389"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch1-5-3__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-5-3__slider-far.png",
+          "bytes": 37984,
+          "sha256": "60ff17f01f22ad4d677ce51c5e63774e39c0d386576404a80c5f0d0f7dad3240"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch1-6-3",
+      "chapter": 1,
+      "section": "6.3",
+      "name": "Trọng tâm hình ghép / khoét",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "drag-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch1-6-3__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-6-3__init.png",
+          "bytes": 77140,
+          "sha256": "478bd2c37e2b85e64acf6f2112fcf6675b1f7dd370817b09f6bae800999b7414"
+        },
+        {
+          "label": "live",
+          "file": "ch1-6-3__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-6-3__live.png",
+          "bytes": 77966,
+          "sha256": "1818b87c9f1d721f5c2be3ca9d3734f17217fddaddcd5266718cbf6c792fe5d8"
+        },
+        {
+          "label": "drag-far",
+          "file": "ch1-6-3__drag-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch1-6-3__drag-far.png",
+          "bytes": 78326,
+          "sha256": "bde008a3421bf019d3d6c5a9e4089e9d20acd5dad6e91210da7674d74173e240"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch2-1-1",
+      "chapter": 2,
+      "section": "1.1",
+      "name": "Quỹ đạo chất điểm + v, a",
+      "kind": "dynamic",
+      "expectedShots": [
+        "t0",
+        "mid",
+        "end"
+      ],
+      "images": [
+        {
+          "label": "t0",
+          "file": "ch2-1-1__t0.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-1-1__t0.png",
+          "bytes": 24790,
+          "sha256": "1a8423820332741a03152cb8b44c8a225be5a6151a0919d431c1056e66fc4e18"
+        },
+        {
+          "label": "mid",
+          "file": "ch2-1-1__mid.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-1-1__mid.png",
+          "bytes": 27780,
+          "sha256": "84578149664ebb137a64c88bb7307ad74ac80589e4e32300561bb28eb5eaf063"
+        },
+        {
+          "label": "end",
+          "file": "ch2-1-1__end.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-1-1__end.png",
+          "bytes": 30050,
+          "sha256": "84c54fd424a83bb8b6aaedc75a37177f080481a8db547f366eed4fa60c23b878"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch2-1-3",
+      "chapter": 2,
+      "section": "1.3",
+      "name": "Tiếp/pháp tuyến + bán kính cong",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "drag-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch2-1-3__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-1-3__init.png",
+          "bytes": 38338,
+          "sha256": "afcf7466d1cb77e00e48b1a851637f68ecc83571e1cb11b2333f3f4483dec8ef"
+        },
+        {
+          "label": "live",
+          "file": "ch2-1-3__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-1-3__live.png",
+          "bytes": 38836,
+          "sha256": "105f579a62a01ff44d7c1e5a91f532e5e5daa9fa544a498a075c4e99deb51d98"
+        },
+        {
+          "label": "drag-far",
+          "file": "ch2-1-3__drag-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-1-3__drag-far.png",
+          "bytes": 32275,
+          "sha256": "4027a7f80dcde02b30b6bd1924c1c9660eae562e22efcfaf1e2140a4b11f9ab4"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch2-2-2",
+      "chapter": 2,
+      "section": "2.2",
+      "name": "Quay quanh trục cố định (ω, α)",
+      "kind": "dynamic",
+      "expectedShots": [
+        "t0",
+        "mid",
+        "end"
+      ],
+      "images": [
+        {
+          "label": "t0",
+          "file": "ch2-2-2__t0.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-2-2__t0.png",
+          "bytes": 50987,
+          "sha256": "36fb2acfcb6014533544109e1c5d6d6103f7252f89861544fa9e8c469c7b45a6"
+        },
+        {
+          "label": "mid",
+          "file": "ch2-2-2__mid.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-2-2__mid.png",
+          "bytes": 52170,
+          "sha256": "2842e3aab48fab09c2febfa4053b566278915f6e7be80e0ac39274d346e78dae"
+        },
+        {
+          "label": "end",
+          "file": "ch2-2-2__end.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-2-2__end.png",
+          "bytes": 51982,
+          "sha256": "11cdf9a721b7ba2c82f3030717e225919a9f9b3c6d5b339434a6cb9f350289f0"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch2-3-2",
+      "chapter": 2,
+      "section": "3.2",
+      "name": "Truyền động bánh răng–đai–puli",
+      "kind": "dynamic",
+      "expectedShots": [
+        "t0",
+        "mid",
+        "end",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "t0",
+          "file": "ch2-3-2__t0.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-3-2__t0.png",
+          "bytes": 67823,
+          "sha256": "280ee9020e22cad8f3aa3fdb3ad39bd9939e739f71ffb4fd600e3f7ae1c52e24"
+        },
+        {
+          "label": "mid",
+          "file": "ch2-3-2__mid.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-3-2__mid.png",
+          "bytes": 69974,
+          "sha256": "db4d37c51f4901f136ddfe641d462bbaacfe12a6c0f8ddd7311a14601f7888c4"
+        },
+        {
+          "label": "end",
+          "file": "ch2-3-2__end.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-3-2__end.png",
+          "bytes": 70225,
+          "sha256": "b39d9af7fbd24a95bba34bb935d73863298fda2f2434ad2cc9cc4a2553848963"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch2-3-2__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-3-2__slider-far.png",
+          "bytes": 78901,
+          "sha256": "8e3ab8c1e0d6b65ae80f9e2e4d3fb6cbd39e940edc75289789124dda8b18bc5c"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch2-4-4",
+      "chapter": 2,
+      "section": "4.4",
+      "name": "Hợp chuyển động & Coriolis",
+      "kind": "dynamic",
+      "expectedShots": [
+        "t0",
+        "mid",
+        "end"
+      ],
+      "images": [
+        {
+          "label": "t0",
+          "file": "ch2-4-4__t0.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-4-4__t0.png",
+          "bytes": 51249,
+          "sha256": "41171b63b4228fd59db6d4f036c1a1951879bea21ad9c0170f65d8b0fdf98b67"
+        },
+        {
+          "label": "mid",
+          "file": "ch2-4-4__mid.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-4-4__mid.png",
+          "bytes": 51700,
+          "sha256": "a79191c8181d6be416844db350a49bb4a76a67a88573e07fd402371fcba32458"
+        },
+        {
+          "label": "end",
+          "file": "ch2-4-4__end.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-4-4__end.png",
+          "bytes": 51678,
+          "sha256": "ad3189b47d8abdfadf8b1fadf8aebe203d6184f0883167ef55fc6fdc322dbcd7"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch2-5-2",
+      "chapter": 2,
+      "section": "5.2",
+      "name": "Tâm vận tốc tức thời (IC)",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "drag-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch2-5-2__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-5-2__init.png",
+          "bytes": 26991,
+          "sha256": "0245327c43e4cddf4ee85515ab61ddc9c9c7bd3cf8717e2f30fe2078c6213e67"
+        },
+        {
+          "label": "live",
+          "file": "ch2-5-2__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-5-2__live.png",
+          "bytes": 27473,
+          "sha256": "fd0071da5ac97571d4843c40c838354085f99ee02a4c92b99493a42f50d02e37"
+        },
+        {
+          "label": "drag-far",
+          "file": "ch2-5-2__drag-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-5-2__drag-far.png",
+          "bytes": 27744,
+          "sha256": "e05eeb42e6f5be226c44e7037b13f3683e5ea1ce0f8f520bdf049a99921a89ed"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch2-5-3",
+      "chapter": 2,
+      "section": "5.3",
+      "name": "Phân bố vận tốc điểm trên vật rắn",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch2-5-3__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-5-3__init.png",
+          "bytes": 51422,
+          "sha256": "15ebe76dd8338b27b32866b61397f0ef58bf0d85cce2073ab0f8eef2b9a82d8f"
+        },
+        {
+          "label": "live",
+          "file": "ch2-5-3__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-5-3__live.png",
+          "bytes": 52203,
+          "sha256": "aba9df9bfbfbb6b206046c74dcab7d9d67471e546d7a829e81b0f985b9a6ef52"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch2-5-3__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch2-5-3__slider-far.png",
+          "bytes": 52874,
+          "sha256": "c6fc524ff9bbac21759d6b546e7cf3174ae32230b4cdec955cd41a181a263e38"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch3-2-2",
+      "chapter": 3,
+      "section": "2.2",
+      "name": "Định luật II Newton F = m·a",
+      "kind": "dynamic",
+      "expectedShots": [
+        "t0",
+        "mid",
+        "end",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "t0",
+          "file": "ch3-2-2__t0.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-2-2__t0.png",
+          "bytes": 23891,
+          "sha256": "db9cb603b83f7f4cdb89c537d93cd2617cb0796103da354fb6ce9394aa9d526e"
+        },
+        {
+          "label": "mid",
+          "file": "ch3-2-2__mid.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-2-2__mid.png",
+          "bytes": 25670,
+          "sha256": "38e4df63e3066548c4995115dcf32aca223c8e29dfb751b704c00bccb1b23b7b"
+        },
+        {
+          "label": "end",
+          "file": "ch3-2-2__end.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-2-2__end.png",
+          "bytes": 26659,
+          "sha256": "6bf9a8ff5043eab9762e9d5dc4f8146694db56797fad4e50f8a4f30852f7dbba"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch3-2-2__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-2-2__slider-far.png",
+          "bytes": 24872,
+          "sha256": "fe6dde0667b80d72363db346335700c89c8749a5c1e5915e93c89fcee891d824"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch3-2-3",
+      "chapter": 3,
+      "section": "2.3",
+      "name": "Định luật III: lực & phản lực",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch3-2-3__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-2-3__init.png",
+          "bytes": 24111,
+          "sha256": "6ae5a34b974a070bbe9365375967611d9ac24a20b6778def594252614a632324"
+        },
+        {
+          "label": "live",
+          "file": "ch3-2-3__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-2-3__live.png",
+          "bytes": 24447,
+          "sha256": "52b88afc047b695e6862c9990a4bcc4b066f4881fb6abf070c69da175ef0406d"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch3-2-3__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-2-3__slider-far.png",
+          "bytes": 25147,
+          "sha256": "662d7aeef57060679b3e40f446283257114257c3af328f014e3690d370c346f3"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch3-1-3",
+      "chapter": 3,
+      "section": "1.3",
+      "name": "HQC quán tính vs phi quán tính",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch3-1-3__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-1-3__init.png",
+          "bytes": 72162,
+          "sha256": "74379782d0a993eb2437e3da2878920b0f05bed40c487300a40bee48517c3cc5"
+        },
+        {
+          "label": "live",
+          "file": "ch3-1-3__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-1-3__live.png",
+          "bytes": 72584,
+          "sha256": "8382efc746780593212b55839bdced4f2084d1bf0a21edaac4929f381eb32733"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch3-1-3__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-1-3__slider-far.png",
+          "bytes": 73915,
+          "sha256": "3a461a11fe29ce11f293649575b98c26cbc2325b4c501f45ed6616531a4bc885"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch3-3-1",
+      "chapter": 3,
+      "section": "3.1",
+      "name": "Giải ODE chuyển động (RK4)",
+      "kind": "dynamic",
+      "expectedShots": [
+        "t0",
+        "mid",
+        "end",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "t0",
+          "file": "ch3-3-1__t0.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-3-1__t0.png",
+          "bytes": 29023,
+          "sha256": "dcc7bf24d131d9eb835a244b7df3540efd8d0fedd5ea1cf515b735a763bd4fba"
+        },
+        {
+          "label": "mid",
+          "file": "ch3-3-1__mid.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-3-1__mid.png",
+          "bytes": 29290,
+          "sha256": "e840fdc557d4ab1a49da529af9fec90eb6d101a15dea50d4b1045689f9e82297"
+        },
+        {
+          "label": "end",
+          "file": "ch3-3-1__end.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-3-1__end.png",
+          "bytes": 29880,
+          "sha256": "3ae6c9cad8c979ceab2abd6d4817fc303699f10ef2e41ce403a83849b78b4596"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch3-3-1__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-3-1__slider-far.png",
+          "bytes": 29676,
+          "sha256": "3ab80df96c72c5d925a4e25c59f235946fbac86ee43dff13ecec5a8013a47d78"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch3-5-2",
+      "chapter": 3,
+      "section": "5.2",
+      "name": "Định lý động lượng & xung lượng",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch3-5-2__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-2__init.png",
+          "bytes": 25133,
+          "sha256": "d4ff61cbee934cade1dd82911ce374ebc40e9295b6f162caf0dfa683c1224221"
+        },
+        {
+          "label": "live",
+          "file": "ch3-5-2__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-2__live.png",
+          "bytes": 25543,
+          "sha256": "b5eb9bf427130ccd7f5e7a2cf93e1467a27afae1160ae4594eba9facf7b36f39"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch3-5-2__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-2__slider-far.png",
+          "bytes": 26982,
+          "sha256": "fba08b2877431422281b257b12fd8a0c65b974b76cc28dfbdfde31a9d53350f0"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch3-5-3",
+      "chapter": 3,
+      "section": "5.3",
+      "name": "Bảo toàn mô men động lượng",
+      "kind": "dynamic",
+      "expectedShots": [
+        "t0",
+        "mid",
+        "end",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "t0",
+          "file": "ch3-5-3__t0.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-3__t0.png",
+          "bytes": 26942,
+          "sha256": "97f6d8527700d9f3e2f338e63c6d74626bc25bb1bafa51d39cc2e90fc5decefe"
+        },
+        {
+          "label": "mid",
+          "file": "ch3-5-3__mid.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-3__mid.png",
+          "bytes": 31793,
+          "sha256": "e7aa2c5f09cb668bb441b15594dbf3f4632ce1907400635f7f77a30b0aaa1acd"
+        },
+        {
+          "label": "end",
+          "file": "ch3-5-3__end.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-3__end.png",
+          "bytes": 32433,
+          "sha256": "ddc0fe62091102d5893fc14fc67c3ee247dc6a1485ccba80387e4428e240c0bd"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch3-5-3__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-3__slider-far.png",
+          "bytes": 29729,
+          "sha256": "20f35749fd524cc7b99b9ddad20bd062bde4130b5d4a41f337c70635aa43b71e"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch3-5-4",
+      "chapter": 3,
+      "section": "5.4",
+      "name": "Định lý động năng (công–năng)",
+      "kind": "static",
+      "expectedShots": [
+        "init",
+        "live",
+        "slider-far"
+      ],
+      "images": [
+        {
+          "label": "init",
+          "file": "ch3-5-4__init.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-4__init.png",
+          "bytes": 26845,
+          "sha256": "c9544d100ca6433842e22824514f3e3f5d04847ac12816d5b5525bbcd255a411"
+        },
+        {
+          "label": "live",
+          "file": "ch3-5-4__live.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-4__live.png",
+          "bytes": 27260,
+          "sha256": "41966a3306dc852e1edd02df1d7f72da4def84d1aa0912606e368129d2976013"
+        },
+        {
+          "label": "slider-far",
+          "file": "ch3-5-4__slider-far.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-5-4__slider-far.png",
+          "bytes": 28379,
+          "sha256": "b63b7f9b03af7772bcd6354798fc901b2c73207297a8cf7e24b81be5a156b572"
+        }
+      ],
+      "pageErrors": []
+    },
+    {
+      "runId": "9d627c4d-9ba3-4db1-889c-4dc723c5e31e",
+      "route": "ch3-6-2",
+      "chapter": 3,
+      "section": "6.2",
+      "name": "Va chạm với hệ số phục hồi e",
+      "kind": "dynamic",
+      "expectedShots": [
+        "t0",
+        "mid",
+        "end"
+      ],
+      "images": [
+        {
+          "label": "t0",
+          "file": "ch3-6-2__t0.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-6-2__t0.png",
+          "bytes": 33915,
+          "sha256": "af274f64959dc9dd36f2bcec6b62f4c395bc34d5ae9cf717ca5fa5c7bb40cd70"
+        },
+        {
+          "label": "mid",
+          "file": "ch3-6-2__mid.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-6-2__mid.png",
+          "bytes": 34036,
+          "sha256": "06bbdda6af27f76d20676a773bbec2e906e2b3aaa3d0fd2f6fecdfc5a7cd0db1"
+        },
+        {
+          "label": "end",
+          "file": "ch3-6-2__end.png",
+          "src": "runs/9d627c4d-9ba3-4db1-889c-4dc723c5e31e/ch3-6-2__end.png",
+          "bytes": 36180,
+          "sha256": "c5c9cfb13071e08bdf3e60e61facb4313013fac32e6a6e6f99f2cda21fc06c4a"
+        }
+      ],
+      "pageErrors": []
+    }
+  ]
+}

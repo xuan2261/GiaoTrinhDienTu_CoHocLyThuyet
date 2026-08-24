@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "baselineDate": "2026-08-21",
+  "standard": "WCAG 2.2 Level AA",
+  "claim": "Repository evidence only; this baseline is not an institutional certification or a blanket conformance claim.",
+  "scope": {
+    "included": [
+      "application shell and navigation",
+      "offline full-text search",
+      "quiz answer, review, and reset flow",
+      "inline PDF dialog chrome and focus lifecycle",
+      "representative Sim2 controls and drag handle",
+      "representative Sim3 2D/3D mode toggle"
+    ],
+    "excludedOrLimited": [
+      "generated chapter fragments are not rewritten or exhaustively audited by these Phase 8 tests",
+      "PDF page document semantics and authored PDF accessibility are outside the shell-chrome automation scope",
+      "scientific visualization descriptions and learning equivalence require manual subject-matter review",
+      "deterministic contrast checks cover declared token pairs, not every composited pixel or third-party PDF content",
+      "screen-reader output, text spacing, focus-not-obscured edge cases, and motion comprehension require manual review"
+    ]
+  },
+  "automation": {
+    "status": "passed",
+    "runner": "Playwright Chromium",
+    "transport": "file://",
+    "observedAt": "2026-08-21T00:00:00Z",
+    "command": "npm run test:accessibility",
+    "specs": [
+      "tests/accessibility-axe.spec.js",
+      "tests/accessibility-landmarks.spec.js",
+      "tests/accessibility-keyboard-flows.spec.js",
+      "tests/accessibility-zoom-reflow.spec.js",
+      "tests/accessibility-contrast.spec.js"
+    ]
+  },
+  "manualReview": {
+    "status": "pending-independent-review",
+    "reviewer": null,
+    "environment": null,
+    "required": [
+      "keyboard-only walkthrough in light and dark themes",
+      "NVDA or equivalent screen-reader walkthrough",
+      "200% desktop and 400% narrow reflow review",
+      "text spacing override review",
+      "non-text contrast and target-size spot checks",
+      "reduced-motion and scientific visualization equivalence review"
+    ]
+  },
+  "additionalContracts": [
+    { "id": "reduced-motion", "surfaces": ["shell", "Sim2", "PDF chrome"], "automatedEvidence": ["accessibility-zoom-reflow.spec.js"], "automatedStatus": "passed", "manualStatus": "pending-motion-comprehension-review" }
+  ],
+  "tokenPairs": [
+    { "id": "dark-body-text", "theme": "dark", "foreground": "--tx", "background": "--bg", "minimum": 4.5, "usage": "normal body text" },
+    { "id": "dark-secondary-text", "theme": "dark", "foreground": "--tx2", "background": "--bg", "minimum": 4.5, "usage": "secondary body text" },
+    { "id": "dark-nav-text", "theme": "dark", "foreground": "--tx", "background": "--nav", "minimum": 4.5, "usage": "navigation text" },
+    { "id": "dark-accent-text", "theme": "dark", "foreground": "--gold-l", "background": "--nav", "minimum": 4.5, "usage": "accent text" },
+    { "id": "dark-focus-indicator", "theme": "dark", "foreground": "--focus-ring", "background": "--bg", "minimum": 3, "usage": "focus indicator" },
+    { "id": "dark-quiz-success", "theme": "dark", "foreground": "--success", "background": "--nav", "minimum": 4.5, "usage": "quiz correct status against owned surface base" },
+    { "id": "dark-quiz-danger", "theme": "dark", "foreground": "--danger", "background": "--nav", "minimum": 4.5, "usage": "quiz incorrect status against owned surface base" },
+    { "id": "dark-accent-control", "theme": "dark", "foreground": "--accent-contrast", "background": "--gold", "minimum": 4.5, "usage": "selected and hover control text" },
+    { "id": "light-body-text", "theme": "light", "foreground": "--tx", "background": "--bg", "minimum": 4.5, "usage": "normal body text" },
+    { "id": "light-secondary-text", "theme": "light", "foreground": "--tx2", "background": "--bg", "minimum": 4.5, "usage": "secondary body text" },
+    { "id": "light-nav-text", "theme": "light", "foreground": "--tx", "background": "--nav", "minimum": 4.5, "usage": "navigation text" },
+    { "id": "light-accent-text", "theme": "light", "foreground": "--gold-l", "background": "--nav", "minimum": 4.5, "usage": "accent text" },
+    { "id": "light-focus-indicator", "theme": "light", "foreground": "--focus-ring", "background": "--bg", "minimum": 3, "usage": "focus indicator" },
+    { "id": "light-quiz-success", "theme": "light", "foreground": "--success", "background": "--nav", "minimum": 4.5, "usage": "quiz correct status against owned surface base" },
+    { "id": "light-quiz-danger", "theme": "light", "foreground": "--danger", "background": "--nav", "minimum": 4.5, "usage": "quiz incorrect status against owned surface base" },
+    { "id": "light-accent-control", "theme": "light", "foreground": "--accent-contrast", "background": "--gold", "minimum": 4.5, "usage": "selected and hover control text" }
+  ],
+  "criteria": [
+    { "criterion": "1.3.1", "name": "Info and Relationships", "surfaces": ["shell", "search", "quiz", "PDF"], "automatedEvidence": ["accessibility-axe.spec.js", "accessibility-landmarks.spec.js", "accessibility-keyboard-flows.spec.js"], "automatedStatus": "passed", "manualStatus": "pending" },
+    { "criterion": "1.4.3", "name": "Contrast (Minimum)", "surfaces": ["shell tokens", "search", "quiz", "PDF chrome"], "automatedEvidence": ["accessibility-axe.spec.js", "accessibility-contrast.spec.js"], "automatedStatus": "passed", "manualStatus": "pending-rendered-content-review" },
+    { "criterion": "1.4.10", "name": "Reflow", "surfaces": ["shell", "search", "quiz", "PDF chrome", "Sim2", "Sim3 toggle"], "automatedEvidence": ["accessibility-zoom-reflow.spec.js"], "automatedStatus": "passed", "manualStatus": "pending-browser-zoom-review" },
+    { "criterion": "1.4.11", "name": "Non-text Contrast", "surfaces": ["focus indicators", "controls", "simulation handles"], "automatedEvidence": ["accessibility-contrast.spec.js"], "automatedStatus": "passed", "manualStatus": "pending-composited-review" },
+    { "criterion": "1.4.12", "name": "Text Spacing", "surfaces": ["shell", "content", "search", "quiz", "PDF chrome"], "automatedEvidence": [], "automatedStatus": "manual-only-not-run", "manualStatus": "pending-text-spacing-review" },
+    { "criterion": "2.1.1", "name": "Keyboard", "surfaces": ["shell", "search", "quiz", "PDF", "Sim2", "Sim3"], "automatedEvidence": ["accessibility-keyboard-flows.spec.js"], "automatedStatus": "passed", "manualStatus": "pending" },
+    { "criterion": "2.1.2", "name": "No Keyboard Trap", "surfaces": ["sidebar overlay", "search", "PDF dialog"], "automatedEvidence": ["accessibility-keyboard-flows.spec.js"], "automatedStatus": "passed", "manualStatus": "pending" },
+    { "criterion": "2.4.1", "name": "Bypass Blocks", "surfaces": ["shell"], "automatedEvidence": ["accessibility-landmarks.spec.js", "accessibility-keyboard-flows.spec.js"], "automatedStatus": "passed", "manualStatus": "pending" },
+    { "criterion": "2.4.3", "name": "Focus Order", "surfaces": ["shell", "quiz", "PDF"], "automatedEvidence": ["accessibility-keyboard-flows.spec.js"], "automatedStatus": "passed", "manualStatus": "pending" },
+    { "criterion": "2.4.7", "name": "Focus Visible", "surfaces": ["all owned interactive UI"], "automatedEvidence": ["accessibility-keyboard-flows.spec.js", "accessibility-contrast.spec.js"], "automatedStatus": "passed", "manualStatus": "pending-light-dark-review" },
+    { "criterion": "2.4.11", "name": "Focus Not Obscured (Minimum)", "surfaces": ["skip target", "topbar", "sidebar", "quiz", "PDF"], "automatedEvidence": ["accessibility-keyboard-flows.spec.js", "accessibility-zoom-reflow.spec.js"], "automatedStatus": "passed", "manualStatus": "pending-browser-zoom-review" },
+    { "criterion": "2.5.7", "name": "Dragging Movements", "surfaces": ["Sim2 SVG handles"], "automatedEvidence": ["accessibility-keyboard-flows.spec.js"], "automatedStatus": "passed", "manualStatus": "pending-pointer-keyboard-equivalence-review" },
+    { "criterion": "2.5.8", "name": "Target Size (Minimum)", "surfaces": ["shell icon buttons", "PDF controls", "Sim2 controls", "Sim3 toggle"], "automatedEvidence": ["accessibility-zoom-reflow.spec.js"], "automatedStatus": "passed", "manualStatus": "pending-exception-review" },
+    { "criterion": "4.1.2", "name": "Name, Role, Value", "surfaces": ["sidebar disclosures", "search combobox", "quiz radios", "simulation controls"], "automatedEvidence": ["accessibility-axe.spec.js", "accessibility-landmarks.spec.js", "accessibility-keyboard-flows.spec.js"], "automatedStatus": "passed", "manualStatus": "pending" },
+    { "criterion": "4.1.3", "name": "Status Messages", "surfaces": ["search", "quiz", "PDF", "Sim3 fallback"], "automatedEvidence": ["accessibility-keyboard-flows.spec.js"], "automatedStatus": "passed", "manualStatus": "pending-screen-reader-review" }
+  ]
+}

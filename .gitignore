@@ -42,6 +42,7 @@ backups/
 *.log
 *.tmp
 *.temp
+tmp/
 
 # sim2 visual QA: ảnh chụp nặng (giữ contact-sheet.html + *.json + report)
 plans/**/visuals/*.png

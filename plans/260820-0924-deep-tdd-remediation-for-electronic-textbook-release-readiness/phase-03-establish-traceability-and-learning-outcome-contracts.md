@@ -1,6 +1,6 @@
 ---
 title: "Phase 3: Thiết lập ma trận truy vết và chuẩn đầu ra"
-status: pending
+status: completed
 priority: P0
 effort: "5-8 ngày kỹ thuật + thời gian review khi cần"
 dependencies: [phase-02]
@@ -58,11 +58,11 @@ Curated JSON sidecars: `data/legal-standards-register.json`, `data/requirement-t
 
 ## Todo
 
-- [ ] Record requirement/LO owner roles and current official source.
-- [ ] Author draft requirement and LO registries.
-- [ ] Add content/quiz/simulation/evidence joins.
-- [ ] Add mutation-based referential tests.
-- [ ] Record review status; add named approval evidence only when required by the institution.
+- [x] Record requirement/LO owner roles and current official source.
+- [x] Author draft requirement and LO registries.
+- [x] Add content/quiz/simulation/evidence joins.
+- [x] Add mutation-based referential tests.
+- [x] Record review status; add named approval evidence only when required by the institution.
 
 ## Success Criteria
 

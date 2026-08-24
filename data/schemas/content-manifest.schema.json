@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cohoclythuyet.local/schemas/content-manifest.schema.json",
+  "title": "Deterministic textbook content manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "source", "generator", "routes", "contentHash"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["logicalPath", "sha256", "docxManifestSha256"],
+      "properties": {
+        "logicalPath": {"type": "string", "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!\\\\\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "docxManifestSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "pdf": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["logicalPath", "sha256"],
+          "properties": {
+            "logicalPath": {"type": "string", "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!\\\\\\\\).+\\.pdf$"},
+            "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+          }
+        }
+      }
+    },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {"name": {"const": "tools/build_content_manifest.py"}, "version": {"const": 1}}
+    },
+    "routes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["routeId", "title", "sourceHeadingPath", "chapterFile", "bundleKey", "contentHash", "figureRefs", "equationRefs", "hasQuiz", "hasSimulation"],
+        "properties": {
+          "routeId": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+          "title": {"type": "string", "minLength": 1},
+          "sourceHeadingPath": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "chapterFile": {"type": "string", "pattern": "^chapters/.+\\.html$"},
+          "bundleKey": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+          "contentHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "figureRefs": {"type": "array", "items": {"type": "string", "pattern": "^images/"}},
+          "equationRefs": {"type": "array", "items": {"type": "string"}},
+          "hasQuiz": {"type": "boolean"},
+          "hasSimulation": {"type": "boolean"}
+        }
+      }
+    },
+    "contentHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

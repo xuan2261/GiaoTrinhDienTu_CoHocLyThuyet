@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pilot-draft",
+  "assetId": "media-ch1-friction-cone",
+  "parentLearningOutcomeId": "lo-ch1-statics",
+  "localObjective": {
+    "id": "obj-ch1-friction-cone",
+    "verb": "classify",
+    "condition": "Given an incline angle beta and friction coefficient mu",
+    "criterion": "classify equilibrium or slip by comparing beta with phi = arctan(mu) and locating the resultant reaction relative to the friction cone"
+  },
+  "contentRoutes": ["ch1-5-3"],
+  "simulationId": "ch1-5-3",
+  "gapDecision": {
+    "decision": "selected",
+    "currentCoverage": "Chapter prose defines the cone and canonical Sim2 exposes the boundary, but a focused mount is needed to isolate the compare-and-classify objective.",
+    "modalityRationale": "The mounted canonical simulation provides immediate state change across the beta equals phi boundary without duplicating the formula.",
+    "misconceptionTarget": "Friction always equals mu times N, even when the body remains below the limiting state.",
+    "evidenceTarget": "Learner predicts the threshold, changes beta or mu, and explains the state using beta compared with phi."
+  },
+  "authoring": {
+    "script": [
+      "Set beta to 18 degrees and mu to 0.45.",
+      "Read phi from arctan(mu) and identify equilibrium.",
+      "Increase beta through phi and observe the state label change.",
+      "Increase mu and explain why the cone widens."
+    ],
+    "storyboard": [
+      { "beat": 1, "visual": "Reaction inside the cone", "narrativePurpose": "Establish equilibrium" },
+      { "beat": 2, "visual": "Beta crosses phi", "narrativePurpose": "Expose the limiting boundary" },
+      { "beat": 3, "visual": "Wider cone at larger mu", "narrativePurpose": "Connect material friction to admissible reaction direction" }
+    ],
+    "math": {
+      "expression": "tan(phi) = mu; slip iff beta > phi",
+      "units": "beta and phi are in degrees; mu is dimensionless.",
+      "assumptions": [
+        "Dry static friction model",
+        "Rigid block on a planar incline",
+        "The two-dimensional section represents the friction cone around the contact normal"
+      ]
+    }
+  },
+  "accessibility": {
+    "keyboard": "Both native sliders and the Sim2 drag handle support keyboard input.",
+    "reducedMotion": "Sim2 starts without playback and suppresses the handle pulse when reduced motion is requested.",
+    "staticFallback": "prototypes/media/friction-cone-sim2.html#phuong-an-tinh",
+    "textAlternative": "The static diagram and formula example state cone angle, incline angle, and equilibrium result without relying on color.",
+    "transcript": null,
+    "captions": { "required": false, "reason": "The asset has no audio or timed dialogue." },
+    "autoplay": false
+  },
+  "offline": {
+    "prototype": "prototypes/media/friction-cone-sim2.html",
+    "primarySource": "js/sim2/sims/ch1/ch1-5-3.js",
+    "remoteDependenciesAllowed": false
+  },
+  "sourceEvidence": [
+    { "path": "chapters/ch1/muc-V-3.html", "sha256": "781ccd0ba2730260120a91f66bcd0cc87320c21749cbffbd9e76ab63384975b1" },
+    { "path": "js/sim2/sims/ch1/ch1-5-3.js", "sha256": "dcbd85eb530739598cda39fd5644c5f4ef8ccf7e8177e8d9eb9cad5a6838c1eb" },
+    { "path": "js/sim2/physics/dynamics.js", "sha256": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c" }
+  ],
+  "review": {
+    "ownerRole": "Multimedia author",
+    "reviewerRole": "Subject-matter technical reviewer",
+    "reviewUnit": "Internal project technical review",
+    "status": "technical-review",
+    "reviewerIdentity": null,
+    "efficacyEvidence": null,
+    "claim": "Pilot artifact only. No learner outcome or institutional acceptance claim is made."
+  }
+}

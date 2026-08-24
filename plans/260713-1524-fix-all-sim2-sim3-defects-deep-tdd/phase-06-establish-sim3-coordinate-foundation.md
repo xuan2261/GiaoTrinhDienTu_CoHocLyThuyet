@@ -1,7 +1,7 @@
 ---
 phase: 6
 title: "Establish Sim3 Coordinate Foundation"
-status: pending
+status: completed
 priority: P1
 dependencies: [1]
 effort: "1-2 days"
@@ -49,14 +49,14 @@ CONVENTION
 
 ## Function and Interface Checklist
 
-- [ ] `X × Y = Z`, `Y × Z = X`, `Z × X = Y`.
-- [ ] Horizontal mapped `+x × +source-y = +Y`.
-- [ ] Vertical mapped `+x × +source-y = +Z`.
-- [ ] Point and vector mappings do not mutate inputs.
-- [ ] Plane argument is required and invalid planes throw clear errors.
-- [ ] `axisVector(-ω)` preserves negative direction.
-- [ ] Arrow updater hides/configures zero without arbitrary orientation.
-- [ ] Display clamp changes only mesh scale, never state/debug magnitude.
+- [x] `X × Y = Z`, `Y × Z = X`, `Z × X = Y`.
+- [x] Horizontal mapped `+x × +source-y = +Y`.
+- [x] Vertical mapped `+x × +source-y = +Z`.
+- [x] Point and vector mappings do not mutate inputs.
+- [x] Plane argument is required and invalid planes throw clear errors.
+- [x] `axisVector(-ω)` preserves negative direction.
+- [x] Arrow updater hides/configures zero without arbitrary orientation.
+- [x] Display clamp changes only mesh scale, never physical/debug magnitude.
 
 ## Dependency Map
 
@@ -115,10 +115,10 @@ npm run test:sim:mount
 
 ## Success Criteria
 
-- [ ] Convention is explicit, right-handed, pure, and fully unit-tested.
-- [ ] Zero/negative vectors remain physically meaningful.
-- [ ] Production and fixtures load the module in correct order.
-- [ ] Existing Sim3 behavior remains unchanged until route phases.
+- [x] Convention is explicit, right-handed, pure, and fully unit-tested.
+- [x] Zero/negative vectors remain physically meaningful.
+- [x] Production and fixtures load the module in correct order.
+- [x] Existing Sim3 behavior remains unchanged until route phases.
 
 ## Risk Assessment
 
@@ -127,6 +127,14 @@ npm run test:sim:mount
 | Global y-to-z flip causes broad visual changes | Foundation only; migrate route batches separately |
 | Helper hides sign via normalization | Test signed axial/dot/cross values before rendering |
 | New abstraction duplicates Three.js | Keep plain `{x,y,z}` math and minimal API |
+
+## Verification Evidence
+
+- `npm run test:sim3:coordinates`: passed basis, plane-sign, zero, negative, immutability, invalid-plane, overflow, signed-arrow, clamp, and executable script-order contracts.
+- `npm run test:sim3:pilot`: 20 passed, including browser-global coordinate smoke.
+- `npm run test:sim:contracts`: passed for 25 Sim2, 10 Sim3, and 35 route contracts.
+- `npm run test:sim:mount`: 129 passed.
+- Independent fallback review found two medium numeric edge cases and two low test/allocation weaknesses; all received regression coverage and source fixes.
 
 ## Security Considerations
 

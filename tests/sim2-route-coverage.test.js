@@ -11,11 +11,13 @@ const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const manifest = require('../js/sim2/sim2-route-manifest.js');
+const contracts = require('./support/simulation-route-contracts.js');
+const routeContracts = contracts.sim2;
 
-// 1. Đúng số route + định dạng id
-assert.ok(Array.isArray(manifest), 'manifest là mảng');
+// 1. Manifest is canonical: count follows it, not a duplicated literal.
+assert.ok(Array.isArray(manifest) && manifest.length > 0, 'manifest phải là mảng không rỗng');
 const N = manifest.length;
-assert.strictEqual(N, 25, `manifest phải có 25 route (đang ${N})`);
+contracts.validateContracts(contracts);
 for (const r of manifest) {
   assert.ok(/^ch\d-\d-\d$/.test(r.id), `id ${r.id} sai định dạng ch?-?-?`);
   assert.ok(r.name && r.name.length > 0, `route ${r.id} phải có tên`);
@@ -25,7 +27,7 @@ for (const r of manifest) {
 const ids = manifest.map(r => r.id);
 assert.strictEqual(new Set(ids).size, N, 'id không được trùng');
 
-// 2. Mỗi id có factory trong SIM_MAP — load registry + 25 sim qua vm (factory không bị gọi)
+// 2. Every manifest route has a factory in SIM_MAP (factories are not invoked).
 const sandbox = { window: {}, document: {}, console };
 sandbox.window.window = sandbox.window;
 vm.createContext(sandbox);
@@ -41,19 +43,19 @@ const SIM_MAP = sandbox.window.SIM_MAP || {};
 for (const r of manifest) {
   assert.strictEqual(typeof SIM_MAP[r.id], 'function', `SIM_MAP['${r.id}'] phải là factory`);
 }
-// SIM_MAP chỉ chứa đúng 25 route manifest (không thừa scaffold sim2-hello)
+// SIM_MAP contains exactly the manifest routes (no scaffold residue).
 const mapKeys = Object.keys(SIM_MAP).sort();
 assert.deepStrictEqual(mapKeys, ids.slice().sort(),
-  `SIM_MAP phải chứa đúng 25 route manifest (thừa/thiếu: ${mapKeys.filter(k => !ids.includes(k)).join(',')})`);
+  `SIM_MAP phải chứa đúng route manifest (thừa/thiếu: ${mapKeys.filter(k => !ids.includes(k)).join(',')})`);
 
-// 3. Mỗi id có ≥1 physics assert + ≥1 mount case (grep test files)
-const physicsSrc = [1, 2, 3].map(c =>
-  fs.readFileSync(path.join(ROOT, `tests/sim2-ch${c}-physics.test.js`), 'utf8')).join('\n');
-const mountSrc = [1, 2, 3].map(c =>
-  fs.readFileSync(path.join(ROOT, `tests/sim2-ch${c}-mount.spec.js`), 'utf8')).join('\n');
-for (const r of manifest) {
-  assert.ok(physicsSrc.includes(r.id), `route ${r.id} phải có physics assert`);
-  assert.ok(mountSrc.includes(r.id), `route ${r.id} phải có mount case`);
+// 3. Coverage is contract-driven: every manifest route has executable factory,
+// independent oracle metadata, and browser mount evidence. Source-text mentions do not count.
+assert.deepStrictEqual(routeContracts.map(item => item.id).sort(), ids.slice().sort(),
+  'contract table phải phủ đúng tập route trong manifest');
+for (const contract of routeContracts) {
+  assert.strictEqual(typeof contract.resolve(sandbox.window), 'function', `${contract.id} phải resolve factory thật`);
+  assert.ok(fs.existsSync(path.join(ROOT, contract.oracle.path)), `${contract.id} thiếu independent oracle`);
+  assert.ok(fs.existsSync(path.join(ROOT, contract.mountEvidence)), `${contract.id} thiếu mount evidence`);
 }
 
 // 4. Không hex màu stroke/fill rải rác trong sims (phải dùng Sim2Palette).

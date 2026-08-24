@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pilot-draft",
+  "assetId": "media-ch1-resultant-angle",
+  "parentLearningOutcomeId": "lo-ch1-statics",
+  "localObjective": {
+    "id": "obj-ch1-resultant-angle",
+    "verb": "determine",
+    "condition": "Given two concurrent forces of 80 N and 60 N and an included angle from 0 to 180 degrees",
+    "criterion": "determine the resultant magnitude and explain its maximum and minimum using the force parallelogram"
+  },
+  "contentRoutes": ["ch1-2-3"],
+  "simulationId": "ch1-2-3",
+  "gapDecision": {
+    "decision": "selected",
+    "currentCoverage": "The chapter and canonical Sim2 show vector construction, but they do not present a complete quantitative R-versus-angle trend.",
+    "modalityRationale": "A chart supports comparison across the full angle domain while preserving the existing Sim2 as the manipulation surface.",
+    "misconceptionTarget": "The resultant magnitude is F1 + F2 for every included angle.",
+    "evidenceTarget": "Learner identifies 0 degrees as the maximum and 180 degrees as the minimum and supports both with calculated values."
+  },
+  "authoring": {
+    "script": [
+      "Fix F1 at 80 N and F2 at 60 N.",
+      "Plot R from 0 to 180 degrees using the vector components.",
+      "Move a marker with the native range input.",
+      "Compare the live value with the static five-row table."
+    ],
+    "storyboard": [
+      { "beat": 1, "visual": "Full R versus theta curve", "narrativePurpose": "Show the global trend" },
+      { "beat": 2, "visual": "Current-angle marker", "narrativePurpose": "Tie a chosen angle to a numerical result" },
+      { "beat": 3, "visual": "Static benchmark table", "narrativePurpose": "Provide a non-canvas equivalent" }
+    ],
+    "math": {
+      "expression": "R = sqrt(F1^2 + F2^2 + 2 F1 F2 cos(theta))",
+      "units": "F1, F2, and R are in newtons; theta is in degrees.",
+      "assumptions": [
+        "Two concurrent coplanar forces",
+        "F1 remains 80 N and F2 remains 60 N",
+        "Included angle is constrained to 0 through 180 degrees"
+      ]
+    }
+  },
+  "accessibility": {
+    "keyboard": "The native range input responds to arrow, Page Up, Page Down, Home, and End keys.",
+    "reducedMotion": "The chart updates without animation or continuous playback.",
+    "staticFallback": "prototypes/media/resultant-angle-chart.html#bang-gia-tri",
+    "textAlternative": "A five-angle data table and live text output expose the same quantitative relationship.",
+    "transcript": null,
+    "captions": { "required": false, "reason": "The asset has no audio or timed dialogue." },
+    "autoplay": false
+  },
+  "offline": {
+    "prototype": "prototypes/media/resultant-angle-chart.html",
+    "primarySource": "js/sim2/physics/statics.js",
+    "remoteDependenciesAllowed": false
+  },
+  "sourceEvidence": [
+    { "path": "chapters/ch1/muc-II-3.html", "sha256": "d81b23c9991c41083fe63a4cc47a4b0ab5e707bd3667ce5b1cf6203d112247ad" },
+    { "path": "js/sim2/sims/ch1/ch1-2-3.js", "sha256": "f4b2f4dc95099effa03ecc06b9b5147c285820cdfd454ed084ae8e87df3d34b6" },
+    { "path": "js/sim2/physics/statics.js", "sha256": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0" }
+  ],
+  "review": {
+    "ownerRole": "Multimedia author",
+    "reviewerRole": "Subject-matter technical reviewer",
+    "reviewUnit": "Internal project technical review",
+    "status": "technical-review",
+    "reviewerIdentity": null,
+    "efficacyEvidence": null,
+    "claim": "Pilot artifact only. No learner outcome or institutional acceptance claim is made."
+  }
+}

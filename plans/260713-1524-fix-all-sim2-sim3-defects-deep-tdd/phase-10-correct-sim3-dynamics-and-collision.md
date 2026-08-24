@@ -1,7 +1,7 @@
 ---
 phase: 10
 title: "Correct Sim3 Dynamics and Collision"
-status: pending
+status: completed
 priority: P1
 dependencies: [7, 5]
 effort: "3-4 days"
@@ -35,16 +35,16 @@ Correct the non-inertial pendulum, angular-momentum scene, and collision scene. 
 
 ## Function and Interface Checklist
 
-- [ ] Bob position `pivot + L*(-sinθ,-cosθ,0)` or equivalent constant-length canonical state.
-- [ ] Cord endpoints exactly pivot/bob after every update.
-- [ ] True zero force hides/neutralizes arrow without fake positive stub.
-- [ ] `ch3-5-3` position/velocity follows +Y rotation under horizontal mapping.
-- [ ] `L` arrow sign and magnitude match state; `Iω=L`.
-- [ ] Collision z-lanes equal; no mass-dependent radii.
-- [ ] Contact at `distance = R1+R2`; no penetration.
-- [ ] Impact point divides center line by radius ratio and remains fixed.
-- [ ] Before/after velocity arrows follow signed state.
-- [ ] Reset clears ghosts/cue/phase exactly once.
+- [x] Bob position `pivot + L*(-sinθ,-cosθ,0)` or equivalent constant-length canonical state.
+- [x] Cord endpoints exactly pivot/bob after every update.
+- [x] True zero force hides/neutralizes arrow without fake positive stub.
+- [x] `ch3-5-3` position/velocity follows +Y rotation under horizontal mapping.
+- [x] `L` arrow sign and magnitude match state; `Iω=L`.
+- [x] Collision z-lanes equal; no mass-dependent radii.
+- [x] Contact at `distance = R1+R2`; no penetration.
+- [x] Impact point divides center line by radius ratio and remains fixed.
+- [x] Before/after velocity arrows follow signed state.
+- [x] Reset clears ghosts/cue/phase exactly once.
 
 ## Dependency Map
 
@@ -104,10 +104,10 @@ npm run test:sim:release
 
 ## Success Criteria
 
-- [ ] Pendulum length and force signs are physically correct.
-- [ ] Angular momentum geometry follows right-hand rule and conserves `Iω`.
-- [ ] 2D/3D collision contact, radii, phase, impact point, and reset agree.
-- [ ] No lifecycle/fallback/responsive regression.
+- [x] Pendulum length and force signs are physically correct.
+- [x] Angular momentum geometry follows right-hand rule and conserves `Iω`.
+- [x] 2D/3D collision contact, radii, phase, impact point, and reset agree.
+- [x] No lifecycle/fallback/responsive regression.
 
 ## Risk Assessment
 

@@ -8,6 +8,7 @@
 'use strict';
 
 const fs = require('fs');
+const { validateCapture } = require('./validate-capture.js');
 const path = require('path');
 const { renderContactSheet } = require('./contact-sheet.js');
 
@@ -23,15 +24,11 @@ function main() {
     console.error('LỖI: chưa có capture-manifest.json. Chạy `npm run test:sim:visual:capture` trước.');
     process.exit(1);
   }
-  const records = JSON.parse(fs.readFileSync(CAPTURE_JSON, 'utf8'));
+  const payload = JSON.parse(fs.readFileSync(CAPTURE_JSON, 'utf8'));
+  validateCapture(payload, Date.now(), VIS_DIR);
+  const records = payload.routes;
 
-  // Kiểm phủ-đủ-route (so với route-manifest).
-  const captured = new Set(records.map(r => r.route));
-  const missing = routeManifest.filter(r => !captured.has(r.id)).map(r => r.id);
-  console.log(`coverage: ${captured.size}/${routeManifest.length} route`);
-  if (missing.length) {
-    console.warn('CẢNH BÁO route THIẾU ảnh (chạy capture đủ bộ để phủ 100%): ' + missing.join(', '));
-  }
+  console.log(`coverage: ${records.length}/${routeManifest.length} route`);
 
   // Merge cờ Claude nếu đã triage.
   let triageCount = 0;

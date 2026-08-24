@@ -10,10 +10,16 @@ python tools\extract_docx.py --input CoHocLyThuyet_Full_New.docx --equation-repo
 python tools\extract_docx.py --input CoHocLyThuyet_Full_New.docx --write
 python tools\update_nav.py
 python tools\bundle_pages.py
+python tools\build_content_manifest.py
+python tools\validate_content_manifest.py
 python tools\audit.py
 ```
 
-Extractor tạo fragment, ảnh, site manifest và equation report. `update_nav.py` đồng bộ sidebar/route/page order; `bundle_pages.py` tạo `js/pages.js` cho `file://`.
+Extractor tạo `chapters/**`, `images/**`, `tools/docx_site_manifest.json` và equation report; manifest DOCX chỉ dùng logical source path, SHA-256 và generator metadata. `update_nav.py` tạo route/nav curated runtime maps; `bundle_pages.py` tạo `js/pages.js` cho `file://`; `build_content_manifest.py` tạo `data/content-manifest.json` từ manifest DOCX, map, bundle và fragments; validator kiểm joins/hash/provenance độc lập, không cần JSON-schema package.
+
+`tools/docx_site_manifest.json` schema v1 intentionally replaces the legacy absolute `input` field with portable `source.logicalPath` and `source.sha256`. Repository consumers must use the versioned `source` object; no compatibility alias is emitted because absolute machine paths are forbidden release data.
+
+Generated: `chapters/**`, `images/**`, `tools/docx_site_manifest.json`, `js/pages.js`, `data/content-manifest.json`. Curated: DOCX, `data/quiz-*.json`, `js/sim2/sim2-route-manifest.js`, `data/equation_mapping.json` và source runtime. Chỉ sửa generated output qua generator tương ứng. `data/schemas/release-manifest.schema.json` là contract; builder, file inventory và package release thuộc Phase 10, chưa có trong pipeline này.
 
 ## Quy tắc nội dung hiện tại
 
@@ -68,5 +74,6 @@ python tools\audit.py --strict-equations
 - `tools/docx_site_manifest.json`
 - `tools/equation_report.json`
 - `js/pages.js`
+- `data/content-manifest.json`
 
-Nếu output sai, sửa DOCX, mapping hoặc extractor rồi regenerate. Không vá generated output.
+Nếu output sai, sửa DOCX, mapping, curated route data hoặc generator rồi regenerate. Không vá generated output.

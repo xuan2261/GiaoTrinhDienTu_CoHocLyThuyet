@@ -22,6 +22,9 @@ import zipfile
 
 from docx import Document
 from lxml import etree
+from content_manifest_utils import normalize_logical_path, sha256_file
+
+EXTRACTOR_MANIFEST_VERSION = 1
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -1031,6 +1034,35 @@ def render_subsection_page(doc, xml_paras, chapter_num, section, sub, image_writ
 def render_special_page(title, body):
     return "\n".join([f'<div class="sh2"><h2>{html.escape(title)}</h2></div>', '<div class="l3-content">', *body, "</div>"])
 
+def render_author_page(body):
+    """Render the three canonical DOCX author records without cover/approval front matter."""
+    text = clean_text(html.unescape(re.sub(r"<[^>]+>", " ", "\n".join(body))))
+    authors = re.findall(r"(Đại tá|Thiếu tá|Đại úy),\s*(TS|ThS)\s+([^,]+)", text)
+    if len(authors) != 3:
+        raise SystemExit(f"Expected exactly three canonical author records, found {len(authors)}")
+    lines = [
+        '<div class="sh2"><h2>Tác giả</h2></div>',
+        '<div class="l3-content">',
+        '  <p class="l3-title">Khoa KTCS - Học viện Hải quân</p>',
+        '  <div class="ag2">',
+    ]
+    for index, (rank, degree, name) in enumerate(authors):
+        role = "Chủ biên" if index == 0 else "Biên soạn"
+        unit = "CNK, Khoa KTCS" if index == 0 else "GV, Khoa KTCS"
+        css = "ac2 chief" if index == 0 else "ac2"
+        initial = name.split()[-1][0]
+        lines.extend([
+            f'    <div class="{css}">',
+            f'      <div class="av2">{html.escape(initial)}</div>',
+            f'      <div class="rl">{role}</div>',
+            f'      <div class="nm">{html.escape(name)}</div>',
+            f'      <div class="rk">{html.escape(rank)}, {html.escape(degree)}</div>',
+            f'      <div class="un">{unit}</div>',
+            '    </div>',
+        ])
+    lines.extend(['  </div>', '</div>'])
+    return "\n".join(lines)
+
 
 def front_matter_end(doc, lnd_start):
     end = lnd_start if lnd_start is not None else 0
@@ -1072,7 +1104,13 @@ def extract(args):
     print(f"OMML transformer: {'yes' if transformer is not None else 'no'}")
     print(f"Reviewed equation mappings: {len(equation_mapping)}")
 
-    manifest = {"input": docx_path, "chapters": []}
+    source_path = normalize_logical_path(os.path.relpath(docx_path, root))
+    manifest = {
+        "schemaVersion": EXTRACTOR_MANIFEST_VERSION,
+        "source": {"logicalPath": source_path, "sha256": sha256_file(docx_path)},
+        "generator": {"name": "tools/extract_docx.py", "version": EXTRACTOR_MANIFEST_VERSION},
+        "chapters": [],
+    }
 
     for chapter in structure["chapters"]:
         chapter_num = chapter["chapter"]
@@ -1108,11 +1146,7 @@ def extract(args):
         front_end = front_matter_end(doc, structure["lnd"]["start"])
         body = render_paragraphs(doc, xml_paras, 0, front_end, 0, image_writer, rid_to_media, transformer)
         if body:
-            write_file(
-                os.path.join(root, "chapters", "tac-gia.html"),
-                render_special_page("Tác giả và thông tin giáo trình", body),
-                args.write,
-            )
+            write_file(os.path.join(root, "chapters", "tac-gia.html"), render_author_page(body), args.write)
 
     if structure["lnd"]:
         body = render_paragraphs(
@@ -1146,6 +1180,21 @@ def extract(args):
             raise SystemExit("Image conversion failures detected; generated output is not complete.")
 
 
+def _prune_unreferenced_images(repo):
+    referenced = set()
+    image_src = re.compile(r'<img\b[^>]*\bsrc=["\'](images/[^"\']+)["\']', re.IGNORECASE)
+    for fragment in sorted((repo / "chapters").rglob("*.html")):
+        for source in image_src.findall(fragment.read_text(encoding="utf-8")):
+            referenced.add(source.split("?", 1)[0].split("#", 1)[0])
+    removed = 0
+    for image_path in sorted(path for path in (repo / "images").rglob("*") if path.is_file()):
+        relative = image_path.relative_to(repo).as_posix()
+        if relative not in referenced:
+            image_path.unlink()
+            removed += 1
+    print(f"[AUTO-FIX] pruned {removed} unreferenced image file(s)")
+
+
 def _run_auto_fix_known_issues(args):
     """Re-apply Phase 02 (replace 8 raster) + Phase 05 (alt/figcaption) post-processors.
 
@@ -1159,8 +1208,12 @@ def _run_auto_fix_known_issues(args):
         'scripts/dedupe-mathml-and-katex-render-pairs-keep-mathml.py',
         'scripts/apply-image-alt-text-and-figcaption-from-overrides-and-docx-captions.py',
         'scripts/fill-remaining-figure-alt-and-figcaption-from-section-title-fallback.py',
+        # The fallback creates figcaptions after the first cleanup pass; rerun
+        # the semantic caption pass to merge/remove now-adjacent DOCX captions.
+        'scripts/apply-image-alt-text-and-figcaption-from-overrides-and-docx-captions.py',
     ]
     print('[AUTO-FIX] Running post-extract fixers...')
+    had_failure = False
     for rel in candidates:
         script = repo / rel
         if not script.exists():
@@ -1174,10 +1227,16 @@ def _run_auto_fix_known_issues(args):
             tail = (r.stdout or '').strip().splitlines()[-1] if r.stdout else ''
             if r.returncode != 0:
                 print(f'[AUTO-FIX WARN] {rel} returncode={r.returncode}: {(r.stderr or "")[:200]}')
+                had_failure = True
             else:
                 print(f'[AUTO-FIX] {rel}: {tail}')
         except Exception as exc:
             print(f'[AUTO-FIX WARN] {rel} crashed: {exc}')
+            had_failure = True
+    if had_failure:
+        print("[AUTO-FIX WARN] skipping image prune because a post-extract fixer failed")
+    else:
+        _prune_unreferenced_images(repo)
 
 
 def main():

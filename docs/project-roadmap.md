@@ -1,6 +1,6 @@
 # Project Roadmap
 
-Cập nhật theo HEAD `455870b`, ngày 2026-07-01.
+Cập nhật release-readiness ngày 2026-08-22.
 
 ## Đã hoàn tất
 
@@ -10,13 +10,13 @@ Cập nhật theo HEAD `455870b`, ngày 2026-07-01.
 | DOCX extract, nav, bundle và audit pipeline | Done |
 | Semantic math mapping 702 row và strict gates | Done |
 | Quiz, progress, bookmark, notes, glossary | Done |
-| Sim2 rebuild | Done, 25 route SVG-first canonical |
-| Sim3 pilot | Done, 10 route tùy chọn; Sim2 mặc định |
+| Sim2 rebuild + deep remediation | Done, 25 route SVG-first canonical; fixed-step, responsive/DPR, keyboard, lifecycle và independent physics oracles |
+| Sim3 pilot + deep remediation | Done, 10 route tùy chọn; hệ tay phải, demand rendering, GPU disposal và safe Sim2 fallback |
 | Legacy simulation cleanup | Done, `.sim-lab` 52 route chỉ còn ở tag lịch sử |
 | Content cleanup | Done, Chương 3 VII-4/VII-5/VII-6 removed |
 | Image cleanup | Done, tên asset chuẩn hóa và asset thừa được loại |
 | Placeholder guard | Done, extractor bỏ `(.)`, `test:content` khóa hồi quy |
-| Release package | Done, folder và `.rar` `20260701` trong `release/` |
+| Reproducible release package | Done technically: candidate ZIP, 374 files, SHA-256 `a0908a72624a44f8d37a525c97de3ee240fdbec1199c59097ab92a78cd718ef6`, byte-identical across two clean builds |
 | PDF viewer nội tuyến | Done, PDF.js 6.2.108 local; `file://`/HTTP, lifecycle và download có gate |
 
 ## Mốc chính
@@ -31,14 +31,18 @@ Cập nhật theo HEAD `455870b`, ngày 2026-07-01.
 | P5 Content stabilization | Route bài tập thừa bị gỡ, filename ảnh normalized, placeholder bị chặn |
 | P6 Release 20260701 | Package folder và RAR được tạo |
 | P7 PDF reader | Dialog nội tuyến lazy-load, canvas + text layer, không đổi lesson state |
+| P8 Release readiness remediation | 20/24 canonical gates pass; frozen candidate verified; final acceptance blocked by academic signoff, independent accessibility/smoke review and Word round-trip |
+| P9 LMS derivative pilots | QTI 3 and Common Cartridge 1.4 adapters/packages validated locally; no target LMS import claim |
+| P10 Simulation deep TDD | 25 Sim2 + 10 Sim3 contracts closed; objective/full visual/three-run soak pass; technical evidence hash-bound |
 
 ## Ưu tiên bảo trì
 
 1. Giữ DOCX là nguồn chuẩn và chạy đầy đủ extract, nav, bundle, audit khi nội dung đổi.
-2. Giữ manifest Sim2 là nguồn count 25 route; Sim3 không thay đổi default path.
-3. Chạy content, quiz, simulation và strict publish gates phù hợp trước release tiếp theo.
+2. Giữ manifest Sim2 là nguồn count 25 route; Sim3 không thay đổi default path. Mọi thay đổi simulation phải chạy `test:sim:release`, `test:sim:release:full`, `test:sim:release:soak` và refresh hash-bound evidence trước `validate-simulation-drift.js --require-verified`.
+3. Chạy `python tools/run_qa_gates.py --all`, `npm run test:acceptance` và build Phase 12 evidence bundle trước release tiếp theo.
 4. Khi source PDF/PDF.js đổi, rebuild deterministic và chạy `test:pdf:release`; ship đủ `CoHocLyThuyet.pdf` + `lib/pdfjs/`.
-5. Chỉ tạo release package mới từ output đã kiểm tra, không sửa trực tiếp package ngày 2026-07-01.
+5. Regenerate từ `data/release-policy.json`; không sửa trực tiếp package đã tạo.
+6. Final acceptance chỉ chuyển khỏi blocked sau independent academic/accessibility/candidate-smoke evidence và Word round-trip pass.
 
 ## Backlog
 
@@ -48,4 +52,4 @@ Cập nhật theo HEAD `455870b`, ngày 2026-07-01.
 | Visual polish theo route có nhu cầu thật | Nâng clarity mà không tách shared shell |
 | Chuẩn hóa checklist package tiếp theo | Dễ bàn giao offline/static |
 
-Không có quyết định chính sách phát hành còn mở được ghi nhận trong roadmap này.
+Không có quyết định kỹ thuật mở. Bốn prerequisite bên ngoài cho final acceptance được ghi rõ trong Phase 12 report.

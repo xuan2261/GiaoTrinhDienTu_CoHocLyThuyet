@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pilot-draft",
+  "parentLearningOutcomeId": "lo-ch1-statics",
+  "scope": {
+    "chapter": 1,
+    "pilotCap": 4,
+    "selectedCount": 4,
+    "evaluatedCount": 9,
+    "remoteDependenciesAllowed": false,
+    "claim": "Technical pilot only. No learner outcome or institutional acceptance claim is made."
+  },
+  "rubric": {
+    "version": "1.0.0",
+    "scale": { "minimum": 0, "maximum": 4, "meaning": "0 is no demonstrated need or fit; 4 is the strongest demonstrated need or fit." },
+    "dimensions": [
+      { "id": "temporalCausalNeed", "weight": 30, "question": "Does understanding depend on sequence, change, or causal order?" },
+      { "id": "misconceptionRisk", "weight": 25, "question": "Is there a specific high-value misconception that prose or a still image may leave unresolved?" },
+      { "id": "quantitativeFeedback", "weight": 20, "question": "Does changing a variable produce useful numerical evidence?" },
+      { "id": "accessibilityGain", "weight": 15, "question": "Can the candidate add a clearer equivalent through keyboard, text, or static representations?" },
+      { "id": "maintainabilityFit", "weight": 10, "question": "Can the candidate reuse current local assets and runtime within the pilot budget?" }
+    ],
+    "scoreFormula": "sum(dimensionScore * dimensionWeight) / 4",
+    "selectionPolicy": "Candidates scoring at least 70 are eligible. Select exactly four distinct objectives for this bounded pilot, avoid duplicate misconception coverage, and prefer reuse of current local runtime or published assets."
+  },
+  "evaluatedCandidates": [
+    { "id": "candidate-force-vector-definition", "chapterSection": "I", "contentRoute": "ch1-1-3", "concept": "Force vector attributes", "scores": { "temporalCausalNeed": 1, "misconceptionRisk": 2, "quantitativeFeedback": 2, "accessibilityGain": 2, "maintainabilityFit": 4 }, "weightedScore": 47.5, "decision": "no-go", "reason": "Canonical Sim2 already exposes point, direction, sense, magnitude, and components; another pilot would duplicate coverage." },
+    { "id": "candidate-force-sliding", "chapterSection": "II", "contentRoute": "ch1-2-2", "concept": "Force sliding theorem", "scores": { "temporalCausalNeed": 4, "misconceptionRisk": 4, "quantitativeFeedback": 1, "accessibilityGain": 4, "maintainabilityFit": 3 }, "weightedScore": 82.5, "decision": "selected", "assetId": "media-ch1-force-sliding", "reason": "The proof sequence is temporal and an existing published GIF can be reused with a real poster and transcript." },
+    { "id": "candidate-resultant-angle", "chapterSection": "II", "contentRoute": "ch1-2-3", "concept": "Resultant magnitude versus included angle", "scores": { "temporalCausalNeed": 3, "misconceptionRisk": 4, "quantitativeFeedback": 4, "accessibilityGain": 4, "maintainabilityFit": 4 }, "weightedScore": 92.5, "decision": "selected", "assetId": "media-ch1-resultant-angle", "reason": "A quantitative chart adds domain-wide comparison while reusing the statics helper and canonical route." },
+    { "id": "candidate-support-reactions", "chapterSection": "III", "contentRoute": "ch1-3-6", "concept": "Fixed-support reactions", "scores": { "temporalCausalNeed": 2, "misconceptionRisk": 3, "quantitativeFeedback": 2, "accessibilityGain": 3, "maintainabilityFit": 2 }, "weightedScore": 60, "decision": "no-go", "reason": "Existing Sim2 already provides reaction force, moment, drag, and readouts; the pilot gap is not distinct." },
+    { "id": "candidate-spatial-force-reduction", "chapterSection": "IV", "contentRoute": "ch1-4-3", "concept": "Spatial force-system reduction", "scores": { "temporalCausalNeed": 3, "misconceptionRisk": 3, "quantitativeFeedback": 3, "accessibilityGain": 2, "maintainabilityFit": 1 }, "weightedScore": 66.25, "decision": "no-go", "reason": "A useful treatment would require new three-dimensional authoring and exceeds the bounded maintenance budget." },
+    { "id": "candidate-friction-cone", "chapterSection": "V", "contentRoute": "ch1-5-3", "concept": "Friction cone boundary", "scores": { "temporalCausalNeed": 4, "misconceptionRisk": 4, "quantitativeFeedback": 4, "accessibilityGain": 4, "maintainabilityFit": 4 }, "weightedScore": 100, "decision": "selected", "assetId": "media-ch1-friction-cone", "reason": "The canonical Sim2 route directly exposes the beta versus phi transition and can be mounted without formula duplication." },
+    { "id": "candidate-self-locking", "chapterSection": "V", "contentRoute": "ch1-5-4", "concept": "Self-locking", "scores": { "temporalCausalNeed": 3, "misconceptionRisk": 4, "quantitativeFeedback": 3, "accessibilityGain": 3, "maintainabilityFit": 2 }, "weightedScore": 78.75, "decision": "no-go", "reason": "Eligible but overlaps the selected friction-boundary objective; pilot cap and non-duplication policy apply." },
+    { "id": "candidate-centroid-steps", "chapterSection": "VI", "contentRoute": "ch1-6-2", "concept": "Signed-area centroid reasoning", "scores": { "temporalCausalNeed": 3, "misconceptionRisk": 4, "quantitativeFeedback": 4, "accessibilityGain": 4, "maintainabilityFit": 4 }, "weightedScore": 92.5, "decision": "selected", "assetId": "media-ch1-centroid-steps", "reason": "Step control isolates the negative-area reasoning and reuses the canonical centroid helper." },
+    { "id": "candidate-worked-exercise-reveal", "chapterSection": "VII", "contentRoute": "ch1-7-1", "concept": "Worked statics exercise reveal", "scores": { "temporalCausalNeed": 2, "misconceptionRisk": 3, "quantitativeFeedback": 3, "accessibilityGain": 3, "maintainabilityFit": 2 }, "weightedScore": 65, "decision": "no-go", "reason": "A single reveal pattern would require a separate assessment authoring decision and is outside this media pilot." }
+  ],
+  "selectedAssetIds": [
+    "media-ch1-force-sliding",
+    "media-ch1-resultant-angle",
+    "media-ch1-friction-cone",
+    "media-ch1-centroid-steps"
+  ],
+  "review": {
+    "ownerRole": "Multimedia author",
+    "reviewerRole": "Subject-matter technical reviewer",
+    "reviewUnit": "Internal project technical review",
+    "status": "technical-review",
+    "reviewerIdentity": null,
+    "efficacyEvidence": null
+  }
+}

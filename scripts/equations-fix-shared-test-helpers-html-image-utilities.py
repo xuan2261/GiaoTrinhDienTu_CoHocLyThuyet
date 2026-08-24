@@ -18,8 +18,8 @@ ATTR_RE = re.compile(r'(\w+)="([^"]*)"')
 IMG_TAG_RE = re.compile(r'<img\s+[^>]+>', re.IGNORECASE)
 
 
-def project_root():
-    return ROOT
+def project_root(root=None):
+    return ROOT if root is None else Path(root).resolve()
 
 
 def load_mapping():
@@ -28,8 +28,8 @@ def load_mapping():
     )
 
 
-def chapter_files():
-    return sorted((ROOT / 'chapters').rglob('*.html'))
+def chapter_files(root=None):
+    return sorted((project_root(root) / 'chapters').rglob('*.html'))
 
 
 def iter_imgs(html):

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pilot-draft",
+  "parentLearningOutcomeId": "lo-ch1-statics",
+  "entries": [
+    {
+      "assetId": "media-ch1-force-sliding",
+      "localObjectiveId": "obj-ch1-force-sliding",
+      "parentLearningOutcomeId": "lo-ch1-statics",
+      "contentRoutes": ["ch1-2-2"],
+      "canonicalSimulationId": null,
+      "evidenceTarget": "Name direction, sense, and magnitude as preserved, and state the same-line limitation.",
+      "evidenceMethod": "Learner explanation prompted beside the animated or static equivalent",
+      "evidenceStatus": "not-collected"
+    },
+    {
+      "assetId": "media-ch1-resultant-angle",
+      "localObjectiveId": "obj-ch1-resultant-angle",
+      "parentLearningOutcomeId": "lo-ch1-statics",
+      "contentRoutes": ["ch1-2-3"],
+      "canonicalSimulationId": "ch1-2-3",
+      "evidenceTarget": "Identify and calculate the maximum at 0 degrees and minimum at 180 degrees.",
+      "evidenceMethod": "Prediction followed by chart and table comparison",
+      "evidenceStatus": "not-collected"
+    },
+    {
+      "assetId": "media-ch1-friction-cone",
+      "localObjectiveId": "obj-ch1-friction-cone",
+      "parentLearningOutcomeId": "lo-ch1-statics",
+      "contentRoutes": ["ch1-5-3"],
+      "canonicalSimulationId": "ch1-5-3",
+      "evidenceTarget": "Predict and verify equilibrium or slip from beta compared with phi.",
+      "evidenceMethod": "Prediction followed by boundary crossing in canonical Sim2",
+      "evidenceStatus": "not-collected"
+    },
+    {
+      "assetId": "media-ch1-centroid-steps",
+      "localObjectiveId": "obj-ch1-centroid-steps",
+      "parentLearningOutcomeId": "lo-ch1-statics",
+      "contentRoutes": ["ch1-6-2", "ch1-6-3"],
+      "canonicalSimulationId": "ch1-6-3",
+      "evidenceTarget": "Use a negative hole area, form both signed first moments, and predict movement away from removed material.",
+      "evidenceMethod": "Keyboard step-through explanation with a complete static worked solution",
+      "evidenceStatus": "not-collected"
+    }
+  ],
+  "claim": "This map records intended evidence only. No learner efficacy or institutional acceptance evidence has been collected."
+}

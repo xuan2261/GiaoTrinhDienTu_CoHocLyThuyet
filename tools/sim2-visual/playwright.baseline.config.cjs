@@ -10,6 +10,7 @@ module.exports = {
   timeout: 300000,
   workers: 1,
   fullyParallel: false,
+  retries: 0,
   expect: {
     timeout: 10000,
     toHaveScreenshot: {
@@ -19,6 +20,8 @@ module.exports = {
   use: {
     headless: true,
     viewport: { width: 1000, height: 620 },
-    deviceScaleFactor: 1
+    deviceScaleFactor: 1,
+    colorScheme: 'light',
+    reducedMotion: 'no-preference'
   }
 };

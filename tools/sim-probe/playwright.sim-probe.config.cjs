@@ -11,7 +11,8 @@ module.exports = {
   testMatch: '**/probe-runner.spec.js',
   timeout: 600000,            // 35 route × nhiều control + step → nới rộng
   workers: 1,                 // tuần tự: tránh đua ghi 1 file JSON chung + đo xác định
+  retries: 0,
   fullyParallel: false,
   expect: { timeout: 10000 },
-  use: { headless: true },
+  use: { headless: true, viewport: { width: 1000, height: 620 }, deviceScaleFactor: 1, colorScheme: 'light', reducedMotion: 'no-preference' },
 };

@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pilot-draft",
+  "entries": [
+    {
+      "assetId": "media-ch1-force-sliding",
+      "status": "technical-review",
+      "keyboard": "Animated and static mode buttons are native keyboard controls.",
+      "reducedMotion": "The poster is the default. The GIF is requested only after the learner activates the animation control; reduced motion keeps the poster selected.",
+      "staticFallback": {
+        "path": "prototypes/media/assets/force-sliding-poster.png",
+        "sha256": "4f26c9e442737d24d14d8aab0798eb52081914a2c6736cafc9c08af2af54dc48",
+        "kind": "poster"
+      },
+      "textAlternative": {
+        "path": "prototypes/media/force-sliding-transcript.txt",
+        "sha256": "0a3c077227ea937a9d4616581bc5e8a9b6461bb5f09b32eece83d53cf037d6a9"
+      },
+      "captions": {
+        "required": false,
+        "reason": "No audio or dialogue"
+      },
+      "loadFailure": "Keep the poster visible and report the failed animated load.",
+      "autoplay": false,
+      "audio": false,
+      "focusOrder": "Native document order; all interactive controls remain reachable without pointer input.",
+      "liveStatus": "Polite status output reports ready, fallback, and load failure states.",
+      "targetSize": "Visible prototype buttons are at least 44 CSS pixels high.",
+      "manualReview": {
+        "screenReader": "pending",
+        "browserZoom": "pending",
+        "visualEquivalence": "pending",
+        "independentReviewer": "pending"
+      }
+    },
+    {
+      "assetId": "media-ch1-resultant-angle",
+      "status": "technical-review",
+      "keyboard": "Native range input plus reset button.",
+      "reducedMotion": "Redraw directly without interpolation or continuous animation.",
+      "staticFallback": {
+        "path": "prototypes/media/resultant-angle-chart.html",
+        "anchor": "bang-gia-tri",
+        "sha256": "aa4d3c284ea678f1e8d378ea43a1660a2d4b259c1289dd81cba3fa3e36859bfe",
+        "kind": "data-table"
+      },
+      "textAlternative": {
+        "path": "prototypes/media/resultant-angle-chart.html",
+        "anchor": "bang-gia-tri",
+        "sha256": "aa4d3c284ea678f1e8d378ea43a1660a2d4b259c1289dd81cba3fa3e36859bfe"
+      },
+      "captions": {
+        "required": false,
+        "reason": "No audio or timed dialogue"
+      },
+      "loadFailure": "Keep the five-row static table visible.",
+      "autoplay": false,
+      "audio": false,
+      "focusOrder": "Native document order; all interactive controls remain reachable without pointer input.",
+      "liveStatus": "Polite status output reports ready, fallback, and load failure states.",
+      "targetSize": "Visible prototype buttons are at least 44 CSS pixels high.",
+      "manualReview": {
+        "screenReader": "pending",
+        "browserZoom": "pending",
+        "visualEquivalence": "pending",
+        "independentReviewer": "pending"
+      }
+    },
+    {
+      "assetId": "media-ch1-friction-cone",
+      "status": "technical-review",
+      "keyboard": "Two native sliders and the canonical Sim2 keyboard drag handle.",
+      "reducedMotion": "No playback; Sim2 motion cues are suppressed by the shared reduced-motion rule.",
+      "staticFallback": {
+        "path": "prototypes/media/friction-cone-sim2.html",
+        "anchor": "phuong-an-tinh",
+        "sha256": "aba2a6764adee0acbbd03bd8b2af907132cfb12a41f66c5bcde0bc8a645443c1",
+        "kind": "diagram-and-worked-value"
+      },
+      "textAlternative": {
+        "path": "prototypes/media/friction-cone-sim2.html",
+        "anchor": "phuong-an-tinh",
+        "sha256": "aba2a6764adee0acbbd03bd8b2af907132cfb12a41f66c5bcde0bc8a645443c1"
+      },
+      "captions": {
+        "required": false,
+        "reason": "No audio or timed dialogue"
+      },
+      "loadFailure": "Keep the static cone diagram and worked threshold visible.",
+      "autoplay": false,
+      "audio": false,
+      "focusOrder": "Native document order; all interactive controls remain reachable without pointer input.",
+      "liveStatus": "Polite status output reports ready, fallback, and load failure states.",
+      "targetSize": "Visible prototype buttons are at least 44 CSS pixels high.",
+      "manualReview": {
+        "screenReader": "pending",
+        "browserZoom": "pending",
+        "visualEquivalence": "pending",
+        "independentReviewer": "pending"
+      }
+    },
+    {
+      "assetId": "media-ch1-centroid-steps",
+      "status": "technical-review",
+      "keyboard": "Native previous and next buttons plus Left, Right, Home, and End keys in the diagram region.",
+      "reducedMotion": "Immediate state changes without animation.",
+      "staticFallback": {
+        "path": "prototypes/media/centroid-reasoning.html",
+        "anchor": "loi-giai-tinh",
+        "sha256": "3ce3a9f38752a53df4867f031a9f986591139a088e5a296ffa69f7893fbe5fc7",
+        "kind": "worked-solution"
+      },
+      "textAlternative": {
+        "path": "prototypes/media/centroid-reasoning.html",
+        "anchor": "loi-giai-tinh",
+        "sha256": "3ce3a9f38752a53df4867f031a9f986591139a088e5a296ffa69f7893fbe5fc7"
+      },
+      "captions": {
+        "required": false,
+        "reason": "No audio or timed dialogue"
+      },
+      "loadFailure": "Keep the complete worked solution visible.",
+      "autoplay": false,
+      "audio": false,
+      "focusOrder": "Native document order; all interactive controls remain reachable without pointer input.",
+      "liveStatus": "Polite status output reports ready, fallback, and load failure states.",
+      "targetSize": "Visible prototype buttons are at least 44 CSS pixels high.",
+      "manualReview": {
+        "screenReader": "pending",
+        "browserZoom": "pending",
+        "visualEquivalence": "pending",
+        "independentReviewer": "pending"
+      }
+    }
+  ],
+  "claim": "Authored accessibility contracts and automated interaction coverage are technical evidence only, not WCAG certification or learner efficacy evidence."
+}

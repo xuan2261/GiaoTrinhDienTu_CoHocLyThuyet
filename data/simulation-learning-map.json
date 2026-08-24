@@ -1,0 +1,181 @@
+{
+  "version": "1.0.0",
+  "status": "provisional",
+  "mappings": [
+    {
+      "simulationId": "ch1-1-3",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-1-3"
+      ]
+    },
+    {
+      "simulationId": "ch1-1-4",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-1-4"
+      ]
+    },
+    {
+      "simulationId": "ch1-1-5",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-1-5"
+      ]
+    },
+    {
+      "simulationId": "ch1-1-6",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-1-6"
+      ]
+    },
+    {
+      "simulationId": "ch1-2-3",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-2-3"
+      ]
+    },
+    {
+      "simulationId": "ch1-1-8",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-1-8"
+      ]
+    },
+    {
+      "simulationId": "ch1-3-2",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-3-2"
+      ]
+    },
+    {
+      "simulationId": "ch1-3-6",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-3-6"
+      ]
+    },
+    {
+      "simulationId": "ch1-5-3",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-5-3"
+      ]
+    },
+    {
+      "simulationId": "ch1-6-3",
+      "learningOutcomeId": "lo-ch1-statics",
+      "contentIds": [
+        "ch1-6-3"
+      ]
+    },
+    {
+      "simulationId": "ch2-1-1",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "contentIds": [
+        "ch2-1-1"
+      ]
+    },
+    {
+      "simulationId": "ch2-1-3",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "contentIds": [
+        "ch2-1-3"
+      ]
+    },
+    {
+      "simulationId": "ch2-2-2",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "contentIds": [
+        "ch2-2-2"
+      ]
+    },
+    {
+      "simulationId": "ch2-3-2",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "contentIds": [
+        "ch2-3-2"
+      ]
+    },
+    {
+      "simulationId": "ch2-4-4",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "contentIds": [
+        "ch2-4-4"
+      ]
+    },
+    {
+      "simulationId": "ch2-5-2",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "contentIds": [
+        "ch2-5-2"
+      ]
+    },
+    {
+      "simulationId": "ch2-5-3",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "contentIds": [
+        "ch2-5-3"
+      ]
+    },
+    {
+      "simulationId": "ch3-2-2",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "contentIds": [
+        "ch3-2-2"
+      ]
+    },
+    {
+      "simulationId": "ch3-2-3",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "contentIds": [
+        "ch3-2-3"
+      ]
+    },
+    {
+      "simulationId": "ch3-1-3",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "contentIds": [
+        "ch3-1-3"
+      ]
+    },
+    {
+      "simulationId": "ch3-3-1",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "contentIds": [
+        "ch3-3-1"
+      ]
+    },
+    {
+      "simulationId": "ch3-5-2",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "contentIds": [
+        "ch3-5-2"
+      ]
+    },
+    {
+      "simulationId": "ch3-5-3",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "contentIds": [
+        "ch3-5-3"
+      ]
+    },
+    {
+      "simulationId": "ch3-5-4",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "contentIds": [
+        "ch3-5-4"
+      ]
+    },
+    {
+      "simulationId": "ch3-6-2",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "contentIds": [
+        "ch3-6-2"
+      ]
+    }
+  ]
+}

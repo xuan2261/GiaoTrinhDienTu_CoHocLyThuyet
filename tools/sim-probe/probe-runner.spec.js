@@ -16,6 +16,7 @@
 const { test, expect } = require('@playwright/test');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '../..');
 const ROUTE_MAP = require(path.join(
@@ -25,6 +26,8 @@ const {
   computeDelta, signOf, parseReadout, midValue, isLive, compareSign, DEFAULT_EPSILON
 } = require('./probe-delta.js');
 const { targetsFor } = require('./probe-targets.js');
+const { validateProbe } = require('./probe-validation.js');
+const { fatalConsoleMessage } = require('../sim-validation/browser-console-policy.js');
 
 const OUT_DIR = path.join(ROOT, 'plans/260608-1559-sim-fullquality-triage/visuals');
 const OUT_JSON = path.join(OUT_DIR, 'interaction-probe.json');
@@ -38,6 +41,7 @@ const baseIdOf = key => key.split('#')[0];
 // "__SIM3_DEBUG__['ch2-4-4'].aCor.mag" → "aCor.mag"
 const fieldOf = debugPath => String(debugPath).replace(/^.*\]\./, '');
 
+const PROBE_RUN_ID = crypto.randomUUID();
 fs.mkdirSync(OUT_DIR, { recursive: true });
 const probeResults = {};
 
@@ -391,13 +395,13 @@ test.describe('sim interaction-probe — 35 route (route-map driven, dev-only)',
 
     test(`probe ${key}`, async ({ page }) => {
       const pageErrors = [];
-      page.on('pageerror', e => pageErrors.push(String(e)));
+      page.on('pageerror', e => pageErrors.push(`pageerror: ${String(e)}`));
+      page.on('console', message => { const fatal = fatalConsoleMessage(message.type(), message.text()); if (fatal) pageErrors.push(fatal); });
 
       await mountBase(page, entry.chapter, baseId);
       await expect(page.locator('#host .sim2-root'), `${key} .sim2-root mounted`).toHaveCount(1);
-
       const result = {
-        route: key, baseId, engine: entry.engine, chapter: entry.chapter,
+        runId: PROBE_RUN_ID, route: key, baseId, engine: entry.engine, chapter: entry.chapter,
         bMode: entry.bMode, channel: 'sim2-dom', mounted: true,
         probeA: [], probeB: null, pageErrors: []
       };
@@ -462,21 +466,27 @@ test.describe('sim interaction-probe — 35 route (route-map driven, dev-only)',
       }
 
       result.pageErrors = pageErrors.slice();
+      expect(result.pageErrors, `browser warnings/errors ${key}`).toEqual([]);
       probeResults[key] = result;
 
-      await page.evaluate(() => { try { window.__sim && window.__sim.dispose(); } catch (e) {} });
+      await page.evaluate(() => {
+        if (!window.__sim || typeof window.__sim.dispose !== 'function') throw new Error('simulation missing dispose');
+        window.__sim.dispose();
+      });
     });
   }
 
   test.afterAll(() => {
     const routes = Object.values(probeResults);
     const payload = {
+      runId: PROBE_RUN_ID,
       generatedAt: new Date().toISOString(),
       epsilon: { live: LIVE_EPSILON, sign: DEFAULT_EPSILON },
       playbackSteps: PLAYBACK_STEPS,
       routeCount: routes.length,
       routes
     };
+    validateProbe(payload);
     fs.writeFileSync(OUT_JSON, JSON.stringify(payload, null, 2), 'utf8');
     expect(routes.length, 'có ≥1 route được probe').toBeGreaterThan(0);
   });

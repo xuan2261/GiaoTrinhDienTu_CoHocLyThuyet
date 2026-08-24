@@ -1,7 +1,7 @@
 ---
 phase: 4
 title: "Make Sim2 Responsive and Accessible"
-status: pending
+status: completed
 priority: P1
 dependencies: [3]
 effort: "3-4 days"
@@ -47,15 +47,15 @@ Handle routes include all Ch1 routes plus `ch2-1-3`, `ch2-5-2`, `ch2-5-3`, `ch3-
 
 ## Function and Interface Checklist
 
-- [ ] `addHandle({a11y, keyboardStep, onDrag})` sets `tabindex`, role, name, values.
-- [ ] Arrow keys move correct axis; Shift+Arrow uses larger step.
-- [ ] Slider-linked handle updates slider without recursive `input`.
-- [ ] Pointer capture and keyboard share clamp/update path.
-- [ ] `ResizeObserver.disconnect()` and fallback listener cleanup verified.
-- [ ] `canvas.width/height = CSS size * capped DPR`.
-- [ ] Renderer coordinates remain logical after DPR scaling.
-- [ ] Two equal-size SVGs have unique marker/gradient/filter IDs.
-- [ ] Step/reset buttons expose text names, not glyph-only names.
+- [x] `addHandle({a11y, keyboardStep, onDrag})` sets `tabindex`, role, name, values.
+- [x] Arrow keys move correct axis; Shift+Arrow uses larger step.
+- [x] Slider-linked handle updates slider without recursive `input`.
+- [x] Pointer capture and keyboard share clamp/update path.
+- [x] `ResizeObserver.disconnect()` and fallback listener cleanup verified.
+- [x] `canvas.width/height = CSS size * capped DPR`.
+- [x] Renderer coordinates remain logical after DPR scaling.
+- [x] Two equal-size SVGs have unique marker/gradient/filter IDs.
+- [x] Step/reset buttons expose text names, not glyph-only names.
 
 ## Dependency Map
 
@@ -120,11 +120,11 @@ npm run test:sim:release
 
 ## Success Criteria
 
-- [ ] 25/25 routes fit supported widths with no horizontal overflow.
-- [ ] Canvas/SVG/overlay and pointer mapping remain aligned after resize.
-- [ ] Every handle is operable and understandable without a pointer.
-- [ ] All resize/listener/RAF resources dispose cleanly.
-- [ ] No route state is lost by resize.
+- [x] 25/25 routes fit supported widths with no horizontal overflow.
+- [x] Canvas/SVG/overlay and pointer mapping remain aligned after resize.
+- [x] Every handle is operable and understandable without a pointer.
+- [x] All resize/listener/RAF resources dispose cleanly.
+- [x] No route state is lost by resize.
 
 ## Risk Assessment
 

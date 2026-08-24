@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trượt lực trên đường tác dụng</title>
+  <link rel="stylesheet" href="shared/media-pilot.css">
+</head>
+<body data-media-id="media-ch1-force-sliding">
+  <a class="skip-link" href="#main">Bỏ qua phần giới thiệu</a>
+  <header class="pilot-header">
+    <strong>Thí điểm đa phương tiện Chương 1</strong>
+    <span>Bản nháp kỹ thuật, không phải kết luận về hiệu quả học tập</span>
+  </header>
+  <main id="main" class="pilot-shell">
+    <section class="pilot-intro" aria-labelledby="page-title">
+      <p class="pilot-state">Mục tiêu cục bộ: obj-ch1-force-sliding</p>
+      <h1 id="page-title">Theo dõi lực trượt từ A đến B</h1>
+      <p>Quan sát vì sao thay điểm đặt trên cùng đường tác dụng không đổi tác dụng của lực lên vật rắn.</p>
+    </section>
+
+    <div class="pilot-grid">
+      <section class="pilot-panel" aria-labelledby="visual-title">
+        <h2 id="visual-title">Hình minh họa</h2>
+        <div class="media-stage">
+          <div data-interactive hidden>
+            <img data-animated-image data-gif-src="../../assets/gifs/ch1/hinh-1-06.gif"
+              alt="Lực F dịch từ điểm A đến điểm B dọc theo cùng một đường tác dụng trên vật rắn"
+              width="720" height="416">
+          </div>
+          <div class="static-fallback" data-static-fallback>
+            <img src="assets/force-sliding-poster.png"
+              alt="Khung tĩnh của minh họa trượt lực, với A và B nằm trên cùng đường tác dụng"
+              width="720" height="416">
+            <p>Phương án tĩnh: lực tại A và lực cùng phương, cùng chiều, cùng độ lớn tại B biểu diễn hai hệ lực tương đương trên vật rắn.</p>
+            <button type="button" class="secondary" data-force-retry>Dùng ảnh động</button>
+          </div>
+        </div>
+        <div class="pilot-controls" data-force-controls hidden>
+          <button type="button" class="secondary" data-force-static>Dùng ảnh tĩnh</button>
+        </div>
+        <p class="status-line" data-media-status role="status" aria-live="polite">Đang chuẩn bị phương án phù hợp.</p>
+      </section>
+
+      <aside class="pilot-panel flat" aria-labelledby="reasoning-title">
+        <h2 id="reasoning-title">Điểm cần nhận ra</h2>
+        <div class="formula">F⃗<sub>A</sub> ≡ F⃗<sub>B</sub> khi A và B cùng nằm trên đường tác dụng.</div>
+        <p class="evidence-prompt"><strong>Tự kiểm:</strong> Nêu ba đại lượng của lực được giữ nguyên khi điểm đặt chuyển từ A sang B.</p>
+        <details>
+          <summary>Bản mô tả theo thời gian</summary>
+          <p>Ban đầu lực F đặt tại A. Một cặp lực cân bằng được thêm tại B. Lực tại A và lực đối tại B triệt tiêu theo phép biến đổi tương đương. Lực còn lại đặt tại B có cùng phương, chiều và độ lớn với lực ban đầu.</p>
+        </details>
+      </aside>
+    </div>
+  </main>
+  <script src="shared/media-pilot-runtime.js"></script>
+  <script src="shared/media-loader.js"></script>
+  <script src="force-sliding.js"></script>
+</body>
+</html>

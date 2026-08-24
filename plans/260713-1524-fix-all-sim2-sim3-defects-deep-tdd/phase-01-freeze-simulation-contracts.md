@@ -1,7 +1,7 @@
 ---
 phase: 1
 title: "Freeze Simulation Contracts"
-status: pending
+status: completed
 priority: P1
 dependencies: []
 effort: "1-2 days"
@@ -56,13 +56,13 @@ Contract descriptors contain route ID, chapter, engine, source file, test scenar
 
 ## Function and Interface Checklist
 
-- [ ] `sim3-route-manifest.js` exports in browser and CommonJS.
-- [ ] IDs unique and match `^ch\d-\d-\d$`.
-- [ ] Each Sim2 descriptor resolves one factory.
-- [ ] Each Sim3 descriptor resolves one adapter source/global and one Sim2 base route.
-- [ ] Contract descriptor has a callable/scenario reference, not only free text.
-- [ ] Unknown, duplicate, missing, or extra routes fail with actionable messages.
-- [ ] Generated/release copies are excluded from route discovery.
+- [x] `sim3-route-manifest.js` exports in browser and CommonJS.
+- [x] IDs unique and match `^ch\d-\d-\d$`.
+- [x] Each Sim2 descriptor resolves one factory.
+- [x] Each Sim3 descriptor resolves one adapter source/global and one Sim2 base route.
+- [x] Contract descriptor has a callable/scenario reference, not only free text.
+- [x] Unknown, duplicate, missing, or extra routes fail with actionable messages.
+- [x] Generated/release copies are excluded from route discovery.
 
 ## Dependency Map
 
@@ -121,10 +121,10 @@ npm run test:sim:mount
 
 ## Success Criteria
 
-- [ ] Exactly 25 Sim2 and 10 Sim3 routes verified.
-- [ ] Route-name comments cannot satisfy coverage.
-- [ ] Manifest, files, globals, script tags, fixtures, and loader mappings agree.
-- [ ] Existing Sim2 release tests remain green.
+- [x] Exactly 25 Sim2 and 10 Sim3 routes verified.
+- [x] Route-name comments cannot satisfy coverage.
+- [x] Manifest, files, globals, script tags, fixtures, and loader mappings agree.
+- [x] Existing Sim2 release tests remain green.
 
 ## Risk Assessment
 

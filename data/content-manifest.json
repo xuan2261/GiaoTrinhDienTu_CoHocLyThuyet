@@ -1,0 +1,3190 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "logicalPath": "CoHocLyThuyet_Full_New.docx",
+    "sha256": "f39fc360a0f92fd054a1b170edd423d5d3fd70ff63d87011c5dbd9b042372e70",
+    "docxManifestSha256": "424b5991c882bd20f64327abb39d5f52de647fc72d4dedb44bbd0658947c4a58",
+    "pdf": {
+      "logicalPath": "CoHocLyThuyet.pdf",
+      "sha256": "b755b06cf919a979e278f635aa2fedfe249a97342ccd93d2d15875e87ff835d9"
+    }
+  },
+  "generator": {
+    "name": "tools/build_content_manifest.py",
+    "version": 1
+  },
+  "routes": [
+    {
+      "routeId": "lnd",
+      "title": "Lời nói đầu",
+      "sourceHeadingPath": [
+        "Lời nói đầu"
+      ],
+      "chapterFile": "chapters/loi-noi-dau.html",
+      "bundleKey": "lnd",
+      "contentHash": "8dd425e0e94067175f7e1e4d6b98f4bce5521ef432adb3949543ff858b8e7494",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1",
+      "title": "Tĩnh học",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "Tĩnh học"
+      ],
+      "chapterFile": "chapters/ch1/index.html",
+      "bundleKey": "ch1",
+      "contentHash": "bd72c0c605263479fe357fd63287128ab18b5bf1e1134ad17bf6b19596fdb5a2",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-1",
+      "title": "I. KHÁI NIỆM CƠ BẢN",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "I. KHÁI NIỆM CƠ BẢN"
+      ],
+      "chapterFile": "chapters/ch1/muc-I.html",
+      "bundleKey": "ch1-1",
+      "contentHash": "667043dacf4c50911815a9bc9a232c34b6b0ac945565b9b630c0cbaa6dd7d379",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-1-1",
+      "title": "1. Vật rắn tuyệt đối",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "I",
+        "1. Vật rắn tuyệt đối"
+      ],
+      "chapterFile": "chapters/ch1/muc-I-1.html",
+      "bundleKey": "ch1-1-1",
+      "contentHash": "7e41613c6a086b33988b71cd15a4ae4c05872110061170dbed833421795310d7",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-1-2",
+      "title": "2. Cân bằng",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "I",
+        "2. Cân bằng"
+      ],
+      "chapterFile": "chapters/ch1/muc-I-2.html",
+      "bundleKey": "ch1-1-2",
+      "contentHash": "fcfc474afdb08728b1b84ed786627772b86645d71e2d947f8a0a83aebc3f263f",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-1-3",
+      "title": "3. Lực",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "I",
+        "3. Lực"
+      ],
+      "chapterFile": "chapters/ch1/muc-I-3.html",
+      "bundleKey": "ch1-1-3",
+      "contentHash": "d0f6036eaf3d9ca25e96ed8bd2f82c23eaf14228e8b331f8b2999377bc11337a",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch1-1-3#eq-1",
+        "ch1-1-3#eq-2"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-1-4",
+      "title": "4. Mô men",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "I",
+        "4. Mô men"
+      ],
+      "chapterFile": "chapters/ch1/muc-I-4.html",
+      "bundleKey": "ch1-1-4",
+      "contentHash": "135cd017448c06b3cb9ce96960f4c4b98385a0c9d9b630d0d2cffc597cdf704a",
+      "figureRefs": [
+        "images/ch1/hinh-002.png",
+        "images/ch1/hinh-013.png"
+      ],
+      "equationRefs": [
+        "ch1-1-4#eq-1",
+        "ch1-1-4#eq-2",
+        "ch1-1-4#eq-3",
+        "ch1-1-4#eq-4",
+        "ch1-1-4#eq-5",
+        "ch1-1-4#eq-6",
+        "ch1-1-4#eq-7",
+        "ch1-1-4#eq-8",
+        "ch1-1-4#eq-9",
+        "ch1-1-4#eq-10",
+        "ch1-1-4#eq-11",
+        "ch1-1-4#eq-12",
+        "ch1-1-4#eq-13",
+        "ch1-1-4#eq-14",
+        "ch1-1-4#eq-15",
+        "ch1-1-4#eq-16",
+        "ch1-1-4#eq-17",
+        "ch1-1-4#eq-18",
+        "ch1-1-4#eq-19",
+        "ch1-1-4#eq-20",
+        "ch1-1-4#eq-21",
+        "ch1-1-4#eq-22",
+        "ch1-1-4#eq-23"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-1-5",
+      "title": "5. Hệ lực",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "I",
+        "5. Hệ lực"
+      ],
+      "chapterFile": "chapters/ch1/muc-I-5.html",
+      "bundleKey": "ch1-1-5",
+      "contentHash": "31b505f0693715dcaff417362930931de1442aa6606f0c04b40d9d34bbad44b1",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch1-1-5#eq-1",
+        "ch1-1-5#eq-2",
+        "ch1-1-5#eq-3",
+        "ch1-1-5#eq-4",
+        "ch1-1-5#eq-5",
+        "ch1-1-5#eq-6",
+        "ch1-1-5#eq-7",
+        "ch1-1-5#eq-8",
+        "ch1-1-5#eq-9",
+        "ch1-1-5#eq-10",
+        "ch1-1-5#eq-11",
+        "ch1-1-5#eq-12",
+        "ch1-1-5#eq-13",
+        "ch1-1-5#eq-14",
+        "ch1-1-5#eq-15",
+        "ch1-1-5#eq-16",
+        "ch1-1-5#eq-17",
+        "ch1-1-5#eq-18",
+        "ch1-1-5#eq-19",
+        "ch1-1-5#eq-20",
+        "ch1-1-5#eq-21",
+        "ch1-1-5#eq-22"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-1-6",
+      "title": "6. Ngẫu lực",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "I",
+        "6. Ngẫu lực"
+      ],
+      "chapterFile": "chapters/ch1/muc-I-6.html",
+      "bundleKey": "ch1-1-6",
+      "contentHash": "e1273b98844a20057087739e43417fae765a6891070b1810364e927343ddc5f4",
+      "figureRefs": [
+        "images/ch1/hinh-017.png"
+      ],
+      "equationRefs": [
+        "ch1-1-6#eq-1",
+        "ch1-1-6#eq-2",
+        "ch1-1-6#eq-3",
+        "ch1-1-6#eq-4"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-1-7",
+      "title": "7. Vật tự do và vật không tự do",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "I",
+        "7. Vật tự do và vật không tự do"
+      ],
+      "chapterFile": "chapters/ch1/muc-I-7.html",
+      "bundleKey": "ch1-1-7",
+      "contentHash": "c65ddd0204c215d8a6368f6451d44139de8f654957d704b681254706acf58461",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-1-8",
+      "title": "8. Lực liên kết, lực hoạt động, phản lực liên kết",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "I",
+        "8. Lực liên kết, lực hoạt động, phản lực liên kết"
+      ],
+      "chapterFile": "chapters/ch1/muc-I-8.html",
+      "bundleKey": "ch1-1-8",
+      "contentHash": "0aa9826f19756d572e7d51e5b137c6033ce82cafe17c9a9265019674474a68b0",
+      "figureRefs": [
+        "images/ch1/hinh-019.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-2",
+      "title": "II. CÁC ĐỊNH LUẬT TĨNH HỌC",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "II. CÁC ĐỊNH LUẬT TĨNH HỌC"
+      ],
+      "chapterFile": "chapters/ch1/muc-II.html",
+      "bundleKey": "ch1-2",
+      "contentHash": "c107c181a13e03eeb2ed080390c807fbeb49c03a3a7121694a5aa5488f0a3ae5",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-2-1",
+      "title": "1. Định luật hai lực cân bằng",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "II",
+        "1. Định luật hai lực cân bằng"
+      ],
+      "chapterFile": "chapters/ch1/muc-II-1.html",
+      "bundleKey": "ch1-2-1",
+      "contentHash": "03cc33304365730ef79a718c133985ee6a68520ba7cb6a5b1d689336975f2bc3",
+      "figureRefs": [
+        "images/ch1/hinh-020.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-2-2",
+      "title": "2. Định luật thêm bớt hai lực cân bằng",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "II",
+        "2. Định luật thêm bớt hai lực cân bằng"
+      ],
+      "chapterFile": "chapters/ch1/muc-II-2.html",
+      "bundleKey": "ch1-2-2",
+      "contentHash": "a9df0ebdcf075406a74d462c871da54f432172cdfdb148d0231ed87fecfc7b9b",
+      "figureRefs": [
+        "images/ch1/hinh-026.png"
+      ],
+      "equationRefs": [
+        "ch1-2-2#eq-1",
+        "ch1-2-2#eq-2",
+        "ch1-2-2#eq-3",
+        "ch1-2-2#eq-4",
+        "ch1-2-2#eq-5",
+        "ch1-2-2#eq-6",
+        "ch1-2-2#eq-7",
+        "ch1-2-2#eq-8",
+        "ch1-2-2#eq-9",
+        "ch1-2-2#eq-10",
+        "ch1-2-2#eq-11",
+        "ch1-2-2#eq-12",
+        "ch1-2-2#eq-13",
+        "ch1-2-2#eq-14",
+        "ch1-2-2#eq-15",
+        "ch1-2-2#eq-16",
+        "ch1-2-2#eq-17",
+        "ch1-2-2#eq-18",
+        "ch1-2-2#eq-19",
+        "ch1-2-2#eq-20"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-2-3",
+      "title": "3. Định luật hình bình hành lực",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "II",
+        "3. Định luật hình bình hành lực"
+      ],
+      "chapterFile": "chapters/ch1/muc-II-3.html",
+      "bundleKey": "ch1-2-3",
+      "contentHash": "c0012f32522e4d0f76876a241bb132aa66bccb5367bb61fa3b97390f20620205",
+      "figureRefs": [
+        "images/ch1/hinh-031.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-2-4",
+      "title": "4. Định luật tác dụng và phản tác dụng",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "II",
+        "4. Định luật tác dụng và phản tác dụng"
+      ],
+      "chapterFile": "chapters/ch1/muc-II-4.html",
+      "bundleKey": "ch1-2-4",
+      "contentHash": "d756b10adef73e695004cf1c86583828ea763c30c4709cd772544bf703b3986d",
+      "figureRefs": [
+        "images/ch1/hinh-032.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-2-5",
+      "title": "5. Định luật hóa rắn",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "II",
+        "5. Định luật hóa rắn"
+      ],
+      "chapterFile": "chapters/ch1/muc-II-5.html",
+      "bundleKey": "ch1-2-5",
+      "contentHash": "5f443f945b24231e8c7f3b5b9536e703da338f8edd3417270928136ab766fe46",
+      "figureRefs": [
+        "images/ch1/hinh-033.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-2-6",
+      "title": "6. Định luật về giải phóng liên kết",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "II",
+        "6. Định luật về giải phóng liên kết"
+      ],
+      "chapterFile": "chapters/ch1/muc-II-6.html",
+      "bundleKey": "ch1-2-6",
+      "contentHash": "2c8abbacfcf8375cafd31677780e737b374ef1f087a17e74c44b1d884ec2718c",
+      "figureRefs": [
+        "images/ch1/hinh-034.png",
+        "images/ch1/hinh-035.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-3",
+      "title": "III. MỘT SỐ LIÊN KẾT THƯỜNG GẶP",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "III. MỘT SỐ LIÊN KẾT THƯỜNG GẶP"
+      ],
+      "chapterFile": "chapters/ch1/muc-III.html",
+      "bundleKey": "ch1-3",
+      "contentHash": "038e440396a0d45e4089861711eda7cd148c7deed9ed20d23469d4dc87cad95f",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-3-1",
+      "title": "1. Liên kết tựa",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "III",
+        "1. Liên kết tựa"
+      ],
+      "chapterFile": "chapters/ch1/muc-III-1.html",
+      "bundleKey": "ch1-3-1",
+      "contentHash": "c1c6eadb28d60cef458a592b206f49545a61644da946f0fe20d242caf5c27676",
+      "figureRefs": [
+        "images/ch1/hinh-036.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-3-2",
+      "title": "2. Liên kết dây mềm, thẳng",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "III",
+        "2. Liên kết dây mềm, thẳng"
+      ],
+      "chapterFile": "chapters/ch1/muc-III-2.html",
+      "bundleKey": "ch1-3-2",
+      "contentHash": "40f6b1814c50c122848838453d002d1dc498dc5177bbce16e0bbe3c044f0756c",
+      "figureRefs": [
+        "images/ch1/hinh-038.png"
+      ],
+      "equationRefs": [
+        "ch1-3-2#eq-1"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-3-3",
+      "title": "3. Liên kết bản lề",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "III",
+        "3. Liên kết bản lề"
+      ],
+      "chapterFile": "chapters/ch1/muc-III-3.html",
+      "bundleKey": "ch1-3-3",
+      "contentHash": "3e4c34e4161248bac04d5873dfb7b1ab2338f257d1a30e427a19d656f6c31e0e",
+      "figureRefs": [
+        "images/ch1/hinh-042.png"
+      ],
+      "equationRefs": [
+        "ch1-3-3#eq-1"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-3-4",
+      "title": "4. Liên kết gối",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "III",
+        "4. Liên kết gối"
+      ],
+      "chapterFile": "chapters/ch1/muc-III-4.html",
+      "bundleKey": "ch1-3-4",
+      "contentHash": "aa1613776f4fb094c1bc3d43c68536f750db69e657e1e785d541b9cebffeff3e",
+      "figureRefs": [
+        "images/ch1/hinh-043.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-3-5",
+      "title": "5. Liên kết gối cầu",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "III",
+        "5. Liên kết gối cầu"
+      ],
+      "chapterFile": "chapters/ch1/muc-III-5.html",
+      "bundleKey": "ch1-3-5",
+      "contentHash": "6da8d51c8947cf2c03f494e3a7ade8fda454f90b556744b2b7983d08e19ec62f",
+      "figureRefs": [
+        "images/ch1/hinh-044.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-3-6",
+      "title": "6. Liên kết ngàm",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "III",
+        "6. Liên kết ngàm"
+      ],
+      "chapterFile": "chapters/ch1/muc-III-6.html",
+      "bundleKey": "ch1-3-6",
+      "contentHash": "16baba77118c505a68424d567c5aa07c2904f2100640e0ce53225c5a9490ea53",
+      "figureRefs": [
+        "images/ch1/hinh-045.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-3-7",
+      "title": "7. Liên kết thanh",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "III",
+        "7. Liên kết thanh"
+      ],
+      "chapterFile": "chapters/ch1/muc-III-7.html",
+      "bundleKey": "ch1-3-7",
+      "contentHash": "269670d2d6e31d016e1c994a9ed93a9f2b2eb00ae93630f198b860169964a180",
+      "figureRefs": [
+        "images/ch1/hinh-046.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-4",
+      "title": "IV. HỆ LỰC KHÔNG GIAN",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "IV. HỆ LỰC KHÔNG GIAN"
+      ],
+      "chapterFile": "chapters/ch1/muc-IV.html",
+      "bundleKey": "ch1-4",
+      "contentHash": "9a17907fa23780fbdfd6fa08dc24ae162bd4770c2d55d8285939bce45921c0d6",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-4-1",
+      "title": "1. Véc tơ chính của hệ lực không gian",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "IV",
+        "1. Véc tơ chính của hệ lực không gian"
+      ],
+      "chapterFile": "chapters/ch1/muc-IV-1.html",
+      "bundleKey": "ch1-4-1",
+      "contentHash": "3c2a0cdaa8d721700e0656f6c703fd9d83ecf31ca98d901ab040aa91c950536e",
+      "figureRefs": [
+        "images/ch1/hinh-050.png"
+      ],
+      "equationRefs": [
+        "ch1-4-1#eq-1",
+        "ch1-4-1#eq-2",
+        "ch1-4-1#eq-3",
+        "ch1-4-1#eq-4",
+        "ch1-4-1#eq-5",
+        "ch1-4-1#eq-6",
+        "ch1-4-1#eq-7",
+        "ch1-4-1#eq-8"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-4-2",
+      "title": "2. Mô men chính của hệ lực không gian đối với một tâm",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "IV",
+        "2. Mô men chính của hệ lực không gian đối với một tâm"
+      ],
+      "chapterFile": "chapters/ch1/muc-IV-2.html",
+      "bundleKey": "ch1-4-2",
+      "contentHash": "83fcb0ce8b02051c00b02bf281da06c41b3c7b1e1eaf5c9701f8a93f83371b12",
+      "figureRefs": [
+        "images/ch1/hinh-056.png"
+      ],
+      "equationRefs": [
+        "ch1-4-2#eq-1",
+        "ch1-4-2#eq-2",
+        "ch1-4-2#eq-3",
+        "ch1-4-2#eq-4",
+        "ch1-4-2#eq-5",
+        "ch1-4-2#eq-6",
+        "ch1-4-2#eq-7",
+        "ch1-4-2#eq-8",
+        "ch1-4-2#eq-9",
+        "ch1-4-2#eq-10",
+        "ch1-4-2#eq-11",
+        "ch1-4-2#eq-12"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-4-3",
+      "title": "3. Các dạng cơ bản của hệ lực không gian",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "IV",
+        "3. Các dạng cơ bản của hệ lực không gian"
+      ],
+      "chapterFile": "chapters/ch1/muc-IV-3.html",
+      "bundleKey": "ch1-4-3",
+      "contentHash": "15c97585cb52d9e7f88e333d90777c25f8bb85392a88db20da1f13e24432e51a",
+      "figureRefs": [
+        "images/ch1/hinh-078.png",
+        "images/ch1/hinh-086.png",
+        "images/ch1/hinh-090.png"
+      ],
+      "equationRefs": [
+        "ch1-4-3#eq-1",
+        "ch1-4-3#eq-2",
+        "ch1-4-3#eq-3",
+        "ch1-4-3#eq-4",
+        "ch1-4-3#eq-5",
+        "ch1-4-3#eq-6",
+        "ch1-4-3#eq-7",
+        "ch1-4-3#eq-8",
+        "ch1-4-3#eq-9",
+        "ch1-4-3#eq-10",
+        "ch1-4-3#eq-11",
+        "ch1-4-3#eq-12",
+        "ch1-4-3#eq-13",
+        "ch1-4-3#eq-14",
+        "ch1-4-3#eq-15",
+        "ch1-4-3#eq-16",
+        "ch1-4-3#eq-17",
+        "ch1-4-3#eq-18",
+        "ch1-4-3#eq-19",
+        "ch1-4-3#eq-20",
+        "ch1-4-3#eq-21",
+        "ch1-4-3#eq-22",
+        "ch1-4-3#eq-23",
+        "ch1-4-3#eq-24",
+        "ch1-4-3#eq-25",
+        "ch1-4-3#eq-26",
+        "ch1-4-3#eq-27",
+        "ch1-4-3#eq-28",
+        "ch1-4-3#eq-29",
+        "ch1-4-3#eq-30",
+        "ch1-4-3#eq-31",
+        "ch1-4-3#eq-32",
+        "ch1-4-3#eq-33",
+        "ch1-4-3#eq-34",
+        "ch1-4-3#eq-35",
+        "ch1-4-3#eq-36",
+        "ch1-4-3#eq-37",
+        "ch1-4-3#eq-38",
+        "ch1-4-3#eq-39",
+        "ch1-4-3#eq-40",
+        "ch1-4-3#eq-41",
+        "ch1-4-3#eq-42",
+        "ch1-4-3#eq-43",
+        "ch1-4-3#eq-44",
+        "ch1-4-3#eq-45",
+        "ch1-4-3#eq-46",
+        "ch1-4-3#eq-47",
+        "ch1-4-3#eq-48",
+        "ch1-4-3#eq-49",
+        "ch1-4-3#eq-50",
+        "ch1-4-3#eq-51",
+        "ch1-4-3#eq-52",
+        "ch1-4-3#eq-53"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-4-4",
+      "title": "4. Điều kiện cân bằng và phương trình cân bằng của hệ lực không gian",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "IV",
+        "4. Điều kiện cân bằng và phương trình cân bằng của hệ lực không gian"
+      ],
+      "chapterFile": "chapters/ch1/muc-IV-4.html",
+      "bundleKey": "ch1-4-4",
+      "contentHash": "161eccbc729af3e45845a534bfef8b6ceb6d84f920de2aea065ca1b6cb7325c5",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch1-4-4#eq-1",
+        "ch1-4-4#eq-2"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-4-5",
+      "title": "5. Điều kiện cân bằng và phương trình cân bằng của hệ lực đặc biệt",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "IV",
+        "5. Điều kiện cân bằng và phương trình cân bằng của hệ lực đặc biệt"
+      ],
+      "chapterFile": "chapters/ch1/muc-IV-5.html",
+      "bundleKey": "ch1-4-5",
+      "contentHash": "b0a94735348df7bb03f219500a139b24e5c4c72a56021ea3a30544ba3214304e",
+      "figureRefs": [
+        "images/ch1/hinh-100.png",
+        "images/ch1/hinh-107.png",
+        "images/ch1/hinh-113.png",
+        "images/ch1/hinh-114.png"
+      ],
+      "equationRefs": [
+        "ch1-4-5#eq-1",
+        "ch1-4-5#eq-2",
+        "ch1-4-5#eq-3",
+        "ch1-4-5#eq-4",
+        "ch1-4-5#eq-5",
+        "ch1-4-5#eq-6",
+        "ch1-4-5#eq-7",
+        "ch1-4-5#eq-8",
+        "ch1-4-5#eq-9",
+        "ch1-4-5#eq-10",
+        "ch1-4-5#eq-11",
+        "ch1-4-5#eq-12",
+        "ch1-4-5#eq-13",
+        "ch1-4-5#eq-14",
+        "ch1-4-5#eq-15",
+        "ch1-4-5#eq-16",
+        "ch1-4-5#eq-17",
+        "ch1-4-5#eq-18",
+        "ch1-4-5#eq-19"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-5",
+      "title": "V. MA SÁT",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "V. MA SÁT"
+      ],
+      "chapterFile": "chapters/ch1/muc-V.html",
+      "bundleKey": "ch1-5",
+      "contentHash": "e147650190ae41e6fd885995390050754118e2fc8c3d0daab1f3684daa5b28a4",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-5-1",
+      "title": "1. Khái niệm",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "V",
+        "1. Khái niệm"
+      ],
+      "chapterFile": "chapters/ch1/muc-V-1.html",
+      "bundleKey": "ch1-5-1",
+      "contentHash": "84321c6eee4889a729a1f6fb4403e8b1986d207f8373ae52b4d78c6c70a96b5d",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-5-2",
+      "title": "2. Phân loại ma sát",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "V",
+        "2. Phân loại ma sát"
+      ],
+      "chapterFile": "chapters/ch1/muc-V-2.html",
+      "bundleKey": "ch1-5-2",
+      "contentHash": "f8c51fa7186f622403d410f2a70ddc808827cd7a351abc212780ac7f41906aa7",
+      "figureRefs": [
+        "images/ch1/hinh-117.png",
+        "images/ch1/hinh-118.png",
+        "images/ch1/hinh-119.png",
+        "images/ch1/hinh-120.png",
+        "images/ch1/hinh-121.png",
+        "images/ch1/hinh-122.png"
+      ],
+      "equationRefs": [
+        "ch1-5-2#eq-1",
+        "ch1-5-2#eq-2",
+        "ch1-5-2#eq-3",
+        "ch1-5-2#eq-4",
+        "ch1-5-2#eq-5",
+        "ch1-5-2#eq-6",
+        "ch1-5-2#eq-7",
+        "ch1-5-2#eq-8",
+        "ch1-5-2#eq-9",
+        "ch1-5-2#eq-10",
+        "ch1-5-2#eq-11",
+        "ch1-5-2#eq-12"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-5-3",
+      "title": "3. Định luật ma sát",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "V",
+        "3. Định luật ma sát"
+      ],
+      "chapterFile": "chapters/ch1/muc-V-3.html",
+      "bundleKey": "ch1-5-3",
+      "contentHash": "bbc4cbb33a156f27520b0005f037ffcbe4ac8415ac020e3a763ca55f37915118",
+      "figureRefs": [
+        "images/ch1/hinh-127.png",
+        "images/ch1/hinh-132.png",
+        "images/ch1/hinh-133.png",
+        "images/ch1/hinh-136.png",
+        "images/ch1/hinh-138.png",
+        "images/ch1/hinh-146.png",
+        "images/ch1/hinh-149.png"
+      ],
+      "equationRefs": [
+        "ch1-5-3#eq-1",
+        "ch1-5-3#eq-2",
+        "ch1-5-3#eq-3",
+        "ch1-5-3#eq-4",
+        "ch1-5-3#eq-5",
+        "ch1-5-3#eq-6",
+        "ch1-5-3#eq-7",
+        "ch1-5-3#eq-8",
+        "ch1-5-3#eq-9",
+        "ch1-5-3#eq-10",
+        "ch1-5-3#eq-11",
+        "ch1-5-3#eq-12",
+        "ch1-5-3#eq-13",
+        "ch1-5-3#eq-14",
+        "ch1-5-3#eq-15",
+        "ch1-5-3#eq-16",
+        "ch1-5-3#eq-17",
+        "ch1-5-3#eq-18",
+        "ch1-5-3#eq-19",
+        "ch1-5-3#eq-20",
+        "ch1-5-3#eq-21",
+        "ch1-5-3#eq-22",
+        "ch1-5-3#eq-23",
+        "ch1-5-3#eq-24",
+        "ch1-5-3#eq-25",
+        "ch1-5-3#eq-26",
+        "ch1-5-3#eq-27",
+        "ch1-5-3#eq-28",
+        "ch1-5-3#eq-29",
+        "ch1-5-3#eq-30",
+        "ch1-5-3#eq-31",
+        "ch1-5-3#eq-32",
+        "ch1-5-3#eq-33",
+        "ch1-5-3#eq-34",
+        "ch1-5-3#eq-35",
+        "ch1-5-3#eq-36",
+        "ch1-5-3#eq-37",
+        "ch1-5-3#eq-38",
+        "ch1-5-3#eq-39",
+        "ch1-5-3#eq-40",
+        "ch1-5-3#eq-41",
+        "ch1-5-3#eq-42",
+        "ch1-5-3#eq-43",
+        "ch1-5-3#eq-44",
+        "ch1-5-3#eq-45",
+        "ch1-5-3#eq-46",
+        "ch1-5-3#eq-47",
+        "ch1-5-3#eq-48",
+        "ch1-5-3#eq-49",
+        "ch1-5-3#eq-50",
+        "ch1-5-3#eq-51",
+        "ch1-5-3#eq-52",
+        "ch1-5-3#eq-53",
+        "ch1-5-3#eq-54",
+        "ch1-5-3#eq-55",
+        "ch1-5-3#eq-56",
+        "ch1-5-3#eq-57",
+        "ch1-5-3#eq-58",
+        "ch1-5-3#eq-59",
+        "ch1-5-3#eq-60",
+        "ch1-5-3#eq-61",
+        "ch1-5-3#eq-62",
+        "ch1-5-3#eq-63",
+        "ch1-5-3#eq-64",
+        "ch1-5-3#eq-65",
+        "ch1-5-3#eq-66",
+        "ch1-5-3#eq-67",
+        "ch1-5-3#eq-68",
+        "ch1-5-3#eq-69",
+        "ch1-5-3#eq-70",
+        "ch1-5-3#eq-71",
+        "ch1-5-3#eq-72",
+        "ch1-5-3#eq-73",
+        "ch1-5-3#eq-74",
+        "ch1-5-3#eq-75"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-5-4",
+      "title": "4. Hiện tượng tự hãm",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "V",
+        "4. Hiện tượng tự hãm"
+      ],
+      "chapterFile": "chapters/ch1/muc-V-4.html",
+      "bundleKey": "ch1-5-4",
+      "contentHash": "247066c3478f8eb718c266bdf0383909ed362e151ff8bea1293fb3a9ff8d6b72",
+      "figureRefs": [
+        "images/ch1/hinh-156.png"
+      ],
+      "equationRefs": [
+        "ch1-5-4#eq-1",
+        "ch1-5-4#eq-2",
+        "ch1-5-4#eq-3",
+        "ch1-5-4#eq-4"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-6",
+      "title": "VI. TRỌNG TÂM",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "VI. TRỌNG TÂM"
+      ],
+      "chapterFile": "chapters/ch1/muc-VI.html",
+      "bundleKey": "ch1-6",
+      "contentHash": "015e7d09f6593f9484cc9ea7905906e19cb5bd3ed2e5966c4ea5df16ef508ae8",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-6-1",
+      "title": "1. Khái niệm",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "VI",
+        "1. Khái niệm"
+      ],
+      "chapterFile": "chapters/ch1/muc-VI-1.html",
+      "bundleKey": "ch1-6-1",
+      "contentHash": "6a2874be6ade4e19100eeb20ac12246e50ea4359ed8758d77192c0b9f79be115",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-6-2",
+      "title": "2. Công thức tính trọng tâm",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "VI",
+        "2. Công thức tính trọng tâm"
+      ],
+      "chapterFile": "chapters/ch1/muc-VI-2.html",
+      "bundleKey": "ch1-6-2",
+      "contentHash": "5a6a07e92849d18a1a13722c3104b96af0a9cac496fdceb50c9b5709c833be6f",
+      "figureRefs": [
+        "images/ch1/hinh-161.png"
+      ],
+      "equationRefs": [
+        "ch1-6-2#eq-1",
+        "ch1-6-2#eq-2",
+        "ch1-6-2#eq-3",
+        "ch1-6-2#eq-4",
+        "ch1-6-2#eq-5",
+        "ch1-6-2#eq-6",
+        "ch1-6-2#eq-7",
+        "ch1-6-2#eq-8",
+        "ch1-6-2#eq-9",
+        "ch1-6-2#eq-10",
+        "ch1-6-2#eq-11",
+        "ch1-6-2#eq-12",
+        "ch1-6-2#eq-13",
+        "ch1-6-2#eq-14",
+        "ch1-6-2#eq-15",
+        "ch1-6-2#eq-16",
+        "ch1-6-2#eq-17",
+        "ch1-6-2#eq-18",
+        "ch1-6-2#eq-19",
+        "ch1-6-2#eq-20",
+        "ch1-6-2#eq-21",
+        "ch1-6-2#eq-22",
+        "ch1-6-2#eq-23",
+        "ch1-6-2#eq-24"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-6-3",
+      "title": "3. Tính chất và trọng tâm một số vật",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "VI",
+        "3. Tính chất và trọng tâm một số vật"
+      ],
+      "chapterFile": "chapters/ch1/muc-VI-3.html",
+      "bundleKey": "ch1-6-3",
+      "contentHash": "8b3cd3baf469eb283b16e26c3d586fbaf09d806dd69459ff50f27ed6521c6c57",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch1-7",
+      "title": "VII. BÀI TẬP",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "VII. BÀI TẬP"
+      ],
+      "chapterFile": "chapters/ch1/muc-VII.html",
+      "bundleKey": "ch1-7",
+      "contentHash": "00905a8e39e4030e7932e8336491511f8109a5f2c08f8aad283803f1eb7c6cd1",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-7-1",
+      "title": "1. Hướng dẫn giải bài tập",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "VII",
+        "1. Hướng dẫn giải bài tập"
+      ],
+      "chapterFile": "chapters/ch1/muc-VII-1.html",
+      "bundleKey": "ch1-7-1",
+      "contentHash": "98034b3d54624efffb8c9115b313bb1d976930ff1fc08e6f6e16c3ee5b9688f3",
+      "figureRefs": [
+        "images/ch1/hinh-172.png",
+        "images/ch1/hinh-173.png",
+        "images/ch1/hinh-188.png",
+        "images/ch1/hinh-195.png",
+        "images/ch1/hinh-201.png",
+        "images/ch1/hinh-208.png",
+        "images/ch1/hinh-212.png",
+        "images/ch1/hinh-217.png",
+        "images/ch1/hinh-218.png",
+        "images/ch1/hinh-222.png",
+        "images/ch1/hinh-224.png"
+      ],
+      "equationRefs": [
+        "ch1-7-1#eq-1",
+        "ch1-7-1#eq-2",
+        "ch1-7-1#eq-3",
+        "ch1-7-1#eq-4",
+        "ch1-7-1#eq-5",
+        "ch1-7-1#eq-6",
+        "ch1-7-1#eq-7",
+        "ch1-7-1#eq-8",
+        "ch1-7-1#eq-9",
+        "ch1-7-1#eq-10",
+        "ch1-7-1#eq-11",
+        "ch1-7-1#eq-12",
+        "ch1-7-1#eq-13",
+        "ch1-7-1#eq-14",
+        "ch1-7-1#eq-15",
+        "ch1-7-1#eq-16",
+        "ch1-7-1#eq-17",
+        "ch1-7-1#eq-18",
+        "ch1-7-1#eq-19",
+        "ch1-7-1#eq-20",
+        "ch1-7-1#eq-21",
+        "ch1-7-1#eq-22",
+        "ch1-7-1#eq-23",
+        "ch1-7-1#eq-24",
+        "ch1-7-1#eq-25",
+        "ch1-7-1#eq-26",
+        "ch1-7-1#eq-27",
+        "ch1-7-1#eq-28",
+        "ch1-7-1#eq-29",
+        "ch1-7-1#eq-30",
+        "ch1-7-1#eq-31",
+        "ch1-7-1#eq-32",
+        "ch1-7-1#eq-33",
+        "ch1-7-1#eq-34",
+        "ch1-7-1#eq-35",
+        "ch1-7-1#eq-36",
+        "ch1-7-1#eq-37",
+        "ch1-7-1#eq-38",
+        "ch1-7-1#eq-39",
+        "ch1-7-1#eq-40",
+        "ch1-7-1#eq-41",
+        "ch1-7-1#eq-42",
+        "ch1-7-1#eq-43",
+        "ch1-7-1#eq-44",
+        "ch1-7-1#eq-45",
+        "ch1-7-1#eq-46",
+        "ch1-7-1#eq-47",
+        "ch1-7-1#eq-48",
+        "ch1-7-1#eq-49",
+        "ch1-7-1#eq-50",
+        "ch1-7-1#eq-51",
+        "ch1-7-1#eq-52",
+        "ch1-7-1#eq-53",
+        "ch1-7-1#eq-54",
+        "ch1-7-1#eq-55",
+        "ch1-7-1#eq-56",
+        "ch1-7-1#eq-57",
+        "ch1-7-1#eq-58",
+        "ch1-7-1#eq-59",
+        "ch1-7-1#eq-60",
+        "ch1-7-1#eq-61",
+        "ch1-7-1#eq-62",
+        "ch1-7-1#eq-63",
+        "ch1-7-1#eq-64",
+        "ch1-7-1#eq-65",
+        "ch1-7-1#eq-66",
+        "ch1-7-1#eq-67",
+        "ch1-7-1#eq-68",
+        "ch1-7-1#eq-69",
+        "ch1-7-1#eq-70",
+        "ch1-7-1#eq-71",
+        "ch1-7-1#eq-72",
+        "ch1-7-1#eq-73",
+        "ch1-7-1#eq-74",
+        "ch1-7-1#eq-75",
+        "ch1-7-1#eq-76",
+        "ch1-7-1#eq-77",
+        "ch1-7-1#eq-78",
+        "ch1-7-1#eq-79",
+        "ch1-7-1#eq-80",
+        "ch1-7-1#eq-81",
+        "ch1-7-1#eq-82",
+        "ch1-7-1#eq-83",
+        "ch1-7-1#eq-84"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-7-2",
+      "title": "2. Bài tập",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "VII",
+        "2. Bài tập"
+      ],
+      "chapterFile": "chapters/ch1/muc-VII-2.html",
+      "bundleKey": "ch1-7-2",
+      "contentHash": "c4c056bcfc3f64f6b0f7fb66503a9428cc7f3e24992ee5d41977103f8df767e6",
+      "figureRefs": [
+        "images/ch1/hinh-229.png",
+        "images/ch1/hinh-230.png",
+        "images/ch1/hinh-231.png",
+        "images/ch1/hinh-232.png",
+        "images/ch1/hinh-233.png",
+        "images/ch1/hinh-234.png",
+        "images/ch1/hinh-235.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-rev",
+      "title": "Câu hỏi ôn tập",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "Câu hỏi ôn tập"
+      ],
+      "chapterFile": "chapters/ch1/on-tap.html",
+      "bundleKey": "ch1-rev",
+      "contentHash": "2e6670a4c0ffa806aa9d513411d7979072b5cff78ba32bf1302e0135869d8288",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch1-quiz",
+      "title": "Ôn tập trắc nghiệm",
+      "sourceHeadingPath": [
+        "Chương 1",
+        "Ôn tập trắc nghiệm"
+      ],
+      "chapterFile": "chapters/ch1/trac-nghiem.html",
+      "bundleKey": "ch1-quiz",
+      "contentHash": "c770f809b6a94ad2293a4fe4dc7083308e64ebaee237f0a78c4350dcffac1c1b",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": true,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2",
+      "title": "Động học",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "Động học"
+      ],
+      "chapterFile": "chapters/ch2/index.html",
+      "bundleKey": "ch2",
+      "contentHash": "582ca3c94f29ff799b34507197db68cc8680a5662779003e91cd2d9d5ba15dc2",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-1",
+      "title": "I. KHẢO SÁT CHUYỂN ĐỘNG CỦA CHẤT ĐIỂM",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "I. KHẢO SÁT CHUYỂN ĐỘNG CỦA CHẤT ĐIỂM"
+      ],
+      "chapterFile": "chapters/ch2/muc-I.html",
+      "bundleKey": "ch2-1",
+      "contentHash": "c637d107dbfb3a7ade8552baeac00160abb8dbab15e467ab193406dca0b749ff",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-1-1",
+      "title": "1. Phương pháp véc tơ",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "I",
+        "1. Phương pháp véc tơ"
+      ],
+      "chapterFile": "chapters/ch2/muc-I-1.html",
+      "bundleKey": "ch2-1-1",
+      "contentHash": "40c6f1820ef5b92a2a7436012f0f8dc697c84c600d45589f08c7f2428551402c",
+      "figureRefs": [
+        "images/ch2/hinh-005.png",
+        "images/ch2/hinh-009.png",
+        "images/ch2/hinh-036.png"
+      ],
+      "equationRefs": [
+        "ch2-1-1#eq-1",
+        "ch2-1-1#eq-2",
+        "ch2-1-1#eq-3",
+        "ch2-1-1#eq-4",
+        "ch2-1-1#eq-5",
+        "ch2-1-1#eq-6",
+        "ch2-1-1#eq-7",
+        "ch2-1-1#eq-8",
+        "ch2-1-1#eq-9",
+        "ch2-1-1#eq-10",
+        "ch2-1-1#eq-11",
+        "ch2-1-1#eq-12",
+        "ch2-1-1#eq-13",
+        "ch2-1-1#eq-14",
+        "ch2-1-1#eq-15",
+        "ch2-1-1#eq-16",
+        "ch2-1-1#eq-17",
+        "ch2-1-1#eq-18",
+        "ch2-1-1#eq-19",
+        "ch2-1-1#eq-20",
+        "ch2-1-1#eq-21",
+        "ch2-1-1#eq-22",
+        "ch2-1-1#eq-23",
+        "ch2-1-1#eq-24",
+        "ch2-1-1#eq-25",
+        "ch2-1-1#eq-26",
+        "ch2-1-1#eq-27",
+        "ch2-1-1#eq-28",
+        "ch2-1-1#eq-29",
+        "ch2-1-1#eq-30",
+        "ch2-1-1#eq-31",
+        "ch2-1-1#eq-32",
+        "ch2-1-1#eq-33",
+        "ch2-1-1#eq-34",
+        "ch2-1-1#eq-35",
+        "ch2-1-1#eq-36",
+        "ch2-1-1#eq-37",
+        "ch2-1-1#eq-38",
+        "ch2-1-1#eq-39",
+        "ch2-1-1#eq-40",
+        "ch2-1-1#eq-41",
+        "ch2-1-1#eq-42",
+        "ch2-1-1#eq-43",
+        "ch2-1-1#eq-44",
+        "ch2-1-1#eq-45",
+        "ch2-1-1#eq-46",
+        "ch2-1-1#eq-47",
+        "ch2-1-1#eq-48",
+        "ch2-1-1#eq-49",
+        "ch2-1-1#eq-50",
+        "ch2-1-1#eq-51",
+        "ch2-1-1#eq-52",
+        "ch2-1-1#eq-53",
+        "ch2-1-1#eq-54",
+        "ch2-1-1#eq-55"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch2-1-2",
+      "title": "2. Phương pháp tọa độ Đề các",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "I",
+        "2. Phương pháp tọa độ Đề các"
+      ],
+      "chapterFile": "chapters/ch2/muc-I-2.html",
+      "bundleKey": "ch2-1-2",
+      "contentHash": "b51b77aa3dcf181aff04126543ce6a09c4de2c15b51fd56dbda4182e6ed7b341",
+      "figureRefs": [
+        "images/ch2/hinh-050.png"
+      ],
+      "equationRefs": [
+        "ch2-1-2#eq-1",
+        "ch2-1-2#eq-2",
+        "ch2-1-2#eq-3",
+        "ch2-1-2#eq-4",
+        "ch2-1-2#eq-5",
+        "ch2-1-2#eq-6",
+        "ch2-1-2#eq-7",
+        "ch2-1-2#eq-8",
+        "ch2-1-2#eq-9",
+        "ch2-1-2#eq-10",
+        "ch2-1-2#eq-11",
+        "ch2-1-2#eq-12",
+        "ch2-1-2#eq-13",
+        "ch2-1-2#eq-14",
+        "ch2-1-2#eq-15",
+        "ch2-1-2#eq-16",
+        "ch2-1-2#eq-17",
+        "ch2-1-2#eq-18",
+        "ch2-1-2#eq-19",
+        "ch2-1-2#eq-20",
+        "ch2-1-2#eq-21"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-1-3",
+      "title": "3. Phương pháp tọa độ tự nhiên",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "I",
+        "3. Phương pháp tọa độ tự nhiên"
+      ],
+      "chapterFile": "chapters/ch2/muc-I-3.html",
+      "bundleKey": "ch2-1-3",
+      "contentHash": "afcea8895e92a685b1871d460f2c6deab0ee5a050a19e7817807c805a60e6c4f",
+      "figureRefs": [
+        "images/ch2/hinh-056.png"
+      ],
+      "equationRefs": [
+        "ch2-1-3#eq-1",
+        "ch2-1-3#eq-2",
+        "ch2-1-3#eq-3",
+        "ch2-1-3#eq-4",
+        "ch2-1-3#eq-5",
+        "ch2-1-3#eq-6",
+        "ch2-1-3#eq-7",
+        "ch2-1-3#eq-8",
+        "ch2-1-3#eq-9",
+        "ch2-1-3#eq-10",
+        "ch2-1-3#eq-11",
+        "ch2-1-3#eq-12",
+        "ch2-1-3#eq-13",
+        "ch2-1-3#eq-14",
+        "ch2-1-3#eq-15",
+        "ch2-1-3#eq-16",
+        "ch2-1-3#eq-17",
+        "ch2-1-3#eq-18",
+        "ch2-1-3#eq-19",
+        "ch2-1-3#eq-20",
+        "ch2-1-3#eq-21",
+        "ch2-1-3#eq-22",
+        "ch2-1-3#eq-23",
+        "ch2-1-3#eq-24",
+        "ch2-1-3#eq-25",
+        "ch2-1-3#eq-26",
+        "ch2-1-3#eq-27",
+        "ch2-1-3#eq-28",
+        "ch2-1-3#eq-29",
+        "ch2-1-3#eq-30",
+        "ch2-1-3#eq-31",
+        "ch2-1-3#eq-32",
+        "ch2-1-3#eq-33",
+        "ch2-1-3#eq-34",
+        "ch2-1-3#eq-35",
+        "ch2-1-3#eq-36",
+        "ch2-1-3#eq-37",
+        "ch2-1-3#eq-38",
+        "ch2-1-3#eq-39",
+        "ch2-1-3#eq-40",
+        "ch2-1-3#eq-41",
+        "ch2-1-3#eq-42",
+        "ch2-1-3#eq-43",
+        "ch2-1-3#eq-44"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch2-1-4",
+      "title": "4. Các dạng chuyển động đặc biệt",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "I",
+        "4. Các dạng chuyển động đặc biệt"
+      ],
+      "chapterFile": "chapters/ch2/muc-I-4.html",
+      "bundleKey": "ch2-1-4",
+      "contentHash": "efdad3c5730d7dbcec1649c7ead47d31ee8caf7f09aa0f069e6902b526d736eb",
+      "figureRefs": [
+        "images/ch2/hinh-072.png",
+        "images/ch2/hinh-079.png"
+      ],
+      "equationRefs": [
+        "ch2-1-4#eq-1",
+        "ch2-1-4#eq-2",
+        "ch2-1-4#eq-3",
+        "ch2-1-4#eq-4",
+        "ch2-1-4#eq-5",
+        "ch2-1-4#eq-6"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-2",
+      "title": "II. CHUYỂN ĐỘNG CƠ BẢN CỦA VẬT RẮN",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "II. CHUYỂN ĐỘNG CƠ BẢN CỦA VẬT RẮN"
+      ],
+      "chapterFile": "chapters/ch2/muc-II.html",
+      "bundleKey": "ch2-2",
+      "contentHash": "0b15734a03fc0f2bb07b221d78063265421d25a52a91033b12bc08a09b8cc229",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-2-1",
+      "title": "1. Chuyển động tịnh tiến",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "II",
+        "1. Chuyển động tịnh tiến"
+      ],
+      "chapterFile": "chapters/ch2/muc-II-1.html",
+      "bundleKey": "ch2-2-1",
+      "contentHash": "72b0e8dd56c2b14d4397817cecafcb4313a0e12d8e9d2ba8a1da7cc35b9f9660",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-2-2",
+      "title": "2. Chuyển động quay quanh một trục cố định",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "II",
+        "2. Chuyển động quay quanh một trục cố định"
+      ],
+      "chapterFile": "chapters/ch2/muc-II-2.html",
+      "bundleKey": "ch2-2-2",
+      "contentHash": "9d465d15b6613e252d148c023bccbb1f0b24804d4a34c550978c87e7b026ffd8",
+      "figureRefs": [
+        "images/ch2/hinh-080.png",
+        "images/ch2/hinh-082.png",
+        "images/ch2/hinh-111.png",
+        "images/ch2/hinh-121.png",
+        "images/ch2/hinh-125.png",
+        "images/ch2/hinh-130.png"
+      ],
+      "equationRefs": [
+        "ch2-2-2#eq-1",
+        "ch2-2-2#eq-2",
+        "ch2-2-2#eq-3",
+        "ch2-2-2#eq-4",
+        "ch2-2-2#eq-5",
+        "ch2-2-2#eq-6",
+        "ch2-2-2#eq-7",
+        "ch2-2-2#eq-8",
+        "ch2-2-2#eq-9",
+        "ch2-2-2#eq-10",
+        "ch2-2-2#eq-11",
+        "ch2-2-2#eq-12",
+        "ch2-2-2#eq-13",
+        "ch2-2-2#eq-14",
+        "ch2-2-2#eq-15",
+        "ch2-2-2#eq-16",
+        "ch2-2-2#eq-17",
+        "ch2-2-2#eq-18",
+        "ch2-2-2#eq-19",
+        "ch2-2-2#eq-20",
+        "ch2-2-2#eq-21",
+        "ch2-2-2#eq-22",
+        "ch2-2-2#eq-23",
+        "ch2-2-2#eq-24",
+        "ch2-2-2#eq-25",
+        "ch2-2-2#eq-26",
+        "ch2-2-2#eq-27",
+        "ch2-2-2#eq-28",
+        "ch2-2-2#eq-29",
+        "ch2-2-2#eq-30",
+        "ch2-2-2#eq-31",
+        "ch2-2-2#eq-32",
+        "ch2-2-2#eq-33",
+        "ch2-2-2#eq-34",
+        "ch2-2-2#eq-35",
+        "ch2-2-2#eq-36",
+        "ch2-2-2#eq-37",
+        "ch2-2-2#eq-38",
+        "ch2-2-2#eq-39",
+        "ch2-2-2#eq-40",
+        "ch2-2-2#eq-41",
+        "ch2-2-2#eq-42",
+        "ch2-2-2#eq-43",
+        "ch2-2-2#eq-44",
+        "ch2-2-2#eq-45",
+        "ch2-2-2#eq-46",
+        "ch2-2-2#eq-47",
+        "ch2-2-2#eq-48",
+        "ch2-2-2#eq-49",
+        "ch2-2-2#eq-50",
+        "ch2-2-2#eq-51",
+        "ch2-2-2#eq-52",
+        "ch2-2-2#eq-53",
+        "ch2-2-2#eq-54",
+        "ch2-2-2#eq-55",
+        "ch2-2-2#eq-56",
+        "ch2-2-2#eq-57",
+        "ch2-2-2#eq-58",
+        "ch2-2-2#eq-59",
+        "ch2-2-2#eq-60",
+        "ch2-2-2#eq-61",
+        "ch2-2-2#eq-62",
+        "ch2-2-2#eq-63",
+        "ch2-2-2#eq-64",
+        "ch2-2-2#eq-65",
+        "ch2-2-2#eq-66",
+        "ch2-2-2#eq-67",
+        "ch2-2-2#eq-68",
+        "ch2-2-2#eq-69",
+        "ch2-2-2#eq-70",
+        "ch2-2-2#eq-71",
+        "ch2-2-2#eq-72",
+        "ch2-2-2#eq-73",
+        "ch2-2-2#eq-74",
+        "ch2-2-2#eq-75",
+        "ch2-2-2#eq-76",
+        "ch2-2-2#eq-77",
+        "ch2-2-2#eq-78",
+        "ch2-2-2#eq-79",
+        "ch2-2-2#eq-80",
+        "ch2-2-2#eq-81",
+        "ch2-2-2#eq-82",
+        "ch2-2-2#eq-83",
+        "ch2-2-2#eq-84",
+        "ch2-2-2#eq-85",
+        "ch2-2-2#eq-86",
+        "ch2-2-2#eq-87"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch2-3",
+      "title": "III. TRUYỀN ĐỘNG ĐƠN GIẢN",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "III. TRUYỀN ĐỘNG ĐƠN GIẢN"
+      ],
+      "chapterFile": "chapters/ch2/muc-III.html",
+      "bundleKey": "ch2-3",
+      "contentHash": "966cd304fd44e3b7be44a58ac081a90c76ae7df7aae23d29d657dcdd8203be01",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-3-1",
+      "title": "1. Khái niệm",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "III",
+        "1. Khái niệm"
+      ],
+      "chapterFile": "chapters/ch2/muc-III-1.html",
+      "bundleKey": "ch2-3-1",
+      "contentHash": "bf80c55cceb80c049aea093228fbed54ee537c908176fccc350e2794db2df94f",
+      "figureRefs": [
+        "images/ch2/hinh-140.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-3-2",
+      "title": "2. Một số loại truyền động đơn giản",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "III",
+        "2. Một số loại truyền động đơn giản"
+      ],
+      "chapterFile": "chapters/ch2/muc-III-2.html",
+      "bundleKey": "ch2-3-2",
+      "contentHash": "ecd0abc9a562db615ef62ac966759579f6aefbfc8490ffea0a81c7d7a24623c6",
+      "figureRefs": [
+        "images/ch2/hinh-143.png",
+        "images/ch2/hinh-147.png"
+      ],
+      "equationRefs": [
+        "ch2-3-2#eq-1",
+        "ch2-3-2#eq-2",
+        "ch2-3-2#eq-3",
+        "ch2-3-2#eq-4",
+        "ch2-3-2#eq-5",
+        "ch2-3-2#eq-6",
+        "ch2-3-2#eq-7",
+        "ch2-3-2#eq-8",
+        "ch2-3-2#eq-9"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch2-4",
+      "title": "IV. HỢP CHUYỂN ĐỘNG ĐIỂM",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "IV. HỢP CHUYỂN ĐỘNG ĐIỂM"
+      ],
+      "chapterFile": "chapters/ch2/muc-IV.html",
+      "bundleKey": "ch2-4",
+      "contentHash": "6d514f8d82cfe606fe4ac6a48f067c9698ae1afe005664db5136b220e2be663e",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-4-1",
+      "title": "1. Bài toán",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "IV",
+        "1. Bài toán"
+      ],
+      "chapterFile": "chapters/ch2/muc-IV-1.html",
+      "bundleKey": "ch2-4-1",
+      "contentHash": "c85e928ed4a9e506207ba8bce255d47626e217cd50a0b4807f7ec0222c128c40",
+      "figureRefs": [
+        "images/ch2/hinh-148.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-4-2",
+      "title": "2. Định nghĩa các chuyển động",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "IV",
+        "2. Định nghĩa các chuyển động"
+      ],
+      "chapterFile": "chapters/ch2/muc-IV-2.html",
+      "bundleKey": "ch2-4-2",
+      "contentHash": "20cbf099b215c8b64c51df19bd67dd912b33740a0b3d0ded908ca66f3525df97",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch2-4-2#eq-1",
+        "ch2-4-2#eq-2",
+        "ch2-4-2#eq-3",
+        "ch2-4-2#eq-4",
+        "ch2-4-2#eq-5",
+        "ch2-4-2#eq-6",
+        "ch2-4-2#eq-7",
+        "ch2-4-2#eq-8",
+        "ch2-4-2#eq-9",
+        "ch2-4-2#eq-10",
+        "ch2-4-2#eq-11",
+        "ch2-4-2#eq-12",
+        "ch2-4-2#eq-13",
+        "ch2-4-2#eq-14",
+        "ch2-4-2#eq-15",
+        "ch2-4-2#eq-16",
+        "ch2-4-2#eq-17",
+        "ch2-4-2#eq-18",
+        "ch2-4-2#eq-19",
+        "ch2-4-2#eq-20"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-4-3",
+      "title": "3. Định lý về hợp vận tốc",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "IV",
+        "3. Định lý về hợp vận tốc"
+      ],
+      "chapterFile": "chapters/ch2/muc-IV-3.html",
+      "bundleKey": "ch2-4-3",
+      "contentHash": "4d9c605b011c85f72ab434c9d06d0adb4198623b275792f60e5ba12c44448390",
+      "figureRefs": [
+        "images/ch2/hinh-164.png"
+      ],
+      "equationRefs": [
+        "ch2-4-3#eq-1"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-4-4",
+      "title": "4. Định lý về hợp gia tốc",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "IV",
+        "4. Định lý về hợp gia tốc"
+      ],
+      "chapterFile": "chapters/ch2/muc-IV-4.html",
+      "bundleKey": "ch2-4-4",
+      "contentHash": "8362a78f18f42bf568be53602a464cd9989732a73fdbc6df3a4b907078607c5c",
+      "figureRefs": [
+        "images/ch2/hinh-173.png",
+        "images/ch2/hinh-182.png",
+        "images/ch2/hinh-189.png"
+      ],
+      "equationRefs": [
+        "ch2-4-4#eq-1",
+        "ch2-4-4#eq-2",
+        "ch2-4-4#eq-3",
+        "ch2-4-4#eq-4",
+        "ch2-4-4#eq-5",
+        "ch2-4-4#eq-6",
+        "ch2-4-4#eq-7",
+        "ch2-4-4#eq-8",
+        "ch2-4-4#eq-9",
+        "ch2-4-4#eq-10",
+        "ch2-4-4#eq-11",
+        "ch2-4-4#eq-12",
+        "ch2-4-4#eq-13",
+        "ch2-4-4#eq-14",
+        "ch2-4-4#eq-15",
+        "ch2-4-4#eq-16",
+        "ch2-4-4#eq-17",
+        "ch2-4-4#eq-18",
+        "ch2-4-4#eq-19",
+        "ch2-4-4#eq-20",
+        "ch2-4-4#eq-21",
+        "ch2-4-4#eq-22",
+        "ch2-4-4#eq-23",
+        "ch2-4-4#eq-24",
+        "ch2-4-4#eq-25",
+        "ch2-4-4#eq-26",
+        "ch2-4-4#eq-27",
+        "ch2-4-4#eq-28",
+        "ch2-4-4#eq-29",
+        "ch2-4-4#eq-30",
+        "ch2-4-4#eq-31",
+        "ch2-4-4#eq-32",
+        "ch2-4-4#eq-33",
+        "ch2-4-4#eq-34",
+        "ch2-4-4#eq-35",
+        "ch2-4-4#eq-36",
+        "ch2-4-4#eq-37",
+        "ch2-4-4#eq-38",
+        "ch2-4-4#eq-39",
+        "ch2-4-4#eq-40",
+        "ch2-4-4#eq-41",
+        "ch2-4-4#eq-42",
+        "ch2-4-4#eq-43",
+        "ch2-4-4#eq-44",
+        "ch2-4-4#eq-45",
+        "ch2-4-4#eq-46",
+        "ch2-4-4#eq-47",
+        "ch2-4-4#eq-48",
+        "ch2-4-4#eq-49",
+        "ch2-4-4#eq-50",
+        "ch2-4-4#eq-51",
+        "ch2-4-4#eq-52",
+        "ch2-4-4#eq-53",
+        "ch2-4-4#eq-54",
+        "ch2-4-4#eq-55",
+        "ch2-4-4#eq-56",
+        "ch2-4-4#eq-57",
+        "ch2-4-4#eq-58",
+        "ch2-4-4#eq-59",
+        "ch2-4-4#eq-60",
+        "ch2-4-4#eq-61",
+        "ch2-4-4#eq-62",
+        "ch2-4-4#eq-63",
+        "ch2-4-4#eq-64"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch2-5",
+      "title": "V. CHUYỂN ĐỘNG SONG PHẲNG",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "V. CHUYỂN ĐỘNG SONG PHẲNG"
+      ],
+      "chapterFile": "chapters/ch2/muc-V.html",
+      "bundleKey": "ch2-5",
+      "contentHash": "d940653bf340d9d31f9912ad074d2d9b8db6da8f95315479232bef88b27b72e0",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-5-1",
+      "title": "1. Khái niệm và mô hình",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "V",
+        "1. Khái niệm và mô hình"
+      ],
+      "chapterFile": "chapters/ch2/muc-V-1.html",
+      "bundleKey": "ch2-5-1",
+      "contentHash": "0f2452b8aae016677ce94d39667fee5bdc9b96984821720599c981317d23190d",
+      "figureRefs": [
+        "images/ch2/hinh-195.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-5-2",
+      "title": "2. Khảo sát chuyển động của vật rắn",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "V",
+        "2. Khảo sát chuyển động của vật rắn"
+      ],
+      "chapterFile": "chapters/ch2/muc-V-2.html",
+      "bundleKey": "ch2-5-2",
+      "contentHash": "23c680744e1062dc1ced6b00bc8ef320f35dba515556e69dac53cdf6f648613c",
+      "figureRefs": [
+        "images/ch2/hinh-196.png"
+      ],
+      "equationRefs": [
+        "ch2-5-2#eq-1",
+        "ch2-5-2#eq-2",
+        "ch2-5-2#eq-3"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch2-5-3",
+      "title": "3. Khảo sát chuyển động của các điểm thuộc vật rắn",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "V",
+        "3. Khảo sát chuyển động của các điểm thuộc vật rắn"
+      ],
+      "chapterFile": "chapters/ch2/muc-V-3.html",
+      "bundleKey": "ch2-5-3",
+      "contentHash": "7b53cd48984a39c650afb3452120ffa126fb8fe26c81e75ac87a7a3e58ed8c81",
+      "figureRefs": [
+        "images/ch2/hinh-208.png",
+        "images/ch2/hinh-209.png",
+        "images/ch2/hinh-211.png",
+        "images/ch2/hinh-219.png",
+        "images/ch2/hinh-229.png"
+      ],
+      "equationRefs": [
+        "ch2-5-3#eq-1",
+        "ch2-5-3#eq-2",
+        "ch2-5-3#eq-3",
+        "ch2-5-3#eq-4",
+        "ch2-5-3#eq-5",
+        "ch2-5-3#eq-6",
+        "ch2-5-3#eq-7",
+        "ch2-5-3#eq-8",
+        "ch2-5-3#eq-9",
+        "ch2-5-3#eq-10",
+        "ch2-5-3#eq-11",
+        "ch2-5-3#eq-12",
+        "ch2-5-3#eq-13",
+        "ch2-5-3#eq-14",
+        "ch2-5-3#eq-15",
+        "ch2-5-3#eq-16",
+        "ch2-5-3#eq-17",
+        "ch2-5-3#eq-18",
+        "ch2-5-3#eq-19",
+        "ch2-5-3#eq-20",
+        "ch2-5-3#eq-21",
+        "ch2-5-3#eq-22",
+        "ch2-5-3#eq-23",
+        "ch2-5-3#eq-24",
+        "ch2-5-3#eq-25",
+        "ch2-5-3#eq-26",
+        "ch2-5-3#eq-27",
+        "ch2-5-3#eq-28",
+        "ch2-5-3#eq-29",
+        "ch2-5-3#eq-30",
+        "ch2-5-3#eq-31",
+        "ch2-5-3#eq-32",
+        "ch2-5-3#eq-33",
+        "ch2-5-3#eq-34",
+        "ch2-5-3#eq-35",
+        "ch2-5-3#eq-36",
+        "ch2-5-3#eq-37",
+        "ch2-5-3#eq-38",
+        "ch2-5-3#eq-39",
+        "ch2-5-3#eq-40",
+        "ch2-5-3#eq-41",
+        "ch2-5-3#eq-42",
+        "ch2-5-3#eq-43",
+        "ch2-5-3#eq-44",
+        "ch2-5-3#eq-45",
+        "ch2-5-3#eq-46",
+        "ch2-5-3#eq-47"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch2-6",
+      "title": "VI. CHUYỂN ĐỘNG CỦA VẬT RẮN QUAY QUANH 1 ĐIỂM CỐ ĐỊNH",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "VI. CHUYỂN ĐỘNG CỦA VẬT RẮN QUAY QUANH 1 ĐIỂM CỐ ĐỊNH"
+      ],
+      "chapterFile": "chapters/ch2/muc-VI.html",
+      "bundleKey": "ch2-6",
+      "contentHash": "d1497119390e852452193debb035782bd02bfc6fbca70ef647f461efc1d4001c",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-6-1",
+      "title": "1. Khái niệm",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "VI",
+        "1. Khái niệm"
+      ],
+      "chapterFile": "chapters/ch2/muc-VI-1.html",
+      "bundleKey": "ch2-6-1",
+      "contentHash": "86bc3e9ee70166ff608709deb6288f5a9a69fdef1cc52a7078af72992ee8130f",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-6-2",
+      "title": "2. Phân tích chuyển động",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "VI",
+        "2. Phân tích chuyển động"
+      ],
+      "chapterFile": "chapters/ch2/muc-VI-2.html",
+      "bundleKey": "ch2-6-2",
+      "contentHash": "1f101ba060175a53e2c567688c3c6068efdb2fbc58d86bd60e9e22b52024c2cc",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch2-6-2#eq-1",
+        "ch2-6-2#eq-2",
+        "ch2-6-2#eq-3",
+        "ch2-6-2#eq-4",
+        "ch2-6-2#eq-5",
+        "ch2-6-2#eq-6",
+        "ch2-6-2#eq-7",
+        "ch2-6-2#eq-8",
+        "ch2-6-2#eq-9",
+        "ch2-6-2#eq-10",
+        "ch2-6-2#eq-11",
+        "ch2-6-2#eq-12",
+        "ch2-6-2#eq-13"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-7",
+      "title": "VII. BÀI TẬP",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "VII. BÀI TẬP"
+      ],
+      "chapterFile": "chapters/ch2/muc-VII.html",
+      "bundleKey": "ch2-7",
+      "contentHash": "9b777b91b49cdd008c5b785082cdc5a7153bdba227f335f083d96581e2cd9dd0",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-7-1",
+      "title": "1. Hướng dẫn giải bài tập",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "VII",
+        "1. Hướng dẫn giải bài tập"
+      ],
+      "chapterFile": "chapters/ch2/muc-VII-1.html",
+      "bundleKey": "ch2-7-1",
+      "contentHash": "00a0215951cbe5d1ce1eaad84e0fdd80318fa28c0ecd11ed1bff1d0dbe56bce9",
+      "figureRefs": [
+        "images/ch2/hinh-239.png",
+        "images/ch2/hinh-253.png",
+        "images/ch2/hinh-257.png",
+        "images/ch2/hinh-261.png",
+        "images/ch2/hinh-263.png",
+        "images/ch2/hinh-276.png",
+        "images/ch2/hinh-277.png",
+        "images/ch2/hinh-278.png",
+        "images/ch2/hinh-282.png"
+      ],
+      "equationRefs": [
+        "ch2-7-1#eq-1",
+        "ch2-7-1#eq-2",
+        "ch2-7-1#eq-3",
+        "ch2-7-1#eq-4",
+        "ch2-7-1#eq-5",
+        "ch2-7-1#eq-6",
+        "ch2-7-1#eq-7",
+        "ch2-7-1#eq-8",
+        "ch2-7-1#eq-9",
+        "ch2-7-1#eq-10",
+        "ch2-7-1#eq-11",
+        "ch2-7-1#eq-12",
+        "ch2-7-1#eq-13",
+        "ch2-7-1#eq-14",
+        "ch2-7-1#eq-15",
+        "ch2-7-1#eq-16",
+        "ch2-7-1#eq-17",
+        "ch2-7-1#eq-18",
+        "ch2-7-1#eq-19",
+        "ch2-7-1#eq-20",
+        "ch2-7-1#eq-21",
+        "ch2-7-1#eq-22",
+        "ch2-7-1#eq-23",
+        "ch2-7-1#eq-24",
+        "ch2-7-1#eq-25",
+        "ch2-7-1#eq-26",
+        "ch2-7-1#eq-27",
+        "ch2-7-1#eq-28",
+        "ch2-7-1#eq-29",
+        "ch2-7-1#eq-30",
+        "ch2-7-1#eq-31",
+        "ch2-7-1#eq-32",
+        "ch2-7-1#eq-33",
+        "ch2-7-1#eq-34",
+        "ch2-7-1#eq-35",
+        "ch2-7-1#eq-36",
+        "ch2-7-1#eq-37",
+        "ch2-7-1#eq-38",
+        "ch2-7-1#eq-39",
+        "ch2-7-1#eq-40",
+        "ch2-7-1#eq-41",
+        "ch2-7-1#eq-42",
+        "ch2-7-1#eq-43",
+        "ch2-7-1#eq-44",
+        "ch2-7-1#eq-45",
+        "ch2-7-1#eq-46",
+        "ch2-7-1#eq-47",
+        "ch2-7-1#eq-48",
+        "ch2-7-1#eq-49",
+        "ch2-7-1#eq-50",
+        "ch2-7-1#eq-51",
+        "ch2-7-1#eq-52",
+        "ch2-7-1#eq-53",
+        "ch2-7-1#eq-54",
+        "ch2-7-1#eq-55",
+        "ch2-7-1#eq-56",
+        "ch2-7-1#eq-57",
+        "ch2-7-1#eq-58",
+        "ch2-7-1#eq-59",
+        "ch2-7-1#eq-60",
+        "ch2-7-1#eq-61",
+        "ch2-7-1#eq-62",
+        "ch2-7-1#eq-63",
+        "ch2-7-1#eq-64",
+        "ch2-7-1#eq-65",
+        "ch2-7-1#eq-66",
+        "ch2-7-1#eq-67",
+        "ch2-7-1#eq-68",
+        "ch2-7-1#eq-69",
+        "ch2-7-1#eq-70",
+        "ch2-7-1#eq-71",
+        "ch2-7-1#eq-72",
+        "ch2-7-1#eq-73",
+        "ch2-7-1#eq-74",
+        "ch2-7-1#eq-75",
+        "ch2-7-1#eq-76",
+        "ch2-7-1#eq-77",
+        "ch2-7-1#eq-78",
+        "ch2-7-1#eq-79",
+        "ch2-7-1#eq-80",
+        "ch2-7-1#eq-81",
+        "ch2-7-1#eq-82",
+        "ch2-7-1#eq-83",
+        "ch2-7-1#eq-84",
+        "ch2-7-1#eq-85",
+        "ch2-7-1#eq-86"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-7-2",
+      "title": "2. Bài tập",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "VII",
+        "2. Bài tập"
+      ],
+      "chapterFile": "chapters/ch2/muc-VII-2.html",
+      "bundleKey": "ch2-7-2",
+      "contentHash": "e51b160f140e963ccf0e2f71ee51a8771de54a494d3e7efddfbb72c096df0c57",
+      "figureRefs": [
+        "images/ch2/hinh-296.png",
+        "images/ch2/hinh-297.png"
+      ],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-rev",
+      "title": "Câu hỏi ôn tập",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "Câu hỏi ôn tập"
+      ],
+      "chapterFile": "chapters/ch2/on-tap.html",
+      "bundleKey": "ch2-rev",
+      "contentHash": "ecdadbc7236aeb2806ca78d258c6e534e6a1cba0152bb79a42db2dc096653d0a",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch2-rev#eq-1",
+        "ch2-rev#eq-2",
+        "ch2-rev#eq-3",
+        "ch2-rev#eq-4",
+        "ch2-rev#eq-5",
+        "ch2-rev#eq-6",
+        "ch2-rev#eq-7",
+        "ch2-rev#eq-8",
+        "ch2-rev#eq-9",
+        "ch2-rev#eq-10"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch2-quiz",
+      "title": "Ôn tập trắc nghiệm",
+      "sourceHeadingPath": [
+        "Chương 2",
+        "Ôn tập trắc nghiệm"
+      ],
+      "chapterFile": "chapters/ch2/trac-nghiem.html",
+      "bundleKey": "ch2-quiz",
+      "contentHash": "bd30c95300d28e6c66430bfec41916b0fc676d636ca8b8f2b884e48272dd623b",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": true,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3",
+      "title": "Động lực học",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "Động lực học"
+      ],
+      "chapterFile": "chapters/ch3/index.html",
+      "bundleKey": "ch3",
+      "contentHash": "666ae12cf3b7fd8da0d3ea2026f23c016ad0ced1e15e7f49116fbd9e59cefbdb",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-1",
+      "title": "I. CÁC KHÁI NIỆM",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "I. CÁC KHÁI NIỆM"
+      ],
+      "chapterFile": "chapters/ch3/muc-I.html",
+      "bundleKey": "ch3-1",
+      "contentHash": "7c6ffd783ec84c715ddbea823b726fec126b05c7357d2c1117091c2de7ae4bb3",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-1-1",
+      "title": "1. Vật thể",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "I",
+        "1. Vật thể"
+      ],
+      "chapterFile": "chapters/ch3/muc-I-1.html",
+      "bundleKey": "ch3-1-1",
+      "contentHash": "8f3bb157555ac50d353648181f0f311e731ca1b4e926b5165fe365e12fc70d0a",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-1-2",
+      "title": "2. Lực",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "I",
+        "2. Lực"
+      ],
+      "chapterFile": "chapters/ch3/muc-I-2.html",
+      "bundleKey": "ch3-1-2",
+      "contentHash": "31900914b11d9c0d4bcd221e0d26de3f512f7be8953cd364bf1d8d12c3f614d8",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch3-1-2#eq-1",
+        "ch3-1-2#eq-2",
+        "ch3-1-2#eq-3",
+        "ch3-1-2#eq-4",
+        "ch3-1-2#eq-5",
+        "ch3-1-2#eq-6",
+        "ch3-1-2#eq-7",
+        "ch3-1-2#eq-8"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-1-3",
+      "title": "3. Hệ quy chiếu quán tính",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "I",
+        "3. Hệ quy chiếu quán tính"
+      ],
+      "chapterFile": "chapters/ch3/muc-I-3.html",
+      "bundleKey": "ch3-1-3",
+      "contentHash": "b67b1bb78fcfebe28b5418c4bafc4a8f033217955cec9bad72352f41841ed888",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch3-2",
+      "title": "II. CÁC ĐỊNH LUẬT CƠ BẢN",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "II. CÁC ĐỊNH LUẬT CƠ BẢN"
+      ],
+      "chapterFile": "chapters/ch3/muc-II.html",
+      "bundleKey": "ch3-2",
+      "contentHash": "040a794788dbbb5a7dc37212dc6866bb683391482d6fd21e836b9b4e9b45f386",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-2-1",
+      "title": "1. Định luật quán tính",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "II",
+        "1. Định luật quán tính"
+      ],
+      "chapterFile": "chapters/ch3/muc-II-1.html",
+      "bundleKey": "ch3-2-1",
+      "contentHash": "d9170e317192cc11f4d57427a0b5d542827d8d721773a0878aeb03aebe5f9255",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch3-2-1#eq-1"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-2-2",
+      "title": "2. Định luật cơ bản của động lực học",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "II",
+        "2. Định luật cơ bản của động lực học"
+      ],
+      "chapterFile": "chapters/ch3/muc-II-2.html",
+      "bundleKey": "ch3-2-2",
+      "contentHash": "ca8419e8e2b439ecdfed427c1470e2621fe05ead59d86000bce994de12dd0990",
+      "figureRefs": [
+        "images/ch3/hinh-008.png"
+      ],
+      "equationRefs": [
+        "ch3-2-2#eq-1",
+        "ch3-2-2#eq-2",
+        "ch3-2-2#eq-3",
+        "ch3-2-2#eq-4",
+        "ch3-2-2#eq-5",
+        "ch3-2-2#eq-6",
+        "ch3-2-2#eq-7",
+        "ch3-2-2#eq-8",
+        "ch3-2-2#eq-9",
+        "ch3-2-2#eq-10",
+        "ch3-2-2#eq-11",
+        "ch3-2-2#eq-12",
+        "ch3-2-2#eq-13",
+        "ch3-2-2#eq-14",
+        "ch3-2-2#eq-15",
+        "ch3-2-2#eq-16",
+        "ch3-2-2#eq-17",
+        "ch3-2-2#eq-18",
+        "ch3-2-2#eq-19",
+        "ch3-2-2#eq-20",
+        "ch3-2-2#eq-21"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch3-2-3",
+      "title": "3. Định luật tác dụng và phản tác dụng",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "II",
+        "3. Định luật tác dụng và phản tác dụng"
+      ],
+      "chapterFile": "chapters/ch3/muc-II-3.html",
+      "bundleKey": "ch3-2-3",
+      "contentHash": "f34d31c2e418cfc8188a56ad40ce2503a3bca93a5bc2ce093f0a78d9f22c023d",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch3-2-4",
+      "title": "4. Định luật về tính độc lập giữa tác dụng của lực",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "II",
+        "4. Định luật về tính độc lập giữa tác dụng của lực"
+      ],
+      "chapterFile": "chapters/ch3/muc-II-4.html",
+      "bundleKey": "ch3-2-4",
+      "contentHash": "40d93bafff8d1e975e6d6874b46a06eb029a42d26a6e8f8899b4b02a8f642002",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch3-2-4#eq-1",
+        "ch3-2-4#eq-2",
+        "ch3-2-4#eq-3",
+        "ch3-2-4#eq-4",
+        "ch3-2-4#eq-5"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-2-5",
+      "title": "5. Định luật giải phóng liên kết",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "II",
+        "5. Định luật giải phóng liên kết"
+      ],
+      "chapterFile": "chapters/ch3/muc-II-5.html",
+      "bundleKey": "ch3-2-5",
+      "contentHash": "8e003e1e363c69905e9e6b7e5e9ffaeefe4f2df136e4d6019dc34a441bb8c695",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-3",
+      "title": "III. PHƯƠNG TRÌNH VI PHÂN CHUYỂN ĐỘNG",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "III. PHƯƠNG TRÌNH VI PHÂN CHUYỂN ĐỘNG"
+      ],
+      "chapterFile": "chapters/ch3/muc-III.html",
+      "bundleKey": "ch3-3",
+      "contentHash": "595018d90e4b6dcd1d5d84d1c056f5c71c96c9023d1ecd960fcf5863ee0a222f",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-3-1",
+      "title": "1. Phương trình vi phân chuyển động của chất điểm",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "III",
+        "1. Phương trình vi phân chuyển động của chất điểm"
+      ],
+      "chapterFile": "chapters/ch3/muc-III-1.html",
+      "bundleKey": "ch3-3-1",
+      "contentHash": "d62c894c2b80eb57a2c195507ecf2b497fc17fcff243d8e3c2ff6e1c253285f2",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch3-3-1#eq-1",
+        "ch3-3-1#eq-2",
+        "ch3-3-1#eq-3",
+        "ch3-3-1#eq-4",
+        "ch3-3-1#eq-5",
+        "ch3-3-1#eq-6",
+        "ch3-3-1#eq-7",
+        "ch3-3-1#eq-8",
+        "ch3-3-1#eq-9",
+        "ch3-3-1#eq-10",
+        "ch3-3-1#eq-11",
+        "ch3-3-1#eq-12",
+        "ch3-3-1#eq-13"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch3-3-2",
+      "title": "2. Phương trình vi phân chuyển động của cơ hệ",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "III",
+        "2. Phương trình vi phân chuyển động của cơ hệ"
+      ],
+      "chapterFile": "chapters/ch3/muc-III-2.html",
+      "bundleKey": "ch3-3-2",
+      "contentHash": "da38aad68373ef80f8b852ac1900ab2b159af48032ce4797c8691c6ca1f0b0aa",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch3-3-2#eq-1",
+        "ch3-3-2#eq-2",
+        "ch3-3-2#eq-3",
+        "ch3-3-2#eq-4",
+        "ch3-3-2#eq-5",
+        "ch3-3-2#eq-6",
+        "ch3-3-2#eq-7",
+        "ch3-3-2#eq-8",
+        "ch3-3-2#eq-9",
+        "ch3-3-2#eq-10"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-4",
+      "title": "IV. HAI BÀI TOÁN CƠ BẢN CỦA ĐỘNG LỰC HỌC",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "IV. HAI BÀI TOÁN CƠ BẢN CỦA ĐỘNG LỰC HỌC"
+      ],
+      "chapterFile": "chapters/ch3/muc-IV.html",
+      "bundleKey": "ch3-4",
+      "contentHash": "2cce96a4bf27f9216bae000f97b940372d7082108fa9f774d4732659ae7d809e",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-4-1",
+      "title": "1. Bài toán thuận",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "IV",
+        "1. Bài toán thuận"
+      ],
+      "chapterFile": "chapters/ch3/muc-IV-1.html",
+      "bundleKey": "ch3-4-1",
+      "contentHash": "8af2ba6878a4b12268b8d0d69654243c4330ee95921c90c3f1793946e3e56cab",
+      "figureRefs": [
+        "images/ch3/hinh-033.png",
+        "images/ch3/hinh-043.png",
+        "images/ch3/hinh-050.png"
+      ],
+      "equationRefs": [
+        "ch3-4-1#eq-1",
+        "ch3-4-1#eq-2",
+        "ch3-4-1#eq-3",
+        "ch3-4-1#eq-4",
+        "ch3-4-1#eq-5",
+        "ch3-4-1#eq-6",
+        "ch3-4-1#eq-7",
+        "ch3-4-1#eq-8",
+        "ch3-4-1#eq-9",
+        "ch3-4-1#eq-10",
+        "ch3-4-1#eq-11",
+        "ch3-4-1#eq-12",
+        "ch3-4-1#eq-13",
+        "ch3-4-1#eq-14",
+        "ch3-4-1#eq-15",
+        "ch3-4-1#eq-16",
+        "ch3-4-1#eq-17",
+        "ch3-4-1#eq-18",
+        "ch3-4-1#eq-19",
+        "ch3-4-1#eq-20",
+        "ch3-4-1#eq-21",
+        "ch3-4-1#eq-22",
+        "ch3-4-1#eq-23",
+        "ch3-4-1#eq-24",
+        "ch3-4-1#eq-25",
+        "ch3-4-1#eq-26",
+        "ch3-4-1#eq-27",
+        "ch3-4-1#eq-28",
+        "ch3-4-1#eq-29",
+        "ch3-4-1#eq-30",
+        "ch3-4-1#eq-31",
+        "ch3-4-1#eq-32",
+        "ch3-4-1#eq-33",
+        "ch3-4-1#eq-34",
+        "ch3-4-1#eq-35",
+        "ch3-4-1#eq-36",
+        "ch3-4-1#eq-37",
+        "ch3-4-1#eq-38"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-4-2",
+      "title": "2. Bài toán ngược",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "IV",
+        "2. Bài toán ngược"
+      ],
+      "chapterFile": "chapters/ch3/muc-IV-2.html",
+      "bundleKey": "ch3-4-2",
+      "contentHash": "de33dbce7c7326af5f6eb150164670656b6a66589961a50341fad1047d620a92",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch3-4-2#eq-1",
+        "ch3-4-2#eq-2"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-5",
+      "title": "V. CÁC ĐỊNH LÝ TỔNG QUÁT",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "V. CÁC ĐỊNH LÝ TỔNG QUÁT"
+      ],
+      "chapterFile": "chapters/ch3/muc-V.html",
+      "bundleKey": "ch3-5",
+      "contentHash": "749d11e1a8c1f1531f6a7ace3fd40ac7e816c9a576d6d59946210bf5e9aef755",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-5-1",
+      "title": "1. Định lý chuyển động khối tâm",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "V",
+        "1. Định lý chuyển động khối tâm"
+      ],
+      "chapterFile": "chapters/ch3/muc-V-1.html",
+      "bundleKey": "ch3-5-1",
+      "contentHash": "ba55013ad7ce0d8b508d85e1d14d0d372ec4897099cfcbe54d484a59457fd911",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch3-5-1#eq-1",
+        "ch3-5-1#eq-2",
+        "ch3-5-1#eq-3",
+        "ch3-5-1#eq-4",
+        "ch3-5-1#eq-5",
+        "ch3-5-1#eq-6",
+        "ch3-5-1#eq-7",
+        "ch3-5-1#eq-8",
+        "ch3-5-1#eq-9"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-5-2",
+      "title": "2. Định lý động lượng",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "V",
+        "2. Định lý động lượng"
+      ],
+      "chapterFile": "chapters/ch3/muc-V-2.html",
+      "bundleKey": "ch3-5-2",
+      "contentHash": "34090c74bd248e4aedda4faabe4e9b7e135f810d1da80ef0973860dfeebe756b",
+      "figureRefs": [
+        "images/ch3/hinh-068.png",
+        "images/ch3/hinh-101.png"
+      ],
+      "equationRefs": [
+        "ch3-5-2#eq-1",
+        "ch3-5-2#eq-2",
+        "ch3-5-2#eq-3",
+        "ch3-5-2#eq-4",
+        "ch3-5-2#eq-5",
+        "ch3-5-2#eq-6",
+        "ch3-5-2#eq-7",
+        "ch3-5-2#eq-8",
+        "ch3-5-2#eq-9",
+        "ch3-5-2#eq-10",
+        "ch3-5-2#eq-11",
+        "ch3-5-2#eq-12",
+        "ch3-5-2#eq-13",
+        "ch3-5-2#eq-14",
+        "ch3-5-2#eq-15",
+        "ch3-5-2#eq-16",
+        "ch3-5-2#eq-17",
+        "ch3-5-2#eq-18",
+        "ch3-5-2#eq-19",
+        "ch3-5-2#eq-20",
+        "ch3-5-2#eq-21",
+        "ch3-5-2#eq-22",
+        "ch3-5-2#eq-23",
+        "ch3-5-2#eq-24",
+        "ch3-5-2#eq-25",
+        "ch3-5-2#eq-26",
+        "ch3-5-2#eq-27",
+        "ch3-5-2#eq-28",
+        "ch3-5-2#eq-29",
+        "ch3-5-2#eq-30",
+        "ch3-5-2#eq-31",
+        "ch3-5-2#eq-32",
+        "ch3-5-2#eq-33",
+        "ch3-5-2#eq-34",
+        "ch3-5-2#eq-35",
+        "ch3-5-2#eq-36",
+        "ch3-5-2#eq-37",
+        "ch3-5-2#eq-38",
+        "ch3-5-2#eq-39",
+        "ch3-5-2#eq-40",
+        "ch3-5-2#eq-41",
+        "ch3-5-2#eq-42",
+        "ch3-5-2#eq-43",
+        "ch3-5-2#eq-44",
+        "ch3-5-2#eq-45",
+        "ch3-5-2#eq-46",
+        "ch3-5-2#eq-47",
+        "ch3-5-2#eq-48",
+        "ch3-5-2#eq-49",
+        "ch3-5-2#eq-50",
+        "ch3-5-2#eq-51",
+        "ch3-5-2#eq-52",
+        "ch3-5-2#eq-53",
+        "ch3-5-2#eq-54",
+        "ch3-5-2#eq-55",
+        "ch3-5-2#eq-56",
+        "ch3-5-2#eq-57",
+        "ch3-5-2#eq-58",
+        "ch3-5-2#eq-59",
+        "ch3-5-2#eq-60",
+        "ch3-5-2#eq-61",
+        "ch3-5-2#eq-62",
+        "ch3-5-2#eq-63",
+        "ch3-5-2#eq-64",
+        "ch3-5-2#eq-65",
+        "ch3-5-2#eq-66",
+        "ch3-5-2#eq-67",
+        "ch3-5-2#eq-68",
+        "ch3-5-2#eq-69",
+        "ch3-5-2#eq-70",
+        "ch3-5-2#eq-71",
+        "ch3-5-2#eq-72",
+        "ch3-5-2#eq-73"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch3-5-3",
+      "title": "3. Định lý mô men động lượng",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "V",
+        "3. Định lý mô men động lượng"
+      ],
+      "chapterFile": "chapters/ch3/muc-V-3.html",
+      "bundleKey": "ch3-5-3",
+      "contentHash": "bd1635b7951a22d0f8a5e0eb81a30683f04e6294c24a56892c376c3f6968ee15",
+      "figureRefs": [
+        "images/ch3/hinh-111.png",
+        "images/ch3/hinh-115.png",
+        "images/ch3/hinh-123.png"
+      ],
+      "equationRefs": [
+        "ch3-5-3#eq-1",
+        "ch3-5-3#eq-2",
+        "ch3-5-3#eq-3",
+        "ch3-5-3#eq-4",
+        "ch3-5-3#eq-5",
+        "ch3-5-3#eq-6",
+        "ch3-5-3#eq-7",
+        "ch3-5-3#eq-8",
+        "ch3-5-3#eq-9",
+        "ch3-5-3#eq-10",
+        "ch3-5-3#eq-11",
+        "ch3-5-3#eq-12",
+        "ch3-5-3#eq-13",
+        "ch3-5-3#eq-14",
+        "ch3-5-3#eq-15",
+        "ch3-5-3#eq-16",
+        "ch3-5-3#eq-17",
+        "ch3-5-3#eq-18",
+        "ch3-5-3#eq-19",
+        "ch3-5-3#eq-20",
+        "ch3-5-3#eq-21",
+        "ch3-5-3#eq-22",
+        "ch3-5-3#eq-23",
+        "ch3-5-3#eq-24",
+        "ch3-5-3#eq-25",
+        "ch3-5-3#eq-26",
+        "ch3-5-3#eq-27",
+        "ch3-5-3#eq-28"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch3-5-4",
+      "title": "4. Định lý động năng",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "V",
+        "4. Định lý động năng"
+      ],
+      "chapterFile": "chapters/ch3/muc-V-4.html",
+      "bundleKey": "ch3-5-4",
+      "contentHash": "6690992e7122b921c29f2c1362cbd772ad8e386a4a41b9f8724846b599f22d96",
+      "figureRefs": [
+        "images/ch3/hinh-133.png",
+        "images/ch3/hinh-142.png"
+      ],
+      "equationRefs": [
+        "ch3-5-4#eq-1",
+        "ch3-5-4#eq-2",
+        "ch3-5-4#eq-3",
+        "ch3-5-4#eq-4",
+        "ch3-5-4#eq-5",
+        "ch3-5-4#eq-6",
+        "ch3-5-4#eq-7",
+        "ch3-5-4#eq-8",
+        "ch3-5-4#eq-9",
+        "ch3-5-4#eq-10",
+        "ch3-5-4#eq-11",
+        "ch3-5-4#eq-12",
+        "ch3-5-4#eq-13",
+        "ch3-5-4#eq-14",
+        "ch3-5-4#eq-15",
+        "ch3-5-4#eq-16",
+        "ch3-5-4#eq-17",
+        "ch3-5-4#eq-18",
+        "ch3-5-4#eq-19",
+        "ch3-5-4#eq-20",
+        "ch3-5-4#eq-21",
+        "ch3-5-4#eq-22"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch3-6",
+      "title": "VI. LÝ THUYẾT VA CHẠM",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "VI. LÝ THUYẾT VA CHẠM"
+      ],
+      "chapterFile": "chapters/ch3/muc-VI.html",
+      "bundleKey": "ch3-6",
+      "contentHash": "f3052d2ed81db6f97949dfcb8592e95c7cabe46b2ad57b68a0c92d47b896ef4a",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-6-1",
+      "title": "1. Các đặc điểm và giả thiết về va chạm",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "VI",
+        "1. Các đặc điểm và giả thiết về va chạm"
+      ],
+      "chapterFile": "chapters/ch3/muc-VI-1.html",
+      "bundleKey": "ch3-6-1",
+      "contentHash": "9d550415c1159df3b7845460ba15b88f752c0ad0707ab1338f000e2f1eff3d64",
+      "figureRefs": [
+        "images/ch3/hinh-151.png"
+      ],
+      "equationRefs": [
+        "ch3-6-1#eq-1",
+        "ch3-6-1#eq-2",
+        "ch3-6-1#eq-3",
+        "ch3-6-1#eq-4",
+        "ch3-6-1#eq-5",
+        "ch3-6-1#eq-6",
+        "ch3-6-1#eq-7",
+        "ch3-6-1#eq-8"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-6-2",
+      "title": "2. Các định lý tổng quát của động lực học áp dụng vào va chạm",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "VI",
+        "2. Các định lý tổng quát của động lực học áp dụng vào va chạm"
+      ],
+      "chapterFile": "chapters/ch3/muc-VI-2.html",
+      "bundleKey": "ch3-6-2",
+      "contentHash": "b5590cceecae8338d99ea80ae25b646273cc149cfe065e0e4032590a429d1521",
+      "figureRefs": [],
+      "equationRefs": [
+        "ch3-6-2#eq-1",
+        "ch3-6-2#eq-2",
+        "ch3-6-2#eq-3",
+        "ch3-6-2#eq-4",
+        "ch3-6-2#eq-5",
+        "ch3-6-2#eq-6",
+        "ch3-6-2#eq-7",
+        "ch3-6-2#eq-8",
+        "ch3-6-2#eq-9",
+        "ch3-6-2#eq-10",
+        "ch3-6-2#eq-11",
+        "ch3-6-2#eq-12",
+        "ch3-6-2#eq-13",
+        "ch3-6-2#eq-14",
+        "ch3-6-2#eq-15",
+        "ch3-6-2#eq-16",
+        "ch3-6-2#eq-17",
+        "ch3-6-2#eq-18",
+        "ch3-6-2#eq-19",
+        "ch3-6-2#eq-20"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": true
+    },
+    {
+      "routeId": "ch3-6-3",
+      "title": "3. Hai bài toán cơ bản về va chạm",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "VI",
+        "3. Hai bài toán cơ bản về va chạm"
+      ],
+      "chapterFile": "chapters/ch3/muc-VI-3.html",
+      "bundleKey": "ch3-6-3",
+      "contentHash": "055511a14ac3c95d3aa0aca70d5f3fe3db0cd27f7181c85fc095665226bb23a5",
+      "figureRefs": [
+        "images/ch3/hinh-169.png",
+        "images/ch3/hinh-174.png",
+        "images/ch3/hinh-177.png",
+        "images/ch3/hinh-197.png",
+        "images/ch3/hinh-199.png",
+        "images/ch3/hinh-200.png",
+        "images/ch3/hinh-207.png"
+      ],
+      "equationRefs": [
+        "ch3-6-3#eq-1",
+        "ch3-6-3#eq-2",
+        "ch3-6-3#eq-3",
+        "ch3-6-3#eq-4",
+        "ch3-6-3#eq-5",
+        "ch3-6-3#eq-6",
+        "ch3-6-3#eq-7",
+        "ch3-6-3#eq-8",
+        "ch3-6-3#eq-9",
+        "ch3-6-3#eq-10",
+        "ch3-6-3#eq-11",
+        "ch3-6-3#eq-12",
+        "ch3-6-3#eq-13",
+        "ch3-6-3#eq-14",
+        "ch3-6-3#eq-15",
+        "ch3-6-3#eq-16",
+        "ch3-6-3#eq-17",
+        "ch3-6-3#eq-18",
+        "ch3-6-3#eq-19",
+        "ch3-6-3#eq-20",
+        "ch3-6-3#eq-21",
+        "ch3-6-3#eq-22",
+        "ch3-6-3#eq-23",
+        "ch3-6-3#eq-24",
+        "ch3-6-3#eq-25",
+        "ch3-6-3#eq-26",
+        "ch3-6-3#eq-27",
+        "ch3-6-3#eq-28",
+        "ch3-6-3#eq-29",
+        "ch3-6-3#eq-30",
+        "ch3-6-3#eq-31",
+        "ch3-6-3#eq-32",
+        "ch3-6-3#eq-33",
+        "ch3-6-3#eq-34",
+        "ch3-6-3#eq-35",
+        "ch3-6-3#eq-36",
+        "ch3-6-3#eq-37",
+        "ch3-6-3#eq-38",
+        "ch3-6-3#eq-39",
+        "ch3-6-3#eq-40",
+        "ch3-6-3#eq-41",
+        "ch3-6-3#eq-42",
+        "ch3-6-3#eq-43",
+        "ch3-6-3#eq-44",
+        "ch3-6-3#eq-45",
+        "ch3-6-3#eq-46",
+        "ch3-6-3#eq-47",
+        "ch3-6-3#eq-48",
+        "ch3-6-3#eq-49",
+        "ch3-6-3#eq-50",
+        "ch3-6-3#eq-51",
+        "ch3-6-3#eq-52",
+        "ch3-6-3#eq-53",
+        "ch3-6-3#eq-54",
+        "ch3-6-3#eq-55",
+        "ch3-6-3#eq-56",
+        "ch3-6-3#eq-57",
+        "ch3-6-3#eq-58",
+        "ch3-6-3#eq-59",
+        "ch3-6-3#eq-60",
+        "ch3-6-3#eq-61",
+        "ch3-6-3#eq-62",
+        "ch3-6-3#eq-63",
+        "ch3-6-3#eq-64",
+        "ch3-6-3#eq-65"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-7",
+      "title": "VII. BÀI TẬP",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "VII. BÀI TẬP"
+      ],
+      "chapterFile": "chapters/ch3/muc-VII.html",
+      "bundleKey": "ch3-7",
+      "contentHash": "3a7b51804989cd49aba8ee9283185bee6b0942eb96c910fe685d17b99f4a174b",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-7-1",
+      "title": "1. Hướng dẫn giải bài tập",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "VII",
+        "1. Hướng dẫn giải bài tập"
+      ],
+      "chapterFile": "chapters/ch3/muc-VII-1.html",
+      "bundleKey": "ch3-7-1",
+      "contentHash": "ea9c159a88dc4d9b6156414763bc470aedadcd573f94ff16bf09ff1836120766",
+      "figureRefs": [
+        "images/ch3/hinh-216.png",
+        "images/ch3/hinh-217.png",
+        "images/ch3/hinh-224.png",
+        "images/ch3/hinh-225.png",
+        "images/ch3/hinh-237.png",
+        "images/ch3/hinh-244.png"
+      ],
+      "equationRefs": [
+        "ch3-7-1#eq-1",
+        "ch3-7-1#eq-2",
+        "ch3-7-1#eq-3",
+        "ch3-7-1#eq-4",
+        "ch3-7-1#eq-5",
+        "ch3-7-1#eq-6",
+        "ch3-7-1#eq-7",
+        "ch3-7-1#eq-8",
+        "ch3-7-1#eq-9",
+        "ch3-7-1#eq-10",
+        "ch3-7-1#eq-11",
+        "ch3-7-1#eq-12",
+        "ch3-7-1#eq-13",
+        "ch3-7-1#eq-14",
+        "ch3-7-1#eq-15",
+        "ch3-7-1#eq-16",
+        "ch3-7-1#eq-17",
+        "ch3-7-1#eq-18",
+        "ch3-7-1#eq-19",
+        "ch3-7-1#eq-20",
+        "ch3-7-1#eq-21",
+        "ch3-7-1#eq-22",
+        "ch3-7-1#eq-23",
+        "ch3-7-1#eq-24",
+        "ch3-7-1#eq-25",
+        "ch3-7-1#eq-26",
+        "ch3-7-1#eq-27",
+        "ch3-7-1#eq-28",
+        "ch3-7-1#eq-29",
+        "ch3-7-1#eq-30",
+        "ch3-7-1#eq-31",
+        "ch3-7-1#eq-32",
+        "ch3-7-1#eq-33",
+        "ch3-7-1#eq-34",
+        "ch3-7-1#eq-35",
+        "ch3-7-1#eq-36",
+        "ch3-7-1#eq-37",
+        "ch3-7-1#eq-38",
+        "ch3-7-1#eq-39",
+        "ch3-7-1#eq-40",
+        "ch3-7-1#eq-41",
+        "ch3-7-1#eq-42",
+        "ch3-7-1#eq-43",
+        "ch3-7-1#eq-44",
+        "ch3-7-1#eq-45",
+        "ch3-7-1#eq-46",
+        "ch3-7-1#eq-47"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-7-2",
+      "title": "2. Bài tập",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "VII",
+        "2. Bài tập"
+      ],
+      "chapterFile": "chapters/ch3/muc-VII-2.html",
+      "bundleKey": "ch3-7-2",
+      "contentHash": "165b1f629081553baf688cf6bd81bbc58ab2ae0b1c4e0a42ef72a251c8e0dbba",
+      "figureRefs": [
+        "images/ch3/hinh-256.png",
+        "images/ch3/hinh-275.png",
+        "images/ch3/hinh-293.png"
+      ],
+      "equationRefs": [
+        "ch3-7-2#eq-1",
+        "ch3-7-2#eq-2",
+        "ch3-7-2#eq-3",
+        "ch3-7-2#eq-4",
+        "ch3-7-2#eq-5",
+        "ch3-7-2#eq-6",
+        "ch3-7-2#eq-7",
+        "ch3-7-2#eq-8",
+        "ch3-7-2#eq-9",
+        "ch3-7-2#eq-10",
+        "ch3-7-2#eq-11",
+        "ch3-7-2#eq-12",
+        "ch3-7-2#eq-13",
+        "ch3-7-2#eq-14",
+        "ch3-7-2#eq-15",
+        "ch3-7-2#eq-16",
+        "ch3-7-2#eq-17",
+        "ch3-7-2#eq-18",
+        "ch3-7-2#eq-19",
+        "ch3-7-2#eq-20",
+        "ch3-7-2#eq-21",
+        "ch3-7-2#eq-22",
+        "ch3-7-2#eq-23",
+        "ch3-7-2#eq-24",
+        "ch3-7-2#eq-25",
+        "ch3-7-2#eq-26",
+        "ch3-7-2#eq-27",
+        "ch3-7-2#eq-28",
+        "ch3-7-2#eq-29",
+        "ch3-7-2#eq-30",
+        "ch3-7-2#eq-31",
+        "ch3-7-2#eq-32",
+        "ch3-7-2#eq-33",
+        "ch3-7-2#eq-34",
+        "ch3-7-2#eq-35",
+        "ch3-7-2#eq-36",
+        "ch3-7-2#eq-37",
+        "ch3-7-2#eq-38",
+        "ch3-7-2#eq-39",
+        "ch3-7-2#eq-40",
+        "ch3-7-2#eq-41",
+        "ch3-7-2#eq-42",
+        "ch3-7-2#eq-43",
+        "ch3-7-2#eq-44",
+        "ch3-7-2#eq-45",
+        "ch3-7-2#eq-46",
+        "ch3-7-2#eq-47",
+        "ch3-7-2#eq-48",
+        "ch3-7-2#eq-49",
+        "ch3-7-2#eq-50",
+        "ch3-7-2#eq-51",
+        "ch3-7-2#eq-52"
+      ],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-rev",
+      "title": "Câu hỏi ôn tập",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "Câu hỏi ôn tập"
+      ],
+      "chapterFile": "chapters/ch3/on-tap.html",
+      "bundleKey": "ch3-rev",
+      "contentHash": "5cb19b4aef16ea84e5f69bc7c43e86d27466539bbb0ff612be01ee60884d2567",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "ch3-quiz",
+      "title": "Ôn tập trắc nghiệm",
+      "sourceHeadingPath": [
+        "Chương 3",
+        "Ôn tập trắc nghiệm"
+      ],
+      "chapterFile": "chapters/ch3/trac-nghiem.html",
+      "bundleKey": "ch3-quiz",
+      "contentHash": "1ac1ad576105ae98a96ba606bf24d0ee3577904c25f4618ca5474874ba28aae5",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": true,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "authors",
+      "title": "Tác giả",
+      "sourceHeadingPath": [
+        "Tác giả"
+      ],
+      "chapterFile": "chapters/tac-gia.html",
+      "bundleKey": "authors",
+      "contentHash": "60214a9fe443f5c8f18321fb3a6105d3b671d2c38e1e249734979506ca752276",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    },
+    {
+      "routeId": "refs",
+      "title": "Tài liệu tham khảo",
+      "sourceHeadingPath": [
+        "Tài liệu tham khảo"
+      ],
+      "chapterFile": "chapters/tai-lieu-tham-khao.html",
+      "bundleKey": "refs",
+      "contentHash": "9d47590802bac54710afd38240f5e39d7870b1db5a7f98c20b2f5c6321444c5a",
+      "figureRefs": [],
+      "equationRefs": [],
+      "hasQuiz": false,
+      "hasSimulation": false
+    }
+  ],
+  "contentHash": "3cb66ba60c5f3a0e733a073cc388fcca5b1578ea486ebf53cb6cbef68a5c6aa6"
+}

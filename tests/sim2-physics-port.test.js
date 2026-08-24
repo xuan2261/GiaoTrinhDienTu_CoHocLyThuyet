@@ -36,6 +36,8 @@ approx(S.computeMoment(100, 2, 30), 100, 1e-9, 'computeMoment F·d·sin30 = 100�
 approx(S.coupleMoment(50, 4), 200, 1e-9, 'coupleMoment M = F·d');
 approx(S.frictionNormal(0.3, 100), 30, 1e-9, 'frictionNormal = μ·N');
 
+assert.strictEqual(S.tensionInCable, undefined,
+  'tensionInCable mơ hồ và không có caller phải được xóa thay vì âm thầm đổi nghĩa');
 // ─── kinematics ──────────────────────────────────────────────────────────────
 const K = Physics.kinematics;
 assert.ok(K, 'physics.kinematics tồn tại');
@@ -49,6 +51,12 @@ approx(K.coriolisAcceleration(3, 2), 12, 1e-9, 'coriolis a = 2ω·v_r');
   const vx = 0, vy = 2, ax = -1, ay = 0; // a vuông góc v, |a_n|=1 → R = v²/1 = 4
   approx(K.radiusOfCurvature(vx, vy, ax, ay), 4, 1e-9, 'radiusOfCurvature R = |v|³/|v×a|');
 }
+approx(K.sliderCrankRodAngle(1, 2, Math.PI / 2), Math.PI / 6, 1e-12,
+  'sliderCrankRodAngle asin((r/L)sinθ): r=1,L=2,θ=90° → 30°');
+approx(K.sliderCrankRodAngle(1, 1, Math.PI / 2), Math.PI / 2, 1e-12,
+  'sliderCrankRodAngle geometry limit L=r → 90°');
+assert.strictEqual(K.sliderCrankRodAngle(2, 1, Math.PI / 2), 0,
+  'sliderCrankRodAngle invalid geometry returns safe 0');
 
 // ─── dynamics ────────────────────────────────────────────────────────────────
 const D = Physics.dynamics;
@@ -56,6 +64,12 @@ assert.ok(D, 'physics.dynamics tồn tại');
 approx(D.accelerationFromForce(10, 2), 5, 1e-9, 'accelerationFromForce a = F/m');
 approx(D.kineticEnergy(2, 3), 9, 1e-9, 'kineticEnergy T = ½mv²');
 approx(D.workDone(10, 5, 0), 50, 1e-9, 'workDone A = F·d·cos0');
+approx(D.potentialEnergy(2, undefined, 3), 58.86, 1e-12,
+  'potentialEnergy defaults g only when omitted');
+assert.strictEqual(D.potentialEnergy(2, 0, 3), 0,
+  'potentialEnergy preserves explicit g=0');
+approx(D.potentialEnergy(2, 9.81, -3), -58.86, 1e-12,
+  'potentialEnergy preserves signed height');
 {
   // Bảo toàn động lượng + e: va chạm 1D
   const m1 = 2, m2 = 3, v1 = 4, v2 = -1, e = 0.5;

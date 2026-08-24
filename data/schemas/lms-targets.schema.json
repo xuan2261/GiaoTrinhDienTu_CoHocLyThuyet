@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cohoclythuyet.local/schemas/lms-targets.schema.json",
+  "title": "Staged LMS interoperability target register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "status", "stages"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "status": {"enum": ["not-executed", "partially-executed", "executed"]},
+    "stages": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["qti3", "commonCartridge", "xapiCmi5", "scorm"],
+      "properties": {
+        "qti3": {"$ref": "#/$defs/adapterStage"},
+        "commonCartridge": {"$ref": "#/$defs/adapterStage"},
+        "xapiCmi5": {"$ref": "#/$defs/blockedStage"},
+        "scorm": {"$ref": "#/$defs/blockedStage"}
+      }
+    }
+  },
+  "$defs": {
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "version", "status", "evidenceRefs"],
+      "properties": {
+        "system": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1},
+        "status": {"enum": ["planned", "pass", "fail", "blocked"]},
+        "evidenceRefs": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "adapterStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["readiness", "targets", "executionEvidence", "scope"],
+      "properties": {
+        "readiness": {"const": "adapter-validated"},
+        "targets": {"type": "array", "items": {"$ref": "#/$defs/target"}},
+        "executionEvidence": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "scope": {"type": "string", "minLength": 1},
+        "maximumValidationItems": {"type": "integer", "minimum": 1, "maximum": 10}
+      }
+    },
+    "blockedStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["readiness", "targets", "executionEvidence", "scope"],
+      "properties": {
+        "readiness": {"const": "blocked"},
+        "targets": {"type": "array", "maxItems": 0},
+        "executionEvidence": {"type": "array", "maxItems": 0},
+        "scope": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

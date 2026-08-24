@@ -1,0 +1,9 @@
+Simulation release soak evidence
+Date: 2026-08-22
+Command: npm run test:sim:release:soak
+Result: PASS
+Runs: 3 consecutive objective release runs
+Retries: 0
+Workers: 1
+Composition: npm run test:sim:release && npm run test:sim:release && npm run test:sim:release
+Observed outcome: all three runs completed successfully after deterministic renderer-allocation failure injection replaced an invalid non-writable THREE.WebGLRenderer overwrite.

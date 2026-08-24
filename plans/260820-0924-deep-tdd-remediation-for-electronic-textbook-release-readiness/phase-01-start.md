@@ -1,6 +1,6 @@
 ---
 title: "Phase 1: Khóa baseline nghiệm thu và quản trị TDD"
-status: pending
+status: completed
 priority: P0
 effort: "2-3 ngày"
 dependencies: []
@@ -58,11 +58,11 @@ Tái hiện gate đang đỏ, phân biệt defect với baseline lịch sử, r�
 
 ## Todo
 
-- [ ] Capture failing baseline evidence before edits.
-- [ ] Define source-derived invariants and policy counts.
-- [ ] Add baseline mutation tests.
-- [ ] Add evidence registry and QA gate matrix.
-- [ ] Remove stale acceptance dependency without suppressing real drift.
+- [x] Capture failing baseline evidence before edits.
+- [x] Define source-derived invariants and policy counts.
+- [x] Add baseline mutation tests.
+- [x] Add evidence registry and QA gate matrix.
+- [x] Remove stale acceptance dependency without suppressing real drift.
 
 ## Success Criteria
 

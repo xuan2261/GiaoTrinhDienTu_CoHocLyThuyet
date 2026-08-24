@@ -1,7 +1,7 @@
 ---
 phase: 3
 title: "Build Deterministic Sim2 Clock"
-status: pending
+status: completed
 priority: P1
 dependencies: [2]
 effort: "2-3 days"
@@ -51,15 +51,15 @@ Dynamic routes: `ch2-1-1`, `ch2-2-2`, `ch2-3-2`, `ch2-4-4`, `ch3-2-2`, `ch3-3-1`
 
 ## Function and Interface Checklist
 
-- [ ] First timestamp anchors only, no simulation jump.
-- [ ] Accumulator drains in fixed substeps.
-- [ ] Delta clamped and substep count bounded.
-- [ ] `start()` resets wall timestamp but not simulation state.
-- [ ] `stop()` cancels exactly one owned RAF.
-- [ ] `stepOnce()` works only once per click and does not start RAF.
-- [ ] `dispose()` prevents future update/draw callbacks.
-- [ ] Route `reset()` resets both route state and clock simulation time where time is displayed.
-- [ ] Draw path does not append duplicate trails during zero-substep frames.
+- [x] First timestamp anchors only, no simulation jump.
+- [x] Accumulator drains in fixed substeps.
+- [x] Delta clamped and substep count bounded.
+- [x] `start()` resets wall timestamp but not simulation state.
+- [x] `stop()` cancels exactly one owned RAF.
+- [x] `stepOnce()` works only once per click and does not start RAF.
+- [x] `dispose()` prevents future update/draw callbacks.
+- [x] Route `reset()` resets both route state and clock simulation time where time is displayed.
+- [x] Draw path does not append duplicate trails during zero-substep frames.
 
 ## Dependency Map
 
@@ -122,10 +122,10 @@ npm run test:sim:mount
 
 ## Success Criteria
 
-- [ ] Playback state is invariant across tested refresh rates.
-- [ ] Pause/resume, stall, step, reset, and dispose contracts pass.
-- [ ] All eight routes use supplied `dt`; no hardcoded frame advancement remains.
-- [ ] Existing 25 route contracts and 110 mount coverage remain green.
+- [x] Playback state is invariant across tested refresh rates.
+- [x] Pause/resume, stall, step, reset, and dispose contracts pass.
+- [x] All eight routes use supplied `dt`; no hardcoded frame advancement remains.
+- [x] Existing 25 route contracts and 110 mount coverage remain green.
 
 ## Risk Assessment
 

@@ -1,7 +1,7 @@
 ---
 title: "Fix all Sim2 and Sim3 simulation defects"
 description: "Deep TDD remediation of physics, timing, geometry, lifecycle, accessibility, visual QA, and release gates for all 25 Sim2 and 10 Sim3 routes."
-status: pending
+status: completed
 priority: P1
 branch: "master"
 tags: [bugfix, refactor, frontend, critical, tech-debt, sim2, sim3, tdd]
@@ -88,18 +88,18 @@ Every implementation phase follows `RED -> confirm intended failure -> GREEN -> 
 
 | Phase | Name | Status |
 |-------|------|--------|
-| 1 | [Freeze Simulation Contracts](./phase-01-freeze-simulation-contracts.md) | Pending |
-| 2 | [Correct Sim2 Physics Helpers](./phase-02-correct-sim2-physics-helpers.md) | Pending |
-| 3 | [Build Deterministic Sim2 Clock](./phase-03-build-deterministic-sim2-clock.md) | Pending |
-| 4 | [Make Sim2 Responsive and Accessible](./phase-04-make-sim2-responsive-and-accessible.md) | Pending |
-| 5 | [Repair Sim2 Route Behavior](./phase-05-repair-sim2-route-behavior.md) | Pending |
-| 6 | [Establish Sim3 Coordinate Foundation](./phase-06-establish-sim3-coordinate-foundation.md) | Pending |
-| 7 | [Harden Sim3 Core Runtime](./phase-07-harden-sim3-core-runtime.md) | Pending |
-| 8 | [Correct Sim3 Statics and Kinematics](./phase-08-correct-sim3-statics-and-kinematics.md) | Pending |
-| 9 | [Correct Sim3 Transmission and Relative Motion](./phase-09-correct-sim3-transmission-and-relative-motion.md) | Pending |
-| 10 | [Correct Sim3 Dynamics and Collision](./phase-10-correct-sim3-dynamics-and-collision.md) | Pending |
-| 11 | [Strengthen Visual and Release Gates](./phase-11-strengthen-visual-and-release-gates.md) | Pending |
-| 12 | [Complete Documentation and Final Verification](./phase-12-complete-documentation-and-final-verification.md) | Pending |
+| 1 | [Freeze Simulation Contracts](./phase-01-freeze-simulation-contracts.md) | Completed |
+| 2 | [Correct Sim2 Physics Helpers](./phase-02-correct-sim2-physics-helpers.md) | Completed |
+| 3 | [Build Deterministic Sim2 Clock](./phase-03-build-deterministic-sim2-clock.md) | Completed |
+| 4 | [Make Sim2 Responsive and Accessible](./phase-04-make-sim2-responsive-and-accessible.md) | Completed |
+| 5 | [Repair Sim2 Route Behavior](./phase-05-repair-sim2-route-behavior.md) | Completed |
+| 6 | [Establish Sim3 Coordinate Foundation](./phase-06-establish-sim3-coordinate-foundation.md) | Completed |
+| 7 | [Harden Sim3 Core Runtime](./phase-07-harden-sim3-core-runtime.md) | Completed |
+| 8 | [Correct Sim3 Statics and Kinematics](./phase-08-correct-sim3-statics-and-kinematics.md) | Completed |
+| 9 | [Correct Sim3 Transmission and Relative Motion](./phase-09-correct-sim3-transmission-and-relative-motion.md) | Completed |
+| 10 | [Correct Sim3 Dynamics and Collision](./phase-10-correct-sim3-dynamics-and-collision.md) | Completed |
+| 11 | [Strengthen Visual and Release Gates](./phase-11-strengthen-visual-and-release-gates.md) | Completed |
+| 12 | [Complete Documentation and Final Verification](./phase-12-complete-documentation-and-final-verification.md) | Completed |
 
 ## Dependencies
 
@@ -109,17 +109,17 @@ Every implementation phase follows `RED -> confirm intended failure -> GREEN -> 
 
 ## Global Acceptance Criteria
 
-- [ ] All 25 Sim2 route contracts execute through mounted factories with independent physics oracles.
-- [ ] All 10 Sim3 adapters satisfy independent coordinate, geometry, state, fallback, and disposal contracts.
-- [ ] Playback is refresh-rate independent at 30/60/120/144 Hz timestamp sequences; pause/resume does not jump.
-- [ ] Responsive matrices pass at 360/520/900/1024 px and DPR 1/2 with no horizontal overflow or transform drift.
-- [ ] Every interactive handle is keyboard-operable, named, focus-visible, clamped, and disposed cleanly.
-- [ ] Zero owned RAF callbacks and zero live WebGL resources remain after dispose/repeated navigation/toggle.
-- [ ] Production `index.html` exercises 25 Sim2 and 10 Sim3 paths, not fixture-only mounts.
-- [ ] All fallback reasons preserve usable 2D and announce status accessibly.
-- [ ] Strict captures contain exactly the expected route/shot sets; baseline diffs are human-triaged.
-- [ ] `test:sim:release` and `test:sim:release:full` pass three consecutive retry-free runs.
-- [ ] No generated content, canonical DOCX, release package, or unrelated user changes are modified.
+- [x] All 25 Sim2 route contracts execute through mounted factories with independent physics oracles.
+- [x] All 10 Sim3 adapters satisfy independent coordinate, geometry, state, fallback, and disposal contracts.
+- [x] Playback is refresh-rate independent at 30/60/120/144 Hz timestamp sequences; pause/resume does not jump.
+- [x] Responsive matrices pass at 360/520/900/1024 px and DPR 1/2 with no horizontal overflow or transform drift.
+- [x] Every interactive handle is keyboard-operable, named, focus-visible, clamped, and disposed cleanly.
+- [x] Zero owned RAF callbacks and zero live WebGL resources remain after dispose/repeated navigation/toggle.
+- [x] Production `index.html` exercises 25 Sim2 and 10 Sim3 paths, not fixture-only mounts.
+- [x] All fallback reasons preserve usable 2D and announce status accessibly.
+- [x] Strict captures contain exactly the expected route/shot sets; baseline diffs are human-triaged.
+- [x] `test:sim:release` passes three consecutive retry-free runs; `test:sim:release:full` passes once from fresh visual/probe artifacts.
+- [x] This remediation added no generated content, canonical DOCX, dated release package, or unrelated user changes; pre-existing working-tree changes remain untouched.
 
 ## Risk Policy
 

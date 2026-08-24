@@ -9,11 +9,14 @@
 const { test, expect } = require('@playwright/test');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '../..');
 const manifest = require(path.join(ROOT, 'js/sim2/sim2-route-manifest.js'));
 const { buildCapturePlan, artifactName } = require('./capture-plan.js');
+const { validateCapture } = require('./validate-capture.js');
 const { SIM2: SIM2_TARGETS } = require(path.join(ROOT, 'tools/sim-probe/probe-targets.js'));
+const { fatalConsoleMessage } = require('../sim-validation/browser-console-policy.js');
 
 // 5 route bespoke-drag (0 slider) → frame drag-far. Selector từ route-map (mọi route .sim2-handle).
 const DRAG_ROUTES = ['ch1-1-5', 'ch1-2-3', 'ch1-6-3', 'ch2-1-3', 'ch2-5-2'];
@@ -40,11 +43,12 @@ const fixtureFor = ch =>
 const STEP_DEFAULTS = { N1: 60, N2: 120 };
 // Per-sim override mốc frame (sim wrap sớm) — Claude điền sau khi soi (Phase 03).
 const OVERRIDES = {};
+const CAPTURE_RUN_ID = crypto.randomUUID();
+const RUN_DIR = path.join(OUT_DIR, 'runs', CAPTURE_RUN_ID);
 
 const records = [];          // tích luỹ qua các test (workers:1) → ghi json ở afterAll
 let plannedShotTotal = 0;
-
-fs.mkdirSync(OUT_DIR, { recursive: true });
+fs.mkdirSync(RUN_DIR, { recursive: true });
 
 /** Click nút step n lần trong 1 round-trip (deterministic, nhanh). */
 async function stepN(page, n) {
@@ -145,9 +149,8 @@ test.describe('sim2 visual capture — 25 route (manifest-driven, dev-only)', ()
   for (const r of manifest) {
     test(`capture ${r.id}`, async ({ page }) => {
       const errors = [];
-      page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-      page.on('pageerror', e => errors.push(String(e)));
-
+      page.on('console', m => { const fatal = fatalConsoleMessage(m.type(), m.text()); if (fatal) errors.push(fatal); });
+      page.on('pageerror', e => errors.push(`pageerror: ${String(e)}`));
       await page.goto(fixtureFor(r.chapter), { waitUntil: 'domcontentloaded' });
       // Fixture chỉ nạp katex.css → thiếu rule .sim2-legend/stage/theory của app.
       // Inject app stylesheet (dev-only) để chụp ĐÚNG diện mạo runtime thật (legend có
@@ -188,15 +191,13 @@ test.describe('sim2 visual capture — 25 route (manifest-driven, dev-only)', ()
           if (job.kind === 'dynamic') { await resetPlayback(page); await waitRaf(page, 1); }
           if (shot.kind === 'slider') {
             const range = await sliderRange(page, shot.control);
-            if (range) {
-              await setSlider(page, shot.control, farTarget(range, shot.lo, shot.hi));
-              await pollReadoutStable(page, 6);
-            } else {
-              console.warn(`[capture] ${r.id} slider-far: control "${shot.control}" not found → fallback frame`);
-            }
+            if (!range) throw new Error(`${r.id} slider-far control not found: ${shot.control}`);
+            const changed = await setSlider(page, shot.control, farTarget(range, shot.lo, shot.hi));
+            if (!changed) throw new Error(`${r.id} slider-far control could not be driven: ${shot.control}`);
+            await pollReadoutStable(page, 6);
           } else {
             const ok = await dragHandle(page, shot.selector);
-            if (!ok) console.warn(`[capture] ${r.id} drag-far: handle "${shot.selector}" not found → fallback frame`);
+            if (!ok) throw new Error(`${r.id} drag-far handle not found: ${shot.selector}`);
           }
         } else if (job.kind === 'dynamic') {
           if (shot.frame != null && shot.frame > curFrame) {
@@ -209,32 +210,39 @@ test.describe('sim2 visual capture — 25 route (manifest-driven, dev-only)', ()
           await waitRaf(page, 2);   // static: để readout sống / animate nhẹ settle
         }
         const file = artifactName({ route: r.id, label: shot.label });
-        await root.screenshot({ path: path.join(OUT_DIR, file) });
-        images.push({ label: shot.label, src: file });
+        const png = await root.screenshot({ path: path.join(RUN_DIR, file) });
+        images.push({ label: shot.label, file, src: `runs/${CAPTURE_RUN_ID}/${file}`, bytes: png.length, sha256: crypto.createHash('sha256').update(png).digest('hex') });
       }
-
       records.push({
-        route: r.id, chapter: r.chapter, section: job.section,
-        name: r.name, kind: job.kind, images
+        runId: CAPTURE_RUN_ID, route: r.id, chapter: r.chapter, section: job.section,
+        name: r.name, kind: job.kind, expectedShots: job.shots.map(shot => shot.label), images,
+        pageErrors: errors.slice()
       });
       plannedShotTotal += job.shots.length;
 
-      // Dispose sạch (không bắt buộc vì page fresh mỗi test, nhưng giữ pattern).
-      await page.evaluate(() => { try { window.__sim && window.__sim.dispose(); } catch (e) {} });
+      await page.evaluate(() => {
+        if (!window.__sim || typeof window.__sim.dispose !== 'function') throw new Error('simulation missing dispose');
+        window.__sim.dispose();
+      });
 
       expect(errors, `console errors ${r.id}:\n${errors.join('\n')}`).toEqual([]);
     });
   }
 
   test.afterAll(() => {
+    const payload = {
+      runId: CAPTURE_RUN_ID,
+      generatedAt: new Date().toISOString(),
+      artifactDir: `runs/${CAPTURE_RUN_ID}`,
+      routes: records
+    };
+    validateCapture(payload, Date.now(), OUT_DIR);
     fs.writeFileSync(
       path.join(OUT_DIR, 'capture-manifest.json'),
-      JSON.stringify(records, null, 2), 'utf8'
+      JSON.stringify(payload, null, 2), 'utf8'
     );
     const totalImgs = records.reduce((a, x) => a + x.images.length, 0);
-    // Kiểm nội bộ: đúng số ảnh đã lên kế hoạch cho ĐÚNG subset đã chạy (cho phép smoke từng chương).
-    // Phủ-đủ-25-route verify ở build-contact-sheet.js (Phase 03) so capture-manifest ↔ route-manifest.
     expect(totalImgs, 'tổng ảnh === Σ shots theo plan').toBe(plannedShotTotal);
-    expect(records.length, 'có ≥1 route được chụp').toBeGreaterThan(0);
+    expect(records.length, 'capture phải phủ đúng manifest').toBe(manifest.length);
   });
 });

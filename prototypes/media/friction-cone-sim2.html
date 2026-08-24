@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nón ma sát và điều kiện trượt</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="shared/media-pilot.css">
+</head>
+<body data-media-id="media-ch1-friction-cone">
+  <a class="skip-link" href="#main">Bỏ qua phần giới thiệu</a>
+  <header class="pilot-header">
+    <strong>Thí điểm đa phương tiện Chương 1</strong>
+    <span>Bản nháp kỹ thuật, không phải kết luận về hiệu quả học tập</span>
+  </header>
+  <main id="main" class="pilot-shell">
+    <section class="pilot-intro" aria-labelledby="page-title">
+      <p class="pilot-state">Mục tiêu cục bộ: obj-ch1-friction-cone</p>
+      <h1 id="page-title">Kiểm tra phản lực có nằm trong nón ma sát</h1>
+      <p>Đổi góc nghiêng β và hệ số ma sát μ. So sánh β với φ = arctan μ để xác định cân bằng hoặc trượt.</p>
+    </section>
+
+    <div class="pilot-grid">
+      <section class="pilot-panel" aria-labelledby="sim-title">
+        <h2 id="sim-title">Mô phỏng Sim2 canonical ch1-5-3</h2>
+        <div data-interactive hidden>
+          <div id="friction-sim" class="sim-mount" role="group"
+            aria-label="Mô phỏng nón ma sát. Dùng hai thanh trượt hoặc điểm điều khiển bằng bàn phím."></div>
+        </div>
+        <section class="static-fallback" data-static-fallback id="phuong-an-tinh" aria-labelledby="static-title">
+          <h2 id="static-title">Phương án tĩnh</h2>
+          <svg viewBox="0 0 640 360" role="img" aria-labelledby="friction-static-title friction-static-desc">
+            <title id="friction-static-title">Mặt phẳng nghiêng và nón ma sát</title>
+            <desc id="friction-static-desc">Khối nằm trên mặt phẳng nghiêng 18 độ. Nón ma sát có nửa góc khoảng 24 độ khi hệ số ma sát bằng 0,45. Vì 18 nhỏ hơn 24 nên vật cân bằng.</desc>
+            <line x1="72" y1="300" x2="560" y2="142" stroke="var(--media-ink)" stroke-width="6"/>
+            <polygon points="300,230 388,202 410,268 322,296" fill="var(--media-surface)" stroke="var(--media-navy)" stroke-width="4"/>
+            <path d="M355 248 L310 92 A165 165 0 0 1 456 142 Z" fill="var(--media-gold-soft)" stroke="var(--media-gold)" stroke-width="3"/>
+            <line x1="355" y1="248" x2="355" y2="72" stroke="var(--media-positive)" stroke-width="5"/>
+            <text x="368" y="88" fill="var(--media-positive)" font-size="24">R</text>
+            <text x="432" y="164" fill="var(--media-gold)" font-size="22">φ</text>
+            <text x="116" y="300" fill="var(--media-ink)" font-size="22">β = 18°</text>
+          </svg>
+          <p>Với μ = 0,45: φ = arctan(0,45) ≈ 24,2°. Vì β = 18° ≤ φ, phản lực toàn phần nằm trong nón ma sát và vật cân bằng.</p>
+        </section>
+        <p class="status-line" data-media-status role="status" aria-live="polite">Đang tải mô phỏng local.</p>
+      </section>
+
+      <aside class="pilot-panel flat" aria-labelledby="reasoning-title">
+        <h2 id="reasoning-title">Bằng chứng cần tạo</h2>
+        <div class="formula">tan φ = μ; trượt ⇔ β &gt; φ</div>
+        <ul>
+          <li>Tăng μ phải làm nón ma sát mở rộng.</li>
+          <li>Tăng β qua φ phải đổi trạng thái từ cân bằng sang trượt.</li>
+          <li>Màu chỉ hỗ trợ, nhãn trạng thái vẫn phải đọc được.</li>
+        </ul>
+        <p class="evidence-prompt"><strong>Tự kiểm:</strong> Với μ = 0,30, hãy dự đoán góc nghiêng tới hạn trước khi đổi slider.</p>
+      </aside>
+    </div>
+  </main>
+  <script src="../../js/sim2/physics/dynamics.js"></script>
+  <script src="../../js/sim2/core/palette.js"></script>
+  <script src="../../js/sim2/core/transform.js"></script>
+  <script src="../../js/sim2/core/svg-render.js"></script>
+  <script src="../../js/sim2/core/overlay.js"></script>
+  <script src="../../js/sim2/core/canvas-underlay.js"></script>
+  <script src="../../js/sim2/core/controls.js"></script>
+  <script src="../../js/sim2/core/panel.js"></script>
+  <script src="../../js/sim2/core/sim-shell.js"></script>
+  <script src="../../js/sim2/registry.js"></script>
+  <script src="../../js/sim2/sims/ch1/ch1-5-3.js"></script>
+  <script src="shared/media-pilot-runtime.js"></script>
+  <script src="shared/media-loader.js"></script>
+  <script src="friction-cone-sim2.js"></script>
+</body>
+</html>

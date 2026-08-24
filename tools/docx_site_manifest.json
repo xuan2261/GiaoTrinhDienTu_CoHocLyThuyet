@@ -1,5 +1,13 @@
 {
-  "input": "D:\\NCKH_2025\\GiaoTrinhDienTu_CoHocLyThuyet\\CoHocLyThuyet_Full_New.docx",
+  "schemaVersion": 1,
+  "source": {
+    "logicalPath": "CoHocLyThuyet_Full_New.docx",
+    "sha256": "f39fc360a0f92fd054a1b170edd423d5d3fd70ff63d87011c5dbd9b042372e70"
+  },
+  "generator": {
+    "name": "tools/extract_docx.py",
+    "version": 1
+  },
   "chapters": [
     {
       "chapter": 1,

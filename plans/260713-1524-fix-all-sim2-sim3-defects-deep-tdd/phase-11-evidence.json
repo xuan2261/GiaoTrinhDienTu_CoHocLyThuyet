@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": 11,
+  "status": "completed",
+  "recordedOn": "2026-08-24",
+  "artifacts": [
+    {
+      "kind": "objective-release",
+      "path": "plans/260713-1524-fix-all-sim2-sim3-defects-deep-tdd/evidence/objective-release.txt",
+      "sha256": "67e0c1e3fb9674b3f5a1fce9fc53cfe9692d56b6488dc6efb7e297a831736805",
+      "command": "npm run test:sim:release",
+      "retryFree": true,
+      "runs": 1
+    },
+    {
+      "kind": "visual-release",
+      "path": "plans/260713-1524-fix-all-sim2-sim3-defects-deep-tdd/evidence/visual-release.txt",
+      "sha256": "67f0d3dc7da8f43676c20487926785691f4f213d6f8b39349cb5e7bb04fc4335",
+      "command": "npm run test:sim:release:full",
+      "retryFree": true,
+      "runs": 1,
+      "baselineTriage": "user-approved"
+    },
+    {
+      "kind": "sim2-capture",
+      "path": "plans/260531-2122-sim2-visual-quality-eval-pipeline/visuals/capture-manifest.json",
+      "sha256": "c36318bad9f525d2ca7a4389e63ee71f4dc27578a19b7f0884081e13feece52f"
+    },
+    {
+      "kind": "sim2-contact-sheet",
+      "path": "plans/260531-2122-sim2-visual-quality-eval-pipeline/visuals/contact-sheet.html",
+      "sha256": "a4a5cbf5eadf13d10860fa248e9495718def703bfc529945a8f908d487e68b11"
+    },
+    {
+      "kind": "sim3-capture",
+      "path": "plans/260605-sim3-visual-quality-upgrade-tdd/visuals/final/capture-manifest.json",
+      "sha256": "6641ba6b1beab15bab76ad44549c0461d766d99f73c4da496708405773e14957"
+    },
+    {
+      "kind": "sim3-contact-sheet",
+      "path": "plans/260605-sim3-visual-quality-upgrade-tdd/visuals/final/contact-sheet.html",
+      "sha256": "91ff8e0f67d71c90bdcb172f92c9dc5434e8fe3481b9cbbab9309fdf9a95109b"
+    },
+    {
+      "kind": "interaction-probe",
+      "path": "plans/260608-1559-sim-fullquality-triage/visuals/interaction-probe.json",
+      "sha256": "83f917d81c4002c911d8d293a90bf13f2d647511ba43e2b948f971a041a89156"
+    },
+    {
+      "kind": "visual-baselines",
+      "path": "tools/sim2-visual/selective-baseline.spec.js",
+      "sha256": "77e5cbddf1fd9b514b29538e606145a3415a74be003e88aa8556a3897b102a3d",
+      "files": [
+        {
+          "path": "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch1-6-3-negative-area-win32.png",
+          "sha256": "68e934226cb06c48f4a6c2f3ee28eb8c6bc03979d1613ccdd9ef1474ccb56a02"
+        },
+        {
+          "path": "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch2-3-2-transmission-win32.png",
+          "sha256": "b39d9af7fbd24a95bba34bb935d73863298fda2f2434ad2cc9cc4a2553848963"
+        },
+        {
+          "path": "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch2-4-4-coriolis-callout-win32.png",
+          "sha256": "ad3189b47d8abdfadf8b1fadf8aebe203d6184f0883167ef55fc6fdc322dbcd7"
+        },
+        {
+          "path": "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch3-3-1-ode-graph-win32.png",
+          "sha256": "3ae6c9cad8c979ceab2abd6d4817fc303699f10ef2e41ce403a83849b78b4596"
+        },
+        {
+          "path": "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch3-6-2-collision-after-win32.png",
+          "sha256": "a946bf112978b409193c3c6ca8abc9432936b34d1bd5db975e3b0fd75a711c7c"
+        }
+      ]
+    },
+    {
+      "kind": "release-soak",
+      "path": "plans/260713-1524-fix-all-sim2-sim3-defects-deep-tdd/evidence/release-soak.txt",
+      "sha256": "19373f9908db912f5637db456ae69d616aabac1b3210908858ad524aff1f0431",
+      "command": "npm run test:sim:release:soak",
+      "retryFree": true,
+      "runs": 3
+    }
+  ]
+}

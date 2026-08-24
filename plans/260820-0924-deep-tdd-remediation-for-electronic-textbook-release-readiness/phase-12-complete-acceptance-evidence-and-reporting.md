@@ -73,11 +73,11 @@ All paths are inside this plan directory unless release policy requires a separa
 
 ## Todo
 
-- [ ] Build and validate evidence bundle.
+- [x] Build and validate evidence bundle.
 - [ ] Run automated/manual/Word standalone gates; attach LMS derivative evidence only when a Phase-11 package is in scope.
 - [ ] Complete independent review and remediate findings.
-- [ ] Synchronize docs and formal report.
-- [ ] Record review status and exact claim limitations; attach named approvals only when required.
+- [x] Synchronize docs and formal report.
+- [x] Record review status and exact claim limitations; attach named approvals only when required.
 
 ## Success Criteria
 

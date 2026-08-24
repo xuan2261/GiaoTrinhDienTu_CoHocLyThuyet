@@ -1,0 +1,9 @@
+Bản mô tả theo thời gian cho minh họa trượt lực
+
+1. Lực F ban đầu đặt tại điểm A trên một đường tác dụng xác định.
+2. Tại điểm B trên cùng đường tác dụng, thêm một cặp lực cân bằng có cùng độ lớn và ngược chiều.
+3. Lực tại A và một lực của cặp tại B tạo thành hai lực cân bằng và được khử khỏi hệ lực tương đương.
+4. Lực còn lại đặt tại B có cùng phương, cùng chiều và cùng độ lớn với lực ban đầu tại A.
+5. Kết luận trong phạm vi vật rắn tuyệt đối: có thể trượt lực dọc theo đường tác dụng mà không đổi tác dụng của lực lên vật rắn.
+
+Không có âm thanh hoặc lời thoại. Vì vậy phụ đề đồng bộ thời gian không áp dụng.

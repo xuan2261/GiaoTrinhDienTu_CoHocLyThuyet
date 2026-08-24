@@ -1,8 +1,13 @@
 const { test, expect } = require('@playwright/test');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 const { renderContactSheet } = require('../sim2-visual/contact-sheet.js');
 const { targetsFor } = require('../sim-probe/probe-targets.js');
+const sim2Manifest = require('../../js/sim2/sim2-route-manifest.js');
+const sim3Manifest = require('../../js/sim3/sim3-route-manifest.js');
+const { validateSim3Capture } = require('./validate-capture.js');
+const { fatalConsoleMessage } = require('../sim-validation/browser-console-policy.js');
 
 /** Set slider value + bắn 'input'. false nếu không tìm thấy. */
 async function setSlider(page, id, value) {
@@ -64,19 +69,17 @@ const OUT_DIR = process.env.SIM3_VISUAL_OUT_DIR
   ? path.resolve(process.env.SIM3_VISUAL_OUT_DIR)
   : path.join(ROOT, 'plans/260605-sim3-visual-quality-upgrade-tdd/visuals/final');
 const TARGET_ROUTES = new Set(['ch1-1-5', 'ch2-3-2', 'ch3-6-2']);
-
-const cases = [
-  { id: 'ch1-1-5', fixture: 'sim2-ch1.html', chapter: 1, section: '1.5', name: 'Thu gọn hệ lực phẳng → R + Mo', steps: 0 },
-  { id: 'ch1-5-3', fixture: 'sim2-ch1.html', chapter: 1, section: '5.3', name: 'Nón ma sát trên mặt nghiêng', steps: 0 },
-  { id: 'ch2-1-3', fixture: 'sim2-ch2.html', chapter: 2, section: '1.3', name: 'Tiếp/pháp tuyến + bán kính cong', steps: 0 },
-  { id: 'ch2-2-2', fixture: 'sim2-ch2.html', chapter: 2, section: '2.2', name: 'Quay quanh trục cố định', steps: 8 },
-  { id: 'ch2-3-2', fixture: 'sim2-ch2.html', chapter: 2, section: '3.2', name: 'Truyền động bánh răng–đai–puli', steps: 8 },
-  { id: 'ch2-4-4', fixture: 'sim2-ch2.html', chapter: 2, section: '4.4', name: 'Hợp chuyển động & Coriolis', steps: 16 },
-  { id: 'ch2-5-3', fixture: 'sim2-ch2.html', chapter: 2, section: '5.3', name: 'Phân bố vận tốc điểm trên vật rắn', steps: 0 },
-  { id: 'ch3-1-3', fixture: 'sim2-ch3.html', chapter: 3, section: '1.3', name: 'HQC quán tính vs phi quán tính', steps: 0 },
-  { id: 'ch3-5-3', fixture: 'sim2-ch3.html', chapter: 3, section: '5.3', name: 'Bảo toàn mô men động lượng', steps: 8 },
-  { id: 'ch3-6-2', fixture: 'sim2-ch3.html', chapter: 3, section: '6.2', name: 'Va chạm với hệ số phục hồi e', steps: 112, phase: 'after' }
-];
+const STEPS = { 'ch2-2-2': 8, 'ch2-3-2': 8, 'ch2-4-4': 16, 'ch3-5-3': 8, 'ch3-6-2': 112 };
+const cases = sim3Manifest.map(route => {
+  const base = sim2Manifest.find(candidate => candidate.id === route.baseRouteId);
+  return {
+    id: route.id, chapter: route.chapter, section: route.id.replace(new RegExp(`^ch${route.chapter}-`), '').replace(/-/g, '.'),
+    fixture: `sim2-ch${route.chapter}.html`, name: base.name, steps: STEPS[route.id] || 0,
+    phase: route.id === 'ch3-6-2' ? 'after' : undefined
+  };
+});
+const SIM3_CAPTURE_RUN_ID = crypto.randomUUID();
+const RUN_DIR = path.join(OUT_DIR, 'runs', SIM3_CAPTURE_RUN_ID);
 
 const records = [];
 
@@ -85,24 +88,24 @@ function fixtureUrl(name) {
 }
 
 test.describe('sim3 pilot visual capture', () => {
-  test.beforeAll(() => fs.mkdirSync(OUT_DIR, { recursive: true }));
+  test.beforeAll(() => fs.mkdirSync(RUN_DIR, { recursive: true }));
   test.afterAll(() => {
-    fs.writeFileSync(path.join(OUT_DIR, 'capture-manifest.json'), JSON.stringify(records, null, 2), 'utf8');
+    const payload = {
+      runId: SIM3_CAPTURE_RUN_ID,
+      generatedAt: new Date().toISOString(),
+      artifactDir: `runs/${SIM3_CAPTURE_RUN_ID}`,
+      routes: records
+    };
+    validateSim3Capture(payload, Date.now(), OUT_DIR);
+    fs.writeFileSync(path.join(OUT_DIR, 'capture-manifest.json'), JSON.stringify(payload, null, 2), 'utf8');
     fs.writeFileSync(path.join(OUT_DIR, 'contact-sheet.html'), renderContactSheet(records), 'utf8');
-    // Guard count (red-team #5 — Sim3 thiếu invariant): mỗi route chụp 1 ảnh base; route có
-    // #sim3 target PHẢI có thêm 1 ảnh slider-far (canvas luôn visible — đã assert ở mỗi test).
-    const eligible = records.filter(r => !!targetsFor(r.route + '#sim3'));
-    for (const r of eligible) {
-      expect(r.images.some(im => im.label === 'slider-far'),
-        `${r.route}: route eligible PHẢI có ảnh slider-far (không silent-drop)`).toBe(true);
-    }
-    const totalImgs = records.reduce((a, r) => a + r.images.length, 0);
-    expect(totalImgs, 'tổng ảnh === base mỗi route + slider-far mỗi route eligible')
-      .toBe(records.length + eligible.length);
   });
 
   for (const cfg of cases) {
     test(`capture ${cfg.id} 3D`, async ({ page }) => {
+      const pageErrors = [];
+      page.on('pageerror', error => pageErrors.push(`pageerror: ${String(error)}`));
+      page.on('console', message => { const fatal = fatalConsoleMessage(message.type(), message.text()); if (fatal) pageErrors.push(fatal); });
       await page.goto(fixtureUrl(cfg.fixture), { waitUntil: 'domcontentloaded' });
       await page.addStyleTag({ path: path.join(ROOT, 'css/style.css') });
       await page.evaluate(() => {
@@ -127,8 +130,8 @@ test.describe('sim3 pilot visual capture', () => {
         }).toBe('after');
       }
       const file = `${cfg.id}-sim3.png`;
-      await page.locator('#host').screenshot({ path: path.join(OUT_DIR, file) });
-      const images = [{ label: TARGET_ROUTES.has(cfg.id) ? 'final target audit' : 'final audit', src: file }];
+      const png = await page.locator('#host').screenshot({ path: path.join(RUN_DIR, file) });
+      const images = [{ label: 'final audit', file, src: `runs/${SIM3_CAPTURE_RUN_ID}/${file}`, bytes: png.length, sha256: crypto.createHash('sha256').update(png).digest('hex') }];
       const audit = await page.evaluate(id => {
         const host = document.getElementById('host');
         const labels = Array.from(host.querySelectorAll('.sim3-label')).filter(el => getComputedStyle(el).display !== 'none');
@@ -182,24 +185,25 @@ test.describe('sim3 pilot visual capture', () => {
         await page.evaluate(() => { const r = document.querySelector('#host .sim2-reset'); if (r) r.click(); });
         await waitRaf(page, 2);
         const range = await sliderRange(page, t.control);
-        if (range) {
-          await setSlider(page, t.control, farTarget(range, t.lo, t.hi));
-          await pollSim3FieldStable(page, cfg.id, t.field, 8);
-          const farFile = `${cfg.id}-sim3__slider-far.png`;
-          await page.locator('#host').screenshot({ path: path.join(OUT_DIR, farFile) });
-          images.push({ label: 'slider-far', src: farFile });
-        } else {
-          console.warn(`[sim3 capture] ${cfg.id} slider-far: control "${t.control}" not found → no frame`);
-        }
+        if (!range) throw new Error(`${cfg.id} slider-far control not found: ${t.control}`);
+        const changed = await setSlider(page, t.control, farTarget(range, t.lo, t.hi));
+        if (!changed) throw new Error(`${cfg.id} slider-far control could not be driven: ${t.control}`);
+        await pollSim3FieldStable(page, cfg.id, t.field, 8);
+        const farFile = `${cfg.id}-sim3__slider-far.png`;
+        const farPng = await page.locator('#host').screenshot({ path: path.join(RUN_DIR, farFile) });
+        images.push({ label: 'slider-far', file: farFile, src: `runs/${SIM3_CAPTURE_RUN_ID}/${farFile}`, bytes: farPng.length, sha256: crypto.createHash('sha256').update(farPng).digest('hex') });
       }
 
       records.push({
+        runId: SIM3_CAPTURE_RUN_ID,
         route: cfg.id,
         chapter: cfg.chapter,
         section: cfg.section,
         name: cfg.name,
         kind: TARGET_ROUTES.has(cfg.id) ? 'target-polish' : 'sim3',
+        expectedShots: images.map(image => image.label),
         images,
+        pageErrors: pageErrors.slice(),
         flags: [
           { severity: audit.overlaps === 0 ? 'ok' : 'high', note: `overlap=${audit.overlaps}` },
           { severity: safeCrop === true ? 'ok' : 'low', note: safeCrop == null ? 'safeCrop=not-measured' : `safeCrop=${safeCrop} margin=${measuredMargin}px` },
@@ -212,6 +216,7 @@ test.describe('sim3 pilot visual capture', () => {
           { severity: TARGET_ROUTES.has(cfg.id) ? 'ok' : 'low', note: TARGET_ROUTES.has(cfg.id) ? 'polished-target' : 'reference' }
         ]
       });
+      expect(pageErrors, `browser warnings/errors ${cfg.id}`).toEqual([]);
       await page.evaluate(() => window.__sim.dispose());
     });
   }

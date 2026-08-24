@@ -56,11 +56,11 @@ Generated observations (`equation_report`, `image_mapping`, content manifest) đ
 
 ## Todo
 
-- [ ] Freeze review scope and reviewer role/unit.
-- [ ] Generate item inventory and hashes.
-- [ ] Add ledger/review-record validator and mutation tests.
-- [ ] Conduct equation, image and representative content review.
-- [ ] Resolve or explicitly block rejected/stale items.
+- [x] Freeze review scope and reviewer role/unit.
+- [x] Generate item inventory and hashes.
+- [x] Add ledger/review-record validator and mutation tests.
+- [x] Conduct equation, image and representative content review.
+- [x] Resolve or explicitly block rejected/stale items.
 
 ## Success Criteria
 

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pilot-draft",
+  "parentLearningOutcomeId": "lo-ch1-statics",
+  "contracts": [
+    {
+      "assetId": "media-ch1-force-sliding",
+      "localObjective": { "id": "obj-ch1-force-sliding", "verb": "explain", "condition": "Given points A and B on one force line of action", "criterion": "explain that the force may move from A to B while direction, sense, and magnitude remain unchanged" },
+      "contentRoutes": ["ch1-2-2"],
+      "canonicalSimulationId": null,
+      "modality": "animated-figure",
+      "modalityRationale": "The proof requires a visible add-cancel-retain sequence; no new animation is produced.",
+      "misconceptionTarget": "A force may be moved to a point outside its original line of action without changing its effect.",
+      "evidenceTarget": "Name direction, sense, and magnitude as preserved, and state the same-line limitation.",
+      "math": { "expression": "F_A ≡ F_B on one line of action", "units": "Qualitative figure; any force magnitude would be measured in newtons.", "assumptions": ["Rigid-body statics", "A and B share one line of action", "Direction, sense, and magnitude are unchanged"] },
+      "authoringPacket": { "path": "media/pilot/media-ch1-force-sliding/authoring-packet.json", "sha256": "470d405f7e0a123d0fb7edb6cef40c866cb7ce13c2253c43bc004ffbae53387c" },
+      "review": { "ownerRole": "Multimedia author", "reviewerRole": "Subject-matter technical reviewer", "status": "technical-review", "efficacyClaim": false, "institutionalAcceptanceClaim": false }
+    },
+    {
+      "assetId": "media-ch1-resultant-angle",
+      "localObjective": { "id": "obj-ch1-resultant-angle", "verb": "determine", "condition": "Given two concurrent forces of 80 N and 60 N and an included angle from 0 to 180 degrees", "criterion": "determine the resultant magnitude and explain its maximum and minimum using the force parallelogram" },
+      "contentRoutes": ["ch1-2-3"],
+      "canonicalSimulationId": "ch1-2-3",
+      "modality": "quantitative-chart",
+      "modalityRationale": "The chart compares resultant magnitude across the complete angle domain while retaining canonical Sim2 for vector manipulation.",
+      "misconceptionTarget": "The resultant is always the scalar sum F1 + F2.",
+      "evidenceTarget": "Identify and calculate the maximum at 0 degrees and minimum at 180 degrees.",
+      "math": { "expression": "R = sqrt(F1^2 + F2^2 + 2 F1 F2 cos(theta))", "units": "F1, F2, and R in newtons; theta in degrees.", "assumptions": ["Concurrent coplanar forces", "F1 = 80 N", "F2 = 60 N", "0 <= theta <= 180 degrees"] },
+      "authoringPacket": { "path": "media/pilot/media-ch1-resultant-angle/authoring-packet.json", "sha256": "b1c50c80620617e1a513bc261930c07ace1ed544200155d85eb0169fce081a9a" },
+      "review": { "ownerRole": "Multimedia author", "reviewerRole": "Subject-matter technical reviewer", "status": "technical-review", "efficacyClaim": false, "institutionalAcceptanceClaim": false }
+    },
+    {
+      "assetId": "media-ch1-friction-cone",
+      "localObjective": { "id": "obj-ch1-friction-cone", "verb": "classify", "condition": "Given an incline angle beta and friction coefficient mu", "criterion": "classify equilibrium or slip by comparing beta with phi = arctan(mu) and locating the resultant reaction relative to the friction cone" },
+      "contentRoutes": ["ch1-5-3"],
+      "canonicalSimulationId": "ch1-5-3",
+      "modality": "mounted-simulation",
+      "modalityRationale": "The focused surface mounts canonical Sim2 so learners can cross the beta equals phi boundary without duplicate physics.",
+      "misconceptionTarget": "Friction always has magnitude mu times N below the limiting state.",
+      "evidenceTarget": "Predict and verify equilibrium or slip from beta compared with phi.",
+      "math": { "expression": "tan(phi) = mu; slip iff beta > phi", "units": "beta and phi in degrees; mu dimensionless.", "assumptions": ["Dry static friction", "Rigid block", "Planar incline", "Two-dimensional cone section"] },
+      "authoringPacket": { "path": "media/pilot/media-ch1-friction-cone/authoring-packet.json", "sha256": "2405d8ee7ad1c229d87ca80b35b3373417a1d528ed52ec5f82460c12ee9c76b1" },
+      "review": { "ownerRole": "Multimedia author", "reviewerRole": "Subject-matter technical reviewer", "status": "technical-review", "efficacyClaim": false, "institutionalAcceptanceClaim": false }
+    },
+    {
+      "assetId": "media-ch1-centroid-steps",
+      "localObjective": { "id": "obj-ch1-centroid-steps", "verb": "calculate", "condition": "Given a 6 cm by 4 cm plate with a radius 1 cm circular hole centered at (4.5 cm, 2.5 cm)", "criterion": "calculate the remaining centroid with signed areas and predict the direction of its shift before the final arithmetic" },
+      "contentRoutes": ["ch1-6-2", "ch1-6-3"],
+      "canonicalSimulationId": "ch1-6-3",
+      "modality": "step-interaction",
+      "modalityRationale": "Step control separates signed area, signed moments, and final coordinates while reusing the canonical centroid helper.",
+      "misconceptionTarget": "Subtracting hole coordinates after averaging produces the remaining centroid.",
+      "evidenceTarget": "Use a negative hole area, form both signed first moments, and predict movement away from removed material.",
+      "math": { "expression": "xC = sum(Ai xi)/sum(Ai); yC = sum(Ai yi)/sum(Ai), with Ahole < 0", "units": "Coordinates in centimeters; areas in square centimeters.", "assumptions": ["Uniform areal density", "Planar plate", "Contained circular hole", "Origin at lower-left corner"] },
+      "authoringPacket": { "path": "media/pilot/media-ch1-centroid-steps/authoring-packet.json", "sha256": "e2dc2a33e5d7287d5039655198c5801b7c3b465d7d50d9a3ef3906b28edbf8c7" },
+      "review": { "ownerRole": "Multimedia author", "reviewerRole": "Subject-matter technical reviewer", "status": "technical-review", "efficacyClaim": false, "institutionalAcceptanceClaim": false }
+    }
+  ]
+}

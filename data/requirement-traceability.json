@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "status": "provisional",
+  "requirements": [
+    {
+      "id": "req-legal-academic-baseline",
+      "title": "Khóa yêu cầu pháp lý, học thuật và tiêu chí nghiệm thu",
+      "status": "draft",
+      "authorityStatus": "provisional",
+      "sourceType": "project-derived",
+      "sourceRef": "Todo_For_GiaoTrinhDienTu.txt#1-p0",
+      "legalStandardId": null,
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review",
+      "learningOutcomeIds": [
+        "lo-ch1-statics",
+        "lo-ch2-kinematics",
+        "lo-ch3-dynamics"
+      ],
+      "evidenceIds": [
+        "traceability-validation"
+      ]
+    },
+    {
+      "id": "req-requirement-traceability",
+      "title": "Lập ma trận yêu cầu → chức năng → phép kiểm → bằng chứng",
+      "status": "draft",
+      "authorityStatus": "provisional",
+      "sourceType": "project-derived",
+      "sourceRef": "Todo_For_GiaoTrinhDienTu.txt#1-p0",
+      "legalStandardId": null,
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review",
+      "learningOutcomeIds": [
+        "lo-ch1-statics",
+        "lo-ch2-kinematics",
+        "lo-ch3-dynamics"
+      ],
+      "evidenceIds": [
+        "traceability-validation"
+      ]
+    },
+    {
+      "id": "req-chapter-learning-outcomes",
+      "title": "Ánh xạ nội dung từng chương với mục tiêu học phần và chuẩn đầu ra",
+      "status": "draft",
+      "authorityStatus": "provisional",
+      "sourceType": "regulation-derived",
+      "sourceRef": "Thông tư 35/2021/TT-BGDĐT",
+      "legalStandardId": "legal-tt35-2021",
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review",
+      "learningOutcomeIds": [
+        "lo-ch1-statics",
+        "lo-ch2-kinematics",
+        "lo-ch3-dynamics"
+      ],
+      "evidenceIds": [
+        "traceability-validation"
+      ]
+    },
+    {
+      "id": "req-academic-content-review",
+      "title": "Kiểm tra kiến thức, công thức, ví dụ, bài tập và câu hỏi phù hợp chương trình",
+      "status": "draft",
+      "authorityStatus": "provisional",
+      "sourceType": "regulation-derived",
+      "sourceRef": "Thông tư 35/2021/TT-BGDĐT",
+      "legalStandardId": "legal-tt35-2021",
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review",
+      "learningOutcomeIds": [
+        "lo-ch1-statics",
+        "lo-ch2-kinematics",
+        "lo-ch3-dynamics"
+      ],
+      "evidenceIds": [
+        "traceability-validation"
+      ]
+    },
+    {
+      "id": "req-theory-practice-balance",
+      "title": "Kiểm tra cân đối lý thuyết, ví dụ, mô phỏng, bài tập và tự kiểm tra",
+      "status": "draft",
+      "authorityStatus": "provisional",
+      "sourceType": "regulation-derived",
+      "sourceRef": "Thông tư 35/2021/TT-BGDĐT",
+      "legalStandardId": "legal-tt35-2021",
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review",
+      "learningOutcomeIds": [
+        "lo-ch1-statics",
+        "lo-ch2-kinematics",
+        "lo-ch3-dynamics"
+      ],
+      "evidenceIds": [
+        "traceability-validation"
+      ]
+    },
+    {
+      "id": "req-reference-provenance",
+      "title": "Chuẩn hóa tài liệu tham khảo và nguồn hình, bảng, nội dung trích dẫn",
+      "status": "draft",
+      "authorityStatus": "provisional",
+      "sourceType": "regulation-derived",
+      "sourceRef": "Thông tư 35/2021/TT-BGDĐT",
+      "legalStandardId": "legal-tt35-2021",
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review",
+      "learningOutcomeIds": [
+        "lo-ch1-statics",
+        "lo-ch2-kinematics",
+        "lo-ch3-dynamics"
+      ],
+      "evidenceIds": [
+        "traceability-validation"
+      ]
+    },
+    {
+      "id": "req-asset-rights-review",
+      "title": "Rà soát quyền sử dụng hình ảnh, font, thư viện và tài sản",
+      "status": "draft",
+      "authorityStatus": "provisional",
+      "sourceType": "project-derived",
+      "sourceRef": "Todo_For_GiaoTrinhDienTu.txt#1-p0",
+      "legalStandardId": null,
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review",
+      "learningOutcomeIds": [
+        "lo-ch1-statics",
+        "lo-ch2-kinematics",
+        "lo-ch3-dynamics"
+      ],
+      "evidenceIds": [
+        "traceability-validation"
+      ]
+    },
+    {
+      "id": "req-release-register",
+      "title": "Tạo danh mục phiên bản giáo trình, ngày phát hành, vai trò kiểm tra và phê duyệt",
+      "status": "draft",
+      "authorityStatus": "provisional",
+      "sourceType": "project-derived",
+      "sourceRef": "Todo_For_GiaoTrinhDienTu.txt#1-p0",
+      "legalStandardId": null,
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review",
+      "learningOutcomeIds": [
+        "lo-ch1-statics",
+        "lo-ch2-kinematics",
+        "lo-ch3-dynamics"
+      ],
+      "evidenceIds": [
+        "traceability-validation"
+      ]
+    },
+    {
+      "id": "req-truthful-feature-status",
+      "title": "Phân biệt đã triển khai, pilot và định hướng trong hồ sơ",
+      "status": "draft",
+      "authorityStatus": "provisional",
+      "sourceType": "project-derived",
+      "sourceRef": "Todo_For_GiaoTrinhDienTu.txt#1-p0",
+      "legalStandardId": null,
+      "ownerRole": "Academic governance",
+      "reviewRole": "Academic review",
+      "learningOutcomeIds": [
+        "lo-ch1-statics",
+        "lo-ch2-kinematics",
+        "lo-ch3-dynamics"
+      ],
+      "evidenceIds": [
+        "traceability-validation"
+      ]
+    }
+  ]
+}

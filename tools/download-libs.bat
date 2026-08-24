@@ -22,8 +22,9 @@ for %%f in (KaTeX_Main-Regular.woff2 KaTeX_Main-Bold.woff2 KaTeX_Main-Italic.wof
   curl -sL -o "lib\katex\fonts\%%f" "%FONT_BASE%/%%f"
 )
 
-echo Dang tai Three.js...
-curl -sL -o "lib\three\three.module.min.js" "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.min.js"
+echo Dang build Three.js UMD tu package da cai...
+call npm run build:three-assets
+if errorlevel 1 exit /b %errorlevel%
 
 echo.
 echo ========================================

@@ -1,6 +1,6 @@
 ---
 title: "Phase 2: Xây manifest nội dung và phát hành chuẩn"
-status: pending
+status: completed
 priority: P0
 effort: "4-6 ngày"
 dependencies: [phase-01]
@@ -63,11 +63,11 @@ Tách rõ manifest cấu trúc do máy sinh, metadata/evidence do con người q
 
 ## Todo
 
-- [ ] Freeze generated versus curated ownership.
-- [ ] Remove absolute source paths.
-- [ ] Add route/bundle/tree parity validator.
-- [ ] Add release manifest schema and checksum contract.
-- [ ] Document generator order and generated-file ownership.
+- [x] Freeze generated versus curated ownership.
+- [x] Remove absolute source paths.
+- [x] Add route/bundle/tree parity validator.
+- [x] Add release manifest schema and checksum contract.
+- [x] Document generator order and generated-file ownership.
 
 ## Success Criteria
 

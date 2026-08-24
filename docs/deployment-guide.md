@@ -17,6 +17,9 @@ python tools\analyze_docx.py --input CoHocLyThuyet_Full_New.docx --routes
 python tools\extract_docx.py --input CoHocLyThuyet_Full_New.docx --write
 python tools\update_nav.py
 python tools\bundle_pages.py
+python tools\build_content_manifest.py
+python tools\validate_content_manifest.py
+python tools\build_search_index.py
 python tools\audit.py
 
 # Chỉ khi source PDF hoặc PDF.js thay đổi
@@ -28,6 +31,11 @@ npm run build:pdf-assets
 ## Publish checks
 
 ```powershell
+npm run test:content-manifest
+npm run validate:traceability
+npm run validate:academic-review
+npm run test:academic-review
+npm run test:traceability
 python -m compileall -q tools
 npm run test:content
 npm run test:quiz
@@ -35,27 +43,40 @@ npm run test:quiz:browser
 npm run test:sim:physics
 npm run test:sim:mount
 npm run test:sim:release
+npm run test:sim:release:full
+npm run test:sim:release:soak
 npm run test:sim3:pilot
+node tools/sim-validation/validate-simulation-drift.js --require-verified
 npm run test:pdf:release
+npm run test:search
+npm run test:accessibility
 python tools\audit.py --strict-images
 python tools\audit.py --strict-equations
 ```
 
-`test:content` khóa route cleanup, gồm Chương 3 VII-4/VII-5/VII-6, và placeholder `(.)`. `test:sim:release` là gate Sim2 offline; Sim3 pilot có gate riêng.
+`test:content` khóa route cleanup, gồm Chương 3 VII-4/VII-5/VII-6, và placeholder `(.)`. `test:sim:release` là objective gate deterministic cho 25 Sim2 + 10 Sim3; `test:sim:release:full` tạo/validate fresh Sim2 + Sim3 capture, contact sheet, strict interaction probe và selective visual baseline. `test:sim:release:soak` chạy objective gate ba lần liên tiếp không retry. Snapshot chỉ cập nhật bằng `test:sim:visual:baseline:update` sau review actual/expected/diff; không chạy update trong publish automation.
+
+Traceability is a publish check: technical provisional joins may pass validation, but formal academic/legal acceptance remains unavailable until the responsible review roles confirm the underlying legal and learning-outcome records and persist accepted evidence.
+
+Academic review validation is a read-only integrity gate. It requires role/unit, independent, append-only reviewer records and root-confined evidence; it does not create an academic acceptance claim. Source, mapping, alt/caption/context, or output changes stale signoffs. The current review registry is pending/provisional.
+
+Accessibility publish evidence gồm bốn `file://` Playwright specs và `data/accessibility-baseline.json`. Pass tự động không thay thế kiểm tra keyboard/screen reader/browser zoom/text spacing thủ công và không tạo chứng nhận WCAG 2.2 AA.
 
 ## Artifact phát hành
 
 | Ship | Không cần ship cho học viên |
 |---|---|
-| `index.html`, `.nojekyll`, `CoHocLyThuyet.pdf`, `css/`, `js/`, `lib/` gồm `lib/pdfjs/`, `chapters/`, `images/`, quiz data cần thiết | `node_modules/`, `tests/`, `tools/`, `plans/`, screenshots, review HTML, OCR intermediates, backups |
+| `index.html`, `.nojekyll`, `CoHocLyThuyet.pdf`, `css/`, `js/`, `lib/` gồm `lib/pdfjs/`, `chapters/`, `images/`, `data/` gồm quiz/search index cần thiết | `node_modules/`, `tests/`, `tools/`, `plans/`, screenshots, review HTML, OCR intermediates, backups |
 
-Bản phát hành hiện tại ngày 2026-08-12:
+Bản candidate hiện tại:
 
-- `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260812/`
-- `release/GiaoTrinhDienTu_CoHocLyThuyet_release_20260812.rar`
-- RAR SHA-256: `4c96ca48115ff711866ae63f77209bdbb79b83fec3f9a0c2623fd2f3af0f6e65`.
+- Staging: `release/2026.08.21-candidate/package/` (374 files).
+- ZIP: `release/2026.08.21-candidate/co-hoc-ly-thuyet-2026.08.21-candidate.zip`.
+- ZIP SHA-256: `a0908a72624a44f8d37a525c97de3ee240fdbec1199c59097ab92a78cd718ef6`.
+- QTI 3 pilot: `release/2026.08.21-candidate/derivatives/qti3-ch1-pilot.zip` (10 items), SHA-256 `237b960fd03cf45e274eeadde74b0a530c31f8a774aaf09dc2bc5d8cf74ae099`.
+- Common Cartridge 1.4: `release/2026.08.21-candidate/derivatives/common-cartridge-1.4.imscc`, SHA-256 `6e174c792f392f3815139d80003c8037902dd0ace1e91372bb0c0596b96f4ec1`.
 
-Bản `20260701` được giữ nguyên làm artifact lịch sử. Folder và archive là artifact cùng bản phát hành. Không chỉnh trực tiếp package cũ; regenerate và tạo package ngày mới cho lần phát hành sau.
+Rebuild bằng `python tools/release/release.py --output-dir release/2026.08.21-candidate --version 2026.08.21-candidate --epoch 1787270400`; kiểm candidate đóng băng bằng `npm run test:release-candidate`. Hai clean build cùng input/version/epoch đã cho ZIP byte-identical. Đây là candidate, không phải final institutional release: academic review, independent accessibility review, independent candidate smoke review và Word round-trip còn blocked. Các release cũ giữ nguyên làm artifact lịch sử; không chỉnh trực tiếp package đã tạo.
 
 ## Smoke test bàn giao
 
@@ -64,8 +85,11 @@ Bản `20260701` được giữ nguyên làm artifact lịch sử. Folder và ar
 3. Nhấn **Xem bản PDF**: trang đầu render canvas + text, chuyển trang/zoom/vừa chiều rộng/tải xuống hoạt động; Escape và Browser Back quay lại đúng bài.
 4. Mount route Sim2 đại diện mỗi chương và đổi route để kiểm dispose.
 5. Kiểm một route Sim3, mode toggle và fallback 2D nếu WebGL không sẵn sàng.
-6. Xác nhận Chương 3 VII-4/VII-5/VII-6 không xuất hiện và không có text `(.)` đứng riêng.
-7. Xác nhận ảnh load đúng từ tên asset đã chuẩn hóa.
+6. Keyboard-only: chạy skip link, mở/đóng mục lục bằng Escape, search, quiz review/reset, PDF focus restore, Sim2 slider/handle và Sim3 mode toggle.
+7. Xác nhận Chương 3 VII-4/VII-5/VII-6 không xuất hiện và không có text `(.)` đứng riêng.
+8. Xác nhận ảnh load đúng từ tên asset đã chuẩn hóa.
+
+Ghi kết quả smoke độc lập vào `data/release-smoke-review.json`, gắn đúng version/SHA-256 candidate và evidence refs, rồi chạy `npm run test:release-smoke-review`. Browser smoke kỹ thuật do đội triển khai tự chạy không thay thế gate độc lập này.
 
 ## Troubleshooting
 
@@ -75,5 +99,6 @@ Bản `20260701` được giữ nguyên làm artifact lịch sử. Folder và ar
 | Route hoặc breadcrumb lệch | Chạy `tools/update_nav.py`, rồi bundle lại |
 | Ảnh thiếu | Chạy extractor và `audit.py --strict-images` |
 | Công thức fallback sai | Hoàn tất equation review và strict equation audit |
-| Sim3 blank | Kiểm Three.js vendored; route phải fallback về Sim2 |
+| Sim3 blank hoặc mất 2D | Kiểm Three.js vendored và console fallback reason; thiếu Three/WebGL hoặc lỗi create/setup/update/render/resize phải dispose shell/GPU rồi giữ Sim2 với status tiếng Việt. Chạy `npm run test:sim3:pilot` và `npm run test:sim:release:full`. |
 | PDF viewer báo không mở được | Kiểm `CoHocLyThuyet.pdf`, toàn bộ `lib/pdfjs/`, `provenance.json`; rebuild bằng `npm run build:pdf-assets`, không thay bằng CDN |
+| Word round-trip blocked ở `exporting-pdf` | Mở `tmp/word-acceptance/word-roundtrip-evidence.json` và command capture để kiểm Word version/build, run ID, PID và failing stage. Gate chạy COM trong worker riêng, giới hạn 900 giây và dọn mọi automation process do lần chạy tạo ra; không đổi status thành pass nếu chưa có DOCX/PDF hash đầy đủ. |

@@ -1,7 +1,7 @@
 ---
 phase: 9
 title: "Correct Sim3 Transmission and Relative Motion"
-status: pending
+status: completed
 priority: P1
 dependencies: [7]
 effort: "3-4 days"
@@ -45,15 +45,15 @@ No physics is recomputed in adapters beyond visual geometric mapping.
 
 ## Function and Interface Checklist
 
-- [ ] Gear and pulley face normals parallel shafts.
-- [ ] Gear pitch circles meet at one contact without overlap/gap.
-- [ ] Belt points form one closed continuous path.
-- [ ] Belt markers follow path direction consistent with pulley tangent arrows.
-- [ ] `worldACor == 2 * worldOmega × worldVRel`.
-- [ ] `aCor·vRel == 0` within tolerance.
-- [ ] Field arrow `v·r == 0`, `|v|=|ω||r|`.
-- [ ] IC arrow hidden/zero; negative synthetic ω flips all directions.
-- [ ] Geometry updates reuse or dispose replaced buffers.
+- [x] Gear and pulley face normals parallel shafts.
+- [x] Gear pitch circles meet at one contact without overlap/gap.
+- [x] Belt points form one closed continuous path.
+- [x] Belt markers follow path direction consistent with pulley tangent arrows.
+- [x] `worldACor == 2 * worldOmega × worldVRel`.
+- [x] `aCor·vRel == 0` within tolerance.
+- [x] Field arrow `v·r == 0`, `|v|=|ω||r|`.
+- [x] IC arrow hidden/zero; negative synthetic ω flips all directions.
+- [x] Geometry updates reuse or dispose replaced buffers.
 
 ## Dependency Map
 
@@ -113,9 +113,9 @@ npm run test:sim:mount
 
 ## Success Criteria
 
-- [ ] Transmission axes, belt tangency/path, and marker direction are physically coherent.
-- [ ] Coriolis/IC vectors satisfy independent world cross-product tests.
-- [ ] All three routes pass responsive, lifecycle, and visual semantic checks.
+- [x] Transmission axes, belt tangency/path, and marker direction are physically coherent.
+- [x] Coriolis/IC vectors satisfy independent world cross-product tests.
+- [x] All three routes pass responsive, lifecycle, and visual semantic checks.
 
 ## Risk Assessment
 

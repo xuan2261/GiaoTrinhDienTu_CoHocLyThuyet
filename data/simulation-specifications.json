@@ -1,0 +1,2097 @@
+{
+  "schemaVersion": "1.1.0",
+  "status": "verified",
+  "reviewRole": "Project technical review",
+  "oraclePolicy": {
+    "kind": "independent-executable-reference",
+    "debugMetricsSoleAuthority": false
+  },
+  "evidenceCatalog": [
+    { "path": "tests/sim2-ch1-physics.test.js", "sha256": "9db8929ed29ede0c18ff31ae9ef847f3fab9f79b26ed4d6ac88db3628c1d9652", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3"] },
+    { "path": "tests/sim2-ch1-mount.spec.js", "sha256": "c6c70efb64370cb9e2fd6365910b14c980cc7b35a65eddd900c759b5b8ce7454", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3"] },
+    { "path": "tests/sim2-ch2-physics.test.js", "sha256": "0b6c3346f22b17e23ae9a808b00244e7cd591a760d521fcad3aee1dd754bf8e7", "routeIds": ["ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3"] },
+    { "path": "tests/sim2-ch2-mount.spec.js", "sha256": "e7b58a55ee4f16a11736d1cc4bb09bc6996cb1690c98412f9199555cbabe5d8f", "routeIds": ["ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3"] },
+    { "path": "tests/sim2-ch3-physics.test.js", "sha256": "5e5e21374958f6eb8a5f755ef18cb0f2294f86c083d4e3aafd6af6c2ac728ee7", "routeIds": ["ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] },
+    { "path": "tests/sim2-ch3-mount.spec.js", "sha256": "63c1237e91e041c11bf5e1cfbd5f6b05b7f0ecc7be637829229291282cb5226d", "routeIds": ["ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] },
+    { "path": "tests/sim2-visual-capture-plan.test.js", "sha256": "5453dd0e67d025861b65c8663e76f82678c258367184eec435b0d810a08102c6", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3", "ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3", "ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] },
+    { "path": "tools/sim2-visual/capture-plan.js", "sha256": "39a43530772fc408853dab9e56b97f6102d0c18fcdd2c8ee2ab6c00a8c6f51d3", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3", "ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3", "ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] },
+    { "path": "tools/sim2-visual/capture-sims.spec.js", "sha256": "5d93820aeecaecf1cbfcb5649e367b07ab65241c157b741f888b83fc41c1cbc2", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3", "ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3", "ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] }
+  ],
+  "specifications": [
+    {
+      "id": "ch1-1-3",
+      "title": "Véc tơ lực: điểm đặt / phương / độ lớn",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Resolve a force into signed Cartesian components",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "F_x=F cos α; F_y=F sin α",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "F",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Véc tơ lực: điểm đặt / phương / độ lớn",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/statics.js",
+        "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-1-3.js",
+          "sha256": "3321f0b99c089b5a8094b4fd5aabbdf42e624061c1152c38251360894966639f"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-3",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch1-1-4",
+      "title": "Mô men lực & cánh tay đòn",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Relate a force, lever arm, and signed moment",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "M_O=rF sin θ",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "F",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Mô men lực & cánh tay đòn",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/statics.js",
+        "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-1-4.js",
+          "sha256": "d2258f1be1726b84f275c180088b5187689076aaf433edbac8a3e2204411dcae"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-4",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch1-1-5",
+      "title": "Thu gọn hệ lực phẳng → R + Mo",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Reduce coplanar forces to a resultant and free moment",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "R=ΣF; M_O=Σ(r×F)",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "drag force points",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Thu gọn hệ lực phẳng → R + Mo",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/statics.js",
+        "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-1-5.js",
+          "sha256": "b356844ebc438cf7fbc75916a69f553475d68893457bd3cfdb2f468e4835d30a"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-5",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch1-1-6",
+      "title": "Ngẫu lực & mô men ngẫu",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Relate a force couple separation to couple moment",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "M_c=Fd",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "d",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Ngẫu lực & mô men ngẫu",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/statics.js",
+        "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-1-6.js",
+          "sha256": "b91dc3eba5227e5087ff4b1821da272a888399b556176f3eae15475ae6117066"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-6",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch1-2-3",
+      "title": "Hình bình hành lực (2 đồng quy)",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Construct the resultant of two concurrent forces",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "R=F_1+F_2",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "drag force points",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Hình bình hành lực (2 đồng quy)",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/statics.js",
+        "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-2-3.js",
+          "sha256": "f4b2f4dc95099effa03ecc06b9b5147c285820cdfd454ed084ae8e87df3d34b6"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-2-3",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch1-1-8",
+      "title": "Phản lực liên kết + dựng FBD",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Solve support reactions from planar equilibrium",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "ΣF_x=ΣF_y=ΣM=0",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "P",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Phản lực liên kết + dựng FBD",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/statics.js",
+        "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-1-8.js",
+          "sha256": "9ff1e122d41f50cb77c844e9eeedf4aa8c4176098337b18b30c13f007e8fd5ed"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-8",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch1-3-2",
+      "title": "Lực căng dây (ràng buộc 1 chiều)",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Relate cable angle to tension under a one-way constraint",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "T=W/sin α",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "alpha",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Lực căng dây (ràng buộc 1 chiều)",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/statics.js",
+        "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-3-2.js",
+          "sha256": "b07df68ada66d1f1e2de150fdbd5d18c73107e984cb4168d30ee1a4bb4cc3895"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-3-2",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch1-3-6",
+      "title": "Phản lực & mô men ngàm",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Relate a cantilever load to shear and fixed-end moment",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "V=wL; M=wL²/2",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "P",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Phản lực & mô men ngàm",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/statics.js",
+        "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-3-6.js",
+          "sha256": "a87538df1ed6416a9b0c95d81c1e43907f115fb2d1fe311739e0d7fbdff63efa"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-3-6",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch1-5-3",
+      "title": "Nón ma sát trên mặt nghiêng",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Distinguish equilibrium and slip with a friction cone",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "φ=atan μ; |F_t|≤μN",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "mu",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Nón ma sát trên mặt nghiêng",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/dynamics.js",
+        "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-5-3.js",
+          "sha256": "dcbd85eb530739598cda39fd5644c5f4ef8ccf7e8177e8d9eb9cad5a6838c1eb"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-5-3",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch1-6-3",
+      "title": "Trọng tâm hình ghép / khoét",
+      "chapter": 1,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch1-statics",
+      "phenomenon": "Find a composite centroid including a removed area",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "x̄=ΣAx/ΣA; ȳ=ΣAy/ΣA",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "drag geometry",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Trọng tâm hình ghép / khoét",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/statics.js",
+        "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
+        "independentTest": "tests/sim2-ch1-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch1/ch1-6-3.js",
+          "sha256": "ef9c394a6bdc1e83fd2501b267de1496d50b4b2d13d97569561eb18c255de62d"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-6-3",
+        "tests": [
+          "tests/sim2-ch1-physics.test.js",
+          "tests/sim2-ch1-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch2-1-1",
+      "title": "Quỹ đạo chất điểm + v, a",
+      "chapter": 2,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "phenomenon": "Connect a particle trajectory with velocity and acceleration",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "v=dr/dt; a=dv/dt",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "v0, alpha",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Quỹ đạo chất điểm + v, a",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/kinematics.js",
+        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
+        "independentTest": "tests/sim2-ch2-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch2/ch2-1-1.js",
+          "sha256": "07a6b0a79eaa99696c22c166ae320d15776c5c3f88c8845d8e5fd3b9aa5ee220"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-1-1",
+        "tests": [
+          "tests/sim2-ch2-physics.test.js",
+          "tests/sim2-ch2-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch2-1-3",
+      "title": "Tiếp/pháp tuyến + bán kính cong",
+      "chapter": 2,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "phenomenon": "Interpret tangent, normal, and curvature radius on a path",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "a=a_t τ+v²/R n",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "drag point",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Tiếp/pháp tuyến + bán kính cong",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/kinematics.js",
+        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
+        "independentTest": "tests/sim2-ch2-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch2/ch2-1-3.js",
+          "sha256": "6cfd2f2634cff9397173bad3dc1cb27faf7eb5b6eaacffd33c9ee1abb20c2d80"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-1-3",
+        "tests": [
+          "tests/sim2-ch2-physics.test.js",
+          "tests/sim2-ch2-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch2-2-2",
+      "title": "Quay quanh trục cố định (ω, α)",
+      "chapter": 2,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "phenomenon": "Relate fixed-axis rotation to angular velocity and acceleration",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "ω=dφ/dt; α=dω/dt",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "omega0, alpha",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Quay quanh trục cố định (ω, α)",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/kinematics.js",
+        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
+        "independentTest": "tests/sim2-ch2-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch2/ch2-2-2.js",
+          "sha256": "e82b59db5755b3975f0dc33d93a0950fddaeafda4f7d827387ef0ab61895ddb4"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-2-2",
+        "tests": [
+          "tests/sim2-ch2-physics.test.js",
+          "tests/sim2-ch2-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch2-3-2",
+      "title": "Truyền động bánh răng–đai–puli",
+      "chapter": 2,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "phenomenon": "Compare gear and belt angular-speed constraints",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "v_t=rω",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "r1, r2",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Truyền động bánh răng–đai–puli",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/kinematics.js",
+        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
+        "independentTest": "tests/sim2-ch2-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch2/ch2-3-2.js",
+          "sha256": "b9b45d4d081c9287e68f0c7ffa1efca2dceed6c18cf345faa5248fc71b76ee12"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-3-2",
+        "tests": [
+          "tests/sim2-ch2-physics.test.js",
+          "tests/sim2-ch2-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch2-4-4",
+      "title": "Hợp chuyển động & Coriolis",
+      "chapter": 2,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "phenomenon": "Resolve relative motion and Coriolis acceleration",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "a_cor=2ω×v_rel",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "omega, vRel",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Hợp chuyển động & Coriolis",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/kinematics.js",
+        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
+        "independentTest": "tests/sim2-ch2-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch2/ch2-4-4.js",
+          "sha256": "a6bec64a1bbea74e92ed47a730cf7215cc5e93e0be2ab51757dd621242495ec6"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-4-4",
+        "tests": [
+          "tests/sim2-ch2-physics.test.js",
+          "tests/sim2-ch2-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch2-5-2",
+      "title": "Tâm vận tốc tức thời (IC)",
+      "chapter": 2,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "phenomenon": "Locate an instantaneous center for planar rigid motion",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "v=ω×r_IC",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "drag rod",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Tâm vận tốc tức thời (IC)",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/kinematics.js",
+        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
+        "independentTest": "tests/sim2-ch2-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch2/ch2-5-2.js",
+          "sha256": "770114f80ee06b1f0dac7930315d149665afe62d978fca5d6ad7992ed106cce7"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-5-2",
+        "tests": [
+          "tests/sim2-ch2-physics.test.js",
+          "tests/sim2-ch2-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch2-5-3",
+      "title": "Phân bố vận tốc điểm trên vật rắn",
+      "chapter": 2,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch2-kinematics",
+      "phenomenon": "Show rigid-body velocity distribution about an instantaneous center",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "v_M=ω×r_IM",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "omega, drag IC",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Phân bố vận tốc điểm trên vật rắn",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/kinematics.js",
+        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
+        "independentTest": "tests/sim2-ch2-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch2/ch2-5-3.js",
+          "sha256": "d7818c05f9d40e45ffc9fd96810990ea4d0aca6439dc563f7e57d8236a63e0a4"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-5-3",
+        "tests": [
+          "tests/sim2-ch2-physics.test.js",
+          "tests/sim2-ch2-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch3-2-2",
+      "title": "Định luật II Newton F = m·a",
+      "chapter": 3,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "phenomenon": "Relate net force, mass, and acceleration",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "ΣF=ma",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "F",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Định luật II Newton F = m·a",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/dynamics.js",
+        "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+        "independentTest": "tests/sim2-ch3-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch3/ch3-2-2.js",
+          "sha256": "d407f40c23e99e6b02daf4ccaa498528ea27b0e5ac6f0d3a754d5d1e0a461980"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-2-2",
+        "tests": [
+          "tests/sim2-ch3-physics.test.js",
+          "tests/sim2-ch3-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch3-2-3",
+      "title": "Định luật III: lực & phản lực",
+      "chapter": 3,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "phenomenon": "Identify equal-magnitude, opposite-direction action-reaction pairs",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "F_AB=-F_BA",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "F",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Định luật III: lực & phản lực",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/dynamics.js",
+        "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+        "independentTest": "tests/sim2-ch3-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch3/ch3-2-3.js",
+          "sha256": "9ceee357c2240419da0464c710741b2e7b421a319d1906b727ff101e274026f9"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-2-3",
+        "tests": [
+          "tests/sim2-ch3-physics.test.js",
+          "tests/sim2-ch3-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch3-1-3",
+      "title": "HQC quán tính vs phi quán tính",
+      "chapter": 3,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "phenomenon": "Compare inertial and accelerating frames using inertia force",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "F*=−ma",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "a",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify HQC quán tính vs phi quán tính",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/dynamics.js",
+        "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+        "independentTest": "tests/sim2-ch3-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch3/ch3-1-3.js",
+          "sha256": "a1afd8a7c1c362d2d87f9e2598e93146f41433ff57ed10050f2683dc59cd1475"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-1-3",
+        "tests": [
+          "tests/sim2-ch3-physics.test.js",
+          "tests/sim2-ch3-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch3-3-1",
+      "title": "Giải ODE chuyển động (RK4)",
+      "chapter": 3,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "phenomenon": "Compare numerical integration with an ODE motion model",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "x¨=(F_ext−kx)/m",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "k",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Giải ODE chuyển động (RK4)",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/dynamics.js",
+        "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+        "independentTest": "tests/sim2-ch3-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch3/ch3-3-1.js",
+          "sha256": "b11cbb1743173eb5d64aa4b0020297ae370361fc4fedd4934fdabc9f19abc6bf"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-3-1",
+        "tests": [
+          "tests/sim2-ch3-physics.test.js",
+          "tests/sim2-ch3-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch3-5-2",
+      "title": "Định lý động lượng & xung lượng",
+      "chapter": 3,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "phenomenon": "Relate impulse to momentum change",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "J=∫Fdt=Δp",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "F",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Định lý động lượng & xung lượng",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/dynamics.js",
+        "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+        "independentTest": "tests/sim2-ch3-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch3/ch3-5-2.js",
+          "sha256": "8e928a0a1a62d2382887001de30b4de054e395a71adf477e87a554fac4a97b1c"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-5-2",
+        "tests": [
+          "tests/sim2-ch3-physics.test.js",
+          "tests/sim2-ch3-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch3-5-3",
+      "title": "Bảo toàn mô men động lượng",
+      "chapter": 3,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "phenomenon": "Relate angular momentum, inertia, and angular speed",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "L=Iω",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "r",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Bảo toàn mô men động lượng",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/dynamics.js",
+        "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+        "independentTest": "tests/sim2-ch3-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch3/ch3-5-3.js",
+          "sha256": "693be8c5e48412d7ecabc1699e9bc83a2e573f9b9a41ed2fa95c5fef5556aa05"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-5-3",
+        "tests": [
+          "tests/sim2-ch3-physics.test.js",
+          "tests/sim2-ch3-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch3-5-4",
+      "title": "Định lý động năng (công–năng)",
+      "chapter": 3,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "phenomenon": "Relate work to kinetic-energy change",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "W=Fd cos α=ΔT",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "F",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Định lý động năng (công–năng)",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/dynamics.js",
+        "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+        "independentTest": "tests/sim2-ch3-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch3/ch3-5-4.js",
+          "sha256": "64a774d4f2ed2c7fda7bc8f03b7bc8e221c6062fd46f7c98251e323159a6d2b5"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-5-4",
+        "tests": [
+          "tests/sim2-ch3-physics.test.js",
+          "tests/sim2-ch3-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    },
+    {
+      "id": "ch3-6-2",
+      "title": "Va chạm với hệ số phục hồi e",
+      "chapter": 3,
+      "status": "verified",
+      "learningOutcomeId": "lo-ch3-dynamics",
+      "phenomenon": "Predict post-impact velocities from restitution and momentum",
+      "assumptions": [
+        "SI-style scalar inputs shown by the route",
+        "Model remains within the two-dimensional instructional scenario shown"
+      ],
+      "formula": {
+        "expression": "v_after by e; p_before=p_after",
+        "units": "SI units where a dimensional quantity is displayed"
+      },
+      "controls": {
+        "primary": "e, m1, m2",
+        "reset": "Use the visible reset control when the route provides playback",
+        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+      },
+      "accessibility": {
+        "textAlternative": "Text labels and readouts identify Va chạm với hệ số phục hồi e",
+        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
+      },
+      "oracle": {
+        "helper": "js/sim2/physics/dynamics.js",
+        "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
+        "independentTest": "tests/sim2-ch3-physics.test.js",
+        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+      },
+      "boundaryChecks": [
+        "Inspect named control at a safe endpoint and reset to the initial state",
+        "Compare displayed signed quantity against the stated formula or invariant"
+      ],
+      "capture": {
+        "plan": "tools/sim2-visual/capture-plan.js",
+        "executable": "tools/sim2-visual/capture-sims.spec.js",
+        "requiredShot": "manifest-driven initial/live or time-step evidence"
+      },
+      "evidence": {
+        "manualStatus": "verified",
+        "required": [
+          "factory and theory/readout review",
+          "independent physics or mount test reference",
+          "manual accessibility/control observation"
+        ],
+        "verified": true,
+        "manualEvidence": {
+          "status": "verified",
+          "reviewerRole": "Project technical reviewer",
+          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+        }
+      },
+      "sources": {
+        "manifest": {
+          "path": "js/sim2/sim2-route-manifest.js",
+          "sha256": "e8e8a04770bebdf692fcebe1b06bdc26974d9fbdd681ff7487d237b99a407e00"
+        },
+        "factory": {
+          "path": "js/sim2/sims/ch3/ch3-6-2.js",
+          "sha256": "f79775734dd6c0cd0ab48b5e90df96f892d8c893351298b05fbdf9c531b91c2d"
+        },
+        "learningMap": {
+          "path": "data/simulation-learning-map.json",
+          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+        },
+        "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-6-2",
+        "tests": [
+          "tests/sim2-ch3-physics.test.js",
+          "tests/sim2-ch3-mount.spec.js",
+          "tests/sim2-visual-capture-plan.test.js"
+        ],
+        "registry": {
+          "path": "js/sim2/registry.js",
+          "sha256": "5bc466a5d920bfafc2655d0f715fc2ef5d089b25b370a2ff67ef84504644afec"
+        }
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashesRequired": true
+      }
+    }
+  ]
+}

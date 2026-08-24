@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/acceptance-report.schema.json",
+  "title": "Electronic textbook release acceptance report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "overallStatus", "gateSummary", "gates", "lms", "independentReview", "wordRoundtrip", "releaseCandidate", "independentSmoke", "releaseDecision"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "generatedAt": {"type": "string", "format": "date-time"},
+    "overallStatus": {"enum": ["pass", "fail", "blocked"]},
+    "gateSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total", "pass", "fail", "blocked", "notRun"],
+      "properties": {
+        "total": {"type": "integer", "minimum": 1},
+        "pass": {"type": "integer", "minimum": 0},
+        "fail": {"type": "integer", "minimum": 0},
+        "blocked": {"type": "integer", "minimum": 0},
+        "notRun": {"type": "integer", "minimum": 0}
+      }
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gateId", "owner", "status", "artifact", "hash", "observedAt"],
+        "properties": {
+          "gateId": {"type": "string", "minLength": 1},
+          "owner": {"type": "string", "minLength": 1},
+          "status": {"enum": ["not-run", "pass", "fail", "blocked"]},
+          "artifact": {"type": "string", "minLength": 1},
+          "hash": {"type": "string", "pattern": "^(not-applicable|sha256:[a-f0-9]{64})$"},
+          "observedAt": {"type": "string", "format": "date-time"}
+        }
+      }
+    },
+    "lms": {"type": "object", "additionalProperties": false, "required": ["status", "stages"], "properties": {"status": {"enum": ["not-executed", "partially-executed", "executed"]}, "stages": {"type": "object"}}},
+    "independentReview": {"$ref": "#/$defs/decisionStatus"},
+    "wordRoundtrip": {"$ref": "#/$defs/decisionStatus"},
+    "releaseCandidate": {"$ref": "#/$defs/decisionStatus"},
+    "independentSmoke": {"$ref": "#/$defs/decisionStatus"},
+    "releaseDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "rationale"],
+      "properties": {
+        "decision": {"enum": ["approved", "rejected", "blocked"]},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    }
+  },
+  "$defs": {
+    "decisionStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "gateId"],
+      "properties": {
+        "status": {"enum": ["pass", "fail", "blocked", "not-run"]},
+        "gateId": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

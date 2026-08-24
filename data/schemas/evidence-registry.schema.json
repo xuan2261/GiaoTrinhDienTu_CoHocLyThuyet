@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cohoclythuyet.local/schemas/evidence-registry.schema.json",
+  "title": "Release QA evidence record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "gateId",
+    "gateDefinitionHash",
+    "repositoryHash",
+    "owner",
+    "command",
+    "inputs",
+    "expected",
+    "artifact",
+    "hash",
+    "status",
+    "observedAt",
+    "containsPII",
+    "redactionStatus",
+    "storageLocation",
+    "accessOwner",
+    "retentionPolicy"
+  ],
+  "properties": {
+    "gateId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "gateDefinitionHash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "repositoryHash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "command": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "expected": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^(sha256:[a-f0-9]{64}|not-applicable)$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["not-run", "pass", "fail", "blocked"]
+    },
+    "observedAt": {"type": "string", "format": "date-time"},
+    "containsPII": {"type": "boolean"},
+    "redactionStatus": {"enum": ["not-required", "redacted", "pending-redaction"]},
+    "storageLocation": {"type": "string", "minLength": 1},
+    "accessOwner": {"type": "string", "minLength": 1},
+    "retentionPolicy": {"type": "string", "minLength": 1}
+  }
+}

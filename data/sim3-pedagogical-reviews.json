@@ -1,0 +1,434 @@
+{
+  "schemaVersion": "1.1.0",
+  "status": "verified",
+  "reviewAuthority": "Project technical review; no independent institutional approval.",
+  "oraclePolicy": {
+    "kind": "independent-executable-reference",
+    "selfReportedMetricsSoleAuthority": false
+  },
+  "evidenceCatalog": [
+    { "path": "tests/sim3-pilot-fallback-dispose.spec.js", "sha256": "c54d04d3b99ac7d8c7274d0fceb8a3129eff9c3749baafcbfdd30347d7d87a93", "routeIds": ["ch1-1-5", "ch1-5-3", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-3", "ch3-1-3", "ch3-5-3", "ch3-6-2"] },
+    { "path": "js/sim3/sims/ch1-1-5-3d.js", "sha256": "a732a4cdb532aaab3ba1e0ba950a8607b103e2877fb969b1441aed612f90eea5", "routeIds": ["ch1-1-5"] },
+    { "path": "js/sim3/sims/ch1-5-3-3d.js", "sha256": "7f832982b01cd3db84b7cb5f788b384c9c29ea41a3f9e0b6641e7e597fdebad7", "routeIds": ["ch1-5-3"] },
+    { "path": "js/sim3/sims/ch2-1-3-3d.js", "sha256": "edfa507dbf3c56d599cb993fcbe720431f36e342aa11c68b3d27af2c269365fd", "routeIds": ["ch2-1-3"] },
+    { "path": "js/sim3/sims/ch2-2-2-3d.js", "sha256": "6fafed5e2478ebd980d2e36130b32db8503d85fa8ad919e9d1a3c770c2d2838f", "routeIds": ["ch2-2-2"] },
+    { "path": "js/sim3/sims/ch2-3-2-3d.js", "sha256": "110f67872efad15ca0e4d9a84cd0bcb9f8bbf169b491ab720c45c93d5adc1d21", "routeIds": ["ch2-3-2"] },
+    { "path": "js/sim3/sims/ch2-4-4-3d.js", "sha256": "3fda07c1dd5a93ba248b05de3462fae4f79888a0a92e189db4e761ec9f1c03b3", "routeIds": ["ch2-4-4"] },
+    { "path": "js/sim3/sims/ch2-5-3-3d.js", "sha256": "9fe124a9cd30332fe0b41ec90e0ff38773a70b828818f7db836446289d61129b", "routeIds": ["ch2-5-3"] },
+    { "path": "js/sim3/sims/ch3-1-3-3d.js", "sha256": "458834313fb4a95a086451ad17bf5010e258541c4e1bcb906d822fe6d86d97af", "routeIds": ["ch3-1-3"] },
+    { "path": "js/sim3/sims/ch3-5-3-3d.js", "sha256": "ed4dc530e3bb34545b6dad9c007f8528e0142bc87b9ab14418fe2b24402281d1", "routeIds": ["ch3-5-3"] },
+    { "path": "js/sim3/sims/ch3-6-2-3d.js", "sha256": "651a53abe4f236be786d8b77d087ce1b55e1e928b1abdafd54502cfc0ffe1a29", "routeIds": ["ch3-6-2"] }
+  ],
+  "reviews": [
+    {
+      "id": "ch1-1-5",
+      "title": "Thu gọn hệ lực phẳng → R + Mo",
+      "chapter": 1,
+      "adapter": {
+        "path": "js/sim3/sims/ch1-1-5-3d.js",
+        "sha256": "a732a4cdb532aaab3ba1e0ba950a8607b103e2877fb969b1441aed612f90eea5"
+      },
+      "status": "verified",
+      "decision": "2d-only",
+      "twoDimensionalLimitation": "2D force reduction can already show resultant and moment without perspective",
+      "threeDimensionalValue": "Layered force locations and free-moment direction can distinguish placement from resultant",
+      "cognitiveRisk": "Perspective may imply a spatial force system although source state is planar",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch1-1-5-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    },
+    {
+      "id": "ch1-5-3",
+      "title": "Nón ma sát trên mặt nghiêng",
+      "chapter": 1,
+      "adapter": {
+        "path": "js/sim3/sims/ch1-5-3-3d.js",
+        "sha256": "7f832982b01cd3db84b7cb5f788b384c9c29ea41a3f9e0b6641e7e597fdebad7"
+      },
+      "status": "verified",
+      "decision": "retain-3d",
+      "twoDimensionalLimitation": "A planar wedge cannot make the friction cone around the contact normal visible",
+      "threeDimensionalValue": "Cone, contact normal, and slip state make the admissible reaction direction spatially legible",
+      "cognitiveRisk": "Decorative depth can distract from the inequality; retain labels and status band",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch1-5-3-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    },
+    {
+      "id": "ch2-1-3",
+      "title": "Tiếp/pháp tuyến + bán kính cong",
+      "chapter": 2,
+      "adapter": {
+        "path": "js/sim3/sims/ch2-1-3-3d.js",
+        "sha256": "edfa507dbf3c56d599cb993fcbe720431f36e342aa11c68b3d27af2c269365fd"
+      },
+      "status": "verified",
+      "decision": "2d-only",
+      "twoDimensionalLimitation": "The tangent-normal construction is fully planar for the supplied ellipse",
+      "threeDimensionalValue": "A tilted path and osculating circle make the local frame separable from the page",
+      "cognitiveRisk": "Camera rotation can obscure tangent/normal sign and radius relation",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch2-1-3-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    },
+    {
+      "id": "ch2-2-2",
+      "title": "Quay quanh trục cố định (ω, α)",
+      "chapter": 2,
+      "adapter": {
+        "path": "js/sim3/sims/ch2-2-2-3d.js",
+        "sha256": "6fafed5e2478ebd980d2e36130b32db8503d85fa8ad919e9d1a3c770c2d2838f"
+      },
+      "status": "verified",
+      "decision": "retain-3d",
+      "twoDimensionalLimitation": "Axis, rim point, and tangential velocity are harder to read as a flat disk",
+      "threeDimensionalValue": "Visible axis thickness and rim trajectory distinguish rotation from translation",
+      "cognitiveRisk": "Motion or perspective can overemphasize rendering over ω and α readouts",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch2-2-2-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    },
+    {
+      "id": "ch2-3-2",
+      "title": "Truyền động bánh răng–đai–puli",
+      "chapter": 2,
+      "adapter": {
+        "path": "js/sim3/sims/ch2-3-2-3d.js",
+        "sha256": "110f67872efad15ca0e4d9a84cd0bcb9f8bbf169b491ab720c45c93d5adc1d21"
+      },
+      "status": "verified",
+      "decision": "retain-3d",
+      "twoDimensionalLimitation": "Flat diagrams obscure separate gear axes, belt lanes, and rotation directions",
+      "threeDimensionalValue": "Separated gears, pulleys, belt lanes, and axis markers show distinct mechanisms",
+      "cognitiveRisk": "Dense moving details can overload comparison; present one mechanism at a time",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch2-3-2-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    },
+    {
+      "id": "ch2-4-4",
+      "title": "Hợp chuyển động & Coriolis",
+      "chapter": 2,
+      "adapter": {
+        "path": "js/sim3/sims/ch2-4-4-3d.js",
+        "sha256": "3fda07c1dd5a93ba248b05de3462fae4f79888a0a92e189db4e761ec9f1c03b3"
+      },
+      "status": "verified",
+      "decision": "retain-3d",
+      "twoDimensionalLimitation": "A flat vector plot can conflate platform rotation with radial relative motion",
+      "threeDimensionalValue": "Platform plane, bead height, and separated vectors support frame-of-reference comparison",
+      "cognitiveRisk": "Multiple vectors and moving frame demand cue sequencing and Sim2 fallback",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch2-4-4-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    },
+    {
+      "id": "ch2-5-3",
+      "title": "Phân bố vận tốc điểm trên vật rắn",
+      "chapter": 2,
+      "adapter": {
+        "path": "js/sim3/sims/ch2-5-3-3d.js",
+        "sha256": "9fe124a9cd30332fe0b41ec90e0ff38773a70b828818f7db836446289d61129b"
+      },
+      "status": "verified",
+      "decision": "retain-3d",
+      "twoDimensionalLimitation": "Velocity vectors on a planar body are visible in 2D but IC relation is crowded",
+      "threeDimensionalValue": "Raised IC post, radius guide, and sampled vector field separate reference geometry",
+      "cognitiveRisk": "Too many field arrows can hide v=ω×r; keep sample marker and labels primary",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch2-5-3-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    },
+    {
+      "id": "ch3-1-3",
+      "title": "HQC quán tính vs phi quán tính",
+      "chapter": 3,
+      "adapter": {
+        "path": "js/sim3/sims/ch3-1-3-3d.js",
+        "sha256": "458834313fb4a95a086451ad17bf5010e258541c4e1bcb906d822fe6d86d97af"
+      },
+      "status": "verified",
+      "decision": "2d-only",
+      "twoDimensionalLimitation": "The car, pendulum, and fictitious force are describable in a side view",
+      "threeDimensionalValue": "Depth separates pendulum, vehicle, and force arrows while retaining the lateral sign",
+      "cognitiveRisk": "Perspective can falsely suggest a new force component; bind interpretation to F*=−ma",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch3-1-3-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    },
+    {
+      "id": "ch3-5-3",
+      "title": "Bảo toàn mô men động lượng",
+      "chapter": 3,
+      "adapter": {
+        "path": "js/sim3/sims/ch3-5-3-3d.js",
+        "sha256": "ed4dc530e3bb34545b6dad9c007f8528e0142bc87b9ab14418fe2b24402281d1"
+      },
+      "status": "verified",
+      "decision": "retain-3d",
+      "twoDimensionalLimitation": "The axis, orbit, radius, and angular-momentum vector benefit from spatial relation",
+      "threeDimensionalValue": "Axis-normal L vector and rotating mass arms make direction and radius explicit",
+      "cognitiveRisk": "Orbit animation can become decoration; use a static annotated state before playback",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch3-5-3-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    },
+    {
+      "id": "ch3-6-2",
+      "title": "Va chạm với hệ số phục hồi e",
+      "chapter": 3,
+      "adapter": {
+        "path": "js/sim3/sims/ch3-6-2-3d.js",
+        "sha256": "651a53abe4f236be786d8b77d087ce1b55e1e928b1abdafd54502cfc0ffe1a29"
+      },
+      "status": "verified",
+      "decision": "retain-3d",
+      "twoDimensionalLimitation": "Two-body collision can be understood as a one-dimensional before/after lane",
+      "threeDimensionalValue": "Separated depth lanes distinguish objects, velocity arrows, impact cue, and phases",
+      "cognitiveRisk": "Depth offset may be mistaken for a second collision dimension; label it as phase separation",
+      "fallbackEquivalence": {
+        "canonicalMode": "Sim2 SVG-first",
+        "preserved": [
+          "same route state supplied by the Sim2 factory",
+          "same learner controls/readouts",
+          "visible Vietnamese fallback when WebGL is unavailable"
+        ],
+        "evidence": "tests/sim3-pilot-fallback-dispose.spec.js"
+      },
+      "reviewer": {
+        "role": "Project technical reviewer",
+        "unit": "Simulation QA and pedagogy working group",
+        "independence": "Internal technical review only; not independent or institutional approval."
+      },
+      "evidence": {
+        "status": "verified",
+        "verified": true,
+        "executableRefs": [
+          "tests/sim3-pilot-fallback-dispose.spec.js",
+          "js/sim3/sims/ch3-6-2-3d.js"
+        ],
+        "selfReportedMetricsLimit": "Adapter __SIM3_DEBUG__ metrics are diagnostic only and cannot be the sole pedagogical or physics oracle."
+      },
+      "freshness": {
+        "checkedOn": "2026-08-22",
+        "sourceHashRequired": true
+      }
+    }
+  ]
+}

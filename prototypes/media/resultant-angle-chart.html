@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Độ lớn hợp lực theo góc</title>
+  <link rel="stylesheet" href="shared/media-pilot.css">
+</head>
+<body data-media-id="media-ch1-resultant-angle">
+  <a class="skip-link" href="#main">Bỏ qua phần giới thiệu</a>
+  <header class="pilot-header">
+    <strong>Thí điểm đa phương tiện Chương 1</strong>
+    <span>Bản nháp kỹ thuật, không phải kết luận về hiệu quả học tập</span>
+  </header>
+  <main id="main" class="pilot-shell">
+    <section class="pilot-intro" aria-labelledby="page-title">
+      <p class="pilot-state">Mục tiêu cục bộ: obj-ch1-resultant-angle</p>
+      <h1 id="page-title">So sánh hợp lực khi góc thay đổi</h1>
+      <p>Giữ F₁ = 80 N và F₂ = 60 N, sau đó đổi góc để đọc độ lớn đường chéo hình bình hành lực.</p>
+    </section>
+
+    <div class="pilot-grid">
+      <section class="pilot-panel" aria-labelledby="chart-title">
+        <h2 id="chart-title">Biểu đồ R theo góc θ</h2>
+        <div class="media-stage" data-interactive hidden>
+          <canvas data-resultant-chart width="720" height="420" role="img"
+            aria-label="Biểu đồ độ lớn hợp lực từ 0 đến 180 độ"></canvas>
+        </div>
+        <div class="control-field">
+          <label for="angle">Góc giữa F₁ và F₂: <output class="readout" id="angle-output">60°</output></label>
+          <input id="angle" data-angle-control type="range" min="0" max="180" step="5" value="60"
+            aria-describedby="resultant-output">
+          <output class="readout" id="resultant-output" aria-live="polite">R = 121.7 N</output>
+        </div>
+        <div class="pilot-controls">
+          <button type="button" class="secondary" data-chart-reset>Đặt lại 60°</button>
+        </div>
+        <p class="status-line" data-media-status role="status" aria-live="polite">Đang dựng biểu đồ.</p>
+      </section>
+
+      <aside class="pilot-panel flat" aria-labelledby="table-title" data-static-fallback id="bang-gia-tri">
+        <h2 id="table-title">Bảng giá trị tĩnh</h2>
+        <table>
+          <thead><tr><th>θ</th><th>R</th></tr></thead>
+          <tbody>
+            <tr><td>0°</td><td>140.0 N</td></tr>
+            <tr><td>60°</td><td>121.7 N</td></tr>
+            <tr><td>90°</td><td>100.0 N</td></tr>
+            <tr><td>120°</td><td>72.1 N</td></tr>
+            <tr><td>180°</td><td>20.0 N</td></tr>
+          </tbody>
+        </table>
+        <div class="formula">R = √(F₁² + F₂² + 2F₁F₂ cos θ)</div>
+        <p class="evidence-prompt"><strong>Tự kiểm:</strong> Dự đoán góc cho hợp lực lớn nhất và nhỏ nhất, rồi giải thích bằng hình bình hành lực.</p>
+      </aside>
+    </div>
+  </main>
+  <script src="../../js/sim2/physics/statics.js"></script>
+  <script src="shared/media-pilot-runtime.js"></script>
+  <script src="shared/media-loader.js"></script>
+  <script src="resultant-angle-chart.js"></script>
+</body>
+</html>

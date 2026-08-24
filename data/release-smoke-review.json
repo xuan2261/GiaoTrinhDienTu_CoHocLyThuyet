@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "status": "pending",
+  "reviewerRole": null,
+  "reviewerUnit": null,
+  "environment": null,
+  "releaseVersion": "2026.08.21-candidate",
+  "releaseSha256": "a0908a72624a44f8d37a525c97de3ee240fdbec1199c59097ab92a78cd718ef6",
+  "evidenceRefs": [
+    "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/technical-smoke.md"
+  ],
+  "decision": null,
+  "limitations": [
+    "Technical file and HTTP smoke is recorded; independent manual critical-path review is not yet complete."
+  ]
+}

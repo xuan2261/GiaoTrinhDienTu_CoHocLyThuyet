@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-24T09:00:26Z",
+  "overallStatus": "blocked",
+  "gateSummary": {
+    "total": 24,
+    "pass": 20,
+    "fail": 0,
+    "blocked": 4,
+    "notRun": 0
+  },
+  "gates": [
+    {
+      "gateId": "academic-review-currentness",
+      "owner": "Independent academic review coordinator",
+      "status": "blocked",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/academic-review-currentness.log",
+      "hash": "sha256:ed27702a009e2f1ccfdfb7d39e371812ba50532d2bbb4fb63bac2c2676c450b1",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "accessibility-independent-review",
+      "owner": "Independent accessibility reviewer",
+      "status": "blocked",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/accessibility-independent-review.log",
+      "hash": "sha256:f19761757e513308af6a5c5d7fbaf6b0501d8822026df9dc02b22426dc57cda0",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "audit-strict",
+      "owner": "Release engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/audit-strict.log",
+      "hash": "sha256:86cd699b2a465528b650b5fa639b09133146e12fd1fe5c9299d033a6275aeee8",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "content-regression",
+      "owner": "Content engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/content-regression.log",
+      "hash": "sha256:b1b642efc23f497c4493d4fe26ad99df170085e8d67f58eb5ad1de55d9feca3f",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "equations",
+      "owner": "Content engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/equations.log",
+      "hash": "sha256:60dff8382ba23fbb4471eec08eb687b3107b63715bf9c2c06227521184111672",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "gif-release",
+      "owner": "QA",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/gif-release.log",
+      "hash": "sha256:b2c269b390cf8cfaa6d601525040682a3c2e6c88c4fd4c3abb25a2ccd68f3063",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "lms-adapters",
+      "owner": "LMS integration engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/lms-adapters.log",
+      "hash": "sha256:b6c8d40ad27283709332f26e34777fe9d3fbc50767ecde58cdd968db7fe69504",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "media-pilot",
+      "owner": "Content engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/media-pilot.log",
+      "hash": "sha256:c1236c0fd91887eb47cb4487cd70f24d4eeee1eb39f7d3121068b3ffb8073b04",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "pdf-release",
+      "owner": "Release engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/pdf-release.log",
+      "hash": "sha256:4a15be22d3f2f0cc54527380dd7d5ce6b3bd59d0217f21cfbb288ea0d92cd8b7",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "phase-01-source-baseline",
+      "owner": "Content engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/phase-01-source-baseline.log",
+      "hash": "sha256:e7598c77a3e0c92cec1c341324d8fc85489c550f3c91cdbf6d05afabacd2d5d7",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "phase-08-accessibility",
+      "owner": "Accessibility QA",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/phase-08-accessibility.log",
+      "hash": "sha256:05764e3046578ed4e8b860c9f06d3b090a52ba870da66cfd675e4299a064973d",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "quiz-browser",
+      "owner": "QA",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/quiz-browser.log",
+      "hash": "sha256:d8f9119f81d5c4ff3b3eca93a2034fd2d0dbb9ca608e849de2ed21be1757100d",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "quiz-schema",
+      "owner": "Content engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/quiz-schema.log",
+      "hash": "sha256:f4483409050a7392fde93ee3271c1a0e8026ea4993c91219fb9db9820a06b8dc",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "release-baseline-contract",
+      "owner": "Release engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-baseline-contract.log",
+      "hash": "sha256:26ab1cec1cb70a8a0d2c3fc67f8b352facb865e7af182e9ca8a19ca52bc9814f",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "release-candidate-inventory",
+      "owner": "Release engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-candidate-inventory.log",
+      "hash": "sha256:480143e459fc4db8a3aee99cea4e3bf4f658ae701734300e4b5d315368839912",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "release-independent-smoke",
+      "owner": "Independent release reviewer",
+      "status": "blocked",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-independent-smoke.log",
+      "hash": "sha256:d6dacbfc7b79d06b54524add539f94f34ddd8aa2b1c609c0593a40db9755308f",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "release-pipeline",
+      "owner": "Release engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-pipeline.log",
+      "hash": "sha256:b3f17ca92513acdd9820ad312f54e4aa044a513a0db0403a6ff2cd490c075c39",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "sim-mount",
+      "owner": "Simulation engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-mount.log",
+      "hash": "sha256:37f2ed7a4f27999a6dc00cd64d049b14b050764c2e0b3eb30c4e76cfd10cdde8",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "sim-physics",
+      "owner": "Simulation engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-physics.log",
+      "hash": "sha256:a2fea5afc79889101c20fa34fa948cdd48cc838bc85f4ae07128792bab6fbd2e",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "sim-release",
+      "owner": "Simulation engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-release.log",
+      "hash": "sha256:77da589c536dcc15797b13e45489ac2638b314ca8eedf457eb07126d7dc5ef2e",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "sim3-pilot",
+      "owner": "Simulation engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim3-pilot.log",
+      "hash": "sha256:d64ea43908acd6b12fff83e1ccd480c95967ea9c74768260fea07965c562634e",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "simulation-evidence-currentness",
+      "owner": "Independent academic review coordinator",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/simulation-evidence-currentness.log",
+      "hash": "sha256:a40020b97535831e1ee73f751f49b9d070dd9bda5e582b52e32f60c569222de0",
+      "observedAt": "2026-08-24T09:00:03Z"
+    },
+    {
+      "gateId": "traceability-validation",
+      "owner": "Release engineering",
+      "status": "pass",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/traceability-validation.log",
+      "hash": "sha256:7536f8a4e97cf72d6b09e76d66faba79efa49dd49c730850068e20f98021f00a",
+      "observedAt": "2026-08-24T08:26:02Z"
+    },
+    {
+      "gateId": "word-standalone-roundtrip",
+      "owner": "Source authority custodian",
+      "status": "blocked",
+      "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/word-standalone-roundtrip.log",
+      "hash": "sha256:56a752afbb8ab78ca6ddb134331f1869fda812e84b76a240e0336846ec0d439e",
+      "observedAt": "2026-08-24T08:26:02Z"
+    }
+  ],
+  "lms": {
+    "status": "not-executed",
+    "stages": {
+      "qti3": {
+        "readiness": "adapter-validated",
+        "targets": [],
+        "executionEvidence": [],
+        "scope": "Canonical single-choice items only; local package validation is not LMS import proof.",
+        "maximumValidationItems": 10
+      },
+      "commonCartridge": {
+        "readiness": "adapter-validated",
+        "targets": [],
+        "executionEvidence": [],
+        "scope": "Static webcontent launch package only; local package validation is not LMS import proof."
+      },
+      "xapiCmi5": {
+        "readiness": "blocked",
+        "targets": [],
+        "executionEvidence": [],
+        "scope": "No adapter is authorized before a target LMS/LRS, profile, actor/privacy model and retry semantics are recorded."
+      },
+      "scorm": {
+        "readiness": "blocked",
+        "targets": [],
+        "executionEvidence": [],
+        "scope": "No adapter is authorized before a target LMS, SCORM edition, completion model and launch/runtime evidence are recorded."
+      }
+    }
+  },
+  "independentReview": {
+    "status": "blocked",
+    "gateId": "academic-review-currentness"
+  },
+  "wordRoundtrip": {
+    "status": "blocked",
+    "gateId": "word-standalone-roundtrip"
+  },
+  "releaseCandidate": {
+    "status": "pass",
+    "gateId": "release-candidate-inventory"
+  },
+  "independentSmoke": {
+    "status": "blocked",
+    "gateId": "release-independent-smoke"
+  },
+  "releaseDecision": {
+    "decision": "blocked",
+    "rationale": "One or more required gates are blocked or not run; no release or LMS certification is claimed."
+  }
+}

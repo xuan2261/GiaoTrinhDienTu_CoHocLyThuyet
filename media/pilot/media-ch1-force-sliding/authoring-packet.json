@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pilot-draft",
+  "assetId": "media-ch1-force-sliding",
+  "parentLearningOutcomeId": "lo-ch1-statics",
+  "localObjective": {
+    "id": "obj-ch1-force-sliding",
+    "verb": "explain",
+    "condition": "Given points A and B on one force line of action",
+    "criterion": "explain that the force may move from A to B while direction, sense, and magnitude remain unchanged"
+  },
+  "contentRoutes": ["ch1-2-2"],
+  "simulationId": null,
+  "gapDecision": {
+    "decision": "selected",
+    "currentCoverage": "Chapter prose and a still figure state the theorem, while the existing published GIF exposes the cancellation sequence over time.",
+    "modalityRationale": "A short animation is used only because the proof depends on the order of adding and cancelling a balanced pair.",
+    "misconceptionTarget": "Moving a force anywhere on a rigid body is equivalent, even when the new point is not on the original line of action.",
+    "evidenceTarget": "Learner names the three preserved force properties and limits the theorem to the same line of action."
+  },
+  "authoring": {
+    "script": [
+      "Show force F at A on the line of action.",
+      "Add an equal and opposite balanced pair at B.",
+      "Cancel the appropriate pair and retain the equivalent force at B.",
+      "State the same-line-of-action limitation."
+    ],
+    "storyboard": [
+      { "beat": 1, "visual": "Force at A", "narrativePurpose": "Establish the original system" },
+      { "beat": 2, "visual": "Balanced pair at B", "narrativePurpose": "Expose the allowed statics operation" },
+      { "beat": 3, "visual": "Cancellation", "narrativePurpose": "Show why the remaining force is equivalent" },
+      { "beat": 4, "visual": "Force at B", "narrativePurpose": "Connect the transformed system to the theorem" }
+    ],
+    "math": {
+      "expression": "F_A ≡ F_B on one line of action",
+      "units": "Force magnitude uses newtons when a numerical value is introduced; this figure is qualitative.",
+      "assumptions": [
+        "Rigid-body statics model",
+        "A and B lie on the same line of action",
+        "Direction, sense, and magnitude of the retained force are unchanged"
+      ]
+    }
+  },
+  "accessibility": {
+    "keyboard": "The prototype exposes buttons for animated and static modes.",
+    "reducedMotion": "The poster is the default. The GIF is requested only after the learner chooses the animation control; system reduced motion keeps the poster selected.",
+    "staticFallback": "prototypes/media/assets/force-sliding-poster.png",
+    "textAlternative": "Visible explanation and a time-ordered transcript describe every proof beat.",
+    "transcript": "prototypes/media/force-sliding-transcript.txt",
+    "captions": { "required": false, "reason": "The asset has no audio or dialogue." },
+    "autoplay": false
+  },
+  "offline": {
+    "prototype": "prototypes/media/force-sliding.html",
+    "primarySource": "assets/gifs/ch1/hinh-1-06.gif",
+    "remoteDependenciesAllowed": false
+  },
+  "sourceEvidence": [
+    { "path": "chapters/ch1/muc-II-2.html", "sha256": "9465cd463c34aca38a3abdbb2a89f30af2984d15a5afc9941a547aba4d49724f" },
+    { "path": "assets/gifs/ch1/hinh-1-06.gif", "sha256": "fd557ca9f9aac7f46a3fef7b08a006a6422f2cc8d33073d43c43f08d3f095d41" }
+  ],
+  "review": {
+    "ownerRole": "Multimedia author",
+    "reviewerRole": "Subject-matter technical reviewer",
+    "reviewUnit": "Internal project technical review",
+    "status": "technical-review",
+    "reviewerIdentity": null,
+    "efficacyEvidence": null,
+    "claim": "Pilot artifact only. No learner outcome or institutional acceptance claim is made."
+  }
+}

@@ -1,6 +1,6 @@
 ---
 title: "Phase 7: Ổn định bằng chứng mô phỏng và review sư phạm"
-status: pending
+status: completed
 priority: P0
 effort: "8-12 ngày + thời gian review"
 dependencies: [phase-03]
@@ -59,11 +59,11 @@ Curated `data/simulation-specifications.json` và `data/sim3-pedagogical-reviews
 
 ## Todo
 
-- [ ] Confirm upstream sim plan completion/evidence.
-- [ ] Author/review 25 Sim2 specs.
-- [ ] Conduct 10 Sim3 pedagogical reviews.
-- [ ] Review and record 4D definition.
-- [ ] Add drift validator and evidence freshness checks.
+- [x] Confirm upstream sim plan completion/evidence.
+- [x] Author 25 Sim2 **draft** specifications; keep runtime evidence unverified pending upstream precondition.
+- [x] Record 10 Sim3 **internal technical-review draft** decisions; no independent/institutional approval claim.
+- [x] Record the limited 4D definition and current blocker.
+- [x] Add structural drift validator, source freshness checks, and mutation-first contract tests.
 
 ## Success Criteria
 

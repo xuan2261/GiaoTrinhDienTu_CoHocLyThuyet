@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const path = require('path');
+const sim3Manifest = require('../js/sim3/sim3-route-manifest.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const fixtureUrl = name => `file:///${path.join(ROOT, `tests/fixtures/${name}`).replace(/\\/g, '/')}`;
@@ -93,6 +94,16 @@ async function expectSim3StrongRedesign(page, route, expected) {
 }
 
 test.describe('sim3 pilot contract', () => {
+  test('coordinate foundation is available before Sim3 adapters', async ({ page }) => {
+    await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
+    const coordinates = await page.evaluate(() => window.Sim3Coordinates && ({
+      convention: window.Sim3Coordinates.CONVENTION,
+      mapped: window.Sim3Coordinates.vector2D({ x: 0, y: 1 }, { plane: 'horizontal' })
+    }));
+    expect(coordinates.convention.handedness).toBe('right');
+    expect(coordinates.mapped).toEqual({ x: 0, y: 0, z: -1 });
+  });
+
   test('shared primitives preserve material opacity and reusable cylinder length', async ({ page }) => {
     await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
     const result = await page.evaluate(() => {
@@ -199,6 +210,7 @@ test.describe('sim3 pilot contract', () => {
     const debugAfterSteps = await page.evaluate(() => window.__SIM3_DEBUG__['ch3-6-2']);
     expect(debugAfterSteps.p1.x).toBeGreaterThan(-4);
     expect(debugAfterSteps.capturePhase).toMatch(/before|after/);
+    expect(debugAfterSteps.trailLength).toBeGreaterThan(0);
 
     await page.locator('#host .sim2-reset').click();
     await expect(page.locator('#host .sim2-readout-row').filter({ hasText: 'Pha:' })).toContainText('Trước va chạm');
@@ -206,6 +218,10 @@ test.describe('sim3 pilot contract', () => {
     expect(debugAfterReset.collided).toBe(false);
     expect(debugAfterReset.trailLength).toBe(0);
     expect(debugAfterReset.ghostCount).toBe(0);
+    await page.locator('#host .sim2-step').click();
+    const debugAfterFreshStep = await page.evaluate(() => window.__SIM3_DEBUG__['ch3-6-2']);
+    expect(debugAfterFreshStep.trailLength).toBe(2);
+    await page.locator('#host .sim2-reset').click();
     expect(debugAfterReset.phaseCue).toBe('before');
     expect(debugAfterReset.visualMetrics.verticalFillTarget).toBeGreaterThanOrEqual(0.45);
     expect(debugAfterReset.visualMetrics.labelClusterReduced).toBe(true);
@@ -218,6 +234,10 @@ test.describe('sim3 pilot contract', () => {
     await expect.poll(async () => page.evaluate(() => window.__SIM3_DEBUG__['ch3-6-2'].phaseCue), {
       timeout: 1000
     }).toBe('after');
+    const impactDebug = await page.evaluate(() => window.__SIM3_DEBUG__['ch3-6-2']);
+    expect(impactDebug.r1).toBeCloseTo(0.6, 9);
+    expect(impactDebug.r2).toBeCloseTo(0.8, 9);
+    expect(impactDebug.impactContactResidual).toBeLessThan(1e-9);
     await expectSim3SafeCrop(page, 'ch3-6-2');
     await expectSim3StrongRedesign(page, 'ch3-6-2', {
       physicalMeaningCue: 'before-impact-after-lane',
@@ -357,6 +377,7 @@ test.describe('sim3 pilot contract', () => {
     expect(debug.sample).toEqual(expect.objectContaining({ x: 2, y: 1.5 }));
     expect(debug.radius).toBeCloseTo(Math.hypot(3, 2.5), 3);
     expect(debug.vM.mag).toBeCloseTo(Math.hypot(-2.5, 3), 3);
+    expect(debug.physics.sampleVelocity.magnitude).toBeCloseTo(debug.vM.mag, 9);
 
     await page.evaluate(() => {
       const omega = document.querySelector('#host input[data-id=omega]');
@@ -366,6 +387,7 @@ test.describe('sim3 pilot contract', () => {
     debug = await page.evaluate(() => window.__SIM3_DEBUG__['ch2-5-3']);
     expect(debug.omega).toBeCloseTo(2.2, 3);
     expect(debug.vM.mag).toBeCloseTo(2.2 * debug.radius, 3);
+    expect(debug.physics.sampleVelocity.magnitude).toBeCloseTo(debug.vM.mag, 9);
 
     await page.locator('#host .sim3-mode-toggle [data-mode="2d"]').click();
     const handle = page.locator('#host .sim2-handle').first();
@@ -650,41 +672,38 @@ test.describe('sim3 pilot contract', () => {
     expect(errors).toEqual([]);
   });
 
-  test('forced WebGL failure falls back for all new Sim3 routes', async ({ page }) => {
-    const cases = [
-      { route: 'ch1-5-3', fixture: 'sim2-ch1.html' },
-      { route: 'ch1-1-5', fixture: 'sim2-ch1.html' },
-      { route: 'ch2-1-3', fixture: 'sim2-ch2.html' },
-      { route: 'ch3-1-3', fixture: 'sim2-ch3.html' }
-    ];
-    for (const cfg of cases) {
+  test('forced WebGL failure falls back for every canonical Sim3 route', async ({ page }) => {
+    const expected = sim3Manifest.map(route => route.id);
+    expect(new Set(expected).size).toBe(expected.length);
+    for (const route of sim3Manifest) {
       const errors = [];
       page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
       page.on('pageerror', e => errors.push(String(e)));
-      await page.goto(fixtureUrl(cfg.fixture), { waitUntil: 'domcontentloaded' });
+      await page.goto(fixtureUrl(`sim2-ch${route.chapter}.html`), { waitUntil: 'domcontentloaded' });
       await page.evaluate(() => { window.__SIM3_FORCE_WEBGL_FAIL = true; });
-      await mount(page, cfg.route);
+      await mount(page, route.baseRouteId);
       await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
       await expect(page.locator('#host .sim3-fallback')).toBeVisible();
       await expect(page.locator('#host svg.sim2-svg')).toBeVisible();
       await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
       await page.evaluate(() => window.__sim.dispose());
-      expect(errors).toEqual([]);
+      expect(errors, `${route.id} fallback errors`).toEqual([]);
     }
   });
 
-  test('renderer constructor failure falls back without page errors', async ({ page }) => {
+  test('renderer canvas allocation failure falls back without page errors', async ({ page }) => {
     const errors = [];
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
     page.on('pageerror', e => errors.push(String(e)));
 
     await page.goto(fixtureUrl('sim2-ch2.html'), { waitUntil: 'domcontentloaded' });
     await page.evaluate(() => {
-      const Original = window.THREE.WebGLRenderer;
-      window.THREE.WebGLRenderer = function ThrowingRenderer() {
-        throw new Error('test renderer allocation failure');
+      const original = document.createElementNS.bind(document);
+      document.createElementNS = function createElementNS(namespace, name, options) {
+        if (String(name).toLowerCase() === 'canvas') throw new Error('test renderer canvas allocation failure');
+        return original(namespace, name, options);
       };
-      window.__restoreRenderer = () => { window.THREE.WebGLRenderer = Original; };
+      window.__restoreRendererAllocation = () => { delete document.createElementNS; };
     });
     await mount(page, 'ch2-2-2');
     await page.locator('#host .sim3-mode-toggle [data-mode="3d"]').click();
@@ -692,7 +711,7 @@ test.describe('sim3 pilot contract', () => {
     await expect(page.locator('#host .sim3-fallback')).toBeVisible();
     await expect(page.locator('#host svg.sim2-svg')).toBeVisible();
     await expect(page.locator('#host canvas.sim3-canvas')).toHaveCount(0);
-    await page.evaluate(() => { window.__restoreRenderer(); window.__sim.dispose(); });
+    await page.evaluate(() => { window.__restoreRendererAllocation(); window.__sim.dispose(); });
     expect(errors).toEqual([]);
   });
 });

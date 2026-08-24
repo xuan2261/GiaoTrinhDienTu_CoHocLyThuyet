@@ -1,5 +1,122 @@
 # Project Changelog
 
+## 2026-08-22 - Sim2/Sim3 deep TDD remediation
+
+### Corrected
+- Replaced frame-count playback with the shared `1/60 s` fixed-step clock; unified playback/manual-step updates and pause/resume timestamp handling.
+- Corrected Sim2 helper/domain/collision behavior and all affected Sim3 statics, kinematics, transmission, relative-motion, dynamics and collision geometry/sign contracts.
+- Standardized Sim3 on one right-handed coordinate system: horizontal `(x,y) -> (x,elevation,-y)`, vertical `(x,y) -> (x,y,depth)`.
+
+### Hardened
+- Added responsive logical viewport, DPR-aware canvas, pointer remapping, keyboard handle domain parity, reduced-motion behavior and complete listener/observer/RAF/DOM disposal for Sim2.
+- Made Sim3 demand-rendered by default with host resize/DPR cap, GPU/context cleanup, repeated-toggle lifecycle safety and one-shot Vietnamese fallback for Three/WebGL/setup/update/render/resize failures.
+- Replaced route-name/DOM/debug-only confidence with independent numeric/geometric oracles, production 35-route navigation, strict interaction probes, fresh exact capture/contact validators and manual selective-baseline triage.
+
+### Verified
+- `npm run test:sim:release`, `npm run test:sim:release:full` and three consecutive retry-free objective runs pass for 25 Sim2 + 10 Sim3 routes.
+- `npm run test:equations` and `npm run test:audit:strict` pass; the strict audit reports 96/96 files, 127 valid figures, zero warnings/errors and zero formula-image suspects.
+- Phase 11 evidence hashes bind objective/full/soak command records plus validated Sim2/Sim3 capture manifests and run images, contact sheets, strict 35-route interaction probe, selective visual baseline spec and five approved snapshots. Simulation specification/review records are technical-review verified only; no independent institutional approval is claimed.
+
+## 2026-08-21 — Deep TDD release-readiness remediation
+
+### Added
+- Canonical content/release manifests, learning-outcome and requirement traceability joins, equation/image/manual-review contracts, full-text offline search, quiz attempt persistence, simulation evidence drift checks, Chapter 1 objective-driven multimedia pilot, and WCAG-oriented shell/runtime remediation.
+- Deterministic standalone release pipeline with allowlist staging, provenance, third-party notices, SHA-256 inventory, adversarial validation and byte-identical ZIP rebuilds.
+- Staged QTI 3 and IMS Common Cartridge 1.4 adapters with deterministic local validators; xAPI/cmi5 and SCORM remain blocked until a real target contract exists.
+- Canonical 24-gate registry, definition/repository/input-bound command captures with public-log redaction, RTM CSV, verified release/derivative inventory, independent smoke-review contract, Word gate record, acceptance report and bundle checksum manifest under the Phase 12 plan.
+
+### Built candidate artifacts
+- Candidate `release/2026.08.21-candidate/co-hoc-ly-thuyet-2026.08.21-candidate.zip`: 374 files, 78,723,369 bytes, SHA-256 `a0908a72624a44f8d37a525c97de3ee240fdbec1199c59097ab92a78cd718ef6`; two clean builds are byte-identical.
+- QTI 3 Chapter 1 pilot: 10 items, SHA-256 `237b960fd03cf45e274eeadde74b0a530c31f8a774aaf09dc2bc5d8cf74ae099`.
+- Common Cartridge 1.4 derivative: SHA-256 `6e174c792f392f3815139d80003c8037902dd0ace1e91372bb0c0596b96f4ec1`.
+
+### Acceptance status
+- Canonical matrix: 20/24 pass after candidate verification. Final acceptance remains blocked by 0/1033 independent academic signoffs, pending independent accessibility review, pending independent candidate smoke review, and the Word fixed-format export exceeding its 900-second isolated-worker timeout on Word `16.0.10363`. The gate now uses per-run output paths, records the failing stage and cleanup inventory, and terminates only new hidden `/Automation -Embedding` Word processes absent from its pre-gate snapshot. The ZIP and derivatives are frozen technical candidate artifacts, not a final institutional release. Technical passes do not imply WCAG AA, academic correctness, institutional acceptance, legal approval, or LMS conformance.
+
+## 2026-08-21 — Sim2 route-domain remediation
+
+### Fixed
+- Bounded force-vector drags and legal Chapter 1 extrema; the high-angle cable route now preserves the requested physical angle while adapting its node/anchor layout to a readable viewport.
+- Projectile and osculating-circle routes keep canonical physical readouts while applying explicit route-local display scaling, so complete legal trajectories/circles remain visible without unreadable global world boxes.
+- Unequal pulley belts use true common external tangents; rotating/Coriolis/velocity-field vectors clamp display length only, and the Coriolis control now distinguishes `v_rel,max` from instantaneous `v_rel(t)`.
+- Newton-II motion no longer freezes at the viewport edge; canonical `x(t)` and `v(t)` continue while the body wraps through the display lane.
+- Collision now resolves at first tangent contact, preserves one immutable impact point, forwards canonical radii to Sim3, pauses/resets on parameter changes, and resets when either body fully exits without stale trail append.
+
+### Verified
+- `tests/sim2-route-domain.spec.js` adds 10 route-domain regressions. `test:sim:mount` passes 129 tests; mounted physics passes 26 tests; targeted Sim3 collision contact uses a zero contact residual and safe projected margins.
+
+## 2026-08-21 — Sim3 right-handed coordinate foundation
+
+### Added
+- Pure UMD/CommonJS `Sim3Coordinates` contract: `+X` right, `+Y` up, `+Z` toward viewer; explicit horizontal and vertical source-plane mappings; signed axial vectors; independent `cross` and `dot` helpers.
+- Shared `Sim3Primitives.updateArrow()` keeps physical magnitude separate from display-length clamping, preserves signed direction, hides exact zero vectors without arbitrary orientation, and rejects non-finite rendering state.
+- Production and all chapter fixtures load the coordinate foundation before primitives and adapters. The Sim3 pilot gate now runs the Node coordinate contract and browser-global smoke before its 20 browser tests.
+
+### Verified
+- Coordinate tests cover basis orientation, plane signs, negative/zero vectors, immutability, invalid planes, arithmetic overflow, display-option overflow, and parsed executable script order. Existing adapter geometry remains unchanged for later route migration phases.
+
+## 2026-08-21 — Sim3 demand-rendered core hardening
+
+### Added
+- `three-label-layer.js` owns projected DOM labels independently from the WebGL shell; production and all chapter fixtures load it before `three-shell.js`.
+- `tests/sim3-core-runtime.spec.js` and `tests/simulation-lifecycle.spec.js` cover default idle RAF ownership, explicit continuous scenes, responsive 360/1024 sizing, DPR 1/1.5/2/3, original-error fallback classification, removable resize listeners, named canvas semantics, arbitrary/shared GPU resources, double disposal, 20 mode cycles and cross-route residue.
+
+### Changed
+- Sim3 now renders on initial mount, state change, and effective resize only; continuous RAF requires `continuous: true`. ResizeObserver tracks the expanded visible host, `devicePixelRatio` is capped at 2, and all ten adapters synchronize resize before projected state metrics.
+- Mode failures from create, state, reset, shell render, or resize restore visible 2D, pressed state, focus, and one generic Vietnamese live status without exposing exception details.
+- Disposal now identity-deduplicates geometry, materials, arbitrary material textures, controls, render lists, renderer, context loss, observer/listener, RAF, canvas, labels, and host DOM.
+
+### Verified
+- `test:sim3:core`: 12 passed; `test:sim3:pilot`: 20 adapter browser tests plus coordinate/core gates passed; `test:sim:release`: 26 mounted physics, 129 mount, 6 app, 3 content and 2 quiz checks passed. Browser smoke verified responsive named canvas/hidden projected labels plus focused 2D fallback with no residual canvas.
+
+## 2026-08-21 — Chapter 1 objective-driven media pilot
+
+### Added
+- Năm curated data contract tách rubric gap, content objectives, learning map, runtime media manifest và accessibility; `data/media-pilot-manifest.json` khóa hash/size của cả bộ, gồm chín selected/no-go decisions và đúng bốn mục tiêu cục bộ dưới provisional `lo-ch1-statics`.
+- Four authoring/review packets bind misconception and evidence targets, script/storyboard, math/units/assumptions, local provenance, SHA-256, module budget, owner/reviewer roles and `pilot-draft`/`technical-review` status.
+- Four standalone `file://` prototypes cover force sliding with the existing GIF plus a derived poster, resultant-versus-angle chart, canonical friction-cone Sim2 mount and keyboard centroid steps. A shared progressive loader keeps static content through reduced motion or load/mount failure.
+- `tools/validate_media_pilot.py`, mutation coverage and Playwright interactions guard fallback, route/LO/Sim2 joins, modality, local-only dependencies, hashes, budgets, accessibility and runtime behavior.
+
+### Evidence status
+- Repository contracts and prototypes are authored for main-session validation. No learner efficacy or institutional acceptance claim is recorded.
+
+## 2026-08-21 — Phase 8 WCAG 2.2 AA surface remediation
+
+### Added
+- Shell có skip link giữ route, labelled banner/navigation/main/contentinfo, stateful sidebar disclosures, mobile Escape/focus return và một application `main`; PDF viewport chuyển sang labelled `document` trong native dialog.
+- Focus-visible/theme tokens, 44 px primary targets, narrow two-row topbar, quiz status contrast, PDF toolbar wrap, Sim2 labelled range/output/playback + arrow-key handles, và Sim3 labelled mode/fallback/canvas semantics.
+- `data/accessibility-baseline.json` cùng bốn `file://` Playwright specs cho landmarks, keyboard workflows, 200%/400% equivalent reflow và deterministic contrast token pairs; package gate là `npm run test:accessibility`.
+
+### Evidence status
+- Automation được ghi `authored-not-run`; screen reader, browser zoom, text spacing, scientific visualization equivalence và independent manual review vẫn pending. Không có chứng nhận tổ chức hoặc blanket WCAG conformance claim.
+
+## 2026-08-21 — Draft simulation evidence and pedagogical review gate
+
+### Added
+- `data/simulation-specifications.json` records a 25/25 Sim2 draft joined to canonical route, factory, formula helper, learning outcome, mount/capture and manual-evidence references; source hashes make stale authoring visible.
+- `data/sim3-pedagogical-reviews.json` records 10 internal project technical reviews with retain-3d/2d-only decisions, cognitive-risk limits and Sim2 fallback equivalence. It is not independent or institutional approval.
+- `tools/sim-validation/validate-simulation-drift.js`, three mutation-first Node contracts, and `docs/simulation-4d.md` add structural drift validation and define 4D as 3D representation plus time/state evolution plus learner interaction.
+
+### Blocked
+- The strict `--require-verified` simulation gate intentionally fails until plan `260713-1524-fix-all-sim2-sim3-defects-deep-tdd` phases 01–10 and phase 11 evidence are complete; no draft record claims verified or approved runtime evidence.
+
+## 2026-08-21 — Quiz v2 và khôi phục attempt offline
+
+### Added
+- Ba bank 100 câu chuyển sang envelope schema v2 với stable IDs, LO refs, difficulty/type/source/explanation và pass policy; authored wording/options/correct/feedback được khóa bằng SHA-256 regression.
+- `js/quiz-state.js` cung cấp normalize v1/v2, seeded selection, lifecycle, scoring, history tối đa 20 attempt/180 ngày và lazy migration aggregate `quizScores` sang `chlyt_quiz_attempts`.
+- Quiz dùng native radio trong fieldset/legend, live score/feedback, review/reset và khôi phục exact random order/answer qua reload `file://`.
+
+### Verified
+- `npm run test:quiz`, `npm run test:quiz:browser`, `npm run test:traceability` và `npm run test:app` pass.
+
+## 2026-08-21 — Tìm kiếm toàn văn offline
+
+### Added
+- `tools/build_search_index.py` sinh schema v1 deterministic từ content manifest và fragment DOCX, kèm `data/search-index.json` và `js/search-index.js` cho `file://`.
+- `js/search.js` hỗ trợ tìm dấu/không dấu, xếp hạng title/heading/metadata/body, snippet DOM-safe, keyboard combobox/listbox và focus anchor runtime.
+- Index stale, thiếu hoặc corrupt tự động chuyển sang tìm mục lục với thông báo accessible.
+
 ## 2026-08-16 — 20 minh họa cơ học dạng GIF
 
 ### Added

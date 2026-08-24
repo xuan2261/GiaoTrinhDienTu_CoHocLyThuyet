@@ -1,6 +1,6 @@
 ---
 title: "Phase 9: Thí điểm đa phương tiện theo chuẩn đầu ra"
-status: pending
+status: completed
 priority: P1
 effort: "6-12 ngày tùy số asset"
 dependencies: [phase-03, phase-04, phase-07]
@@ -57,11 +57,11 @@ Curated `data/media-pilot-manifest.json` join LO IDs và route IDs. Mỗi asset 
 
 ## Todo
 
-- [ ] Record media-gap rubric, pilot cap and review role/unit.
-- [ ] Select and record candidates/no-go decision.
-- [ ] Produce complete per-asset packets.
-- [ ] Implement manifest-driven offline player/fallback.
-- [ ] Record maintenance and release budgets.
+- [x] Record media-gap rubric, pilot cap and review role/unit.
+- [x] Select and record candidates/no-go decision.
+- [x] Produce complete per-asset packets.
+- [x] Implement manifest-driven offline player/fallback.
+- [x] Record maintenance and release budgets.
 
 ## Success Criteria
 
