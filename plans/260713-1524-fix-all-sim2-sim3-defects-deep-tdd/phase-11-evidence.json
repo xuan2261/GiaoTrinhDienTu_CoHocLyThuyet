@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "phase": 11,
   "status": "completed",
-  "recordedOn": "2026-08-24",
+  "recordedOn": "2026-08-25",
   "artifacts": [
     {
       "kind": "objective-release",
@@ -24,27 +24,27 @@
     {
       "kind": "sim2-capture",
       "path": "plans/260531-2122-sim2-visual-quality-eval-pipeline/visuals/capture-manifest.json",
-      "sha256": "c36318bad9f525d2ca7a4389e63ee71f4dc27578a19b7f0884081e13feece52f"
+      "sha256": "c51deedee7cd8260bbdfb3fe715b17255b5300e889da83e6973756ad23cd5d46"
     },
     {
       "kind": "sim2-contact-sheet",
       "path": "plans/260531-2122-sim2-visual-quality-eval-pipeline/visuals/contact-sheet.html",
-      "sha256": "a4a5cbf5eadf13d10860fa248e9495718def703bfc529945a8f908d487e68b11"
+      "sha256": "1bf9dd589112bb4310f66ded93a54cc1d0a0102fc9c83626ecd0ddd6cc52e750"
     },
     {
       "kind": "sim3-capture",
       "path": "plans/260605-sim3-visual-quality-upgrade-tdd/visuals/final/capture-manifest.json",
-      "sha256": "6641ba6b1beab15bab76ad44549c0461d766d99f73c4da496708405773e14957"
+      "sha256": "0c2fb16576eb47aa84b8b923f128db591a1337fd903ac84c098f1bcd5ad2b15a"
     },
     {
       "kind": "sim3-contact-sheet",
       "path": "plans/260605-sim3-visual-quality-upgrade-tdd/visuals/final/contact-sheet.html",
-      "sha256": "91ff8e0f67d71c90bdcb172f92c9dc5434e8fe3481b9cbbab9309fdf9a95109b"
+      "sha256": "102019dfe096ca4b2da13c3cc29620a1a7fa2502f6c74720e438d51416adf4b8"
     },
     {
       "kind": "interaction-probe",
       "path": "plans/260608-1559-sim-fullquality-triage/visuals/interaction-probe.json",
-      "sha256": "83f917d81c4002c911d8d293a90bf13f2d647511ba43e2b948f971a041a89156"
+      "sha256": "7e14295acab85b9c0df92d596530a8e2976ca6bad511590e0c680b4e9a980234"
     },
     {
       "kind": "visual-baselines",

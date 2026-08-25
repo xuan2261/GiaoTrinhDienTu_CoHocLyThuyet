@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
   "status": "candidate",
-  "summaryPath": "release/2026.08.21-candidate/release-summary.json",
-  "releaseVersion": "2026.08.21-candidate",
-  "buildEpoch": 1787270400,
-  "packageSha256": "a0908a72624a44f8d37a525c97de3ee240fdbec1199c59097ab92a78cd718ef6",
+  "summaryPath": "release/2026.08.25-candidate/release-summary.json",
+  "releaseVersion": "2026.08.25-candidate",
+  "buildEpoch": 1787616000,
+  "packageSha256": "6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd",
   "derivatives": [
     {
-      "path": "release/2026.08.21-candidate/derivatives/qti3-ch1-pilot.zip",
-      "sha256": "237b960fd03cf45e274eeadde74b0a530c31f8a774aaf09dc2bc5d8cf74ae099"
+      "path": "release/2026.08.25-candidate/derivatives/qti3-ch1-pilot.zip",
+      "sha256": "99f6f1f73fee9daec8c531457a636cb25ba10941e8e7be88a3915c8d1b10455c"
     },
     {
-      "path": "release/2026.08.21-candidate/derivatives/common-cartridge-1.4.imscc",
-      "sha256": "6e174c792f392f3815139d80003c8037902dd0ace1e91372bb0c0596b96f4ec1"
+      "path": "release/2026.08.25-candidate/derivatives/common-cartridge-1.4.imscc",
+      "sha256": "08b4582630ef802b0fdecd46babb5008cc49cfff2a8230625c0d2c4547b8f1cb"
     }
   ]
 }

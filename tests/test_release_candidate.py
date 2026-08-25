@@ -11,7 +11,7 @@ class ReleaseCandidateTest(unittest.TestCase):
     def test_current_candidate_is_policy_validated(self):
         inventory = candidate.validate()
         self.assertEqual(inventory["status"], "verified")
-        self.assertEqual(inventory["summary"]["releaseVersion"], "2026.08.21-candidate")
+        self.assertEqual(inventory["summary"]["releaseVersion"], "2026.08.25-candidate")
         self.assertEqual(len(inventory["derivatives"]), 2)
 
     def test_summary_path_must_remain_in_repository(self):

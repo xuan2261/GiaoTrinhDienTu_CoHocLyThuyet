@@ -12,7 +12,7 @@ Snapshot release-readiness ngày 2026-08-22.
 | Toolchain | Python scripts trong `tools/`; npm/Playwright chỉ cho QA |
 | Sim canonical | Sim2 SVG-first, 25 route |
 | Sim tùy chọn | Sim3 Three.js, 10 route |
-| Release hiện có | Deterministic candidate ZIP `2026.08.21-candidate`; historical packages remain in `release/` |
+| Release hiện có | Deterministic candidate ZIP `2026.08.25-candidate`; historical packages remain in `release/` |
 
 ## Thành phần chính
 
@@ -64,8 +64,8 @@ Snapshot release-readiness ngày 2026-08-22.
 
 Không sửa tay `js/pages.js`, `chapters/`, `images/`, `tools/docx_site_manifest.json`, `tools/equation_report.json`. Candidate hiện tại:
 
-- `release/2026.08.21-candidate/package/`
-- `release/2026.08.21-candidate/co-hoc-ly-thuyet-2026.08.21-candidate.zip`
-- QTI 3 pilot và Common Cartridge 1.4 trong `release/2026.08.21-candidate/derivatives/`
+- `release/2026.08.25-candidate/package/`
+- `release/2026.08.25-candidate/co-hoc-ly-thuyet-2026.08.25-candidate.zip`
+- QTI 3 pilot và Common Cartridge 1.4 trong `release/2026.08.25-candidate/derivatives/`
 
-ZIP standalone có 374 files, SHA-256 `a0908a72624a44f8d37a525c97de3ee240fdbec1199c59097ab92a78cd718ef6`, byte-identical qua hai clean build. Candidate đạt 20/24 gate và vẫn blocked cho final acceptance bởi independent academic signoff, independent accessibility review, independent candidate smoke review và Word round-trip. Các release cũ giữ nguyên làm artifact lịch sử.
+ZIP standalone có 374 files, SHA-256 `6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd`. Candidate vẫn blocked cho final acceptance bởi independent academic signoff, independent accessibility review, independent candidate smoke review và Word round-trip. Các release cũ giữ nguyên làm artifact lịch sử.

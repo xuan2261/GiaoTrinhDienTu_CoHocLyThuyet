@@ -1,5 +1,16 @@
 # Project Changelog
 
+## 2026-08-25 — Author rank correction and candidate rebuild
+
+### Corrected
+- Updated Bùi Thanh Xuân's rank from `Đại úy, ThS` to `Thiếu tá, ThS` in the canonical DOCX, generated author page, offline bundle, search index and standalone source page.
+
+### Built candidate artifacts
+- Candidate `release/2026.08.25-candidate/co-hoc-ly-thuyet-2026.08.25-candidate.zip`: 374 files, 78,723,361 bytes, SHA-256 `6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd`.
+- QTI 3 Chapter 1 pilot: 10 items, SHA-256 `99f6f1f73fee9daec8c531457a636cb25ba10941e8e7be88a3915c8d1b10455c`.
+- Common Cartridge 1.4 derivative: SHA-256 `08b4582630ef802b0fdecd46babb5008cc49cfff2a8230625c0d2c4547b8f1cb`.
+- Candidate remains technical-only; independent academic, accessibility, smoke and Word gates are not waived.
+
 ## 2026-08-22 - Sim2/Sim3 deep TDD remediation
 
 ### Corrected

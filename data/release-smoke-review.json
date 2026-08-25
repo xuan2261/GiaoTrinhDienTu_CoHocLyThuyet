@@ -4,8 +4,8 @@
   "reviewerRole": null,
   "reviewerUnit": null,
   "environment": null,
-  "releaseVersion": "2026.08.21-candidate",
-  "releaseSha256": "a0908a72624a44f8d37a525c97de3ee240fdbec1199c59097ab92a78cd718ef6",
+  "releaseVersion": "2026.08.25-candidate",
+  "releaseSha256": "6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd",
   "evidenceRefs": [
     "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/technical-smoke.md"
   ],

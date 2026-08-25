@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": {
     "logicalPath": "CoHocLyThuyet_Full_New.docx",
-    "sha256": "f39fc360a0f92fd054a1b170edd423d5d3fd70ff63d87011c5dbd9b042372e70"
+    "sha256": "6396a72512613f867f93332968fc876daccb1d65ed3b6d52efaa74d44bf4b79a"
   },
   "generator": {
     "name": "tools/extract_docx.py",

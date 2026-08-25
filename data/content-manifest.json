@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "source": {
     "logicalPath": "CoHocLyThuyet_Full_New.docx",
-    "sha256": "f39fc360a0f92fd054a1b170edd423d5d3fd70ff63d87011c5dbd9b042372e70",
-    "docxManifestSha256": "424b5991c882bd20f64327abb39d5f52de647fc72d4dedb44bbd0658947c4a58",
+    "sha256": "6396a72512613f867f93332968fc876daccb1d65ed3b6d52efaa74d44bf4b79a",
+    "docxManifestSha256": "a49f6fb6adaf5413d4cd9f2ed507cbaf7fcc5c059b8914d76089dcafa7bed29e",
     "pdf": {
       "logicalPath": "CoHocLyThuyet.pdf",
       "sha256": "b755b06cf919a979e278f635aa2fedfe249a97342ccd93d2d15875e87ff835d9"
@@ -3165,7 +3165,7 @@
       ],
       "chapterFile": "chapters/tac-gia.html",
       "bundleKey": "authors",
-      "contentHash": "60214a9fe443f5c8f18321fb3a6105d3b671d2c38e1e249734979506ca752276",
+      "contentHash": "55ccb9b1a9c0892198fe5a540175f2dcd72444b302c0fdcaec94cb843b2ecff5",
       "figureRefs": [],
       "equationRefs": [],
       "hasQuiz": false,
@@ -3186,5 +3186,5 @@
       "hasSimulation": false
     }
   ],
-  "contentHash": "3cb66ba60c5f3a0e733a073cc388fcca5b1578ea486ebf53cb6cbef68a5c6aa6"
+  "contentHash": "c2e75ab2c3aa944c1ae6b26aabf5ce8ca768d08e6577392905cf3571ef55ea16"
 }

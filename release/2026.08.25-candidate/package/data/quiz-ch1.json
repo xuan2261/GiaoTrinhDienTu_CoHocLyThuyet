@@ -1,0 +1,2220 @@
+{
+  "schemaVersion": 2,
+  "assessmentMetadata": {
+    "difficultyVocabulary": [
+      "foundation",
+      "intermediate",
+      "advanced"
+    ],
+    "passPolicy": {
+      "id": "quiz-v2-pass-70",
+      "minimumPercent": 70
+    },
+    "retentionPolicy": {
+      "historyCap": 20,
+      "retentionDays": 180
+    }
+  },
+  "items": [
+    {
+      "id": "quiz-ch1-001",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-001",
+      "question": "Vật rắn tuyệt đối là gì?",
+      "options": [
+        "Vật không bị biến dạng dưới tác dụng của lực",
+        "Vật có khối lượng lớn",
+        "Vật đứng yên",
+        "Vật chuyển động thẳng đều"
+      ],
+      "correct": 0,
+      "explanation": "❌ Vật rắn tuyệt đối = vật không biến dạng dưới tác dụng lực.",
+      "feedbackCorrect": "✅ Đúng! Vật rắn tuyệt đối là vật không bị biến dạng.",
+      "feedbackWrong": "❌ Vật rắn tuyệt đối = vật không biến dạng dưới tác dụng lực."
+    },
+    {
+      "id": "quiz-ch1-002",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-002",
+      "question": "Trạng thái cân bằng của vật rắn là khi:",
+      "options": [
+        "Vật đứng yên hoặc chuyển động thẳng đều",
+        "Vật chỉ đứng yên",
+        "Vật quay đều",
+        "Vật dao động"
+      ],
+      "correct": 0,
+      "explanation": "❌ Cân bằng = đứng yên HOẶC chuyển động thẳng đều.",
+      "feedbackCorrect": "✅ Chính xác!",
+      "feedbackWrong": "❌ Cân bằng = đứng yên HOẶC chuyển động thẳng đều."
+    },
+    {
+      "id": "quiz-ch1-003",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-003",
+      "question": "Lực được đặc trưng bởi mấy yếu tố?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correct": 1,
+      "explanation": "❌ Lực có 3 yếu tố: điểm đặt, phương chiều, cường độ.",
+      "feedbackCorrect": "✅ 3 yếu tố: điểm đặt, phương chiều, cường độ.",
+      "feedbackWrong": "❌ Lực có 3 yếu tố: điểm đặt, phương chiều, cường độ."
+    },
+    {
+      "id": "quiz-ch1-004",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-004",
+      "question": "Đơn vị của lực trong hệ SI là:",
+      "options": [
+        "kg",
+        "N (Newton)",
+        "Pa",
+        "J"
+      ],
+      "correct": 1,
+      "explanation": "❌ Đơn vị lực = Newton (N) = kg·m/s².",
+      "feedbackCorrect": "✅ Đơn vị lực là Newton (N).",
+      "feedbackWrong": "❌ Đơn vị lực = Newton (N) = kg·m/s²."
+    },
+    {
+      "id": "quiz-ch1-005",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-005",
+      "question": "Mô men của lực đối với một điểm phụ thuộc vào:",
+      "options": [
+        "Chỉ cường độ lực",
+        "Cường độ lực và khoảng cách từ điểm đến đường tác dụng",
+        "Chỉ khoảng cách",
+        "Khối lượng vật"
+      ],
+      "correct": 1,
+      "explanation": "❌ Mô men = F × d (cường độ × cánh tay đòn).",
+      "feedbackCorrect": "✅ M = F × d (cường độ × cánh tay đòn).",
+      "feedbackWrong": "❌ Mô men = F × d (cường độ × cánh tay đòn)."
+    },
+    {
+      "id": "quiz-ch1-006",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-006",
+      "question": "Ngẫu lực là:",
+      "options": [
+        "Hai lực cùng phương, cùng chiều",
+        "Hai lực song song, ngược chiều, cùng cường độ, khác đường tác dụng",
+        "Hai lực cùng điểm đặt",
+        "Một lực và mô men"
+      ],
+      "correct": 1,
+      "explanation": "❌ Ngẫu lực = 2 lực song song, ngược chiều, cùng cường độ, khác ĐTD.",
+      "feedbackCorrect": "✅ Ngẫu lực gồm 2 lực song song, ngược chiều, cùng cường độ.",
+      "feedbackWrong": "❌ Ngẫu lực = 2 lực song song, ngược chiều, cùng cường độ, khác ĐTD."
+    },
+    {
+      "id": "quiz-ch1-007",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-007",
+      "question": "Vật tự do là:",
+      "options": [
+        "Vật chuyển động được theo mọi hướng",
+        "Vật không liên kết với vật khác",
+        "Vật đứng yên",
+        "Vật có khối lượng nhỏ"
+      ],
+      "correct": 0,
+      "explanation": "❌ Vật tự do = vật chuyển động được theo mọi hướng trong không gian.",
+      "feedbackCorrect": "✅ Vật tự do có thể dịch chuyển theo mọi hướng.",
+      "feedbackWrong": "❌ Vật tự do = vật chuyển động được theo mọi hướng trong không gian."
+    },
+    {
+      "id": "quiz-ch1-008",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-008",
+      "question": "Phản lực liên kết có đặc điểm gì?",
+      "options": [
+        "Luôn vuông góc mặt tiếp xúc",
+        "Cùng phương, ngược chiều với lực bị cản",
+        "Luôn thẳng đứng",
+        "Luôn nằm ngang"
+      ],
+      "correct": 1,
+      "explanation": "❌ Phản lực liên kết ngược chiều với dịch chuyển bị liên kết cản trở.",
+      "feedbackCorrect": "✅ Phản lực liên kết cùng phương, ngược chiều với dịch chuyển bị cản.",
+      "feedbackWrong": "❌ Phản lực liên kết ngược chiều với dịch chuyển bị liên kết cản trở."
+    },
+    {
+      "id": "quiz-ch1-009",
+      "chapter": "ch1",
+      "section": "II",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-009",
+      "question": "Tiên đề 1 (cặp lực cân bằng): Điều kiện cần và đủ để 2 lực cân bằng là:",
+      "options": [
+        "Cùng cường độ",
+        "Cùng đường tác dụng, ngược chiều, cùng cường độ",
+        "Cùng phương",
+        "Cùng điểm đặt"
+      ],
+      "correct": 1,
+      "explanation": "❌ Cần 3 điều kiện: cùng ĐTD, ngược chiều, cùng cường độ.",
+      "feedbackCorrect": "✅ Chính xác! Cùng ĐTD + ngược chiều + cùng cường độ.",
+      "feedbackWrong": "❌ Cần 3 điều kiện: cùng ĐTD, ngược chiều, cùng cường độ."
+    },
+    {
+      "id": "quiz-ch1-010",
+      "chapter": "ch1",
+      "section": "II",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-010",
+      "question": "Tiên đề 2 cho phép ta:",
+      "options": [
+        "Thêm hoặc bớt cặp lực cân bằng",
+        "Dịch chuyển lực dọc đường tác dụng",
+        "Phân tích lực",
+        "Tổng hợp lực"
+      ],
+      "correct": 0,
+      "explanation": "❌ Tiên đề 2 = thêm/bớt cặp lực cân bằng không làm thay đổi trạng thái.",
+      "feedbackCorrect": "✅ Tiên đề 2: thêm hay bớt cặp lực cân bằng.",
+      "feedbackWrong": "❌ Tiên đề 2 = thêm/bớt cặp lực cân bằng không làm thay đổi trạng thái."
+    },
+    {
+      "id": "quiz-ch1-011",
+      "chapter": "ch1",
+      "section": "II",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-011",
+      "question": "Theo tiên đề hình bình hành lực, hợp lực của hai lực đồng quy:",
+      "options": [
+        "Bằng tổng hai lực",
+        "Là đường chéo hình bình hành",
+        "Bằng hiệu hai lực",
+        "Vuông góc với hai lực"
+      ],
+      "correct": 1,
+      "explanation": "❌ Tiên đề 3: hợp lực = đường chéo hình bình hành lực.",
+      "feedbackCorrect": "✅ Hợp lực = đường chéo hình bình hành.",
+      "feedbackWrong": "❌ Tiên đề 3: hợp lực = đường chéo hình bình hành lực."
+    },
+    {
+      "id": "quiz-ch1-012",
+      "chapter": "ch1",
+      "section": "II",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-012",
+      "question": "Tiên đề 4 (lực tương tác) phát biểu:",
+      "options": [
+        "Lực luôn đi theo cặp, bằng nhau, ngược chiều",
+        "Lực tác dụng = phản lực, cùng đường tác dụng",
+        "Mọi lực đều có phản lực",
+        "Cả A, B, C đều đúng"
+      ],
+      "correct": 3,
+      "explanation": "❌ Đáp án đúng: tất cả A, B, C đều mô tả tiên đề 4.",
+      "feedbackCorrect": "✅ Tiên đề Newton 3: tác dụng = phản tác dụng.",
+      "feedbackWrong": "❌ Đáp án đúng: tất cả A, B, C đều mô tả tiên đề 4."
+    },
+    {
+      "id": "quiz-ch1-013",
+      "chapter": "ch1",
+      "section": "II",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-013",
+      "question": "Tiên đề hóa rắn cho phép:",
+      "options": [
+        "Áp dụng ĐK cân bằng vật rắn cho vật biến dạng",
+        "Bỏ qua biến dạng",
+        "Xem vật mềm như vật rắn",
+        "Cả A và C"
+      ],
+      "correct": 3,
+      "explanation": "❌ Tiên đề hóa rắn cho phép áp dụng kết quả VR cho vật biến dạng.",
+      "feedbackCorrect": "✅ Tiên đề hóa rắn: ĐK cân bằng VR là ĐK cần (không đủ) cho vật biến dạng.",
+      "feedbackWrong": "❌ Tiên đề hóa rắn cho phép áp dụng kết quả VR cho vật biến dạng."
+    },
+    {
+      "id": "quiz-ch1-014",
+      "chapter": "ch1",
+      "section": "II",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-014",
+      "question": "Tiên đề giải phóng liên kết phát biểu:",
+      "options": [
+        "Bỏ liên kết và thay bằng phản lực",
+        "Giữ liên kết nguyên",
+        "Thêm liên kết mới",
+        "Xóa bỏ mọi lực"
+      ],
+      "correct": 0,
+      "explanation": "❌ Tiên đề 6: bỏ liên kết → thay bằng phản lực liên kết.",
+      "feedbackCorrect": "✅ Giải phóng liên kết = bỏ liên kết, thay bằng phản lực tương ứng.",
+      "feedbackWrong": "❌ Tiên đề 6: bỏ liên kết → thay bằng phản lực liên kết."
+    },
+    {
+      "id": "quiz-ch1-015",
+      "chapter": "ch1",
+      "section": "II",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-015",
+      "question": "Hệ quả của tiên đề 1 và 2: Lực có thể trượt dọc đường tác dụng mà:",
+      "options": [
+        "Thay đổi trạng thái cân bằng",
+        "Không thay đổi trạng thái cân bằng",
+        "Thay đổi biến dạng",
+        "Thay đổi cả hai"
+      ],
+      "correct": 1,
+      "explanation": "❌ Lực trượt dọc đường tác dụng → trạng thái cân bằng không đổi.",
+      "feedbackCorrect": "✅ Hệ quả: lực trượt dọc ĐTD không ảnh hưởng cân bằng.",
+      "feedbackWrong": "❌ Lực trượt dọc đường tác dụng → trạng thái cân bằng không đổi."
+    },
+    {
+      "id": "quiz-ch1-016",
+      "chapter": "ch1",
+      "section": "II",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-016",
+      "question": "Trong hệ tiên đề tĩnh học có mấy tiên đề?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct": 2,
+      "explanation": "❌ Hệ tiên đề tĩnh học gồm 6 tiên đề.",
+      "feedbackCorrect": "✅ Có 6 tiên đề tĩnh học.",
+      "feedbackWrong": "❌ Hệ tiên đề tĩnh học gồm 6 tiên đề."
+    },
+    {
+      "id": "quiz-ch1-017",
+      "chapter": "ch1",
+      "section": "III",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-017",
+      "question": "Phản lực của liên kết tựa có phương:",
+      "options": [
+        "Dọc theo mặt tựa",
+        "Vuông góc mặt tựa tại điểm tiếp xúc",
+        "Song song mặt tựa",
+        "Bất kỳ"
+      ],
+      "correct": 1,
+      "explanation": "❌ Liên kết tựa: phản lực ⊥ mặt tựa tại điểm tiếp xúc.",
+      "feedbackCorrect": "✅ Phản lực liên kết tựa vuông góc với mặt tựa.",
+      "feedbackWrong": "❌ Liên kết tựa: phản lực ⊥ mặt tựa tại điểm tiếp xúc."
+    },
+    {
+      "id": "quiz-ch1-018",
+      "chapter": "ch1",
+      "section": "III",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-018",
+      "question": "Liên kết dây mềm chỉ chịu được:",
+      "options": [
+        "Lực nén",
+        "Lực kéo (kéo căng)",
+        "Cả kéo và nén",
+        "Mô men"
+      ],
+      "correct": 1,
+      "explanation": "❌ Dây mềm chỉ truyền lực kéo dọc theo dây.",
+      "feedbackCorrect": "✅ Dây mềm chỉ chịu kéo, không chịu nén.",
+      "feedbackWrong": "❌ Dây mềm chỉ truyền lực kéo dọc theo dây."
+    },
+    {
+      "id": "quiz-ch1-019",
+      "chapter": "ch1",
+      "section": "III",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-019",
+      "question": "Liên kết bản lề phẳng cản trở dịch chuyển theo:",
+      "options": [
+        "1 phương",
+        "2 phương trong mặt phẳng",
+        "3 phương",
+        "Chỉ xoay"
+      ],
+      "correct": 1,
+      "explanation": "❌ Bản lề phẳng: 2 thành phần phản lực (ngang + đứng).",
+      "feedbackCorrect": "✅ Bản lề phẳng cản trở dịch chuyển theo 2 phương trong mặt phẳng.",
+      "feedbackWrong": "❌ Bản lề phẳng: 2 thành phần phản lực (ngang + đứng)."
+    },
+    {
+      "id": "quiz-ch1-020",
+      "chapter": "ch1",
+      "section": "III",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-020",
+      "question": "Liên kết ngàm cản trở:",
+      "options": [
+        "Chỉ dịch chuyển",
+        "Chỉ xoay",
+        "Cả dịch chuyển và xoay",
+        "Không cản gì"
+      ],
+      "correct": 2,
+      "explanation": "❌ Ngàm = cản trở tịnh tiến + quay → 3 ẩn phản lực.",
+      "feedbackCorrect": "✅ Ngàm cản trở cả dịch chuyển (2 phương) và xoay.",
+      "feedbackWrong": "❌ Ngàm = cản trở tịnh tiến + quay → 3 ẩn phản lực."
+    },
+    {
+      "id": "quiz-ch1-021",
+      "chapter": "ch1",
+      "section": "III",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-021",
+      "question": "Liên kết thanh chỉ cho phản lực có phương:",
+      "options": [
+        "Vuông góc thanh",
+        "Dọc theo thanh",
+        "Bất kỳ",
+        "Song song thanh"
+      ],
+      "correct": 1,
+      "explanation": "❌ Liên kết thanh: phản lực dọc theo trục thanh.",
+      "feedbackCorrect": "✅ Thanh 2 đầu khớp: phản lực dọc theo thanh.",
+      "feedbackWrong": "❌ Liên kết thanh: phản lực dọc theo trục thanh."
+    },
+    {
+      "id": "quiz-ch1-022",
+      "chapter": "ch1",
+      "section": "III",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-022",
+      "question": "Gối cầu có mấy thành phần phản lực?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": 2,
+      "explanation": "❌ Gối cầu cản 3 phương tịnh tiến → 3 phản lực.",
+      "feedbackCorrect": "✅ Gối cầu có 3 thành phần phản lực (x, y, z).",
+      "feedbackWrong": "❌ Gối cầu cản 3 phương tịnh tiến → 3 phản lực."
+    },
+    {
+      "id": "quiz-ch1-023",
+      "chapter": "ch1",
+      "section": "III",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-023",
+      "question": "Gối di động chỉ có:",
+      "options": [
+        "1 phản lực vuông góc mặt đỡ",
+        "2 phản lực",
+        "3 phản lực",
+        "1 mô men"
+      ],
+      "correct": 0,
+      "explanation": "❌ Gối di động chỉ có 1 phản lực vuông góc mặt đỡ.",
+      "feedbackCorrect": "✅ Gối di động: 1 phản lực ⊥ mặt đỡ.",
+      "feedbackWrong": "❌ Gối di động chỉ có 1 phản lực vuông góc mặt đỡ."
+    },
+    {
+      "id": "quiz-ch1-024",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-024",
+      "question": "Véc tơ chính của hệ lực là:",
+      "options": [
+        "Tổng hình học các véc tơ lực",
+        "Lực lớn nhất",
+        "Trung bình các lực",
+        "Hiệu các lực"
+      ],
+      "correct": 0,
+      "explanation": "❌ Véc tơ chính R = tổng hình học tất cả các lực.",
+      "feedbackCorrect": "✅ R = ΣFi (tổng hình học).",
+      "feedbackWrong": "❌ Véc tơ chính R = tổng hình học tất cả các lực."
+    },
+    {
+      "id": "quiz-ch1-025",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-025",
+      "question": "Mô men chính của hệ lực đối với tâm O:",
+      "options": [
+        "Phụ thuộc vị trí O",
+        "Không phụ thuộc O",
+        "Luôn bằng 0",
+        "Bằng véc tơ chính"
+      ],
+      "correct": 0,
+      "explanation": "❌ Mô men chính MO = Σmo(Fi) phụ thuộc vào tâm thu gọn O.",
+      "feedbackCorrect": "✅ Mô men chính phụ thuộc vào việc chọn tâm O.",
+      "feedbackWrong": "❌ Mô men chính MO = Σmo(Fi) phụ thuộc vào tâm thu gọn O."
+    },
+    {
+      "id": "quiz-ch1-026",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-026",
+      "question": "Khi véc tơ chính R = 0 và mô men chính MO = 0 thì hệ lực:",
+      "options": [
+        "Tương đương ngẫu lực",
+        "Cân bằng",
+        "Thu gọn về 1 lực",
+        "Không xác định"
+      ],
+      "correct": 1,
+      "explanation": "❌ Điều kiện cân bằng: R = 0 VÀ MO = 0.",
+      "feedbackCorrect": "✅ R=0, MO=0 → hệ lực cân bằng.",
+      "feedbackWrong": "❌ Điều kiện cân bằng: R = 0 VÀ MO = 0."
+    },
+    {
+      "id": "quiz-ch1-027",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-027",
+      "question": "Khi R ≠ 0 thì hệ lực thu gọn về:",
+      "options": [
+        "Ngẫu lực",
+        "Hợp lực duy nhất",
+        "Cặp lực cân bằng",
+        "Không thu gọn được"
+      ],
+      "correct": 1,
+      "explanation": "❌ Khi R ≠ 0 hệ lực thu gọn về 1 hợp lực.",
+      "feedbackCorrect": "✅ R ≠ 0 → hệ lực có hợp lực.",
+      "feedbackWrong": "❌ Khi R ≠ 0 hệ lực thu gọn về 1 hợp lực."
+    },
+    {
+      "id": "quiz-ch1-028",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-028",
+      "question": "Hệ lực phẳng song song có tối đa mấy phương trình cân bằng độc lập?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "correct": 0,
+      "explanation": "❌ Hệ phẳng song song: 2 phương trình cân bằng.",
+      "feedbackCorrect": "✅ Hệ lực phẳng song song: 2 PTCB độc lập.",
+      "feedbackWrong": "❌ Hệ phẳng song song: 2 phương trình cân bằng."
+    },
+    {
+      "id": "quiz-ch1-029",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-029",
+      "question": "Hệ lực phẳng bất kỳ có tối đa mấy phương trình cân bằng?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "correct": 1,
+      "explanation": "❌ Hệ lực phẳng bất kỳ → 3 phương trình cân bằng.",
+      "feedbackCorrect": "✅ HLPBK: 3 PTCB (ΣFx=0, ΣFy=0, ΣmO=0).",
+      "feedbackWrong": "❌ Hệ lực phẳng bất kỳ → 3 phương trình cân bằng."
+    },
+    {
+      "id": "quiz-ch1-030",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-030",
+      "question": "Hệ lực không gian bất kỳ có mấy PTCB?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": 3,
+      "explanation": "❌ Hệ lực KG bất kỳ: 6 PTCB (ΣFx,Fy,Fz=0 + Σmx,my,mz=0).",
+      "feedbackCorrect": "✅ HLKGBK: 6 PTCB (3 lực + 3 mô men).",
+      "feedbackWrong": "❌ Hệ lực KG bất kỳ: 6 PTCB (ΣFx,Fy,Fz=0 + Σmx,my,mz=0)."
+    },
+    {
+      "id": "quiz-ch1-031",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-031",
+      "question": "Hệ lực phẳng đồng quy có mấy phương trình cân bằng?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": 1,
+      "explanation": "❌ HLPĐQ: ΣFx=0, ΣFy=0 → 2 PTCB.",
+      "feedbackCorrect": "✅ Hệ lực phẳng đồng quy: 2 PTCB.",
+      "feedbackWrong": "❌ HLPĐQ: ΣFx=0, ΣFy=0 → 2 PTCB."
+    },
+    {
+      "id": "quiz-ch1-032",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-032",
+      "question": "Dạng mô men của PTCB hệ lực phẳng bất kỳ là:",
+      "options": [
+        "ΣmA=0, ΣmB=0, ΣmC=0 (A,B,C không thẳng hàng)",
+        "ΣFx=0, ΣFy=0",
+        "ΣFz=0",
+        "ΣF=0"
+      ],
+      "correct": 0,
+      "explanation": "❌ Có thể viết 3 PTCB dạng mô men (A,B,C không thẳng hàng).",
+      "feedbackCorrect": "✅ Dạng 3 mô men: ΣmA=0, ΣmB=0, ΣmC=0.",
+      "feedbackWrong": "❌ Có thể viết 3 PTCB dạng mô men (A,B,C không thẳng hàng)."
+    },
+    {
+      "id": "quiz-ch1-033",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-033",
+      "question": "Hệ lực đồng quy không gian có mấy PTCB?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "correct": 1,
+      "explanation": "❌ Hệ lực đồng quy không gian: 3 PTCB.",
+      "feedbackCorrect": "✅ Đồng quy KG: ΣFx=0, ΣFy=0, ΣFz=0 → 3 PTCB.",
+      "feedbackWrong": "❌ Hệ lực đồng quy không gian: 3 PTCB."
+    },
+    {
+      "id": "quiz-ch1-034",
+      "chapter": "ch1",
+      "section": "VI",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "foundation",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-034",
+      "question": "Lực ma sát trượt tỉ lệ với:",
+      "options": [
+        "Diện tích tiếp xúc",
+        "Phản lực pháp tuyến",
+        "Vận tốc",
+        "Khối lượng"
+      ],
+      "correct": 1,
+      "explanation": "❌ Lực ma sát trượt = f × N (tỷ lệ phản lực pháp tuyến).",
+      "feedbackCorrect": "✅ Fms = f × N (f = hệ số ma sát, N = phản lực pháp tuyến).",
+      "feedbackWrong": "❌ Lực ma sát trượt = f × N (tỷ lệ phản lực pháp tuyến)."
+    },
+    {
+      "id": "quiz-ch1-035",
+      "chapter": "ch1",
+      "section": "VI",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-035",
+      "question": "Hệ số ma sát trượt phụ thuộc vào:",
+      "options": [
+        "Diện tích tiếp xúc",
+        "Vật liệu và tình trạng bề mặt",
+        "Khối lượng vật",
+        "Hình dạng vật"
+      ],
+      "correct": 1,
+      "explanation": "❌ f phụ thuộc vào vật liệu và tình trạng bề mặt tiếp xúc.",
+      "feedbackCorrect": "✅ Hệ số ma sát phụ thuộc vật liệu và độ nhám bề mặt.",
+      "feedbackWrong": "❌ f phụ thuộc vào vật liệu và tình trạng bề mặt tiếp xúc."
+    },
+    {
+      "id": "quiz-ch1-036",
+      "chapter": "ch1",
+      "section": "VI",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-036",
+      "question": "Góc ma sát là:",
+      "options": [
+        "Góc nghiêng mặt phẳng",
+        "Góc giữa phản lực toàn phần và pháp tuyến",
+        "Góc giữa 2 lực",
+        "Góc giữa F và v"
+      ],
+      "correct": 1,
+      "explanation": "❌ Góc ma sát = góc giữa phản lực toàn phần và pháp tuyến mặt tiếp xúc.",
+      "feedbackCorrect": "✅ Góc ma sát φ = arctan(f).",
+      "feedbackWrong": "❌ Góc ma sát = góc giữa phản lực toàn phần và pháp tuyến mặt tiếp xúc."
+    },
+    {
+      "id": "quiz-ch1-037",
+      "chapter": "ch1",
+      "section": "VI",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-037",
+      "question": "Ma sát lăn được đặc trưng bởi:",
+      "options": [
+        "Hệ số ma sát",
+        "Mô men cản lăn",
+        "Lực pháp tuyến",
+        "Lực tiếp tuyến"
+      ],
+      "correct": 1,
+      "explanation": "❌ Ma sát lăn đặc trưng bởi mô men cản lăn.",
+      "feedbackCorrect": "✅ Ma sát lăn → mô men cản lăn Ml = δ × N.",
+      "feedbackWrong": "❌ Ma sát lăn đặc trưng bởi mô men cản lăn."
+    },
+    {
+      "id": "quiz-ch1-038",
+      "chapter": "ch1",
+      "section": "VI",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-038",
+      "question": "Điều kiện tự hãm xảy ra khi:",
+      "options": [
+        "Góc lực tác dụng ≤ góc ma sát",
+        "Lực rất lớn",
+        "Bề mặt rất nhám",
+        "F > N"
+      ],
+      "correct": 0,
+      "explanation": "❌ Tự hãm: vật không trượt khi α ≤ φ bất kể lực lớn bao nhiêu.",
+      "feedbackCorrect": "✅ Tự hãm khi góc α ≤ φ (góc ma sát).",
+      "feedbackWrong": "❌ Tự hãm: vật không trượt khi α ≤ φ bất kể lực lớn bao nhiêu."
+    },
+    {
+      "id": "quiz-ch1-039",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-039",
+      "question": "Trọng tâm của vật rắn là:",
+      "options": [
+        "Điểm đặt hợp lực trọng trường",
+        "Tâm hình học",
+        "Điểm giữa vật",
+        "Điểm cao nhất"
+      ],
+      "correct": 0,
+      "explanation": "❌ Trọng tâm là điểm đặt của hợp lực trọng trường.",
+      "feedbackCorrect": "✅ Trọng tâm = điểm đặt hợp lực của các lực trọng trường.",
+      "feedbackWrong": "❌ Trọng tâm là điểm đặt của hợp lực trọng trường."
+    },
+    {
+      "id": "quiz-ch1-040",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-040",
+      "question": "Trọng tâm tam giác nằm tại:",
+      "options": [
+        "Đỉnh",
+        "Giao 3 đường trung tuyến",
+        "Giao 3 đường cao",
+        "Tâm đường tròn ngoại tiếp"
+      ],
+      "correct": 1,
+      "explanation": "❌ Trọng tâm Δ = giao 3 đường trung tuyến (cách đỉnh 2/3).",
+      "feedbackCorrect": "✅ Trọng tâm tam giác = giao 3 đường trung tuyến.",
+      "feedbackWrong": "❌ Trọng tâm Δ = giao 3 đường trung tuyến (cách đỉnh 2/3)."
+    },
+    {
+      "id": "quiz-ch1-041",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-041",
+      "question": "Công thức tính tọa độ trọng tâm xC =",
+      "options": [
+        "ΣPi·xi / ΣPi",
+        "ΣPi / xi",
+        "ΣPi + xi",
+        "xi / ΣPi"
+      ],
+      "correct": 0,
+      "explanation": "❌ Tọa độ trọng tâm: xC = Σ(Pi·xi) / ΣPi.",
+      "feedbackCorrect": "✅ xC = Σ(Pi·xi)/ΣPi.",
+      "feedbackWrong": "❌ Tọa độ trọng tâm: xC = Σ(Pi·xi) / ΣPi."
+    },
+    {
+      "id": "quiz-ch1-042",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-042",
+      "question": "Trọng tâm nửa đường tròn bán kính R cách tâm:",
+      "options": [
+        "R/2",
+        "2R/π",
+        "R/π",
+        "R/3"
+      ],
+      "correct": 1,
+      "explanation": "❌ Nửa đường tròn: yC = 2R/π.",
+      "feedbackCorrect": "✅ Trọng tâm nửa đường tròn cách tâm 2R/π.",
+      "feedbackWrong": "❌ Nửa đường tròn: yC = 2R/π."
+    },
+    {
+      "id": "quiz-ch1-043",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-043",
+      "question": "Nếu vật có trục đối xứng thì trọng tâm:",
+      "options": [
+        "Nằm trên trục đối xứng",
+        "Nằm ngoài vật",
+        "Không xác định được",
+        "Nằm ở biên"
+      ],
+      "correct": 0,
+      "explanation": "❌ Tính chất: trọng tâm luôn nằm trên trục đối xứng.",
+      "feedbackCorrect": "✅ Trọng tâm nằm trên trục đối xứng.",
+      "feedbackWrong": "❌ Tính chất: trọng tâm luôn nằm trên trục đối xứng."
+    },
+    {
+      "id": "quiz-ch1-044",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-044",
+      "question": "Phương pháp phần bù dùng để tính trọng tâm khi:",
+      "options": [
+        "Vật có lỗ khoét",
+        "Vật đồng nhất",
+        "Vật tròn",
+        "Vật phẳng"
+      ],
+      "correct": 0,
+      "explanation": "❌ PP phần bù: vật bị khoét = vật nguyên - phần khoét.",
+      "feedbackCorrect": "✅ Phương pháp phần bù dùng cho vật có lỗ khoét.",
+      "feedbackWrong": "❌ PP phần bù: vật bị khoét = vật nguyên - phần khoét."
+    },
+    {
+      "id": "quiz-ch1-045",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-045",
+      "question": "Cho dầm AB dài 4m, tựa đơn 2 đầu, lực P=10kN đặt giữa dầm. Phản lực tại A bằng:",
+      "options": [
+        "10 kN",
+        "5 kN",
+        "2.5 kN",
+        "7.5 kN"
+      ],
+      "correct": 1,
+      "explanation": "❌ P đặt giữa AB → RA = P/2 = 5 kN (đối xứng).",
+      "feedbackCorrect": "✅ Lực đặt giữa → RA = RB = P/2 = 5 kN.",
+      "feedbackWrong": "❌ P đặt giữa AB → RA = P/2 = 5 kN (đối xứng)."
+    },
+    {
+      "id": "quiz-ch1-046",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-046",
+      "question": "Ngẫu lực có mô men m = F×d. Nếu F=20N, d=0.5m thì m =",
+      "options": [
+        "10 N·m",
+        "40 N·m",
+        "5 N·m",
+        "100 N·m"
+      ],
+      "correct": 0,
+      "explanation": "❌ m = F × d = 20 × 0.5 = 10 N·m.",
+      "feedbackCorrect": "✅ m = 20 × 0.5 = 10 N·m.",
+      "feedbackWrong": "❌ m = F × d = 20 × 0.5 = 10 N·m."
+    },
+    {
+      "id": "quiz-ch1-047",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-047",
+      "question": "Hai lực F1=3N, F2=4N vuông góc nhau. Hợp lực R =",
+      "options": [
+        "7 N",
+        "1 N",
+        "5 N",
+        "12 N"
+      ],
+      "correct": 2,
+      "explanation": "❌ R = √(F1²+F2²) = √(9+16) = 5 N.",
+      "feedbackCorrect": "✅ R = √(3²+4²) = √25 = 5 N.",
+      "feedbackWrong": "❌ R = √(F1²+F2²) = √(9+16) = 5 N."
+    },
+    {
+      "id": "quiz-ch1-048",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-048",
+      "question": "Dầm console dài L, chịu lực tập trung P tại đầu tự do. Mô men tại ngàm bằng:",
+      "options": [
+        "P×L",
+        "P/L",
+        "P×L²",
+        "P×L/2"
+      ],
+      "correct": 0,
+      "explanation": "❌ Mô men tại ngàm = P × L (lực × cánh tay đòn).",
+      "feedbackCorrect": "✅ Mô men ngàm M = P × L.",
+      "feedbackWrong": "❌ Mô men tại ngàm = P × L (lực × cánh tay đòn)."
+    },
+    {
+      "id": "quiz-ch1-049",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-049",
+      "question": "Vật nặng P=100N trên mặt phẳng nghiêng α=30°, hệ số ma sát 0.2. Lực ma sát =",
+      "options": [
+        "20 N",
+        "17.3 N",
+        "10 N",
+        "50 N"
+      ],
+      "correct": 1,
+      "explanation": "❌ N = P·cosα, Fms = f×N = 0.2 × 100 × cos30° ≈ 17.3 N.",
+      "feedbackCorrect": "✅ Fms = f×N = 0.2×P×cos30° = 0.2×100×0.866 ≈ 17.3N.",
+      "feedbackWrong": "❌ N = P·cosα, Fms = f×N = 0.2 × 100 × cos30° ≈ 17.3 N."
+    },
+    {
+      "id": "quiz-ch1-050",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-050",
+      "question": "Cho hệ 3 lực đồng quy: F1=5N(↑), F2=3N(→), F3=4N(↓). Hợp lực có cường độ:",
+      "options": [
+        "12 N",
+        "√10 N",
+        "2 N",
+        "√(1+9) = √10 N"
+      ],
+      "correct": 1,
+      "explanation": "❌ Rx=3, Ry=1 → R = √(9+1) = √10 ≈ 3.16 N.",
+      "feedbackCorrect": "✅ Rx=3, Ry=5-4=1 → R=√(9+1)=√10 N.",
+      "feedbackWrong": "❌ Rx=3, Ry=1 → R = √(9+1) = √10 ≈ 3.16 N."
+    },
+    {
+      "id": "quiz-ch1-051",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-051",
+      "question": "Khi một lực trượt dọc theo đường tác dụng của nó trên vật rắn tuyệt đối, đại lượng nào được giữ nguyên?",
+      "options": [
+        "Tác dụng ngoài của lực đối với vật rắn",
+        "Cường độ của mọi phản lực liên kết",
+        "Khối lượng của vật",
+        "Vị trí trọng tâm của vật"
+      ],
+      "correct": 0,
+      "explanation": "Sai. Định lý trượt lực cho phép dời điểm đặt trên cùng đường tác dụng mà không đổi tác dụng ngoài.",
+      "feedbackCorrect": "Đúng. Định lý trượt lực cho phép dời điểm đặt trên cùng đường tác dụng mà không đổi tác dụng ngoài.",
+      "feedbackWrong": "Sai. Định lý trượt lực cho phép dời điểm đặt trên cùng đường tác dụng mà không đổi tác dụng ngoài."
+    },
+    {
+      "id": "quiz-ch1-052",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-052",
+      "question": "Một ngẫu lực gồm hai lực 40 N song song, ngược chiều, cách nhau 0,25 m. Mô men ngẫu lực bằng bao nhiêu?",
+      "options": [
+        "20 N.m",
+        "10 N.m",
+        "40 N.m",
+        "160 N.m"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Mô men ngẫu lực M = Fd = 40 × 0,25 = 10 N.m.",
+      "feedbackCorrect": "Đúng. Mô men ngẫu lực M = Fd = 40 × 0,25 = 10 N.m.",
+      "feedbackWrong": "Sai. Mô men ngẫu lực M = Fd = 40 × 0,25 = 10 N.m."
+    },
+    {
+      "id": "quiz-ch1-053",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-053",
+      "question": "Mô men của lực đối với một điểm bằng 0 trong trường hợp nào?",
+      "options": [
+        "Lực có phương ngang",
+        "Lực đặt tại trọng tâm",
+        "Đường tác dụng của lực đi qua điểm đó",
+        "Vật đang cân bằng"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Cánh tay đòn bằng 0 khi đường tác dụng đi qua điểm lấy mô men.",
+      "feedbackCorrect": "Đúng. Cánh tay đòn bằng 0 khi đường tác dụng đi qua điểm lấy mô men.",
+      "feedbackWrong": "Sai. Cánh tay đòn bằng 0 khi đường tác dụng đi qua điểm lấy mô men."
+    },
+    {
+      "id": "quiz-ch1-054",
+      "chapter": "ch1",
+      "section": "I",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-054",
+      "question": "Hệ hai lực song song, ngược chiều, cùng độ lớn và khác đường tác dụng tương đương với gì?",
+      "options": [
+        "Một lực đặt ở trung điểm",
+        "Một phản lực pháp tuyến",
+        "Trạng thái không chịu lực",
+        "Một ngẫu lực"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Hai lực như vậy có hợp lực bằng 0 nhưng còn mô men ngẫu lực.",
+      "feedbackCorrect": "Đúng. Hai lực như vậy có hợp lực bằng 0 nhưng còn mô men ngẫu lực.",
+      "feedbackWrong": "Sai. Hai lực như vậy có hợp lực bằng 0 nhưng còn mô men ngẫu lực."
+    },
+    {
+      "id": "quiz-ch1-055",
+      "chapter": "ch1",
+      "section": "II",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-055",
+      "question": "Vật rắn chỉ chịu hai lực và đang cân bằng. Hai lực đó phải có quan hệ nào?",
+      "options": [
+        "Cùng đường tác dụng, ngược chiều, cùng độ lớn",
+        "Vuông góc nhau và cùng độ lớn",
+        "Song song cùng chiều",
+        "Có tổng mô men khác 0"
+      ],
+      "correct": 0,
+      "explanation": "Sai. Điều kiện cân bằng của vật chịu hai lực yêu cầu hai lực trực đối.",
+      "feedbackCorrect": "Đúng. Điều kiện cân bằng của vật chịu hai lực yêu cầu hai lực trực đối.",
+      "feedbackWrong": "Sai. Điều kiện cân bằng của vật chịu hai lực yêu cầu hai lực trực đối."
+    },
+    {
+      "id": "quiz-ch1-056",
+      "chapter": "ch1",
+      "section": "III",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-056",
+      "question": "Gối di động lý tưởng trên mặt phẳng ngang thường tạo phản lực theo phương nào?",
+      "options": [
+        "Nằm ngang, dọc theo mặt tựa",
+        "Thẳng đứng, vuông góc mặt tựa",
+        "Theo phương của lực ngoài lớn nhất",
+        "Theo mọi phương độc lập"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Gối di động chỉ cản chuyển động theo pháp tuyến mặt tựa.",
+      "feedbackCorrect": "Đúng. Gối di động chỉ cản chuyển động theo pháp tuyến mặt tựa.",
+      "feedbackWrong": "Sai. Gối di động chỉ cản chuyển động theo pháp tuyến mặt tựa."
+    },
+    {
+      "id": "quiz-ch1-057",
+      "chapter": "ch1",
+      "section": "III",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-057",
+      "question": "Thanh nhẹ khớp hai đầu chỉ chịu lực tại hai đầu. Phản lực trong thanh có phương nào?",
+      "options": [
+        "Vuông góc trục thanh",
+        "Theo phương thẳng đứng",
+        "Dọc theo trục thanh",
+        "Theo phương mô men ngẫu lực"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Thanh hai lực chỉ truyền lực dọc theo đường nối hai khớp.",
+      "feedbackCorrect": "Đúng. Thanh hai lực chỉ truyền lực dọc theo đường nối hai khớp.",
+      "feedbackWrong": "Sai. Thanh hai lực chỉ truyền lực dọc theo đường nối hai khớp."
+    },
+    {
+      "id": "quiz-ch1-058",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-058",
+      "question": "Hệ lực không gian tổng quát khi thu gọn tại điểm O cho những đại lượng nào?",
+      "options": [
+        "Một lực duy nhất trong mọi trường hợp",
+        "Một ngẫu lực duy nhất trong mọi trường hợp",
+        "Ba phản lực liên kết",
+        "Véc tơ chính và mô men chính tại O"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Thu gọn hệ lực không gian tại O cho R và M_O.",
+      "feedbackCorrect": "Đúng. Thu gọn hệ lực không gian tại O cho R và M_O.",
+      "feedbackWrong": "Sai. Thu gọn hệ lực không gian tại O cho R và M_O."
+    },
+    {
+      "id": "quiz-ch1-059",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-059",
+      "question": "Véc tơ chính của hệ lực không gian được xác định như thế nào?",
+      "options": [
+        "Tổng véc tơ của tất cả các lực",
+        "Tổng đại số độ lớn các lực",
+        "Tổng mô men quanh trục x",
+        "Tích của lực lớn nhất với cánh tay đòn"
+      ],
+      "correct": 0,
+      "explanation": "Sai. Véc tơ chính R là tổng véc tơ các lực thành phần.",
+      "feedbackCorrect": "Đúng. Véc tơ chính R là tổng véc tơ các lực thành phần.",
+      "feedbackWrong": "Sai. Véc tơ chính R là tổng véc tơ các lực thành phần."
+    },
+    {
+      "id": "quiz-ch1-060",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-060",
+      "question": "Khi chuyển tâm thu gọn từ O sang A, đại lượng nào không đổi?",
+      "options": [
+        "Mô men chính trong mọi trường hợp",
+        "Véc tơ chính của hệ lực",
+        "Cánh tay đòn từng lực",
+        "Tọa độ điểm đặt lực"
+      ],
+      "correct": 1,
+      "explanation": "Sai. R không phụ thuộc tâm thu gọn; mô men chính thì thay đổi theo công thức chuyển tâm.",
+      "feedbackCorrect": "Đúng. R không phụ thuộc tâm thu gọn; mô men chính thì thay đổi theo công thức chuyển tâm.",
+      "feedbackWrong": "Sai. R không phụ thuộc tâm thu gọn; mô men chính thì thay đổi theo công thức chuyển tâm."
+    },
+    {
+      "id": "quiz-ch1-061",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-061",
+      "question": "Điều kiện cân bằng đầy đủ của vật rắn trong không gian gồm bao nhiêu phương trình độc lập?",
+      "options": [
+        "3 phương trình",
+        "2 phương trình",
+        "6 phương trình",
+        "1 phương trình"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Không gian cần ba phương trình lực và ba phương trình mô men.",
+      "feedbackCorrect": "Đúng. Không gian cần ba phương trình lực và ba phương trình mô men.",
+      "feedbackWrong": "Sai. Không gian cần ba phương trình lực và ba phương trình mô men."
+    },
+    {
+      "id": "quiz-ch1-062",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-062",
+      "question": "Nếu R = 0 nhưng M_O khác 0, hệ lực thu gọn thành dạng nào?",
+      "options": [
+        "Một lực duy nhất",
+        "Ba lực đồng quy",
+        "Không còn tác dụng cơ học",
+        "Ngẫu lực"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Hợp lực bằng 0 nhưng mô men khác 0 là hệ ngẫu lực.",
+      "feedbackCorrect": "Đúng. Hợp lực bằng 0 nhưng mô men khác 0 là hệ ngẫu lực.",
+      "feedbackWrong": "Sai. Hợp lực bằng 0 nhưng mô men khác 0 là hệ ngẫu lực."
+    },
+    {
+      "id": "quiz-ch1-063",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-063",
+      "question": "Một lực F = (2; -1; 3) N đặt tại A có r_OA = (1; 0; 2) m. Mô men đối với O được tính bằng biểu thức nào?",
+      "options": [
+        "r_OA × F",
+        "F × r_OA",
+        "r_OA + F",
+        "F/r_OA"
+      ],
+      "correct": 0,
+      "explanation": "Sai. Mô men của lực đối với O là tích có hướng r_OA × F.",
+      "feedbackCorrect": "Đúng. Mô men của lực đối với O là tích có hướng r_OA × F.",
+      "feedbackWrong": "Sai. Mô men của lực đối với O là tích có hướng r_OA × F."
+    },
+    {
+      "id": "quiz-ch1-064",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-064",
+      "question": "Một ngàm trong không gian có thể sinh tối đa bao nhiêu thành phần phản lực và phản mô men?",
+      "options": [
+        "3",
+        "6",
+        "2",
+        "1"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Ngàm không gian khóa ba tịnh tiến và ba quay.",
+      "feedbackCorrect": "Đúng. Ngàm không gian khóa ba tịnh tiến và ba quay.",
+      "feedbackWrong": "Sai. Ngàm không gian khóa ba tịnh tiến và ba quay."
+    },
+    {
+      "id": "quiz-ch1-065",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-065",
+      "question": "Hệ lực đồng quy tại O có tổng mô men quanh O bằng bao nhiêu?",
+      "options": [
+        "Bằng tổng độ lớn các lực",
+        "Bằng tích lực lớn nhất với bán kính",
+        "Bằng 0",
+        "Luôn khác 0"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Mọi đường tác dụng đi qua O nên cánh tay đòn đối với O bằng 0.",
+      "feedbackCorrect": "Đúng. Mọi đường tác dụng đi qua O nên cánh tay đòn đối với O bằng 0.",
+      "feedbackWrong": "Sai. Mọi đường tác dụng đi qua O nên cánh tay đòn đối với O bằng 0."
+    },
+    {
+      "id": "quiz-ch1-066",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-066",
+      "question": "Muốn hệ lực không gian cân bằng, ngoài ΣFx = ΣFy = ΣFz = 0 còn cần điều kiện nào?",
+      "options": [
+        "Chỉ ΣMx = 0",
+        "Chỉ có một điểm đặt lực",
+        "Tất cả lực cùng chiều",
+        "ΣMx = ΣMy = ΣMz = 0"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Vật rắn còn phải không quay quanh ba trục tọa độ.",
+      "feedbackCorrect": "Đúng. Vật rắn còn phải không quay quanh ba trục tọa độ.",
+      "feedbackWrong": "Sai. Vật rắn còn phải không quay quanh ba trục tọa độ."
+    },
+    {
+      "id": "quiz-ch1-067",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "intermediate",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-067",
+      "question": "Khi R khác 0 và M_O có thành phần song song với R, dạng thu gọn đặc trưng là gì?",
+      "options": [
+        "Lực xoắn",
+        "Một lực phẳng",
+        "Một phản lực gối",
+        "Một lực ma sát"
+      ],
+      "correct": 0,
+      "explanation": "Sai. Thành phần mô men song song R không khử được bằng đổi tâm, tạo lực xoắn.",
+      "feedbackCorrect": "Đúng. Thành phần mô men song song R không khử được bằng đổi tâm, tạo lực xoắn.",
+      "feedbackWrong": "Sai. Thành phần mô men song song R không khử được bằng đổi tâm, tạo lực xoắn."
+    },
+    {
+      "id": "quiz-ch1-068",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-068",
+      "question": "Trong bài toán không gian, phương trình ΣMx = 0 dùng để loại xu hướng nào?",
+      "options": [
+        "Tịnh tiến theo trục x",
+        "Quay quanh trục x",
+        "Quay quanh trục y",
+        "Tịnh tiến theo trục z"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Mô men quanh trục x liên quan trực tiếp đến quay quanh trục x.",
+      "feedbackCorrect": "Đúng. Mô men quanh trục x liên quan trực tiếp đến quay quanh trục x.",
+      "feedbackWrong": "Sai. Mô men quanh trục x liên quan trực tiếp đến quay quanh trục x."
+    },
+    {
+      "id": "quiz-ch1-069",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-069",
+      "question": "Hệ lực song song không gian muốn cân bằng phải thỏa mãn điều kiện nào?",
+      "options": [
+        "Các lực đều cùng chiều",
+        "Các lực đặt tại một điểm",
+        "Tổng lực song song bằng 0 và tổng mô men phù hợp bằng 0",
+        "Chỉ cần tổng lực khác 0"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Hệ lực song song vẫn phải triệt cả tác dụng tịnh tiến và quay.",
+      "feedbackCorrect": "Đúng. Hệ lực song song vẫn phải triệt cả tác dụng tịnh tiến và quay.",
+      "feedbackWrong": "Sai. Hệ lực song song vẫn phải triệt cả tác dụng tịnh tiến và quay."
+    },
+    {
+      "id": "quiz-ch1-070",
+      "chapter": "ch1",
+      "section": "IV",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-070",
+      "question": "Nếu R khác 0 và M_O vuông góc với R, hệ lực có thể thu gọn về dạng nào?",
+      "options": [
+        "Một ngẫu lực thuần túy",
+        "Trạng thái cân bằng",
+        "Một mô men tự do duy nhất",
+        "Một lực duy nhất trên đường tác dụng thích hợp"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Khi M_O · R = 0, có thể đổi tâm để mô men tại tâm mới bằng 0.",
+      "feedbackCorrect": "Đúng. Khi M_O · R = 0, có thể đổi tâm để mô men tại tâm mới bằng 0.",
+      "feedbackWrong": "Sai. Khi M_O · R = 0, có thể đổi tâm để mô men tại tâm mới bằng 0."
+    },
+    {
+      "id": "quiz-ch1-071",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-071",
+      "question": "Một vật có N = 300 N, hệ số ma sát trượt f = 0,25. Lực ma sát trượt tới hạn bằng bao nhiêu?",
+      "options": [
+        "75 N",
+        "120 N",
+        "300 N",
+        "0,25 N"
+      ],
+      "correct": 0,
+      "explanation": "Sai. F_ms = fN = 0,25 × 300 = 75 N.",
+      "feedbackCorrect": "Đúng. F_ms = fN = 0,25 × 300 = 75 N.",
+      "feedbackWrong": "Sai. F_ms = fN = 0,25 × 300 = 75 N."
+    },
+    {
+      "id": "quiz-ch1-072",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-072",
+      "question": "Vật nằm yên trên sàn nhám, chịu lực kéo ngang P = 40 N, trong khi fN = 60 N. Lực ma sát nghỉ bằng bao nhiêu?",
+      "options": [
+        "60 N",
+        "40 N",
+        "20 N",
+        "100 N"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Ma sát nghỉ tự điều chỉnh để cân bằng lực kéo khi chưa đạt giới hạn.",
+      "feedbackCorrect": "Đúng. Ma sát nghỉ tự điều chỉnh để cân bằng lực kéo khi chưa đạt giới hạn.",
+      "feedbackWrong": "Sai. Ma sát nghỉ tự điều chỉnh để cân bằng lực kéo khi chưa đạt giới hạn."
+    },
+    {
+      "id": "quiz-ch1-073",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-073",
+      "question": "Khi vật sắp trượt xuống trên mặt phẳng nghiêng, lực ma sát có chiều nào?",
+      "options": [
+        "Hướng xuống dọc theo mặt phẳng nghiêng",
+        "Vuông góc rời khỏi mặt phẳng",
+        "Hướng lên dọc theo mặt phẳng nghiêng",
+        "Thẳng đứng hướng xuống"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Ma sát luôn chống lại xu hướng trượt tương đối.",
+      "feedbackCorrect": "Đúng. Ma sát luôn chống lại xu hướng trượt tương đối.",
+      "feedbackWrong": "Sai. Ma sát luôn chống lại xu hướng trượt tương đối."
+    },
+    {
+      "id": "quiz-ch1-074",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-074",
+      "question": "Điều kiện tự hãm của vật trên mặt phẳng nghiêng có thể viết như thế nào?",
+      "options": [
+        "sin α = 1/f",
+        "cos α = fN",
+        "α = N/f",
+        "tan α ≤ f"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Tự hãm khi góc nghiêng không vượt góc ma sát, với tan φ = f.",
+      "feedbackCorrect": "Đúng. Tự hãm khi góc nghiêng không vượt góc ma sát, với tan φ = f.",
+      "feedbackWrong": "Sai. Tự hãm khi góc nghiêng không vượt góc ma sát, với tan φ = f."
+    },
+    {
+      "id": "quiz-ch1-075",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-075",
+      "question": "Một khối 20 kg nằm trên sàn ngang, lấy g = 10 m/s², f = 0,3. Lực kéo ngang nhỏ nhất để bắt đầu trượt là bao nhiêu?",
+      "options": [
+        "60 N",
+        "30 N",
+        "200 N",
+        "600 N"
+      ],
+      "correct": 0,
+      "explanation": "Sai. N = mg = 200 N, nên F_min = fN = 60 N.",
+      "feedbackCorrect": "Đúng. N = mg = 200 N, nên F_min = fN = 60 N.",
+      "feedbackWrong": "Sai. N = mg = 200 N, nên F_min = fN = 60 N."
+    },
+    {
+      "id": "quiz-ch1-076",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-076",
+      "question": "Khi kéo vật bằng dây nghiêng lên so với phương ngang, thành phần nào làm giảm lực ma sát tới hạn?",
+      "options": [
+        "Thành phần ngang của lực kéo",
+        "Thành phần thẳng đứng hướng lên của lực kéo",
+        "Trọng lượng của vật tăng lên",
+        "Hệ số ma sát tăng lên"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Thành phần kéo lên làm giảm N, kéo theo giảm fN.",
+      "feedbackCorrect": "Đúng. Thành phần kéo lên làm giảm N, kéo theo giảm fN.",
+      "feedbackWrong": "Sai. Thành phần kéo lên làm giảm N, kéo theo giảm fN."
+    },
+    {
+      "id": "quiz-ch1-077",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-077",
+      "question": "Khi đẩy vật bằng lực nghiêng xuống, lực ma sát tới hạn thường thay đổi thế nào?",
+      "options": [
+        "Giảm vì phản lực pháp tuyến giảm",
+        "Không phụ thuộc phản lực",
+        "Tăng vì phản lực pháp tuyến tăng",
+        "Luôn bằng 0"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Thành phần ép xuống làm N tăng nên giới hạn ma sát tăng.",
+      "feedbackCorrect": "Đúng. Thành phần ép xuống làm N tăng nên giới hạn ma sát tăng.",
+      "feedbackWrong": "Sai. Thành phần ép xuống làm N tăng nên giới hạn ma sát tăng."
+    },
+    {
+      "id": "quiz-ch1-078",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-078",
+      "question": "Góc ma sát φ liên hệ với hệ số ma sát f bằng công thức nào?",
+      "options": [
+        "sin φ = fN",
+        "cos φ = f",
+        "φ = fN",
+        "tan φ = f"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Góc ma sát được định nghĩa qua tan φ = F_ms/N = f.",
+      "feedbackCorrect": "Đúng. Góc ma sát được định nghĩa qua tan φ = F_ms/N = f.",
+      "feedbackWrong": "Sai. Góc ma sát được định nghĩa qua tan φ = F_ms/N = f."
+    },
+    {
+      "id": "quiz-ch1-079",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-079",
+      "question": "Một vật trên mặt nghiêng α = 20° có f = 0,5. Vì tan20° ≈ 0,364, kết luận đúng là gì?",
+      "options": [
+        "Vật có thể tự hãm nếu không có lực ngoài khác",
+        "Vật chắc chắn trượt xuống",
+        "Ma sát bằng 0",
+        "Phản lực pháp tuyến bằng trọng lượng"
+      ],
+      "correct": 0,
+      "explanation": "Sai. Vì tan α < f nên ma sát có thể giữ vật cân bằng.",
+      "feedbackCorrect": "Đúng. Vì tan α < f nên ma sát có thể giữ vật cân bằng.",
+      "feedbackWrong": "Sai. Vì tan α < f nên ma sát có thể giữ vật cân bằng."
+    },
+    {
+      "id": "quiz-ch1-080",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-080",
+      "question": "Trong hình nón ma sát, tiếp xúc còn cân bằng khi phản lực tổng hợp nằm ở đâu?",
+      "options": [
+        "Bên ngoài nón ma sát",
+        "Bên trong hoặc trên mặt nón ma sát",
+        "Luôn nằm ngang",
+        "Luôn trùng với trọng lượng"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Nằm trong nón ma sát nghĩa là chưa vượt giới hạn trượt.",
+      "feedbackCorrect": "Đúng. Nằm trong nón ma sát nghĩa là chưa vượt giới hạn trượt.",
+      "feedbackWrong": "Sai. Nằm trong nón ma sát nghĩa là chưa vượt giới hạn trượt."
+    },
+    {
+      "id": "quiz-ch1-081",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-081",
+      "question": "Ma sát lăn thường được biểu diễn bằng đại lượng nào trong mô hình tĩnh học?",
+      "options": [
+        "Lực ly tâm",
+        "Gia tốc góc",
+        "Mô men cản lăn",
+        "Trọng tâm của bánh"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Ma sát lăn do biến dạng vùng tiếp xúc thường quy về mô men cản lăn.",
+      "feedbackCorrect": "Đúng. Ma sát lăn do biến dạng vùng tiếp xúc thường quy về mô men cản lăn.",
+      "feedbackWrong": "Sai. Ma sát lăn do biến dạng vùng tiếp xúc thường quy về mô men cản lăn."
+    },
+    {
+      "id": "quiz-ch1-082",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-082",
+      "question": "Bánh xe bán kính 0,4 m chịu mô men cản lăn 8 N.m. Lực kéo tiếp tuyến tối thiểu xấp xỉ bao nhiêu?",
+      "options": [
+        "3,2 N",
+        "8,4 N",
+        "80 N",
+        "20 N"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Cân bằng mô men: P × 0,4 = 8 nên P = 20 N.",
+      "feedbackCorrect": "Đúng. Cân bằng mô men: P × 0,4 = 8 nên P = 20 N.",
+      "feedbackWrong": "Sai. Cân bằng mô men: P × 0,4 = 8 nên P = 20 N."
+    },
+    {
+      "id": "quiz-ch1-083",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-083",
+      "question": "Nếu giải phương trình cân bằng được lực ma sát nghỉ 90 N nhưng fN = 70 N, kết luận nào đúng?",
+      "options": [
+        "Giả thiết cân bằng nghỉ không thỏa, vật sẽ trượt",
+        "Vật vẫn cân bằng vì 90 N lớn hơn 70 N",
+        "Ma sát nghỉ tự tăng lên 90 N",
+        "Phải bỏ qua ma sát"
+      ],
+      "correct": 0,
+      "explanation": "Sai. Ma sát nghỉ không thể vượt quá giá trị tới hạn fN.",
+      "feedbackCorrect": "Đúng. Ma sát nghỉ không thể vượt quá giá trị tới hạn fN.",
+      "feedbackWrong": "Sai. Ma sát nghỉ không thể vượt quá giá trị tới hạn fN."
+    },
+    {
+      "id": "quiz-ch1-084",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-084",
+      "question": "Trong bài toán thang tựa tường nhám và sàn nhám, mỗi điểm tiếp xúc có những phản lực nào?",
+      "options": [
+        "Chỉ một lực thẳng đứng",
+        "Một phản lực pháp tuyến và một lực ma sát",
+        "Chỉ một mô men ngẫu lực",
+        "Không có phản lực nếu thang đứng yên"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Tiếp xúc nhám có cả pháp tuyến và ma sát tiếp tuyến.",
+      "feedbackCorrect": "Đúng. Tiếp xúc nhám có cả pháp tuyến và ma sát tiếp tuyến.",
+      "feedbackWrong": "Sai. Tiếp xúc nhám có cả pháp tuyến và ma sát tiếp tuyến."
+    },
+    {
+      "id": "quiz-ch1-085",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-085",
+      "question": "Một lực kéo 50 N tác dụng lên vật nhưng vật chưa trượt. Phát biểu nào đúng về ma sát nghỉ?",
+      "options": [
+        "Ma sát nghỉ luôn bằng fN",
+        "Ma sát nghỉ luôn bằng 0",
+        "Ma sát nghỉ có thể nhỏ hơn fN",
+        "Ma sát nghỉ luôn lớn hơn lực kéo"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Ma sát nghỉ chỉ đạt fN ở trạng thái sắp trượt.",
+      "feedbackCorrect": "Đúng. Ma sát nghỉ chỉ đạt fN ở trạng thái sắp trượt.",
+      "feedbackWrong": "Sai. Ma sát nghỉ chỉ đạt fN ở trạng thái sắp trượt."
+    },
+    {
+      "id": "quiz-ch1-086",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-086",
+      "question": "Hệ số ma sát có đơn vị nào?",
+      "options": [
+        "Newton",
+        "Newton mét",
+        "m/s²",
+        "Không có đơn vị"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Hệ số ma sát là tỉ số giữa hai lực.",
+      "feedbackCorrect": "Đúng. Hệ số ma sát là tỉ số giữa hai lực.",
+      "feedbackWrong": "Sai. Hệ số ma sát là tỉ số giữa hai lực."
+    },
+    {
+      "id": "quiz-ch1-087",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-087",
+      "question": "Khi vật sắp trượt lên mặt phẳng nghiêng do lực kéo, lực ma sát hướng theo chiều nào?",
+      "options": [
+        "Xuống dọc theo mặt phẳng nghiêng",
+        "Lên dọc theo mặt phẳng nghiêng",
+        "Vuông góc mặt phẳng",
+        "Theo phương ngang tuyệt đối"
+      ],
+      "correct": 0,
+      "explanation": "Sai. Ma sát chống lại xu hướng trượt lên.",
+      "feedbackCorrect": "Đúng. Ma sát chống lại xu hướng trượt lên.",
+      "feedbackWrong": "Sai. Ma sát chống lại xu hướng trượt lên."
+    },
+    {
+      "id": "quiz-ch1-088",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-088",
+      "question": "Với cùng hệ số ma sát, vì sao vật nặng hơn thường có ma sát giới hạn lớn hơn trên sàn ngang?",
+      "options": [
+        "Vì hệ số ma sát có đơn vị lớn hơn",
+        "Vì phản lực pháp tuyến lớn hơn",
+        "Vì trọng tâm thấp hơn",
+        "Vì vận tốc ban đầu lớn hơn"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Trên sàn ngang N thường bằng trọng lượng, nên fN tăng khi trọng lượng tăng.",
+      "feedbackCorrect": "Đúng. Trên sàn ngang N thường bằng trọng lượng, nên fN tăng khi trọng lượng tăng.",
+      "feedbackWrong": "Sai. Trên sàn ngang N thường bằng trọng lượng, nên fN tăng khi trọng lượng tăng."
+    },
+    {
+      "id": "quiz-ch1-089",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-089",
+      "question": "Trong bài toán có nhiều tiếp xúc nhám, điều kiện nào cần kiểm tra sau khi giải?",
+      "options": [
+        "Chỉ tổng các hệ số ma sát",
+        "Chỉ lực ma sát lớn nhất",
+        "Từng lực ma sát tại mỗi tiếp xúc không vượt f_iN_i",
+        "Chỉ phản lực nhỏ nhất"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Mỗi tiếp xúc có giới hạn ma sát riêng.",
+      "feedbackCorrect": "Đúng. Mỗi tiếp xúc có giới hạn ma sát riêng.",
+      "feedbackWrong": "Sai. Mỗi tiếp xúc có giới hạn ma sát riêng."
+    },
+    {
+      "id": "quiz-ch1-090",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-090",
+      "question": "Một vật có trọng lượng 100 N trên mặt ngang, f = 0,2. Nếu lực kéo ngang là 25 N thì trạng thái nào hợp lý?",
+      "options": [
+        "Vật chắc chắn đứng yên",
+        "Ma sát nghỉ bằng 25 N và nhỏ hơn giới hạn",
+        "Phản lực pháp tuyến bằng 25 N",
+        "Vật bắt đầu trượt vì 25 N > 20 N"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Giới hạn ma sát là 20 N nên lực kéo 25 N vượt khả năng giữ.",
+      "feedbackCorrect": "Đúng. Giới hạn ma sát là 20 N nên lực kéo 25 N vượt khả năng giữ.",
+      "feedbackWrong": "Sai. Giới hạn ma sát là 20 N nên lực kéo 25 N vượt khả năng giữ."
+    },
+    {
+      "id": "quiz-ch1-091",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-091",
+      "question": "Khi tăng hệ số ma sát, góc ma sát thay đổi thế nào?",
+      "options": [
+        "Tăng",
+        "Giảm",
+        "Không đổi",
+        "Bằng 0"
+      ],
+      "correct": 0,
+      "explanation": "Sai. tan φ = f nên f tăng thì φ tăng.",
+      "feedbackCorrect": "Đúng. tan φ = f nên f tăng thì φ tăng.",
+      "feedbackWrong": "Sai. tan φ = f nên f tăng thì φ tăng."
+    },
+    {
+      "id": "quiz-ch1-092",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-092",
+      "question": "Dấu hiệu nào cho biết cần dùng trạng thái cân bằng giới hạn trong bài toán ma sát?",
+      "options": [
+        "Đề chỉ hỏi trọng lượng của vật",
+        "Đề hỏi lực nhỏ nhất hoặc lớn nhất để vật bắt đầu trượt",
+        "Đề không có tiếp xúc",
+        "Đề cho vật rơi tự do"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Các ngưỡng bắt đầu trượt tương ứng ma sát đạt giới hạn.",
+      "feedbackCorrect": "Đúng. Các ngưỡng bắt đầu trượt tương ứng ma sát đạt giới hạn.",
+      "feedbackWrong": "Sai. Các ngưỡng bắt đầu trượt tương ứng ma sát đạt giới hạn."
+    },
+    {
+      "id": "quiz-ch1-093",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-093",
+      "question": "Một khối trên sàn ngang chịu P = 18 N, fN = 30 N và ban đầu đứng yên. Lực ma sát nghỉ bằng bao nhiêu?",
+      "options": [
+        "30 N",
+        "12 N",
+        "18 N",
+        "48 N"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Vì P nhỏ hơn giới hạn, ma sát nghỉ cân bằng đúng P.",
+      "feedbackCorrect": "Đúng. Vì P nhỏ hơn giới hạn, ma sát nghỉ cân bằng đúng P.",
+      "feedbackWrong": "Sai. Vì P nhỏ hơn giới hạn, ma sát nghỉ cân bằng đúng P."
+    },
+    {
+      "id": "quiz-ch1-094",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-094",
+      "question": "Trong mô hình Coulomb, lực ma sát trượt phụ thuộc trực tiếp vào đại lượng nào?",
+      "options": [
+        "Diện tích tiếp xúc biểu kiến",
+        "Vận tốc tuyệt đối",
+        "Thể tích vật",
+        "Phản lực pháp tuyến"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Mô hình cơ bản dùng F_ms = fN.",
+      "feedbackCorrect": "Đúng. Mô hình cơ bản dùng F_ms = fN.",
+      "feedbackWrong": "Sai. Mô hình cơ bản dùng F_ms = fN."
+    },
+    {
+      "id": "quiz-ch1-095",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-095",
+      "question": "Một nêm nhám tự hãm thường dựa vào điều kiện nào?",
+      "options": [
+        "Góc nêm nhỏ hơn góc ma sát phù hợp",
+        "Khối lượng nêm bằng 0",
+        "Ma sát bị bỏ qua",
+        "Tất cả lực đồng quy"
+      ],
+      "correct": 0,
+      "explanation": "Sai. Tự hãm xuất hiện khi ma sát đủ lớn so với góc hình học.",
+      "feedbackCorrect": "Đúng. Tự hãm xuất hiện khi ma sát đủ lớn so với góc hình học.",
+      "feedbackWrong": "Sai. Tự hãm xuất hiện khi ma sát đủ lớn so với góc hình học."
+    },
+    {
+      "id": "quiz-ch1-096",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-096",
+      "question": "Khi lập phương trình cho vật chịu ma sát, hướng ma sát nên được chọn dựa trên gì?",
+      "options": [
+        "Chiều dương tùy ý nhưng không cần kiểm tra",
+        "Xu hướng trượt tương đối tại tiếp xúc",
+        "Luôn cùng chiều lực kéo",
+        "Luôn ngược chiều trọng lượng"
+      ],
+      "correct": 1,
+      "explanation": "Sai. Ma sát chống lại chuyển động hoặc xu hướng chuyển động tương đối.",
+      "feedbackCorrect": "Đúng. Ma sát chống lại chuyển động hoặc xu hướng chuyển động tương đối.",
+      "feedbackWrong": "Sai. Ma sát chống lại chuyển động hoặc xu hướng chuyển động tương đối."
+    },
+    {
+      "id": "quiz-ch1-097",
+      "chapter": "ch1",
+      "section": "V",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-097",
+      "question": "Nếu kết quả lực ma sát ra âm so với chiều giả định ban đầu, cần hiểu thế nào?",
+      "options": [
+        "Bài toán vô nghiệm ngay lập tức",
+        "Ma sát không tồn tại",
+        "Chiều thực của ma sát ngược với chiều đã giả định",
+        "Phản lực pháp tuyến âm"
+      ],
+      "correct": 2,
+      "explanation": "Sai. Dấu âm chỉ ra hướng lực ngược chiều chọn ban đầu.",
+      "feedbackCorrect": "Đúng. Dấu âm chỉ ra hướng lực ngược chiều chọn ban đầu.",
+      "feedbackWrong": "Sai. Dấu âm chỉ ra hướng lực ngược chiều chọn ban đầu."
+    },
+    {
+      "id": "quiz-ch1-098",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-098",
+      "question": "Dầm đơn giản dài 4 m chịu lực tập trung 8 kN tại giữa nhịp. Hai phản lực gối bằng bao nhiêu?",
+      "options": [
+        "8 kN và 8 kN",
+        "2 kN và 6 kN",
+        "0 kN và 8 kN",
+        "4 kN và 4 kN"
+      ],
+      "correct": 3,
+      "explanation": "Sai. Tải ở giữa nhịp nên hệ đối xứng, mỗi gối chịu P/2.",
+      "feedbackCorrect": "Đúng. Tải ở giữa nhịp nên hệ đối xứng, mỗi gối chịu P/2.",
+      "feedbackWrong": "Sai. Tải ở giữa nhịp nên hệ đối xứng, mỗi gối chịu P/2."
+    },
+    {
+      "id": "quiz-ch1-099",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-099",
+      "question": "Một lực 25 N có cánh tay đòn 0,6 m. Mô men đối với điểm xét bằng bao nhiêu?",
+      "options": [
+        "15 N.m",
+        "25,6 N.m",
+        "41,7 N.m",
+        "0,024 N.m"
+      ],
+      "correct": 0,
+      "explanation": "Sai. M = Fd = 25 × 0,6 = 15 N.m.",
+      "feedbackCorrect": "Đúng. M = Fd = 25 × 0,6 = 15 N.m.",
+      "feedbackWrong": "Sai. M = Fd = 25 × 0,6 = 15 N.m."
+    },
+    {
+      "id": "quiz-ch1-100",
+      "chapter": "ch1",
+      "section": "VII",
+      "learningOutcomeIds": [
+        "lo-ch1-statics"
+      ],
+      "difficulty": "advanced",
+      "type": "single-choice",
+      "sourceRef": "data/quiz-ch1.json#quiz-ch1-100",
+      "question": "Một vật trên mặt ngang có N = 150 N, f = 0,4. Lực ngang nhỏ nhất để bắt đầu trượt là bao nhiêu?",
+      "options": [
+        "150 N",
+        "60 N",
+        "37,5 N",
+        "0,4 N"
+      ],
+      "correct": 1,
+      "explanation": "Sai. F_min = fN = 0,4 × 150 = 60 N.",
+      "feedbackCorrect": "Đúng. F_min = fN = 0,4 × 150 = 60 N.",
+      "feedbackWrong": "Sai. F_min = fN = 0,4 × 150 = 60 N."
+    }
+  ]
+}

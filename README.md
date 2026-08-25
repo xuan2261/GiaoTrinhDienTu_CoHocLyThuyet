@@ -124,7 +124,7 @@ Bộ canvas `.sim-lab` 52 route là lịch sử, đã gỡ khỏi master và ch�
 - Các route bài tập Chương 3 Section VII-4, VII-5 và VII-6 đã được loại khỏi nội dung/runtime hiện tại.
 - Tên file ảnh đã được chuẩn hóa và các asset không dùng đã được dọn khỏi nguồn hiện tại.
 - Placeholder `(.)` được extractor bỏ qua và được khóa bằng `tests/no-placeholder-equation-numbers.test.js`.
-- Candidate reproducible hiện tại: `release/2026.08.21-candidate/`, 374 files, standalone ZIP SHA-256 `a0908a72624a44f8d37a525c97de3ee240fdbec1199c59097ab92a78cd718ef6`; QTI 3/Common Cartridge derivatives nằm trong `derivatives/`. Đây chưa phải final institutional acceptance: 20/24 gate pass, còn blocked bởi independent academic signoff, independent accessibility review, independent candidate smoke review và Word round-trip. Các bản `20260816`, `20260812` và `20260701` được giữ nguyên làm lịch sử.
+- Candidate reproducible hiện tại: `release/2026.08.25-candidate/`, 374 files, standalone ZIP SHA-256 `6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd`; QTI 3/Common Cartridge derivatives nằm trong `derivatives/`. Đây chưa phải final institutional acceptance: independent academic signoff, independent accessibility review, independent candidate smoke review và Word round-trip vẫn bị chặn. Candidate `2026.08.21` và các bản `20260816`, `20260812`, `20260701` được giữ nguyên làm lịch sử.
 
 ## Quy ước vận hành
 

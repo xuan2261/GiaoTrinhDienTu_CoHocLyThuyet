@@ -70,13 +70,13 @@ Accessibility publish evidence gồm bốn `file://` Playwright specs và `data/
 
 Bản candidate hiện tại:
 
-- Staging: `release/2026.08.21-candidate/package/` (374 files).
-- ZIP: `release/2026.08.21-candidate/co-hoc-ly-thuyet-2026.08.21-candidate.zip`.
-- ZIP SHA-256: `a0908a72624a44f8d37a525c97de3ee240fdbec1199c59097ab92a78cd718ef6`.
-- QTI 3 pilot: `release/2026.08.21-candidate/derivatives/qti3-ch1-pilot.zip` (10 items), SHA-256 `237b960fd03cf45e274eeadde74b0a530c31f8a774aaf09dc2bc5d8cf74ae099`.
-- Common Cartridge 1.4: `release/2026.08.21-candidate/derivatives/common-cartridge-1.4.imscc`, SHA-256 `6e174c792f392f3815139d80003c8037902dd0ace1e91372bb0c0596b96f4ec1`.
+- Staging: `release/2026.08.25-candidate/package/` (374 files).
+- ZIP: `release/2026.08.25-candidate/co-hoc-ly-thuyet-2026.08.25-candidate.zip`.
+- ZIP SHA-256: `6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd`.
+- QTI 3 pilot: `release/2026.08.25-candidate/derivatives/qti3-ch1-pilot.zip` (10 items), SHA-256 `99f6f1f73fee9daec8c531457a636cb25ba10941e8e7be88a3915c8d1b10455c`.
+- Common Cartridge 1.4: `release/2026.08.25-candidate/derivatives/common-cartridge-1.4.imscc`, SHA-256 `08b4582630ef802b0fdecd46babb5008cc49cfff2a8230625c0d2c4547b8f1cb`.
 
-Rebuild bằng `python tools/release/release.py --output-dir release/2026.08.21-candidate --version 2026.08.21-candidate --epoch 1787270400`; kiểm candidate đóng băng bằng `npm run test:release-candidate`. Hai clean build cùng input/version/epoch đã cho ZIP byte-identical. Đây là candidate, không phải final institutional release: academic review, independent accessibility review, independent candidate smoke review và Word round-trip còn blocked. Các release cũ giữ nguyên làm artifact lịch sử; không chỉnh trực tiếp package đã tạo.
+Rebuild bằng `python tools/release/release.py --output-dir release/2026.08.25-candidate --version 2026.08.25-candidate --epoch 1787616000`; kiểm candidate đóng băng bằng `npm run test:release-candidate`. Đây là candidate, không phải final institutional release: academic review, independent accessibility review, independent candidate smoke review và Word round-trip còn blocked. Các release cũ giữ nguyên làm artifact lịch sử.
 
 ## Smoke test bàn giao
 

@@ -1,6 +1,6 @@
 {
-  "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
-  "generatedAt": "2026-08-24T08:58:44.333Z",
+  "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
+  "generatedAt": "2026-08-25T14:55:03.313Z",
   "epsilon": {
     "live": 0.0001,
     "sign": 0.000001
@@ -9,7 +9,7 @@
   "routeCount": 35,
   "routes": [
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-1-3",
       "baseId": "ch1-1-3",
       "engine": "sim2",
@@ -73,7 +73,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-1-4",
       "baseId": "ch1-1-4",
       "engine": "sim2",
@@ -126,7 +126,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-1-5",
       "baseId": "ch1-1-5",
       "engine": "sim2",
@@ -155,7 +155,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-1-5#sim3",
       "baseId": "ch1-1-5",
       "engine": "sim3",
@@ -183,7 +183,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-1-6",
       "baseId": "ch1-1-6",
       "engine": "sim2",
@@ -236,7 +236,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-1-8",
       "baseId": "ch1-1-8",
       "engine": "sim2",
@@ -302,7 +302,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-2-3",
       "baseId": "ch1-2-3",
       "engine": "sim2",
@@ -331,7 +331,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-3-2",
       "baseId": "ch1-3-2",
       "engine": "sim2",
@@ -384,7 +384,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-3-6",
       "baseId": "ch1-3-6",
       "engine": "sim2",
@@ -448,7 +448,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-5-3",
       "baseId": "ch1-5-3",
       "engine": "sim2",
@@ -512,7 +512,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-5-3#sim3",
       "baseId": "ch1-5-3",
       "engine": "sim3",
@@ -573,7 +573,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch1-6-3",
       "baseId": "ch1-6-3",
       "engine": "sim2",
@@ -602,7 +602,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-1-1",
       "baseId": "ch2-1-1",
       "engine": "sim2",
@@ -639,8 +639,8 @@
           "driven": true,
           "detail": "playback",
           "before": 14,
-          "after": 11.9,
-          "delta": -2.0999999999999996,
+          "after": 11.8,
+          "delta": -2.1999999999999993,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -653,7 +653,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-1-3",
       "baseId": "ch2-1-3",
       "engine": "sim2",
@@ -682,7 +682,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-1-3#sim3",
       "baseId": "ch2-1-3",
       "engine": "sim3",
@@ -710,7 +710,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-2-2",
       "baseId": "ch2-2-2",
       "engine": "sim2",
@@ -747,8 +747,8 @@
           "driven": true,
           "detail": "playback",
           "before": 0,
-          "after": 1.33,
-          "delta": 1.33,
+          "after": 1.34,
+          "delta": 1.34,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -761,7 +761,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-2-2#sim3",
       "baseId": "ch2-2-2",
       "engine": "sim3",
@@ -809,7 +809,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-3-2",
       "baseId": "ch2-3-2",
       "engine": "sim2",
@@ -873,7 +873,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-3-2#sim3",
       "baseId": "ch2-3-2",
       "engine": "sim3",
@@ -934,7 +934,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-4-4",
       "baseId": "ch2-4-4",
       "engine": "sim2",
@@ -985,7 +985,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-4-4#sim3",
       "baseId": "ch2-4-4",
       "engine": "sim3",
@@ -1033,7 +1033,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-5-2",
       "baseId": "ch2-5-2",
       "engine": "sim2",
@@ -1062,7 +1062,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-5-3",
       "baseId": "ch2-5-3",
       "engine": "sim2",
@@ -1115,7 +1115,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch2-5-3#sim3",
       "baseId": "ch2-5-3",
       "engine": "sim3",
@@ -1166,7 +1166,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-1-3",
       "baseId": "ch3-1-3",
       "engine": "sim2",
@@ -1232,7 +1232,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-1-3#sim3",
       "baseId": "ch3-1-3",
       "engine": "sim3",
@@ -1283,7 +1283,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-2-2",
       "baseId": "ch3-2-2",
       "engine": "sim2",
@@ -1320,8 +1320,8 @@
           "driven": true,
           "detail": "playback",
           "before": 0,
-          "after": 6.1,
-          "delta": 6.1,
+          "after": 6.2,
+          "delta": 6.2,
           "sceneChanged": true,
           "deltaNonZero": true
         }
@@ -1347,7 +1347,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-2-3",
       "baseId": "ch3-2-3",
       "engine": "sim2",
@@ -1400,7 +1400,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-3-1",
       "baseId": "ch3-3-1",
       "engine": "sim2",
@@ -1464,7 +1464,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-5-2",
       "baseId": "ch3-5-2",
       "engine": "sim2",
@@ -1528,7 +1528,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-5-3",
       "baseId": "ch3-5-3",
       "engine": "sim2",
@@ -1592,7 +1592,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-5-3#sim3",
       "baseId": "ch3-5-3",
       "engine": "sim3",
@@ -1653,7 +1653,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-5-4",
       "baseId": "ch3-5-4",
       "engine": "sim2",
@@ -1706,7 +1706,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-6-2",
       "baseId": "ch3-6-2",
       "engine": "sim2",
@@ -1768,7 +1768,7 @@
       "pageErrors": []
     },
     {
-      "runId": "45a271b9-fa7e-4649-98ea-3a252ffcfd7c",
+      "runId": "26efbdfa-cd35-4df2-b5ab-7ba8a5b3060f",
       "route": "ch3-6-2#sim3",
       "baseId": "ch3-6-2",
       "engine": "sim3",
