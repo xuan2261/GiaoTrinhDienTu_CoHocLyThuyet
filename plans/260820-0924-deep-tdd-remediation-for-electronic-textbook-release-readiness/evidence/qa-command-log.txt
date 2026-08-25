@@ -1,169 +1,169 @@
 Phase 12 QA command log
 
-[release-baseline-contract] status=pass observedAt=2026-08-24T08:26:02Z
+[release-baseline-contract] status=pass observedAt=2026-08-25T14:38:02Z
 command=node tests/release-baseline-contract.test.js
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-baseline-contract.log
-hash=sha256:26ab1cec1cb70a8a0d2c3fc67f8b352facb865e7af182e9ca8a19ca52bc9814f
+hash=sha256:d23e47f43c309f6a3c5058497960e3a7e838f06766fd0c3ff29130c3d70eee0b
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-baseline-contract.log
 accessOwner=Release engineering retentionPolicy=retain-with-release-evidence
 
-[phase-01-source-baseline] status=pass observedAt=2026-08-24T08:26:02Z
+[phase-01-source-baseline] status=pass observedAt=2026-08-25T14:38:02Z
 command=python scripts/test-phase-01-baseline-html-chapter-formula-image-ref-counts.py
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/phase-01-source-baseline.log
-hash=sha256:e7598c77a3e0c92cec1c341324d8fc85489c550f3c91cdbf6d05afabacd2d5d7
+hash=sha256:6b856b245dcc5196359bdbb1eb5b1be2635215c39a240c4b8990a8dc5f1b905c
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/phase-01-source-baseline.log
 accessOwner=Content engineering retentionPolicy=retain-with-release-evidence
 
-[content-regression] status=pass observedAt=2026-08-24T08:26:02Z
+[content-regression] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:content
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/content-regression.log
-hash=sha256:b1b642efc23f497c4493d4fe26ad99df170085e8d67f58eb5ad1de55d9feca3f
+hash=sha256:73b613be77b59ea19b7a5dfd72d4c48285de13b0ba746c9042a2586080fd05e1
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/content-regression.log
 accessOwner=Content engineering retentionPolicy=retain-with-release-evidence
 
-[quiz-schema] status=pass observedAt=2026-08-24T08:26:02Z
+[quiz-schema] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:quiz
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/quiz-schema.log
-hash=sha256:f4483409050a7392fde93ee3271c1a0e8026ea4993c91219fb9db9820a06b8dc
+hash=sha256:94c1e959c6391ef3df6bbdc8c76ebdaf80c8245e56f640cc4b6a6f376621ea8f
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/quiz-schema.log
 accessOwner=Content engineering retentionPolicy=retain-with-release-evidence
 
-[quiz-browser] status=pass observedAt=2026-08-24T08:26:02Z
+[quiz-browser] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:quiz:browser
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/quiz-browser.log
-hash=sha256:d8f9119f81d5c4ff3b3eca93a2034fd2d0dbb9ca608e849de2ed21be1757100d
+hash=sha256:bc16fd599ddf0a9786d0d09d1300f86f6c86a6a635104c5b25b56a044029d45e
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/quiz-browser.log
 accessOwner=QA retentionPolicy=retain-with-release-evidence
 
-[equations] status=pass observedAt=2026-08-24T08:26:02Z
+[equations] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:equations
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/equations.log
-hash=sha256:60dff8382ba23fbb4471eec08eb687b3107b63715bf9c2c06227521184111672
+hash=sha256:86ae0426ed60e65aee4588af2fb083c6c10947a9da79d06a2b583f204bcb6ebd
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/equations.log
 accessOwner=Content engineering retentionPolicy=retain-with-release-evidence
 
-[audit-strict] status=pass observedAt=2026-08-24T08:26:02Z
+[audit-strict] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:audit:strict
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/audit-strict.log
-hash=sha256:86cd699b2a465528b650b5fa639b09133146e12fd1fe5c9299d033a6275aeee8
+hash=sha256:c07d72ff48792b4b9340cbd4379f0ed1333a270ca719a546659780bd815cf9d8
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/audit-strict.log
 accessOwner=Release engineering retentionPolicy=retain-with-release-evidence
 
-[gif-release] status=pass observedAt=2026-08-24T08:26:02Z
+[gif-release] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:gif
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/gif-release.log
-hash=sha256:b2c269b390cf8cfaa6d601525040682a3c2e6c88c4fd4c3abb25a2ccd68f3063
+hash=sha256:175a35bb4784a3e7c9585fb5c601a7a0fb437a1490dd110249d12c6ed1074c8d
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/gif-release.log
 accessOwner=QA retentionPolicy=retain-with-release-evidence
 
-[sim-physics] status=pass observedAt=2026-08-24T08:26:02Z
+[sim-physics] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:sim:physics
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-physics.log
-hash=sha256:a2fea5afc79889101c20fa34fa948cdd48cc838bc85f4ae07128792bab6fbd2e
+hash=sha256:01024b2f32650932d8f8f98a0db05e16b6a61e726cd787ee1134d4ee0c1e1d14
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-physics.log
 accessOwner=Simulation engineering retentionPolicy=retain-with-release-evidence
 
-[sim-mount] status=pass observedAt=2026-08-24T08:26:02Z
+[sim-mount] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:sim:mount
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-mount.log
-hash=sha256:37f2ed7a4f27999a6dc00cd64d049b14b050764c2e0b3eb30c4e76cfd10cdde8
+hash=sha256:929297f2fe6aa16a9d0f60dbaaa1f24246693979ff163542601d9324a37daa08
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-mount.log
 accessOwner=Simulation engineering retentionPolicy=retain-with-release-evidence
 
-[sim-release] status=pass observedAt=2026-08-24T08:26:02Z
+[sim-release] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:sim:release
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-release.log
-hash=sha256:77da589c536dcc15797b13e45489ac2638b314ca8eedf457eb07126d7dc5ef2e
+hash=sha256:c949c2c259346d91957ce13bec9a0cab5b0a86a8bb3348b4fca5e12b19474c1c
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-release.log
 accessOwner=Simulation engineering retentionPolicy=retain-with-release-evidence
 
-[sim3-pilot] status=pass observedAt=2026-08-24T08:26:02Z
+[sim3-pilot] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:sim3:pilot
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim3-pilot.log
-hash=sha256:d64ea43908acd6b12fff83e1ccd480c95967ea9c74768260fea07965c562634e
+hash=sha256:3b8fb31810228b1199c6667544b75142a35ebee644ae031679cd367fdb1a0d1d
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim3-pilot.log
 accessOwner=Simulation engineering retentionPolicy=retain-with-release-evidence
 
-[simulation-evidence-currentness] status=pass observedAt=2026-08-24T09:00:03Z
+[simulation-evidence-currentness] status=pass observedAt=2026-08-25T14:55:37Z
 command=npm run validate:simulation-drift
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/simulation-evidence-currentness.log
-hash=sha256:a40020b97535831e1ee73f751f49b9d070dd9bda5e582b52e32f60c569222de0
+hash=sha256:1cc36635f4843cd7780f814e6ec6c551e6fcb3f779c91ddb677743a523c9dbd7
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/simulation-evidence-currentness.log
 accessOwner=Independent academic review coordinator retentionPolicy=restricted-acceptance-evidence
 
-[pdf-release] status=pass observedAt=2026-08-24T08:26:02Z
+[pdf-release] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:pdf:release
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/pdf-release.log
-hash=sha256:4a15be22d3f2f0cc54527380dd7d5ce6b3bd59d0217f21cfbb288ea0d92cd8b7
+hash=sha256:32bc61b84e48cba22fd5b6b59b71555d6414319d47d4916c0696930bcb33841e
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/pdf-release.log
 accessOwner=Release engineering retentionPolicy=retain-with-release-evidence
 
-[phase-08-accessibility] status=pass observedAt=2026-08-24T08:26:02Z
+[phase-08-accessibility] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:accessibility
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/phase-08-accessibility.log
-hash=sha256:05764e3046578ed4e8b860c9f06d3b090a52ba870da66cfd675e4299a064973d
+hash=sha256:645a30f48cedd712a5d85abc000129bad3bee8513d69de93d05af4f06354b33d
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/phase-08-accessibility.log
 accessOwner=Accessibility QA retentionPolicy=retain-with-release-evidence
 
-[accessibility-independent-review] status=blocked observedAt=2026-08-24T08:26:02Z
+[accessibility-independent-review] status=blocked observedAt=2026-08-25T14:55:59Z
 command=npm run test:accessibility-review
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/accessibility-independent-review.log
-hash=sha256:f19761757e513308af6a5c5d7fbaf6b0501d8822026df9dc02b22426dc57cda0
+hash=sha256:a9bf19439da370645d0cd7823106e9a2b8574333417b2497543644a990d9adce
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/accessibility-independent-review.log
 accessOwner=Independent accessibility reviewer retentionPolicy=restricted-acceptance-evidence
 
-[academic-review-currentness] status=blocked observedAt=2026-08-24T08:26:02Z
+[academic-review-currentness] status=blocked observedAt=2026-08-25T14:55:59Z
 command=npm run test:academic-acceptance
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/academic-review-currentness.log
-hash=sha256:ed27702a009e2f1ccfdfb7d39e371812ba50532d2bbb4fb63bac2c2676c450b1
+hash=sha256:dca84021114e676de5593a80bd277a31a3214985c059a7a4098c58cb259cee4a
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/academic-review-currentness.log
 accessOwner=Independent academic review coordinator retentionPolicy=restricted-acceptance-evidence
 
-[media-pilot] status=pass observedAt=2026-08-24T08:26:02Z
+[media-pilot] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:media-pilot
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/media-pilot.log
-hash=sha256:c1236c0fd91887eb47cb4487cd70f24d4eeee1eb39f7d3121068b3ffb8073b04
+hash=sha256:135f87f87311e4b728f3b90d3d1afd63200a5b54befc58fc78ae3fb96abd24c4
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/media-pilot.log
 accessOwner=Content engineering retentionPolicy=retain-with-release-evidence
 
-[release-pipeline] status=pass observedAt=2026-08-24T08:26:02Z
+[release-pipeline] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:release
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-pipeline.log
-hash=sha256:b3f17ca92513acdd9820ad312f54e4aa044a513a0db0403a6ff2cd490c075c39
+hash=sha256:f546e9c65b40754f48fbf3e336aba72cadff1fa8625bd55b5a7de49dbdec1dc2
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-pipeline.log
 accessOwner=Release engineering retentionPolicy=retain-with-release-evidence
 
-[release-candidate-inventory] status=pass observedAt=2026-08-24T08:26:02Z
+[release-candidate-inventory] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:release-candidate
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-candidate-inventory.log
-hash=sha256:480143e459fc4db8a3aee99cea4e3bf4f658ae701734300e4b5d315368839912
+hash=sha256:1bc2562157db2fa51c69db63e6f18b4eb67dcf1d4bd2b4604c4cec68681291ba
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-candidate-inventory.log
 accessOwner=Release engineering retentionPolicy=retain-with-release-evidence
 
-[release-independent-smoke] status=blocked observedAt=2026-08-24T08:26:02Z
+[release-independent-smoke] status=blocked observedAt=2026-08-25T21:13:46Z
 command=npm run test:release-smoke-review
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-independent-smoke.log
-hash=sha256:d6dacbfc7b79d06b54524add539f94f34ddd8aa2b1c609c0593a40db9755308f
+hash=sha256:a2b6250eb522ae8e2b5d54e968f0dd342a49930c1009df63e5e42453c9e764aa
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-independent-smoke.log
 accessOwner=Independent release reviewer retentionPolicy=restricted-acceptance-evidence
 
-[lms-adapters] status=pass observedAt=2026-08-24T08:26:02Z
+[lms-adapters] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run test:lms
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/lms-adapters.log
-hash=sha256:b6c8d40ad27283709332f26e34777fe9d3fbc50767ecde58cdd968db7fe69504
+hash=sha256:c81cb9577e633fbb71c8f126e025c83334bde8d6324a76b1035ccb8cb96cdfcd
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/lms-adapters.log
 accessOwner=LMS integration engineering retentionPolicy=retain-with-release-evidence
 
-[word-standalone-roundtrip] status=blocked observedAt=2026-08-24T08:26:02Z
-command=powershell -NoProfile -ExecutionPolicy Bypass -File tools/word/word-roundtrip-gate.ps1 -InputPath CoHocLyThuyet_Full_New.docx -OutputDir tmp/word-acceptance -ObservedAt 2026-08-24T08:26:02Z -TimeoutSeconds 900
+[word-standalone-roundtrip] status=not-run observedAt=2026-08-25T14:38:02Z
+command=powershell -NoProfile -ExecutionPolicy Bypass -File tools/word/word-roundtrip-gate.ps1 -InputPath CoHocLyThuyet_Full_New.docx -OutputDir tmp/word-acceptance -ObservedAt 2026-08-25T14:38:02Z -TimeoutSeconds 900
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/word-standalone-roundtrip.log
-hash=sha256:56a752afbb8ab78ca6ddb134331f1869fda812e84b76a240e0336846ec0d439e
+hash=sha256:2cdc786cc4d4ae5d2a7994824705ddb3f8576f06ca948ab8329634ef3c8ffdbd
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/word-standalone-roundtrip.log
 accessOwner=Source authority custodian retentionPolicy=restricted-acceptance-evidence
 
-[traceability-validation] status=pass observedAt=2026-08-24T08:26:02Z
+[traceability-validation] status=pass observedAt=2026-08-25T14:38:02Z
 command=npm run validate:traceability
 artifact=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/traceability-validation.log
-hash=sha256:7536f8a4e97cf72d6b09e76d66faba79efa49dd49c730850068e20f98021f00a
+hash=sha256:8c9c5074c9c7e5dd087763659cc0ded22604c02486533e4dd8d67c0a1b321b59
 containsPII=false redactionStatus=not-required storageLocation=plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/traceability-validation.log
 accessOwner=Release engineering retentionPolicy=retain-with-release-evidence
