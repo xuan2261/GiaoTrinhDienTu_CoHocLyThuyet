@@ -57,7 +57,8 @@ Môi trường: candidate qua HTTP, Chromium, viewport 1440 × 1000 và 390 × 8
 - Ma trận: 7 cột, 10 hàng nhóm, 31 hàng dữ liệu; đủ 31 mã duy nhất và B1–B12.
 - Prefix qua `paraId 606D2659` và final `sectPr` giữ nguyên.
 - Outline nhận diện `QC_Title/QC_Muc/QC_TieuMuc`; 9 caption dùng SEQ field + bookmark; `updateFields=true` cho Word cập nhật TOC.
-- DOCX SHA-256: `2522bbc41994a1e018f567d2ad89d3593d6a56a371ce95e37d5bfd4e39335571`.
-- Contact sheet đủ 35 trang: `evidence/option-b-contact-sheet-2522bbc4.png`; SHA-256 `bc864d821a59e920c1754feea32522ade597455b330c783ecc38ca1d245dc3b5`.
+- DOCX SHA-256: `195caea331843fb6c71d9451e2a4dc8aaff1bc2f2a8989fd3103dc210aa3c02e`.
+- Contact sheet đủ 35 trang: `evidence/option-b-contact-sheet-195caea3.png`; SHA-256 `bc864d821a59e920c1754feea32522ade597455b330c783ecc38ca1d245dc3b5`.
 - Independent final review đã pass: Critical 0, High 0, Medium 0; còn Low 1 về media relationship kế thừa.
-- Word round-trip và OpenXML schema validation vẫn mở; không công bố final release.
+- OpenXML SDK 2.20.0 validation cho Office 2019 pass với 0 errors.
+- Word round-trip vẫn mở; không công bố final release.

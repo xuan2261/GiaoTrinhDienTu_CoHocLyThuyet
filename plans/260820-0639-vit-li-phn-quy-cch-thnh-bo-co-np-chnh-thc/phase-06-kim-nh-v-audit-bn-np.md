@@ -3,7 +3,7 @@ phase: 6
 title: "Kiểm định bản ứng viên kỹ thuật"
 status: in-progress
 priority: P1
-effort: "90%; blocked by Word round-trip and OpenXML schema validator"
+effort: "95%; blocked by Word round-trip"
 dependencies: ["phase-05"]
 ---
 
@@ -58,7 +58,7 @@ Sáu cổng theo thứ tự:
 - Verify: bản sao làm việc/final candidate của `DeCuongChiTietNop.docx`.
 - Compare against: `DeCuongChiTietNop.docx` baseline và boundary metadata Phase 1.
 - Evidence: `data/acceptance-report.json`, `data/evidence-registry.json`, `release/2026.08.25-candidate/`.
-- Tracked review evidence: `independent-final-review.md`, `evidence/option-b-contact-sheet-2522bbc4.png`.
+- Tracked review evidence: `independent-final-review.md`, `evidence/option-b-contact-sheet-195caea3.png`.
 - Do not modify product release or QA data to make the report pass.
 
 ## Steps
@@ -76,7 +76,7 @@ Sáu cổng theo thứ tự:
 ## Todo
 
 - [x] Diff boundary/package và kiểm vùng bất biến.
-- [ ] Chạy OpenXML schema validator sau khi sửa dependency `System.Private.Xml`.
+- [x] OpenXML SDK 2.20.0 validation cho Office 2019: 0 errors.
 - [x] Kiểm nội dung, 5.280 từ, 31 tiêu chí, B1–B12 và claims hiện hành.
 - [x] Kiểm outline/TOC, SEQ/bookmark, nguồn/hình/bảng và contact sheet đủ 35 trang.
 - [ ] Chạy Word standalone round-trip trên môi trường mục tiêu.
@@ -85,7 +85,7 @@ Sáu cổng theo thứ tự:
 ## Success Criteria
 
 - [x] Chỉ boundary/allowlist thay đổi; prefix và final `sectPr` giữ nguyên.
-- [ ] OpenXML schema validation pass; hiện bị chặn bởi dependency của `officecli validate`.
+- [x] OpenXML SDK schema validation pass: 0 errors.
 - [x] Dung lượng giảm 25,1%; đủ 31 mã duy nhất và B1–B12.
 - [x] Outline/TOC source, 9 SEQ/bookmark và bố cục đủ 35 trang đạt kiểm tra trực quan.
 - [x] Claim candidate/search/QTI/CC/LMS/3D/4D khớp evidence hiện hành.

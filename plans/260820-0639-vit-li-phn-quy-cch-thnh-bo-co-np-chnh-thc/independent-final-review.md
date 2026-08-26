@@ -58,12 +58,22 @@ Chế độ: read-only; reviewer không sửa, stage, commit hoặc thay accepta
 
 ## Hash-bound evidence
 
-- DOCX SHA-256: `2522bbc41994a1e018f567d2ad89d3593d6a56a371ce95e37d5bfd4e39335571`.
-- Contact sheet: `evidence/option-b-contact-sheet-2522bbc4.png`.
+- DOCX SHA-256 sau schema remediation: `195caea331843fb6c71d9451e2a4dc8aaff1bc2f2a8989fd3103dc210aa3c02e`.
+- Contact sheet: `evidence/option-b-contact-sheet-195caea3.png`.
 - Contact sheet SHA-256: `bc864d821a59e920c1754feea32522ade597455b330c783ecc38ca1d245dc3b5`.
+
+## Post-review schema gate
+
+- Validator: DocumentFormat.OpenXml SDK `2.20.0`, target `Office2019`.
+- Lần đầu phát hiện 108 lỗi schema: 74 `paraId` ngoài miền, 20 lỗi shading/order ở group rows và 14 lỗi `rPr` color order.
+- Đã sửa `paraId` về miền `< 0x80000000`, chuẩn hóa `tcPr`/`shd` và thứ tự `rPr`.
+- Kết quả cuối: `errorCount: 0`.
+- Schema fixes không đổi prefix, final `sectPr`, nội dung 5.280 từ, 31 TC, B1–B12, tỷ lệ ảnh hoặc bố cục 35 trang.
+- Final hash recheck: task `task_c0cdc95d251a`, dispatch `ctx_d95180280be8`, verdict `PASS`, Critical 0, High 0, Medium 0.
+- Reviewer xác nhận 600 `paraId` hợp lệ/duy nhất; schema diff chỉ gồm 74 remap `paraId`, 10 chuẩn hóa `tcPr` và 14 reorder `rPr`, không đổi text hoặc field instruction.
 
 ## Final verdict
 
 `PASS` cho independent final review của tài liệu Option B: Critical 0, High 0, Medium 0.
 
-Review này không đóng các gate sản phẩm độc lập trong `data/acceptance-report.json`. Word standalone round-trip vẫn `not-run`; OpenXML schema validation vẫn chưa có do `officecli validate` lỗi dependency. Không công bố final institutional release hoặc LMS certification.
+Review này không đóng các gate sản phẩm độc lập trong `data/acceptance-report.json`. Word standalone round-trip vẫn `not-run`; không công bố final institutional release hoặc LMS certification.
