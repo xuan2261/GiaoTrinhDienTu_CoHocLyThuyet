@@ -74,15 +74,15 @@ Giảm lặp và mật độ thị giác mà không mất truy vết. Bảng 7 v
 - [x] Bảo toàn/đối chiếu đủ B1–B12.
 - [x] Chuẩn hóa 7 tài liệu nguồn; giữ gap [7] thay vì bịa metadata.
 - [x] Dùng 6 hình candidate, loại ảnh không có giá trị chứng minh.
-- [x] Gắn provenance đầy đủ và đạt 5.246 từ, giảm 25,6%.
+- [x] Gắn provenance đầy đủ; 6 ảnh giữ tỷ lệ gốc; đạt 5.280 từ, giảm 25,1%.
 
 ## Success Criteria
 
 - [x] Có đúng 31 mã duy nhất và B1–B12; không có liên kết mồ côi.
 - [x] Ma trận 7 cột đọc được trên trang ngang, giữ điều kiện đóng.
-- [x] Mỗi hình có route, protocol, viewport, ngày và candidate hash.
+- [x] Mỗi hình giữ đúng tỷ lệ pixel và có route, protocol, viewport, ngày, candidate hash.
 - [x] Tài liệu [1]–[7] nhất quán; gap [7] được nêu rõ, không bịa dữ liệu.
-- [x] Tổng dung lượng giảm 25,6% so với 7.054 từ.
+- [x] Tổng dung lượng giảm 25,1% so với 7.054 từ theo cùng tokenizer baseline.
 
 ## Risk Assessment
 

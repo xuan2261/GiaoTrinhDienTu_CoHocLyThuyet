@@ -52,9 +52,12 @@ Môi trường: candidate qua HTTP, Chromium, viewport 1440 × 1000 và 390 × 8
 
 ## Kết quả DOCX
 
-- Boundary mới: 5.246 từ, giảm 25,6% so với 7.054 từ.
-- 3 bảng, 6 ảnh candidate có route/viewport/date/hash.
+- Boundary mới: 5.280 từ, giảm 25,1% so với 7.054 từ. Cùng phương pháp: nối `w:t` trong từng block cấp thân, nối các block bằng một khoảng trắng, đếm regex Unicode `\w+(?:-\w+)*`.
+- 3 bảng, 6 ảnh candidate có route/viewport/date/hash; mọi ảnh giữ đúng tỷ lệ pixel nguồn.
 - Ma trận: 7 cột, 10 hàng nhóm, 31 hàng dữ liệu; đủ 31 mã duy nhất và B1–B12.
 - Prefix qua `paraId 606D2659` và final `sectPr` giữ nguyên.
-- Outline nhận diện `QC_Title/QC_Muc/QC_TieuMuc`; `updateFields=true` cho Word cập nhật TOC.
-- Word round-trip và independent final review vẫn mở.
+- Outline nhận diện `QC_Title/QC_Muc/QC_TieuMuc`; 9 caption dùng SEQ field + bookmark; `updateFields=true` cho Word cập nhật TOC.
+- DOCX SHA-256: `2522bbc41994a1e018f567d2ad89d3593d6a56a371ce95e37d5bfd4e39335571`.
+- Contact sheet đủ 35 trang: `evidence/option-b-contact-sheet-2522bbc4.png`; SHA-256 `bc864d821a59e920c1754feea32522ade597455b330c783ecc38ca1d245dc3b5`.
+- Independent final review đã pass: Critical 0, High 0, Medium 0; còn Low 1 về media relationship kế thừa.
+- Word round-trip và OpenXML schema validation vẫn mở; không công bố final release.

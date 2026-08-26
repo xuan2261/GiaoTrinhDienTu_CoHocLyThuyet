@@ -78,7 +78,7 @@ Sổ claim–evidence là nguồn kiểm soát câu chữ; ma trận 31 tiêu ch
 - [x] Viết tóm tắt/phương pháp/10 nhóm/điều kiện đóng.
 - [x] Cập nhật claim search và QTI 3/Common Cartridge theo evidence runtime.
 - [x] Ghi đúng 20/24, 3 blocked, Word not-run.
-- [x] Hoàn tất sổ claim–evidence và kiểm ngân sách 5.246 từ.
+- [x] Hoàn tất sổ claim–evidence và kiểm ngân sách 5.280 từ bằng tokenizer baseline.
 
 ## Success Criteria
 

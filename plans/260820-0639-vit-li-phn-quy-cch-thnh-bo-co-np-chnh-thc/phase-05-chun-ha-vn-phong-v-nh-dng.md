@@ -71,14 +71,14 @@ Làm cho phần Option B xuất hiện đúng trong outline/TOC Word, có hệ t
 
 - [x] Gán outline level cho `QC_Title/QC_Muc/QC_TieuMuc`.
 - [x] Đưa toàn phần và Phụ lục A–C vào nguồn TOC; đặt `updateFields=true`.
-- [x] Chuẩn hóa numbering, caption, nguồn và ma trận.
+- [x] Dùng 9 SEQ field + bookmark cho caption; nội dung dẫn chứng bằng IMG ID ổn định.
 - [x] Chuẩn hóa thuật ngữ và ngôn ngữ technical-candidate.
 - [x] Kiểm bố cục và diff style/section ngoài phạm vi.
 
 ## Success Criteria
 
 - [x] Outline nhận diện đủ hierarchy; nguồn TOC đầy đủ, số trang chờ Word cập nhật field.
-- [x] Không nhập tay số trang hoặc kết quả TOC.
+- [x] Caption không nhập tay số thứ tự; không nhập tay số trang hoặc kết quả TOC.
 - [x] Trạng thái 3D/4D dùng một biến thể thống nhất.
 - [x] Prefix/style dùng chung/header/footer/final `sectPr` không đổi ngoài allowlist.
 - [x] Contact sheet và trang chi tiết không có caption tách hình hoặc bảng tràn lề.
