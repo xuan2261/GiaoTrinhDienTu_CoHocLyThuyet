@@ -1,68 +1,100 @@
 ---
 phase: 5
-title: "Chuẩn hóa văn phong và định dạng"
-status: pending
+title: "Chuẩn hóa hierarchy, TOC và văn phong"
+status: completed
 priority: P1
-effort: ""
+effort: "completed 2026-08-26"
 dependencies: ["phase-03", "phase-04"]
 ---
 
-# Phase 5: Chuẩn hóa văn phong và định dạng
+# Phase 5: Chuẩn hóa hierarchy, TOC và văn phong
+
+## Context links
+
+- [Plan index](./plan.md)
+- [Phase 2 structure](./phase-02-thit-k-cu-trc-bo-co.md)
+- [Phase 4 evidence layout](./phase-04-t-chc-hnh-bng-v-ph-lc.md)
+- [Editorial review](./research-editorial-option-b.md)
+- [`docs/code-standards.md`](../../docs/code-standards.md)
 
 ## Overview
 
-Biên tập bản thảo thành văn bản tiếng Việt chuyên nghiệp và đồng bộ với thể thức tài liệu hiện có. Skill `viet-chuyen-nghiep` không có trong kho hiện tại; áp dụng tương đương bằng nguyên tắc viết hành chính–học thuật, `ak:write` và quy tắc báo cáo Word của OfficeCLI.
+| Date | Priority | Status |
+|---|---|---|
+| 2026-08-26 | P1 | Completed |
+
+Làm cho phần Option B xuất hiện đúng trong outline/TOC Word, có hệ thống đánh số và văn phong thống nhất với đề cương. Không sửa style dùng chung hoặc nội dung prefix ngoài allowlist.
+
+## Key Insights
+
+- `QC_Title`, `QC_Muc`, `QC_TieuMuc` hiện không có outline level; TOC đầu tài liệu bỏ sót toàn phần.
+- Năm mục La Mã/ba phụ lục có thể đọc được nhưng tiểu mục chưa đánh số, gây khó dẫn chiếu.
+- Thuật ngữ pha Anh–Việt và hai biến thể “3D thí điểm/4D chưa áp dụng” phải được chuẩn hóa.
+- Tên lệnh/URI/identifier giữ nguyên dạng code và giải thích một lần; ngôn ngữ ký duyệt dùng tiếng Việt trước.
+- Mọi câu phải giữ giọng candidate kỹ thuật, không biến “pass kỹ thuật” thành chứng nhận.
 
 ## Requirements
 
-- Functional: Thuật ngữ, chủ thể, thời gian, phiên bản và trạng thái nhất quán.
-- Functional: Câu và đoạn thể hiện rõ quan hệ giữa việc thực hiện, kết quả, bằng chứng và giới hạn.
-- Non-functional: Hạn chế tiếng Anh ngoài tên chuẩn, lệnh và tên tệp bắt buộc.
-- Non-functional: Định dạng phải hòa hợp với tài liệu gốc, không tạo một “tài liệu con” có phong cách khác biệt.
-- Non-functional: Không sửa style dùng chung nếu style đó được dùng trước tiêu đề đích; khi cần khác biệt, tạo style chỉ áp dụng cho phần báo cáo.
+- Functional: Gán outline level cho tiêu đề, mục, tiểu mục và Phụ lục A–C; TOC tự động hiển thị đúng hierarchy.
+- Functional: Đánh số mục ổn định; mã yêu cầu luôn ghi `TC x.y`.
+- Functional: Chuẩn hóa caption, numbering, cross-reference, danh mục hình/bảng và viện dẫn [1]–[7].
+- Non-functional: Không đổi style dùng chung được sử dụng trước `paraId 606D2659`; tạo/điều chỉnh style có scope QC khi cần.
+- Non-functional: Không hard-code số trang hoặc mục lục.
 
 ## Architecture
 
-Quy tắc văn phong:
+- `QC_Title`: outline level 1 hoặc mức phù hợp vị trí phụ lục trong tài liệu.
+- `QC_Muc`: cấp kế tiếp cho I–III và Phụ lục A–C.
+- `QC_TieuMuc`: cấp cho II.1–II.10 và tiểu mục phụ lục cần dẫn chiếu.
+- TOC lấy các outline level/style QC; caption dùng sequence field; cross-reference dùng bookmark/field thay văn bản số cứng.
+- Glossary nội bộ khóa cách viết RC, smoke test, mã băm, tệp nén, route, 2D/3D/4D và thuật ngữ cơ học.
 
-- Dùng “Nhóm biên soạn”, “sản phẩm”, “bản chạy hiện hành”, “gói phát hành” với nghĩa ổn định.
-- Ưu tiên động từ có nội dung: xây dựng, kiểm tra, đối chiếu, xác nhận, ghi nhận, chưa triển khai.
-- Tránh các câu mẫu lặp như “Tiểu mục đáp ứng…”, “Hình minh chứng kèm theo…”.
-- Mỗi đoạn có một luận điểm; câu cuối xác định kết quả hoặc giới hạn của luận điểm đó.
-- Tách rõ sự việc đã kiểm chứng với kiến nghị phải thực hiện sau.
+## Related files
 
-Quy tắc định dạng:
+- Modify: bản sao làm việc `DeCuongChiTietNop.docx`, style/field/numbering liên quan boundary.
+- Preserve: prefix qua `paraId 606D2659`, styles dùng chung của prefix, header/footer relationships, final `sectPr`.
+- Inspect: `word/styles.xml`, `word/numbering.xml`, TOC field, bookmarks/cross-references và captions trong package DOCX.
+- No manually typed TOC/page-number artifact.
 
-- Dùng hệ thống Heading thống nhất và mục lục cập nhật được.
-- Thân bài theo font, cỡ chữ, căn lề và giãn dòng của hồ sơ hiện hành.
-- Hình, bảng có đánh số liên tục; không dùng quá nhiều kiểu nhấn mạnh.
-- Không tạo khoảng trắng bằng chuỗi đoạn rỗng.
+## Steps
 
-## Related Code Files
+1. Chụp baseline style ID, effective formatting, outline level, numbering và TOC field trước mutation.
+2. Gán hierarchy QC theo Phase 2 mà không sửa style dùng chung ngoài boundary.
+3. Đánh số I–III, II.1–II.10 và Phụ lục A–C; chuẩn hóa `TC x.y`.
+4. Chuẩn hóa thuật ngữ Việt–Anh, trạng thái, phiên bản, ngày, số lượng và cách viết 2D/3D/4D.
+5. Chuẩn hóa caption, nguồn rút gọn, sequence field, cross-reference và danh mục hình/bảng.
+6. Cập nhật field TOC/numbering bằng Word trên bản sao; không nhập tay kết quả field.
+7. Kiểm ngắt trang: heading không mồ côi, hình đi với caption, bảng giữ hàng tiêu đề và không tràn lề.
+8. So sánh style/field/section trước và sau; rollback mọi thay đổi ngoài allowlist.
 
-- Modify: `DeCuongChiTietNop.docx`
-- Inspect: styles, headings, captions, headers, footers and TOC in the same DOCX
+## Todo
 
-## Implementation Steps
-
-1. Rà từng mục theo ba lớp: độ rõ nghĩa, tính hành chính–học thuật, tính nhất quán thuật ngữ.
-2. Loại câu lặp, từ đệm, cụm “kèm theo” không cần thiết và các nhận xét tự giải thích hiển nhiên.
-3. Chuyển thuật ngữ ngoại lai sang tiếng Việt khi không phải tên chuẩn, tên lệnh hoặc tên tệp.
-4. Chuẩn hóa cách ghi ngày, phiên bản, số lượng, ký hiệu tài liệu và mã bằng chứng.
-5. Áp dụng style thống nhất cho tiêu đề, thân bài, chú thích hình, nguồn và bảng trong phần đích; không sửa style dùng chung được dùng trước tiêu đề, thay vào đó tạo style riêng có phạm vi báo cáo.
-6. Kiểm tra ngắt trang: tiêu đề không đứng cuối trang, hình không tách chú thích, bảng lặp hàng tiêu đề khi cần.
-7. Cập nhật trường mục lục và số trang bằng cơ chế của Word/OfficeCLI, không gõ số thủ công.
-8. Sau khi làm gọn câu chữ, tái kiểm tra sổ tuyên bố–bằng chứng; mọi câu mạnh hơn nguồn phải được hạ mức hoặc loại bỏ.
+- [x] Gán outline level cho `QC_Title/QC_Muc/QC_TieuMuc`.
+- [x] Đưa toàn phần và Phụ lục A–C vào nguồn TOC; đặt `updateFields=true`.
+- [x] Chuẩn hóa numbering, caption, nguồn và ma trận.
+- [x] Chuẩn hóa thuật ngữ và ngôn ngữ technical-candidate.
+- [x] Kiểm bố cục và diff style/section ngoài phạm vi.
 
 ## Success Criteria
 
-- [ ] Văn bản không còn giọng mẫu biểu hoặc ghi chú kỹ thuật vụn.
-- [ ] Không có đoạn nào chỉ lặp lại tiêu đề hoặc mô tả điều hiển nhiên trong hình.
-- [ ] Thuật ngữ và số liệu nhất quán toàn phần.
-- [ ] Hệ thống tiêu đề, hình, bảng, nguồn và phụ lục đồng bộ.
-- [ ] Bản render không có trang trắng, tiêu đề mồ côi, chú thích tách hình hoặc bảng tràn lề.
-- [ ] Sổ tuyên bố–bằng chứng phản ánh đúng câu chữ cuối, không còn bản ghi trỏ tới nội dung đã bị thay đổi hoặc loại bỏ.
+- [x] Outline nhận diện đủ hierarchy; nguồn TOC đầy đủ, số trang chờ Word cập nhật field.
+- [x] Không nhập tay số trang hoặc kết quả TOC.
+- [x] Trạng thái 3D/4D dùng một biến thể thống nhất.
+- [x] Prefix/style dùng chung/header/footer/final `sectPr` không đổi ngoài allowlist.
+- [x] Contact sheet và trang chi tiết không có caption tách hình hoặc bảng tràn lề.
 
 ## Risk Assessment
 
-Chỉnh văn phong có thể vô tình thay đổi phạm vi kỹ thuật của tuyên bố. Mọi câu được làm mạnh hơn hoặc ngắn hơn phải đối chiếu lại nguồn; nếu ý nghĩa rộng hơn bằng chứng, giữ cách diễn đạt thận trọng.
+- Sửa style dùng chung có thể đổi toàn tài liệu; dùng style QC có scope và diff effective formatting.
+- Word cập nhật field có thể thay pagination/TOC ngoài boundary; chỉ chấp nhận thay đổi field/pagination được ghi trong allowlist.
+- Numbering bằng văn bản cứng dễ trôi; dùng numbering/field có kiểm soát.
+
+## Security Considerations
+
+- TOC/cross-reference không được tạo external relationship.
+- Không thêm macro, ActiveX, template ngoài hoặc trường tự động truy xuất mạng.
+- Xóa metadata tạm và đường dẫn local khỏi field/caption trước bàn giao.
+
+## Next steps
+
+Phase 6 chạy kiểm định nội dung, truy vết, package DOCX, render và Word standalone round-trip trên môi trường mục tiêu.

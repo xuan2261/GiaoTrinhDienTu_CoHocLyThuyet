@@ -1,82 +1,106 @@
 ---
 phase: 6
-title: "Kiểm định và audit bản nộp"
-status: pending
+title: "Kiểm định bản ứng viên kỹ thuật"
+status: in-progress
 priority: P1
-effort: ""
+effort: "75%; blocked by Word round-trip and independent final review"
 dependencies: ["phase-05"]
 ---
 
-# Phase 6: Kiểm định và audit bản nộp
+# Phase 6: Kiểm định bản ứng viên kỹ thuật
+
+## Context links
+
+- [Plan index](./plan.md)
+- [Phase 5 hierarchy/TOC](./phase-05-chun-ha-vn-phong-v-nh-dng.md)
+- [Editorial review](./research-editorial-option-b.md)
+- [`data/acceptance-report.json`](../../data/acceptance-report.json)
+- [`docs/qa-gate-matrix.md`](../../docs/qa-gate-matrix.md)
+- [`docs/academic-certification.md`](../../docs/academic-certification.md)
 
 ## Overview
 
-Xác nhận bản sửa đổi đạt cả ba lớp: đúng hình thức báo cáo, đúng hiện trạng kỹ thuật và hợp lệ về DOCX. Kiểm định phải tìm lỗi, không chỉ xác nhận các bước đã làm.
+| Date | Priority | Status |
+|---|---|---|
+| 2026-08-26 | P1 | In progress |
+
+Xác nhận bản sửa đạt bốn lớp: boundary toàn vẹn, nội dung/truy vết đúng, hierarchy/bố cục đọc được và Word round-trip trên môi trường mục tiêu. Cổng Word hiện not-run nên kế hoạch không được kết thúc bằng tuyên bố tương thích Word trước khi cổng thực sự chạy đạt.
+
+## Key Insights
+
+- OpenXML hợp lệ không chứng minh Word mở–cập nhật field–lưu–mở lại đúng.
+- Candidate hiện hành vẫn blocked: 20/24 pass, 3 blocked, Word not-run; rewrite báo cáo không tự đóng các gate sản phẩm.
+- Audit phải bắt các claim stale: tìm kiếm toàn văn đã có; QTI 3/Common Cartridge có adapter/package local; không có import LMS; SCORM/xAPI/cmi5/4D chưa triển khai; 3D là pilot.
+- Mục tiêu rút gọn và truy vết là machine-checkable: 4.585–5.291 từ, 31 mã duy nhất, đủ B1–B12.
 
 ## Requirements
 
-- Functional: Báo cáo không còn cấu trúc phiếu kiểm tra lặp lại; 5 nhóm kết quả đều có yêu cầu/thực trạng, việc đã làm, kết quả, bằng chứng và giới hạn.
-- Functional: Ma trận truy vết có đúng 31/31 tiêu chí và 12/12 hồ sơ B1–B12; mọi liên kết tới kết luận, hình/bảng và vị trí cuối đều kiểm tra được.
-- Functional: Mỗi tuyên bố thực tế trong bản cuối có hiện vật, phiên bản/ngày, phương pháp kiểm tra và kết quả quan sát.
-- Non-functional: Nội dung, bảng, hình, thứ tự, style ID, định dạng trực tiếp/có hiệu lực, section và header/footer trước tiêu đề đích không đổi ngoài allowlist đã khóa.
-- Non-functional: DOCX hợp lệ và mở–cập nhật trường–lưu–đóng–mở lại–render đạt trên đúng phiên bản/build Microsoft Word và Windows đã ghi ở Phase 1; thiếu môi trường này là blocker, không được thay bằng tuyên bố tương thích từ công cụ khác.
-- Non-functional: Audit độc lập theo rubric cố định không còn lỗi Critical, High hoặc Medium.
+- Functional: So sánh XML/package ngoài boundary, prefix, final `sectPr`, styles, relationships và header/footer.
+- Functional: Kiểm số từ, 31 mã, B1–B12, claim–evidence, nguồn/hình và TOC/outline.
+- Functional: Render toàn tài liệu và kiểm các trang có bảng dài/hình/phụ lục.
+- Non-functional: Word standalone round-trip phải chạy trên đúng build/môi trường mục tiêu; nếu không chạy/timeout thì giữ not-run/blocked.
+- Non-functional: Reviewer độc lập dùng rubric cố định; không phải tác giả trực tiếp tự chấp nhận.
 
 ## Architecture
 
-Bốn cửa kiểm soát:
+Sáu cổng theo thứ tự:
 
-1. **Cửa nội dung:** mạch báo cáo, luận điểm, kết luận, giới hạn.
-2. **Cửa bằng chứng:** hình, bảng, mã B1–B12, tài liệu tham chiếu.
-3. **Cửa ngôn ngữ:** tiếng Việt chuyên nghiệp, thuật ngữ và số liệu nhất quán.
-4. **Cửa tài liệu:** schema DOCX, heading, mục lục, ngắt trang và render toàn bộ.
+1. **Boundary/package:** diff ngoài `B512–B633` bằng rỗng trừ allowlist field/pagination.
+2. **Nội dung:** thể loại Option B, technical-candidate, không lặp/checklist.
+3. **Truy vết:** 31 tiêu chí, B1–B12, trạng thái và claim–evidence.
+4. **Hierarchy/visual:** outline, TOC, caption, nguồn, hình/bảng, contact sheet.
+5. **Word:** mở, update fields, lưu, đóng, mở lại, repaginate và render.
+6. **Independent audit:** severity, vị trí, xử lý, recheck và quyết định.
 
-Rubric audit cố định:
+## Related files
 
-- **Cấu trúc:** đủ mở đầu, phương pháp, 5 nhóm kết quả, đánh giá chung, kết luận và phụ lục; mỗi nhóm đủ 5 thành phần lập luận bắt buộc.
-- **Mẫu trình bày bị cấm:** không còn chuỗi bốn nhãn cũ trong thân bài; không có hình không được dẫn và phân tích; không có đoạn chỉ lặp tiêu đề hoặc chú thích.
-- **Truy vết:** đúng 31 tiêu chí, 12 hồ sơ B1–B12, không mồ côi; mọi tuyên bố thực tế có bản ghi kiểm chứng.
-- **Ngôn ngữ:** thuật ngữ, chính tả, số liệu, ngày, phiên bản và mức đáp ứng nhất quán.
-- **DOCX:** mục lục, số trang, chú thích, tham chiếu chéo, hình nhúng, bảng, thay đổi theo dõi, nhận xét, style dùng chung, section/header/footer và khả năng mở lại trên môi trường Word/Windows đã khóa.
+- Verify: bản sao làm việc/final candidate của `DeCuongChiTietNop.docx`.
+- Compare against: `DeCuongChiTietNop.docx` baseline và boundary metadata Phase 1.
+- Evidence: `data/acceptance-report.json`, `data/evidence-registry.json`, `release/2026.08.25-candidate/`.
+- Temporary only: extracted package diff, rendered pages/contact sheet, audit checklist and Word round-trip output.
+- Do not modify product release or QA data to make the report pass.
 
-Định nghĩa mức độ:
+## Steps
 
-- **Critical:** hỏng hoặc mất nội dung/tệp; tạo kết quả, phê duyệt hoặc bằng chứng không tồn tại.
-- **High:** thiếu tiêu chí hoặc hồ sơ B; mâu thuẫn kết luận lớn; thay đổi ngoài phạm vi; tệp không mở/lưu lại được.
-- **Medium:** tuyên bố không đủ bằng chứng, tham chiếu gãy, cấu trúc checklist còn trong thân bài hoặc lỗi bố cục cản trở đọc.
-- **Low:** lỗi câu chữ hoặc trình bày cục bộ không đổi nghĩa và không cản trở đọc.
+1. Kiểm package/DOCX schema và diff XML ngoài boundary; xác nhận prefix qua `606D2659` và final `sectPr` giữ nguyên.
+2. Tìm toàn văn các nhãn lặp/câu cấm và claim stale; đọc liên tục tóm tắt → kết quả → điều kiện đóng.
+3. Đếm từ; kiểm 31 mã unique, B1–B12, status/evidence joins và mọi thay đổi trạng thái có decision.
+4. Kiểm outline/TOC, numbering, captions, cross-references, nguồn [1]–[7], danh mục hình/bảng.
+5. Render contact sheet; review trang mở đầu, Bảng 7, hình lớn, kết luận và Phụ lục A–C.
+6. Chạy Word standalone round-trip trên build mục tiêu; ghi stage, thời gian, output path, reopen/repagination/render result.
+7. Thực hiện audit độc lập; sửa mọi Critical/High/Medium và chạy lại các cổng bị ảnh hưởng.
+8. Cập nhật acceptance note: giữ nguyên 20/24, 3 blocked và Word result thực tế; không tự đóng gate độc lập.
+9. Chỉ thay nguồn chuẩn khi bản sao đạt tất cả cổng tài liệu và có rollback/checksum.
 
-Tính độc lập được đáp ứng khi người/agent audit không phải là tác giả trực tiếp của bản sửa và chỉ sử dụng rubric đã khóa; kết quả phải lưu thành checklist có vị trí, mức độ, cách xử lý và trạng thái kiểm tra lại.
+## Todo
 
-## Related Code Files
-
-- Verify: `DeCuongChiTietNop.docx`
-- Generate for QA only: contact sheet và ảnh các trang có bố cục phức tạp
-
-## Implementation Steps
-
-1. Dùng tìm kiếm nội dung để xác nhận không còn chuỗi bốn nhãn cũ trong thân bài.
-2. Đọc riêng thân báo cáo; với từng nhóm, đánh dấu đủ yêu cầu/thực trạng, việc đã làm, kết quả, bằng chứng và giới hạn.
-3. Kiểm sổ đăng ký và ma trận: đúng 31/31 tiêu chí, 12/12 hồ sơ B1–B12, mã duy nhất, trạng thái bảo toàn, liên kết hai chiều không mồ côi.
-4. Tái lập và kiểm sổ tuyên bố–bằng chứng từ câu chữ cuối; kiểm tra riêng WCAG, tìm kiếm toàn văn, QTI, LMS, SCORM, xAPI, 3D, 4D, video, âm thanh và gói bàn giao.
-5. So sánh đường cơ sở trước/sau đối với phần trước tiêu đề đích: văn bản, đoạn/bảng/hình, style ID, định dạng trực tiếp/có hiệu lực, section properties và quan hệ header/footer; chỉ chấp nhận khác biệt nằm trong allowlist đã khóa.
-6. Chạy `officecli view ... issues`, `outline`, `text` và `validate`.
-7. Trên đúng phiên bản/build Microsoft Word và Windows đã ghi ở Phase 1: mở tệp, cập nhật toàn bộ trường, kiểm mục lục/số trang/chú thích/tham chiếu chéo, xử lý Track Changes và comments, xác nhận ảnh được nhúng; lưu, đóng, mở lại và render. Công cụ khác chỉ là kiểm tra bổ sung, không thay thế cổng tương thích Word.
-8. Render toàn bộ tài liệu thành contact sheet; kiểm tra riêng trang mở đầu báo cáo, hình lớn, bảng dài, kết luận và phụ lục.
-9. Thực hiện audit độc lập theo rubric và định nghĩa mức độ đã khóa; lưu checklist có vị trí, cách xử lý và trạng thái kiểm tra lại.
-10. Chỉ chốt tệp khi mọi lỗi Critical/High/Medium đã được xử lý và toàn bộ cửa kiểm soát được chạy lại.
+- [x] Diff boundary/package và kiểm vùng bất biến.
+- [x] Kiểm nội dung, 5.246 từ, 31 tiêu chí, B1–B12 và claims hiện hành.
+- [x] Kiểm outline/TOC, nguồn/hình/bảng và render 36 trang.
+- [ ] Chạy Word standalone round-trip trên môi trường mục tiêu.
+- [ ] Hoàn tất audit độc lập và recheck lỗi.
 
 ## Success Criteria
 
-- [ ] Không còn chuỗi “Mức độ đáp ứng/Kết quả thực hiện/Minh chứng/Nhận xét, đánh giá” trong thân bài.
-- [ ] Cả 5 nhóm kết quả đều có đủ 5 thành phần lập luận bắt buộc.
-- [ ] Sổ đăng ký và ma trận có đúng 31/31 tiêu chí, 12/12 hồ sơ B1–B12, mã duy nhất, trạng thái bảo toàn và không có liên kết mồ côi.
-- [ ] Sổ tuyên bố–bằng chứng bao phủ mọi câu nêu chức năng, số lượng, phiên bản, mức đáp ứng, kết quả thử nghiệm và giới hạn.
-- [ ] So sánh ngoài phạm vi không phát hiện thay đổi văn bản, cấu trúc, style/định dạng có hiệu lực, section hoặc header/footer ngoài allowlist.
-- [ ] `officecli validate` không báo lỗi; kiểm tra mở–cập nhật trường–lưu–đóng–mở lại–render đạt trên đúng Word/Windows mục tiêu đã khóa.
-- [ ] Contact sheet không có lỗi ngắt trang hoặc bố cục nghiêm trọng.
-- [ ] Audit độc lập theo rubric cố định có checklist hoàn chỉnh và không còn Critical, High hoặc Medium.
+- [x] Chỉ boundary/allowlist thay đổi; prefix và final `sectPr` giữ nguyên.
+- [x] Dung lượng giảm 25,6%; đủ 31 mã duy nhất và B1–B12.
+- [x] Outline/TOC source và bố cục toàn tài liệu đạt kiểm tra trực quan.
+- [x] Claim candidate/search/QTI/CC/LMS/3D/4D khớp evidence hiện hành.
+- [ ] Word round-trip chạy đạt; hiện vẫn not-run.
+- [ ] Audit độc lập không còn Critical/High/Medium.
 
 ## Risk Assessment
 
-Một bản có thể hợp lệ về OpenXML nhưng vẫn không đạt chất lượng báo cáo. Vì vậy không dùng `validate` làm bằng chứng duy nhất; bắt buộc có đọc nội dung liên tục và kiểm tra trực quan toàn tài liệu.
+- Word có thể timeout hoặc thay pagination; ghi stage và giữ blocker thay vì dùng công cụ khác thay thế.
+- Một sửa visual cuối có thể phá boundary/truy vết; mọi sửa phải chạy lại cổng liên quan.
+- Rewrite report có thể bị hiểu là closing gate; acceptance status chỉ đổi từ evidence của đúng gate owner.
+
+## Security Considerations
+
+- Chạy Word trên bản sao trong thư mục kiểm soát; không mở macro hoặc external links.
+- Redact đường dẫn người dùng và metadata cá nhân khỏi evidence bàn giao.
+- Giữ checksum baseline/final; không ghi đè artifact candidate hoặc log acceptance hiện có.
+
+## Next steps
+
+Nếu tất cả cổng tài liệu đạt, bàn giao bản candidate và audit checklist cho chủ nhiệm/independent reviewers; ba gate độc lập còn blocked chỉ được đóng bởi đúng chủ thể.

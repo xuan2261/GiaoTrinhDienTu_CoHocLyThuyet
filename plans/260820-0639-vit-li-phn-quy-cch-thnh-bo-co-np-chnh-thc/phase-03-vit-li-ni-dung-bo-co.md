@@ -1,65 +1,106 @@
 ---
 phase: 3
-title: "Viết lại nội dung báo cáo"
-status: pending
+title: "Viết lại boundary báo cáo"
+status: completed
 priority: P1
-effort: ""
+effort: "completed 2026-08-26"
 dependencies: ["phase-01", "phase-02"]
 ---
 
-# Phase 3: Viết lại nội dung báo cáo
+# Phase 3: Viết lại boundary báo cáo
+
+## Context links
+
+- [Plan index](./plan.md)
+- [Phase 1 baseline](./phase-01-start.md)
+- [Phase 2 structure](./phase-02-thit-k-cu-trc-bo-co.md)
+- [Editorial review](./research-editorial-option-b.md)
+- [`data/acceptance-report.json`](../../data/acceptance-report.json)
+- [`README.md`](../../README.md)
 
 ## Overview
 
-Viết lại toàn bộ thân báo cáo theo lối trình bày liên tục, có luận điểm và kết luận. Không chắp nối các đoạn “mức độ–kết quả–minh chứng–nhận xét” hiện tại.
+| Date | Priority | Status |
+|---|---|---|
+| 2026-08-26 | P1 | Completed |
+
+Viết mới nội dung Option B trong đúng boundary `B512–B633`. Kết quả phải đọc như phụ lục báo cáo kỹ thuật cô đọng, không phải 31 phiếu kiểm kê và không phải báo cáo hành chính độc lập.
+
+## Key Insights
+
+- Candidate `2026.08.25` là bản ứng viên kỹ thuật, chưa phải bản được nghiệm thu.
+- Acceptance report: 20/24 pass, 3 blocked (`academic-review-currentness`, `accessibility-independent-review`, `release-independent-smoke`), Word `word-standalone-roundtrip` not-run.
+- Tìm kiếm toàn văn đã tồn tại và phải thay tuyên bố cũ nói chưa có.
+- QTI 3 và Common Cartridge 1.4 đã có adapter/gói kiểm tra cục bộ; chưa có target LMS hoặc bằng chứng import, nên không được gọi là tích hợp LMS thành công.
+- SCORM, xAPI/cmi5 và 4D chưa triển khai; 3D là pilot kỹ thuật.
 
 ## Requirements
 
-- Functional: Mỗi nhóm kết quả phải nêu được việc đã làm, kết quả quan sát, bằng chứng chính và giới hạn.
-- Functional: Kết luận tổng hợp phải phân biệt rõ phần đã đáp ứng, đáp ứng cơ bản, thí điểm và chưa áp dụng.
-- Non-functional: Giọng văn hành chính–học thuật; không khẩu ngữ, không quảng bá, không phóng đại.
-- Non-functional: Đoạn văn là đơn vị trình bày chính; danh sách chỉ dùng khi thông tin thực sự song song.
-- Functional: Sau mỗi lượt viết và biên tập, sổ tuyên bố–bằng chứng phải được cập nhật theo đúng câu chữ cuối; câu không có căn cứ phải bỏ hoặc hạ mức diễn đạt.
+- Functional: Viết tóm tắt, phương pháp, 10 nhóm kết quả, điều kiện đóng và kiến nghị theo hierarchy Phase 2.
+- Functional: Giữ 31 mã tiêu chí duy nhất và liên kết tới B1–B12; cập nhật mọi claim theo evidence hiện hành.
+- Functional: Ghi rõ mọi thay đổi trạng thái so với baseline, nguồn và người/điều kiện xác nhận; không đổi trạng thái chỉ vì sửa câu.
+- Non-functional: Tổng toàn boundary sau Phase 4 nằm trong 4.585–5.291 từ.
+- Non-functional: Tiếng Việt hành chính–học thuật, thuật ngữ kỹ thuật giải thích ở lần đầu, không dùng giọng quảng bá.
 
 ## Architecture
 
-Mẫu lập luận cho mỗi nhóm kết quả:
+Mỗi nhóm tiêu chí là một đơn vị lập luận ba phần:
 
-1. Nêu yêu cầu hoặc vấn đề cần giải quyết.
-2. Trình bày cách sản phẩm đã được tổ chức hoặc hoàn thiện.
-3. Nêu kết quả quan sát được từ bản chạy và hồ sơ.
-4. Dẫn một hoặc hai bằng chứng đại diện.
-5. Kết luận phạm vi đáp ứng và giới hạn còn lại.
+1. **Kết luận có phạm vi:** sản phẩm/candidate làm được gì.
+2. **Bằng chứng:** mã B, phép kiểm, phiên bản/ngày và kết quả quan sát.
+3. **Điều kiện đóng:** reviewer/gate nào còn thiếu và câu kết luận tối đa được phép.
 
-Mỗi nhóm có nhiều đoạn liên kết bằng quan hệ nguyên nhân, bổ sung, đối chiếu hoặc giới hạn; không dùng cùng một câu mở đầu cho mọi đoạn.
+Sổ claim–evidence là nguồn kiểm soát câu chữ; ma trận 31 tiêu chí là lớp kiểm soát đầy đủ, không phải thân bài thứ hai.
 
-## Related Code Files
+## Related files
 
-- Modify: `DeCuongChiTietNop.docx`
-- Read-only sources: `README.md`, `docs/project-overview-pdr.md`, `docs/system-architecture.md`, `docs/deployment-guide.md`, `docs/project-changelog.md`
+- Modify: bản sao làm việc của `DeCuongChiTietNop.docx`, chỉ `B512–B633` / `7FE19132…7FE19654`.
+- Preserve: prefix qua `paraId 606D2659`; final `sectPr`.
+- Evidence: `data/acceptance-report.json`, `data/evidence-registry.json`, `data/search-index.json`, `data/lms-targets.json`, `release/2026.08.25-candidate/`.
+- Reference: `README.md`, `docs/academic-certification.md`, `docs/qa-gate-matrix.md`.
+- No file creation beyond temporary working/render artifacts.
 
-## Implementation Steps
+## Steps
 
-1. Viết mới phần mở đầu: lý do, mục đích, phạm vi, đối tượng và phương pháp rà soát.
-2. Viết nhóm “Tổ chức nội dung và kiến trúc sản phẩm”, kết hợp các tiêu chí 1.x và 2.x.
-3. Viết nhóm “Giao diện, điều hướng và khả năng tiếp cận”, kết hợp các tiêu chí 3.x và phần trực quan liên quan.
-4. Viết nhóm “Học liệu trực quan, công thức và mô phỏng”, kết hợp 4.x và 5.x.
-5. Viết nhóm “Kiểm tra, đánh giá và hỗ trợ người học”, kết hợp 6.x.
-6. Viết nhóm “Đóng gói, phát hành và kiểm soát chất lượng”, kết hợp 7.x, 8.x, 9.x và 10.x.
-7. Viết phần đánh giá chung theo ba lớp: kết quả nổi bật, hạn chế, mức sẵn sàng.
-8. Viết kết luận và kiến nghị ngắn, trực tiếp, không lặp toàn bộ thân bài.
-9. Đối chiếu ngược với bảng ánh xạ 31 tiêu chí; bổ sung nội dung bị thiếu nhưng không phá vỡ cấu trúc báo cáo.
-10. Tái lập sổ tuyên bố–bằng chứng từ bản thảo cuối; không tái sử dụng máy móc sổ của bản trước khi viết.
+1. Tạo bản sao làm việc và xác nhận lại hai `paraId` biên trước mutation.
+2. Dựng skeleton hierarchy và chèn nội dung mới chỉ trong boundary.
+3. Viết tóm tắt: candidate, 20/24 pass, 3 blocked, Word not-run, quyết định chưa đủ final acceptance.
+4. Viết mục phương pháp và quy tắc trạng thái; tách “không áp dụng theo phạm vi”, “chưa triển khai”, “chưa đánh giá/blocked”.
+5. Viết 10 nhóm tiêu chí theo mẫu ba phần, dùng `TC x.y` để dẫn chiếu.
+6. Cập nhật các claim tìm kiếm toàn văn, QTI 3/Common Cartridge, LMS, SCORM/xAPI/cmi5, 3D/4D theo phạm vi bằng chứng.
+7. Viết điều kiện đóng và kiến nghị: hoàn thiện/review candidate, không nghiệm thu chính thức.
+8. Đối chiếu sổ claim–evidence; hạ hoặc bỏ câu không có hiện vật, phiên bản và phép kiểm.
+9. Kiểm số từ sơ bộ, loại lặp giữa tóm tắt, kết quả và ma trận.
+
+## Todo
+
+- [x] Tạo bản sao làm việc và guard boundary.
+- [x] Viết tóm tắt/phương pháp/10 nhóm/điều kiện đóng.
+- [x] Cập nhật claim search và QTI 3/Common Cartridge theo evidence runtime.
+- [x] Ghi đúng 20/24, 3 blocked, Word not-run.
+- [x] Hoàn tất sổ claim–evidence và kiểm ngân sách 5.246 từ.
 
 ## Success Criteria
 
-- [ ] Không còn bốn nhãn lặp tại từng tiêu chí.
-- [ ] Mỗi mục lớn có câu mở, các đoạn phân tích và câu kết.
-- [ ] Kết quả và giới hạn được trình bày trong cùng mạch lập luận, không tách thành phiếu.
-- [ ] Người đọc hiểu được mức hoàn thiện chung mà không phải đọc từng mã B1–B12.
-- [ ] Không có chức năng hoặc kết quả nào được suy diễn ngoài nguồn.
-- [ ] Mỗi tuyên bố về chức năng, số lượng, phiên bản, mức đáp ứng, kết quả thử nghiệm hoặc giới hạn có một bản ghi truy vết tới hiện vật và phương pháp kiểm tra cụ thể.
+- [x] Không còn chuỗi bốn nhãn kiểm kê lặp theo 31 tiêu chí.
+- [x] Mỗi nhóm có kết luận, bằng chứng/phép kiểm và điều kiện đóng.
+- [x] Search được mô tả đúng: chỉ mục có, runtime capture còn fallback.
+- [x] Không có claim import LMS, chứng nhận LMS hoặc final acceptance.
+- [x] Mọi thay đổi trạng thái kỹ thuật có evidence và điều kiện chủ trì xác nhận.
+- [x] Diff XML ngoài boundary bằng rỗng.
 
 ## Risk Assessment
 
-Hai lỗi dễ xảy ra: đổi nhãn nhưng vẫn giữ cấu trúc cũ; hoặc rút gọn quá mức làm mất giới hạn. Kiểm tra bằng cách đọc riêng thân bài không có phụ lục: nếu vẫn giống checklist hoặc kết luận quá tuyệt đối, phải viết lại.
+- Claim mới có thể mạnh hơn evidence: ràng buộc mức diễn đạt bằng `acceptance-report.json` và `lms.scope`.
+- Rewrite trực tiếp có thể phá relationship/style: thao tác trên bản sao và so sánh package trước/sau.
+- Giảm từ sớm có thể làm mất điều kiện đóng: ưu tiên bảo toàn claim–evidence rồi cắt câu lặp.
+
+## Security Considerations
+
+- Không nhúng log thô có đường dẫn cá nhân, token hoặc metadata reviewer.
+- Không tạo hyperlink/macro/relationship ngoài; ảnh và nguồn phải là hiện vật nội bộ được kiểm soát.
+- Không giả chữ ký hoặc danh tính người xác nhận độc lập.
+
+## Next steps
+
+Bàn giao bản nháp boundary và sổ claim–evidence cho Phase 4 để rút Bảng 7, chọn hình và chuẩn hóa nguồn.
