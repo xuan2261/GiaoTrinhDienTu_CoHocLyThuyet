@@ -1,0 +1,28 @@
+HƯỚNG DẪN SỬ DỤNG GIÁO TRÌNH ĐIỆN TỬ
+Bản ứng viên kỹ thuật: 2026.08.25-candidate
+
+1. Giải nén file:
+   co-hoc-ly-thuyet-2026.08.25-candidate.zip
+
+2. Mở ngoại tuyến:
+   Mở file package/index.html bằng Microsoft Edge hoặc Google Chrome.
+
+3. Chạy qua HTTP nếu trình duyệt hạn chế file://:
+   Mở terminal trong thư mục package và chạy:
+   python -m http.server 8000
+   Sau đó truy cập: http://localhost:8000/
+
+4. Đọc bản PDF:
+   Nhấn nút "Xem bản PDF" trong giáo trình hoặc mở package/CoHocLyThuyet.pdf.
+
+5. Lưu ý:
+   - Tiến độ, dấu trang và ghi chú được lưu cục bộ trong trình duyệt.
+   - Không đổi tên hoặc xóa các thư mục con trong package.
+   - Đây là technical candidate, chưa phải final institutional release.
+
+SHA-256 file ZIP:
+6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd
+
+Đề cương chi tiết mới nhất trong repository:
+DeCuongChiTietNop.docx
+SHA-256: 195caea331843fb6c71d9451e2a4dc8aaff1bc2f2a8989fd3103dc210aa3c02e
