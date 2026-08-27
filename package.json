@@ -11,6 +11,7 @@
     "test:search": "python -m unittest tests/test_search_index_build.py && node tests/search-performance.test.js && playwright test tests/search-runtime.spec.js",
     "validate:content-manifest": "python tools/validate_content_manifest.py",
     "build:release": "python tools/release/release.py",
+    "build:presentation": "node tools/presentation/build-acceptance-deck.js",
     "validate:release": "python tools/release/validate_release.py",
     "test:release": "node tests/release-pipeline-contract.test.js",
     "build:lms:qti3": "python tools/lms/build_qti3_package.py",
@@ -78,6 +79,7 @@
     "@playwright/test": "^1.52.0",
     "esbuild": "0.28.2",
     "pdfjs-dist": "6.2.108",
+    "pptxgenjs": "^4.0.1",
     "three": "^0.160.1"
   }
 }

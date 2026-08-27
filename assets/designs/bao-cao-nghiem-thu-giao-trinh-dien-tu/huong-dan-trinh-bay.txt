@@ -1,0 +1,38 @@
+HƯỚNG DẪN TRÌNH BÀY BÁO CÁO NGHIỆM THU (15 PHÚT)
+Học viện Hải quân — Khoa Kỹ thuật cơ sở
+Hội đồng Khoa học nghiệm thu Giáo trình điện tử Cơ học lý thuyết
+
+I. BỘ FILE BÀN GIAO
+1. File trình chiếu chính (chỉnh sửa / trình chiếu):
+   assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pptx
+2. File PDF dự phòng (dùng khi máy chiếu / PowerPoint lỗi font):
+   assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pdf
+3. Lưới ảnh 16 slide kiểm tra nhanh:
+   assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/thumbnail-grid.png
+
+II. PHÂN BỔ THỜI LƯỢNG VÀ PHÂN CÔNG BÁO CÁO (13 SLIDE CHÍNH = 15:00)
+- Slide 01 (0:35) | Đại tá, TS Nguyễn Lê Văn | Bìa & đề nghị thông qua có điều kiện
+- Slide 02 (0:45) | Đại tá, TS Nguyễn Lê Văn | Bài toán đào tạo & 3 chương
+- Slide 03 (0:55) | Đại tá, TS Nguyễn Lê Văn | Nguồn chuẩn DOCX & trách nhiệm 3 tác giả
+- Slide 04 (1:05) | Thiếu tá, ThS Đinh Văn Tứ  | Hành trình học 5 bước (tìm–học–quan sát–luyện–nhớ)
+- Slide 05 (1:05) | Đại úy, ThS Bùi Thanh Xuân  | Vận hành tĩnh ngoại tuyến file:// / HTTP
+- Slide 06 (1:10) | Thiếu tá, ThS Đinh Văn Tứ  | Học liệu trực quan gắn ngữ cảnh bài học
+- Slide 07 (1:10) | Thiếu tá, ThS Đinh Văn Tứ  | Sim2 chuẩn (25 route) & Sim3 thí điểm (10 route)
+- Slide 08 (1:05) | Thiếu tá, ThS Đinh Văn Tứ  | Kiểm soát toàn vẹn pipeline vs thẩm định học thuật
+- Slide 09 (1:05) | Đại úy, ThS Bùi Thanh Xuân  | Khả năng tiếp cận & trạng thái disposition
+- Slide 10 (1:20) | Đại úy, ThS Bùi Thanh Xuân  | Hiện trạng candidate & phát hiện sai lệch hash ZIP
+- Slide 11 (1:25) | Đại úy, ThS Bùi Thanh Xuân  | 20/24 gate pass; overall status vẫn BLOCKED
+- Slide 12 (1:15) | Đại tá, TS Nguyễn Lê Văn | 4 gate review + 1 lần tái khóa hash trước bản cuối
+- Slide 13 (2:05) | Đại tá, TS Nguyễn Lê Văn | Đề nghị Hội đồng thông qua có điều kiện
+
+III. PHỤ LỤC / DEMO DỰ PHÒNG (DÙNG KHI HỘI ĐỒNG YÊU CẦU)
+- Slide 14: Kịch bản demo 90 giây (Mở package/index.html -> route #ch1-1-4 -> Sim2 -> PDF viewer).
+  *Lưu ý:* Không demo tìm kiếm / quiz như luồng hoàn hảo vì 2 mục này đang là finding mở.
+- Slide 15: Chi tiết 4 gate còn mở và bằng chứng tương ứng.
+- Slide 16: 6 câu hỏi trọng tâm Hội đồng thường đặt ra và nguồn kiểm chứng.
+
+IV. CÁC NGUYÊN TẮC PHÁT BIỂU AN TOÀN
+1. Luôn dùng cụm "Đề nghị thông qua có điều kiện về mặt khoa học–sư phạm".
+2. Không tuyên bố bản ứng viên hiện tại là bản phát hành cuối.
+3. Không dùng tỷ lệ 83,3% để kết luận chất lượng; nêu rõ 20 pass, 3 blocked, 1 not-run.
+4. Trình bày trung thực sai lệch hash ZIP như một điều kiện đóng của lần đóng gói kế tiếp.
