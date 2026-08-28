@@ -78,6 +78,7 @@ npm run test:accessibility-review
 npm run test:content
 npm run test:quiz
 npm run test:quiz:browser
+npm run test:reader-enhancements
 npm run test:equations
 npm run test:audit:strict
 npm run test:gif

@@ -54,7 +54,7 @@ Các chuẩn này giữ runtime offline ổn định và output đồng bộ v�
 | `lib/pdfjs/{pdfjs-runtime.iife.min.js,pdf-data.js,provenance.json}` | `npm run build:pdf-assets` |
 | `data/chapter-reference.json` | Curated supplemental reference input; extractor render và manifest provenance kiểm hash |
 
-Extractor phải chuẩn hóa tên ảnh, không phát sinh tên asset không ổn định, và không render placeholder số công thức `(.)`. Content test phải giữ guard cho placeholder và route Section VII đã xóa, gồm Chương 3 VII-4/VII-5/VII-6.
+Extractor phải chuẩn hóa tên ảnh, không phát sinh tên asset không ổn định, không render placeholder số công thức `(.)`, và tạo output byte-deterministic khi cùng DOCX được build lại. `tests/test_extract_docx_image_determinism.py` khóa invariant conversion ảnh; content tests khóa placeholder và route Section VII đã xóa, gồm Chương 3 VII-4/VII-5/VII-6.
 
 Không sửa tay artifact trong `lib/pdfjs/`, không thêm CDN/runtime module import. PDF.js phải pin chính xác; builder phải giữ `enableScripting:false`, `useWasm:false`, preload fake-worker handler và ghi SHA/provenance/license.
 
