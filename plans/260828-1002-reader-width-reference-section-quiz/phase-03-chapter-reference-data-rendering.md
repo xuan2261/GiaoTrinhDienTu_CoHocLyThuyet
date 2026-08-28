@@ -173,7 +173,7 @@ Repository root: `C:/Work/GiaoTrinhDienTu_CoHocLyThuyet`.
 ## Regression Gate
 
 ```powershell
-python -m unittest tests.test_chapter_reference
+python -m unittest tests.test_chapter_reference tests.test_extract_docx_image_determinism
 node --test tests/chapter-reference-content.test.js tests/content-manifest-schema.test.js tests/content-manifest-route-parity.test.js
 python tools\extract_docx.py --input CoHocLyThuyet_Full_New.docx --write
 python tools\build_content_manifest.py

@@ -7,8 +7,11 @@
 - Quiz exposes native per-chapter I–VII scope selection from generated `window.CHAPTER_SECTIONS`; scoped count/random attempt keys, persistence and reset remain isolated.
 - Curated `data/chapter-reference.json` renders traceable symbol/abbreviation/unit tables in chapter indexes; schema-v1 manifest provenance binds its SHA-256.
 
+### Fixed
+- WMF/EMF extraction now excludes volatile PNG date/time metadata while retaining stable color and density chunks, making repeated canonical builds byte-identical.
+
 ### Verified
-- Targeted file:// browser, persistence, keyboard, responsive, extractor, manifest and freshness contracts pass. Technical checks validate structure/provenance only; independent academic acceptance is unchanged.
+- Targeted file:// browser, persistence, keyboard, responsive, extractor, manifest and freshness contracts pass. Two consecutive canonical builds produced identical SHA-256 values for all 248 generated artifacts. Technical checks validate structure/provenance only; independent academic acceptance is unchanged.
 
 ## 2026-08-25 — Author rank correction and candidate rebuild
 

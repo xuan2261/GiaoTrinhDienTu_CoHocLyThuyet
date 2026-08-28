@@ -424,7 +424,7 @@ class ImageWriter:
                     with open(input_path, "wb") as fh:
                         fh.write(blob)
                     proc = subprocess.run(
-                        [self.magick, input_path, converted_path],
+                        [self.magick, input_path, "-define", "png:exclude-chunks=date,time", converted_path],
                         text=True,
                         capture_output=True,
                         timeout=30,

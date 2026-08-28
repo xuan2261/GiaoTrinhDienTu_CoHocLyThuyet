@@ -25,7 +25,7 @@ Generated: `chapters/**`, `images/**`, `tools/docx_site_manifest.json`, `js/page
 
 ## Quy tắc nội dung hiện tại
 
-- Tên asset ảnh được chuẩn hóa khi extract; không đổi tên thủ công sau pipeline.
+- Tên asset ảnh được chuẩn hóa khi extract; conversion WMF/EMF loại riêng metadata PNG thời gian (`date`, `time`) nhưng giữ stable color/density chunks để lần build sau byte-identical. Không đổi tên thủ công sau pipeline.
 - Asset không dùng không được giữ chỉ để bảo toàn path cũ.
 - Placeholder số công thức `(.)` bị bỏ bởi extractor. `tests/no-placeholder-equation-numbers.test.js` kiểm cả source fragment và bundle.
 - Route bài tập đã loại, gồm Chương 3 VII-4/VII-5/VII-6, không được sinh lại vào fragment, nav hoặc bundle.
