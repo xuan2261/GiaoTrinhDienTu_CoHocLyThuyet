@@ -84,4 +84,14 @@ test.describe('offline full-text search', () => {
     expect(await page.evaluate(() => window.__searchXss)).toBeUndefined();
     await expect(page.locator('#sr img')).toHaveCount(0);
   });
+
+  test('finds rendered chapter-reference terms and opens their chapter route', async ({ page }) => {
+    const input = await openSearch(page);
+    await input.fill('HQT');
+    const referenceResult = page.locator('#sr [role="option"]').first();
+    await expect(referenceResult).toHaveAttribute('data-route', 'ch3');
+    await input.press('Enter');
+    await expect(page).toHaveURL(/#ch3$/);
+    await expect(page.locator('.chapter-reference')).toContainText('Hệ quy chiếu quán tính');
+  });
 });

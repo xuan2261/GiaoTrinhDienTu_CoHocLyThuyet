@@ -18,6 +18,9 @@ Cập nhật release-readiness ngày 2026-08-22.
 | Placeholder guard | Done, extractor bỏ `(.)`, `test:content` khóa hồi quy |
 | Reproducible release package | Done technically: candidate ZIP, 374 files, SHA-256 `6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd`; final acceptance remains gated |
 | PDF viewer nội tuyến | Done, PDF.js 6.2.108 local; `file://`/HTTP, lifecycle và download có gate |
+| Chế độ đọc rộng (Standard / Wide) | Done, toggle trên topbar, lưu `contentWidth`, responsive và không reflow tràn màn hình |
+| Bảng tra cứu ký hiệu chương | Done, dữ liệu `chapter-reference.json` có truy vết route, render tự động ở đầu Chương 1–3 |
+| Menu quiz theo từng phần I–VII | Done, chọn phạm vi từng phần, đếm câu hỏi động, lưu attempt độc lập theo phần trong store v2 |
 
 ## Mốc chính
 
@@ -34,7 +37,7 @@ Cập nhật release-readiness ngày 2026-08-22.
 | P8 Release readiness remediation | 20/24 canonical gates pass; frozen candidate verified; final acceptance blocked by academic signoff, independent accessibility/smoke review and Word round-trip |
 | P9 LMS derivative pilots | QTI 3 and Common Cartridge 1.4 adapters/packages validated locally; no target LMS import claim |
 | P10 Simulation deep TDD | 25 Sim2 + 10 Sim3 contracts closed; objective/full visual/three-run soak pass; technical evidence hash-bound |
-
+| P11 Reader enhancements | Chế độ đọc rộng, tra cứu ký hiệu đầu chương và quiz theo từng phần I–VII hoàn thiện theo TDD |
 ## Ưu tiên bảo trì
 
 1. Giữ DOCX là nguồn chuẩn và chạy đầy đủ extract, nav, bundle, audit khi nội dung đổi.

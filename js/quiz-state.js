@@ -130,7 +130,7 @@
     return { ...attempt, ...scored, status: 'completed', completedAt, updatedAt: completedAt, elapsed: Math.max(0, Math.round((completedAt - attempt.startedAt) / 1000)), passPolicyRef: bank.assessmentMetadata.passPolicy.id };
   }
 
-  function emptyStore() { return { schemaVersion: SCHEMA_VERSION, activeAttempts: {}, history: [], legacyScores: {}, selectedModes: {} }; }
+  function emptyStore() { return { schemaVersion: SCHEMA_VERSION, activeAttempts: {}, history: [], legacyScores: {}, selectedModes: {}, selectedSections: {} }; }
   function sanitizeLegacyScores(scores) {
     if (!scores || typeof scores !== 'object' || Array.isArray(scores)) return {};
     const result = {};
@@ -147,7 +147,8 @@
     const cutoff = now - RETENTION_MS;
     const history = Array.isArray(store.history) ? store.history.filter(item => item && item.status === 'completed' && Number.isFinite(item.completedAt) && item.completedAt > cutoff).sort((a, b) => b.completedAt - a.completedAt).slice(0, HISTORY_LIMIT) : [];
     const selectedModes = Object.fromEntries(Object.entries(store.selectedModes || {}).filter(([chapter, mode]) => /^ch[123]$/.test(chapter) && ['all', 'random'].includes(mode)));
-    return { schemaVersion: SCHEMA_VERSION, activeAttempts: store.activeAttempts && typeof store.activeAttempts === 'object' && !Array.isArray(store.activeAttempts) ? store.activeAttempts : {}, history, legacyScores: sanitizeLegacyScores(store.legacyScores), selectedModes };
+    const selectedSections = Object.fromEntries(Object.entries(store.selectedSections || {}).filter(([chapter, section]) => /^ch[123]$/.test(chapter) && ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'].includes(section)));
+    return { schemaVersion: SCHEMA_VERSION, activeAttempts: store.activeAttempts && typeof store.activeAttempts === 'object' && !Array.isArray(store.activeAttempts) ? store.activeAttempts : {}, history, legacyScores: sanitizeLegacyScores(store.legacyScores), selectedModes, selectedSections };
   }
   function readStore(storage) {
     let current = null;
@@ -171,6 +172,13 @@
   function commitAttempt(storage, attempt, key, bank, options = {}) {
     const store = readStore(storage);
     if (options.selectedMode) store.selectedModes[options.selectedMode.chapter] = options.selectedMode.mode;
+    if (options.selectedSection && /^ch[123]$/.test(options.selectedSection.chapter)) {
+      if (['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'].includes(options.selectedSection.section)) {
+        store.selectedSections[options.selectedSection.chapter] = options.selectedSection.section;
+      } else {
+        delete store.selectedSections[options.selectedSection.chapter];
+      }
+    }
     const restoreOptions = { chapter: attempt.chapter, mode: attempt.mode, section: attempt.section };
     const incoming = restoreAttempt(attempt, bank, restoreOptions);
     if (!incoming) throw new Error('Invalid attempt');
@@ -188,5 +196,5 @@
     }
   }
 
-  return { SCHEMA_VERSION, STORAGE_KEY, normalizeBank, seededOrder, selectQuestions, createAttempt, restoreAttempt, recordAnswer, completeAttempt, scoreAttempt, emptyStore, readStore, saveAttempt, trySaveAttempt, commitAttempt, tryCommitAttempt };
+  return { SCHEMA_VERSION, STORAGE_KEY, normalizeBank, seededOrder, selectQuestions, createAttempt, restoreAttempt, recordAnswer, completeAttempt, scoreAttempt, emptyStore, sanitizeStore, readStore, saveAttempt, trySaveAttempt, commitAttempt, tryCommitAttempt };
 }));

@@ -7,19 +7,21 @@ Nguồn chuẩn: `CoHocLyThuyet_Full_New.docx`.
 ```powershell
 python tools\analyze_docx.py --input CoHocLyThuyet_Full_New.docx --routes
 python tools\extract_docx.py --input CoHocLyThuyet_Full_New.docx --equation-report
+python tools\gen_quiz_pages.py
 python tools\extract_docx.py --input CoHocLyThuyet_Full_New.docx --write
 python tools\update_nav.py
 python tools\bundle_pages.py
 python tools\build_content_manifest.py
 python tools\validate_content_manifest.py
+python tools\build_search_index.py
 python tools\audit.py
 ```
 
-Extractor tạo `chapters/**`, `images/**`, `tools/docx_site_manifest.json` và equation report; manifest DOCX chỉ dùng logical source path, SHA-256 và generator metadata. `update_nav.py` tạo route/nav curated runtime maps; `bundle_pages.py` tạo `js/pages.js` cho `file://`; `build_content_manifest.py` tạo `data/content-manifest.json` từ manifest DOCX, map, bundle và fragments; validator kiểm joins/hash/provenance độc lập, không cần JSON-schema package.
+Extractor tạo `chapters/**`, `images/**`, `tools/docx_site_manifest.json` và equation report; trước mỗi run nó validate `data/chapter-reference.json`, render bảng tra cứu sau `.ov-sec`, và không nhận raw HTML author content. Manifest DOCX chỉ dùng logical source path, SHA-256 và generator metadata. `update_nav.py` tạo route/nav curated runtime maps cùng `window.CHAPTER_SECTIONS`; `bundle_pages.py` tạo `js/pages.js` cho `file://`; `build_content_manifest.py` tạo `data/content-manifest.json` từ manifest DOCX, chapter-reference provenance, map, bundle và fragments; validator kiểm joins/hash/provenance độc lập, không cần JSON-schema package.
 
 `tools/docx_site_manifest.json` schema v1 intentionally replaces the legacy absolute `input` field with portable `source.logicalPath` and `source.sha256`. Repository consumers must use the versioned `source` object; no compatibility alias is emitted because absolute machine paths are forbidden release data.
 
-Generated: `chapters/**`, `images/**`, `tools/docx_site_manifest.json`, `js/pages.js`, `data/content-manifest.json`. Curated: DOCX, `data/quiz-*.json`, `js/sim2/sim2-route-manifest.js`, `data/equation_mapping.json` và source runtime. Chỉ sửa generated output qua generator tương ứng. `data/schemas/release-manifest.schema.json` là contract; builder, file inventory và package release thuộc Phase 10, chưa có trong pipeline này.
+Generated: `chapters/**`, `images/**`, `tools/docx_site_manifest.json`, `js/pages.js`, `data/content-manifest.json`, `data/search-index.json`, `js/search-index.js`. Curated: DOCX, `data/chapter-reference.json`, `data/quiz-*.json`, `js/sim2/sim2-route-manifest.js`, `data/equation_mapping.json` và source runtime. Chỉ sửa generated output qua generator tương ứng. `data/schemas/release-manifest.schema.json` là contract; builder, file inventory và package release thuộc Phase 10, chưa có trong pipeline này.
 
 ## Quy tắc nội dung hiện tại
 

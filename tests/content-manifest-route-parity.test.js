@@ -90,4 +90,8 @@ try {
   fs.rmSync(rootB, { recursive: true, force: true });
 }
 
+expectFailure((root) => {
+  fs.appendFileSync(path.join(root, 'data', 'chapter-reference.json'), '\n');
+}, /chapter reference.*hash/i);
+
 console.log('content manifest route parity: PASS');

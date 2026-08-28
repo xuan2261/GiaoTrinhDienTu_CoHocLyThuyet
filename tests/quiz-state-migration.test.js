@@ -85,4 +85,45 @@ assert.strictEqual(
   null,
   'incomplete completed attempts must not restore as non-answerable active state'
 );
+
+const scopedBank = QuizRuntime.normalizeBank({
+  schemaVersion: 2,
+  assessmentMetadata: { passPolicy: { id: 'quiz-v2-pass-70', minimumPercent: 70 } },
+  items: bank.items.slice(0, 5).map((item, index) => ({ ...item, id: `quiz-ch1-vi-${index + 1}`, section: 'VI' })),
+}, 'ch1');
+assert.strictEqual(
+  QuizRuntime.selectQuestions(scopedBank, { mode: 'random', section: 'VI', seed: 'scoped' }).length,
+  5,
+  'random selection must not claim more questions than the selected section contains',
+);
+const sanitizedSelection = QuizRuntime.sanitizeStore({
+  ...QuizRuntime.emptyStore(),
+  selectedSections: { ch1: 'VI', ch2: 'I', ch3: 'VIII', unknown: 'II' },
+});
+assert.deepStrictEqual(
+  sanitizedSelection.selectedSections,
+  { ch1: 'VI', ch2: 'I' },
+  'only known chapters and I–VII section preferences may persist',
+);
+const scopedStorageData = new Map();
+let scopedWrites = 0;
+const scopedStorage = {
+  getItem: key => scopedStorageData.get(key) || null,
+  setItem: (key, value) => { scopedWrites += 1; scopedStorageData.set(key, value); },
+};
+const scopedAttempt = QuizRuntime.createAttempt(scopedBank, {
+  chapter: 'ch1', mode: 'random', section: 'VI', seed: 'section-preference', now: 8000,
+});
+const committedScopedAttempt = QuizRuntime.tryCommitAttempt(
+  scopedStorage,
+  scopedAttempt,
+  'ch1|random|VI',
+  scopedBank,
+  { selectedMode: { chapter: 'ch1', mode: 'random' }, selectedSection: { chapter: 'ch1', section: 'VI' } },
+);
+assert.strictEqual(committedScopedAttempt.ok, true);
+assert.strictEqual(scopedWrites, 1, 'attempt and selected section must commit atomically');
+assert.deepStrictEqual(committedScopedAttempt.store.selectedSections, { ch1: 'VI' });
+
+console.log('quiz scoped selection: PASS');
 console.log('quiz-state-migration: PASS');

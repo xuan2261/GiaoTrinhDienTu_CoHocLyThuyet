@@ -23,6 +23,7 @@ import zipfile
 from docx import Document
 from lxml import etree
 from content_manifest_utils import normalize_logical_path, sha256_file
+from chapter_reference import load_chapter_reference, render_chapter_reference, validate_chapter_reference
 
 EXTRACTOR_MANIFEST_VERSION = 1
 
@@ -967,7 +968,25 @@ def cleanup_generated(root, write):
                 os.remove(os.path.join(chapter_dir, name))
 
 
-def render_chapter_index(doc, xml_paras, chapter, image_writer, rid_to_media, transformer):
+
+def reference_route_catalog(chapters):
+    catalog = {}
+    for chapter in chapters:
+        chapter_id = f"ch{chapter['chapter']}"
+        routes = set()
+        for section in chapter["sections"]:
+            section_id = f"{chapter_id}-{section['section']}"
+            routes.add(section_id)
+            for sub in section["subsections"]:
+                if section["section"] == 7 and "Câu hỏi ôn tập" in sub["title"]:
+                    routes.add(f"{chapter_id}-rev")
+                else:
+                    routes.add(f"{section_id}-{sub['subsection']}")
+        catalog[chapter_id] = routes
+    return catalog
+
+
+def render_chapter_index(doc, xml_paras, chapter, image_writer, rid_to_media, transformer, chapter_reference):
     chapter_num = chapter["chapter"]
     intro_start = chapter["start"] + 1
     first_section = chapter["sections"][0]["start"] if chapter["sections"] else chapter["end"]
@@ -994,6 +1013,7 @@ def render_chapter_index(doc, xml_paras, chapter, image_writer, rid_to_media, tr
             f'    <li><a href="#" onclick="loadPage(\'{pid}\');return false">{roman}. {html.escape(section["title"])}</a></li>'
         )
     content.extend(["  </ul>", "</div>"])
+    content.append(render_chapter_reference(f"ch{chapter_num}", chapter_reference))
     return "\n".join(content)
 
 
@@ -1086,6 +1106,9 @@ def extract(args):
     structure = collect_structure(doc)
     if len(structure["chapters"]) != 3:
         raise SystemExit(f"Expected 3 chapters, found {len(structure['chapters'])}")
+    reference_path = os.path.join(root, "data", "chapter-reference.json")
+    chapter_reference = load_chapter_reference(reference_path)
+    validate_chapter_reference(chapter_reference, reference_route_catalog(structure["chapters"]))
 
     transformer = load_omml_transformer()
     omml_count = count_omml(xml_paras)
@@ -1118,7 +1141,15 @@ def extract(args):
         os.makedirs(chapter_dir, exist_ok=True)
         chapter_meta = {"chapter": chapter_num, "title": CHAPTER_NAMES[chapter_num], "sections": []}
 
-        index_html = render_chapter_index(doc, xml_paras, chapter, image_writer, rid_to_media, transformer)
+        index_html = render_chapter_index(
+            doc,
+            xml_paras,
+            chapter,
+            image_writer,
+            rid_to_media,
+            transformer,
+            chapter_reference["chapters"][f"ch{chapter_num}"]["entries"],
+        )
         write_file(os.path.join(chapter_dir, "index.html"), index_html, args.write)
         print(f"  ch{chapter_num}: {len(chapter['sections'])} sections")
 

@@ -119,6 +119,120 @@ const BC = {
   'ch3-quiz': 'Chương 3 › Ôn tập trắc nghiệm',
 };
 
+window.CHAPTER_SECTIONS = {
+  "ch1": [
+    {
+      "id": "I",
+      "routeId": "ch1-1",
+      "title": "KHÁI NIỆM CƠ BẢN"
+    },
+    {
+      "id": "II",
+      "routeId": "ch1-2",
+      "title": "CÁC ĐỊNH LUẬT TĨNH HỌC"
+    },
+    {
+      "id": "III",
+      "routeId": "ch1-3",
+      "title": "MỘT SỐ LIÊN KẾT THƯỜNG GẶP"
+    },
+    {
+      "id": "IV",
+      "routeId": "ch1-4",
+      "title": "HỆ LỰC KHÔNG GIAN"
+    },
+    {
+      "id": "V",
+      "routeId": "ch1-5",
+      "title": "MA SÁT"
+    },
+    {
+      "id": "VI",
+      "routeId": "ch1-6",
+      "title": "TRỌNG TÂM"
+    },
+    {
+      "id": "VII",
+      "routeId": "ch1-7",
+      "title": "BÀI TẬP"
+    }
+  ],
+  "ch2": [
+    {
+      "id": "I",
+      "routeId": "ch2-1",
+      "title": "KHẢO SÁT CHUYỂN ĐỘNG CỦA CHẤT ĐIỂM"
+    },
+    {
+      "id": "II",
+      "routeId": "ch2-2",
+      "title": "CHUYỂN ĐỘNG CƠ BẢN CỦA VẬT RẮN"
+    },
+    {
+      "id": "III",
+      "routeId": "ch2-3",
+      "title": "TRUYỀN ĐỘNG ĐƠN GIẢN"
+    },
+    {
+      "id": "IV",
+      "routeId": "ch2-4",
+      "title": "HỢP CHUYỂN ĐỘNG ĐIỂM"
+    },
+    {
+      "id": "V",
+      "routeId": "ch2-5",
+      "title": "CHUYỂN ĐỘNG SONG PHẲNG"
+    },
+    {
+      "id": "VI",
+      "routeId": "ch2-6",
+      "title": "CHUYỂN ĐỘNG CỦA VẬT RẮN QUAY QUANH 1 ĐIỂM CỐ ĐỊNH"
+    },
+    {
+      "id": "VII",
+      "routeId": "ch2-7",
+      "title": "BÀI TẬP"
+    }
+  ],
+  "ch3": [
+    {
+      "id": "I",
+      "routeId": "ch3-1",
+      "title": "CÁC KHÁI NIỆM"
+    },
+    {
+      "id": "II",
+      "routeId": "ch3-2",
+      "title": "CÁC ĐỊNH LUẬT CƠ BẢN"
+    },
+    {
+      "id": "III",
+      "routeId": "ch3-3",
+      "title": "PHƯƠNG TRÌNH VI PHÂN CHUYỂN ĐỘNG"
+    },
+    {
+      "id": "IV",
+      "routeId": "ch3-4",
+      "title": "HAI BÀI TOÁN CƠ BẢN CỦA ĐỘNG LỰC HỌC"
+    },
+    {
+      "id": "V",
+      "routeId": "ch3-5",
+      "title": "CÁC ĐỊNH LÝ TỔNG QUÁT"
+    },
+    {
+      "id": "VI",
+      "routeId": "ch3-6",
+      "title": "LÝ THUYẾT VA CHẠM"
+    },
+    {
+      "id": "VII",
+      "routeId": "ch3-7",
+      "title": "BÀI TẬP"
+    }
+  ]
+};
+
 function initBC() {
   BC['home'] = 'Trang chủ';
   BC['lnd'] = 'Lời nói đầu';
@@ -248,6 +362,14 @@ function updateActiveNav(id) {
 // ============================================
 // THEME
 // ============================================
+function readPreference(key) {
+  try { return localStorage.getItem(key); } catch (_) { return null; }
+}
+
+function writePreference(key, value) {
+  try { localStorage.setItem(key, value); } catch (_) {}
+}
+
 function updateThemeControl(theme) {
   const btn = document.getElementById('themeBtn');
   if (!btn) return;
@@ -262,11 +384,11 @@ function togTheme() {
   const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', t);
   updateThemeControl(t);
-  localStorage.setItem('theme', t);
+  writePreference('theme', t);
 }
 
 (function initTheme() {
-  const t = localStorage.getItem('theme') || document.documentElement.getAttribute('data-theme') || 'dark';
+  const t = readPreference('theme') || document.documentElement.getAttribute('data-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', t);
   updateThemeControl(t);
 })();
@@ -302,13 +424,13 @@ document.addEventListener('click', event => { if (!event.target.closest('.search
 // ============================================
 // FONT ZOOM
 // ============================================
-let fontZoomLevel = parseInt(localStorage.getItem('fontZoom') || '0');
+let fontZoomLevel = parseInt(readPreference('fontZoom') || '0');
 
 function zoomFont(dir) {
   if (dir === 0) { fontZoomLevel = 0; }
   else { fontZoomLevel = Math.max(-3, Math.min(5, fontZoomLevel + dir)); }
   applyFontZoom();
-  localStorage.setItem('fontZoom', fontZoomLevel);
+  writePreference('fontZoom', fontZoomLevel);
 }
 
 function applyFontZoom() {

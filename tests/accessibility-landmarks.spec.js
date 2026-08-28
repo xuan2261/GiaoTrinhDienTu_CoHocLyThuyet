@@ -23,8 +23,8 @@ test.describe('Phase 8 landmark and accessible-name contracts', () => {
     await expect(skip).toHaveAttribute('href', '#main-content');
     await expect(page.getByRole('button', { name: 'Đóng mục lục' })).toHaveAttribute('aria-controls', 'sb');
     await expect(page.getByRole('button', { name: 'Chuyển sang giao diện sáng' })).toHaveAttribute('aria-pressed', 'false');
+    await expect(page.getByRole('button', { name: 'Mở rộng nội dung' })).toHaveAttribute('aria-pressed', 'false');
   });
-
   test('sidebar disclosure buttons expose the controlled region and current state', async ({ page }) => {
     await openApp(page);
     const chapter = page.getByRole('button', { name: /Chương 1\. Tĩnh học/ });

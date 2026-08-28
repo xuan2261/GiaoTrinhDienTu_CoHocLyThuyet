@@ -32,4 +32,27 @@ test.describe('quiz browser rendering', () => {
       await expect(container.locator('.qs-total')).toContainText('0/10');
     });
   }
+
+  test('section scopes expose native labels, catalog titles, and scoped counts', async ({ page }) => {
+    await openQuiz(page, 'ch1');
+    const chapterOne = page.locator('#quiz-ch1');
+    const scopeOne = chapterOne.getByLabel('Phạm vi ôn tập');
+    await expect(scopeOne.locator('option')).toHaveCount(8);
+    await expect(scopeOne).toContainText('I. KHÁI NIỆM CƠ BẢN (12)');
+    await expect(scopeOne).toContainText('VI. TRỌNG TÂM (5)');
+    await scopeOne.selectOption('VI');
+    await expect(chapterOne.locator('.q-card')).toHaveCount(5);
+    await expect(chapterOne.locator('.quiz-mode button').first()).toHaveText('Tất cả (5)');
+    await expect(chapterOne.locator('.quiz-mode button').nth(1)).toHaveText('Random (5)');
+
+    await openQuiz(page, 'ch3');
+    const chapterThree = page.locator('#quiz-ch3');
+    const scopeThree = chapterThree.getByLabel('Phạm vi ôn tập');
+    await expect(scopeThree.locator('option')).toHaveCount(8);
+    await expect(scopeThree).toContainText('IV. HAI BÀI TOÁN CƠ BẢN CỦA ĐỘNG LỰC HỌC (9)');
+    await scopeThree.selectOption('IV');
+    await chapterThree.getByRole('button', { name: 'Random (9)' }).click();
+    await expect(chapterThree.locator('.q-card')).toHaveCount(9);
+    await expect(chapterThree.locator('.qs-total')).toContainText('0/9');
+  });
 });

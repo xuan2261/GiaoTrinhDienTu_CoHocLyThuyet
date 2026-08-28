@@ -1,5 +1,15 @@
 # Project Changelog
 
+## 2026-08-28 — Reader width, chapter references and scoped quiz
+
+### Added
+- `contentWidth=standard|wide` bootstraps before the stylesheet, controls the existing reading container without changing default layout, and remains keyboard/reflow safe through tablet widths.
+- Quiz exposes native per-chapter I–VII scope selection from generated `window.CHAPTER_SECTIONS`; scoped count/random attempt keys, persistence and reset remain isolated.
+- Curated `data/chapter-reference.json` renders traceable symbol/abbreviation/unit tables in chapter indexes; schema-v1 manifest provenance binds its SHA-256.
+
+### Verified
+- Targeted file:// browser, persistence, keyboard, responsive, extractor, manifest and freshness contracts pass. Technical checks validate structure/provenance only; independent academic acceptance is unchanged.
+
 ## 2026-08-25 — Author rank correction and candidate rebuild
 
 ### Corrected

@@ -25,3 +25,14 @@ test('keyboard-only learner can answer, review, and reset semantic quiz controls
   await expect(quiz.locator('input[type=radio]').first()).not.toBeChecked();
   await expect(quiz.locator('.quiz-score [aria-live=polite]')).toContainText('0/100');
 });
+
+test('keyboard scope selection keeps focus in the native quiz control', async ({ page }) => {
+  await page.goto(`${INDEX_FILE_URL}#ch1-quiz`);
+  const quiz = page.locator('#quiz-ch1');
+  const scope = quiz.getByLabel('Phạm vi ôn tập');
+  await expect(scope.locator('option')).toHaveCount(8);
+  await scope.focus();
+  await page.keyboard.press('ArrowDown');
+  await expect(quiz.locator('.q-card')).toHaveCount(12);
+  await expect(quiz.getByLabel('Phạm vi ôn tập')).toBeFocused();
+});

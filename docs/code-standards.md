@@ -17,7 +17,7 @@ Các chuẩn này giữ runtime offline ổn định và output đồng bộ v�
 | `index.html` | Shell và script load order |
 | `js/app.js` | UI shell, search, breadcrumb, theme, zoom |
 | `js/loader.js` | Route, fragment, math và lifecycle hook |
-| `js/{quiz,progress,glossary,notes}.js` | Mỗi module giữ đúng feature của mình |
+| `js/{quiz,progress,glossary,notes,content-width}.js` | Mỗi module giữ đúng feature của mình |
 | `js/sim2/physics/` | Nguồn công thức canonical, dùng được Node/browser |
 | `js/sim2/core/` | Transform, SVG, overlay, panel, controls, lifecycle |
 | `js/sim2/sims/ch*/` | Factory theo route; registry phải khớp manifest 25 route |
@@ -52,14 +52,13 @@ Các chuẩn này giữ runtime offline ổn định và output đồng bộ v�
 | `js/pages.js` | `tools/bundle_pages.py` |
 | `data/equation_mapping.json` | Review, validate và merge qua tools |
 | `lib/pdfjs/{pdfjs-runtime.iife.min.js,pdf-data.js,provenance.json}` | `npm run build:pdf-assets` |
+| `data/chapter-reference.json` | Curated supplemental reference input; extractor render và manifest provenance kiểm hash |
 
 Extractor phải chuẩn hóa tên ảnh, không phát sinh tên asset không ổn định, và không render placeholder số công thức `(.)`. Content test phải giữ guard cho placeholder và route Section VII đã xóa, gồm Chương 3 VII-4/VII-5/VII-6.
 
 Không sửa tay artifact trong `lib/pdfjs/`, không thêm CDN/runtime module import. PDF.js phải pin chính xác; builder phải giữ `enableScripting:false`, `useWasm:false`, preload fake-worker handler và ghi SHA/provenance/license.
 
-## State keys ổn định
-
-`theme`, `fontZoom`, `chlyt_quiz_attempts`, `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes`. `quizScores` chỉ được đọc để lazy-migrate aggregate cũ; không ghi song song. Không đổi key nếu chưa có migration rõ.
+`theme`, `fontZoom`, `contentWidth`, `chlyt_quiz_attempts`, `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes`. `contentWidth` chỉ nhận `standard|wide`; `chlyt_quiz_attempts` schema v2 giữ selected mode/scope theo chapter cùng attempt key riêng. `quizScores` chỉ được đọc để lazy-migrate aggregate cũ; không ghi song song.
 
 ## JavaScript và Python
 

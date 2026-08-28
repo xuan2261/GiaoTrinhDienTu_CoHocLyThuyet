@@ -62,6 +62,9 @@ Sim3 chỉ là lớp 3D tùy chọn cho 10 route. Nó giữ cùng hierarchy, con
 | Ảnh động | Chỉ thay ảnh có trong manifest; giữ alt/caption, PNG fallback và nút trạng thái 44 px |
 | PDF viewer | Native full-screen dialog, navy-gold toolbar, trang giấy sáng, focus ring rõ, canvas + selectable text |
 | Shell | Một `main`, skip link giữ route hiện tại, landmark có nhãn, sidebar disclosure công bố `aria-expanded` |
+| Chiều rộng đọc | Mặc định giữ cap hiện có; `contentWidth=wide` chỉ nới `.content-area`, giữ gutter/sidebar và không stretch media/simulation |
+| Phạm vi quiz | Native `<select>` có label thấy được, count theo scope, 44 px target/focus ring; không thay bằng custom listbox |
+| Bảng tra cứu | `<details open>` + table semantic; ở narrow, chỉ wrapper của bảng scroll ngang, không làm tràn document |
 | Media pilot | Academic utilitarian, one causal visual per objective, static fallback visible before enhancement, native 44 px controls, no remote fonts/assets |
 
 ## Motion và feedback

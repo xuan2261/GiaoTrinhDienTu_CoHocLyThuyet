@@ -11,6 +11,7 @@ from content_manifest_utils import (
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERSION = 1
+CHAPTER_REFERENCE_PATH = "data/chapter-reference.json"
 
 
 def local_refs(html, pattern):
@@ -44,6 +45,11 @@ def build():
     source_path = normalize_logical_path(source.get("logicalPath"))
     if source.get("sha256") != sha256_file(repo_path(ROOT, source_path)):
         raise ValueError("DOCX source hash mismatch")
+    chapter_reference_path = repo_path(ROOT, CHAPTER_REFERENCE_PATH)
+    chapter_reference = {
+        "logicalPath": CHAPTER_REFERENCE_PATH,
+        "sha256": sha256_file(chapter_reference_path),
+    }
     loader = read_text(os.path.join(ROOT, "js", "loader.js"))
     app = read_text(os.path.join(ROOT, "js", "app.js"))
     bundle = read_text(os.path.join(ROOT, "js", "pages.js"))
@@ -85,6 +91,7 @@ def build():
         "logicalPath": source_path,
         "sha256": source["sha256"],
         "docxManifestSha256": sha256_file(docx_manifest_path),
+        "chapterReference": chapter_reference,
     }
     pdf_path = os.path.join(ROOT, "CoHocLyThuyet.pdf")
     if os.path.isfile(pdf_path):

@@ -1,12 +1,15 @@
 (function () {
   const cache = {};
   let serial = 0;
+  const ROMAN_SECTIONS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
 
   function safeStorage() {
     try { return window.localStorage; } catch (_) { return null; }
   }
+
   function attemptKey(chapter, mode, section) { return `${chapter}|${mode}|${section || 'all'}`; }
   function makeSeed(chapter, mode, section) { serial += 1; return `${chapter}|${mode}|${section || 'all'}|${Date.now()}|${serial}`; }
+
   function element(tag, className, text) {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -29,11 +32,36 @@
     return cache[chapter];
   }
 
+  function sectionCatalog(chapter, items) {
+    const counts = new Map();
+    items.forEach(item => {
+      if (ROMAN_SECTIONS.includes(item.section)) counts.set(item.section, (counts.get(item.section) || 0) + 1);
+    });
+    const generated = typeof window.CHAPTER_SECTIONS !== 'undefined' && Array.isArray(window.CHAPTER_SECTIONS[chapter])
+      ? window.CHAPTER_SECTIONS[chapter]
+      : [];
+    const sections = [];
+    generated.forEach(section => {
+      if (!section || !counts.has(section.id) || !section.title) return;
+      sections.push({ id: section.id, title: section.title, count: counts.get(section.id) });
+      counts.delete(section.id);
+    });
+    ROMAN_SECTIONS.forEach(id => {
+      if (counts.has(id)) sections.push({ id, title: `Phần ${id}`, count: counts.get(id) });
+    });
+    return sections;
+  }
+
+  function validSection(section, sections) {
+    return sections.some(candidate => candidate.id === section) ? section : null;
+  }
+
   function persist(context, attempt, options = {}) {
     if (!context.storage) return false;
     const result = QuizRuntime.tryCommitAttempt(context.storage, attempt, context.key, context.bank, {
       ...options,
       selectedMode: { chapter: context.chapter, mode: context.mode },
+      selectedSection: context.canonical ? { chapter: context.chapter, section: context.section } : undefined,
     });
     if (result.ok) {
       context.store = result.store;
@@ -41,7 +69,6 @@
     }
     return result.ok;
   }
-
 
   function renderScore(header, attempt) {
     header.querySelector('.qs-correct').textContent = `Đúng: ${attempt.correct}`;
@@ -96,8 +123,35 @@
     renderExisting(context, !saved, { answeredQuestionId: question.id });
   }
 
+  function renderScopeControl(context, scopedCount) {
+    const control = element('div', 'quiz-scope');
+    const label = element('label', '', 'Phạm vi ôn tập');
+    const select = element('select');
+    select.id = `${context.container.id}-scope`;
+    label.htmlFor = select.id;
+    const all = element('option', '', `Toàn chương (${context.bank.items.length})`);
+    all.value = '';
+    select.append(all);
+    context.sections.forEach(section => {
+      const option = element('option', '', `${section.id}. ${section.title} (${section.count})`);
+      option.value = section.id;
+      select.append(option);
+    });
+    select.value = context.section || '';
+    select.setAttribute('aria-describedby', `${select.id}-count`);
+    const count = element('span', 'sr-only', `${scopedCount} câu hỏi trong phạm vi đã chọn`);
+    count.id = `${select.id}-count`;
+    select.addEventListener('change', () => {
+      renderQuiz(context.container.id, context.chapter, context.mode, select.value || null, false, true, 'scope');
+    });
+    control.append(label, select, count);
+    return control;
+  }
+
   function renderExisting(context, showWarning, focusRequest) {
     const { container, bank, attempt } = context;
+    const scopedItems = bank.items.filter(item => !context.section || item.section === context.section);
+    const scopedCount = scopedItems.length;
     container.replaceChildren();
     const header = element('div', 'quiz-header');
     const score = element('div', 'quiz-score');
@@ -114,10 +168,13 @@
 
     const warning = element('p', 'quiz-persistence-warning', 'Không thể lưu tiến trình trên thiết bị này; bạn vẫn có thể làm bài trong trang hiện tại.');
     warning.setAttribute('role', 'alert'); warning.hidden = !showWarning; container.append(warning);
+    if (context.canonical) container.append(renderScopeControl(context, scopedCount));
     const modes = element('div', 'quiz-mode');
-    [['all', `Tất cả (${bank.items.length})`], ['random', 'Random (10)']].forEach(([mode, label]) => {
-      const button = element('button', mode === context.mode ? 'active' : '', label); button.type = 'button';
-      button.addEventListener('click', () => renderQuiz(context.container.id, context.chapter, mode, context.section, false, true)); modes.append(button);
+    [['all', `Tất cả (${scopedCount})`], ['random', `Random (${Math.min(10, scopedCount)})`]].forEach(([mode, label]) => {
+      const button = element('button', mode === context.mode ? 'active' : '', label);
+      button.type = 'button';
+      button.addEventListener('click', () => renderQuiz(context.container.id, context.chapter, mode, context.section, false, true, 'mode'));
+      modes.append(button);
     });
     container.append(modes);
     const byId = new Map(bank.items.map(question => [question.id, question]));
@@ -148,28 +205,37 @@
     renderExisting(context, !saved, { selector: 'input[type="radio"]:not(:disabled)' });
   }
 
-  async function renderQuiz(containerId, chapter, mode = 'all', section = null, persistenceFailed = false, userSelected = false) {
+  async function renderQuiz(containerId, chapter, mode = 'all', section = null, persistenceFailed = false, userSelected = false, focus = null) {
     const container = document.getElementById(containerId);
     if (!container) return;
     const bank = await loadQuizData(chapter);
     if (!bank.items.length) { container.textContent = 'Câu hỏi trắc nghiệm đang được cập nhật.'; return; }
+    const canonical = containerId === `quiz-${chapter}`;
+    const sections = sectionCatalog(chapter, bank.items);
     const storage = safeStorage();
     let store = storage ? QuizRuntime.readStore(storage) : QuizRuntime.emptyStore();
-    if (!userSelected && containerId === `quiz-${chapter}` && store.selectedModes[chapter]) mode = store.selectedModes[chapter];
+    if (!userSelected && canonical && store.selectedModes[chapter]) mode = store.selectedModes[chapter];
+    if (!userSelected && canonical && store.selectedSections[chapter]) section = store.selectedSections[chapter];
+    section = validSection(section, sections);
     const modeChanged = store.selectedModes[chapter] !== mode;
+    const sectionChanged = canonical && (store.selectedSections[chapter] || null) !== section;
     store.selectedModes[chapter] = mode;
     const key = attemptKey(chapter, mode, section);
     let attempt = QuizRuntime.restoreAttempt(store.activeAttempts[key], bank, { chapter, mode, section });
     const validAttempt = Boolean(attempt);
     if (!attempt) attempt = QuizRuntime.createAttempt(bank, { chapter, mode, section, seed: makeSeed(chapter, mode, section) });
-    if (!validAttempt || userSelected || modeChanged) {
+    if (!validAttempt || userSelected || modeChanged || sectionChanged) {
       const saved = storage && QuizRuntime.tryCommitAttempt(storage, attempt, key, bank, {
         selectedMode: { chapter, mode },
+        selectedSection: canonical ? { chapter, section } : undefined,
       });
       if (saved && saved.ok) { store = saved.store; attempt = saved.attempt; }
       else persistenceFailed = true;
     }
-    renderExisting({ container, chapter, mode, section, key, bank, storage, store, attempt, reviewing: false }, persistenceFailed || !storage);
+    const focusRequest = focus === 'scope'
+      ? { selector: '.quiz-scope select' }
+      : (focus === 'mode' ? { selector: '.quiz-mode button.active' } : null);
+    renderExisting({ container, chapter, mode, section, key, bank, storage, store, attempt, sections, canonical, reviewing: false }, persistenceFailed || !storage, focusRequest);
   }
 
   window.renderQuiz = renderQuiz;

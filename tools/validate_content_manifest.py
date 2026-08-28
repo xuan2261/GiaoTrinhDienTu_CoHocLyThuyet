@@ -41,7 +41,7 @@ def validate_schema_shape(manifest, top_required, route_required):
     exact_keys(manifest, top_required, (), "content manifest")
     if manifest["schemaVersion"] != 1:
         fail("unsupported content manifest schemaVersion")
-    exact_keys(manifest["source"], ("logicalPath", "sha256", "docxManifestSha256"), ("pdf",), "content manifest source")
+    exact_keys(manifest["source"], ("logicalPath", "sha256", "docxManifestSha256", "chapterReference"), ("pdf",), "content manifest source")
     for field in ("sha256", "docxManifestSha256"):
         if not isinstance(manifest["source"][field], str) or not SHA256_RE.fullmatch(manifest["source"][field]):
             fail(f"content manifest source {field} must be a SHA-256 hex digest")
@@ -49,6 +49,12 @@ def validate_schema_shape(manifest, top_required, route_required):
         exact_keys(manifest["source"]["pdf"], ("logicalPath", "sha256"), (), "PDF provenance")
         if not SHA256_RE.fullmatch(str(manifest["source"]["pdf"]["sha256"])):
             fail("PDF provenance sha256 must be a SHA-256 hex digest")
+    chapter_reference = manifest["source"]["chapterReference"]
+    exact_keys(chapter_reference, ("logicalPath", "sha256"), (), "chapter reference provenance")
+    if chapter_reference["logicalPath"] != "data/chapter-reference.json":
+        fail("invalid chapter reference logical path")
+    if not SHA256_RE.fullmatch(str(chapter_reference["sha256"])):
+        fail("chapter reference sha256 must be a SHA-256 hex digest")
     exact_keys(manifest["generator"], ("name", "version"), (), "content manifest generator")
     if not isinstance(manifest["routes"], list) or not manifest["routes"]:
         fail("content manifest routes must be a non-empty array")
@@ -117,6 +123,9 @@ def validate():
         fail("invalid DOCX manifest generator")
     if source["docxManifestSha256"] != sha256_file(docx_manifest_path):
         fail("DOCX manifest hash mismatch")
+    chapter_reference = source["chapterReference"]
+    if chapter_reference["sha256"] != sha256_file(repo_path(ROOT, chapter_reference["logicalPath"])):
+        fail("chapter reference hash mismatch")
     if "pdf" in source:
         pdf = source["pdf"]
         if set(pdf) != {"logicalPath", "sha256"}:

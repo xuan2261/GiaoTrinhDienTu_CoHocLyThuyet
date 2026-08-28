@@ -10,11 +10,20 @@
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["logicalPath", "sha256", "docxManifestSha256"],
+      "required": ["logicalPath", "sha256", "docxManifestSha256", "chapterReference"],
       "properties": {
         "logicalPath": {"type": "string", "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!\\\\\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
         "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
         "docxManifestSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "chapterReference": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["logicalPath", "sha256"],
+          "properties": {
+            "logicalPath": {"const": "data/chapter-reference.json"},
+            "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+          }
+        },
         "pdf": {
           "type": "object",
           "additionalProperties": false,

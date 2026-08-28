@@ -30,16 +30,13 @@ project_root = helpers.project_root
 PAGES_ENTRY = re.compile(r'^PAGES\["([^"]+)"\]\s*=', re.MULTILINE)
 REVIEW_SUBSECTION_TITLE = 'Câu hỏi ôn tập'
 
-# These DOCX-generated fragments are intentionally not runtime routes. Each is
-# retained as source review material; their canonical routed successors are
-# on-tap.html and trac-nghiem.html for the same chapter.
+# These DOCX-generated review fragments are intentionally not runtime routes.
+# Their canonical routed successors are `on-tap.html`; obsolete quiz fragments
+# are deleted by tools/gen_quiz_pages.py after canonical writes succeed.
 NON_ROUTED_REVIEW_FRAGMENTS = {
     'chapters/ch1/cau-hoi-on-tap.html': 'DOCX review source retained; ch1-rev routes on-tap.html.',
-    'chapters/ch1/on-tap-trac-nghiem.html': 'DOCX quiz-review source retained; ch1-quiz routes trac-nghiem.html.',
     'chapters/ch2/cau-hoi-on-tap.html': 'DOCX review source retained; ch2-rev routes on-tap.html.',
-    'chapters/ch2/on-tap-trac-nghiem.html': 'DOCX quiz-review source retained; ch2-quiz routes trac-nghiem.html.',
     'chapters/ch3/cau-hoi-on-tap.html': 'DOCX review source retained; ch3-rev routes on-tap.html.',
-    'chapters/ch3/on-tap-trac-nghiem.html': 'DOCX quiz-review source retained; ch3-quiz routes trac-nghiem.html.',
 }
 
 # Historical formula-as-image migration evidence only. Phase 02 removes these

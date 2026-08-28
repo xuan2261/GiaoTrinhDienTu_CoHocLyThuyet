@@ -3,6 +3,7 @@ const childProcess = require('child_process');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
+const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '..');
 const PYTHON = process.env.PYTHON || 'python';
@@ -48,6 +49,10 @@ try {
   assert.strictEqual(docxManifest.schemaVersion, 1);
   assert.match(docxManifest.source.sha256, /^[a-f0-9]{64}$/);
   assert.deepStrictEqual(docxManifest.generator, { name: 'tools/extract_docx.py', version: 1 });
+  assert.deepStrictEqual(manifest.source.chapterReference, {
+    logicalPath: 'data/chapter-reference.json',
+    sha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(canonicalRoot, 'data', 'chapter-reference.json'))).digest('hex'),
+  });
 } finally {
   fs.rmSync(canonicalRoot, { recursive: true, force: true });
 }

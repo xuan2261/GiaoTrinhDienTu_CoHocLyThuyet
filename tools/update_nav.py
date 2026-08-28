@@ -5,6 +5,7 @@ from the generated chapter fragments.
 Usage:
   python tools/update_nav.py
 """
+import json
 import argparse
 import os
 import re
@@ -83,6 +84,26 @@ def scan_chapters(root):
             "sections": [sections[k] | {"section": k} for k in sorted(sections)],
         }
     return chapters
+
+
+def chapter_sections(chapters):
+    return {
+        f"ch{chapter}": [
+            {
+                "id": section["roman"],
+                "routeId": f"ch{chapter}-{section['section']}",
+                "title": section["title"],
+            }
+            for section in data["sections"]
+        ]
+        for chapter, data in chapters.items()
+    }
+
+
+def gen_chapter_sections(chapters):
+    return "window.CHAPTER_SECTIONS = " + json.dumps(
+        chapter_sections(chapters), ensure_ascii=False, indent=2
+    ) + ";"
 
 
 def gen_sidebar(chapters):
@@ -241,6 +262,23 @@ def update_app(root, chapters):
     path = os.path.join(root, "js", "app.js")
     content = read(path)
     content = replace_block(content, r"const BC = \{[\s\S]*?\};", gen_bc(chapters), "BC")
+    catalog = gen_chapter_sections(chapters)
+    if "window.CHAPTER_SECTIONS =" in content:
+        content = replace_block(
+            content,
+            r"window\.CHAPTER_SECTIONS = \{[\s\S]*?\};",
+            catalog,
+            "CHAPTER_SECTIONS",
+        )
+    else:
+        content, count = re.subn(
+            r"(const BC = \{[\s\S]*?\};)",
+            lambda match: match.group(1) + "\n\n" + catalog,
+            content,
+            count=1,
+        )
+        if count != 1:
+            raise SystemExit("Could not insert CHAPTER_SECTIONS")
     content = replace_block(content, r"const PAGE_ORDER = \[[\s\S]*?\];", gen_page_order(chapters), "PAGE_ORDER")
     write(path, content)
 

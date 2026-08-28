@@ -4,7 +4,8 @@
 
 ```text
 index.html
-  -> pages.js + search-index.js + search.js + app.js + loader.js
+  -> content-width.js (head bootstrap) + pages.js + search-index.js + search.js + app.js + loader.js
+  -> contentWidth dataset applies before stylesheet; standard/wide is a local preference only
   -> search index validates PAGES runtime digests and glossary digest; stale/corrupt data falls back to navigation-only search
   -> chapter fragment from offline bundle or fetch
   -> KaTeX/MathML + quiz/progress/glossary/notes hooks
@@ -24,7 +25,7 @@ Qua `file://`, PDF được truyền bằng một `Uint8Array` mới cho mỗi s
 
 ## Content layer
 
-`CoHocLyThuyet_Full_New.docx` là nguồn chuẩn. Pipeline tạo `chapters/`, `images/`, `tools/docx_site_manifest.json`, sau đó đồng bộ nav và bundle. Extractor chuẩn hóa filename ảnh và bỏ placeholder `(.)`; content test ngăn placeholder hoặc route cleanup quay lại. Chương 3 Section VII-4, VII-5 và VII-6 không còn trong runtime hiện tại.
+`CoHocLyThuyet_Full_New.docx` là nguồn narrative chuẩn. `data/chapter-reference.json` là curated supplemental input: `tools/chapter_reference.py` validate schema/same-chapter first-use routes và extractor render table semantic ngay sau `.ov-sec`; raw HTML không được chấp nhận. Content manifest schema v1 giữ additive `source.chapterReference` logical path/SHA-256, nên stale curated input bị validator/search freshness gate chặn.
 
 ## Sim2 canonical engine
 
@@ -72,6 +73,8 @@ Three.js vendored offline tại `lib/three/three.umd.min.js`. `js/sim3/core/coor
 | `chlyt_quiz_attempts` | `js/quiz-state.js`, `js/quiz.js` (schema v2; lazy-migrate aggregate `quizScores`) |
 | `chlyt_progress`, `chlyt_bookmarks` | `js/progress.js` |
 | `chlyt_notes` | `js/notes.js` |
+| `contentWidth` | `js/content-width.js`; synchronous head bootstrap, `standard|wide` |
+| selected mode/scope | trong `chlyt_quiz_attempts`; `js/quiz-state.js`, `js/quiz.js` |
 
 ## Release, interoperability and acceptance evidence
 

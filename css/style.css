@@ -442,6 +442,26 @@ body {
   overflow-wrap: anywhere;
 }
 
+.chapter-reference {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid var(--bdr);
+  border-radius: var(--r);
+  background: color-mix(in srgb, var(--nav) 72%, transparent);
+}
+
+.chapter-reference h3 { color: var(--gold-l); font-size: 1.05rem; }
+.chapter-reference-summary { margin: .35rem 0 .75rem; color: var(--tx2); font-size: .86rem; }
+.chapter-reference summary { min-height: var(--target-min); cursor: pointer; color: var(--tx); font-weight: 600; }
+.chapter-reference-scroll { width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; }
+.chapter-reference table { width: 100%; min-width: 600px; margin-top: .75rem; border-collapse: collapse; }
+.chapter-reference th,
+.chapter-reference td { padding: .65rem .75rem; border: 1px solid var(--bdr); text-align: left; vertical-align: top; }
+.chapter-reference thead { background: var(--nav2); color: var(--gold-l); }
+.chapter-reference-group th { background: color-mix(in srgb, var(--gold) 13%, var(--nav)); color: var(--gold-l); }
+.chapter-reference td:last-child { white-space: nowrap; }
+.chapter-reference a { color: var(--gold-l); }
+
 .sh2 {
   margin-bottom: 1.2rem;
   padding-bottom: .8rem;
@@ -1123,6 +1143,31 @@ footer b { color: var(--gold); }
   color: var(--gold-l);
 }
 
+.quiz-scope {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .35rem;
+  margin: 0 0 1rem;
+}
+
+.quiz-scope label {
+  color: var(--tx);
+  font-size: .82rem;
+  font-weight: 600;
+}
+
+.quiz-scope select {
+  min-height: var(--target-min);
+  padding: .45rem .7rem;
+  border: 1.5px solid var(--bdr);
+  border-radius: var(--r);
+  background: var(--nav2);
+  color: var(--tx);
+  font: inherit;
+}
+
+.quiz-scope select:hover { border-color: var(--gold); }
+
 /* Loading Skeleton */
 .loading-skeleton {
   animation: skeletonPulse 1.5s ease-in-out infinite;
@@ -1201,6 +1246,11 @@ footer b { color: var(--gold); }
   html { font-size: clamp(18px, 0.85vw, 24px); }
   :root { --sw: clamp(300px, 14vw, 400px); }
   .content-area { max-width: clamp(800px, 42vw, 1080px); }
+}
+
+html[data-content-width="wide"] .content-area {
+  max-width: none;
+  padding-inline: clamp(1rem, 2.5vw, 3rem);
 }
 
 @media (max-width: 1400px) {
@@ -2253,6 +2303,28 @@ footer b { color: var(--gold); }
   background: rgba(201, 150, 58, .14);
 }
 
+.topbar .content-width-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding-inline: 10px;
+  border: 1px solid var(--bdr);
+  background: var(--nav2);
+  color: var(--tx2);
+  font: 700 .76rem/1 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  white-space: nowrap;
+}
+
+.topbar .content-width-toggle[aria-pressed="true"] {
+  border-color: var(--gold);
+  color: var(--gold-l);
+  background: rgba(201, 150, 58, .14);
+}
+
 .gif-motion-toggle:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
@@ -2466,6 +2538,8 @@ body.pdf-viewer-open { overflow: hidden; }
   .gif-motion-label { font-size: 0; }
   .gif-motion-label::after { content: "GIF"; font-size: .78rem; }
   .topbar .gif-motion-toggle { padding-inline: 6px; }
+  .content-width-state { display: none; }
+  .topbar .content-width-toggle { padding-inline: 6px; }
 }
 @media (max-width: 560px) {
   .pdf-viewer-header { grid-template-columns: auto minmax(0, 1fr) auto auto; padding-inline: 8px; }
@@ -2477,6 +2551,7 @@ body.pdf-viewer-open { overflow: hidden; }
   .pdf-viewer-control-group { gap: 4px; }
   .pdf-viewer-fit { padding-inline: 8px; }
   .pdf-viewer-viewport { padding-inline: 8px; }
+  .topbar .content-width-toggle { display: none; }
 }
 @media (max-width: 480px) {
   .topbar .brand { display: none; }

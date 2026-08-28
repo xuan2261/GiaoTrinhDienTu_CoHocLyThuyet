@@ -65,6 +65,19 @@ test.describe('Phase 8 200% and 400% equivalent reflow contracts', () => {
     await expectMinimumTargets(page, '.sim2-controls button:visible, .sim2-controls input[type="range"]:visible', 'Sim2 at 400%');
   });
 
+test('wide reading and reference regions reflow without document overflow', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('contentWidth', 'wide'));
+  await openRoute(page, 'ch1', { width: 640, height: 720 });
+  await expect(page.getByRole('button', { name: 'Dùng chiều rộng tiêu chuẩn' })).toBeVisible();
+  await expectNoPageOverflow(page, 'wide chapter at 200%');
+  await expectOwnedRegionsInsideViewport(page, ['.topbar', '#main-content', '.chapter-reference'], 'wide chapter at 200%');
+
+  await openRoute(page, 'ch1', { width: 320, height: 640 });
+  await expect(page.locator('.chapter-reference-scroll')).toBeVisible();
+  await expectNoPageOverflow(page, 'reference at 400%');
+  await expectOwnedRegionsInsideViewport(page, ['.topbar', '#main-content', '.chapter-reference'], 'reference at 400%');
+});
+
   test('PDF chrome wraps at 400% narrow equivalent while the page viewport remains independently scrollable', async ({ page }) => {
     await openRoute(page, 'home', { width: 320, height: 640 });
     await page.getByRole('button', { name: 'Xem bản PDF' }).click();

@@ -44,6 +44,7 @@ Pilot đa phương tiện Chương 1 giữ đúng bốn mục tiêu cục bộ d
 
 ```powershell
 python tools\analyze_docx.py --input CoHocLyThuyet_Full_New.docx --routes
+python tools\gen_quiz_pages.py
 python tools\extract_docx.py --input CoHocLyThuyet_Full_New.docx --write
 python tools\update_nav.py
 python tools\bundle_pages.py
@@ -53,7 +54,7 @@ python tools\build_search_index.py
 python tools\audit.py
 ```
 
-Extractor chuẩn hóa tên asset ảnh khi xuất và bỏ placeholder số công thức `(.)`. Sau khi đổi nội dung, `npm run test:content` bảo vệ cả cleanup route Section VII và placeholder này. Chi tiết semantic math và image publish gate xem [DOCX Sync Pipeline](docs/docx-sync-pipeline.md).
+Extractor chuẩn hóa tên asset ảnh khi xuất, bỏ placeholder số công thức `(.)` và render bảng tra cứu từ `data/chapter-reference.json`; JSON này là input curated bổ trợ, còn DOCX vẫn là nguồn narrative chuẩn. Sau khi đổi nội dung, `npm run test:content` bảo vệ cleanup route Section VII, placeholder và dữ liệu reference. Chi tiết semantic math và image publish gate xem [DOCX Sync Pipeline](docs/docx-sync-pipeline.md).
 
 ## QA
 
@@ -129,9 +130,9 @@ Bộ canvas `.sim-lab` 52 route là lịch sử, đã gỡ khỏi master và ch�
 ## Quy ước vận hành
 
 - Không sửa tay `chapters/*.html`, `images/`, `js/pages.js` hoặc manifest sinh tự động.
-- Khi fragment đổi, chạy `tools/update_nav.py`, `tools/bundle_pages.py`, `tools/build_content_manifest.py`, `tools/validate_content_manifest.py` và `tools/audit.py`.
+- Khi fragment đổi, chạy `tools/gen_quiz_pages.py`, `tools/update_nav.py`, `tools/bundle_pages.py`, `tools/build_content_manifest.py`, `tools/validate_content_manifest.py`, `tools/build_search_index.py` và `tools/audit.py`.
 - Dùng `tools/audit.py --strict-images` và `--strict-equations` khi chốt publish.
-- State browser giữ trong `localStorage`: `theme`, `fontZoom`, `gifMotionEnabled`, `chlyt_quiz_attempts` (đọc/migrate aggregate `quizScores` cũ), `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes`.
+- State browser giữ trong `localStorage`: `theme`, `fontZoom`, `contentWidth` (`standard|wide`), `gifMotionEnabled`, `chlyt_quiz_attempts` (đọc/migrate aggregate `quizScores` cũ; lưu scope quiz cuối cùng theo chương), `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes`.
 - Không sửa trực tiếp `assets/gifs/`; tái tạo trong `gif-conversion-workspace/`, kiểm tra nội dung vật lý, rồi chạy `python gif-conversion-workspace/publish-gifs.py`.
 
 ## Tài liệu
