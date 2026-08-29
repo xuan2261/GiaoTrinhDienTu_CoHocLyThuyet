@@ -17,7 +17,15 @@ test('chapter reference tables are semantic, visible by default, and link to fir
   await expect(reference.locator('details[open]')).toHaveCount(1);
   await expect(reference.locator('table thead th[scope=col]')).toHaveCount(4);
   await expect(reference.locator('tbody .chapter-reference-group')).toHaveCount(3);
-  await expect(reference.locator('a[href="#ch1-1-3"]')).toHaveCount(2);
+  expect(await reference.locator('a[href="#ch1-1-3"]').count()).toBeGreaterThanOrEqual(2);
+  const vectorCell = reference.locator('tbody tr:not(.chapter-reference-group) th').first();
+  const vectorArrow = vectorCell.locator('.katex svg');
+  await expect(vectorArrow).toBeVisible();
+  const [cellBox, arrowBox] = await Promise.all([vectorCell.boundingBox(), vectorArrow.boundingBox()]);
+  expect(arrowBox.x).toBeGreaterThanOrEqual(cellBox.x);
+  expect(arrowBox.y).toBeGreaterThanOrEqual(cellBox.y);
+  expect(arrowBox.x + arrowBox.width).toBeLessThanOrEqual(cellBox.x + cellBox.width);
+  expect(arrowBox.y + arrowBox.height).toBeLessThanOrEqual(cellBox.y + cellBox.height);
 
   await reference.locator('a[href="#ch1-1-3"]').first().click();
   await page.waitForFunction(() => location.hash === '#ch1-1-3');

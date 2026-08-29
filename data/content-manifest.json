@@ -6,7 +6,7 @@
     "docxManifestSha256": "a49f6fb6adaf5413d4cd9f2ed507cbaf7fcc5c059b8914d76089dcafa7bed29e",
     "chapterReference": {
       "logicalPath": "data/chapter-reference.json",
-      "sha256": "99dec9a7acb12b1a0492bbe68d8d3b15411a747fc6cbd7ef2d26ac223d392e7b"
+      "sha256": "0b2272d54d6a3d3152562eab58b6cbf241860971e4a0932c79bb05c142fb1187"
     },
     "pdf": {
       "logicalPath": "CoHocLyThuyet.pdf",
@@ -41,11 +41,23 @@
       ],
       "chapterFile": "chapters/ch1/index.html",
       "bundleKey": "ch1",
-      "contentHash": "f939870f3c00caba8680a637af2977623be186dda5ca7717abffa9d38429e4b7",
+      "contentHash": "4b3b044831bcc1a38d76e65ac6b2e91c1772512e5226c90c484ea2284b313df4",
       "figureRefs": [],
       "equationRefs": [
         "ch1#eq-1",
-        "ch1#eq-2"
+        "ch1#eq-2",
+        "ch1#eq-3",
+        "ch1#eq-4",
+        "ch1#eq-5",
+        "ch1#eq-6",
+        "ch1#eq-7",
+        "ch1#eq-8",
+        "ch1#eq-9",
+        "ch1#eq-10",
+        "ch1#eq-11",
+        "ch1#eq-12",
+        "ch1#eq-13",
+        "ch1#eq-14"
       ],
       "hasQuiz": false,
       "hasSimulation": false
@@ -1223,11 +1235,27 @@
       ],
       "chapterFile": "chapters/ch2/index.html",
       "bundleKey": "ch2",
-      "contentHash": "54e409a01369128a20ac0f994898724f50fd427806b6b8ced604fd180f0336a6",
+      "contentHash": "5a8de7919e1d6756a5430946189dd44603becd5378f7589563e3b1512ce67ea8",
       "figureRefs": [],
       "equationRefs": [
         "ch2#eq-1",
-        "ch2#eq-2"
+        "ch2#eq-2",
+        "ch2#eq-3",
+        "ch2#eq-4",
+        "ch2#eq-5",
+        "ch2#eq-6",
+        "ch2#eq-7",
+        "ch2#eq-8",
+        "ch2#eq-9",
+        "ch2#eq-10",
+        "ch2#eq-11",
+        "ch2#eq-12",
+        "ch2#eq-13",
+        "ch2#eq-14",
+        "ch2#eq-15",
+        "ch2#eq-16",
+        "ch2#eq-17",
+        "ch2#eq-18"
       ],
       "hasQuiz": false,
       "hasSimulation": false
@@ -2214,11 +2242,25 @@
       ],
       "chapterFile": "chapters/ch3/index.html",
       "bundleKey": "ch3",
-      "contentHash": "b7eb7e67b0e0687ff7b7f473fa6d31969ff0383ec659cdbc2346a98bdc7f71b8",
+      "contentHash": "9c18084cb86b5807bc1176e52ec2a7e91df89e58b7e05b8739dbfb63e1b04d8f",
       "figureRefs": [],
       "equationRefs": [
         "ch3#eq-1",
-        "ch3#eq-2"
+        "ch3#eq-2",
+        "ch3#eq-3",
+        "ch3#eq-4",
+        "ch3#eq-5",
+        "ch3#eq-6",
+        "ch3#eq-7",
+        "ch3#eq-8",
+        "ch3#eq-9",
+        "ch3#eq-10",
+        "ch3#eq-11",
+        "ch3#eq-12",
+        "ch3#eq-13",
+        "ch3#eq-14",
+        "ch3#eq-15",
+        "ch3#eq-16"
       ],
       "hasQuiz": false,
       "hasSimulation": false
@@ -3199,5 +3241,5 @@
       "hasSimulation": false
     }
   ],
-  "contentHash": "ca62c4ddf2825a9b5860e42552d2a61b67509575efe309cbfcc759b57ebd2239"
+  "contentHash": "656f93409d33fbbd50425a305b0034cb8518cb91b05246c70501eccceec8b591"
 }

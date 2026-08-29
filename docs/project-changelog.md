@@ -1,5 +1,20 @@
 # Project Changelog
 
+## 2026-08-29 — Deterministic candidate refresh
+
+### Corrected
+- Scoped the sidebar backdrop CSS to `#ov`, removing its collision with KaTeX's internal `.overlay` and restoring visible vector arrows in chapter reference tables.
+- Expanded the curated core lookup from 5 entries per chapter to 19/27/25 entries for Chapters 1/2/3; corrected force-moment vector notation and added explicit vector/scalar, direction, unit and first-use distinctions.
+
+### Built candidate artifacts
+- Candidate `release/2026.08.29-candidate/co-hoc-ly-thuyet-2026.08.29-candidate.zip`: 372 files, 78,739,542 bytes, SHA-256 `f38996d8614f73dc7355124606c99bf983d01171e00dd0adc0f373a7b762ee0e`.
+- QTI 3 Chapter 1 pilot: 10 items, SHA-256 `ec51d4cc674c677582e1c7382a047b195becff56a98fabc83ff3720009a88afa`.
+- Common Cartridge 1.4 derivative: SHA-256 `7b480cba9f6ee70d8367055cdf30a9c8de70358e344da25e3debadf3cfbef2f6`.
+
+### Verified
+- Standalone ZIP and both derivatives are byte-identical across two builds with fixed epoch `1787961600`; package/staging validators and technical `file://`/HTTP smoke pass.
+- Candidate remains technical-only. Independent academic, accessibility, candidate smoke and Word acceptance are not waived.
+
 ## 2026-08-28 — Reader width, chapter references and scoped quiz
 
 ### Added

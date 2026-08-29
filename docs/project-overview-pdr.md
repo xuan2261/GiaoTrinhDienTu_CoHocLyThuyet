@@ -41,7 +41,7 @@ Phạm vi gồm ba chương Tĩnh học, Động học, Động lực học. Kh�
 | Sim3 | 10 route pilot tùy chọn trong `js/sim3/` |
 | PDF viewer | Hoàn tất: PDF.js 6.2.108 local, canvas + text layer, `file://`/HTTP parity |
 | Cleanup nội dung | Chương 3 VII-4/VII-5/VII-6 đã bỏ; ảnh đã chuẩn hóa tên; `(.)` bị extractor và content test chặn |
-| Release | Có folder và `.rar` `GiaoTrinhDienTu_CoHocLyThuyet_release_20260812` trong `release/`; bản `20260701` giữ nguyên làm lịch sử |
+| Release | Candidate kỹ thuật hiện tại: `release/2026.08.29-candidate/`; các candidate và package cũ trong `release/` là lịch sử |
 | Traceability baseline | Provisional curated joins for all canonical content, 300 quiz items and 25 Sim2 routes; no institutional approval or passed evidence claimed |
 | Accessibility baseline | `data/accessibility-baseline.json` + bốn Playwright spec đã author; automated run và independent manual review chưa được ghi nhận |
 

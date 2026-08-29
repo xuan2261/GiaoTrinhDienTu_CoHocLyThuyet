@@ -70,13 +70,13 @@ Accessibility publish evidence gồm bốn `file://` Playwright specs và `data/
 
 Bản candidate hiện tại:
 
-- Staging: `release/2026.08.25-candidate/package/` (374 files).
-- ZIP: `release/2026.08.25-candidate/co-hoc-ly-thuyet-2026.08.25-candidate.zip`.
-- ZIP SHA-256: `6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd`.
-- QTI 3 pilot: `release/2026.08.25-candidate/derivatives/qti3-ch1-pilot.zip` (10 items), SHA-256 `99f6f1f73fee9daec8c531457a636cb25ba10941e8e7be88a3915c8d1b10455c`.
-- Common Cartridge 1.4: `release/2026.08.25-candidate/derivatives/common-cartridge-1.4.imscc`, SHA-256 `08b4582630ef802b0fdecd46babb5008cc49cfff2a8230625c0d2c4547b8f1cb`.
+- Staging: `release/2026.08.29-candidate/package/` (372 files).
+- ZIP: `release/2026.08.29-candidate/co-hoc-ly-thuyet-2026.08.29-candidate.zip`.
+- ZIP SHA-256: `f38996d8614f73dc7355124606c99bf983d01171e00dd0adc0f373a7b762ee0e`.
+- QTI 3 pilot: `release/2026.08.29-candidate/derivatives/qti3-ch1-pilot.zip` (10 items), SHA-256 `ec51d4cc674c677582e1c7382a047b195becff56a98fabc83ff3720009a88afa`.
+- Common Cartridge 1.4: `release/2026.08.29-candidate/derivatives/common-cartridge-1.4.imscc`, SHA-256 `7b480cba9f6ee70d8367055cdf30a9c8de70358e344da25e3debadf3cfbef2f6`.
 
-Rebuild bằng `python tools/release/release.py --output-dir release/2026.08.25-candidate --version 2026.08.25-candidate --epoch 1787616000`; kiểm candidate đóng băng bằng `npm run test:release-candidate`. Đây là candidate, không phải final institutional release: academic review, independent accessibility review, independent candidate smoke review và Word round-trip còn blocked. Các release cũ giữ nguyên làm artifact lịch sử.
+Rebuild bằng `python tools/release/release.py --output-dir release/2026.08.29-candidate --version 2026.08.29-candidate --epoch 1787961600`; kiểm candidate đóng băng bằng `npm run test:release-candidate`. Đây là candidate, không phải final institutional release: academic review, independent accessibility review, independent candidate smoke review và Word round-trip còn blocked. Các release cũ giữ nguyên làm artifact lịch sử.
 
 ## Smoke test bàn giao
 

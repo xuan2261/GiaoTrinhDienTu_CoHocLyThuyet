@@ -16,7 +16,7 @@ Cập nhật release-readiness ngày 2026-08-22.
 | Content cleanup | Done, Chương 3 VII-4/VII-5/VII-6 removed |
 | Image cleanup | Done, tên asset chuẩn hóa và asset thừa được loại |
 | Placeholder guard | Done, extractor bỏ `(.)`, `test:content` khóa hồi quy |
-| Reproducible release package | Done technically: candidate ZIP, 374 files, SHA-256 `6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd`; final acceptance remains gated |
+| Reproducible release package | Done technically: candidate `2026.08.29`, 372 files, SHA-256 `f38996d8614f73dc7355124606c99bf983d01171e00dd0adc0f373a7b762ee0e`; final acceptance remains gated |
 | PDF viewer nội tuyến | Done, PDF.js 6.2.108 local; `file://`/HTTP, lifecycle và download có gate |
 | Chế độ đọc rộng (Standard / Wide) | Done, toggle trên topbar, lưu `contentWidth`, responsive và không reflow tràn màn hình |
 | Bảng tra cứu ký hiệu chương | Done, dữ liệu `chapter-reference.json` có truy vết route, render tự động ở đầu Chương 1–3 |

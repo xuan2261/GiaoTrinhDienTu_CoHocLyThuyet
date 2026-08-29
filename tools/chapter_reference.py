@@ -116,6 +116,7 @@ def render_chapter_reference(chapter_id, entries):
         f'<section class="chapter-reference" aria-labelledby="{heading_id}">',
         f'  <h3 id="{heading_id}">Tra cứu ký hiệu, chữ viết tắt và đơn vị</h3>',
         f'  <p class="chapter-reference-summary">{len(entries)} mục tra cứu của chương.</p>',
+        '  <p class="chapter-reference-scope">Phạm vi: các ký hiệu cốt lõi được định nghĩa hoặc dùng lặp lại trong chương. Ký hiệu cục bộ của ví dụ và bài tập được giải thích tại nội dung tương ứng.</p>',
         "  <details open>",
         "    <summary>Mở bảng tra cứu</summary>",
         '    <div class="chapter-reference-scroll">',

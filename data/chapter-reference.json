@@ -7,17 +7,112 @@
           "id": "ch1-force-vector",
           "kind": "symbol",
           "tex": "\\vec{F}",
-          "meaning": "Véc tơ lực",
+          "meaning": "Véc tơ lực: điểm đặt, phương, chiều và độ lớn biểu diễn tác dụng cơ học",
+          "unit": "N",
+          "sourceRoutes": ["ch1-1-3"]
+        },
+        {
+          "id": "ch1-force-magnitude",
+          "kind": "symbol",
+          "tex": "F=|\\vec{F}|",
+          "meaning": "Độ lớn (cường độ) của lực, là đại lượng vô hướng",
           "unit": "N",
           "sourceRoutes": ["ch1-1-3"]
         },
         {
           "id": "ch1-force-moment",
           "kind": "symbol",
-          "tex": "M_O",
-          "meaning": "Mô men của lực đối với tâm O",
+          "tex": "\\vec{m}_O(\\vec{F})",
+          "meaning": "Véc tơ mô men của lực đối với tâm O",
           "unit": "N·m",
           "sourceRoutes": ["ch1-1-4"]
+        },
+        {
+          "id": "ch1-axis-moment",
+          "kind": "symbol",
+          "tex": "m_z(\\vec{F})",
+          "meaning": "Mô men đại số của lực đối với trục z",
+          "unit": "N·m",
+          "sourceRoutes": ["ch1-1-4"]
+        },
+        {
+          "id": "ch1-main-vector",
+          "kind": "symbol",
+          "tex": "\\vec{R}",
+          "meaning": "Véc tơ chính của hệ lực, bằng tổng hình học các véc tơ lực",
+          "unit": "N",
+          "sourceRoutes": ["ch1-4-1"]
+        },
+        {
+          "id": "ch1-main-moment",
+          "kind": "symbol",
+          "tex": "\\vec{M}_O",
+          "meaning": "Véc tơ mô men chính của hệ lực đối với tâm thu gọn O",
+          "unit": "N·m",
+          "sourceRoutes": ["ch1-4-2"]
+        },
+        {
+          "id": "ch1-distributed-load-intensity",
+          "kind": "symbol",
+          "tex": "q(x)",
+          "meaning": "Cường độ lực phân bố theo tọa độ x",
+          "unit": "N/m",
+          "sourceRoutes": ["ch1-4-3"]
+        },
+        {
+          "id": "ch1-weight-vector",
+          "kind": "symbol",
+          "tex": "\\vec{P}",
+          "meaning": "Véc tơ trọng lực (trọng lượng) tác dụng lên vật",
+          "unit": "N",
+          "sourceRoutes": ["ch1-5-3"]
+        },
+        {
+          "id": "ch1-normal-reaction",
+          "kind": "symbol",
+          "tex": "\\vec{N}",
+          "meaning": "Véc tơ phản lực pháp tuyến tại mặt tiếp xúc",
+          "unit": "N",
+          "sourceRoutes": ["ch1-5-2"]
+        },
+        {
+          "id": "ch1-sliding-friction",
+          "kind": "symbol",
+          "tex": "\\vec{F}_{\\mathrm{ms}}",
+          "meaning": "Véc tơ lực ma sát trượt, ngược chiều xu hướng trượt tương đối",
+          "unit": "N",
+          "sourceRoutes": ["ch1-5-2"]
+        },
+        {
+          "id": "ch1-sliding-friction-coefficient",
+          "kind": "symbol",
+          "tex": "f",
+          "meaning": "Hệ số ma sát trượt tĩnh, khô",
+          "sourceRoutes": ["ch1-5-3"]
+        },
+        {
+          "id": "ch1-friction-angle",
+          "kind": "symbol",
+          "tex": "\\varphi",
+          "meaning": "Góc ma sát, với tan φ = f tại trạng thái giới hạn",
+          "unit": "rad",
+          "sourceRoutes": ["ch1-5-3"]
+        },
+        {
+          "id": "ch1-rolling-friction-coefficient",
+          "kind": "symbol",
+          "tex": "k",
+          "meaning": "Hệ số ma sát lăn, có thứ nguyên độ dài",
+          "unit": "m",
+          "sourceRoutes": ["ch1-5-3"]
+        },
+        {
+          "id": "ch1-position-vector",
+          "kind": "symbol",
+          "tex": "\\vec{r}_i",
+          "meaning": "Véc tơ định vị điểm đặt lực song song thứ i khi xác định tâm hệ lực",
+          "unit": "m",
+          "sourceRoutes": ["ch1-6-2"]
         },
         {
           "id": "ch1-coordinate-system",
@@ -39,6 +134,20 @@
           "label": "N·m",
           "meaning": "Niutơn mét, đơn vị mô men lực",
           "sourceRoutes": ["ch1-1-4"]
+        },
+        {
+          "id": "ch1-newton-per-metre",
+          "kind": "unit",
+          "label": "N/m",
+          "meaning": "Niutơn trên mét, đơn vị cường độ lực phân bố",
+          "sourceRoutes": ["ch1-4-3"]
+        },
+        {
+          "id": "ch1-metre",
+          "kind": "unit",
+          "label": "m",
+          "meaning": "Mét, đơn vị độ dài và khoảng cách",
+          "sourceRoutes": ["ch1-1-4"]
         }
       ]
     },
@@ -47,8 +156,8 @@
         {
           "id": "ch2-position-vector",
           "kind": "symbol",
-          "tex": "\\vec{r}",
-          "meaning": "Véc tơ định vị của điểm",
+          "tex": "\\vec{r}=\\overrightarrow{OM}",
+          "meaning": "Véc tơ định vị của điểm M trong hệ quy chiếu",
           "unit": "m",
           "sourceRoutes": ["ch2-1-1"]
         },
@@ -56,15 +165,154 @@
           "id": "ch2-velocity-vector",
           "kind": "symbol",
           "tex": "\\vec{v}",
-          "meaning": "Véc tơ vận tốc",
+          "meaning": "Véc tơ vận tốc, tiếp tuyến quỹ đạo và hướng theo chiều chuyển động",
           "unit": "m/s",
           "sourceRoutes": ["ch2-1-1"]
+        },
+        {
+          "id": "ch2-acceleration-vector",
+          "kind": "symbol",
+          "tex": "\\vec{a}",
+          "meaning": "Véc tơ gia tốc, đặc trưng cho sự biến thiên của véc tơ vận tốc",
+          "unit": "m/s²",
+          "sourceRoutes": ["ch2-1-1"]
+        },
+        {
+          "id": "ch2-time",
+          "kind": "symbol",
+          "tex": "t",
+          "meaning": "Thời gian",
+          "unit": "s",
+          "sourceRoutes": ["ch2-1-1"]
+        },
+        {
+          "id": "ch2-path-coordinate",
+          "kind": "symbol",
+          "tex": "s",
+          "meaning": "Tọa độ cong (quãng đường có dấu) trên quỹ đạo đã chọn chiều dương",
+          "unit": "m",
+          "sourceRoutes": ["ch2-1-3"]
+        },
+        {
+          "id": "ch2-tangent-unit-vector",
+          "kind": "symbol",
+          "tex": "\\vec{t}_0",
+          "meaning": "Véc tơ đơn vị tiếp tuyến theo chiều dương của quỹ đạo",
+          "sourceRoutes": ["ch2-1-3"]
+        },
+        {
+          "id": "ch2-normal-unit-vector",
+          "kind": "symbol",
+          "tex": "\\vec{n}_0",
+          "meaning": "Véc tơ đơn vị pháp tuyến hướng vào tâm cong của quỹ đạo",
+          "sourceRoutes": ["ch2-1-3"]
+        },
+        {
+          "id": "ch2-curvature-radius",
+          "kind": "symbol",
+          "tex": "\\rho",
+          "meaning": "Bán kính cong của quỹ đạo tại điểm đang xét",
+          "unit": "m",
+          "sourceRoutes": ["ch2-1-3"]
+        },
+        {
+          "id": "ch2-angular-position",
+          "kind": "symbol",
+          "tex": "\\varphi",
+          "meaning": "Góc quay định vị vật rắn quanh trục cố định; dấu biểu diễn chiều quay đã chọn",
+          "unit": "rad",
+          "sourceRoutes": ["ch2-2-2"]
+        },
+        {
+          "id": "ch2-signed-angular-velocity",
+          "kind": "symbol",
+          "tex": "\\bar{\\omega}=\\dot{\\varphi}",
+          "meaning": "Vận tốc góc đại số theo chiều quay dương đã chọn",
+          "unit": "rad/s",
+          "sourceRoutes": ["ch2-2-2"]
+        },
+        {
+          "id": "ch2-angular-velocity-vector",
+          "kind": "symbol",
+          "tex": "\\vec{\\omega}",
+          "meaning": "Véc tơ vận tốc góc dọc trục quay; chiều theo quy tắc vít thuận",
+          "unit": "rad/s",
+          "sourceRoutes": ["ch2-2-2"]
+        },
+        {
+          "id": "ch2-signed-angular-acceleration",
+          "kind": "symbol",
+          "tex": "\\bar{\\varepsilon}=\\dot{\\bar{\\omega}}",
+          "meaning": "Gia tốc góc đại số theo chiều quay dương đã chọn",
+          "unit": "rad/s²",
+          "sourceRoutes": ["ch2-2-2"]
+        },
+        {
+          "id": "ch2-angular-acceleration-vector",
+          "kind": "symbol",
+          "tex": "\\vec{\\varepsilon}",
+          "meaning": "Véc tơ gia tốc góc dọc trục quay",
+          "unit": "rad/s²",
+          "sourceRoutes": ["ch2-2-2"]
+        },
+        {
+          "id": "ch2-basis-vectors",
+          "kind": "symbol",
+          "tex": "\\vec{i},\\vec{j},\\vec{k}",
+          "meaning": "Ba véc tơ đơn vị của hệ trục tọa độ Oxyz",
+          "sourceRoutes": ["ch2-1-2"]
+        },
+        {
+          "id": "ch2-absolute-velocity",
+          "kind": "symbol",
+          "tex": "\\vec{v}_a",
+          "meaning": "Véc tơ vận tốc tuyệt đối của điểm đối với hệ quy chiếu cố định",
+          "unit": "m/s",
+          "sourceRoutes": ["ch2-4-2"]
+        },
+        {
+          "id": "ch2-relative-velocity",
+          "kind": "symbol",
+          "tex": "\\vec{v}_r",
+          "meaning": "Véc tơ vận tốc tương đối của điểm đối với hệ quy chiếu động",
+          "unit": "m/s",
+          "sourceRoutes": ["ch2-4-2"]
+        },
+        {
+          "id": "ch2-transport-velocity",
+          "kind": "symbol",
+          "tex": "\\vec{v}_e",
+          "meaning": "Véc tơ vận tốc theo do chuyển động của hệ quy chiếu động",
+          "unit": "m/s",
+          "sourceRoutes": ["ch2-4-2"]
+        },
+        {
+          "id": "ch2-coriolis-acceleration",
+          "kind": "symbol",
+          "tex": "\\vec{a}_c",
+          "meaning": "Véc tơ gia tốc Cô-ri-ô-lít trong chuyển động hợp",
+          "unit": "m/s²",
+          "sourceRoutes": ["ch2-4-4"]
         },
         {
           "id": "ch2-coordinate-system",
           "kind": "abbreviation",
           "label": "Oxyz",
           "meaning": "Hệ trục tọa độ Đề-các vuông góc ba chiều",
+          "sourceRoutes": ["ch2-1-1"]
+        },
+        {
+          "id": "ch2-metre",
+          "kind": "unit",
+          "label": "m",
+          "meaning": "Mét, đơn vị độ dài và quãng đường",
+          "sourceRoutes": ["ch2-1-1"]
+        },
+        {
+          "id": "ch2-second",
+          "kind": "unit",
+          "label": "s",
+          "meaning": "Giây, đơn vị thời gian",
           "sourceRoutes": ["ch2-1-1"]
         },
         {
@@ -75,10 +323,38 @@
           "sourceRoutes": ["ch2-1-1"]
         },
         {
+          "id": "ch2-metre-per-second-squared",
+          "kind": "unit",
+          "label": "m/s²",
+          "meaning": "Mét trên giây bình phương, đơn vị gia tốc",
+          "sourceRoutes": ["ch2-1-1"]
+        },
+        {
+          "id": "ch2-radian",
+          "kind": "unit",
+          "label": "rad",
+          "meaning": "Radian, đơn vị góc quay",
+          "sourceRoutes": ["ch2-2-2"]
+        },
+        {
           "id": "ch2-radian-per-second",
           "kind": "unit",
           "label": "rad/s",
           "meaning": "Radian trên giây, đơn vị vận tốc góc",
+          "sourceRoutes": ["ch2-2-2"]
+        },
+        {
+          "id": "ch2-radian-per-second-squared",
+          "kind": "unit",
+          "label": "rad/s²",
+          "meaning": "Radian trên giây bình phương, đơn vị gia tốc góc",
+          "sourceRoutes": ["ch2-2-2"]
+        },
+        {
+          "id": "ch2-revolution-per-minute",
+          "kind": "unit",
+          "label": "vòng/phút",
+          "meaning": "Đơn vị kỹ thuật của tốc độ quay",
           "sourceRoutes": ["ch2-2-2"]
         }
       ]
@@ -102,6 +378,118 @@
           "sourceRoutes": ["ch3-2-2"]
         },
         {
+          "id": "ch3-acceleration-vector",
+          "kind": "symbol",
+          "tex": "\\vec{a}",
+          "meaning": "Véc tơ gia tốc của chất điểm",
+          "unit": "m/s²",
+          "sourceRoutes": ["ch3-2-2"]
+        },
+        {
+          "id": "ch3-velocity-vector",
+          "kind": "symbol",
+          "tex": "\\vec{v}",
+          "meaning": "Véc tơ vận tốc của chất điểm",
+          "unit": "m/s",
+          "sourceRoutes": ["ch3-2-1"]
+        },
+        {
+          "id": "ch3-position-vector",
+          "kind": "symbol",
+          "tex": "\\vec{r}",
+          "meaning": "Véc tơ định vị của chất điểm",
+          "unit": "m",
+          "sourceRoutes": ["ch3-3-1"]
+        },
+        {
+          "id": "ch3-center-of-mass-position",
+          "kind": "symbol",
+          "tex": "\\vec{r}_C",
+          "meaning": "Véc tơ định vị khối tâm C của cơ hệ",
+          "unit": "m",
+          "sourceRoutes": ["ch3-5-1"]
+        },
+        {
+          "id": "ch3-total-mass",
+          "kind": "symbol",
+          "tex": "M=\\sum m_k",
+          "meaning": "Tổng khối lượng của cơ hệ",
+          "unit": "kg",
+          "sourceRoutes": ["ch3-5-1"]
+        },
+        {
+          "id": "ch3-point-momentum",
+          "kind": "symbol",
+          "tex": "\\vec{q}=m\\vec{v}",
+          "meaning": "Véc tơ động lượng của chất điểm",
+          "unit": "kg·m/s",
+          "sourceRoutes": ["ch3-5-2"]
+        },
+        {
+          "id": "ch3-system-momentum",
+          "kind": "symbol",
+          "tex": "\\vec{Q}=\\sum\\vec{q}_k",
+          "meaning": "Véc tơ động lượng của cơ hệ",
+          "unit": "kg·m/s",
+          "sourceRoutes": ["ch3-5-2"]
+        },
+        {
+          "id": "ch3-force-impulse",
+          "kind": "symbol",
+          "tex": "\\vec{S}",
+          "meaning": "Véc tơ xung lượng của lực trong một khoảng thời gian",
+          "unit": "N·s",
+          "sourceRoutes": ["ch3-5-2"]
+        },
+        {
+          "id": "ch3-angular-momentum",
+          "kind": "symbol",
+          "tex": "\\vec{L}_O",
+          "meaning": "Véc tơ mô men động lượng của cơ hệ đối với tâm O",
+          "unit": "kg·m²/s",
+          "sourceRoutes": ["ch3-5-3"]
+        },
+        {
+          "id": "ch3-moment-of-inertia",
+          "kind": "symbol",
+          "tex": "J_z",
+          "meaning": "Mô men quán tính của vật hoặc cơ hệ đối với trục z",
+          "unit": "kg·m²",
+          "sourceRoutes": ["ch3-5-3"]
+        },
+        {
+          "id": "ch3-kinetic-energy",
+          "kind": "symbol",
+          "tex": "T",
+          "meaning": "Động năng của chất điểm, vật rắn hoặc cơ hệ",
+          "unit": "kg·m²/s²",
+          "sourceRoutes": ["ch3-5-4"]
+        },
+        {
+          "id": "ch3-work",
+          "kind": "symbol",
+          "tex": "A",
+          "meaning": "Công của lực trong chuyển dời đang xét",
+          "unit": "kg·m²/s²",
+          "sourceRoutes": ["ch3-5-4"]
+        },
+        {
+          "id": "ch3-weight-vector",
+          "kind": "symbol",
+          "tex": "\\vec{P}",
+          "meaning": "Véc tơ trọng lực tác dụng lên vật",
+          "unit": "N",
+          "sourceRoutes": ["ch3-4-1"]
+        },
+        {
+          "id": "ch3-normal-reaction",
+          "kind": "symbol",
+          "tex": "\\vec{N}",
+          "meaning": "Véc tơ phản lực pháp tuyến của liên kết",
+          "unit": "N",
+          "sourceRoutes": ["ch3-4-1"]
+        },
+        {
           "id": "ch3-inertial-frame",
           "kind": "abbreviation",
           "label": "HQT",
@@ -113,7 +501,7 @@
           "kind": "unit",
           "label": "kg",
           "meaning": "Kilôgam, đơn vị khối lượng",
-          "sourceRoutes": ["ch3-1-1"]
+          "sourceRoutes": ["ch3-2-2"]
         },
         {
           "id": "ch3-newton",
@@ -121,6 +509,48 @@
           "label": "N",
           "meaning": "Niutơn, đơn vị lực",
           "sourceRoutes": ["ch3-1-2"]
+        },
+        {
+          "id": "ch3-metre-per-second",
+          "kind": "unit",
+          "label": "m/s",
+          "meaning": "Mét trên giây, đơn vị vận tốc",
+          "sourceRoutes": ["ch3-2-1"]
+        },
+        {
+          "id": "ch3-metre-per-second-squared",
+          "kind": "unit",
+          "label": "m/s²",
+          "meaning": "Mét trên giây bình phương, đơn vị gia tốc",
+          "sourceRoutes": ["ch3-2-2"]
+        },
+        {
+          "id": "ch3-momentum-unit",
+          "kind": "unit",
+          "label": "kg·m/s = N·s",
+          "meaning": "Đơn vị động lượng và xung lượng trong hệ SI",
+          "sourceRoutes": ["ch3-5-2"]
+        },
+        {
+          "id": "ch3-angular-momentum-unit",
+          "kind": "unit",
+          "label": "kg·m²/s",
+          "meaning": "Đơn vị mô men động lượng trong hệ SI",
+          "sourceRoutes": ["ch3-5-3"]
+        },
+        {
+          "id": "ch3-moment-of-inertia-unit",
+          "kind": "unit",
+          "label": "kg·m²",
+          "meaning": "Đơn vị mô men quán tính",
+          "sourceRoutes": ["ch3-5-3"]
+        },
+        {
+          "id": "ch3-energy-unit",
+          "kind": "unit",
+          "label": "kg·m²/s²",
+          "meaning": "Đơn vị công và động năng trong hệ SI",
+          "sourceRoutes": ["ch3-5-4"]
         }
       ]
     }

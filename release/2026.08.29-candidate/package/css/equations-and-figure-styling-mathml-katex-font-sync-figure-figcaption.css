@@ -1,0 +1,59 @@
+/* Equations & figure styling: sync MathML and KaTeX font rendering, dark/light
+   theme harmony, plus <figure>/<figcaption> rules used by Phase 05.
+
+   Loaded after lib/katex/katex.min.css so KaTeX_Main fonts win when the math
+   renderer is KaTeX, and Cambria/Latin Modern win for native MathML elements.
+*/
+
+math,
+.math-tex,
+.math-tex-block,
+.mathml-inline math,
+.mathml-block math {
+  font-family: "Latin Modern Math", "Cambria Math", "STIX Two Math",
+               "KaTeX_Main", "Times New Roman", serif;
+  font-feature-settings: "lnum", "tnum";
+  font-size: 1em;
+  line-height: 1.5;
+  color: var(--text-color, #1a1a1a);
+}
+
+math[display="inline"],
+.mathml-inline,
+.math-tex {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+math[display="block"],
+.mathml-block,
+.math-tex-block {
+  display: block;
+  text-align: center;
+  margin: 0.7em 0;
+}
+
+/* Phase 05 figure tag migration */
+figure {
+  display: block;
+  margin: 1em 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure figcaption {
+  font-style: italic;
+  color: var(--caption-color, #555);
+  font-size: 0.9em;
+  margin-top: 0.3em;
+}
+
+[data-theme="dark"] math,
+[data-theme="dark"] .math-tex,
+[data-theme="dark"] figure figcaption {
+  color: var(--text-color-dark, #f0f0f0);
+}

@@ -10,9 +10,9 @@ from chapter_reference import load_chapter_reference, render_chapter_reference, 
 
 
 ROUTES = {
-    "ch1": {"ch1-1-3", "ch1-1-4", "ch1-4-1"},
-    "ch2": {"ch2-1-1", "ch2-2-2"},
-    "ch3": {"ch3-1-1", "ch3-1-2", "ch3-1-3", "ch3-2-2"},
+    "ch1": {"ch1-1-3", "ch1-1-4", "ch1-4-1", "ch1-4-2", "ch1-4-3", "ch1-5-2", "ch1-5-3", "ch1-6-2"},
+    "ch2": {"ch2-1-1", "ch2-1-2", "ch2-1-3", "ch2-2-2", "ch2-4-2", "ch2-4-4"},
+    "ch3": {"ch3-1-1", "ch3-1-2", "ch3-1-3", "ch3-2-1", "ch3-2-2", "ch3-3-1", "ch3-4-1", "ch3-5-1", "ch3-5-2", "ch3-5-3", "ch3-5-4"},
 }
 
 
@@ -27,6 +27,7 @@ class ChapterReferenceTest(unittest.TestCase):
             self.assertIn("<details open>", rendered)
             self.assertIn("<thead>", rendered)
             self.assertIn("scope=\"col\"", rendered)
+            self.assertIn("Ký hiệu cục bộ", rendered)
             self.assertIn(f'href="#{data["chapters"][chapter]["entries"][0]["sourceRoutes"][0]}"', rendered)
 
     def test_renderer_escapes_all_curated_text_fields(self):
