@@ -82,7 +82,7 @@ Three.js vendored offline tại `lib/three/three.umd.min.js`. `js/sim3/core/coor
 
 `tools/lms/` derives QTI 3 choice-item pilots and IMS Common Cartridge 1.4 webcontent packages from canonical quiz/LO data or the verified standalone ZIP. `data/lms-targets.json` keeps target imports, xAPI/cmi5 and SCORM blocked until a real LMS/profile/privacy contract exists; local adapter validation is never generalized to LMS conformance.
 
-`data/qa-gates.json` owns the executable gate matrix. `tools/run_qa_gates.py` captures stdout/stderr, exit status, command, input hashes, artifact hash and evidence-handling classification under the Phase 12 plan. `tools/build_acceptance_bundle.py` joins this registry to the RTM, release/derivative inventory, manual blockers and checksum manifest. Current candidate: 374 files, ZIP SHA-256 `6b48834ff3cfaddf29af6c0c83593e74ca4541c085da0bb8b1c36f128212cdbd`. External academic signoff, independent accessibility review, independent candidate smoke review and Word round-trip remain required before final institutional release.
+`data/qa-gates.json` owns the executable gate matrix. `tools/run_qa_gates.py` captures stdout/stderr, exit status, command, input hashes, artifact hash and evidence-handling classification under the Phase 12 plan. `tools/build_acceptance_bundle.py` joins this registry to the RTM, release/derivative inventory, manual blockers and checksum manifest. Current candidate: 372 files, ZIP SHA-256 `f38996d8614f73dc7355124606c99bf983d01171e00dd0adc0f373a7b762ee0e`. External academic signoff, independent accessibility review, independent candidate smoke review and Word round-trip remain required before final institutional release.
 
 ## QA gates
 
