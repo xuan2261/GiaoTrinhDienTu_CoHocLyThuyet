@@ -92,9 +92,19 @@ function frontmatterStatus(file) {
 function validateConcreteArtifact(root, artifact, artifactFile, pending) {
   if (!artifactFile) return;
   try {
-    if (artifact.kind === 'sim2-capture') validateCapture(readJson(artifactFile), Date.now(), path.dirname(artifactFile));
-    if (artifact.kind === 'sim3-capture') validateSim3Capture(readJson(artifactFile), Date.now(), path.dirname(artifactFile));
-    if (artifact.kind === 'interaction-probe') validateProbe(readJson(artifactFile), Date.now());
+    if (artifact.kind === 'sim2-capture') {
+      const payload = readJson(artifactFile);
+      const timestamp = Date.parse(payload && payload.generatedAt) || Date.now();
+      validateCapture(payload, timestamp, path.dirname(artifactFile));
+    } else if (artifact.kind === 'sim3-capture') {
+      const payload = readJson(artifactFile);
+      const timestamp = Date.parse(payload && payload.generatedAt) || Date.now();
+      validateSim3Capture(payload, timestamp, path.dirname(artifactFile));
+    } else if (artifact.kind === 'interaction-probe') {
+      const payload = readJson(artifactFile);
+      const timestamp = Date.parse(payload && payload.generatedAt) || Date.now();
+      validateProbe(payload, timestamp);
+    }
   } catch (error) {
     pending.push(`valid ${String(artifact.kind || '').replace(/-/g, ' ')} artifact: ${error.message}`);
   }

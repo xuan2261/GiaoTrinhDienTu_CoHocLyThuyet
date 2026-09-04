@@ -83,7 +83,49 @@ test('invalid or unavailable storage leaves the reader usable and narrow control
   await expect(page.locator('html')).toHaveAttribute('data-content-width', 'wide');
 
   await open(page, 'ch1-quiz', { width: 320, height: 640 });
+  await expect(page.locator('#quiz-ch1 .q-card')).toHaveCount(100);
   await expect(page.locator('#contentWidthBtn')).toBeHidden();
-  const overflow = await page.evaluate(() => ({ client: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth }));
-  expect(overflow.scroll).toBeLessThanOrEqual(overflow.client + 1);
+  const overflow = await page.evaluate(() => {
+    const client = document.documentElement.clientWidth;
+    const offenders = [...document.querySelectorAll('body *')]
+      .map(element => {
+        const rect = element.getBoundingClientRect();
+        return {
+          tag: element.tagName.toLowerCase(),
+          id: element.id,
+          className: typeof element.className === 'string' ? element.className : '',
+          left: Math.round(rect.left),
+          right: Math.round(rect.right),
+          width: Math.round(rect.width),
+          scrollWidth: element.scrollWidth,
+          clientWidth: element.clientWidth,
+        };
+      })
+      .filter(item => item.right > client + 1 || item.left < -1)
+      .slice(0, 20);
+    const ancestors = [];
+    for (let element = document.querySelector('.q-options'); element; element = element.parentElement) {
+      const rect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      ancestors.push({
+        tag: element.tagName.toLowerCase(),
+        id: element.id,
+        className: typeof element.className === 'string' ? element.className : '',
+        left: Math.round(rect.left),
+        right: Math.round(rect.right),
+        width: Math.round(rect.width),
+        display: style.display,
+        marginLeft: style.marginLeft,
+        paddingLeft: style.paddingLeft,
+        minWidth: style.minWidth,
+        transform: style.transform,
+      });
+      if (element === document.body) break;
+    }
+    return { client, scroll: document.documentElement.scrollWidth, offenders, ancestors };
+  });
+  expect(
+    overflow.scroll,
+    `viewport overflow: ${JSON.stringify({ offenders: overflow.offenders, ancestors: overflow.ancestors })}`,
+  ).toBeLessThanOrEqual(overflow.client + 1);
 });

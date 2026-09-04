@@ -4,10 +4,10 @@
   "reviewerRole": null,
   "reviewerUnit": null,
   "environment": null,
-  "releaseVersion": "2026.08.29-candidate",
-  "releaseSha256": "f38996d8614f73dc7355124606c99bf983d01171e00dd0adc0f373a7b762ee0e",
+  "releaseVersion": "2026.09.02-candidate",
+  "releaseSha256": "3defec1306bab10288faed66e45f19d8aa2befc2b66ecb1b6f2066df186f005a",
   "evidenceRefs": [
-    "release/2026.08.29-candidate/technical-smoke.md"
+    "release/2026.09.02-candidate/technical-smoke.md"
   ],
   "decision": null,
   "limitations": [

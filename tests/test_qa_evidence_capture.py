@@ -1,4 +1,5 @@
 import tempfile
+import json
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -71,6 +72,29 @@ class QaEvidenceCaptureTest(unittest.TestCase):
   self.assertNotEqual(before, after)
   (self.root / "data" / "evidence-registry.json").write_text("mutable\n", encoding="utf-8")
   self.assertEqual(after, gates.repository_hash())
+
+ def test_registry_write_retries_transient_replace_error(self):
+  target = self.root / "data" / "evidence-registry.json"
+  attempts = 0
+  original_replace = gates.os.replace
+
+  def flaky_replace(source, destination):
+   nonlocal attempts
+   attempts += 1
+   if attempts == 1:
+    raise OSError(22, "transient Windows sharing error")
+   original_replace(source, destination)
+
+  registry = {"schemaVersion": 1, "records": []}
+  with (
+   patch.object(gates, "REGISTRY", target),
+   patch.object(gates.time, "sleep"),
+   patch.object(gates.os, "replace", side_effect=flaky_replace),
+  ):
+   gates.write_registry(registry)
+
+  self.assertEqual(2, attempts)
+  self.assertEqual(registry, json.loads(target.read_text(encoding="utf-8")))
 
 
 if __name__ == "__main__":

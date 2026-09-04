@@ -2,6 +2,7 @@
 import json
 import os
 from glob import glob
+import time
 
 from content_manifest_utils import normalize_logical_path, read_text, repo_path
 
@@ -61,9 +62,26 @@ def main():
     lines.extend(["", "const QUIZ_DATA = {};"])
     lines.extend(f"QUIZ_DATA[{json.dumps(key)}] = {value};" for key, value in sorted(quizzes.items()))
     output = "\n".join(lines) + "\n"
-    with open(OUTPUT, "w", encoding="utf-8", newline="\n") as fh:
-        fh.write(output)
-    print(f"Output: {OUTPUT}")
+    temporary = OUTPUT + f".{os.getpid()}.tmp"
+    last_error = None
+    for attempt in range(10):
+        try:
+            with open(temporary, "w", encoding="utf-8", newline="\n") as fh:
+                fh.write(output)
+            os.replace(temporary, OUTPUT)
+            last_error = None
+            break
+        except OSError as exc:
+            last_error = exc
+            if os.path.exists(temporary):
+                try:
+                    os.unlink(temporary)
+                except OSError:
+                    pass
+            if attempt < 9:
+                time.sleep(0.2 * (attempt + 1))
+    if last_error is not None:
+        raise last_error
     print(f"Size: {len(output.encode('utf-8')) / 1024:.1f} KB")
     print("Done!")
 

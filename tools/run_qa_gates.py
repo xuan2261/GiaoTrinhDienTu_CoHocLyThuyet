@@ -8,6 +8,7 @@ import os
 import re
 import shutil
 import subprocess
+import time
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -144,6 +145,23 @@ def normalize_registry(registry: dict, gates: list[dict], observed_at: str, repo
     registry["records"] = normalized
     return registry
 
+def write_registry(registry: dict) -> None:
+    payload = json.dumps(registry, ensure_ascii=False, indent=2) + "\n"
+    temporary = REGISTRY.with_name(f".{REGISTRY.name}.{os.getpid()}.tmp")
+    last_error = None
+    for attempt in range(10):
+        try:
+            temporary.write_text(payload, encoding="utf-8", newline="\n")
+            os.replace(temporary, REGISTRY)
+            return
+        except OSError as error:
+            last_error = error
+            if temporary.exists():
+                temporary.unlink()
+            if attempt < 9:
+                time.sleep(0.2 * (attempt + 1))
+    raise last_error
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -161,7 +179,7 @@ def main() -> int:
     observed_at = args.observed_at or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     repo_hash = repository_hash()
     registry = normalize_registry(json.loads(REGISTRY.read_text(encoding="utf-8")), gates, observed_at, repo_hash)
-    REGISTRY.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    write_registry(registry)
     generated = []
     for gate in gates:
         if gate["gateId"] not in selected_ids:
@@ -169,7 +187,7 @@ def main() -> int:
         record = run_gate(gate, observed_at, repo_hash)
         generated.append(record)
         registry["records"] = [record if existing["gateId"] == record["gateId"] else existing for existing in registry["records"]]
-        REGISTRY.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        write_registry(registry)
     return 0 if all(record["status"] == "pass" for record in generated) else 1
 
 

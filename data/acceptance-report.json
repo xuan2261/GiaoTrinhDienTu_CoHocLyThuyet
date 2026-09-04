@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T21:14:24Z",
+  "generatedAt": "2026-09-03T02:24:01Z",
   "overallStatus": "blocked",
   "gateSummary": {
     "total": 24,
     "pass": 20,
     "fail": 0,
-    "blocked": 3,
-    "notRun": 1
+    "blocked": 4,
+    "notRun": 0
   },
   "gates": [
     {
@@ -15,192 +15,192 @@
       "owner": "Independent academic review coordinator",
       "status": "blocked",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/academic-review-currentness.log",
-      "hash": "sha256:dca84021114e676de5593a80bd277a31a3214985c059a7a4098c58cb259cee4a",
-      "observedAt": "2026-08-25T14:55:59Z"
+      "hash": "sha256:1598c447dba32ab1721008a68e744adc83823a75c2f9ce5e262fbe8885e86129",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "accessibility-independent-review",
       "owner": "Independent accessibility reviewer",
       "status": "blocked",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/accessibility-independent-review.log",
-      "hash": "sha256:a9bf19439da370645d0cd7823106e9a2b8574333417b2497543644a990d9adce",
-      "observedAt": "2026-08-25T14:55:59Z"
+      "hash": "sha256:5a755cc31ca1f570548d7792bf09759610f19114be1b9fe9db0a5b17433e0f6c",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "audit-strict",
       "owner": "Release engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/audit-strict.log",
-      "hash": "sha256:c07d72ff48792b4b9340cbd4379f0ed1333a270ca719a546659780bd815cf9d8",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:787d0b1cab616c9cc625ddd6edf8cc0935905eb476ae7f4ff6d67cc1da53827a",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "content-regression",
       "owner": "Content engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/content-regression.log",
-      "hash": "sha256:73b613be77b59ea19b7a5dfd72d4c48285de13b0ba746c9042a2586080fd05e1",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:0f45eeafbb1830def995a3d8c18543888cb1773aa723c1d3a558122ddfc35327",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "equations",
       "owner": "Content engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/equations.log",
-      "hash": "sha256:86ae0426ed60e65aee4588af2fb083c6c10947a9da79d06a2b583f204bcb6ebd",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:c12a364b0f7431bf13b4a973f66084d80cee08fd8b56711d94f8580e959f8c86",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "gif-release",
       "owner": "QA",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/gif-release.log",
-      "hash": "sha256:175a35bb4784a3e7c9585fb5c601a7a0fb437a1490dd110249d12c6ed1074c8d",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:df5279ae8c045b29a2cf47752c932f6ac7fcda0c4e6f5fc27718f44e615e3b05",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "lms-adapters",
       "owner": "LMS integration engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/lms-adapters.log",
-      "hash": "sha256:c81cb9577e633fbb71c8f126e025c83334bde8d6324a76b1035ccb8cb96cdfcd",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:b7c41f7b30fd1e2b964d8e532502b007bc117253199dcd7d43d67f91fde497c1",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "media-pilot",
       "owner": "Content engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/media-pilot.log",
-      "hash": "sha256:135f87f87311e4b728f3b90d3d1afd63200a5b54befc58fc78ae3fb96abd24c4",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:23d838043d82cb5addf9e082b00071564959d92f3fdc8624a7f66ece6b887053",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "pdf-release",
       "owner": "Release engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/pdf-release.log",
-      "hash": "sha256:32bc61b84e48cba22fd5b6b59b71555d6414319d47d4916c0696930bcb33841e",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:346070704c27f1eab6dee07402a4a644ae8262df79c4be8a722eb2f244ff5b48",
+      "observedAt": "2026-09-03T02:10:40Z"
     },
     {
       "gateId": "phase-01-source-baseline",
       "owner": "Content engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/phase-01-source-baseline.log",
-      "hash": "sha256:6b856b245dcc5196359bdbb1eb5b1be2635215c39a240c4b8990a8dc5f1b905c",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:f915ebe16bd9aa509a069f44f05af49396beb66d7f9c52c755be5eb3e63687b5",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "phase-08-accessibility",
       "owner": "Accessibility QA",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/phase-08-accessibility.log",
-      "hash": "sha256:645a30f48cedd712a5d85abc000129bad3bee8513d69de93d05af4f06354b33d",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:5f962ee794ba8ae9143195422b784f8d69a00ec7296c254f146e3ef0d453a41a",
+      "observedAt": "2026-09-03T02:10:40Z"
     },
     {
       "gateId": "quiz-browser",
       "owner": "QA",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/quiz-browser.log",
-      "hash": "sha256:bc16fd599ddf0a9786d0d09d1300f86f6c86a6a635104c5b25b56a044029d45e",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:78df05d75c10a437ad8256ec2b2d43ed993bf506488e3a4a7a623be043cb2c55",
+      "observedAt": "2026-09-03T02:10:40Z"
     },
     {
       "gateId": "quiz-schema",
       "owner": "Content engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/quiz-schema.log",
-      "hash": "sha256:94c1e959c6391ef3df6bbdc8c76ebdaf80c8245e56f640cc4b6a6f376621ea8f",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:194fb8a0c484929415915d62ac7f658022fb5513e50bb6c3bb0728f6e76b03c1",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "release-baseline-contract",
       "owner": "Release engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-baseline-contract.log",
-      "hash": "sha256:d23e47f43c309f6a3c5058497960e3a7e838f06766fd0c3ff29130c3d70eee0b",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:6c4973a72294418d1aeceba001e809d02661c79fb12e35fcc25f71b04285a88d",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "release-candidate-inventory",
       "owner": "Release engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-candidate-inventory.log",
-      "hash": "sha256:1bc2562157db2fa51c69db63e6f18b4eb67dcf1d4bd2b4604c4cec68681291ba",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:61c701480c29ed71025cb111d4de23a354aedc0a65daef165ab0d2d434fd2972",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "release-independent-smoke",
       "owner": "Independent release reviewer",
       "status": "blocked",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-independent-smoke.log",
-      "hash": "sha256:a2b6250eb522ae8e2b5d54e968f0dd342a49930c1009df63e5e42453c9e764aa",
-      "observedAt": "2026-08-25T21:13:46Z"
+      "hash": "sha256:8c4abf002f90e28081e7e3234979ff23dacfb346e7ccb8a7ef34ad20a81f9e9d",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "release-pipeline",
       "owner": "Release engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/release-pipeline.log",
-      "hash": "sha256:f546e9c65b40754f48fbf3e336aba72cadff1fa8625bd55b5a7de49dbdec1dc2",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:be3e2423ec66091b598d609885b6719b138163b73134a5befad3c581f8a66534",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "sim-mount",
       "owner": "Simulation engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-mount.log",
-      "hash": "sha256:929297f2fe6aa16a9d0f60dbaaa1f24246693979ff163542601d9324a37daa08",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:6e35fecff8a2ab15712b48ccc51d5321c642ddd1e0941a324e89dae40c88122f",
+      "observedAt": "2026-09-03T02:10:40Z"
     },
     {
       "gateId": "sim-physics",
       "owner": "Simulation engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-physics.log",
-      "hash": "sha256:01024b2f32650932d8f8f98a0db05e16b6a61e726cd787ee1134d4ee0c1e1d14",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:7c170a1e8e1ab5eb15651d99877f4f2036d2ad107543958e29db3dd0264c449f",
+      "observedAt": "2026-09-03T02:10:40Z"
     },
     {
       "gateId": "sim-release",
       "owner": "Simulation engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim-release.log",
-      "hash": "sha256:c949c2c259346d91957ce13bec9a0cab5b0a86a8bb3348b4fca5e12b19474c1c",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:5a7da9d6abac647bb6c363eff29f2070097faad537bd9742a2cef42cd94a2b19",
+      "observedAt": "2026-09-03T02:10:40Z"
     },
     {
       "gateId": "sim3-pilot",
       "owner": "Simulation engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/sim3-pilot.log",
-      "hash": "sha256:3b8fb31810228b1199c6667544b75142a35ebee644ae031679cd367fdb1a0d1d",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:2fabb454455d7994002da99ca9d764f683d70ef2390a4a0ddd01a88cf2bc8b9e",
+      "observedAt": "2026-09-03T02:10:40Z"
     },
     {
       "gateId": "simulation-evidence-currentness",
       "owner": "Independent academic review coordinator",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/simulation-evidence-currentness.log",
-      "hash": "sha256:1cc36635f4843cd7780f814e6ec6c551e6fcb3f779c91ddb677743a523c9dbd7",
-      "observedAt": "2026-08-25T14:55:37Z"
+      "hash": "sha256:0b06949622c959976a1081e4bfaca79ed2dd76336368cf187388dc4ae59a6df9",
+      "observedAt": "2026-09-03T01:38:18Z"
     },
     {
       "gateId": "traceability-validation",
       "owner": "Release engineering",
       "status": "pass",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/traceability-validation.log",
-      "hash": "sha256:8c9c5074c9c7e5dd087763659cc0ded22604c02486533e4dd8d67c0a1b321b59",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:5cf17a4cea8bae5b17ae299b721fbc9281df1b32b156ad5207a45d4729b67626",
+      "observedAt": "2026-09-03T01:54:30Z"
     },
     {
       "gateId": "word-standalone-roundtrip",
       "owner": "Source authority custodian",
-      "status": "not-run",
+      "status": "blocked",
       "artifact": "plans/260820-0924-deep-tdd-remediation-for-electronic-textbook-release-readiness/evidence/command-captures/word-standalone-roundtrip.log",
-      "hash": "sha256:2cdc786cc4d4ae5d2a7994824705ddb3f8576f06ca948ab8329634ef3c8ffdbd",
-      "observedAt": "2026-08-25T14:38:02Z"
+      "hash": "sha256:16a308195d4c07a0fe56e8abdecde523530e6eb73853149c8de4854fb96834d1",
+      "observedAt": "2026-09-03T01:55:17Z"
     }
   ],
   "lms": {
@@ -238,7 +238,7 @@
     "gateId": "academic-review-currentness"
   },
   "wordRoundtrip": {
-    "status": "not-run",
+    "status": "blocked",
     "gateId": "word-standalone-roundtrip"
   },
   "releaseCandidate": {

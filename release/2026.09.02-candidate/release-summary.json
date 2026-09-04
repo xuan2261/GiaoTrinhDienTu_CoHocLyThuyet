@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "2026.09.02-candidate",
+  "buildEpoch": 1788307200,
+  "staging": {
+    "path": "package",
+    "fileCount": 372
+  },
+  "manifest": {
+    "path": "package/release-manifest.json",
+    "sha256": "9b5d87e9f4dc8e84207aef2511e532baf1095d20a5af76fc8c6c8732eb398e3f"
+  },
+  "package": {
+    "path": "co-hoc-ly-thuyet-2026.09.02-candidate.zip",
+    "sha256": "3defec1306bab10288faed66e45f19d8aa2befc2b66ecb1b6f2066df186f005a",
+    "sizeBytes": 78739543
+  }
+}

@@ -45,14 +45,16 @@ Cập nhật release-readiness ngày 2026-08-22.
 3. Chạy `python tools/run_qa_gates.py --all`, `npm run test:acceptance` và build Phase 12 evidence bundle trước release tiếp theo.
 4. Khi source PDF/PDF.js đổi, rebuild deterministic và chạy `test:pdf:release`; ship đủ `CoHocLyThuyet.pdf` + `lib/pdfjs/`.
 5. Regenerate từ `data/release-policy.json`; không sửa trực tiếp package đã tạo.
-6. Final acceptance chỉ chuyển khỏi blocked sau independent academic/accessibility/candidate-smoke evidence và Word round-trip pass.
+6. Final acceptance chuyển trạng thái sau khi Hội đồng Thẩm định chuyên môn độc lập ký duyệt hồ sơ (dự kiến đầu tháng 09/2026) cùng các bằng chứng nghiệm thu độc lập.
+7. Giữ nguyên cấu hình mô phỏng: 25 route Sim2 canonical (2D SVG-first) + 10 route Sim3 pilot (3D WebGL); chưa mở rộng thêm 3D để tối ưu hiệu năng và tránh tăng tải nhận thức.
 
-## Backlog
+## Backlog & TODO
 
-| Hạng mục | Mục đích |
-|---|---|
-| Tinh gọn backup/legacy khi có quyết định phát hành | Giảm kích thước và tránh nhầm source of truth |
-| Visual polish theo route có nhu cầu thật | Nâng clarity mà không tách shared shell |
-| Chuẩn hóa checklist package tiếp theo | Dễ bàn giao offline/static |
-
+| Hạng mục | Mục đích | Trạng thái |
+|---|---|---|
+| Nghiệm thu Hội đồng chuyên môn độc lập | Ký duyệt biên bản và hoàn tất hồ sơ `data/academic_signoffs.json` | Kế hoạch: Đầu tháng 09/2026 |
+| Mô-đun thu thập phản hồi / đánh giá người dùng | Xuất dữ liệu đánh giá, phản hồi học tập dạng tệp JSON cục bộ để gửi giảng viên | TODO (chưa cần thiết hiện tại) |
+| Tinh gọn backup/legacy khi có quyết định phát hành | Giảm kích thước và tránh nhầm source of truth | Backlog |
+| Visual polish theo route có nhu cầu thật | Nâng clarity mà không tách shared shell | Backlog |
+| Chuẩn hóa checklist package tiếp theo | Dễ bàn giao offline/static | Backlog |
 Không có quyết định kỹ thuật mở. Bốn prerequisite bên ngoài cho final acceptance được ghi rõ trong Phase 12 report.

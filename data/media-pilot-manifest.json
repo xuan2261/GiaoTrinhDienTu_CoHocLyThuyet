@@ -13,7 +13,7 @@
     { "path": "data/multimedia-gap-analysis.json", "sha256": "7ae1a6267a8589b1d5e0e4398fefc6512f0247f5c3ac3d8645327dd3b0bddff8", "bytes": 6176 },
     { "path": "data/multimedia-content-contracts.json", "sha256": "67998fea7d6706058efcb30161bf3030b8d435d7fbe929e8edaf552e3bb6e750", "bytes": 5980 },
     { "path": "data/multimedia-learning-map.json", "sha256": "a6a95661ad57b55ad92fb5149ccdaf1a460d98e56a24d5738804aeadab2c14e8", "bytes": 2182 },
-    { "path": "data/media-manifest.json", "sha256": "a51a0c6d1460725cc9f1046710d990fa9691effd4f5083d55d5c9d8684210ac7", "bytes": 20589 },
+    { "path": "data/media-manifest.json", "sha256": "5e3e718d65738fd3077a2de5497b701bc93a352017eb76d382cfa94f266152ad", "bytes": 20589 },
     { "path": "data/multimedia-accessibility.json", "sha256": "80d0886a5f3445aa9afba1700de23c46c5c805016aa6735c3070ed81512d391a", "bytes": 6108 }
   ],
   "selectedAssetIds": [

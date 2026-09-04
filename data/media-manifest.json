@@ -326,8 +326,8 @@
         },
         {
           "path": "css/style.css",
-          "sha256": "a9d94d132d6261cf2aee81b9fef5ba5d376157802381943531dfe1196d3a3414",
-          "bytes": 75947
+          "sha256": "4425d5277f3708c816dcd0ea062386f48078d51772d94a5b5976fe54e293cf28",
+          "bytes": 78531
         },
         {
           "path": "js/sim2/physics/dynamics.js",
@@ -386,7 +386,7 @@
         }
       ],
       "budget": {
-        "measuredBytes": 157627,
+        "measuredBytes": 160211,
         "maximumBytes": 196608,
         "maintenanceTier": "canonical-runtime-mount",
         "ownerRole": "Sim2 and multimedia maintainers",
