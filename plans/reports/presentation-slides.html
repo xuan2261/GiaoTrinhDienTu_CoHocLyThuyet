@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo cáo Nghiệm thu Giáo trình Điện tử Cơ học Lý thuyết — Slides Thuyết trình</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy-950:#07182f;--navy-900:#091a33;--navy-800:#0d2447;--navy-700:#15355f;
+  --paper:#f7f5ef;--white:#ffffff;--ink:#243247;--slate:#5b6b80;--line:#d7dee8;
+  --gold:#c9963a;--gold-l:#dbb36a;--success:#137a3d;--warning:#9a5b00;--danger:#b42318;
+  --blue:#2980b9;--green:#27ae60;--purple:#8e44ad;
+  --font-head:'Segoe UI',Arial,sans-serif;--font-body:'Segoe UI',Arial,sans-serif;
+  --slide-w:1280px;--slide-h:720px;
+}
+html,body{width:100%;height:100%;background:#050d18;color:var(--ink);font-family:var(--font-body);overflow:hidden;user-select:none}
+#app{display:flex;flex-direction:column;width:100vw;height:100vh;position:relative}
+
+/* Top Progress Bar */
+#progress-bar{position:fixed;top:0;left:0;height:4px;background:rgba(201,150,58,0.25);width:100%;z-index:100}
+#progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-l));width:6.25%;transition:width .25s ease}
+
+/* Main Viewport Container */
+#viewport{flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:12px}
+#stage{width:var(--slide-w);height:var(--slide-h);background:var(--paper);position:relative;border-radius:6px;box-shadow:0 8px 32px rgba(0,0,0,.6);overflow:hidden;transform-origin:center center;transition:transform .15s ease}
+
+/* Slide Base Structure */
+.slide{position:absolute;top:0;left:0;width:100%;height:100%;display:none;padding:36px 48px 48px;background:var(--paper);color:var(--ink)}
+.slide.active{display:flex;flex-direction:column}
+.slide.dark-theme{background:var(--navy-950);color:var(--white)}
+
+/* Slide Header */
+.slide-kicker{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--slate);text-transform:uppercase;margin-bottom:6px}
+.slide-kicker::before{content:'';display:inline-block;width:32px;height:3px;background:var(--gold)}
+.slide.dark-theme .slide-kicker{color:var(--gold-l)}
+.slide-num{position:absolute;top:36px;right:48px;font-size:13px;font-weight:700;color:var(--gold)}
+.slide-title{font-family:var(--font-head);font-size:34px;font-weight:700;color:var(--navy-950);line-height:1.12;margin-bottom:10px}
+.slide.dark-theme .slide-title{color:var(--white)}
+.slide-takeaway{background:#eef2f7;border:1px solid var(--line);border-radius:4px;padding:9px 16px;font-size:16px;font-weight:700;color:var(--navy-800);margin-bottom:16px}
+.slide.dark-theme .slide-takeaway{background:rgba(201,150,58,.15);border-color:var(--gold);color:var(--gold-l)}
+
+/* Slide Body Area */
+.slide-body{flex:1;display:flex;gap:24px;position:relative}
+
+/* Slide Footer */
+.slide-footer{position:absolute;bottom:14px;left:48px;right:48px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--slate);border-top:1px solid var(--line);padding-top:6px}
+.slide.dark-theme .slide-footer{border-top-color:rgba(255,255,255,.1);color:rgba(255,255,255,.5)}
+
+/* Component Utilities */
+.panel{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stat-box{text-align:center;padding:16px;background:var(--white);border:1px solid var(--line);border-radius:6px}
+.stat-val{font-size:34px;font-weight:700;color:var(--navy-800);font-family:var(--font-head)}
+.stat-lbl{font-size:13px;color:var(--slate);margin-top:4px}
+.badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:700}
+.badge-pass{background:rgba(19,122,61,.15);color:var(--success)}
+.badge-block{background:rgba(154,91,0,.15);color:var(--warning)}
+.bullet-list{display:flex;flex-direction:column;gap:10px}
+.bullet-item{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--ink);line-height:1.42}
+.bullet-item::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0}
+
+/* Specific Slide Layouts */
+/* Cover */
+.cover-layout{display:flex;height:100%;gap:36px;align-items:center}
+.cover-main{flex:1.6}
+.cover-side{flex:1;background:var(--navy-900);border:1px solid var(--navy-700);border-radius:8px;padding:24px;display:flex;flex-direction:column;justify-content:center}
+.cover-title{font-family:var(--font-head);font-size:42px;font-weight:700;color:var(--white);line-height:1.15;margin:16px 0 20px}
+.cover-req{font-size:18px;font-weight:700;color:var(--gold-l);background:rgba(201,150,58,.15);padding:10px 16px;border-left:4px solid var(--gold);border-radius:0 6px 6px 0}
+.author-card{margin-top:12px;padding:10px 14px;background:rgba(255,255,255,.05);border-radius:4px;font-size:13px;color:var(--white)}
+
+/* Flow & Steps */
+.step-col{display:flex;flex-direction:column;gap:10px;flex:1}
+.step-item{display:flex;align-items:center;gap:14px;background:var(--white);border:1px solid var(--line);border-radius:6px;padding:12px 16px}
+.step-num{font-size:20px;font-weight:700;color:var(--gold);font-family:var(--font-head);min-width:30px}
+.step-text h4{font-size:14px;color:var(--navy-950);margin-bottom:2px}
+.step-text p{font-size:11.5px;color:var(--slate)}
+
+/* Decision Slide */
+.decision-box{background:var(--paper);border:2px solid var(--gold);border-radius:8px;padding:24px;text-align:center;margin:20px auto;max-width:960px}
+.decision-text{font-family:var(--font-head);font-size:20px;color:var(--navy-950);line-height:1.6}
+
+/* Bottom Control Bar */
+#bar{height:44px;background:var(--navy-950);border-top:1px solid var(--navy-700);display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:12px;color:var(--slate);z-index:100}
+.btn-group{display:flex;align-items:center;gap:8px}
+.c-btn{background:var(--navy-800);border:1px solid var(--navy-700);color:var(--gold-l);padding:5px 12px;border-radius:4px;cursor:pointer;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px;transition:all .15s}
+.c-btn:hover{background:var(--navy-700);color:var(--white);border-color:var(--gold)}
+.c-btn.active{background:var(--gold);color:var(--navy-950);border-color:var(--gold)}
+
+/* Speaker Notes Drawer */
+#notes-drawer{position:fixed;bottom:44px;left:0;right:0;height:180px;background:var(--navy-900);border-top:2px solid var(--gold);color:var(--white);padding:16px 32px;display:none;z-index:90;box-shadow:0 -8px 24px rgba(0,0,0,.5);overflow-y:auto}
+#notes-drawer.open{display:block}
+.note-speaker{font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.note-script{font-size:15px;line-height:1.6;color:#e2e8f0;font-style:italic}
+.note-sources{font-size:11px;color:var(--slate);margin-top:8px}
+
+/* Grid Overview Mode */
+#grid-overlay{position:fixed;inset:0;background:rgba(5,13,24,.95);z-index:200;display:none;padding:40px;overflow-y:auto}
+#grid-overlay.open{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;align-content:start}
+.thumb-card{background:var(--paper);border:2px solid transparent;border-radius:6px;padding:12px;cursor:pointer;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between;transition:all .15s}
+.thumb-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.thumb-card.current{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,150,58,.4)}
+.thumb-num{font-size:11px;font-weight:700;color:var(--gold)}
+.thumb-title{font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--navy-950);line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.thumb-speaker{font-size:9.5px;color:var(--slate);margin-top:auto}
+
+/* Keyboard hint chip */
+.kbd{display:inline-block;padding:2px 6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:3px;font-family:monospace;font-size:10px}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="progress-bar"><div id="progress-fill"></div></div>
+
+  <div id="viewport">
+    <div id="stage">
+
+      <!-- SLIDE 1: COVER -->
+      <div class="slide dark-theme active" data-id="1" data-time="0:35" data-speaker="Đại tá, TS Nguyễn Lê Văn" data-script="Kính thưa Hội đồng. Nhóm tác giả báo cáo kết quả xây dựng Giáo trình điện tử Cơ học lý thuyết. Đề nghị hôm nay là thông qua có điều kiện về mặt khoa học–sư phạm; không xin xác nhận bản ứng viên hiện tại là bản phát hành cuối.">
+        <div class="cover-layout">
+          <div class="cover-main">
+            <div class="slide-kicker">HỌC VIỆN HẢI QUÂN · KHOA KỸ THUẬT CƠ SỞ</div>
+            <div class="slide-kicker" style="color:var(--gold);margin-top:-2px">HỘI ĐỒNG KHOA HỌC NGHIỆM THU</div>
+            <h1 class="cover-title">Giáo trình điện tử<br><span style="color:var(--gold-l)">Cơ học lý thuyết</span></h1>
+            <div class="cover-req">Đề nghị thông qua có điều kiện về mặt khoa học–sư phạm</div>
+            <p style="color:var(--slate);font-size:13px;margin-top:16px">Báo cáo nghiệm thu kết quả xây dựng học liệu điện tử phục vụ đào tạo sĩ quan phân đội</p>
+          </div>
+          <div class="cover-side">
+            <div style="font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-align:center;margin-bottom:12px">NHÓM TÁC GIẢ BIÊN SOẠN</div>
+            <div class="author-card">
+              <div style="font-weight:700;color:var(--gold-l)">Đại tá, TS Nguyễn Lê Văn</div>
+              <div style="font-size:11px;color:var(--slate)">Chủ biên · Chương 2 & Chương 3</div>
+            </div>
+            <div class="author-card">
+              <div style="font-weight:700;color:var(--gold-l)">Thiếu tá, ThS Đinh Văn Tứ</div>
+              <div style="font-size:11px;color:var(--slate)">Tham gia · Chương 1 & Mô phỏng</div>
+            </div>
+            <div class="author-card">
+              <div style="font-weight:700;color:var(--gold-l)">Đại úy, ThS Bùi Thanh Xuân</div>
+              <div style="font-size:11px;color:var(--slate)">Tham gia · Mô phỏng, Code & Trắc nghiệm</div>
+            </div>
+            <div style="text-align:center;margin-top:20px;font-size:11px;color:var(--slate)">KHÁNH HÒA · NĂM 2026</div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span>HỘI ĐỒNG KHOA HỌC KHOA KTCS</span>
+          <span>Thời lượng: 15:00</span>
+          <span>Slide 01/16</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: CHAPTERS -->
+      <div class="slide" data-id="2" data-time="0:45" data-speaker="Đại tá, TS Nguyễn Lê Văn" data-script="Giáo trình bao phủ 108 route: 45 route Tĩnh học, 29 route Động học, 31 route Động lực học và 3 route bổ trợ. Công nghệ chỉ có giá trị khi giúp học viên nhìn thấy quan hệ cơ học, thao tác tham số và tự kiểm tra kết quả.">
+        <div class="slide-kicker">02 · BÀI TOÁN ĐÀO TẠO</div>
+        <div class="slide-num">02</div>
+        <h2 class="slide-title">Ba mạch kiến thức, một mục tiêu đào tạo</h2>
+        <div class="slide-takeaway">Đọc → quan sát → thao tác → tự kiểm tra; công nghệ phục vụ nội dung cơ học.</div>
+        <div class="slide-body">
+          <div style="flex:1.35;display:flex;flex-direction:column;gap:12px">
+            <div class="panel" style="display:flex;align-items:center;gap:18px;border-top:4px solid var(--blue)"><div style="font-size:34px;font-weight:700;color:var(--blue);font-family:var(--font-head)">45</div><div><h3 style="font-size:19px;color:var(--navy-950)">Tĩnh học</h3><p style="font-size:14px;color:var(--slate)">Lực · liên kết · cân bằng</p></div></div>
+            <div class="panel" style="display:flex;align-items:center;gap:18px;border-top:4px solid var(--green)"><div style="font-size:34px;font-weight:700;color:var(--green);font-family:var(--font-head)">29</div><div><h3 style="font-size:19px;color:var(--navy-950)">Động học</h3><p style="font-size:14px;color:var(--slate)">Chuyển động điểm · vật rắn</p></div></div>
+            <div class="panel" style="display:flex;align-items:center;gap:18px;border-top:4px solid var(--purple)"><div style="font-size:34px;font-weight:700;color:var(--purple);font-family:var(--font-head)">31</div><div><h3 style="font-size:19px;color:var(--navy-950)">Động lực học</h3><p style="font-size:14px;color:var(--slate)">Lực · chuyển động · định lý tổng quát</p></div></div>
+            <div style="font-size:14px;font-weight:700;color:var(--navy-800);text-align:center">+ 3 route bổ trợ: lời nói đầu · tác giả · tài liệu tham khảo</div>
+          </div>
+          <div style="flex:1" class="panel">
+            <img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/hinh-100-he-luc-khong-gian.png" alt="Hệ lực không gian thuộc Chương 1" style="width:100%;height:310px;object-fit:contain">
+            <p style="font-size:12px;color:var(--slate);text-align:center">Hình canonical Chương 1 · data/content-manifest.json</p>
+          </div>
+        </div>
+        <div class="slide-footer"><span>data/content-manifest.json · DeCuongChiTietNop.docx:1-53</span><span>Slide 02/16</span></div>
+      </div>
+
+      <!-- SLIDE 3: AUTHORS -->
+      <div class="slide" data-id="3" data-time="0:45" data-speaker="Đại tá, TS Nguyễn Lê Văn" data-script="Ba tác giả chịu trách nhiệm theo phần công bố trong đề cương; không có vùng nội dung vô chủ. Nguồn chuẩn là DOCX; HTML, PDF, package và dữ liệu kiểm thử đều phải truy vết về nguồn này.">
+        <div class="slide-kicker">03 · NGUỒN CHUẨN & TRÁCH NHIỆM</div>
+        <div class="slide-num">03</div>
+        <h2 class="slide-title">Một nguồn chuẩn, trách nhiệm truy vết rõ</h2>
+        <div class="slide-takeaway">DOCX là nguồn chuẩn; mọi đầu ra truy vết về nội dung và người phụ trách.</div>
+        <div class="slide-body" style="flex-direction:column;gap:10px">
+          <div class="panel" style="display:flex;justify-content:space-between;align-items:center;background:#eef2f7"><strong>01 · Đại tá, TS Nguyễn Lê Văn — Chủ biên</strong><span>Chủ biên · Chương 2–3</span></div>
+          <div class="panel" style="display:flex;justify-content:space-between;align-items:center"><strong>02 · Thiếu tá, ThS Đinh Văn Tứ</strong><span>Chương 1 · mô phỏng minh họa</span></div>
+          <div class="panel" style="display:flex;justify-content:space-between;align-items:center"><strong>03 · Đại úy, ThS Bùi Thanh Xuân</strong><span>Mô phỏng · code · trắc nghiệm</span></div>
+          <div class="grid-3">
+            <div class="stat-box"><div class="stat-val">108</div><div class="stat-lbl">route nội dung</div></div>
+            <div class="stat-box"><div class="stat-val">1 302</div><div class="stat-lbl">lần xuất hiện công thức</div></div>
+            <div class="stat-box"><div class="stat-val">300</div><div class="stat-lbl">câu hỏi trắc nghiệm</div></div>
+          </div>
+          <div class="panel" style="background:var(--navy-950);color:var(--white);text-align:center;padding:10px"><strong style="color:var(--gold-l)">NGUỒN CHUẨN:</strong> <code>CoHocLyThuyet_Full_New.docx</code> → HTML · PDF · package</div>
+        </div>
+        <div class="slide-footer"><span>data/content-manifest.json · DeCuongChiTietNop.docx:45-53</span><span>Slide 03/16</span></div>
+      </div>
+
+      <!-- SLIDE 4: LEARNING JOURNEY -->
+      <div class="slide" data-id="4" data-time="1:05" data-speaker="Thiếu tá, ThS Đinh Văn Tứ" data-script="Hành trình học là trục tổ chức chức năng, không phải danh sách nút. Mỗi vòng học bắt đầu từ một bài, cho phép quan sát hoặc thao tác, rồi kết thúc bằng tự kiểm tra và lưu tiến độ.">
+        <div class="slide-kicker">04 · HÀNH TRÌNH HỌC TẬP</div>
+        <div class="slide-num">04</div>
+        <h2 class="slide-title">Học viên đi qua một vòng học khép kín</h2>
+        <div class="slide-takeaway">Tìm → học → quan sát → luyện tập → ghi nhớ.</div>
+        <div class="slide-body">
+          <div class="step-col" style="flex:.85">
+            <div class="step-item"><div class="step-num">01</div><div class="step-text"><h4>Tìm</h4><p>108 route · mục lục · tìm kiếm</p></div></div>
+            <div class="step-item"><div class="step-num">02</div><div class="step-text"><h4>Học</h4><p>1 302 lần công thức · 127 hình</p></div></div>
+            <div class="step-item"><div class="step-num">03</div><div class="step-text"><h4>Quan sát</h4><p>25 Sim2 · 10 Sim3 pilot</p></div></div>
+            <div class="step-item"><div class="step-num">04</div><div class="step-text"><h4>Luyện</h4><p>300 câu hỏi · phản hồi tức thì</p></div></div>
+            <div class="step-item"><div class="step-num">05</div><div class="step-text"><h4>Ghi nhớ</h4><p>Tiến độ · dấu trang · ghi chú</p></div></div>
+          </div>
+          <div style="flex:1.45" class="panel"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-01-trang-chu-desktop-1440x1000.png" alt="Trang chủ giáo trình điện tử trên desktop" style="width:100%;height:350px;object-fit:contain"><p style="font-size:12px;color:var(--slate);text-align:center">Ảnh chụp thực tế trang chủ candidate</p></div>
+        </div>
+        <div class="slide-footer"><span>README.md:114-118 · IMG-01</span><span>Slide 04/16</span></div>
+      </div>
+
+      <!-- SLIDE 5: OFFLINE ARCHITECTURE -->
+      <div class="slide" data-id="5" data-time="1:05" data-speaker="Đại úy, ThS Bùi Thanh Xuân" data-script="Kiến trúc tĩnh giảm phụ thuộc hạ tầng, phù hợp khai thác qua USB hoặc mạng nội bộ. Công cụ phát triển chỉ dùng khi biên soạn và kiểm thử; máy học viên chỉ cần trình duyệt.">
+        <div class="slide-kicker">05 · KIẾN TRÚC VẬN HÀNH</div>
+        <div class="slide-num">05</div>
+        <h2 class="slide-title">Từ nguồn chuẩn đến gói học ngoại tuyến</h2>
+        <div class="slide-takeaway">DOCX → chuyển đổi → QA → gói tĩnh → file:// hoặc HTTP.</div>
+        <div class="slide-body" style="flex-direction:column;gap:20px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="panel" style="text-align:center;width:190px"><strong>DOCX chuẩn</strong><br><small>Nguồn nội dung</small></div><span style="color:var(--gold);font-size:24px">→</span>
+            <div class="panel" style="text-align:center;width:190px"><strong>Trang + dữ liệu</strong><br><small>HTML · JSON</small></div><span style="color:var(--gold);font-size:24px">→</span>
+            <div class="panel" style="text-align:center;width:190px"><strong>QA + manifest</strong><br><small>24 cổng</small></div><span style="color:var(--gold);font-size:24px">→</span>
+            <div class="panel" style="text-align:center;width:190px"><strong>Gói 372 tệp</strong><br><small>78,7 MB</small></div><span style="color:var(--gold);font-size:24px">→</span>
+            <div class="panel" style="text-align:center;width:190px;background:var(--navy-950);color:white"><strong>file:// · HTTP</strong><br><small>Trình duyệt</small></div>
+          </div>
+          <div class="grid-3">
+            <div class="stat-box"><div class="stat-val" style="color:var(--success)">0</div><div class="stat-lbl">backend/CDN ở máy học viên</div></div>
+            <div class="stat-box"><div class="stat-val" style="color:var(--blue)">100%</div><div class="stat-lbl">runtime đóng gói cục bộ</div></div>
+            <div class="stat-box"><div class="stat-val" style="color:var(--purple)">USB</div><div class="stat-lbl">sao chép và mở trực tiếp</div></div>
+          </div>
+        </div>
+        <div class="slide-footer"><span>docs/system-architecture.md · README.md:3-13</span><span>Slide 05/16</span></div>
+      </div>
+
+      <!-- SLIDE 6: VISUAL EVIDENCE -->
+      <div class="slide" data-id="6" data-time="1:10" data-speaker="Thiếu tá, ThS Đinh Văn Tứ" data-script="Đây là ảnh chụp thực tế của một bài học đại diện: văn bản, hình, công thức và điều hướng nằm trong cùng ngữ cảnh. 1 302 là số lần xuất hiện công thức; registry ngữ nghĩa có 702 hàng ánh xạ, hai số không dùng thay nhau.">
+        <div class="slide-kicker">06 · HỌC LIỆU NGỮ CẢNH</div>
+        <div class="slide-num">06</div>
+        <h2 class="slide-title">Một bài học đặt lý thuyết và hình cùng ngữ cảnh</h2>
+        <div class="slide-takeaway">127 hình · 1 302 lần công thức · phản hồi và mô phỏng tại đúng vị trí học.</div>
+        <div class="slide-body">
+          <div style="flex:1.55" class="panel"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-03-hoc-lieu-ch1-2-3-1440x1000.png" alt="Bài học Chương 1 với hình và công thức" style="width:100%;height:360px;object-fit:contain"><p style="font-size:12px;color:var(--slate);text-align:center">IMG-03 · bài học Chương 1</p></div>
+          <div style="flex:.85" class="panel">
+            <h3 style="font-family:var(--font-head);font-size:20px;color:var(--navy-950);margin-bottom:14px">Bằng chứng quan sát</h3>
+            <div class="bullet-list"><div class="bullet-item">Hình và công thức vector đặt cạnh phần giải thích.</div><div class="bullet-item">KaTeX/MathML sắc nét khi phóng to.</div><div class="bullet-item">Câu hỏi trả phản hồi ngay sau lựa chọn.</div><div class="bullet-item">Nguồn và giới hạn thẩm định được công bố.</div></div>
+          </div>
+        </div>
+        <div class="slide-footer"><span>data/content-manifest.json · data/equation_mapping.json</span><span>Slide 06/16</span></div>
+      </div>
+
+      <!-- SLIDE 7: SIMULATION ARCHITECTURE -->
+      <div class="slide" data-id="7" data-time="1:10" data-speaker="Thiếu tá, ThS Đinh Văn Tứ" data-script="Ví dụ tại route ch1-1-4 cho thấy giá trị sư phạm của tương tác: học viên kéo điểm đặt lực thay vì chỉ đọc công thức. Ảnh chụp xác nhận F bằng 50 N, d bằng 4 mét và hệ thống tính M bằng 200 niutơn mét.">
+        <div class="slide-kicker">07 · VÍ DỤ CƠ HỌC CỤ THỂ</div>
+        <div class="slide-num">07</div>
+        <h2 class="slide-title">Ví dụ cơ học: mô men và cánh tay đòn</h2>
+        <div class="slide-takeaway">F = 50 N · d = 4,00 m → M = F·d = 200 N·m.</div>
+        <div class="slide-body">
+          <div style="flex:1.55" class="panel"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-04-mo-men-ch1-1-4-1440x1000.png" alt="Mô phỏng mô men lực tại route ch1-1-4" style="width:100%;height:355px;object-fit:contain"><p style="font-size:12px;color:var(--slate);text-align:center">IMG-04 · route ch1-1-4 · ảnh chụp thực tế</p></div>
+          <div style="flex:.85;display:flex;flex-direction:column;gap:10px">
+            <div class="panel" style="background:var(--navy-950);color:white;text-align:center;font-family:var(--font-head);font-size:30px;font-weight:700">M = F · d</div>
+            <div class="panel"><strong style="color:var(--gold)">Đầu vào</strong><p style="font-size:14px">F = 50 N; kéo điểm đặt lực để đổi d.</p></div>
+            <div class="panel"><strong style="color:var(--gold)">Mô hình</strong><p style="font-size:14px">d đo vuông góc từ tâm tới giá lực.</p></div>
+            <div class="panel"><strong style="color:var(--gold)">Đầu ra</strong><p style="font-size:14px">d = 4,00 m → M = 200 N·m.</p></div>
+            <div class="panel"><strong style="color:var(--gold)">Phản hồi</strong><p style="font-size:14px">Chiều quay và readout cập nhật cùng state.</p></div>
+          </div>
+        </div>
+        <div class="slide-footer"><span>IMG-04 · data/simulation-specifications.json</span><span>Slide 07/16</span></div>
+      </div>
+
+      <!-- SLIDE 8: INTEGRITY VS ACADEMIC -->
+      <div class="slide" data-id="8" data-time="1:30" data-speaker="Đại úy, ThS Bùi Thanh Xuân" data-script="Tôi mở trực tiếp package/index.html, không dùng máy chủ. Từ trang chủ, chọn Chương 1, mục Mô men. Tại Sim2, giữ F bằng 50 niutơn và kéo điểm đặt lực đến d bằng 4 mét; readout trả M bằng 200 niutơn mét. Cuối cùng mở bản PDF cục bộ để đối chiếu.">
+        <div class="slide-kicker">08 · DEMO HỆ THỐNG</div>
+        <div class="slide-num">08</div>
+        <h2 class="slide-title">Demo 90 giây: kiểm chứng mô men từ gói offline</h2>
+        <div class="slide-takeaway">Mở offline → vào bài → thao tác Sim2 → đối chiếu PDF.</div>
+        <div class="slide-body" style="flex-direction:column;gap:12px">
+          <div class="grid-3" style="height:250px">
+            <div class="panel"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-01-trang-chu-desktop-1440x1000.png" alt="Bước 1 mở trang chủ" style="width:100%;height:185px;object-fit:contain"><p style="font-size:13px;text-align:center">1 · Mở gói</p></div>
+            <div class="panel"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-04-mo-men-ch1-1-4-1440x1000.png" alt="Bước 2 thao tác mô men" style="width:100%;height:185px;object-fit:contain"><p style="font-size:13px;text-align:center">2 · Thao tác mô men</p></div>
+            <div class="panel"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-06-pdf-viewer-1440x1000.png" alt="Bước 3 mở PDF cục bộ" style="width:100%;height:185px;object-fit:contain"><p style="font-size:13px;text-align:center">3 · Đối chiếu PDF</p></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
+            <div class="panel" style="text-align:center;padding:10px"><small style="color:var(--gold)">00:00–00:15</small><strong style="display:block">Mở gói</strong><span style="font-size:12px">file://</span></div>
+            <div class="panel" style="text-align:center;padding:10px"><small style="color:var(--gold)">00:15–00:30</small><strong style="display:block">Vào bài</strong><span style="font-size:12px">Ch1 › Mô men</span></div>
+            <div class="panel" style="text-align:center;padding:10px;border-color:var(--success)"><small style="color:var(--gold)">00:30–01:00</small><strong style="display:block">Thao tác</strong><span style="font-size:12px">F=50 N; d=4 m</span></div>
+            <div class="panel" style="text-align:center;padding:10px"><small style="color:var(--gold)">01:00–01:15</small><strong style="display:block">Quan sát</strong><span style="font-size:12px">M=200 N·m</span></div>
+            <div class="panel" style="text-align:center;padding:10px"><small style="color:var(--gold)">01:15–01:30</small><strong style="display:block">Đối chiếu</strong><span style="font-size:12px">PDF cục bộ</span></div>
+          </div>
+        </div>
+        <div class="slide-footer"><span>release/2026.09.02-candidate/package/index.html</span><span>Slide 08/16</span></div>
+      </div>
+
+      <!-- SLIDE 9: ACCESSIBILITY -->
+      <div class="slide" data-id="9" data-time="1:05" data-speaker="Đại úy, ThS Bùi Thanh Xuân" data-script="Pipeline tạo bằng chứng tái lập về cấu trúc, hành vi và khả năng vận hành trên nhiều kích thước màn hình. Nhưng ý nghĩa công thức, sai số mô phỏng, khả năng tiếp cận thực tế và giá trị sư phạm vẫn thuộc thẩm quyền reviewer độc lập.">
+        <div class="slide-kicker">09 · KIỂM SOÁT CHẤT LƯỢNG</div>
+        <div class="slide-num">09</div>
+        <h2 class="slide-title">Máy kiểm kỹ thuật; con người quyết định học thuật</h2>
+        <div class="slide-takeaway">Bằng chứng tự động hỗ trợ Hội đồng, không thay thế thẩm định độc lập.</div>
+        <div class="slide-body">
+          <div style="flex:.42" class="panel"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-02-trang-chu-mobile-390x844.png" alt="Giao diện mobile 390x844" style="width:100%;height:360px;object-fit:contain"><p style="font-size:12px;text-align:center;color:var(--slate)">Viewport 390 × 844</p></div>
+          <div style="flex:1.58;display:flex;flex-direction:column;gap:10px">
+            <div class="panel" style="background:#eef2f7"><strong style="color:var(--navy-800)">MÁY KIỂM</strong><span style="float:right">route · hình · công thức · keyboard · reflow · package</span></div>
+            <div class="panel"><strong style="color:var(--gold)">NGƯỜI KIỂM</strong><span style="float:right">thuật ngữ · đơn vị · mô hình · sai số · sư phạm</span></div>
+            <div class="grid-2">
+              <div class="panel" style="border-color:var(--success)"><h3 style="font-size:17px;color:var(--success);margin-bottom:10px">Đã có bằng chứng kỹ thuật</h3><div class="bullet-list"><div class="bullet-item">Responsive 320–1440 px.</div><div class="bullet-item">Keyboard, reflow, contrast contracts.</div><div class="bullet-item">Reduced motion và alt text.</div></div></div>
+              <div class="panel" style="border-color:var(--warning)"><h3 style="font-size:17px;color:var(--warning);margin-bottom:10px">Còn cần đánh giá độc lập</h3><div class="bullet-list"><div class="bullet-item">Screen-reader walkthrough.</div><div class="bullet-item">Tương đương trực quan khoa học.</div><div class="bullet-item">Phê duyệt nội dung độc lập.</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer"><span>data/acceptance-report.json · data/accessibility-baseline.json</span><span>Slide 09/16</span></div>
+      </div>
+
+      <!-- SLIDE 10: CANDIDATE ARTIFACT -->
+      <div class="slide" data-id="10" data-time="1:20" data-package-sha256="3defec1306bab10288faed66e45f19d8aa2befc2b66ecb1b6f2066df186f005a" data-speaker="Đại úy, ThS Bùi Thanh Xuân" data-script="Ứng viên kỹ thuật đã được đóng gói có tính tất định và khóa hash. Dung lượng hệ thập phân là 78,7 MB, tương đương 75,1 MiB; QTI 3.0 và Common Cartridge 1.4 mới có bằng chứng kiểm tra cục bộ, chưa phải bằng chứng nhập LMS.">
+        <div class="slide-kicker">10 · HIỆN VẬT KỸ THUẬT</div>
+        <div class="slide-num">10</div>
+        <h2 class="slide-title">Ứng viên 2026.09.02 đã khóa hash</h2>
+        <div class="slide-takeaway">372 tệp · 78,7 MB (75,1 MiB) · Build Epoch 1788307200 · SHA-256 xác thực.</div>
+        <div class="slide-body" style="flex-direction:column;gap:16px">
+          <div class="grid-3"><div class="stat-box"><div class="stat-val">372</div><div class="stat-lbl">tệp staging</div></div><div class="stat-box"><div class="stat-val">78,7 MB</div><div class="stat-lbl">kích thước ZIP</div></div><div class="stat-box"><div class="stat-val" style="color:var(--success)">0</div><div class="stat-lbl">lệch hash</div></div></div>
+          <div class="panel" style="background:#eef7f2;border-color:var(--success)">
+            <div style="font-size:14px;font-weight:700;color:var(--success);margin-bottom:10px">XÁC THỰC HIỆN VẬT</div>
+            <div style="font-family:monospace;font-size:13px;color:var(--ink);display:flex;flex-direction:column;gap:8px"><div><strong>Release Candidate:</strong> 2026.09.02-candidate</div><div><strong>Package ZIP SHA-256:</strong> 3defec1306ba…df186f005a</div><div><strong>Manifest SHA-256:</strong> 9b5d87e9f4dc…6c8732eb39</div></div>
+          </div>
+          <div class="panel" style="text-align:center;font-weight:700">Đã khóa hash; sẵn sàng cho bốn bước đánh giá độc lập, chưa phải bản phát hành cuối.</div>
+        </div>
+        <div class="slide-footer"><span>data/release-candidate.json · release/2026.09.02-candidate/release-summary.json</span><span>Slide 10/16</span></div>
+      </div>
+
+      <!-- SLIDE 11: QA GATES BREAKDOWN -->
+      <div class="slide" data-id="11" data-time="1:25" data-speaker="Đại úy, ThS Bùi Thanh Xuân" data-script="Không dùng 83,3 phần trăm như điểm chất lượng để tuyên bố hoàn thành. Bốn cổng blocked cần đúng chuyên gia hoặc người dùng độc lập đóng; vì vậy trạng thái tổng thể vẫn là blocked.">
+        <div class="slide-kicker">11 · MA TRẬN KIỂM CHỨNG</div>
+        <div class="slide-num">11</div>
+        <h2 class="slide-title">20 cổng đạt; 4 cổng chờ đánh giá độc lập</h2>
+        <div class="slide-takeaway">20 pass · 0 fail · 4 blocked · 0 not-run; trạng thái tổng thể vẫn blocked.</div>
+        <div class="slide-body">
+          <div style="flex:1.4">
+            <div style="display:flex;height:34px;border-radius:4px;overflow:hidden;margin-bottom:16px"><div style="width:83.3%;background:var(--success);color:white;font-size:14px;font-weight:700;display:flex;align-items:center;padding-left:12px">20 PASS</div><div style="width:16.7%;background:var(--warning);color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">4 BLOCKED</div></div>
+            <div class="panel" style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;font-size:15px"><span class="badge badge-pass">PASS 20</span><span>Pipeline · KaTeX · Sim2/Sim3 · Quiz · PDF · Release</span></div><div style="display:flex;justify-content:space-between;font-size:15px"><span class="badge badge-block">BLOCKED 4</span><span>Học thuật · Tiếp cận · Smoke · Word</span></div><div style="font-size:14px;color:var(--slate);text-align:center">Số tuyệt đối; không dùng phần trăm như điểm chất lượng.</div></div>
+          </div>
+          <div style="flex:1" class="panel"><div style="font-size:13px;font-weight:700;color:var(--warning);text-align:center">TRẠNG THÁI TỔNG THỂ</div><div style="font-size:38px;font-weight:700;color:var(--danger);margin:24px 0;text-align:center">BLOCKED</div><p style="font-size:15px;color:var(--slate);text-align:center">Không có gate fail; 4 gate chờ đúng chủ thể độc lập đóng.</p></div>
+        </div>
+        <div class="slide-footer"><span>data/acceptance-report.json</span><span>Slide 11/16</span></div>
+      </div>
+
+      <!-- SLIDE 12: CONDITIONS -->
+      <div class="slide" data-id="12" data-time="1:15" data-speaker="Đại tá, TS Nguyễn Lê Văn" data-script="Đây là bốn điều kiện bắt buộc, không phải lỗi kỹ thuật cần che giấu. Khi đủ đúng hồ sơ, nhóm chạy lại toàn bộ 24 gate, cập nhật acceptance report và mới trình khóa bản phát hành chính thức.">
+        <div class="slide-kicker">12 · ĐIỀU KIỆN ĐÓNG</div>
+        <div class="slide-num">12</div>
+        <h2 class="slide-title">Bốn điều kiện trước bản phát hành cuối</h2>
+        <div class="slide-takeaway">Mỗi điều kiện có đúng chủ thể, đúng môi trường và đúng hồ sơ minh chứng.</div>
+        <div class="slide-body" style="flex-direction:column;gap:9px">
+          <div class="panel" style="display:flex;align-items:center;gap:16px;padding:10px 16px"><span class="badge badge-block">1</span><strong style="min-width:210px">Thẩm định học thuật</strong><span>Hội đồng/SME ký quyết định nội dung.</span></div>
+          <div class="panel" style="display:flex;align-items:center;gap:16px;padding:10px 16px"><span class="badge badge-block">2</span><strong style="min-width:210px">Tiếp cận độc lập</strong><span>Screen reader · keyboard · reflow trên thiết bị thật.</span></div>
+          <div class="panel" style="display:flex;align-items:center;gap:16px;padding:10px 16px"><span class="badge badge-block">3</span><strong style="min-width:210px">Smoke độc lập</strong><span>Giảng viên/học viên chạy file:// và HTTP.</span></div>
+          <div class="panel" style="display:flex;align-items:center;gap:16px;padding:10px 16px"><span class="badge badge-block">4</span><strong style="min-width:210px">Word round-trip</strong><span>Đối sánh fidelity tài liệu Word xuất ngược.</span></div>
+          <div class="panel" style="border-color:var(--success);background:#eef7f2;text-align:center;color:var(--success);font-weight:700">Đủ 4 bằng chứng → chạy lại 24 gate → khóa bản phát hành chính thức</div>
+        </div>
+        <div class="slide-footer"><span>data/acceptance-report.json · data/release-policy.json</span><span>Slide 12/16</span></div>
+      </div>
+
+      <!-- SLIDE 13: DECISION -->
+      <div class="slide dark-theme" data-id="13" data-time="1:50" data-speaker="Đại tá, TS Nguyễn Lê Văn" data-script="Kính đề nghị Hội đồng xem xét thông qua có điều kiện theo nội dung trên. Nhóm tác giả cam kết tiếp thu từng ý kiến, chỉ trình bản cuối khi bốn hồ sơ độc lập đầy đủ và toàn bộ 24 cổng được chạy lại.">
+        <div class="slide-kicker" style="justify-content:center;color:var(--gold-l)">13 · ĐỀ XUẤT KẾT LUẬN</div>
+        <div class="slide-num">13</div>
+        <h2 class="slide-title" style="text-align:center">Đề nghị Hội đồng thông qua có điều kiện</h2>
+        <div class="slide-takeaway" style="text-align:center">Thông qua giá trị khoa học–sư phạm; hoàn tất 4 điều kiện trước phát hành chính thức.</div>
+        <div class="decision-box"><div class="decision-text">Hội đồng xem xét <strong>thông qua có điều kiện</strong> về mặt khoa học–sư phạm đối với Giáo trình điện tử Cơ học lý thuyết; giao nhóm tác giả tiếp thu ý kiến, hoàn tất thẩm định học thuật, rà soát khả năng tiếp cận độc lập, kiểm tra vận hành độc lập và vòng lặp Word trước khi trình xác nhận bản phát hành cuối.</div></div>
+        <div style="text-align:center;margin-top:16px;font-size:18px;color:var(--gold-l);font-weight:700">Kính đề nghị Hội đồng xem xét và cho ý kiến.</div>
+        <div class="slide-footer"><span>HỘI ĐỒNG KHOA HỌC KHOA KTCS · 2026</span><span>Slide 13/16</span></div>
+      </div>
+
+      <!-- SLIDE 14: BACKUP DEMO -->
+      <div class="slide" data-id="14" data-time="backup" data-speaker="Nhóm tác giả" data-script="Dùng khi Hội đồng hỏi kiến trúc mô phỏng. Sim3 không thay Sim2, không phải 4D và không tạo yêu cầu phần cứng bắt buộc.">
+        <div class="slide-kicker">PHỤ LỤC / KIẾN TRÚC MÔ PHỎNG</div>
+        <div class="slide-num">14</div>
+        <h2 class="slide-title">Phụ lục · kiến trúc Sim2 và Sim3</h2>
+        <div class="slide-takeaway">25 route Sim2 canonical · 10 adapter Sim3 pilot · fallback bắt buộc.</div>
+        <div class="slide-body">
+          <div style="flex:1.45" class="panel"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-04-mo-men-ch1-1-4-1440x1000.png" alt="Lớp Sim2 canonical" style="width:100%;height:355px;object-fit:contain"><p style="font-size:12px;text-align:center">Sim2 · đường chạy chuẩn</p></div>
+          <div style="flex:.85;display:flex;flex-direction:column;gap:18px">
+            <div class="panel" style="border-color:var(--success)"><h3 style="color:var(--success);font-size:22px">Sim2 · 25 route</h3><p style="font-size:15px">SVG-first · mặc định · không phụ thuộc WebGL.</p></div>
+            <div style="text-align:center;color:var(--gold);font-size:24px">↓ chỉ khi chiều sâu có giá trị</div>
+            <div class="panel" style="border-color:var(--warning)"><h3 style="color:var(--warning);font-size:22px">Sim3 · 10 pilot</h3><p style="font-size:15px">3D tùy chọn · lỗi setup/render → trở về Sim2.</p></div>
+            <div style="text-align:center;color:var(--danger);font-weight:700">Không dùng Sim3 để tuyên bố “4D”.</div>
+          </div>
+        </div>
+        <div class="slide-footer"><span>js/sim2/sim2-route-manifest.js · js/sim3/sim3-route-manifest.js</span><span>Slide 14/16 (Backup)</span></div>
+      </div>
+
+      <!-- SLIDE 15: BACKUP GATES -->
+      <div class="slide" data-id="15" data-time="backup" data-speaker="Nhóm tác giả" data-script="Dùng khi Hội đồng hỏi nguyên nhân từng gate. Mọi gate phải do đúng owner đóng.">
+        <div class="slide-kicker">PHỤ LỤC / CHI TIẾT 4 CỔNG MỞ</div>
+        <div class="slide-num">15</div>
+        <h2 class="slide-title">Phụ lục · 4 cổng mở và bằng chứng cần nộp</h2>
+        <div class="slide-takeaway">Blocked không đồng nghĩa với fail; nhưng cần chuyên gia độc lập ký xác nhận.</div>
+        <div class="slide-body" style="flex-direction:column;gap:12px">
+          <div class="panel" style="display:flex;justify-content:space-between;align-items:center">
+            <div><strong style="color:var(--navy-950)">academic-review-currentness</strong><br><small style="color:var(--slate)">Biên bản thẩm định nội dung của Hội đồng Khoa học</small></div>
+            <span class="badge badge-block">BLOCKED</span>
+          </div>
+          <div class="panel" style="display:flex;justify-content:space-between;align-items:center">
+            <div><strong style="color:var(--navy-950)">accessibility-independent-review</strong><br><small style="color:var(--slate)">Biên bản đánh giá tiếp cận của chuyên gia độc lập</small></div>
+            <span class="badge badge-block">BLOCKED</span>
+          </div>
+          <div class="panel" style="display:flex;justify-content:space-between;align-items:center">
+            <div><strong style="color:var(--navy-950)">release-independent-smoke</strong><br><small style="color:var(--slate)">Phiếu chạy thử nghiệm thực tế của giảng viên & học viên</small></div>
+            <span class="badge badge-block">BLOCKED</span>
+          </div>
+          <div class="panel" style="display:flex;justify-content:space-between;align-items:center">
+            <div><strong style="color:var(--navy-950)">word-standalone-roundtrip</strong><br><small style="color:var(--slate)">Báo cáo fidelity chuyển đổi ngược HTML → DOCX</small></div>
+            <span class="badge badge-block">BLOCKED</span>
+          </div>
+        </div>
+        <div class="slide-footer"><span>data/acceptance-report.json</span><span>Slide 15/16 (Backup)</span></div>
+      </div>
+
+      <!-- SLIDE 16: BACKUP QA -->
+      <div class="slide" data-id="16" data-time="backup" data-speaker="Nhóm tác giả" data-script="Trả lời ngắn, không suy diễn. Các source chính: DOCX, acceptance report, route manifests, candidate package và independent review.">
+        <div class="slide-kicker">PHỤ LỤC / CÂU HỎI TRỌNG TÂM</div>
+        <div class="slide-num">16</div>
+        <h2 class="slide-title">Phụ lục · 6 câu hỏi trọng tâm</h2>
+        <div class="slide-takeaway">Mọi câu trả lời dựa trên bằng chứng kỹ thuật, artifact và tài liệu nguồn.</div>
+        <div class="slide-body">
+          <div class="grid-2" style="width:100%">
+            <div class="panel"><strong>1. Nguồn chuẩn là gì?</strong><p style="font-size:12px;color:var(--slate);margin-top:4px">Tệp `CoHocLyThuyet_Full_New.docx` do 3 tác giả biên soạn theo đề cương.</p></div>
+            <div class="panel"><strong>2. Ai xác nhận công thức & mô phỏng?</strong><p style="font-size:12px;color:var(--slate);margin-top:4px">Pipeline tự động kiểm tra cú pháp; Hội đồng nghiệm thu tính đúng sư phạm.</p></div>
+            <div class="panel"><strong>3. Vì sao 20/24 pass vẫn chưa phát hành?</strong><p style="font-size:12px;color:var(--slate);margin-top:4px">Chính sách chất lượng yêu cầu đủ chữ ký thẩm định độc lập của con người.</p></div>
+            <div class="panel"><strong>4. Có chạy được trên mạng nội bộ / USB?</strong><p style="font-size:12px;color:var(--slate);margin-top:4px">Runtime hỗ trợ `file://` và HTTP tĩnh; smoke độc lập trên thiết bị thật vẫn là điều kiện mở.</p></div>
+            <div class="panel"><strong>5. Đã tích hợp hệ thống LMS chưa?</strong><p style="font-size:12px;color:var(--slate);margin-top:4px">QTI 3.0 và Common Cartridge 1.4 đã kiểm tra cục bộ; chưa có bằng chứng import trên LMS đích.</p></div>
+            <div class="panel"><strong>6. Sau Hội đồng cần làm gì tiếp theo?</strong><p style="font-size:12px;color:var(--slate);margin-top:4px">Hoàn tất 4 hồ sơ độc lập, chạy lại 24 cổng và mới trình khóa bản phát hành cuối.</p></div>
+          </div>
+        </div>
+        <div class="slide-footer"><span>story-research.md:56-82</span><span>Slide 16/16 (Backup)</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Control Bar -->
+  <div id="bar">
+    <div class="btn-group">
+      <button class="c-btn" id="btn-prev">◀ Trước <span class="kbd">←</span></button>
+      <button class="c-btn" id="btn-next">Sau ▶ <span class="kbd">→</span></button>
+      <span style="margin:0 8px;color:var(--gold-l);font-weight:700" id="slide-indicator">01 / 16</span>
+      <span id="speaker-indicator" style="color:var(--white);font-weight:600">Đại tá, TS Nguyễn Lê Văn</span>
+    </div>
+    <div class="btn-group">
+      <button class="c-btn" id="btn-notes">Lời thoại (S)</button>
+      <button class="c-btn" id="btn-grid">Lưới slide (G)</button>
+      <button class="c-btn" id="btn-fs">Toàn màn hình (F)</button>
+    </div>
+  </div>
+
+  <!-- Speaker Notes Drawer -->
+  <div id="notes-drawer">
+    <div class="note-speaker" id="note-speaker-title">LỜI THOẠI THUYẾT TRÌNH</div>
+    <div class="note-script" id="note-script-body">...</div>
+  </div>
+
+  <!-- Grid Overview Overlay -->
+  <div id="grid-overlay"></div>
+</div>
+
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let current = 0;
+
+  const stage = document.getElementById('stage');
+  const progressFill = document.getElementById('progress-fill');
+  const slideIndicator = document.getElementById('slide-indicator');
+  const speakerIndicator = document.getElementById('speaker-indicator');
+  const notesDrawer = document.getElementById('notes-drawer');
+  const noteSpeakerTitle = document.getElementById('note-speaker-title');
+  const noteScriptBody = document.getElementById('note-script-body');
+  const gridOverlay = document.getElementById('grid-overlay');
+
+  function resizeStage(){
+    const vw = window.innerWidth;
+    const vh = window.innerHeight - 48; // bar height
+    const scale = Math.min((vw - 24) / 1280, (vh - 24) / 720, 1.25);
+    stage.style.transform = `scale(${Math.max(scale, 0.4)})`;
+  }
+  window.addEventListener('resize', resizeStage);
+  resizeStage();
+
+  function buildGrid(){
+    gridOverlay.innerHTML = '';
+    slides.forEach((s, i) => {
+      const card = document.createElement('div');
+      card.className = 'thumb-card' + (i === current ? ' current' : '');
+      const num = s.querySelector('.slide-num')?.textContent || ('0' + (i + 1)).slice(-2);
+      const title = s.querySelector('.slide-title, .cover-title')?.textContent.replace(/\\n/g,' ') || 'Slide ' + (i + 1);
+      const speaker = s.getAttribute('data-speaker') || '';
+      card.innerHTML = `
+        <div class="thumb-num">${num}</div>
+        <div class="thumb-title">${title}</div>
+        <div class="thumb-speaker">${speaker}</div>
+      `;
+      card.addEventListener('click', () => {
+        goTo(i);
+        toggleGrid(false);
+      });
+      gridOverlay.appendChild(card);
+    });
+  }
+
+  function updateView(){
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    const curSlide = slides[current];
+    const numStr = ('0' + (current + 1)).slice(-2);
+    slideIndicator.textContent = `${numStr} / ${('0' + total).slice(-2)}`;
+    progressFill.style.width = `${((current + 1) / total) * 100}%`;
+
+    const speaker = curSlide.getAttribute('data-speaker') || '';
+    const time = curSlide.getAttribute('data-time') || '';
+    const script = curSlide.getAttribute('data-script') || '';
+    speakerIndicator.textContent = speaker + (time ? ` (${time})` : '');
+
+    noteSpeakerTitle.textContent = `SLIDE ${numStr} · ${speaker.toUpperCase()} · DỰ KIẾN: ${time}`;
+    noteScriptBody.textContent = script;
+  }
+
+  function goTo(n){
+    current = Math.max(0, Math.min(n, total - 1));
+    updateView();
+  }
+  function next(){ goTo(current + 1); }
+  function prev(){ goTo(current - 1); }
+
+  function toggleNotes(show){
+    const open = show !== undefined ? show : !notesDrawer.classList.contains('open');
+    notesDrawer.classList.toggle('open', open);
+    document.getElementById('btn-notes').classList.toggle('active', open);
+  }
+
+  function toggleGrid(show){
+    const open = show !== undefined ? show : !gridOverlay.classList.contains('open');
+    if(open) buildGrid();
+    gridOverlay.classList.toggle('open', open);
+    document.getElementById('btn-grid').classList.toggle('active', open);
+  }
+
+  function toggleFullscreen(){
+    if(!document.fullscreenElement){
+      document.documentElement.requestFullscreen().catch(()=>{});
+    } else {
+      document.exitFullscreen().catch(()=>{});
+    }
+  }
+
+  document.getElementById('btn-prev').addEventListener('click', prev);
+  document.getElementById('btn-next').addEventListener('click', next);
+  document.getElementById('btn-notes').addEventListener('click', () => toggleNotes());
+  document.getElementById('btn-grid').addEventListener('click', () => toggleGrid());
+  document.getElementById('btn-fs').addEventListener('click', toggleFullscreen);
+
+  window.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'l' || e.key === 'j'){
+      e.preventDefault(); next();
+    } else if(e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'h' || e.key === 'k'){
+      e.preventDefault(); prev();
+    } else if(e.key === 'Home'){
+      e.preventDefault(); goTo(0);
+    } else if(e.key === 'End'){
+      e.preventDefault(); goTo(total - 1);
+    } else if(e.key === 's' || e.key === 'S'){
+      toggleNotes();
+    } else if(e.key === 'g' || e.key === 'G' || e.key === 't' || e.key === 'T' || e.key === 'o' || e.key === 'O'){
+      toggleGrid();
+    } else if(e.key === 'f' || e.key === 'F'){
+      toggleFullscreen();
+    } else if(e.key === 'Escape'){
+      if(gridOverlay.classList.contains('open')) toggleGrid(false);
+      if(notesDrawer.classList.contains('open')) toggleNotes(false);
+    }
+  });
+
+  updateView();
+})();
+</script>
+</body>
+</html>

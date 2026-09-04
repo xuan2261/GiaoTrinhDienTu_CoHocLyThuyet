@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tài liệu Báo cáo Tóm tắt & Slide Handout Nghiệm thu Giáo trình Điện tử Cơ học Lý thuyết — Học viện Hải quân</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy-950:#07182f;--navy-900:#0b1b3d;--navy-800:#112652;
+  --gold:#9a7b3c;--gold-dark:#7c622b;
+  --ink:#1e293b;--slate:#475569;--line:#cbd5e1;
+  --bg:#ffffff;--paper:#fafaf9;
+  --pass:#15803d;--blocked:#b45309;--danger:#b91c1c;
+  --font-serif:'Times New Roman',Times,serif;
+  --font-sans:'Segoe UI',Arial,sans-serif;
+}
+
+body{
+  font-family:var(--font-serif);
+  background:#f1f5f9;
+  color:var(--ink);
+  line-height:1.6;
+  font-size:14pt;
+  padding:20px;
+}
+
+.document-container{
+  max-width:210mm;
+  margin:0 auto;
+  background:#fff;
+  padding:25mm 20mm 20mm 25mm;
+  box-shadow:0 4px 16px rgba(0,0,0,0.1);
+  border-radius:2px;
+}
+
+/* Administrative Header - NĐ 30/2020/NĐ-CP */
+.admin-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:20px;
+  border-bottom:1px solid #000;
+  padding-bottom:15px;
+}
+.header-left{
+  text-align:center;
+  font-size:12pt;
+  font-weight:bold;
+  line-height:1.3;
+}
+.header-left .sub-unit{
+  font-weight:normal;
+  font-size:11pt;
+}
+.header-right{
+  text-align:center;
+  font-size:12pt;
+  font-weight:bold;
+  line-height:1.3;
+}
+.header-right .motto{
+  font-size:11pt;
+  font-weight:bold;
+  border-bottom:1px solid #000;
+  display:inline-block;
+  padding-bottom:3px;
+  margin-top:2px;
+}
+
+.doc-title{
+  text-align:center;
+  margin:25px 0 15px;
+}
+.doc-title h1{
+  font-size:16pt;
+  font-weight:bold;
+  text-transform:uppercase;
+  color:#000;
+  line-height:1.3;
+}
+.doc-title .doc-subtitle{
+  font-size:13pt;
+  font-style:italic;
+  margin-top:5px;
+  color:var(--slate);
+}
+
+.meta-box{
+  background:#f8fafc;
+  border:1px solid var(--line);
+  padding:12px 18px;
+  margin:15px 0 25px;
+  font-size:11.5pt;
+  border-radius:4px;
+}
+.meta-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px 20px;
+}
+
+h2.section-head{
+  font-size:13pt;
+  font-weight:bold;
+  text-transform:uppercase;
+  margin:25px 0 10px;
+  color:#000;
+  border-bottom:1.5px solid #000;
+  padding-bottom:3px;
+}
+h3.sub-head{
+  font-size:12pt;
+  font-weight:bold;
+  margin:15px 0 6px;
+  color:var(--navy-900);
+}
+p, li{
+  font-size:12pt;
+  text-align:justify;
+  margin-bottom:8px;
+}
+ul, ol{
+  padding-left:24px;
+  margin-bottom:12px;
+}
+
+table.report-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:12px 0 18px;
+  font-size:11pt;
+}
+table.report-table th, table.report-table td{
+  border:1px solid #000;
+  padding:6px 10px;
+  vertical-align:middle;
+}
+table.report-table th{
+  background:#f1f5f9;
+  font-weight:bold;
+  text-align:center;
+}
+
+/* Handout Slides Grid */
+.slide-handout-card{
+  border:1.5px solid #334155;
+  border-radius:4px;
+  margin-bottom:18px;
+  page-break-inside:avoid;
+  background:#fff;
+}
+.slide-handout-header{
+  background:#0f172a;
+  color:#fff;
+  padding:6px 14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:11pt;
+  font-family:var(--font-sans);
+  font-weight:bold;
+}
+.slide-handout-body{
+  padding:12px 16px;
+  font-size:11pt;
+}
+.slide-handout-body img{
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+}
+.slide-takeaway-tag{
+  background:#f1f5f9;
+  border-left:3px solid var(--gold);
+  padding:4px 10px;
+  font-weight:bold;
+  font-size:10.5pt;
+  margin-bottom:8px;
+  color:#0f172a;
+}
+.slide-script-text{
+  font-style:italic;
+  color:#1e293b;
+  line-height:1.5;
+  margin-top:6px;
+  padding:6px 10px;
+  background:#fafafa;
+  border:1px dashed #cbd5e1;
+  border-radius:3px;
+}
+.slide-source-tag{
+  font-size:9pt;
+  color:#64748b;
+  margin-top:6px;
+  text-align:right;
+}
+
+/* Mathematical Formulation Callout */
+.math-block{
+  background:#f8fafc;
+  border:1px solid #cbd5e1;
+  border-left:4px solid var(--navy-800);
+  padding:8px 14px;
+  margin:10px 0;
+  font-size:11pt;
+}
+
+/* Signature Block */
+.signature-section{
+  margin-top:35px;
+  page-break-inside:avoid;
+}
+.signature-date{
+  text-align:right;
+  font-style:italic;
+  font-size:12pt;
+  margin-bottom:15px;
+}
+.signature-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  text-align:center;
+  gap:30px;
+}
+.sig-title{
+  font-weight:bold;
+  font-size:12pt;
+  text-transform:uppercase;
+}
+.sig-subtitle{
+  font-style:italic;
+  font-size:11pt;
+  margin-bottom:60px;
+}
+.sig-name{
+  font-weight:bold;
+  font-size:12pt;
+}
+
+/* Print Toolbar */
+#print-toolbar{
+  position:fixed;
+  top:15px;
+  right:15px;
+  background:#0f172a;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:6px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  display:flex;
+  gap:12px;
+  align-items:center;
+  z-index:1000;
+  font-family:var(--font-sans);
+  font-size:13px;
+}
+#print-btn{
+  background:#c5a059;
+  color:#0f172a;
+  border:none;
+  padding:6px 16px;
+  border-radius:4px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:all .15s;
+}
+#print-btn:hover{
+  background:#dfbe7e;
+}
+
+/* Print Specific Rules */
+@media print{
+  body{
+    background:#fff;
+    padding:0;
+    font-size:12pt;
+  }
+  .document-container{
+    max-width:100%;
+    padding:0;
+    box-shadow:none;
+  }
+  #print-toolbar{
+    display:none!important;
+  }
+  .page-break{
+    page-break-after:always;
+  }
+  @page{
+    size:A4;
+    margin:20mm 15mm 20mm 25mm;
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="print-toolbar">
+  <span>Tài liệu Hội đồng Khoa học</span>
+  <button id="print-btn" onclick="window.print()">In tài liệu / Xuất PDF (A4)</button>
+</div>
+
+<div class="document-container">
+
+  <!-- ADMIN HEADER -->
+  <div class="admin-header">
+    <div class="header-left">
+      BỘ QUỐC PHÒNG<br>
+      <strong>HỌC VIỆN HẢI QUÂN</strong><br>
+      <span class="sub-unit">Khoa Kỹ thuật cơ sở</span>
+    </div>
+    <div class="header-right">
+      <strong>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</strong><br>
+      <span class="motto">Độc lập – Tự do – Hạnh phúc</span><br>
+      <span style="font-size:10pt;font-style:italic;font-weight:normal">Khánh Hòa, ngày 02 tháng 09 năm 2026</span>
+    </div>
+  </div>
+
+  <!-- TITLE -->
+  <div class="doc-title">
+    <h1>BÁO CÁO TÓM TẮT & TÀI LIỆU PHÁT TAY (HANDOUT)</h1>
+    <div class="doc-subtitle">PHỤC VỤ HỘI ĐỒNG KHOA HỌC NGHIỆM THU GIÁO TRÌNH ĐIỆN TỬ MÔN HỌC CƠ HỌC LÝ THUYẾT</div>
+  </div>
+
+  <!-- META BOX -->
+  <div class="meta-box">
+    <div class="meta-grid">
+      <div><strong>Đơn vị thực hiện:</strong> Khoa Kỹ thuật cơ sở</div>
+      <div><strong>Thời lượng báo cáo:</strong> 15 phút (13 slide chính + 3 phụ lục)</div>
+      <div><strong>Chủ biên:</strong> Đại tá, TS Nguyễn Lê Văn</div>
+      <div><strong>Phiên bản ứng viên:</strong> <code>2026.09.02-candidate</code></div>
+      <div><strong>Tác giả tham gia:</strong> Thiếu tá, ThS Đinh Văn Tứ</div>
+      <div><strong>Mã toàn vẹn SHA-256:</strong> <code>3defec1306ba...df186f005a</code></div>
+      <div><strong>Tác giả tham gia:</strong> Đại úy, ThS Bùi Thanh Xuân</div>
+      <div><strong>Mục tiêu:</strong> Thông qua có điều kiện về khoa học – sư phạm</div>
+    </div>
+  </div>
+
+  <!-- PHẦN 1 -->
+  <h2 class="section-head">I. TỔNG QUAN HỌC LIỆU SỐ & BẢO ĐẢM KỸ THUẬT</h2>
+  <p>Giáo trình điện tử môn học <strong>Cơ học lý thuyết</strong> được xây dựng nhằm mục tiêu hiện đại hóa phương pháp dạy và học cho học viên đào tạo sĩ quan phân đội trình độ đại học tại Học viện Hải quân. Toàn bộ nội dung khoa học bám sát 100% Đề cương chi tiết môn học đã được phê duyệt, lấy nguồn chuẩn duy nhất từ văn bản <code>CoHocLyThuyet_Full_New.docx</code>.</p>
+
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th style="width:25%">Hạng mục</th>
+        <th style="width:20%">Số lượng</th>
+        <th style="width:55%">Quy chuẩn Khoa học & Kỹ thuật</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Tuyến nội dung (Routes)</strong></td>
+        <td style="text-align:center"><strong>108 routes</strong></td>
+        <td>Bao phủ 108 route: Tĩnh học (45), Động học (29), Động lực học (31) và 3 route bổ trợ.</td>
+      </tr>
+      <tr>
+        <td><strong>Công thức toán học (KaTeX)</strong></td>
+        <td style="text-align:center"><strong>1 302 lần xuất hiện</strong></td>
+        <td>Content manifest ghi 1 302 lần xuất hiện công thức; registry ngữ nghĩa hiện có 702 hàng ánh xạ. Hai chỉ số không đồng nhất.</td>
+      </tr>
+      <tr>
+        <td><strong>Hình ảnh & Ảnh động</strong></td>
+        <td style="text-align:center"><strong>127 PNG · 20 GIF</strong></td>
+        <td>Chuẩn hóa độ phân giải cao, gắn thẻ ngữ nghĩa `figcaption`, mô tả chuyển động tuần hoàn.</td>
+      </tr>
+      <tr>
+        <td><strong>Mô phỏng tương tác</strong></td>
+        <td style="text-align:center"><strong>25 Sim2 · 10 Sim3</strong></td>
+        <td>Sim2 SVG-first là chuẩn chính; Sim3 Three.js 3D thí điểm có cơ chế tự động hạ cấp an toàn.</td>
+      </tr>
+      <tr>
+        <td><strong>Ôn tập trắc nghiệm</strong></td>
+        <td style="text-align:center"><strong>300 câu</strong></td>
+        <td>Mỗi chương 100 câu; hỗ trợ tự kiểm tra và phản hồi tức thì. Cấu hình hiển thị phụ thuộc từng chương.</td>
+      </tr>
+      <tr>
+        <td><strong>Tính độc lập ngoại tuyến</strong></td>
+        <td style="text-align:center"><strong>100% Offline</strong></td>
+        <td>Gói tĩnh 372 tệp, 78,7 MB (75,1 MiB), chạy trực tiếp qua `file://`, USB hoặc HTTP nội bộ.</td>
+      </tr>
+      <tr>
+        <td><strong>Ma trận Cổng QA</strong></td>
+        <td style="text-align:center"><strong>20 Pass / 4 Blocked</strong></td>
+        <td>20 cổng kỹ thuật pass trong phạm vi khai báo; 4 cổng blocked chờ đánh giá độc lập. Trạng thái tổng thể vẫn blocked.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PHẦN 2 -->
+  <h2 class="section-head">II. MÔ HÌNH TOÁN — LÝ VÀ NGUYÊN TẮC SƯ PHẠM TRONG MÔ PHỎNG</h2>
+  <p>Hệ thống mô phỏng sử dụng mô hình giải tích hoặc số trị theo từng route. Đồng hồ cập nhật cố định 1/60 s giữ nhịp ổn định; Runge–Kutta bậc 4 chỉ áp dụng cho bài toán ODE phù hợp, không phải mặc định cho mọi mô phỏng.</p>
+
+  <div class="math-block">
+    <strong>1. Chương 1 — Tĩnh học (10 mô phỏng):</strong><br>
+    • Cân bằng hệ lực phẳng & không gian: $\sum \vec{F}_k = \vec{0}; \sum \vec{M}_O(\vec{F}_k) = \vec{0}$<br>
+    • Định luật ma sát Coulomb: $F_{ms} \le f_0 N$, góc ma sát $\tan\varphi_0 = f_0$, nón ma sát tĩnh.<br>
+    • Định lý Varignon về mô men của hợp lực: $\vec{M}_O(\vec{R}) = \sum \vec{M}_O(\vec{F}_k)$.
+  </div>
+
+  <div class="math-block">
+    <strong>2. Chương 2 — Động học (7 mô phỏng):</strong><br>
+    • Vận tốc & Gia tốc trong tọa độ tự nhiên: $\vec{v} = v\vec{\tau}$; $\vec{w} = \dot{v}\vec{\tau} + \frac{v^2}{\rho}\vec{n}$<br>
+    • Chuyển động song phẳng vật rắn: Vận tốc tâm tức thời $P$ ($\vec{v}_P = \vec{0}$), định lý hình chiếu vận tốc.<br>
+    • Hợp chuyển động điểm: Định lý cộng vận tốc $\vec{v}_a = \vec{v}_e + \vec{v}_r$ và Định lý Coriolis $\vec{w}_c = 2(\vec{\omega}_e \times \vec{v}_r)$.
+  </div>
+
+  <div class="math-block">
+    <strong>3. Chương 3 — Động lực học (8 mô phỏng):</strong><br>
+    • Định lý biến thiên động lượng & khối tâm: $M\ddot{\vec{r}}_C = \sum \vec{F}_k^{(e)}$<br>
+    • Định lý biến thiên mô men động lượng: $\frac{d\vec{L}_O}{dt} = \sum \vec{M}_O(\vec{F}_k^{(e)})$<br>
+    • Phương trình Lagrange loại II: $\frac{d}{dt}\left(\frac{\partial T}{\partial \dot{q}_j}\right) - \frac{\partial T}{\partial q_j} = Q_j$<br>
+    • Hiện tượng va chạm: Hệ số phục hồi $k = \frac{v_2' - v_1'}{v_1 - v_2}$, định lý Carnot về tổn thất động năng.
+  </div>
+
+  <p><strong>Quy ước màu vector:</strong> <span style="color:#c0392b;font-weight:bold">■ Đỏ ($\vec{F}, \vec{N}$)</span> — Lực & phản lực; <span style="color:#27ae60;font-weight:bold">■ Lục ($\vec{v}, \vec{\omega}$)</span> — Vận tốc; <span style="color:#2980b9;font-weight:bold">■ Lam ($\vec{w}$)</span> — Gia tốc; <span style="color:#8e44ad;font-weight:bold">■ Tím ($\vec{M}, \vec{L}$)</span> — Mô men.</p>
+
+  <div class="page-break"></div>
+
+  <!-- PHẦN 3: CHI TIẾT 16 SLIDE HANDOUT -->
+  <h2 class="section-head">III. NỘI DUNG 16 SLIDE BÁO CÁO & LỜI THOẠI THUYẾT TRÌNH (15:00)</h2>
+  <p style="font-style:italic;font-size:11pt;color:var(--slate);margin-bottom:15px">Tài liệu dưới đây giúp các thành viên Hội đồng Khoa học theo dõi trực tiếp nội dung hiển thị trên màn chiếu cùng lời thoại tương ứng của từng tác giả.</p>
+
+  <!-- SLIDE 1 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 01 · BÌA BÁO CÁO & ĐỀ NGHỊ THÔNG QUA</span>
+      <span>0:35 · Đại tá, TS Nguyễn Lê Văn</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">ĐỀ NGHỊ THÔNG QUA CÓ ĐIỀU KIỆN VỀ MẶT KHOA HỌC — SƯ PHẠM</div>
+      <p><strong>Nội dung hiển thị:</strong> Tên đề tài "Giáo trình điện tử Cơ học lý thuyết"; Học viện Hải quân · Khoa Kỹ thuật cơ sở; Danh sách 3 tác giả và nhiệm vụ.</p>
+      <div class="slide-script-text">
+        "Kính thưa Hội đồng Khoa học Khoa Kỹ thuật cơ sở. Nhóm tác giả xin báo cáo kết quả xây dựng Giáo trình điện tử Cơ học lý thuyết. Đề nghị hôm nay của nhóm là kính xin Hội đồng thông qua có điều kiện về mặt khoa học — sư phạm; không xin xác nhận bản ứng viên hiện tại là bản phát hành cuối cùng."
+      </div>
+      <div class="slide-source-tag">Nguồn: DeCuongChiTietNop.docx:1-53</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 02 · BA MẠCH KIẾN THỨC, MỘT MỤC TIÊU ĐÀO TẠO</span>
+      <span>0:45 · Đại tá, TS Nguyễn Lê Văn</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">ĐỌC → QUAN SÁT → THAO TÁC → TỰ KIỂM TRA</div>
+      <p><strong>Nội dung hiển thị:</strong> Tĩnh học 45 route; Động học 29 route; Động lực học 31 route; 3 route bổ trợ. Hình hệ lực không gian minh họa nội dung canonical Chương 1.</p>
+      <div class="slide-script-text">
+        "Giáo trình bao phủ 108 route. Công nghệ chỉ có giá trị khi giúp học viên nhìn thấy quan hệ cơ học, thao tác tham số và tự kiểm tra kết quả."
+      </div>
+      <div class="slide-source-tag">Nguồn: DeCuongChiTietNop.docx:1-53</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 03 · MỘT NGUỒN CHUẨN, TRÁCH NHIỆM TRUY VẾT RÕ</span>
+      <span>0:45 · Đại tá, TS Nguyễn Lê Văn</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">DOCX LÀ NGUỒN CHUẨN; MỌI ĐẦU RA TRUY VẾT VỀ NỘI DUNG VÀ NGƯỜI PHỤ TRÁCH</div>
+      <p><strong>Nội dung hiển thị:</strong> Phân công ba tác giả; 108 route; 1 302 lần xuất hiện công thức; 300 câu hỏi trắc nghiệm.</p>
+      <div class="slide-script-text">
+        "Ba tác giả chịu trách nhiệm theo phần công bố trong đề cương; không có vùng nội dung vô chủ. HTML, PDF, package và dữ liệu kiểm thử đều truy vết về nguồn DOCX."
+      </div>
+      <div class="slide-source-tag">Nguồn: DeCuongChiTietNop.docx:45-53 · README.md:117-127</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 04 · HÀNH TRÌNH HỌC TẬP 5 BƯỚC</span>
+      <span>1:05 · Thiếu tá, ThS Đinh Văn Tứ</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">HÀNH TRÌNH: TÌM KIẾM → HỌC LÝ THUYẾT → QUAN SÁT MÔ PHỎNG → LUYỆN TẬP → GHI NHỚ</div>
+      <p><strong>Nội dung hiển thị:</strong> Sơ đồ 5 bước học tập lặp lại; Ảnh chụp giao diện trang chủ desktop 1440x1000 với hệ thống thanh tiến trình đọc và tìm kiếm Ctrl+K.</p>
+      <div style="text-align:center;margin:8px 0"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-01-trang-chu-desktop-1440x1000.png" alt="Trang chủ giáo trình điện tử" style="max-width:100%;max-height:80mm;object-fit:contain"></div>
+      <div class="slide-script-text">
+        "Học liệu điện tử được tổ chức xoay quanh hành trình học tập 5 bước khép kín của học viên chứ không phải danh sách các nút bấm rời rạc. Học viên chủ động tìm bài, học lý thuyết, quan sát mô phỏng, làm trắc nghiệm kiểm tra và ghi nhớ tiến độ."
+      </div>
+      <div class="slide-source-tag">Nguồn: README.md:114-118</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 05 · VẬN HÀNH NGOẠI TUYẾN 100% KHÔNG CẦN BACKEND</span>
+      <span>1:05 · Đại úy, ThS Bùi Thanh Xuân</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">DOCX → TRÍCH XUẤT & KIỂM THỬ → GÓI TĨNH ĐỘC LẬP → FILE:// HOẶC USB</div>
+      <p><strong>Nội dung hiển thị:</strong> Sơ đồ dòng dữ liệu trích xuất tĩnh; Các chỉ số: 0 backend, 100% tài nguyên offline, chạy trực tiếp trên máy tính quân sự.</p>
+      <div class="slide-script-text">
+        "Kiến trúc tĩnh giúp giáo trình hoàn toàn không phụ thuộc vào hạ tầng mạng Internet, máy chủ hay cơ sở dữ liệu phức tạp. Học viên chỉ cần sao chép tệp qua USB là có thể mở đọc ngay trên mọi máy tính trong đơn vị."
+      </div>
+      <div class="slide-source-tag">Nguồn: docs/system-architecture.md · README.md:3-13</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 06 · HỌC LIỆU TRỰC QUAN GẮN NGỮ CẢNH BÀI HỌC</span>
+      <span>1:10 · Thiếu tá, ThS Đinh Văn Tứ</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">HÌNH VẼ, CÔNG THỨC, PHẢN HỒI VÀ MÔ PHỎNG ĐẶT TRONG CÙNG NGỮ CẢNH</div>
+      <p><strong>Nội dung hiển thị:</strong> Ảnh chụp bài học đại diện; 127 hình; 20 GIF; 1 302 lần xuất hiện công thức; registry ngữ nghĩa 702 hàng ánh xạ; giới hạn thẩm định công bố rõ.</p>
+      <div style="text-align:center;margin:8px 0"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-03-hoc-lieu-ch1-2-3-1440x1000.png" alt="Bài học Chương 1 đặt hình và công thức cùng ngữ cảnh" style="max-width:100%;max-height:80mm;object-fit:contain"></div>
+      <div class="slide-script-text">
+        "Mọi tương tác trong giáo trình chỉ có ý nghĩa khi gắn liền với bài học cụ thể. Hình ảnh và công thức vector được đặt ngay cạnh văn bản giải thích. Tuy nhiên, việc kiểm thử tự động chỉ xác nhận cấu trúc hiển thị, tính đúng đắn sư phạm vẫn cần Hội đồng nghiệm thu."
+      </div>
+      <div class="slide-source-tag">Nguồn: data/quiz-ch1.json · data/content-manifest.json</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 07 · VÍ DỤ CƠ HỌC: MÔ MEN VÀ CÁNH TAY ĐÒN</span>
+      <span>1:10 · Thiếu tá, ThS Đinh Văn Tứ</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">F = 50 N · d = 4,00 m → M = F·d = 200 N·m</div>
+      <p><strong>Ví dụ cụ thể:</strong> Học viên kéo điểm đặt lực để thay đổi cánh tay đòn; readout và mũi tên chiều quay cập nhật cùng state.</p>
+      <div style="text-align:center;margin:8px 0"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-04-mo-men-ch1-1-4-1440x1000.png" alt="Mô phỏng mô men lực tại route ch1-1-4" style="max-width:100%;max-height:90mm;object-fit:contain"></div>
+      <div class="slide-script-text">"Ảnh chụp thực tế xác nhận F bằng 50 N, d bằng 4 mét và hệ thống trả M bằng 200 N·m. Giá trị sư phạm nằm ở quan hệ đầu vào → mô hình → đầu ra quan sát được."</div>
+      <div class="slide-source-tag">Nguồn: IMG-04 · data/simulation-specifications.json</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 08 · DEMO 90 GIÂY: KIỂM CHỨNG MÔ MEN TỪ GÓI OFFLINE</span>
+      <span>1:30 · Đại úy, ThS Bùi Thanh Xuân</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">MỞ OFFLINE → VÀO BÀI → THAO TÁC SIM2 → ĐỐI CHIẾU PDF</div>
+      <table class="report-table"><tr><th>Thời gian</th><th>Bước</th><th>Quan sát bắt buộc</th></tr><tr><td>00:00–00:15</td><td>Mở gói</td><td><code>package/index.html</code> qua <code>file://</code></td></tr><tr><td>00:15–00:30</td><td>Vào bài</td><td>Chương 1 › I › 4. Mô men</td></tr><tr><td>00:30–01:00</td><td>Thao tác</td><td>F = 50 N; kéo d đến 4,00 m</td></tr><tr><td>01:00–01:15</td><td>Quan sát</td><td>M = 200 N·m; chiều quay cập nhật</td></tr><tr><td>01:15–01:30</td><td>Đối chiếu</td><td>Mở PDF cục bộ và quay lại bài</td></tr></table>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-01-trang-chu-desktop-1440x1000.png" alt="Bước mở gói"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-04-mo-men-ch1-1-4-1440x1000.png" alt="Bước thao tác mô men"><img src="../../assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-06-pdf-viewer-1440x1000.png" alt="Bước đối chiếu PDF"></div>
+      <div class="slide-source-tag">Nguồn: release/2026.09.02-candidate/package/index.html</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 9 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 09 · MÁY KIỂM KỸ THUẬT; CON NGƯỜI QUYẾT ĐỊNH HỌC THUẬT</span>
+      <span>1:05 · Đại úy, ThS Bùi Thanh Xuân</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">BẰNG CHỨNG TỰ ĐỘNG HỖ TRỢ HỘI ĐỒNG, KHÔNG THAY THẾ THẨM ĐỊNH ĐỘC LẬP</div>
+      <p><strong>Máy kiểm:</strong> route, hình, công thức, bàn phím, reflow, package. <strong>Người kiểm:</strong> thuật ngữ, đơn vị, mô hình, sai số, tiếp cận thực tế và giá trị sư phạm.</p>
+      <div class="slide-script-text">"Pipeline tạo bằng chứng tái lập. Báo cáo không tuyên bố đã đạt WCAG toàn hệ thống; screen reader, tương đương trực quan khoa học và phê duyệt nội dung vẫn cần reviewer độc lập."</div>
+      <div class="slide-source-tag">Nguồn: data/acceptance-report.json · data/accessibility-baseline.json</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 10 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 10 · ỨNG VIÊN 2026.09.02 ĐÃ KHÓA HASH</span>
+      <span>1:20 · Đại úy, ThS Bùi Thanh Xuân</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">372 TỆP · 78,7 MB (75,1 MiB) · BUILD EPOCH 1788307200 · SHA-256 XÁC THỰC</div>
+      <p><strong>Nội dung hiển thị:</strong> 372 tệp; 0 lệch hash; ZIP SHA-256 <code>3defec13…</code>; manifest SHA-256 <code>9b5d87e9…</code>. QTI 3.0 và Common Cartridge 1.4 mới có bằng chứng kiểm tra cục bộ, chưa phải bằng chứng nhập LMS.</p>
+      <div class="slide-script-text">
+        "Ứng viên đã khóa hash và sẵn sàng cho bốn bước đánh giá độc lập; chưa phải bản phát hành cuối."
+      </div>
+      <div class="slide-source-tag">Nguồn: data/release-candidate.json · release/2026.09.02-candidate/release-summary.json</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 11 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 11 · 20 CỔNG ĐẠT; 4 CỔNG CHỜ ĐÁNH GIÁ ĐỘC LẬP</span>
+      <span>1:25 · Đại úy, ThS Bùi Thanh Xuân</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">20 PASS · 0 FAIL · 4 BLOCKED · 0 NOT-RUN; OVERALL = BLOCKED</div>
+      <p><strong>Nội dung hiển thị:</strong> 20 cổng pass trong phạm vi khai báo; 4 cổng blocked: học thuật, tiếp cận, smoke độc lập và Word round-trip. Không dùng 83,3% như điểm chất lượng.</p>
+      <div class="slide-script-text">
+        "Không có gate fail, nhưng bốn gate blocked cần đúng chủ thể độc lập đóng; vì vậy trạng thái tổng thể vẫn blocked."
+      </div>
+      <div class="slide-source-tag">Nguồn: data/acceptance-report.json</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 12 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 12 · BỐN ĐIỀU KIỆN TRƯỚC BẢN PHÁT HÀNH CUỐI</span>
+      <span>1:15 · Đại tá, TS Nguyễn Lê Văn</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">ĐÚNG CHỦ THỂ · ĐÚNG MÔI TRƯỜNG · ĐÚNG HỒ SƠ MINH CHỨNG</div>
+      <p><strong>Bốn điều kiện:</strong> (1) Quyết định thẩm định học thuật; (2) Biên bản tiếp cận độc lập; (3) Phiếu smoke thực tế qua file:// và HTTP; (4) Đối sánh Word round-trip.</p>
+      <div class="slide-script-text">
+        "Khi đủ bốn bằng chứng, nhóm chạy lại toàn bộ 24 cổng, cập nhật acceptance report và mới trình khóa bản phát hành chính thức."
+      </div>
+      <div class="slide-source-tag">Nguồn: data/release-policy.json</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 13 -->
+  <div class="slide-handout-card">
+    <div class="slide-handout-header">
+      <span>SLIDE 13 · ĐỀ NGHỊ HỘI ĐỒNG THÔNG QUA CÓ ĐIỀU KIỆN</span>
+      <span>1:50 · Đại tá, TS Nguyễn Lê Văn</span>
+    </div>
+    <div class="slide-handout-body">
+      <div class="slide-takeaway-tag">THÔNG QUA GIÁ TRỊ KHOA HỌC — SƯ PHẠM; HOÀN TẤT 4 ĐIỀU KIỆN TRƯỚC PHÁT HÀNH</div>
+      <p><strong>Nội dung hiển thị:</strong> Dự thảo kết luận có điều kiện; cam kết tiếp thu từng ý kiến và chạy lại toàn bộ 24 cổng trước khi trình bản cuối.</p>
+      <div class="slide-script-text">
+        "Kính đề nghị Hội đồng xem xét thông qua có điều kiện. Nhóm tác giả chỉ trình bản cuối khi bốn hồ sơ độc lập đầy đủ và toàn bộ 24 cổng được chạy lại."
+      </div>
+      <div class="slide-source-tag">Nguồn: story-research.md:50-54</div>
+    </div>
+  </div>
+
+  <!-- SLIDES 14, 15, 16 (BACKUP) -->
+  <div class="slide-handout-card" style="border-style:dashed">
+    <div class="slide-handout-header" style="background:#334155">
+      <span>SLIDE 14 · [PHỤ LỤC] KIẾN TRÚC SIM2 VÀ SIM3</span>
+      <span>Backup · Nhóm tác giả</span>
+    </div>
+    <div class="slide-handout-body">
+      <p><strong>Kiến trúc:</strong> 25 route Sim2 SVG-first là đường chạy canonical. 10 adapter Sim3 là pilot 3D tùy chọn; mọi lỗi setup/render phải trở về Sim2. Không dùng Sim3 để tuyên bố “4D”.</p>
+    </div>
+  </div>
+
+  <div class="slide-handout-card" style="border-style:dashed">
+    <div class="slide-handout-header" style="background:#334155">
+      <span>SLIDE 15 · [PHỤ LỤC] CHI TIẾT 4 CỔNG MỞ & BẰNG CHỨNG CẦN NỘP</span>
+      <span>Backup · Nhóm tác giả</span>
+    </div>
+    <div class="slide-handout-body">
+      <p><strong>Bằng chứng yêu cầu:</strong> (1) Biên bản thẩm định của Hội đồng; (2) Biên bản đánh giá tiếp cận của chuyên gia ngoài; (3) Phiếu chạy thử nghiệm của giảng viên & học viên; (4) Báo cáo đối sánh tệp Word xuất ngược.</p>
+    </div>
+  </div>
+
+  <div class="slide-handout-card" style="border-style:dashed">
+    <div class="slide-handout-header" style="background:#334155">
+      <span>SLIDE 16 · [PHỤ LỤC] 6 CÂU HỎI TRỌNG TÂM CỦA HỘI ĐỒNG</span>
+      <span>Backup · Nhóm tác giả</span>
+    </div>
+    <div class="slide-handout-body">
+      <p><strong>Nội dung:</strong> Q&A Playbook chuẩn bị sẵn cho 6 vấn đề: Nguồn chuẩn DOCX, Người thẩm định công thức, Lý do 20/24 chưa đủ, Khả năng chạy offline, Tích hợp LMS, và Kế hoạch sau nghiệm thu.</p>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- PHẦN 4: KHUNG CHỮ KÝ HỘI ĐỒNG -->
+  <div class="signature-section">
+    <div class="signature-date">
+      Khánh Hòa, ngày ..... tháng ..... năm 2026
+    </div>
+
+    <div class="signature-grid">
+      <div>
+        <div class="sig-title">ĐẠI DIỆN NHÓM TÁC GIẢ</div>
+        <div class="sig-subtitle">Chủ biên đề tài</div>
+        <div class="sig-name">Đại tá, TS Nguyễn Lê Văn</div>
+      </div>
+      <div>
+        <div class="sig-title">THƯ KÝ HỘI ĐỒNG</div>
+        <div class="sig-subtitle">(Ký và ghi rõ họ tên)</div>
+        <div class="sig-name">......................................................</div>
+      </div>
+    </div>
+
+    <div class="signature-grid" style="margin-top:40px">
+      <div>
+        <div class="sig-title">ỦY VIÊN PHẢN BIỆN 1</div>
+        <div class="sig-subtitle">(Ký và ghi rõ họ tên)</div>
+        <div class="sig-name">......................................................</div>
+      </div>
+      <div>
+        <div class="sig-title">CHỦ TỊCH HỘI ĐỒNG KHOA HỌC</div>
+        <div class="sig-subtitle">Khoa Kỹ thuật cơ sở</div>
+        <div class="sig-name">......................................................</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

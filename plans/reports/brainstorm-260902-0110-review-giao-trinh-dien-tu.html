@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo cáo Tổng thể — Giáo trình Điện tử Cơ Học Lý Thuyết</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+:root{--bg:#0b1929;--surface:#112240;--card:#1a2f50;--gold:#c9963a;--gold-l:#dbb36a;--tx:#e0e6ed;--tx2:#8ea0b8;--pass:#27ae60;--fail:#e74c3c;--warn:#f39c12;--block:#8e44ad;--ch1:#2980b9;--ch2:#27ae60;--ch3:#8e44ad;--radius:8px;--shadow:0 2px 12px rgba(0,0,0,.35)}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.7;padding:0}
+header{background:linear-gradient(135deg,#0d2447,#142e56);padding:2rem 1.5rem;text-align:center;border-bottom:3px solid var(--gold)}
+header h1{font-size:1.6rem;color:var(--gold-l);margin-bottom:.5rem}
+header .subtitle{color:var(--tx2);font-size:.95rem}
+header .badge{display:inline-block;background:var(--card);color:var(--gold);padding:.25rem .75rem;border-radius:20px;font-size:.8rem;margin-top:.5rem;border:1px solid var(--gold)}
+.container{max-width:1100px;margin:0 auto;padding:1.5rem}
+section{background:var(--surface);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+h2{color:var(--gold);font-size:1.25rem;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(201,150,58,.3);display:flex;align-items:center;gap:.5rem}
+h3{color:var(--gold-l);font-size:1.05rem;margin:1rem 0 .5rem}
+p,li{color:var(--tx);font-size:.92rem}
+ul,ol{padding-left:1.5rem;margin:.5rem 0}
+li{margin-bottom:.3rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+.stat-card{background:var(--card);border-radius:var(--radius);padding:1rem;text-align:center;border-left:4px solid var(--gold)}
+.stat-card .num{font-size:2rem;font-weight:700;color:var(--gold-l)}
+.stat-card .label{color:var(--tx2);font-size:.8rem;margin-top:.25rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem}
+th{background:var(--card);color:var(--gold);padding:.6rem .8rem;text-align:left;font-weight:600}
+td{padding:.5rem .8rem;border-bottom:1px solid rgba(255,255,255,.06)}
+tr:hover td{background:rgba(201,150,58,.05)}
+.pass{color:var(--pass)}
+.fail{color:var(--fail)}
+.blocked{color:var(--block)}
+.warn{color:var(--warn)}
+.tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:600}
+.tag-pass{background:rgba(39,174,96,.15);color:var(--pass)}
+.tag-blocked{background:rgba(142,68,173,.15);color:var(--block)}
+.tag-fail{background:rgba(231,76,60,.15);color:var(--fail)}
+.evidence-box{background:var(--card);border-radius:var(--radius);padding:1rem;margin:.5rem 0;border-left:3px solid var(--ch1)}
+.evidence-box.ch2{border-left-color:var(--ch2)}
+.evidence-box.ch3{border-left-color:var(--ch3)}
+.screenshot{width:100%;max-width:700px;border-radius:var(--radius);border:1px solid rgba(255,255,255,.1);margin:.75rem auto;display:block}
+.flow-diagram{background:var(--card);border-radius:var(--radius);padding:1.5rem;margin:1rem 0;overflow-x:auto}
+.flow-diagram svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.arch-row{display:flex;justify-content:center;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.5rem 0}
+.arch-box{background:var(--surface);border:2px solid var(--gold);border-radius:var(--radius);padding:.5rem 1rem;font-size:.8rem;color:var(--gold-l);text-align:center;min-width:100px}
+.arch-box.sim{border-color:var(--ch1);color:var(--ch1)}
+.arch-box.qa{border-color:var(--pass);color:var(--pass)}
+.arch-box.lms{border-color:var(--ch3);color:var(--ch3)}
+.arch-arrow{color:var(--tx2);font-size:1.2rem}
+.quad{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:1rem 0;border-radius:var(--radius);overflow:hidden}
+.quad-cell{padding:1rem;font-size:.85rem}
+.quad-cell h4{font-size:.9rem;margin-bottom:.5rem}
+.q-tl{background:rgba(39,174,96,.12)}
+.q-tr{background:rgba(41,128,185,.12)}
+.q-bl{background:rgba(243,156,18,.12)}
+.q-br{background:rgba(142,68,173,.12)}
+.conclusion{background:linear-gradient(135deg,#142e56,#1a2f50);border:2px solid var(--gold);border-radius:var(--radius);padding:1.5rem;margin:1rem 0}
+.conclusion h3{color:var(--gold)}
+footer{text-align:center;padding:2rem;color:var(--tx2);font-size:.8rem;border-top:1px solid rgba(255,255,255,.06)}
+@media(max-width:600px){
+  header h1{font-size:1.2rem}
+  .grid{grid-template-columns:1fr}
+  .quad{grid-template-columns:1fr}
+  h2{font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>📋 BÁO CÁO TỔNG THỂ — GIÁO TRÌNH ĐIỆN TỬ CƠ HỌC LÝ THUYẾT</h1>
+  <div class="subtitle">Học viện Hải quân — Đánh giá toàn diện quy cách trình bày, tiêu chí chất lượng, kiến trúc mô phỏng và sẵn sàng phát hành</div>
+  <span class="badge">Phiên bản: 2026.09.02-candidate · Ngày đánh giá: 2026-09-02</span>
+</header>
+
+<div class="container">
+
+<!-- ═══════════ 1. TỔNG QUAN THỐNG KÊ ═══════════ -->
+<section>
+  <h2>📊 1. Tổng quan Thống kê Nội dung</h2>
+  <div class="grid">
+    <div class="stat-card"><div class="num">108</div><div class="label">Tuyến nội dung (routes)</div></div>
+    <div class="stat-card"><div class="num">3</div><div class="label">Chương: Tĩnh học · Động học · Động lực học</div></div>
+    <div class="stat-card"><div class="num">1 302</div><div class="label">Tham chiếu công thức (KaTeX)</div></div>
+    <div class="stat-card"><div class="num">127</div><div class="label">Hình ảnh minh họa</div></div>
+    <div class="stat-card"><div class="num">25</div><div class="label">Mô phỏng Sim2 (SVG-first 2D)</div></div>
+    <div class="stat-card"><div class="num">10</div><div class="label">Mô phỏng Sim3 (Three.js 3D)</div></div>
+    <div class="stat-card"><div class="num">100</div><div class="label">Câu hỏi trắc nghiệm (Ch1)</div></div>
+    <div class="stat-card"><div class="num">20</div><div class="label">Ảnh động GIF minh họa</div></div>
+  </div>
+  <p>Gói phát hành chứa <strong>372 tệp</strong>, nén thành ZIP <strong>75.1 MB</strong>. Chạy hoàn toàn offline qua <code>file://</code>, USB, hoặc static server — không cần kết nối Internet.</p>
+</section>
+
+<!-- ═══════════ 2. KIẾN TRÚC HỆ THỐNG ═══════════ -->
+<section>
+  <h2>🏗️ 2. Kiến trúc Hệ thống</h2>
+  <h3>2.1 Sơ đồ Kiến trúc Tổng thể</h3>
+  <div class="flow-diagram">
+    <div class="arch-row">
+      <div class="arch-box">📄 CoHocLyThuyet_Full_New.docx<br><small>Nguồn chính</small></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">⚙️ Pipeline Xử lý<br><small>extract → manifest → build</small></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">📦 Release Package<br><small>372 files · 75.1 MB</small></div>
+    </div>
+    <div class="arch-row" style="margin-top:1rem">
+      <div class="arch-box sim">🔬 Sim2 Engine<br><small>25 routes · SVG+Canvas</small></div>
+      <div class="arch-box sim">🧊 Sim3 Pilot<br><small>10 routes · Three.js</small></div>
+      <div class="arch-box">📐 KaTeX<br><small>1 302 equations</small></div>
+      <div class="arch-box">📝 Quiz Engine<br><small>100 MCQ · 8 scopes</small></div>
+    </div>
+    <div class="arch-row" style="margin-top:1rem">
+      <div class="arch-box qa">✅ QA Gates<br><small>24 gates · 20 pass</small></div>
+      <div class="arch-box lms">📚 QTI 3.0<br><small>10 items pilot</small></div>
+      <div class="arch-box lms">📦 CC 1.4<br><small>IMSCC package</small></div>
+      <div class="arch-box">📄 PDF Viewer<br><small>Offline pdf.js</small></div>
+    </div>
+  </div>
+
+  <h3>2.2 Stack Công nghệ</h3>
+  <table>
+    <tr><th>Thành phần</th><th>Công nghệ</th><th>Vai trò</th></tr>
+    <tr><td>Frontend</td><td>HTML/CSS/JS thuần</td><td>Chạy offline, không framework, không build step</td></tr>
+    <tr><td>Công thức</td><td>KaTeX (bundled)</td><td>Render toán học ký hiệu vector, ma trận, tích phân</td></tr>
+    <tr><td>Mô phỏng 2D</td><td>SVG + Canvas 2D API</td><td>25 mô phỏng tương tác: lực, mô men, chuyển động</td></tr>
+    <tr><td>Mô phỏng 3D</td><td>Three.js (pilot)</td><td>10 mô phỏng 3D bổ sung, fallback về Sim2</td></tr>
+    <tr><td>PDF</td><td>pdf.js (vendor bundle)</td><td>Xem bản PDF offline trong dialog toàn màn hình</td></tr>
+    <tr><td>Đánh giá</td><td>Quiz engine JS</td><td>Trắc nghiệm 100 câu, random mode, persistence</td></tr>
+    <tr><td>LMS</td><td>QTI 3.0 + CC 1.4</td><td>Tích hợp hệ thống quản lý học tập</td></tr>
+    <tr><td>Kiểm thử</td><td>Playwright + Node.js test runner</td><td>24 cổng QA tự động + smoke test</td></tr>
+  </table>
+</section>
+
+<!-- ═══════════ 3. QUY CÁCH TRÌNH BÀY ═══════════ -->
+<section>
+  <h2>🎨 3. Quy cách Trình bày</h2>
+  <h3>3.1 Hệ thống Thiết kế Thị giác</h3>
+  <table>
+    <tr><th>Yếu tố</th><th>Quy ước</th><th>Đánh giá</th></tr>
+    <tr><td>Bảng màu nền</td><td>Dark navy: <code>#091a33</code>, <code>#0d2447</code>, <code>#142e56</code></td><td class="pass">✓ Nhất quán</td></tr>
+    <tr><td>Accent chính</td><td>Gold: <code>#c9963a</code>, <code>#dbb36a</code></td><td class="pass">✓ Nổi bật, tương phản tốt</td></tr>
+    <tr><td>Màu chương</td><td>Ch1 <span style="color:#2980b9">●</span> xanh dương · Ch2 <span style="color:#27ae60">●</span> xanh lá · Ch3 <span style="color:#8e44ad">●</span> tím</td><td class="pass">✓ Phân biệt rõ ràng</td></tr>
+    <tr><td>Typography</td><td>Segoe UI/system, line-height thoáng, body serif-free</td><td class="pass">✓ Dễ đọc</td></tr>
+    <tr><td>Responsive</td><td>Breakpoints: 900/768/560/320px</td><td class="pass">✓ Không overflow ở mọi viewport</td></tr>
+    <tr><td>Focus ring</td><td><code>:focus-visible</code> only, halo rõ ràng</td><td class="pass">✓ WCAG 2.2 AA</td></tr>
+    <tr><td>Reduced motion</td><td>Tất cả animation có fallback</td><td class="pass">✓ Tuân thủ</td></tr>
+  </table>
+
+  <h3>3.2 Cấu trúc Layout</h3>
+  <ul>
+    <li><strong>Topbar cố định</strong>: logo, tìm kiếm (Ctrl+K), nút PDF, ảnh động, dark/light mode, cỡ chữ A−/A/A+, đánh dấu trang</li>
+    <li><strong>Sidebar co giãn</strong>: 109 liên kết điều hướng, mở rộng theo chương, overlay ≤768px</li>
+    <li><strong>Breadcrumb</strong>: Chương › Mục › Bài — hiển thị vị trí chính xác</li>
+    <li><strong>Content area</strong>: reading width ổn định, centered, không tràn ngang</li>
+    <li><strong>Progress bar</strong>: thanh tiến trình đọc hiển thị trên topbar</li>
+  </ul>
+
+  <h3>3.3 Minh chứng Giao diện Thực tế</h3>
+  <p style="color:var(--tx2);font-size:.85rem">Ảnh chụp từ browser smoke test trên gói phát hành 2026.09.02-candidate:</p>
+  <figure style="margin:1rem 0;text-align:center">
+    <img class="screenshot" src="smoke-quiz.webp" alt="Giao diện ôn tập trắc nghiệm Chương 1 — 100 câu hỏi, 8 phạm vi, 2 chế độ">
+    <figcaption style="color:var(--tx2);font-size:.8rem;margin-top:.3rem">Hình 1 · Giao diện ôn tập trắc nghiệm — 100 câu hỏi, 8 phạm vi lọc, chế độ Tất cả / Random</figcaption>
+  </figure>
+  <figure style="margin:1rem 0;text-align:center">
+    <img class="screenshot" src="smoke-content.webp" alt="Nội dung bài Lực — KaTeX render vector, sidebar điều hướng">
+    <figcaption style="color:var(--tx2);font-size:.8rem;margin-top:.3rem">Hình 2 · Trang nội dung "Lực" — KaTeX render ký hiệu vector <em>F⃗</em>, sidebar điều hướng đầy đủ</figcaption>
+  </figure>
+</section>
+
+<!-- ═══════════ 4. MÔ PHỎNG TƯƠNG TÁC ═══════════ -->
+<section>
+  <h2>🔬 4. Hệ thống Mô phỏng Tương tác</h2>
+
+  <h3>4.1 Kiến trúc 3 Tầng Mô phỏng</h3>
+  <div class="flow-diagram">
+    <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="max-width:650px">
+      <!-- Sim layer -->
+      <rect x="10" y="10" width="200" height="60" rx="8" fill="#112240" stroke="#2980b9" stroke-width="2"/>
+      <text x="110" y="35" fill="#2980b9" font-size="13" text-anchor="middle" font-weight="bold">Sim (Canvas 2D)</text>
+      <text x="110" y="55" fill="#8ea0b8" font-size="10" text-anchor="middle">25 routes · Tương tác cơ bản</text>
+      <!-- Sim2 layer -->
+      <rect x="250" y="10" width="200" height="60" rx="8" fill="#112240" stroke="#27ae60" stroke-width="2"/>
+      <text x="350" y="35" fill="#27ae60" font-size="13" text-anchor="middle" font-weight="bold">Sim2 (SVG-first)</text>
+      <text x="350" y="55" fill="#8ea0b8" font-size="10" text-anchor="middle">25 routes · Canonical design</text>
+      <!-- Sim3 layer -->
+      <rect x="490" y="10" width="200" height="60" rx="8" fill="#112240" stroke="#8e44ad" stroke-width="2"/>
+      <text x="590" y="35" fill="#8e44ad" font-size="13" text-anchor="middle" font-weight="bold">Sim3 (Three.js 3D)</text>
+      <text x="590" y="55" fill="#8ea0b8" font-size="10" text-anchor="middle">10 routes · Pilot bổ sung</text>
+      <!-- Arrows -->
+      <line x1="210" y1="40" x2="248" y2="40" stroke="#8ea0b8" stroke-width="1.5" marker-end="url(#arr)"/>
+      <line x1="450" y1="40" x2="488" y2="40" stroke="#8ea0b8" stroke-width="1.5" marker-end="url(#arr)"/>
+      <!-- Shared layer -->
+      <rect x="100" y="100" width="500" height="55" rx="8" fill="#112240" stroke="#c9963a" stroke-width="2"/>
+      <text x="350" y="122" fill="#c9963a" font-size="13" text-anchor="middle" font-weight="bold">createSimShell — Lớp shell chung</text>
+      <text x="350" y="142" fill="#8ea0b8" font-size="10" text-anchor="middle">SVG viewport · Controls (slider/drag/keyboard) · Theory panel (KaTeX) · Responsive layout · a11y</text>
+      <!-- Vertical connectors -->
+      <line x1="110" y1="70" x2="200" y2="100" stroke="#2980b9" stroke-width="1" stroke-dasharray="4"/>
+      <line x1="350" y1="70" x2="350" y2="100" stroke="#27ae60" stroke-width="1" stroke-dasharray="4"/>
+      <line x1="590" y1="70" x2="500" y2="100" stroke="#8e44ad" stroke-width="1" stroke-dasharray="4"/>
+      <!-- Fallback -->
+      <text x="520" y="85" fill="#f39c12" font-size="9" text-anchor="middle">↩ WebGL fail → fallback Sim2</text>
+      <defs><marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#8ea0b8"/></marker></defs>
+    </svg>
+  </div>
+
+  <h3>4.2 Tiêu chí Sư phạm cho Mô phỏng</h3>
+  <ul>
+    <li><strong>Sim2 là canonical</strong>: thiết kế/runtime chính, SVG vector + HTML overlay + canvas underlay</li>
+    <li><strong>Sim3 là pilot tùy chọn</strong>: chỉ giữ khi chiều sâu 3D làm rõ quan hệ cơ học mà 2D khó phân biệt</li>
+    <li>Mỗi sim có: header (tên, badge chương), scene (nền sáng, graph-paper), controls (slider labeled + output), theory panel (KaTeX live readout)</li>
+    <li>Drag handle đồng bộ hai chiều với slider; Arrow/Home/End cho cùng domain</li>
+    <li>Vector dùng <strong>palette semantic</strong>: đỏ=lực, lục=vận tốc, lam=gia tốc, tím=mô men, cam=hợp lực</li>
+    <li>Accessibility: reduced motion, focus-visible, contrast rõ, label nêu đại lượng–dấu–đơn vị</li>
+  </ul>
+
+  <h3>4.3 Kết quả Kiểm chứng Mô phỏng</h3>
+  <table>
+    <tr><th>Tầng</th><th>Routes</th><th>Canvas</th><th>SVG</th><th>Three.js</th><th>Overflow</th><th>Trạng thái</th></tr>
+    <tr><td>Sim (2D)</td><td>ch1-1-3, ch1-1-5, ch1-3-2, ch2-2-3, ch2-5-3, ch3-1-3</td><td>1 ✓</td><td>3 ✓</td><td>—</td><td>0 ✓</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>Sim2 (SVG)</td><td>ch1-1-3, ch2-2-3, ch3-1-3</td><td>1 ✓</td><td>3 ✓</td><td>—</td><td>0 ✓</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>Sim3 (3D)</td><td>ch1-1-3, ch2-2-3, ch3-1-3</td><td>1 ✓</td><td>3 ✓</td><td>✓ loaded</td><td>0 ✓</td><td><span class="tag tag-pass">PASS</span></td></tr>
+  </table>
+  <p style="color:var(--tx2);font-size:.85rem">Xác minh: headless Chromium, cả <code>file://</code> và HTTP, viewport 1280×800 và 320×640.</p>
+</section>
+
+<!-- ═══════════ 5. HỆ THỐNG KIỂM CHỨNG CHẤT LƯỢNG ═══════════ -->
+<section>
+  <h2>✅ 5. Ma trận Cổng Kiểm chứng Chất lượng (QA Gates)</h2>
+
+  <h3>5.1 Tổng quan 24 Cổng QA</h3>
+  <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+    <div class="stat-card" style="border-left-color:var(--pass)"><div class="num pass">20</div><div class="label">Pass</div></div>
+    <div class="stat-card" style="border-left-color:var(--fail)"><div class="num" style="color:var(--tx2)">0</div><div class="label">Fail</div></div>
+    <div class="stat-card" style="border-left-color:var(--block)"><div class="num blocked">4</div><div class="label">Blocked (cần người)</div></div>
+    <div class="stat-card" style="border-left-color:var(--tx2)"><div class="num" style="color:var(--tx2)">0</div><div class="label">Not Run</div></div>
+  </div>
+
+  <h3>5.2 Chi tiết Cổng QA</h3>
+  <table>
+    <tr><th>#</th><th>Cổng QA</th><th>Chủ sở hữu</th><th>Trạng thái</th></tr>
+    <tr><td>1</td><td>release-baseline-contract</td><td>Release engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>2</td><td>phase-01-source-baseline</td><td>Content engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>3</td><td>content-regression</td><td>Content engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>4</td><td>quiz-schema</td><td>Assessment</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>5</td><td>quiz-browser</td><td>Assessment</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>6</td><td>equations</td><td>Content engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>7</td><td>audit-strict</td><td>Content engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>8</td><td>gif-release</td><td>Content engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>9</td><td>sim-physics</td><td>Simulation engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>10</td><td>sim-mount</td><td>Simulation engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>11</td><td>sim-release</td><td>Simulation engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>12</td><td>sim3-pilot</td><td>Simulation engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>13</td><td>simulation-evidence-currentness</td><td>Simulation engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>14</td><td>pdf-release</td><td>Content engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>15</td><td>phase-08-accessibility</td><td>Accessibility</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>16</td><td>media-pilot</td><td>Content engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>17</td><td>release-pipeline</td><td>Release engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>18</td><td>release-candidate-inventory</td><td>Release engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>19</td><td>lms-adapters</td><td>LMS integration</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>20</td><td>release-smoke-review (technical)</td><td>Release engineering</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>21</td><td>accessibility-independent-review</td><td>Accessibility</td><td><span class="tag tag-blocked">BLOCKED</span></td></tr>
+    <tr><td>22</td><td>academic-review-currentness</td><td>Academic review</td><td><span class="tag tag-blocked">BLOCKED</span></td></tr>
+    <tr><td>23</td><td>word-standalone-roundtrip</td><td>Content engineering</td><td><span class="tag tag-blocked">BLOCKED</span></td></tr>
+    <tr><td>24</td><td>release-independent-smoke</td><td>Release engineering</td><td><span class="tag tag-blocked">BLOCKED</span></td></tr>
+  </table>
+
+  <h3>5.3 Phân tích 4 Cổng Bị Chặn</h3>
+  <div class="quad">
+    <div class="quad-cell q-tl">
+      <h4>🔒 academic-review-currentness</h4>
+      <p>Yêu cầu giảng viên Cơ Học Lý Thuyết (Học viện Hải quân) xác nhận nội dung khoa học chính xác, cập nhật, phù hợp chương trình đào tạo. <strong>Cần con người — không tự động hóa được.</strong></p>
+    </div>
+    <div class="quad-cell q-tr">
+      <h4>🔒 accessibility-independent-review</h4>
+      <p>Yêu cầu đánh giá độc lập WCAG 2.2 AA bởi chuyên gia accessibility ngoài nhóm phát triển. Axe automated scan đã pass; cần manual audit keyboard, screen reader, cognitive.</p>
+    </div>
+    <div class="quad-cell q-bl">
+      <h4>🔒 word-standalone-roundtrip</h4>
+      <p>Kiểm tra khả năng chuyển đổi ngược HTML → DOCX. Cần xác nhận fidelity bảng, công thức, hình ảnh trong tệp Word xuất ra so với bản gốc.</p>
+    </div>
+    <div class="quad-cell q-br">
+      <h4>🔒 release-independent-smoke</h4>
+      <p>Yêu cầu người dùng thực tế (giảng viên/sinh viên) mở gói offline, thao tác quiz/sim/PDF, ghi nhận môi trường (browser, OS) và xác nhận hoạt động bình thường.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 6. TÍCH HỢP LMS ═══════════ -->
+<section>
+  <h2>📚 6. Tích hợp Hệ thống Quản lý Học tập (LMS)</h2>
+  <table>
+    <tr><th>Tiêu chuẩn</th><th>Phiên bản</th><th>Kết quả</th><th>Ghi chú</th></tr>
+    <tr><td>QTI 3.0</td><td>Pilot 10 items</td><td><span class="tag tag-pass">PASS</span></td><td>SHA-256: <code>ea1c16f...b1f08</code></td></tr>
+    <tr><td>Common Cartridge</td><td>1.4.0</td><td><span class="tag tag-pass">PASS</span></td><td>375 files, 78.7 MB, byte-for-byte reproducible</td></tr>
+    <tr><td>LMS Targets Contract</td><td>v1</td><td><span class="tag tag-pass">PASS</span></td><td>Schema, adapter identity, staging contract verified</td></tr>
+  </table>
+  <p><strong>Lưu ý quan trọng</strong>: Các gói LMS chỉ xác nhận tính hợp lệ kỹ thuật (schema, hash, reproducibility). Việc import và sử dụng thực tế trên Moodle/Canvas/Blackboard cần kiểm tra riêng trên từng nền tảng.</p>
+</section>
+
+<!-- ═══════════ 7. ACCESSIBILITY ═══════════ -->
+<section>
+  <h2>♿ 7. Tiếp cận (Accessibility)</h2>
+  <table>
+    <tr><th>Tiêu chí</th><th>Phương pháp</th><th>Kết quả</th></tr>
+    <tr><td>WCAG 2.2 AA (axe-core)</td><td>Automated scan mọi route</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>Keyboard navigation</td><td>Playwright flow: Tab, Enter, Escape, Arrow</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>ARIA landmarks</td><td>banner, navigation, main, search, contentinfo</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>Zoom/reflow 200%</td><td>Viewport scale, no horizontal scroll</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>Color contrast</td><td>Baseline ratios verified against WCAG AA</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>Skip navigation</td><td>"Bỏ qua điều hướng đến nội dung chính"</td><td><span class="tag tag-pass">PASS</span></td></tr>
+    <tr><td>Independent review</td><td>Manual audit bởi chuyên gia</td><td><span class="tag tag-blocked">BLOCKED</span></td></tr>
+  </table>
+</section>
+
+<!-- ═══════════ 8. QUY TRÌNH PHÁT HÀNH ═══════════ -->
+<section>
+  <h2>🚀 8. Quy trình Phát hành (Release Pipeline)</h2>
+  <h3>8.1 Sơ đồ Quy trình</h3>
+  <div class="flow-diagram">
+    <svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" style="max-width:650px">
+      <rect x="5" y="35" width="100" height="50" rx="6" fill="#112240" stroke="#2980b9" stroke-width="2"/>
+      <text x="55" y="55" fill="#2980b9" font-size="11" text-anchor="middle" font-weight="bold">Source</text>
+      <text x="55" y="70" fill="#8ea0b8" font-size="9" text-anchor="middle">.docx → HTML</text>
+      <line x1="105" y1="60" x2="140" y2="60" stroke="#8ea0b8" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="140" y="35" width="100" height="50" rx="6" fill="#112240" stroke="#27ae60" stroke-width="2"/>
+      <text x="190" y="55" fill="#27ae60" font-size="11" text-anchor="middle" font-weight="bold">QA Gates</text>
+      <text x="190" y="70" fill="#8ea0b8" font-size="9" text-anchor="middle">24 automated</text>
+      <line x1="240" y1="60" x2="275" y2="60" stroke="#8ea0b8" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="275" y="35" width="100" height="50" rx="6" fill="#112240" stroke="#c9963a" stroke-width="2"/>
+      <text x="325" y="55" fill="#c9963a" font-size="11" text-anchor="middle" font-weight="bold">Build</text>
+      <text x="325" y="70" fill="#8ea0b8" font-size="9" text-anchor="middle">release.py</text>
+      <line x1="375" y1="60" x2="410" y2="60" stroke="#8ea0b8" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="410" y="35" width="100" height="50" rx="6" fill="#112240" stroke="#f39c12" stroke-width="2"/>
+      <text x="460" y="55" fill="#f39c12" font-size="11" text-anchor="middle" font-weight="bold">Candidate</text>
+      <text x="460" y="70" fill="#8ea0b8" font-size="9" text-anchor="middle">ZIP + SHA-256</text>
+      <line x1="510" y1="60" x2="545" y2="60" stroke="#8ea0b8" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <rect x="545" y="35" width="100" height="50" rx="6" fill="#112240" stroke="#8e44ad" stroke-width="2"/>
+      <text x="595" y="55" fill="#8e44ad" font-size="11" text-anchor="middle" font-weight="bold">Smoke</text>
+      <text x="595" y="70" fill="#8ea0b8" font-size="9" text-anchor="middle">file:// + HTTP</text>
+
+      <text x="350" y="115" fill="#8ea0b8" font-size="10" text-anchor="middle">Deterministic · Reproducible · SHA-256 verified at every stage</text>
+      <defs><marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#8ea0b8"/></marker></defs>
+    </svg>
+  </div>
+
+  <h3>8.2 Thông tin Gói Phát hành Hiện tại</h3>
+  <table>
+    <tr><th>Thuộc tính</th><th>Giá trị</th></tr>
+    <tr><td>Phiên bản</td><td><code>2026.09.02-candidate</code></td></tr>
+    <tr><td>Build epoch</td><td><code>1788307200</code> (2026-09-02 UTC)</td></tr>
+    <tr><td>Package SHA-256</td><td><code>3defec1306bab10288faed66e45f19d8aa2befc2b66ecb1b6f2066df186f005a</code></td></tr>
+    <tr><td>Manifest SHA-256</td><td><code>9b5d87e9f4dc8e84207aef2511e532baf1095d20a5af76fc8c6c8732eb398e3f</code></td></tr>
+    <tr><td>Kích thước</td><td>78,739,543 bytes (75.1 MB)</td></tr>
+    <tr><td>Số tệp staging</td><td>372</td></tr>
+    <tr><td>Reproducibility</td><td>Byte-for-byte deterministic (đã xác minh)</td></tr>
+  </table>
+</section>
+
+<!-- ═══════════ 9. SMOKE TEST EVIDENCE ═══════════ -->
+<section>
+  <h2>🧪 9. Kết quả Smoke Test 2026-09-02</h2>
+  <h3>9.1 Kiểm tra <code>file://</code> (offline)</h3>
+  <div class="evidence-box">
+    <ul>
+      <li>Quiz Ch1: <strong>100 câu hỏi</strong> render đúng, <strong>8 scope options</strong> hoạt động</li>
+      <li>KaTeX vector accents nằm trong ô symbol, overflow = 0</li>
+      <li>Console/page errors: <strong>không có</strong></li>
+      <li>Viewport 320×640 (mobile): 100 cards, no overflow, content-width button ẩn</li>
+    </ul>
+  </div>
+  <h3>9.2 Kiểm tra HTTP</h3>
+  <div class="evidence-box ch2">
+    <ul>
+      <li>Staging served qua <code>python -m http.server 8123</code></li>
+      <li>Quiz scope, chapter routes, sim routes: <strong>tất cả load thành công</strong></li>
+      <li>Console/page errors: <strong>không có</strong></li>
+    </ul>
+  </div>
+  <h3>9.3 Kiểm tra Mô phỏng (chi tiết)</h3>
+  <div class="evidence-box ch3">
+    <ul>
+      <li><strong>Sim 2D</strong>: 6 routes — mỗi route mount 1 canvas + 3 SVG, zero overflow</li>
+      <li><strong>Sim2 SVG-first</strong>: 3 routes — 1 canvas + 3 SVG, zero overflow</li>
+      <li><strong>Sim3 Three.js</strong>: 3 routes — 1 canvas + 3 SVG, <code>THREE</code> global loaded, zero overflow</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════ 10. KẾT LUẬN ═══════════ -->
+<section>
+  <h2>📋 10. Kết luận và Khuyến nghị</h2>
+
+  <div class="conclusion">
+    <h3>Đánh giá Tổng thể: <span class="warn">BLOCKED — Chờ xác nhận bên ngoài</span></h3>
+    <p style="margin-top:.5rem">Giáo trình điện tử đạt <strong>20/24 cổng QA tự động</strong> (83.3%). Không có cổng nào thất bại. 4 cổng bị chặn đều yêu cầu can thiệp con người — không phải lỗi kỹ thuật.</p>
+  </div>
+
+  <h3>10.1 Điểm mạnh</h3>
+  <ul>
+    <li>✅ <strong>Offline-first</strong>: hoạt động hoàn toàn qua <code>file://</code>, USB, không cần server</li>
+    <li>✅ <strong>Zero JS framework</strong>: HTML/CSS/JS thuần, nhẹ, bền vững, dễ bảo trì</li>
+    <li>✅ <strong>Mô phỏng 3 tầng</strong>: Sim → Sim2 → Sim3 với fallback an toàn</li>
+    <li>✅ <strong>Accessibility</strong>: WCAG 2.2 AA automated pass, keyboard flows, skip nav, ARIA landmarks</li>
+    <li>✅ <strong>Deterministic release</strong>: reproducible builds, SHA-256 integrity chain</li>
+    <li>✅ <strong>LMS-ready</strong>: QTI 3.0 + Common Cartridge 1.4 validated adapters</li>
+    <li>✅ <strong>QA tự động hóa cao</strong>: 24 cổng kiểm chứng, evidence-based, audit trail đầy đủ</li>
+  </ul>
+
+  <h3>10.2 Hành động Cần thiết để Phát hành</h3>
+  <ol>
+    <li><strong>Academic review</strong>: Mời giảng viên Cơ Học Lý Thuyết xác nhận nội dung khoa học</li>
+    <li><strong>Accessibility audit</strong>: Mời chuyên gia WCAG đánh giá manual (keyboard, screen reader)</li>
+    <li><strong>Word roundtrip</strong>: Xác nhận tệp .docx xuất ngược giữ fidelity</li>
+    <li><strong>Independent smoke</strong>: Người dùng thực tế (giảng viên/sinh viên) thử offline trên thiết bị thực</li>
+  </ol>
+
+  <h3>10.3 Câu hỏi Chưa Giải quyết</h3>
+  <ul>
+    <li>Quiz Chương 2 và Chương 3 mới có 3 câu mỗi chương trong data JSON — cần bổ sung thêm câu hỏi để đạt độ phủ tương đương Chương 1 (100 câu)</li>
+    <li>Gói phát hành 75.1 MB — cần đánh giá có phù hợp với hạ tầng phân phối (USB, LMS upload limit) không</li>
+    <li>Sim3 pilot chỉ 10/25 routes — cần quyết định mở rộng hay giữ nguyên phạm vi</li>
+  </ul>
+</section>
+
+</div>
+
+<footer>
+  Báo cáo tạo tự động bởi hệ thống kiểm chứng chất lượng · 2026-09-02 · Giáo trình Điện tử Cơ Học Lý Thuyết · Học viện Hải quân
+</footer>
+</body>
+</html>

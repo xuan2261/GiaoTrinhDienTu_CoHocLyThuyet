@@ -27,7 +27,7 @@ function contain(file, x, y, w, h) {
 function addText(slide, text, o = {}) {
   slide.addText(text, {
     x: o.x, y: o.y, w: o.w, h: o.h,
-    fontFace: o.fontFace || F.body, fontSize: o.fontSize || 15,
+    fontFace: o.fontFace || F.body, fontSize: o.fontSize || 18,
     color: o.color || C.ink, bold: !!o.bold, italic: !!o.italic,
     align: o.align || 'left', valign: o.valign || 'top',
     margin: o.margin === undefined ? 0 : o.margin,
@@ -49,7 +49,7 @@ function addTitle(slide, pptx, title, index, section = 'BÁO CÁO NGHIỆM THU',
   slide.background = { color: C.paper };
   slide.addShape(pptx.ShapeType.line, { x: 0.67, y: 0.43, w: 0.52, h: 0, line: { color: C.gold, pt: 2 } });
   addText(slide, backup ? 'PHỤ LỤC / DEMO DỰ PHÒNG' : section, { x: 1.32, y: 0.28, w: 4.5, h: 0.25, fontSize: 9.5, bold: true, color: C.slate, valign: 'mid' });
-  addText(slide, title, { x: 0.67, y: 0.72, w: 12.0, h: 0.66, fontFace: F.heading, fontSize: 23.5, bold: true, color: C.navy950, valign: 'mid' });
+  addText(slide, title, { x: 0.67, y: 0.68, w: 12.0, h: 0.78, fontFace: F.heading, fontSize: 36, bold: true, color: C.navy950, valign: 'mid' });
   addText(slide, String(index).padStart(2, '0'), { x: 12.15, y: 0.28, w: 0.5, h: 0.25, fontSize: 10, bold: true, color: C.gold, align: 'right' });
 }
 
@@ -60,15 +60,15 @@ function addFooter(slide, index, source = '', backup = false) {
   addText(slide, String(index), { x: 12.1, y: 7.2, w: 0.55, h: 0.16, fontSize: 8.2, color: C.slate, align: 'right' });
 }
 
-function addTakeaway(slide, pptx, text, y = 1.46) {
-  slide.addShape(pptx.ShapeType.rect, { x: 0.67, y, w: 12, h: 0.48, fill: { color: 'EEF2F7' }, line: { color: C.line, pt: 0.5 } });
-  addText(slide, text, { x: 0.9, y: y + 0.1, w: 11.55, h: 0.26, fontSize: 13.2, bold: true, color: C.navy800, valign: 'mid' });
+function addTakeaway(slide, pptx, text, y = 1.54) {
+  slide.addShape(pptx.ShapeType.rect, { x: 0.67, y, w: 12, h: 0.5, fill: { color: 'EEF2F7' }, line: { color: C.line, pt: 0.5 } });
+  addText(slide, text, { x: 0.9, y: y + 0.08, w: 11.55, h: 0.3, fontSize: 16.5, bold: true, color: C.navy800, valign: 'mid' });
 }
 
 function addMetric(slide, pptx, value, label, x, y, w = 1.9, color = C.navy800) {
   addPanel(slide, pptx, { x, y, w, h: 1.16, fill: C.white, line: C.line });
-  addText(slide, value, { x: x + 0.1, y: y + 0.15, w: w - 0.2, h: 0.46, fontSize: 28, bold: true, color, align: 'center', valign: 'mid' });
-  addText(slide, label, { x: x + 0.1, y: y + 0.73, w: w - 0.2, h: 0.22, fontSize: 10.2, color: C.slate, align: 'center', valign: 'mid' });
+  addText(slide, value, { x: x + 0.1, y: y + 0.12, w: w - 0.2, h: 0.5, fontSize: 32, bold: true, color, align: 'center', valign: 'mid' });
+  addText(slide, label, { x: x + 0.1, y: y + 0.73, w: w - 0.2, h: 0.26, fontSize: 12, color: C.slate, align: 'center', valign: 'mid' });
 }
 
 function addImageCard(slide, pptx, file, x, y, w, h, caption = '') {
