@@ -57,6 +57,8 @@ const read = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8');
     'ch2-4-4 mũi v_rel phải đổi chiều khi radialSpeed âm');
   assert.ok(src.includes('Math.abs(radialSpeed)'),
     'ch2-4-4 |a_cor| phải lấy độ lớn vận tốc tương đối thực');
+  assert.ok(src.includes("'|a_{cor}| = 2\\\\omega |v_{rel}|'"),
+    'ch2-4-4 công thức độ lớn phải ghi |v_rel| vì v_rel(t) có thể âm');
   // disk-dominance: đĩa thu nhỏ nhưng VẪN chứa hạt (rRel max = 2+1.5 = 3.5) → đĩa ≥ 3.5.
   assert.ok(!src.includes('render.circle(tf, O, 4,'),
     'ch2-4-4 đĩa cũ r=4 (nuốt khung) phải thu nhỏ');

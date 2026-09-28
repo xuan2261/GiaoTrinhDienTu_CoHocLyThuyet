@@ -1,120 +1,178 @@
-# HƯỚNG DẪN THUYẾT TRÌNH BÁO CÁO NGHIỆM THU — 15:00
+# Hướng dẫn thuyết trình báo cáo kết quả — 15:00
 
 **Học phần:** Cơ học lý thuyết  
-**Ứng viên kỹ thuật:** `2026.09.02-candidate`  
-**Đề nghị:** Hội đồng xem xét thông qua có điều kiện về mặt khoa học–sư phạm; chưa xác nhận bản phát hành cuối.
+**Mục đích phiên trình bày:** Báo cáo hiện vật ở mức ứng viên đã được xây dựng, cho Hội đồng xem hiện vật và xin góp ý để tiếp tục hoàn thiện.
+**Đề nghị cuối phiên:** Hội đồng ghi nhận việc đã xây dựng hiện vật và cho ý kiến góp ý. Không đề nghị chấp thuận học thuật, nghiệm thu cuối cùng hoặc phát hành.
 
-## 1. Bộ tài nguyên sử dụng tại phòng họp
+## 1. Tài nguyên dùng trong phòng họp
 
-| Ưu tiên | Tài nguyên | Đường dẫn | Cách dùng |
+| Vai trò | Tài nguyên | Đường dẫn | Cách dùng |
 |---|---|---|---|
-| Chính | PowerPoint 16:9 | `assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pptx` | Presenter View; ghi chú đã nhúng theo slide |
-| Dự phòng | Web Slides offline | `assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/presentation-slides.html` | `F`: toàn màn hình; `S`: lời thoại; `G`: lưới slide |
+| Chính | PowerPoint 16:9 | `assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pptx` | Dùng Presenter View và ghi chú theo từng slide |
+| Dự phòng | PDF slide | `assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pdf` | Mở khi PowerPoint không dùng được |
+| Dự phòng | Web Slides offline | `assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/presentation-slides.html` | Mở trong trình duyệt |
 | Phát tay | Handout A4 | `assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/handout-in-an-hoi-dong.html` | In hoặc xuất PDF trước phiên họp |
-| Demo | Candidate package | `release/2026.09.02-candidate/package/index.html` | Mở trực tiếp qua `file://` |
+| Tham khảo | Báo cáo khoa học | `BaoCao_KhoaHoc_GiaoTrinhDienTu_CoHocLyThuyet.pdf` | Tra cứu nội dung kèm theo |
+| Dự phòng | Gói cục bộ | `release/2026.09.02-candidate/package/index.html` | Chỉ mở qua `file://` khi cần thay cho bản web để trình diễn |
 
-## 2. Nhịp báo cáo 15 phút
+### Cách dẫn người xem qua sơ đồ
+
+- Slide 01 đặt ảnh giao diện cạnh ba hình nguyên lý để định hướng phạm vi học phần. Ba hình không phải kết quả thẩm định.
+- Slide 04 đọc theo mũi tên của vòng học. Nhấn đường quay về nội dung sau phản hồi, thay vì đọc từng ô như danh sách.
+- Slide 10 dùng liên kết để chỉ đường truy vết từ dữ liệu nguồn tới phần Hội đồng đối chiếu. Liên kết không biểu thị việc đã được phê duyệt.
+- Slide 15 phân biệt phần có thể quan sát với kết luận cần thẩm định độc lập. Không suy rộng ba ca thành toàn bộ học liệu.
+
+Cách đặt lời giải thích gần hình tham khảo nguyên tắc contiguity trong [Kumaraguru và cộng sự, mục 3.1](https://www.cs.cmu.edu/~jasonh/publications/acm-tois-teaching-johnny-not-to-fall-for-phish-final.pdf). Nghiên cứu này thuộc đào tạo an toàn thông tin; chỉ dùng làm căn cứ thiết kế trình bày, không chứng minh hiệu quả học tập của giáo trình Cơ học lý thuyết.
+
+### Trình chiếu bằng trình duyệt
+
+Mở `presentation-slides.html`, chọn **Bắt đầu trình chiếu**. Dùng nút **Trước**, **Tiếp** hoặc phím mũi tên trái/phải để chuyển slide. **Home** mở slide đầu, **End** mở slide cuối, **Esc** trở về tổng quan. Trình chiếu không tự chuyển trang. Khi in từ trình duyệt, toàn bộ 19 slide vẫn được đưa vào bản in, kể cả khi đang xem một slide. Dùng PDF đã xuất từ PowerPoint nếu cần bố cục 16:9 cố định.
+
+## 2. Nhịp trình bày
+
+- **13 slide chính:** 12:00.
+- **Phụ lục Slide 14–19 và hỏi–đáp:** 3:00.
+- **Tổng thời lượng:** 15:00.
 
 ```text
-00:00–02:05  Nguyễn Lê Văn  S01–S03  Mục tiêu, phạm vi, trách nhiệm
-02:05–03:10  Đinh Văn Tứ    S04      Hành trình học
-03:10–04:15  Bùi Thanh Xuân S05      Kiến trúc ngoại tuyến
-04:15–06:35  Đinh Văn Tứ    S06–S07  Học liệu và ví dụ mô men
-06:35–11:55  Bùi Thanh Xuân S08–S11  Demo, QA, candidate, cổng kiểm chứng
-11:55–15:00  Nguyễn Lê Văn  S12–S13  Điều kiện đóng và đề nghị Hội đồng
+00:00–00:45  Nguyễn Lê Văn   S01  Kết quả xây dựng Giáo trình điện tử Cơ học lý thuyết
+00:45–01:40  Nguyễn Lê Văn   S02  Nhu cầu dạy–học mà sản phẩm hướng tới
+01:40–02:35  Nguyễn Lê Văn   S03  Kết quả tổng thể: học liệu số cho ba mạch kiến thức
+02:35–03:35  Nguyễn Lê Văn   S04  Vòng học hỗ trợ tự học
+03:35–04:20  Nguyễn Lê Văn   S05  Trải nghiệm hiện vật
+04:20–05:00  Đinh Văn Tứ     S06  Ca đối chiếu khoa học 1 · Trọng tâm diện tích
+05:00–05:40  Đinh Văn Tứ     S07  Ca đối chiếu khoa học 2 · Gia tốc Coriolis
+05:40–06:20  Đinh Văn Tứ     S08  Ca đối chiếu khoa học 3 · Va chạm thẳng một chiều
+06:20–07:50  Bùi Thanh Xuân  S09  Minh họa thao tác · Mô men của lực
+07:50–08:45  Bùi Thanh Xuân  S10  Căn cứ Hội đồng có thể kiểm tra
+08:45–09:45  Bùi Thanh Xuân  S11  Kết quả đã có và giới hạn còn lại
+09:45–10:45  Bùi Thanh Xuân  S12  Bốn nội dung xin ý kiến góp ý
+10:45–12:00  Nguyễn Lê Văn   S13  Đề nghị ghi nhận việc xây dựng hiện vật
+12:00–15:00  Cả nhóm         Hỏi–đáp; mở Slide 14–19 khi cần
 ```
 
 ## 3. Lời thoại chính theo slide
 
-### Slide 01 — Mở đầu — 0:35
+### Slide 01 — Kết quả xây dựng Giáo trình điện tử Cơ học lý thuyết — 0:45
 
-> Kính thưa Hội đồng. Nhóm tác giả báo cáo một học liệu số có thể mở trực tiếp, quan sát hiện tượng cơ học và luyện tập ngoại tuyến. Đề nghị hôm nay là thông qua có điều kiện về mặt khoa học–sư phạm; chưa đề nghị xác nhận bản phát hành cuối.
+> Kính thưa Hội đồng, nhóm xin báo cáo hiện vật Giáo trình điện tử Cơ học lý thuyết đã được xây dựng ở mức ứng viên. Hiện vật có bài học, hình minh họa, mô phỏng và câu hỏi tự kiểm tra. Trong 12 phút, nhóm trình bày phạm vi đã xây dựng, ba ca đối chiếu khoa học và một thao tác trực tiếp.
 
-### Slide 02 — Ba mạch kiến thức — 0:45
+### Slide 02 — Nhu cầu dạy–học mà sản phẩm hướng tới — 0:55
 
-> Giáo trình bao phủ 108 route: 45 route Tĩnh học, 29 route Động học, 31 route Động lực học và 3 route bổ trợ. Công nghệ chỉ có giá trị khi giúp học viên nhìn thấy quan hệ cơ học, thao tác tham số và tự kiểm tra kết quả.
+> Sản phẩm hướng tới những khó khăn quen thuộc: công thức trừu tượng, hình tĩnh khó quan sát, ít cơ hội tự thao tác và thiếu phản hồi ngay khi tự học. Vì vậy, nhóm thiết kế bài học để người học có thể đọc, quan sát, thao tác và tự kiểm tra trong cùng một nơi.
 
-### Slide 03 — Nguồn chuẩn và trách nhiệm — 0:45
+### Slide 03 — Kết quả tổng thể: học liệu số cho ba mạch kiến thức — 0:55
 
-> Ba tác giả chịu trách nhiệm theo phần công bố trong đề cương; không có vùng nội dung vô chủ. Nguồn chuẩn là DOCX. HTML, PDF, package và dữ liệu kiểm thử đều được sinh, kiểm soát và truy vết về nguồn này.
+> Hiện vật gồm 108 mục/trang hiển thị trong manifest: 45 mục/trang tĩnh học, 29 mục/trang động học, 31 mục/trang động lực học và 3 mục/trang hỗ trợ. Con số 108 không phải là 108 mục nội dung học tập. Phạm vi đã xây dựng là học liệu số cho ba mạch kiến thức; hiệu quả với người học cần được đánh giá riêng.
 
-### Slide 04 — Vòng học khép kín — 1:05
+### Slide 04 — Vòng học hỗ trợ tự học — 1:00
 
-> Hành trình học là trục tổ chức chức năng, không phải danh sách nút. Mỗi vòng học bắt đầu từ một bài cụ thể, cho phép quan sát hoặc thao tác, rồi kết thúc bằng tự kiểm tra và lưu tiến độ trên thiết bị.
+> Thiết kế hướng tới vòng: chọn bài, học lý thuyết, quan sát hình hoặc mô phỏng, tự thao tác, làm câu hỏi tự kiểm tra và xem lại nội dung. Đây là ý đồ thiết kế để nối kiến thức với quan sát và phản hồi. Nhóm không khẳng định luồng này đã vận hành trọn vẹn từ đầu đến cuối, cũng không khẳng định hiệu quả với người học.
 
-### Slide 05 — Kiến trúc ngoại tuyến — 1:05
+### Slide 05 — Trải nghiệm hiện vật — 0:45
 
-> Kiến trúc tĩnh giảm phụ thuộc hạ tầng, phù hợp khai thác qua USB hoặc mạng nội bộ. Công cụ phát triển chỉ dùng khi biên soạn và kiểm thử; máy học viên chỉ cần trình duyệt.
+> Hội đồng có thể quét QR để mở bản web để trình diễn và xem một bài học, hình minh họa, mô phỏng cùng câu hỏi tự kiểm tra. Bản web chưa được chứng minh là giống hệt gói ứng viên `2026.09.02-candidate`; vì vậy việc trình diễn không thay thế kiểm tra gói ứng viên. Nếu không mở được bản web, gói cục bộ chỉ là phương án dự phòng. Trải nghiệm này chỉ để xem hiện vật.
 
-### Slide 06 — Học liệu gắn ngữ cảnh — 1:10
+### Slide 06 — Ca đối chiếu khoa học 1 · Trọng tâm diện tích — 0:40
 
-> Đây là ảnh chụp thực tế của một bài học đại diện: văn bản, hình, công thức và điều hướng nằm trong cùng ngữ cảnh. Content manifest ghi 1 302 lần xuất hiện công thức; registry ngữ nghĩa hiện có 702 hàng ánh xạ. Hai chỉ số không được dùng thay thế nhau.
+> Đây là ca đối chiếu khoa học thứ nhất và chưa được thẩm định độc lập. Với đúng hình đang trình bày, nhóm đối chiếu bằng tính đối xứng, giới hạn tọa độ và phép tính diện tích có dấu: phần khoét có diện tích âm trong tổng diện tích và tổng mô men. Không dùng quy tắc rằng trọng tâm phải nằm trong phần vật liệu hoặc trong đường bao hình học.
 
-### Slide 07 — Ví dụ mô men — 1:10
+### Slide 07 — Ca đối chiếu khoa học 2 · Gia tốc Coriolis — 0:40
 
-> Tại route ch1-1-4, học viên kéo điểm đặt lực thay vì chỉ đọc công thức. Ảnh chụp xác nhận F bằng 50 N, d bằng 4,00 m và hệ thống trả M bằng 200 N·m; mũi tên chiều quay và readout cập nhật đồng thời.
+> Đây là ca đối chiếu khoa học thứ hai và chưa được thẩm định độc lập. Sơ đồ phẳng có ω vuông góc vrel, nên độ lớn thành phần Coriolis là 2ω|vrel|. Trường hợp tổng quát phải nhân thêm sin của góc giữa hai vectơ. Gia tốc Coriolis chỉ là một thành phần, không phải toàn bộ gia tốc của điểm.
 
-### Slide 08 — Demo hệ thống — 1:30
+### Slide 08 — Ca đối chiếu khoa học 3 · Va chạm thẳng một chiều — 0:40
 
-1. **00:00–00:15 — Mở gói:** mở `package/index.html` qua `file://`.
-2. **00:15–00:30 — Vào bài:** Chương 1 → I → 4. Mô men.
-3. **00:30–01:00 — Thao tác:** giữ `F = 50 N`, kéo điểm đặt lực đến `d = 4,00 m`.
-4. **01:00–01:15 — Quan sát:** readout phải hiện `M = 200 N·m`; chiều quay cập nhật.
-5. **01:15–01:30 — Đối chiếu:** mở PDF cục bộ rồi quay lại bài.
+> Đây là ca đối chiếu khoa học thứ ba và chưa được thẩm định độc lập. Ca xét va chạm thẳng một chiều thụ động, với xung lực ngoài theo phương va chạm không đáng kể và hệ số đàn hồi `0 ≤ e ≤ 1`. Phương trình tổng động lượng là `m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂`. Chỉ dùng phương trình này với các điều kiện vừa nêu.
 
-**Điểm dừng an toàn:** nếu demo trực tiếp gặp lỗi ngoài dự kiến, dùng ba ảnh minh chứng trên slide; không sửa tại chỗ trước Hội đồng.
+### Slide 09 — Minh họa thao tác · Mô men của lực — 1:30
 
-### Slide 09 — Ranh giới thẩm quyền — 1:05
+1. **00:00–00:15:** Mở gói cục bộ qua `file://`.
+2. **00:15–00:30:** Chọn Chương 1, Mục 4: *Mô men của lực*.
+3. **00:30–01:00:** Điểm `O` và phương lực cố định. Giữ `F = 50 N`, kéo điểm đặt lực đến `d⊥ = 4,00 m`.
+4. **01:00–01:15:** Đối chiếu `M = +200 N·m` theo quy ước ngược chiều kim đồng hồ là dương.
+5. **01:15–01:30:** Mở PDF cục bộ, đối chiếu công thức rồi quay lại bài. Minh họa này không thay đổi `θ` và không đổi dấu mô men.
 
-> Pipeline tạo bằng chứng tái lập về cấu trúc, hành vi và khả năng vận hành đa thiết bị. Ý nghĩa công thức, sai số mô phỏng, khả năng tiếp cận thực tế và giá trị sư phạm vẫn thuộc thẩm quyền reviewer độc lập. Không tuyên bố đã đạt WCAG toàn hệ thống.
+> Nếu phần minh họa gián đoạn, chuyển sang ảnh đã chuẩn bị trên Slide 09. Nêu rõ đó là phần minh họa bị gián đoạn và không suy diễn thêm từ sự cố.
 
-### Slide 10 — Hiện vật candidate — 1:20
+### Slide 10 — Căn cứ Hội đồng có thể kiểm tra — 0:55
 
-> Candidate `2026.09.02` gồm 372 tệp, ZIP 78,7 MB, tương đương 75,1 MiB, và đã khóa SHA-256. QTI 3.0 cùng Common Cartridge 1.4 mới có bằng chứng kiểm tra cục bộ; chưa phải bằng chứng nhập vào LMS thực tế.
+> Hội đồng có thể kiểm tra manifest có 108 mục/trang hiển thị: 45 tĩnh học, 29 động học, 31 động lực học và 3 mục/trang hỗ trợ. Đây không phải là 108 mục nội dung học tập. Hội đồng cũng có thể đối chiếu bài học, hình vẽ, công thức, mô phỏng, câu hỏi tự kiểm tra và liên kết với DOCX nguồn. Các căn cứ này cho thấy phạm vi công việc đã thực hiện, không tự thay cho nhận xét chuyên môn.
 
-### Slide 11 — Ma trận kiểm chứng — 1:25
+### Slide 11 — Kết quả đã có và giới hạn còn lại — 1:00
 
-> Có 20 cổng pass trong phạm vi khai báo, 0 fail, 4 blocked và 0 not-run. Không dùng 83,3% như điểm chất lượng. Bốn cổng blocked cần đúng chuyên gia hoặc người dùng độc lập đóng; vì vậy trạng thái tổng thể vẫn blocked.
+> Nhóm đã xây dựng hiện vật ở mức ứng viên, gồm học liệu số, minh họa, mô phỏng và câu hỏi tự kiểm tra cho ba mạch kiến thức. Không khẳng định hiện vật đã vận hành đầy đủ hoặc đã được kết nối đầy đủ. Ba ca đối chiếu khoa học là ví dụ để so sánh, chưa được thẩm định độc lập và không dùng để kết luận học thuật. Hiện chưa có chữ ký học thuật độc lập; bốn kết quả học tập mới ở mức sơ bộ; hiệu quả với người học cần được đánh giá thêm. Tình trạng phát hành chỉ trình bày tại phụ lục Slide 17–18.
 
-### Slide 12 — Bốn điều kiện đóng — 1:15
+### Slide 12 — Bốn nội dung xin ý kiến góp ý — 1:00
 
-> Bốn điều kiện gồm: quyết định thẩm định học thuật; biên bản tiếp cận độc lập; phiếu smoke thực tế qua file:// và HTTP; đối sánh Word round-trip. Khi đủ hồ sơ, nhóm chạy lại toàn bộ 24 cổng rồi mới trình khóa bản phát hành chính thức.
+> Nhóm xin Hội đồng góp ý về bốn nội dung: một, độ đúng và độ rõ của các ví dụ cơ học; hai, cách tổ chức vòng tự học; ba, điều kiện–tiêu chí của bốn kết quả học tập sơ bộ tại Slide 14 và ba câu hỏi đại diện đang hiển thị; bốn, những nội dung cần ưu tiên chỉnh sửa trong học liệu. Ba câu hỏi chỉ là mẫu để góp ý, không chứng minh mức đạt chuẩn đầu ra.
 
-### Slide 13 — Đề nghị Hội đồng — 1:50
+### Slide 13 — Đề nghị ghi nhận việc xây dựng hiện vật — 1:15
 
-> Kính đề nghị Hội đồng xem xét thông qua có điều kiện về mặt khoa học–sư phạm. Nhóm tác giả cam kết tiếp thu từng ý kiến, chỉ trình bản cuối khi bốn hồ sơ độc lập đầy đủ và toàn bộ 24 cổng được chạy lại.
+> Nhóm kính đề nghị Hội đồng ghi nhận việc đã xây dựng hiện vật và cho ý kiến góp ý để hoàn thiện sản phẩm. Nhóm không đề nghị Hội đồng chấp thuận học thuật, nghiệm thu cuối cùng hoặc quyết định phát hành. Ý kiến về nội dung khoa học, cách dạy–học, kết quả học tập và mức ưu tiên chỉnh sửa sẽ là cơ sở cho bước tiếp theo.
 
-## 4. Phụ lục dùng khi chất vấn
+> **Dự thảo biên bản:** Hội đồng ghi nhận nhóm tác giả đã xây dựng hiện vật giáo trình điện tử ở mức ứng viên và đề nghị tiếp thu ý kiến để hoàn thiện; phiên họp này không kết luận chấp thuận học thuật, nghiệm thu cuối cùng hoặc phát hành.
 
-- **Slide 14:** Sim2 gồm 25 route SVG-first canonical; Sim3 gồm 10 adapter pilot. Sim3 là tùy chọn; lỗi setup/render phải quay về Sim2. Không dùng Sim3 để tuyên bố “4D”.
-- **Slide 15:** tên bốn cổng blocked, owner và artifact bắt buộc.
-- **Slide 16:** sáu câu hỏi trọng tâm và nguồn kiểm chứng.
+## 4. Phụ lục dùng khi hỏi–đáp
 
-## 5. Q&A chính xác, không suy diễn
+### Slide 14 — Bốn kết quả học tập ở mức sơ bộ
 
-1. **Nội dung có lệch nguồn không?**  
-   DOCX là nguồn chuẩn; manifest và pipeline cung cấp truy vết kỹ thuật. Quyết định học thuật vẫn cần reviewer độc lập.
+> Hiện có **0 chữ ký**. Bốn kết quả học tập đều ở mức sơ bộ; từng kết quả có điều kiện và tiêu chí dự kiến để Hội đồng góp ý. Không có ngoại lệ đánh giá được khai báo.
 
-2. **Mô phỏng chạy trên máy cũ không?**  
-   Sim2 SVG-first là đường chạy canonical. Sim3 là pilot tùy chọn và có fallback; không tuyên bố tương thích mọi cấu hình nếu chưa smoke trên thiết bị đó.
+### Slide 15 — Lưu ý cho ba ca đối chiếu khoa học
 
-3. **Ngân hàng câu hỏi có bao nhiêu?**  
-   300 câu: mỗi chương 100 câu. Không nói Chương 2–3 “sẽ bổ sung” nếu nguồn hiện hành đã có đủ 100 câu/chương.
+> Ba ca này chưa được thẩm định độc lập. Hình dùng tại slide là **ảnh chụp khi mô phỏng đang chạy**. Với trọng tâm, kiểm tra theo đối xứng, giới hạn tọa độ và diện tích có dấu; với Coriolis, chỉ xét một thành phần gia tốc; với va chạm, chỉ dùng phương trình động lượng khi xung lực ngoài theo phương va chạm không đáng kể và `0 ≤ e ≤ 1`.
 
-4. **Đã đạt WCAG chưa?**  
-   Chưa tuyên bố tuân thủ WCAG toàn hệ thống. Automation đã có; independent accessibility review còn blocked.
+### Slide 16 — Ý kiến học thuật độc lập còn cần bổ sung
 
-5. **Có chạy ngoại tuyến không?**  
-   Runtime được đóng gói cục bộ và hỗ trợ `file://`; bằng chứng smoke độc lập trên thiết bị thật vẫn là điều kiện mở.
+> Chưa có chữ ký học thuật độc lập. Mọi kết luận học thuật chỉ cập nhật khi có chứng cứ được ủy quyền.
 
-6. **Bao giờ có bản cuối?**  
-   Không đưa mốc thời gian khi chưa có biên bản Hội đồng và lịch reviewer độc lập. Bản cuối chỉ được khóa sau khi đủ bốn hồ sơ và chạy lại 24 cổng.
+### Slide 17 — Tình trạng phát hành kỹ thuật
 
-## 6. Những câu tuyệt đối không sử dụng
+> Không suy ra tình trạng phát hành từ bản web để trình diễn hoặc gói cục bộ. Snapshot nền của 24 cổng là ngày `2026-09-21`; bằng chứng mô phỏng được làm mới ngày `2026-09-25`, không đồng nghĩa toàn bộ cổng đã chạy lại. Chín trạng thái “không đạt” trong snapshot đều dừng vì Playwright không tìm thấy Chromium; đây không phải bằng chứng các kiểm tra vật lý hoặc chức năng đã thất bại. Gói có derivative QTI 3 và Common Cartridge 1.4, nhưng chưa có bằng chứng nhập thành công vào LMS.
 
-- “Hoàn thành 100%.”
-- “Đã đạt WCAG 2.2 AA toàn hệ thống.”
-- “Đã tương thích Canvas/Moodle/Blackboard.”
-- “Sim3 là mô phỏng 4D.”
-- “20/24 tương đương điểm chất lượng 83,3%.”
-- “Bản candidate đã sẵn sàng phát hành chính thức.”
+### Slide 18 — Các thẩm định và kiểm tra độc lập chưa thể thực hiện
+
+> Nêu đủ chín phép kiểm tra dừng do môi trường thiếu Chromium và bốn nội dung độc lập chưa thể thực hiện. Với bộ kiểm tra vật lý mô phỏng, phải nói rõ bước trình duyệt không khởi động; không nói các phép kiểm tra vật lý đã thất bại. Bốn nội dung bị chặn gồm thẩm định học thuật, đánh giá khả năng tiếp cận độc lập, chạy thử ứng viên trên thiết bị thật và đối sánh vòng lặp Word.
+
+### Slide 19 — Trả lời ngắn theo hiện trạng
+
+> Kết luận học thuật chỉ được cập nhật khi có chứng cứ được ủy quyền. Quyết định phát hành chỉ được cập nhật sau khi chạy lại đủ 24 kiểm tra và không còn kết quả nào là “không đạt”, “chưa thể thực hiện” hoặc “chưa chạy”.
+
+Chỉ Slide 17–18 trình bày tình trạng phát hành.
+
+## 5. Trả lời ngắn, đúng phạm vi
+
+1. **Đã có chữ ký học thuật độc lập chưa?**<br>
+   Chưa. Hiện có 0 chữ ký học thuật độc lập.
+
+2. **Bốn kết quả học tập có phải là bản cuối không?**<br>
+   Chưa. Chúng đang ở mức sơ bộ; không có ngoại lệ đánh giá nào được tuyên bố.
+
+3. **Ca đối chiếu trọng tâm có lưu ý gì?**<br>
+   Với đúng hình này, đối chiếu bằng đối xứng, giới hạn tọa độ và diện tích có dấu; không áp dụng quy tắc rằng trọng tâm phải nằm trong phần vật liệu hoặc đường bao hình học.
+
+4. **Gia tốc Coriolis có phải toàn bộ gia tốc không?**<br>
+   Không. Đây chỉ là một thành phần của gia tốc.
+
+5. **Khi nào ca va chạm một chiều dùng bảo toàn tổng động lượng?**<br>
+   Khi va chạm thụ động, xung lực ngoài theo phương va chạm không đáng kể và `0 ≤ e ≤ 1`; khi đó `m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂`.
+
+6. **Phần minh họa mô men dùng các giá trị nào?**<br>
+   Điểm `O` cố định, `θ = 90°`; giữ `F = 50 N`, kéo điểm đặt lực đến `d⊥ = 4,00 m`, đọc `M = +200 N·m`, rồi đối chiếu PDF cục bộ. Quy ước ngược chiều kim đồng hồ là dương; phần minh họa không đổi `θ` hoặc dấu.
+
+7. **QR mở gì và có thay thế kiểm tra gói ứng viên không?**<br>
+   QR mở bản web để trình diễn. Bản web chưa được chứng minh giống hệt gói ứng viên `2026.09.02-candidate` và không thay thế kiểm tra gói ứng viên; gói cục bộ chỉ là phương án dự phòng.
+
+8. **Khi nào cập nhật quyết định phát hành?**<br>
+   Sau khi chạy lại đủ 24 kiểm tra và không còn “không đạt”, “chưa thể thực hiện” hoặc “chưa chạy”.
+
+## 6. Cách diễn đạt cần tránh
+
+- “Đã có chữ ký học thuật độc lập.”
+- “Bốn kết quả học tập đã là bản cuối.”
+- “Ba ca đối chiếu đã được thẩm định độc lập.”
+- “Phần minh họa trực tiếp chứng minh hiệu quả học tập.”
+- “Mô phỏng thay thế hoàn toàn việc học với giảng viên.”
+- “Bản web để trình diễn giống hệt gói ứng viên hoặc thay thế kiểm tra gói ứng viên.”
+- “Tình trạng phát hành được kết luận từ phần trình diễn.”

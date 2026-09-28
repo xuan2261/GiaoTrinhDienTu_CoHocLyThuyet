@@ -57,12 +57,17 @@ class ScientificReportContractTest(unittest.TestCase):
     def test_report_uses_current_candidate_snapshot_and_gate_counts(self):
         acceptance = self.evidence["acceptance"]
         summary = acceptance["gateSummary"]
-        self.assertEqual("blocked", acceptance["overallStatus"])
+        decision = acceptance["releaseDecision"]["decision"]
+        self.assertIn(decision, {"blocked", "rejected"})
         self.assertTrue(self.evidence["candidateEvidence"]["current"])
-        self.assertIn(
-            "DỰ THẢO — 20 CỔNG ĐẠT, CHỜ 4 ĐÁNH GIÁ ĐỘC LẬP",
-            self.text,
-        )
+        if decision == "blocked":
+            self.assertIn(
+                f"DỰ THẢO — {summary['pass']} CỔNG ĐẠT, "
+                f"CHỜ {summary['blocked']} ĐÁNH GIÁ ĐỘC LẬP",
+                self.text,
+            )
+        else:
+            self.assertIn("BỊ TỪ CHỐI — CÓ CỔNG KIỂM TRA THẤT BẠI", self.text)
         self.assertIn("Ràng buộc snapshot–candidate: current", self.text)
         self.assertIn(
             f"{summary['pass']}/{summary['total']} pass; "
@@ -76,10 +81,19 @@ class ScientificReportContractTest(unittest.TestCase):
         )
         for gate in acceptance["gates"]:
             self.assertIn(gate["gateId"], self.text)
+    def test_delivered_report_artifacts_match_fresh_generation(self):
+        delivered_docx = ROOT / "BaoCao_KhoaHoc_GiaoTrinhDienTu_CoHocLyThuyet.docx"
+        delivered_pdf = ROOT / "BaoCao_KhoaHoc_GiaoTrinhDienTu_CoHocLyThuyet.pdf"
+        self.assertEqual(self.output.read_bytes(), delivered_docx.read_bytes())
+        self.assertGreater(delivered_pdf.stat().st_size, 50000)
+        self.assertEqual(b"%PDF-", delivered_pdf.read_bytes()[:5])
 
     def test_decision_profiles_distinguish_approved_rejected_and_blocked(self):
         def acceptance(decision):
-            return {"releaseDecision": {"decision": decision}}
+            return {
+                "releaseDecision": {"decision": decision},
+                "gateSummary": {"total": 24, "pass": 20, "fail": 0, "blocked": 4, "notRun": 0},
+            }
 
         self.assertEqual(
             "approved",
@@ -90,7 +104,7 @@ class ScientificReportContractTest(unittest.TestCase):
         self.assertIn("bị từ chối", rejected["conclusion"])
         blocked = decision_profile(acceptance("blocked"), True)
         self.assertEqual("blocked", blocked["key"])
-        self.assertIn("thiếu điều kiện", blocked["conclusion"])
+        self.assertIn("thiếu 4 điều kiện", blocked["conclusion"])
         self.assertEqual(
             "evidence-mismatch",
             decision_profile(acceptance("approved"), False)["key"],
@@ -239,6 +253,13 @@ class ScientificReportContractTest(unittest.TestCase):
                 "rationale": "synthetic blocked contract",
             }
 
+        def block_with_changed_counts(acceptance):
+            target = next(gate for gate in acceptance["gates"] if gate["status"] == "blocked")
+            target["status"] = "pass"
+            acceptance["gateSummary"]["pass"] += 1
+            acceptance["gateSummary"]["blocked"] -= 1
+            block(acceptance)
+
         approved_text = render("approved-report", approve)
         self.assertIn("TRẠNG THÁI: ĐÃ ĐỦ CỔNG BẰNG CHỨNG", approved_text)
         rejected_text = render("rejected-report", reject)
@@ -252,9 +273,25 @@ class ScientificReportContractTest(unittest.TestCase):
             rejected_text,
         )
         blocked_text = render("blocked-report", block)
+        summary = self.evidence["acceptance"]["gateSummary"]
         self.assertIn(
-            "DỰ THẢO — 20 CỔNG ĐẠT, CHỜ 4 ĐÁNH GIÁ ĐỘC LẬP",
+            f"DỰ THẢO — {summary['pass']} CỔNG ĐẠT, "
+            f"CHỜ {summary['blocked']} ĐÁNH GIÁ ĐỘC LẬP",
             blocked_text,
+        )
+        changed_blocked_text = render("changed-blocked-report", block_with_changed_counts)
+        changed_summary = dict(summary)
+        changed_summary["pass"] += 1
+        changed_summary["blocked"] -= 1
+        self.assertIn(
+            f"DỰ THẢO — {changed_summary['pass']} CỔNG ĐẠT, CHỜ {changed_summary['blocked']} ĐÁNH GIÁ ĐỘC LẬP",
+            changed_blocked_text,
+        )
+        self.assertIn(f"{changed_summary['pass']} cổng kỹ thuật đã pass", changed_blocked_text)
+        self.assertIn(f"thiếu {changed_summary['blocked']} điều kiện bắt buộc độc lập", changed_blocked_text)
+        self.assertNotIn(
+            f"DỰ THẢO — {summary['pass']} CỔNG ĐẠT, CHỜ {summary['blocked']} ĐÁNH GIÁ ĐỘC LẬP",
+            changed_blocked_text,
         )
         mismatch_text = render("mismatch-report", block, current=False)
         self.assertIn(
@@ -279,6 +316,46 @@ class ScientificReportContractTest(unittest.TestCase):
             self.assertNotIn(claim, self.text)
         self.assertIn("Không phải chứng nhận học thuật, WCAG, CDIO/ABET", self.text)
         self.assertIn("Không có target LMS hoặc execution evidence", self.text)
+    def test_report_has_scientific_assessment_sections_and_conservative_scope(self):
+        required = (
+            "TÓM TẮT KHOA HỌC",
+            "Từ khóa:",
+            "Câu hỏi đánh giá",
+            "Ma trận chuẩn đầu ra",
+            "Ba mẫu kiểm chứng khoa học",
+            "Đe dọa đối với độ giá trị",
+            "PHỤ LỤC A: ĐĂNG KÝ BẰNG CHỨNG",
+        )
+        for heading in required:
+            self.assertIn(heading, self.text)
+        self.assertTrue(
+            "ghi nhận hiện vật kỹ thuật và cho phép nhóm tác giả tiếp tục hoàn thiện hồ sơ" in self.text
+            or "Candidate bị từ chối do có cổng bắt buộc thất bại" in self.text
+        )
+        self.assertNotIn("ĐÁNH GIÁ TOÀN DIỆN QUY CÁCH", self.text)
+        self.assertNotIn("thông qua có điều kiện về mặt khoa học–sư phạm", self.text)
+
+    def test_report_includes_learning_alignment_and_three_chapter_validation(self):
+        for outcome in self.evidence["learningOutcomes"]["learningOutcomes"]:
+            self.assertIn(outcome["id"], self.text)
+        for route_id in ("ch1-1-4", "ch2-4-4", "ch3-6-2"):
+            self.assertIn(route_id, self.text)
+
+    def test_report_demo_matches_the_actual_moment_interaction(self):
+        self.assertIn(
+            "Giữ F = 50 N; kéo điểm đặt lực đến d⊥ = 4,00 m",
+            self.text,
+        )
+        self.assertIn("Mở PDF cục bộ và quay lại bài", self.text)
+        self.assertNotIn("Dời tâm O và tính mô men", self.text)
+        self.assertNotIn("Giữ F = 50 N; kéo d đến 4,00 m", self.text)
+
+    def test_scientific_formulas_use_omml_and_live_captures(self):
+        document_xml = self.archive.read("word/document.xml").decode("utf-8")
+        self.assertEqual(3, document_xml.count("<m:oMath>"))
+        self.assertNotIn("⃗", document_xml)
+        for capture in ("sim-live-ch1-6-3.png", "sim-live-ch2-4-4.png", "sim-live-ch3-6-2.png"):
+            self.assertIn(capture, document_xml)
 
     def test_semantic_navigation_fields_and_captions_exist(self):
         style_ids = [
@@ -327,15 +404,16 @@ class ScientificReportContractTest(unittest.TestCase):
             paragraph_text(paragraph)
             for paragraph in self.document.iter(W + "p")
             if paragraph_style(paragraph) == "Caption"
-            and "Nguồn:" in paragraph_text(paragraph)
+            and "Nguồn: EV-IMG-" in paragraph_text(paragraph)
         ]
         provenance = self.evidence["imageProvenance"]
         self.assertEqual(len(provenance), len(captions))
-        for relative_path, record in provenance.items():
-            matches = [caption for caption in captions if relative_path in caption]
-            self.assertEqual(1, len(matches), relative_path)
-            self.assertIn(record["sha256"], matches[0])
-            self.assertIn(record["authority"], matches[0])
+        for index, (relative_path, record) in enumerate(provenance.items(), 1):
+            evidence_id = f"EV-IMG-{index:02d}"
+            self.assertEqual(1, sum(evidence_id in caption for caption in captions))
+            self.assertIn(relative_path, self.text)
+            self.assertIn(record["sha256"], self.text)
+            self.assertIn(record["authority"], self.text)
 
     def test_generation_is_byte_reproducible(self):
         second_output = Path(self.temp_dir.name) / "scientific-report-second.docx"

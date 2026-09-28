@@ -40,7 +40,8 @@ class AcceptanceBundleTest(unittest.TestCase):
         self.assertTrue(all(row["ownerRole"] and row["reviewRole"] for row in rtm))
 
         report = (bundle.REPORTS_DIR / "phase-12-acceptance-report.md").read_text(encoding="utf-8")
-        self.assertIn("Overall: **blocked**", report)
+        expected_overall = "fail" if any(row["status"] == "fail" for row in rows) else "blocked"
+        self.assertIn(f"Overall: **{expected_overall}**", report)
         self.assertIn("No unsupported WCAG AA", report)
         self.assertIn("no executed LMS import", report)
         self.assertIn("pending external review", (bundle.EVIDENCE_DIR / "independent-review.md").read_text(encoding="utf-8"))

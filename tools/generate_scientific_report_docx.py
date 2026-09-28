@@ -18,7 +18,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "BaoCao_KhoaHoc_GiaoTrinhDienTu_CoHocLyThuyet.docx"
-FONT_NAME = "Segoe UI"
+FONT_NAME = "Times New Roman"
 
 COLOR_NAVY = RGBColor(0x1F, 0x38, 0x64)
 COLOR_RED = RGBColor(0xC0, 0x00, 0x00)
@@ -53,7 +53,7 @@ GIF_ROWS = [
 
 SIM_INTERACTIONS = {
     "ch1-1-3": "Kéo điểm đặt và góc",
-    "ch1-1-4": "Dời tâm O và tính mô men",
+    "ch1-1-4": "Giữ O cố định; kéo điểm đặt lực để đổi d và tính mô men",
     "ch1-1-5": "Thu gọn hệ lực; có adapter Sim3 pilot",
     "ch1-1-6": "Khảo sát cặp lực song song",
     "ch1-2-3": "Tổng hợp hai lực đồng quy",
@@ -200,6 +200,7 @@ def candidate_evidence_binding(acceptance, record, input_hashes, expected_hashes
 
 def decision_profile(acceptance, candidate_evidence_current):
     decision = acceptance["releaseDecision"]["decision"]
+    gate_summary = acceptance["gateSummary"]
     require(decision in {"approved", "rejected", "blocked"}, "unknown release decision")
     if not candidate_evidence_current:
         return {
@@ -246,17 +247,22 @@ def decision_profile(acceptance, candidate_evidence_current):
     return {
         "key": "blocked",
         "accepted": False,
-        "cover": "DỰ THẢO — 20 CỔNG ĐẠT, CHỜ 4 ĐÁNH GIÁ ĐỘC LẬP",
+        "cover": (
+            f"DỰ THẢO — {gate_summary['pass']} CỔNG ĐẠT, "
+            f"CHỜ {gate_summary['blocked']} ĐÁNH GIÁ ĐỘC LẬP"
+        ),
         "header": "DỰ THẢO — CHỜ NGHIỆM THU ĐỘC LẬP",
         "summary": (
-            "Hai mươi cổng kỹ thuật đã pass, không có cổng fail; bốn đánh giá độc lập "
-            "chưa hoàn tất nên candidate chưa đủ điều kiện phát hành chính thức."
+            f"{gate_summary['pass']} cổng kỹ thuật đã pass, không có cổng fail; "
+            f"{gate_summary['blocked']} đánh giá độc lập chưa hoàn tất nên candidate "
+            "chưa đủ điều kiện phát hành chính thức."
         ),
         "conclusion": (
-            "Candidate đã có hiện vật kỹ thuật khóa hash và 20 cổng pass nhưng vẫn thiếu điều kiện "
-            "bắt buộc độc lập. Hồ sơ phù hợp để Hội đồng xem xét theo hướng thông qua có điều kiện; "
+            f"Candidate đã có hiện vật kỹ thuật khóa hash và {gate_summary['pass']} cổng pass "
+            f"nhưng vẫn thiếu {gate_summary['blocked']} điều kiện bắt buộc độc lập. Hồ sơ phù hợp "
+            "để ghi nhận hiện vật kỹ thuật và cho phép nhóm tác giả tiếp tục hoàn thiện hồ sơ; "
             "chưa có cơ sở để tuyên bố nghiệm thu học thuật, tuân thủ WCAG toàn hệ thống, tương thích "
-            "LMS thực tế hoặc đưa vào giảng dạy chính thức trước khi bốn đánh giá độc lập được đóng."
+            "LMS thực tế hoặc đưa vào giảng dạy chính thức trước khi các đánh giá độc lập được đóng."
         ),
     }
 
@@ -449,16 +455,20 @@ def load_evidence():
             simulation_hashes[relative_path],
             "simulation screenshot",
         )
-        image_provenance[relative_path] = {
-            "sha256": digest,
-            "authority": "simulation-evidence-currentness",
-        }
+        if relative_path == "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch2-3-2-transmission-win32.png":
+            image_provenance[relative_path] = {
+                "sha256": digest,
+                "authority": "simulation-evidence-currentness",
+            }
 
     presentation_images = (
         "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-01-trang-chu-desktop-1440x1000.png",
         "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-02-trang-chu-mobile-390x844.png",
         "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-04-mo-men-ch1-1-4-1440x1000.png",
         "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-06-pdf-viewer-1440x1000.png",
+        "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch1-6-3.png",
+        "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch2-4-4.png",
+        "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch3-6-2.png",
     )
     for relative_path in presentation_images:
         capture_path = ROOT / relative_path
@@ -603,17 +613,51 @@ def set_run_font(run, size=10, color=COLOR_BODY, bold=False, italic=False):
     run.font.color.rgb = color
     run.bold = bold
     run.italic = italic
+def _omml_run(text):
+    run = OxmlElement("m:r")
+    text_node = OxmlElement("m:t")
+    if text.startswith(" ") or text.endswith(" "):
+        text_node.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
+    text_node.text = text
+    run.append(text_node)
+    return run
+
+
+def _omml_subscript(base, subscript):
+    node = OxmlElement("m:sSub")
+    base_node = OxmlElement("m:e")
+    base_node.append(_omml_run(base))
+    sub_node = OxmlElement("m:sub")
+    sub_node.append(_omml_run(subscript))
+    node.append(base_node)
+    node.append(sub_node)
+    return node
+
+
+def append_omml_formula(paragraph, tokens):
+    math = OxmlElement("m:oMath")
+    for token in tokens:
+        if isinstance(token, tuple) and token[0] == "sub":
+            math.append(_omml_subscript(token[1], token[2]))
+        else:
+            math.append(_omml_run(str(token)))
+    paragraph._p.append(math)
+
+
+def omml_value(tokens):
+    return {"kind": "omml", "tokens": tokens}
+
 
 
 def configure_styles(doc):
     styles = doc.styles
     specs = {
-        "Normal": (10.5, COLOR_BODY, False),
+        "Normal": (11.5, COLOR_BODY, False),
         "Title": (20, COLOR_NAVY, True),
         "Heading 1": (15, COLOR_RED, True),
-        "Heading 2": (12.5, COLOR_NAVY, True),
-        "Heading 3": (11, COLOR_BODY, True),
-        "Caption": (9, COLOR_MUTED, False),
+        "Heading 2": (13, COLOR_NAVY, True),
+        "Heading 3": (11.5, COLOR_BODY, True),
+        "Caption": (9.5, COLOR_MUTED, False),
     }
     for name, (size, color, bold) in specs.items():
         style = styles[name]
@@ -622,8 +666,8 @@ def configure_styles(doc):
         style.font.size = Pt(size)
         style.font.color.rgb = color
         style.font.bold = bold
-    styles["Normal"].paragraph_format.space_after = Pt(4)
-    styles["Normal"].paragraph_format.line_spacing = 1.25
+    styles["Normal"].paragraph_format.space_after = Pt(6)
+    styles["Normal"].paragraph_format.line_spacing = 1.2
     styles["Heading 1"].paragraph_format.space_before = Pt(16)
     styles["Heading 1"].paragraph_format.space_after = Pt(7)
     styles["Heading 1"].paragraph_format.keep_with_next = True
@@ -635,7 +679,8 @@ def configure_styles(doc):
     styles["Heading 3"].paragraph_format.keep_with_next = True
     styles["Caption"].paragraph_format.space_before = Pt(2)
     styles["Caption"].paragraph_format.space_after = Pt(8)
-    styles["Caption"].paragraph_format.keep_with_next = True
+    styles["Caption"].paragraph_format.keep_with_next = False
+    styles["Caption"].paragraph_format.keep_together = True
 
 
 def add_field(paragraph, instruction, cached_value=""):
@@ -683,6 +728,8 @@ def add_caption(doc, label, sequence_name, text):
     doc._report_sequence_counts = counts
     paragraph = doc.add_paragraph(style="Caption")
     paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    paragraph.paragraph_format.keep_with_next = False
+    paragraph.paragraph_format.keep_together = True
     prefix = paragraph.add_run(f"{label} ")
     set_run_font(prefix, size=9, color=COLOR_MUTED, italic=True)
     add_field(
@@ -791,8 +838,11 @@ def add_data_table(doc, headers, rows, widths, font_size=8.5):
                 if column_index == 0 and len(headers) > 2
                 else WD_ALIGN_PARAGRAPH.LEFT
             )
-            run = paragraph.add_run(str(value))
-            set_run_font(run, size=font_size)
+            if isinstance(value, dict) and value.get("kind") == "omml":
+                append_omml_formula(paragraph, value["tokens"])
+            else:
+                run = paragraph.add_run(str(value))
+                set_run_font(run, size=font_size)
     return table
 
 
@@ -888,9 +938,9 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         paragraph.paragraph_format.first_line_indent = Cm(0.75)
         if bold_prefix:
             prefix = paragraph.add_run(bold_prefix)
-            set_run_font(prefix, size=10.5, color=COLOR_NAVY, bold=True)
+            set_run_font(prefix, size=11.5, color=COLOR_NAVY, bold=True)
         run = paragraph.add_run(text)
-        set_run_font(run, size=10.5, italic=italic)
+        set_run_font(run, size=11.5, italic=italic)
         return paragraph
 
     def add_bullet(text, bold_prefix=None):
@@ -898,9 +948,9 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         paragraph.paragraph_format.space_after = Pt(2)
         if bold_prefix:
             prefix = paragraph.add_run(bold_prefix)
-            set_run_font(prefix, size=10, color=COLOR_NAVY, bold=True)
+            set_run_font(prefix, size=11, color=COLOR_NAVY, bold=True)
         run = paragraph.add_run(text)
-        set_run_font(run, size=10)
+        set_run_font(run, size=11)
         return paragraph
 
     def add_image_box(relative_path, caption, alt_text, width_cm=13.5):
@@ -908,6 +958,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         provenance = evidence["imageProvenance"].get(relative_path)
         require(provenance is not None, f"unbound report image: {relative_path}")
         require(image_path.is_file(), f"missing report image: {relative_path}")
+        evidence_id = f"EV-IMG-{list(evidence['imageProvenance']).index(relative_path) + 1:02d}"
         paragraph = doc.add_paragraph()
         paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
         paragraph.paragraph_format.space_before = Pt(6)
@@ -918,12 +969,13 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
             doc,
             "Hình",
             "Figure",
-            f"{caption} Nguồn: {relative_path}; SHA-256 "
+            f"{caption} Nguồn: {evidence_id}; {relative_path}; SHA-256 "
             f"{provenance['sha256']}; thẩm quyền: {provenance['authority']}.",
         )
 
     def add_meta_line(label, value):
         paragraph = doc.add_paragraph()
+        paragraph.paragraph_format.first_line_indent = Cm(0.75)
         paragraph.paragraph_format.space_before = Pt(2)
         paragraph.paragraph_format.space_after = Pt(2)
         label_run = paragraph.add_run(f"{label}: ")
@@ -958,8 +1010,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     title_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     title_run = title_paragraph.add_run(
         "BÁO CÁO KHOA HỌC\n"
-        "ĐÁNH GIÁ TOÀN DIỆN QUY CÁCH TRÌNH BÀY, KẾT QUẢ, CHUẨN TIÊU CHÍ "
-        "VÀ PHƯƠNG PHÁP LUẬN XÂY DỰNG MÔ PHỎNG"
+        "ĐÁNH GIÁ GIÁO TRÌNH ĐIỆN TỬ CƠ HỌC LÝ THUYẾT"
     )
     set_run_font(title_run, size=15.5, color=RGBColor(0xFF, 0xFF, 0xFF), bold=True)
     subtitle = title_cell.add_paragraph()
@@ -1046,11 +1097,21 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         ' TOC \\o "1-3" \\h \\z \\u ',
         "Mục lục sẽ được cập nhật khi mở tài liệu trong Microsoft Word.",
     )
-    doc.add_page_break()
 
     # Executive summary and method
-    add_h1("Tóm tắt điều hành")
+    add_h1("TÓM TẮT KHOA HỌC")
     add_body(profile["summary"])
+    add_body(
+        "Cơ sở bằng chứng gồm manifest nội dung, registry mô phỏng, ma trận câu hỏi, "
+        "snapshot 24 cổng QA và gói candidate đã khóa hash. Kết quả phân biệt rõ "
+        "giữa kiểm chứng kỹ thuật, thẩm định khoa học và đánh giá người dùng."
+    )
+    add_body(
+        "giáo trình điện tử; cơ học lý thuyết; mô phỏng tương tác; kiểm chứng khoa học; "
+        "truy vết bằng chứng; học liệu ngoại tuyến",
+        bold_prefix="Từ khóa: ",
+        italic=True,
+    )
     add_callout(
         doc,
         [
@@ -1074,6 +1135,19 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     )
 
     add_h2("Mục tiêu, phạm vi và phương pháp")
+    add_h2("Câu hỏi đánh giá")
+    add_bullet(
+        "Phạm vi nội dung và chuẩn đầu ra có được truy vết nhất quán từ nguồn chuẩn đến route, mô phỏng và câu hỏi hay không?",
+        "Câu hỏi 1: ",
+    )
+    add_bullet(
+        "Các mô phỏng đại diện có nêu đúng mô hình, giả thiết, đại lượng, oracle và điều kiện biên của bài toán cơ học hay không?",
+        "Câu hỏi 2: ",
+    )
+    add_bullet(
+        "Bằng chứng hiện có đủ thẩm quyền để kết luận ở mức nào, và những điều kiện nào phải hoàn tất trước nghiệm thu chính thức?",
+        "Câu hỏi 3: ",
+    )
     add_body(
         "Báo cáo đánh giá quy cách trình bày, kiến trúc kỹ thuật, phạm vi mô phỏng, "
         "khả năng tiếp cận, gói LMS và mức độ ràng buộc giữa candidate với snapshot bằng chứng."
@@ -1093,6 +1167,34 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     add_bullet(
         "Không thực hiện nghiên cứu thực nghiệm về hiệu quả học tập trong phạm vi báo cáo này.",
         "Ngoài phạm vi: ",
+    )
+    add_h2("Ma trận chuẩn đầu ra")
+    outcome_rows = []
+    for outcome in evidence["learningOutcomes"]["learningOutcomes"]:
+        outcome_rows.append(
+            (
+                outcome["id"],
+                outcome["title"],
+                outcome["criterion"],
+                outcome["status"],
+            )
+        )
+    add_caption(
+        doc,
+        "Bảng",
+        "Table",
+        "Ma trận chuẩn đầu ra, tiêu chí đánh giá và trạng thái thẩm quyền.",
+    )
+    add_data_table(
+        doc,
+        ["Mã", "Chuẩn đầu ra", "Tiêu chí đánh giá", "Trạng thái"],
+        outcome_rows,
+        [Cm(3.0), Cm(3.7), Cm(7.7), Cm(2.0)],
+        font_size=8.5,
+    )
+    add_body(
+        "Ma trận hiện ở trạng thái provisional. Vì vậy báo cáo dùng các chuẩn này để kiểm tra "
+        "độ phủ và truy vết, không dùng để tuyên bố chương trình đã đạt chuẩn đầu ra được phê duyệt."
     )
     add_block_diagram(
         doc,
@@ -1305,11 +1407,6 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     add_bullet("Biến đổi world-to-screen và responsive CSS scale.", "Hình học: ")
     add_bullet("Native controls, drag handle và readout cùng dùng một state.", "Tương tác: ")
     add_bullet("dispose() dọn listener, observer, RAF và DOM thuộc route.", "Vòng đời: ")
-    add_image_box(
-        "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch1-6-3-negative-area-win32.png",
-        "Mô phỏng xác định trọng tâm hình phẳng ghép và khoét, route ch1-6-3.",
-        "Ảnh chụp mô phỏng Sim2 route ch1-6-3 với hình ghép và phần diện tích khoét.",
-    )
 
     add_h2("3.3. Sim3 pilot và fallback")
     sim3_gate_status = gate_status["sim3-pilot"]
@@ -1337,10 +1434,62 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         ],
         "Quan hệ Sim2 canonical, Sim3 pilot và đường fallback.",
     )
+    add_h2("3.4. Ba mẫu kiểm chứng khoa học đại diện")
+    add_body(
+        "Ba mẫu được chọn theo ba mạch kiến thức chính. Mỗi mẫu ghi rõ mô hình, giả thiết, "
+        "đại lượng quan sát, oracle đối chiếu và giới hạn kết luận; đây là mẫu thẩm định, "
+        "không thay cho việc chuyên gia rà soát toàn bộ danh mục mô phỏng."
+    )
+    scientific_case_rows = [
+        (
+            "Chương 1 · ch1-6-3",
+            "Trọng tâm hình phẳng ghép và khoét",
+            omml_value([("sub", "x", "C"), " = Σ(Ax) / ΣA; ", ("sub", "y", "C"), " = Σ(Ay) / ΣA"]),
+            "Đối xứng, giới hạn không khoét và dấu diện tích",
+        ),
+        (
+            "Chương 2 · ch2-4-4",
+            "Hợp chuyển động và gia tốc Coriolis",
+            omml_value([("sub", "a", "C"), " = 2ω × ", ("sub", "v", "rel")]),
+            "Chiều vectơ, đơn vị và trường hợp ω hoặc vrel bằng 0",
+        ),
+        (
+            "Chương 3 · ch3-6-2",
+            "Va chạm một chiều với hệ số phục hồi",
+            omml_value([("sub", "p", "trước"), " = ", ("sub", "p", "sau"), "; 0 ≤ e ≤ 1"]),
+            "Miền 0 ≤ e ≤ 1, dấu vận tốc và các trường hợp biên",
+        ),
+    ]
+    add_caption(
+        doc,
+        "Bảng",
+        "Table",
+        "Ba ca kiểm chứng khoa học đại diện cho Tĩnh học, Động học và Động lực học.",
+    )
+    add_data_table(
+        doc,
+        ["Ca", "Bài toán", "Mô hình/giả thiết", "Oracle và biên"],
+        scientific_case_rows,
+        [Cm(3.1), Cm(4.0), Cm(4.8), Cm(4.5)],
+        font_size=8.2,
+    )
     add_image_box(
-        "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch2-4-4-coriolis-callout-win32.png",
-        "Mô phỏng hợp chuyển động và gia tốc Coriolis, route ch2-4-4.",
-        "Ảnh chụp route ch2-4-4 minh họa vectơ trong bài toán gia tốc Coriolis.",
+        "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch1-6-3.png",
+        "Chương 1 — ảnh chụp runtime kiểm chứng trọng tâm hình phẳng ghép và phần diện tích khoét, route ch1-6-3.",
+        "Ảnh chụp runtime Chương 1 về trọng tâm hình phẳng ghép với phần diện tích âm.",
+        15.5,
+    )
+    add_image_box(
+        "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch2-4-4.png",
+        "Chương 2 — ảnh chụp runtime kiểm chứng hướng và độ lớn gia tốc Coriolis, route ch2-4-4.",
+        "Ảnh chụp runtime Chương 2 về hợp chuyển động và gia tốc Coriolis.",
+        15.5,
+    )
+    add_image_box(
+        "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch3-6-2.png",
+        "Chương 3 — ảnh chụp runtime kiểm chứng trạng thái sau va chạm và hệ số phục hồi, route ch3-6-2.",
+        "Ảnh chụp runtime Chương 3 về va chạm một chiều và hệ số phục hồi.",
+        15.5,
     )
 
     # Chapter 4
@@ -1355,7 +1504,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         [
             "Mở package qua file://",
             "Chương 1 › Mô men",
-            "F = 50 N; d = 4,00 m",
+            "O cố định; F = 50 N; d⊥ = 4,00 m",
             "M = 200 N·m",
             "Đối chiếu PDF",
         ],
@@ -1364,7 +1513,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     demo_rows = [
         ("00:00–00:15", "Mở gói", "package/index.html qua file://"),
         ("00:15–00:30", "Vào bài", "Chương 1 › I › 4. Mô men"),
-        ("00:30–01:00", "Thao tác", "Giữ F = 50 N; kéo d đến 4,00 m"),
+        ("00:30–01:00", "Thao tác", "Giữ F = 50 N; kéo điểm đặt lực đến d⊥ = 4,00 m"),
         ("01:00–01:15", "Quan sát", "Readout M = 200 N·m; chiều quay cập nhật"),
         ("01:15–01:30", "Đối chiếu", "Mở PDF cục bộ và quay lại bài"),
     ]
@@ -1384,7 +1533,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     )
     add_image_box(
         "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/img-04-mo-men-ch1-1-4-1440x1000.png",
-        "Bước 2–4: thao tác route ch1-1-4; F = 50 N, d = 4,00 m, M = 200 N·m.",
+        "Bước 2–4: O cố định; giữ F = 50 N và kéo điểm đặt lực đến d⊥ = 4,00 m để đọc M = 200 N·m.",
         "Mô phỏng mô men lực với đầu vào, mô hình và readout đầu ra.",
         13.0,
     )
@@ -1433,11 +1582,6 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch2-3-2-transmission-win32.png",
         "Mô phỏng truyền động bánh răng, route ch2-3-2.",
         "Ảnh chụp mô phỏng cơ cấu truyền động tại route ch2-3-2.",
-    )
-    add_image_box(
-        "tools/sim2-visual/selective-baseline.spec.js-snapshots/ch3-6-2-collision-after-win32.png",
-        "Mô phỏng va chạm với hệ số phục hồi, route ch3-6-2.",
-        "Ảnh chụp trạng thái sau va chạm tại route ch3-6-2.",
     )
 
     # Chapter 5
@@ -1508,6 +1652,54 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
 
     # Chapter 6
     add_h1("Chương 6: Phản biện khoa học và hướng hoàn thiện", new_page=True)
+    add_h2("Phân tích kết quả")
+    add_body(
+        f"Hiện vật cho thấy độ phủ nội dung và tính truy vết kỹ thuật đã hình thành: "
+        f"{len(evidence['routes'])} tuyến nội dung, {evidence['equationOccurrenceCount']} lần xuất hiện công thức, "
+        f"{quiz_total} câu hỏi, {len(evidence['simulationSpecs'])} mô phỏng Sim2 và "
+        f"{gate_summary['pass']} cổng kỹ thuật đạt. Tuy nhiên, trạng thái tổng thể vẫn là "
+        f"{acceptance['overallStatus']} vì {gate_summary['blocked']} bằng chứng độc lập chưa hoàn tất."
+    )
+    add_h2("Đánh giá khoa học theo chuẩn đầu ra")
+    outcome_assessment_rows = [
+        (
+            "lo-course-foundation",
+            f"{len(evidence['routes'])} tuyến; mục lục, tìm kiếm và PDF cục bộ",
+            "Có dấu vết kỹ thuật; chuẩn đầu ra chưa được phê duyệt",
+        ),
+        (
+            "lo-ch1-statics",
+            f"{evidence['chapterCounts'][1]} tuyến; {evidence['quizCounts'][1]} câu; ca ch1-6-3",
+            "Đủ mẫu kiểm chứng; cần SME xác nhận mô hình và tiêu chí",
+        ),
+        (
+            "lo-ch2-kinematics",
+            f"{evidence['chapterCounts'][2]} tuyến; {evidence['quizCounts'][2]} câu; ca ch2-4-4",
+            "Đủ mẫu kiểm chứng; cần SME xác nhận hệ quy chiếu và dấu",
+        ),
+        (
+            "lo-ch3-dynamics",
+            f"{evidence['chapterCounts'][3]} tuyến; {evidence['quizCounts'][3]} câu; ca ch3-6-2",
+            "Đủ mẫu kiểm chứng; cần SME xác nhận giả thiết va chạm",
+        ),
+    ]
+    add_caption(
+        doc,
+        "Bảng",
+        "Table",
+        "Đánh giá mức độ hỗ trợ chuẩn đầu ra bằng bằng chứng hiện có.",
+    )
+    add_data_table(
+        doc,
+        ["Chuẩn đầu ra", "Bằng chứng hỗ trợ", "Kết luận thận trọng"],
+        outcome_assessment_rows,
+        [Cm(3.4), Cm(6.2), Cm(6.8)],
+        font_size=8.5,
+    )
+    add_body(
+        "Kết quả trên chỉ chứng minh sự hiện diện và khả năng truy vết của học liệu. Báo cáo chưa có "
+        "dữ liệu trước–sau, nhóm đối chứng hoặc phân tích thống kê để suy luận hiệu quả học tập."
+    )
     add_h2("6.1. Kết quả đã xác minh")
     add_bullet(
         f"Snapshot acceptance có {gate_summary['pass']} cổng pass; "
@@ -1550,7 +1742,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
             f"{gate['gateId']}: ",
         )
 
-    add_h2("6.3. Giới hạn khoa học")
+    add_h2("6.3. Đe dọa đối với độ giá trị")
     add_bullet(
         "Không có quyết định independent SME trong data/academic_signoffs.json.",
         "Học thuật: ",
@@ -1572,7 +1764,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         "Liên thông thực tế: ",
     )
 
-    add_h2("6.4. Lộ trình ưu tiên")
+    add_h2("6.4. Khuyến nghị và lộ trình ưu tiên")
     add_body(
         "Thứ tự xử lý phải đóng bằng chứng trước khi mở rộng tính năng:"
     )
@@ -1600,8 +1792,38 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     add_h2("6.5. Kết luận")
     add_body(profile["conclusion"])
 
+    add_h1("PHỤ LỤC A: ĐĂNG KÝ BẰNG CHỨNG", new_page=True)
+    add_body(
+        "Phụ lục ràng buộc từng hình được nhúng với đường dẫn, hash SHA-256 và nguồn có thẩm quyền. "
+        "Mã EV-IMG được dùng nhất quán trong chú thích hình để kiểm tra ngược hiện vật."
+    )
+    provenance_rows = []
+    for index, (relative_path, record) in enumerate(evidence["imageProvenance"].items(), 1):
+        provenance_rows.append(
+            (
+                f"EV-IMG-{index:02d}",
+                relative_path,
+                record["sha256"],
+                record["authority"],
+            )
+        )
+    add_caption(doc, "Bảng", "Table", "Đăng ký bằng chứng hình ảnh nhúng trong báo cáo.")
+    add_data_table(
+        doc,
+        ["Evidence ID", "Đường dẫn", "SHA-256", "Thẩm quyền"],
+        provenance_rows,
+        [Cm(2.2), Cm(6.0), Cm(4.3), Cm(3.9)],
+        font_size=7.2,
+    )
+
     # References and status registers
-    add_h1("Tài liệu tham chiếu và nguồn bằng chứng", new_page=True)
+    add_h1("Tài liệu tham khảo và nguồn bằng chứng", new_page=True)
+    add_h2("Tài liệu tham khảo")
+    add_body(
+        "Danh mục dưới đây ưu tiên nguồn chuẩn, registry và hồ sơ có thể kiểm tra lại. "
+        "Các tài liệu ở trạng thái provisional được dùng để mô tả phạm vi, không được dùng "
+        "như quyết định phê duyệt học thuật hoặc pháp lý."
+    )
     source_rows = [
         ("Trạng thái nghiệm thu", "data/acceptance-report.json", acceptance["overallStatus"]),
         ("Candidate", release_candidate["summaryPath"], release_candidate["status"]),
@@ -1652,7 +1874,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     right_paragraph = right.paragraphs[0]
     right_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
     right_run = right_paragraph.add_run(
-        "ĐƠN VỊ THẨM ĐỊNH ĐƯỢC CHỈ ĐỊNH\nTHEO QUYẾT ĐỊNH CHÍNH THỨC\n\n\n\n"
+        "ĐẠI DIỆN ĐƠN VỊ THẨM ĐỊNH ĐỘC LẬP\n\n\n\n\n"
         "(Chỉ ký sau khi đủ bằng chứng bắt buộc)"
     )
     set_run_font(right_run, size=10, color=COLOR_RED, bold=True)

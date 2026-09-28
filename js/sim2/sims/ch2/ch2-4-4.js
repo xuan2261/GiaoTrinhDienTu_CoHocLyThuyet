@@ -93,7 +93,7 @@
     }
 
     const panel = shell.setTheory({
-      formulas: ['\\textcolor{#d97706}{\\vec{a}_{cor}} = 2\\,\\vec{\\omega} \\times \\textcolor{#159c3a}{\\vec{v}_{rel}}', '|a_{cor}| = 2\\omega v_{rel}'],
+      formulas: ['\\textcolor{#d97706}{\\vec{a}_{cor}} = 2\\,\\vec{\\omega} \\times \\textcolor{#159c3a}{\\vec{v}_{rel}}', '|a_{cor}| = 2\\omega |v_{rel}|'],
       legend: [{ color: Pal.v, label: 'v_rel' }, { color: Pal.coriolis, label: 'a Coriolis' }],
       observe: 'Bấm ▶. v_rel,max đặt biên độ vận tốc tương đối; readout v_rel(t) là giá trị tức thời dùng trong a_cor.'
     });

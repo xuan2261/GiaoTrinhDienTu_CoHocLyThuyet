@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" role="img" aria-label="Sơ đồ va chạm một chiều trước và sau: kiểm tra bảo toàn động lượng và hệ số phục hồi">
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1L11 6 1 11" fill="none" stroke="#136d8a" stroke-width="2"/></marker></defs>
+<rect width="800" height="560" fill="#f8fbfd"/><rect x="18" y="18" width="764" height="524" rx="20" fill="#f8fbfd" stroke="#d3dfe8" stroke-width="2"/>
+<text x="48" y="69" font-family="Arial,sans-serif" font-size="35" font-weight="700" fill="#102944">VA CHẠM MỘT CHIỀU</text>
+<text x="56" y="136" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#52637b">TRƯỚC</text><path d="M190 124H730" stroke="#d3dfe8" stroke-width="3"/>
+<path d="M65 266H722" stroke="#60788d" stroke-width="4"/><circle cx="215" cy="233" r="33" fill="#136d8a"/><circle cx="515" cy="233" r="33" fill="#c37630"/>
+<path d="M255 186H400" stroke="#136d8a" stroke-width="7" marker-end="url(#arrow)"/><path d="M555 186H615" stroke="#136d8a" stroke-width="7" marker-end="url(#arrow)"/>
+<text x="195" y="245" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="white">1</text><text x="495" y="245" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="white">2</text>
+<text x="278" y="155" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#136d8a">u₁</text><text x="560" y="155" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#136d8a">u₂</text>
+<text x="56" y="328" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#52637b">SAU</text><path d="M147 317H730" stroke="#d3dfe8" stroke-width="3"/>
+<path d="M65 455H722" stroke="#60788d" stroke-width="4"/><circle cx="215" cy="422" r="33" fill="#136d8a"/><circle cx="515" cy="422" r="33" fill="#c37630"/>
+<path d="M255 375H310" stroke="#136d8a" stroke-width="7" marker-end="url(#arrow)"/><path d="M555 375H665" stroke="#136d8a" stroke-width="7" marker-end="url(#arrow)"/>
+<text x="195" y="434" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="white">1</text><text x="495" y="434" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="white">2</text><text x="275" y="348" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#136d8a">v₁</text><text x="565" y="348" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#136d8a">v₂</text>
+<rect x="80" y="483" width="640" height="56" rx="9" fill="#e3f1f6"/><text x="108" y="519" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#102944">Hệ cô lập: p trước = p sau; 0 ≤ e ≤ 1</text>
+</svg>

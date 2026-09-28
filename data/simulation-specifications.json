@@ -1241,7 +1241,7 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch2/ch2-4-4.js",
-          "sha256": "a6bec64a1bbea74e92ed47a730cf7215cc5e93e0be2ab51757dd621242495ec6"
+          "sha256": "add40a7a6ede679845d8ec82bfda1569903dfe81be946f0a1fb5d7559b4d1eb7"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",

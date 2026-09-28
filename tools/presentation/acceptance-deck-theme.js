@@ -22,6 +22,7 @@ function contain(file, x, y, w, h) {
   const s = pngSize(file), r = s.width / s.height, box = w / h;
   if (r > box) { const ih = w / r; return { path: file, x, y: y + (h - ih) / 2, w, h: ih }; }
   const iw = h * r; return { path: file, x: x + (w - iw) / 2, y, w: iw, h };
+
 }
 
 function addText(slide, text, o = {}) {
@@ -35,6 +36,33 @@ function addText(slide, text, o = {}) {
     bullet: o.bullet, isTextBox: true,
   });
 }
+function addSemanticTitle(slide, text, o = {}) {
+  const textColor = o.color || C.navy950;
+  const fontSize = o.fontSize || (text.length > 45 ? 28 : 34);
+  const fontFace = o.fontFace || F.heading;
+  const bold = o.bold === undefined ? true : o.bold;
+  slide.addText(
+    [{ text, options: { color: textColor, fontSize, fontFace, bold } }],
+    {
+      placeholder: 'slideTitle',
+      x: o.x === undefined ? 0.67 : o.x,
+      y: o.y === undefined ? 0.68 : o.y,
+      w: o.w === undefined ? 12.0 : o.w,
+      h: o.h === undefined ? 0.78 : o.h,
+      fontFace,
+      fontSize,
+      color: textColor,
+      bold,
+      align: o.align || 'left',
+      valign: o.valign || 'mid',
+      margin: 0,
+      breakLine: false,
+      fit: 'shrink',
+      isTextBox: false,
+    }
+  );
+}
+
 
 function addPanel(slide, pptx, o = {}) {
   slide.addShape(pptx.ShapeType.roundRect, {
@@ -45,24 +73,24 @@ function addPanel(slide, pptx, o = {}) {
   });
 }
 
-function addTitle(slide, pptx, title, index, section = 'BÁO CÁO NGHIỆM THU', backup = false) {
+function addTitle(slide, pptx, title, index, section = 'BÁO CÁO KHOA HỌC', backup = false) {
   slide.background = { color: C.paper };
   slide.addShape(pptx.ShapeType.line, { x: 0.67, y: 0.43, w: 0.52, h: 0, line: { color: C.gold, pt: 2 } });
-  addText(slide, backup ? 'PHỤ LỤC / DEMO DỰ PHÒNG' : section, { x: 1.32, y: 0.28, w: 4.5, h: 0.25, fontSize: 9.5, bold: true, color: C.slate, valign: 'mid' });
-  addText(slide, title, { x: 0.67, y: 0.68, w: 12.0, h: 0.78, fontFace: F.heading, fontSize: 36, bold: true, color: C.navy950, valign: 'mid' });
+  addText(slide, backup ? 'PHỤ LỤC / DỰ PHÒNG' : section, { x: 1.32, y: 0.28, w: 4.5, h: 0.25, fontSize: 9.5, bold: true, color: C.slate, valign: 'mid' });
+  addSemanticTitle(slide, title);
   addText(slide, String(index).padStart(2, '0'), { x: 12.15, y: 0.28, w: 0.5, h: 0.25, fontSize: 10, bold: true, color: C.gold, align: 'right' });
 }
 
 function addFooter(slide, index, source = '', backup = false) {
   slide.addShape('line', { x: 0.67, y: 7.13, w: 12.0, h: 0, line: { color: C.line, pt: 0.75 } });
-  addText(slide, backup ? 'BACKUP' : 'HỘI ĐỒNG KHOA HỌC KHOA KTCS · 2026', { x: 0.67, y: 7.2, w: 3.9, h: 0.16, fontSize: 8.2, bold: backup, color: C.slate });
+  addText(slide, backup ? 'PHỤ LỤC / DỰ PHÒNG' : 'BÁO CÁO KHOA HỌC · 2026', { x: 0.67, y: 7.2, w: 3.9, h: 0.16, fontSize: 8.2, bold: backup, color: C.slate });
   addText(slide, source, { x: 4.15, y: 7.2, w: 7.75, h: 0.16, fontSize: 7.6, color: C.slate, align: 'center' });
   addText(slide, String(index), { x: 12.1, y: 7.2, w: 0.55, h: 0.16, fontSize: 8.2, color: C.slate, align: 'right' });
 }
 
 function addTakeaway(slide, pptx, text, y = 1.54) {
-  slide.addShape(pptx.ShapeType.rect, { x: 0.67, y, w: 12, h: 0.5, fill: { color: 'EEF2F7' }, line: { color: C.line, pt: 0.5 } });
-  addText(slide, text, { x: 0.9, y: y + 0.08, w: 11.55, h: 0.3, fontSize: 16.5, bold: true, color: C.navy800, valign: 'mid' });
+  slide.addShape(pptx.ShapeType.rect, { x: 0.67, y, w: 12, h: 0.52, fill: { color: 'EEF2F7' }, line: { color: C.line, pt: 0.5 } });
+  addText(slide, text, { x: 0.85, y: y + 0.05, w: 11.65, h: 0.42, fontSize: 17, bold: true, color: C.navy800, valign: 'mid' });
 }
 
 function addMetric(slide, pptx, value, label, x, y, w = 1.9, color = C.navy800) {
@@ -84,10 +112,10 @@ function addNotes(slide, data) {
 }
 
 function addCommon(slide, pptx, data) {
-  addTitle(slide, pptx, data.title, data.id, 'BÁO CÁO NGHIỆM THU', !!data.backup);
+  addTitle(slide, pptx, data.title, data.id, 'BÁO CÁO KHOA HỌC', !!data.backup);
   addTakeaway(slide, pptx, data.takeaway);
-  addFooter(slide, data.id, (data.sources || [])[0] || '', !!data.backup);
+  addFooter(slide, data.id, data.sourceId || '', !!data.backup);
   addNotes(slide, data);
 }
 
-module.exports = { C, F, SW, SH, addText, addPanel, addTitle, addFooter, addTakeaway, addMetric, addImageCard, addNotes, addCommon, contain };
+module.exports = { C, F, SW, SH, addText, addSemanticTitle, addPanel, addTitle, addFooter, addTakeaway, addMetric, addImageCard, addNotes, addCommon, contain };

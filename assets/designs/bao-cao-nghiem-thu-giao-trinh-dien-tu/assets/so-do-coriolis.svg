@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" role="img" aria-label="Hướng của gia tốc Coriolis khi omega hướng ra khỏi màn hình và vận tốc tương đối sang phải">
+<defs><marker id="blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1L11 6 1 11" fill="none" stroke="#136d8a" stroke-width="2"/></marker><marker id="orange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1L11 6 1 11" fill="none" stroke="#bb641f" stroke-width="2"/></marker></defs>
+<rect width="800" height="560" fill="#f8fbfd"/><rect x="18" y="18" width="764" height="524" rx="20" fill="#f8fbfd" stroke="#d3dfe8" stroke-width="2"/>
+<text x="50" y="70" font-family="Arial,sans-serif" font-size="35" font-weight="700" fill="#102944">HỢP CHUYỂN ĐỘNG: CORIOLIS</text>
+<circle cx="245" cy="298" r="170" fill="#e8f2f8" stroke="#77adc5" stroke-width="4"/><circle cx="245" cy="298" r="15" fill="none" stroke="#102944" stroke-width="4"/><circle cx="245" cy="298" r="5" fill="#102944"/>
+<path d="M245 298H430" stroke="#688096" stroke-width="3" stroke-dasharray="8 7"/><circle cx="430" cy="298" r="14" fill="#102944"/>
+<path d="M442 298H660" stroke="#136d8a" stroke-width="8" marker-end="url(#blue)"/><text x="470" y="250" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#136d8a">v tương đối</text>
+<path d="M430 278V115" stroke="#bb641f" stroke-width="8" marker-end="url(#orange)"/><text x="465" y="172" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#a65312">a Coriolis</text>
+<text x="53" y="174" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#102944">ω: ra khỏi mặt phẳng</text>
+<rect x="52" y="477" width="696" height="62" rx="10" fill="#e3f1f6"/><text x="84" y="517" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#102944">a Coriolis = 2ω × v tương đối</text>
+</svg>

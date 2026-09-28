@@ -1,49 +1,103 @@
-HƯỚNG DẪN VẬN HÀNH PHIÊN BÁO CÁO NGHIỆM THU — 15:00
+HƯỚNG DẪN TRÌNH BÀY BÁO CÁO KẾT QUẢ — 15:00
+
+MỤC ĐÍCH
+Trình bày hiện vật Giáo trình điện tử Cơ học lý thuyết đã được xây dựng ở mức ứng viên, cho Hội đồng xem hiện vật và xin góp ý để tiếp tục hoàn thiện.
+Đề nghị cuối phiên: Hội đồng ghi nhận việc đã xây dựng hiện vật và cho ý kiến góp ý.
+Không đề nghị chấp thuận học thuật, nghiệm thu cuối cùng hoặc phát hành.
 
 I. TỆP SỬ DỤNG
 1. PowerPoint chính:
    assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pptx
-2. Web Slides offline dự phòng:
+2. PDF slide dự phòng:
+   assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pdf
+3. Web Slides offline dự phòng:
    assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/presentation-slides.html
-3. Handout A4:
+4. Handout A4:
    assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/handout-in-an-hoi-dong.html
-4. Candidate demo:
+5. Báo cáo khoa học tham khảo:
+   BaoCao_KhoaHoc_GiaoTrinhDienTu_CoHocLyThuyet.pdf
+6. Gói cục bộ dự phòng:
    release/2026.09.02-candidate/package/index.html
 
-II. PHÂN BỔ 13 SLIDE CHÍNH
-S01 0:35 Nguyễn Lê Văn  — Mở đầu và đề nghị
-S02 0:45 Nguyễn Lê Văn  — 45/29/31 route + 3 route bổ trợ
-S03 0:45 Nguyễn Lê Văn  — Nguồn chuẩn và trách nhiệm
-S04 1:05 Đinh Văn Tứ    — Vòng học khép kín
-S05 1:05 Bùi Thanh Xuân — Kiến trúc ngoại tuyến
-S06 1:10 Đinh Văn Tứ    — Học liệu gắn ngữ cảnh
-S07 1:10 Đinh Văn Tứ    — Ví dụ M = F·d = 200 N·m
-S08 1:30 Bùi Thanh Xuân — Demo offline 90 giây
-S09 1:05 Bùi Thanh Xuân — Máy kiểm / người thẩm định
-S10 1:20 Bùi Thanh Xuân — Candidate 372 tệp, 78,7 MB
-S11 1:25 Bùi Thanh Xuân — 20 pass, 4 blocked
-S12 1:15 Nguyễn Lê Văn  — Bốn điều kiện đóng
-S13 1:50 Nguyễn Lê Văn  — Đề nghị Hội đồng
-TỔNG: 15:00
+TRÌNH CHIẾU WEB NGOẠI TUYẾN
+Mở presentation-slides.html và chọn “Bắt đầu trình chiếu”. Nút Trước/Tiếp hoặc phím trái/phải chuyển slide. Home tới slide đầu; End tới slide cuối; Esc về tổng quan. Không có tự động chuyển trang. Bản in web chứa đủ 19 slide; PDF PowerPoint giữ bố cục 16:9 cố định.
 
-III. DEMO 90 GIÂY
-00:00–00:15  Mở package/index.html qua file://
-00:15–00:30  Chọn Chương 1 > I > 4. Mô men
-00:30–01:00  Giữ F = 50 N; kéo d đến 4,00 m
-01:00–01:15  Xác nhận M = 200 N·m và chiều quay cập nhật
-01:15–01:30  Mở PDF cục bộ rồi quay lại bài
+II. PHÂN BỔ 13 SLIDE CHÍNH — 12:00
+S01 0:45 Nguyễn Lê Văn   — Kết quả xây dựng Giáo trình điện tử Cơ học lý thuyết
+S02 0:55 Nguyễn Lê Văn   — Nhu cầu dạy–học mà sản phẩm hướng tới
+S03 0:55 Nguyễn Lê Văn   — Kết quả tổng thể: học liệu số cho ba mạch kiến thức
+S04 1:00 Nguyễn Lê Văn   — Vòng học hỗ trợ tự học
+S05 0:45 Nguyễn Lê Văn   — Trải nghiệm hiện vật
+S06 0:40 Đinh Văn Tứ     — Ca đối chiếu khoa học 1 · Trọng tâm diện tích
+S07 0:40 Đinh Văn Tứ     — Ca đối chiếu khoa học 2 · Gia tốc Coriolis
+S08 0:40 Đinh Văn Tứ     — Ca đối chiếu khoa học 3 · Va chạm thẳng một chiều
+S09 1:30 Bùi Thanh Xuân  — Minh họa thao tác · Mô men của lực
+S10 0:55 Bùi Thanh Xuân  — Căn cứ Hội đồng có thể kiểm tra
+S11 1:00 Bùi Thanh Xuân  — Kết quả đã có và giới hạn còn lại
+S12 1:00 Bùi Thanh Xuân  — Bốn nội dung xin ý kiến góp ý
+S13 1:15 Nguyễn Lê Văn   — Đề nghị ghi nhận việc xây dựng hiện vật
+NỘI DUNG CHÍNH: 12:00
+PHỤ LỤC VÀ HỎI–ĐÁP: 03:00
+TỔNG THỜI LƯỢNG: 15:00
 
-Nếu demo trực tiếp lỗi: dừng; dùng ba ảnh minh chứng trên Slide 08. Không sửa hệ thống trước Hội đồng.
+III. NỘI DUNG CHÍNH
+S01 Báo cáo hiện vật mức ứng viên đã xây dựng: bài học, hình minh họa, mô phỏng và câu hỏi tự kiểm tra; trình bày ba ca đối chiếu khoa học và một thao tác trực tiếp.
+S02 Nêu các nhu cầu: công thức trừu tượng, hình tĩnh, thiếu thao tác và thiếu phản hồi khi tự học. Đây là nhu cầu sản phẩm hướng tới.
+S03 Nêu 108 mục/trang hiển thị trong manifest: 45 tĩnh học, 29 động học, 31 động lực học và 3 mục/trang hỗ trợ. Không gọi đây là 108 mục nội dung học tập.
+S04 Nói: “Thiết kế hướng tới vòng chọn bài → học lý thuyết → quan sát → thao tác → tự kiểm tra → xem lại.” Đây là ý đồ thiết kế; không khẳng định luồng vận hành từ đầu đến cuối đã được xác nhận hoặc hiệu quả với người học đã được xác nhận.
+S05 Mời Hội đồng quét QR để mở bản web để trình diễn. Bản web chưa được chứng minh giống hệt gói ứng viên 2026.09.02-candidate và không thay thế kiểm tra gói ứng viên. Nếu web không mở được, gói cục bộ chỉ là phương án dự phòng. Đây chỉ là trải nghiệm hiện vật.
+S06 Ca đối chiếu khoa học 1 chưa được thẩm định độc lập. Với đúng hình đang trình bày, dùng tính đối xứng, giới hạn tọa độ và phép tính diện tích có dấu; phần khoét có diện tích âm trong tổng diện tích và tổng mô men. Không nói trọng tâm phải nằm trong phần vật liệu hoặc đường bao hình học.
+S07 Ca đối chiếu khoa học 2 chưa được thẩm định độc lập. Với mô hình phẳng, ω vuông góc vrel nên |aCor| = 2ω|vrel|. Trường hợp tổng quát có thêm sin của góc giữa hai vectơ. Gia tốc Coriolis chỉ là một thành phần, không phải toàn bộ gia tốc.
+S08 Ca đối chiếu khoa học 3 chưa được thẩm định độc lập. Đây là va chạm thẳng một chiều thụ động, với xung lực ngoài theo phương va chạm không đáng kể, 0 ≤ e ≤ 1 và phương trình tổng động lượng m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂.
+S09 Điểm O và phương lực cố định, θ = 90°. Giữ F = 50 N, kéo điểm đặt lực đến d⊥ = 4,00 m, đọc M = +200 N·m rồi đối chiếu PDF cục bộ. Quy ước ngược chiều kim đồng hồ là dương; phần minh họa không thay đổi θ hoặc dấu mô men. Thực hiện theo các bước ở Mục IV.
+S10 Nêu căn cứ có thể kiểm tra và lặp lại 108 mục/trang hiển thị trong manifest: 45/29/31 và 3 mục/trang hỗ trợ; không phải 108 mục nội dung học tập. Có thể đối chiếu bài học, hình, công thức, mô phỏng, câu hỏi và DOCX nguồn.
+S11 Hiện vật mức ứng viên đã được xây dựng. Không nói hiện vật đã vận hành đầy đủ hoặc đã được kết nối đầy đủ. Ba ca đối chiếu là ví dụ để so sánh, chưa được thẩm định độc lập và không dùng để kết luận học thuật. Chưa có chữ ký học thuật độc lập; bốn kết quả học tập mới ở mức sơ bộ; hiệu quả với người học cần đánh giá thêm.
+    Tình trạng phát hành chỉ được trình bày tại phụ lục S17–S18.
+S12 Xin góp ý về: độ đúng và rõ của ví dụ cơ học; vòng tự học; điều kiện–tiêu chí của bốn kết quả học tập sơ bộ tại S14 và ba câu hỏi đại diện đang hiển thị; việc cần sửa trước. Ba câu hỏi chỉ là mẫu để góp ý, không chứng minh mức đạt chuẩn đầu ra.
+S13 Xin Hội đồng ghi nhận việc đã xây dựng hiện vật và cho ý kiến góp ý. Không đề nghị chấp thuận học thuật, nghiệm thu cuối cùng hoặc quyết định phát hành. Dự thảo biên bản: Hội đồng ghi nhận nhóm tác giả đã xây dựng hiện vật giáo trình điện tử ở mức ứng viên và đề nghị tiếp thu ý kiến để hoàn thiện; phiên họp này không kết luận chấp thuận học thuật, nghiệm thu cuối cùng hoặc phát hành.
 
-IV. PHỤ LỤC
-S14 Kiến trúc Sim2 canonical / Sim3 pilot / fallback
-S15 Bốn cổng blocked và artifact cần nộp
-S16 Sáu câu hỏi trọng tâm và nguồn kiểm chứng
+IV. MINH HỌA SLIDE 09 — 90 GIÂY
+00:00–00:15  Mở gói cục bộ qua file://
+00:15–00:30  Chọn Chương 1 > Mục 4: Mô men của lực
+00:30–01:00  Điểm O và phương lực cố định; giữ F = 50 N, kéo điểm đặt lực đến d⊥ = 4,00 m
+01:00–01:15  Đối chiếu M = +200 N·m; quy ước ngược chiều kim đồng hồ là dương
+01:15–01:30  Mở PDF cục bộ, đối chiếu công thức rồi quay lại bài; không đổi θ hoặc dấu mô men
 
-V. CÂU KHÔNG ĐƯỢC NÓI
-- Hoàn thành 100%.
-- Đã đạt WCAG 2.2 AA toàn hệ thống.
-- Đã import thành công vào LMS.
-- Sim3 là mô phỏng 4D.
-- 20/24 là điểm chất lượng 83,3%.
-- Candidate đã sẵn sàng phát hành chính thức.
+Nếu phần minh họa gián đoạn: chuyển sang ảnh đã chuẩn bị trên Slide 09 và nói rõ đây là phần minh họa bị gián đoạn. Không suy diễn thêm từ sự cố.
+
+V. PHỤ LỤC VÀ HỎI–ĐÁP — 03:00
+S14 Bốn kết quả học tập ở mức sơ bộ: có 0 chữ ký; từng kết quả có điều kiện và tiêu chí dự kiến; không có ngoại lệ đánh giá được khai báo.
+S15 Lưu ý cho ba ca đối chiếu khoa học: chưa được thẩm định độc lập. Hình là ảnh chụp khi mô phỏng đang chạy. Trọng tâm: đối xứng, giới hạn tọa độ, diện tích có dấu. Coriolis: chỉ một thành phần. Va chạm: xung lực ngoài theo phương va chạm không đáng kể, 0 ≤ e ≤ 1.
+S16 Ý kiến học thuật độc lập còn cần bổ sung. Kết luận học thuật chỉ cập nhật khi có chứng cứ được ủy quyền.
+S17 Tình trạng phát hành kỹ thuật: snapshot nền của 24 cổng là ngày 2026-09-21; bằng chứng mô phỏng được làm mới ngày 2026-09-25, không đồng nghĩa toàn bộ cổng đã chạy lại. Không suy ra tình trạng phát hành từ bản web hoặc gói cục bộ. Chín trạng thái “không đạt” đều dừng vì Playwright không tìm thấy Chromium, không chứng minh các kiểm tra vật lý hoặc chức năng đã thất bại. Có derivative QTI 3 và Common Cartridge 1.4, nhưng chưa có bằng chứng nhập thành công vào LMS.
+S18 Nêu đủ chín phép kiểm tra dừng do thiếu Chromium và bốn nội dung độc lập chưa thể thực hiện: thẩm định học thuật, đánh giá khả năng tiếp cận độc lập, chạy thử ứng viên trên thiết bị thật và đối sánh vòng lặp Word. Với bộ kiểm tra vật lý mô phỏng, không nói các phép kiểm tra vật lý đã thất bại.
+S19 Trả lời ngắn theo hiện trạng: quyết định phát hành chỉ cập nhật sau khi chạy lại đủ 24 kiểm tra và không còn “không đạt”, “chưa thể thực hiện” hoặc “chưa chạy”.
+
+Chỉ S17 và S18 trình bày tình trạng phát hành.
+
+VI. TRẢ LỜI NGẮN
+1. Đã có chữ ký học thuật độc lập chưa?
+   Chưa. Hiện có 0 chữ ký học thuật độc lập.
+2. Bốn kết quả học tập có phải là bản cuối không?
+   Chưa. Chúng đang ở mức sơ bộ; không có ngoại lệ đánh giá được khai báo.
+3. Ca đối chiếu trọng tâm có lưu ý gì?
+   Với đúng hình này, dùng đối xứng, giới hạn tọa độ và diện tích có dấu; không nói trọng tâm phải nằm trong phần vật liệu hoặc đường bao hình học.
+4. Gia tốc Coriolis có phải toàn bộ gia tốc không?
+   Không. Đây chỉ là một thành phần của gia tốc.
+5. Khi nào ca va chạm một chiều dùng bảo toàn tổng động lượng?
+   Khi va chạm thụ động, xung lực ngoài theo phương va chạm không đáng kể và 0 ≤ e ≤ 1; dùng m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂.
+6. Phần minh họa mô men dùng các giá trị nào?
+   Điểm O cố định, θ = 90°; giữ F = 50 N, kéo điểm đặt lực đến d⊥ = 4,00 m, đọc M = +200 N·m rồi đối chiếu PDF cục bộ. Quy ước ngược chiều kim đồng hồ là dương; phần minh họa không đổi θ hoặc dấu.
+7. QR mở gì và có thay thế kiểm tra gói ứng viên không?
+   QR mở bản web để trình diễn. Bản web chưa được chứng minh giống hệt gói ứng viên 2026.09.02-candidate, không thay thế kiểm tra gói ứng viên; gói cục bộ chỉ là dự phòng.
+8. Khi nào cập nhật quyết định phát hành?
+   Sau khi chạy lại đủ 24 kiểm tra và không còn “không đạt”, “chưa thể thực hiện” hoặc “chưa chạy”.
+
+VII. CÁCH DIỄN ĐẠT CẦN TRÁNH
+- Đã có chữ ký học thuật độc lập.
+- Bốn kết quả học tập đã là bản cuối.
+- Ba ca đối chiếu đã được thẩm định độc lập.
+- Phần minh họa trực tiếp chứng minh hiệu quả học tập.
+- Mô phỏng thay thế hoàn toàn việc học với giảng viên.
+- Bản web để trình diễn giống hệt gói ứng viên hoặc thay thế kiểm tra gói ứng viên.
+- Tình trạng phát hành được kết luận từ phần trình diễn.

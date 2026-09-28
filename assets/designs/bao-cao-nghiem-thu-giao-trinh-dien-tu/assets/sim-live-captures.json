@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-09-25T13:49:15.971Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "captures": [
+    {
+      "route": "ch1-6-3",
+      "file": "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch1-6-3.png",
+      "focusedFile": "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch1-6-3-focus.png",
+      "width": 1320,
+      "height": 760,
+      "focusedHeight": 580,
+      "steps": 0,
+      "label": "Trọng tâm hình phẳng ghép và khoét"
+    },
+    {
+      "route": "ch2-4-4",
+      "file": "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch2-4-4.png",
+      "focusedFile": "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch2-4-4-focus.png",
+      "width": 1320,
+      "height": 760,
+      "focusedHeight": 580,
+      "steps": 120,
+      "label": "Hợp chuyển động và gia tốc Coriolis"
+    },
+    {
+      "route": "ch3-6-2",
+      "file": "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch3-6-2.png",
+      "focusedFile": "assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/assets/sim-live-ch3-6-2-focus.png",
+      "width": 1320,
+      "height": 760,
+      "focusedHeight": 580,
+      "steps": 125,
+      "label": "Va chạm một chiều với hệ số phục hồi"
+    }
+  ]
+}

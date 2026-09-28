@@ -10,8 +10,10 @@ from tools import validate_release_candidate as candidate
 class ReleaseCandidateTest(unittest.TestCase):
     def test_current_candidate_is_policy_validated(self):
         inventory = candidate.validate()
+        expected_contract = json.loads(candidate.CONTRACT.read_text(encoding="utf-8"))
+        expected_summary = json.loads((candidate.ROOT / expected_contract["summaryPath"]).read_text(encoding="utf-8"))
         self.assertEqual(inventory["status"], "verified")
-        self.assertEqual(inventory["summary"]["releaseVersion"], "2026.08.25-candidate")
+        self.assertEqual(inventory["summary"]["releaseVersion"], expected_summary["releaseVersion"])
         self.assertEqual(len(inventory["derivatives"]), 2)
 
     def test_summary_path_must_remain_in_repository(self):

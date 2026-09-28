@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" role="img" aria-label="Hình phẳng ghép có lỗ khoét: diện tích lỗ mang dấu âm, trọng tâm dịch về phía đối diện">
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 L11 6 L1 11" fill="none" stroke="#136d8a" stroke-width="2"/></marker><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#dce6ee" stroke-width="1"/></pattern></defs>
+<rect width="800" height="560" fill="#f8fbfd"/><rect x="18" y="18" width="764" height="524" rx="20" fill="url(#grid)" stroke="#d3dfe8" stroke-width="2"/>
+<text x="50" y="70" font-family="Arial,sans-serif" font-size="35" font-weight="700" fill="#102944">TRỌNG TÂM HÌNH GHÉP / KHOÉT</text>
+<rect x="105" y="145" width="500" height="265" rx="8" fill="#cce8f4" stroke="#136d8a" stroke-width="4"/><circle cx="485" cy="276" r="70" fill="#f8fbfd" stroke="#ce7a28" stroke-width="4" stroke-dasharray="11 7"/>
+<path d="M355 125V445M80 276H635" stroke="#688096" stroke-width="2" stroke-dasharray="8 8"/><circle cx="355" cy="276" r="8" fill="#52637b"/><text x="300" y="480" font-family="Arial,sans-serif" font-size="25" fill="#52637b">G₁, hình chưa khoét</text>
+<circle cx="318" cy="276" r="11" fill="#136d8a"/><path d="M350 235H319" stroke="#136d8a" stroke-width="4" marker-end="url(#arrow)"/><text x="128" y="196" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#136d8a">G, sau khi khoét</text>
+<text x="420" y="267" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#a65312">A₂ &lt; 0</text><text x="133" y="370" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#136d8a">A₁ &gt; 0</text>
+<rect x="60" y="497" width="680" height="32" rx="7" fill="#e3f1f6"/><text x="88" y="521" font-family="Arial,sans-serif" font-size="24" fill="#102944">Kiểm tra nhanh: lỗ bên phải → trọng tâm dịch sang trái</text>
+</svg>
