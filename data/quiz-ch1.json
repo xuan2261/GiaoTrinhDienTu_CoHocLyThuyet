@@ -180,17 +180,17 @@
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch1.json#quiz-ch1-008",
-      "question": "Phản lực liên kết có đặc điểm gì?",
+      "question": "Phản lực của mặt tựa nhẵn lên vật tại điểm tiếp xúc có phương nào?",
       "options": [
-        "Luôn vuông góc mặt tiếp xúc",
-        "Cùng phương, ngược chiều với lực bị cản",
+        "Tiếp tuyến với mặt tựa",
+        "Vuông góc với mặt tựa tại điểm tiếp xúc",
         "Luôn thẳng đứng",
         "Luôn nằm ngang"
       ],
       "correct": 1,
-      "explanation": "❌ Phản lực liên kết ngược chiều với dịch chuyển bị liên kết cản trở.",
-      "feedbackCorrect": "✅ Phản lực liên kết cùng phương, ngược chiều với dịch chuyển bị cản.",
-      "feedbackWrong": "❌ Phản lực liên kết ngược chiều với dịch chuyển bị liên kết cản trở."
+      "explanation": "Mặt tựa nhẵn không truyền lực tiếp tuyến. Phản lực tiếp xúc theo pháp tuyến chung của hai mặt tại điểm tiếp xúc.",
+      "feedbackCorrect": "Đúng. Mặt tựa nhẵn không truyền lực tiếp tuyến. Phản lực tiếp xúc theo pháp tuyến chung của hai mặt tại điểm tiếp xúc.",
+      "feedbackWrong": "Chưa đúng. Mặt tựa nhẵn không truyền lực tiếp tuyến. Phản lực tiếp xúc theo pháp tuyến chung của hai mặt tại điểm tiếp xúc."
     },
     {
       "id": "quiz-ch1-009",
@@ -466,17 +466,17 @@
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch1.json#quiz-ch1-021",
-      "question": "Liên kết thanh chỉ cho phản lực có phương:",
+      "question": "Thanh lý tưởng chỉ chịu hai lực tại hai khớp đầu mút cho phản lực có phương nào?",
       "options": [
         "Vuông góc thanh",
         "Dọc theo thanh",
         "Bất kỳ",
-        "Song song thanh"
+        "Theo phương bất kỳ trong mặt phẳng"
       ],
       "correct": 1,
-      "explanation": "❌ Liên kết thanh: phản lực dọc theo trục thanh.",
-      "feedbackCorrect": "✅ Thanh 2 đầu khớp: phản lực dọc theo thanh.",
-      "feedbackWrong": "❌ Liên kết thanh: phản lực dọc theo trục thanh."
+      "explanation": "Với thanh hai lực cân bằng, hai lực phải cùng đường tác dụng dọc theo trục nối hai khớp, ngược chiều và bằng nhau.",
+      "feedbackCorrect": "Đúng. Với thanh hai lực cân bằng, hai lực phải cùng đường tác dụng dọc theo trục nối hai khớp, ngược chiều và bằng nhau.",
+      "feedbackWrong": "Chưa đúng. Với thanh hai lực cân bằng, hai lực phải cùng đường tác dụng dọc theo trục nối hai khớp, ngược chiều và bằng nhau."
     },
     {
       "id": "quiz-ch1-022",
@@ -598,7 +598,7 @@
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch1.json#quiz-ch1-027",
-      "question": "Khi R ≠ 0 thì hệ lực thu gọn về:",
+      "question": "Một hệ lực trong không gian có R ≠ 0 và M_O · R = 0 thì thu gọn được về:",
       "options": [
         "Ngẫu lực",
         "Hợp lực duy nhất",
@@ -606,9 +606,9 @@
         "Không thu gọn được"
       ],
       "correct": 1,
-      "explanation": "❌ Khi R ≠ 0 hệ lực thu gọn về 1 hợp lực.",
-      "feedbackCorrect": "✅ R ≠ 0 → hệ lực có hợp lực.",
-      "feedbackWrong": "❌ Khi R ≠ 0 hệ lực thu gọn về 1 hợp lực."
+      "explanation": "Với R ≠ 0 và M_O · R = 0, hệ tương đương một hợp lực có đường tác dụng xác định. Nếu M_O · R khác 0, phải giữ thêm một ngẫu lực song song với R (hệ lực xoắn).",
+      "feedbackCorrect": "Đúng. Với R ≠ 0 và M_O · R = 0, hệ tương đương một hợp lực có đường tác dụng xác định. Nếu M_O · R khác 0, phải giữ thêm một ngẫu lực song song với R (hệ lực xoắn).",
+      "feedbackWrong": "Chưa đúng. Với R ≠ 0 và M_O · R = 0, hệ tương đương một hợp lực có đường tác dụng xác định. Nếu M_O · R khác 0, phải giữ thêm một ngẫu lực song song với R (hệ lực xoắn)."
     },
     {
       "id": "quiz-ch1-028",
@@ -1109,12 +1109,12 @@
         "12 N",
         "√10 N",
         "2 N",
-        "√(1+9) = √10 N"
+        "4 N"
       ],
       "correct": 1,
-      "explanation": "❌ Rx=3, Ry=1 → R = √(9+1) = √10 ≈ 3.16 N.",
-      "feedbackCorrect": "✅ Rx=3, Ry=5-4=1 → R=√(9+1)=√10 N.",
-      "feedbackWrong": "❌ Rx=3, Ry=1 → R = √(9+1) = √10 ≈ 3.16 N."
+      "explanation": "Rx = 3 N, Ry = 5 − 4 = 1 N; do đó R = √(3² + 1²) = √10 N ≈ 3,16 N.",
+      "feedbackCorrect": "Đúng. Rx = 3 N, Ry = 5 − 4 = 1 N; do đó R = √(3² + 1²) = √10 N ≈ 3,16 N.",
+      "feedbackWrong": "Chưa đúng. Rx = 3 N, Ry = 5 − 4 = 1 N; do đó R = √(3² + 1²) = √10 N ≈ 3,16 N."
     },
     {
       "id": "quiz-ch1-051",
@@ -1896,7 +1896,7 @@
       "difficulty": "advanced",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch1.json#quiz-ch1-086",
-      "question": "Hệ số ma sát có đơn vị nào?",
+      "question": "Hệ số ma sát trượt f có đơn vị nào?",
       "options": [
         "Newton",
         "Newton mét",
@@ -1904,9 +1904,9 @@
         "Không có đơn vị"
       ],
       "correct": 3,
-      "explanation": "Sai. Hệ số ma sát là tỉ số giữa hai lực.",
-      "feedbackCorrect": "Đúng. Hệ số ma sát là tỉ số giữa hai lực.",
-      "feedbackWrong": "Sai. Hệ số ma sát là tỉ số giữa hai lực."
+      "explanation": "Hệ số ma sát trượt f là tỉ số giữa lực ma sát động (hoặc giới hạn ma sát nghỉ) và phản lực pháp tuyến, nên không có đơn vị. Hệ số ma sát lăn k trong Mmax = kN có thứ nguyên độ dài.",
+      "feedbackCorrect": "Đúng. Hệ số ma sát trượt f là tỉ số giữa lực ma sát động (hoặc giới hạn ma sát nghỉ) và phản lực pháp tuyến, nên không có đơn vị. Hệ số ma sát lăn k trong Mmax = kN có thứ nguyên độ dài.",
+      "feedbackWrong": "Chưa đúng. Hệ số ma sát trượt f là tỉ số giữa lực ma sát động (hoặc giới hạn ma sát nghỉ) và phản lực pháp tuyến, nên không có đơn vị. Hệ số ma sát lăn k trong Mmax = kN có thứ nguyên độ dài."
     },
     {
       "id": "quiz-ch1-087",

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-03T01:11:27Z",
+  "status": "blocked",
+  "browserEvidenceStatus": "not-run",
+  "webglAcceptance": "pending",
+  "producerBrowserLaunchesInThisTask": 0,
+  "provenance": {
+    "type": "coordinator-tool-result-report",
+    "reportedBy": "upgrade_mechanics_simulations",
+    "reportedAt": "2026-10-03T01:03:00Z",
+    "note": "The evidence-producer worker did not execute these browser attempts. The coordinating task reported its tool observations and prohibited further browser attempts."
+  },
+  "reportedObservations": [
+    {
+      "surface": "dot cloud CUA browser",
+      "operation": "navigate to http://127.0.0.1:8768/tests/fixtures/sim2-ch3.html",
+      "result": "ERR_BLOCKED_BY_CLIENT",
+      "meaning": "Candidate browser navigation did not succeed; no candidate pixels or WebGL qualification collected."
+    },
+    {
+      "surface": "Chromium shell runtime",
+      "operation": "reported launch attempts by another worker, including one auto-reviewed escalation",
+      "result": "singleton socket EPERM; no successful browser process",
+      "meaning": "Not a rendering result. The coordinator reported disallowed no-sandbox/SwiftShader flags on these failed attempts; this producer does not repeat or endorse them."
+    }
+  ],
+  "nextRequirement": "An explicitly permitted runtime with normal browser security and usable WebGL. Run the source-bound producer there; do not infer support from CPU tests, DOM mocks, canvas presence, old screenshots or this receipt."
+}

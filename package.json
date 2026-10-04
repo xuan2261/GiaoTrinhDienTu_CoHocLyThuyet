@@ -72,8 +72,15 @@
     "test:sim3:pilot": "npm run test:sim3:coordinates && npm run test:sim3:core && playwright test tests/sim3-pilot-fallback-dispose.spec.js",
     "test:sim3:visual:unit": "node tests/sim3-visual-capture-validation.test.js",
     "test:sim3:visual:capture": "playwright test --config=tools/sim3-visual/playwright.sim3-capture.config.cjs",
-    "test:equations": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$ErrorActionPreference='Stop'; Get-ChildItem scripts/test-phase-*.py | Sort-Object Name | ForEach-Object { Write-Host \\\"=== $($_.Name) ===\\\"; & python $_.FullName; if ($LASTEXITCODE -ne 0) { exit 1 } }\"",
-    "test:audit:strict": "python tools/audit.py --strict-images --strict-formula-image"
+    "test:equations": "python tools/run_equation_tests.py",
+    "test:audit:strict": "python tools/audit.py --strict-images --strict-formula-image",
+    "test:audit:ui": "python tests/test_audit_ui_regressions.py && node tests/notes-security-audit.test.js",
+    "test:content:errata": "python tools/apply_content_errata.py --check && python tests/test_content_errata.py && python tests/test_symbol_font_extraction.py",
+    "test:audit:repairs": "python tools/run_audit_regressions.py",
+    "test:simulation-upgrades": "node --test tests/sim-upgrades-core.test.js tests/sim-upgrades-ch1.test.js tests/sim-upgrades-ch2.test.js tests/sim-upgrades-ch3.test.js tests/sim-upgrades-metadata.test.js tests/sim-upgrade-qualification.test.js",
+    "qa:simulation-upgrades:plan": "node tools/sim-upgrade-qualification/run.js --plan --profile desktop --out ../q0-evidence",
+    "qa:simulation-upgrades": "node tools/sim-upgrade-qualification/run.js --profile desktop --out ../q0-evidence",
+    "test:simulation-nextsteps": "npm run test:simulation-upgrades && node --test tests/sim-production-controls.test.js tests/simulation-teaching-contracts.test.js tests/sim-velocity-signed-u2.test.js"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

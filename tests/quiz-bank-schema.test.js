@@ -11,12 +11,14 @@ const EXPECTED_NEW_ANSWER_DISTRIBUTION = { 0: 13, 1: 13, 2: 12, 3: 12 };
 const TARGET_DISTRIBUTION_BY_CHAPTER = {
   ch1: { I: 12, II: 9, III: 9, IV: 18, V: 32, VI: 5, VII: 15 },
   ch2: { I: 15, II: 11, III: 10, IV: 14, V: 24, VI: 11, VII: 15 },
-  ch3: { I: 10, II: 27, III: 11, IV: 9, V: 14, VI: 14, VII: 15 },
+  ch3: { I: 9, II: 27, III: 11, IV: 10, V: 14, VI: 14, VII: 15 },
 };
+// Updated only after the 2026-10-02 audit corrections and independent content review.
+// Ch3-004 now belongs to IV (mechanics problem types), not I.
 const EXPECTED_CONTENT_HASHES = {
-  ch1: 'cb5e7f8cabfcd8b1a6038c98d0c35e550c02d24455644008799d7610c10467da',
-  ch2: '13a1e4b2cfc00dc609ae1aee3452e834c33ceef1dd037c1cd8e4515a20ef5e0d',
-  ch3: 'd369db9c929905eaae75c6693c09cdbca09473e26465710945d351aeeef49e92',
+  ch1: '9b525a3f3ff69b4d176c9d7735085da1fb1d9cff2308d0154864e66d1db46c68',
+  ch2: '8a0d2139d4e1f33de2f995a8b14e941da1aa7f6e538b7c56792b28450109629d',
+  ch3: 'afeab6af847473474b00657c48161cb131df4c4af66b16f2f93be65f31aa0aa4',
 };
 const UNSAFE_TEXT = /<\s*script|on\w+\s*=|javascript:/i;
 const VIETNAMESE_MARKS = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/;

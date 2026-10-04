@@ -9,7 +9,15 @@
   let currentSelection = null;
 
   function getNotes() {
-    try { return JSON.parse(localStorage.getItem(STORE) || '{}'); } catch { return {}; }
+    try {
+      const raw = JSON.parse(localStorage.getItem(STORE) || '{}');
+      if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+      return Object.fromEntries(Object.entries(raw).filter(([, value]) => Array.isArray(value)).map(([id, value]) => [
+        id, value.filter(n => n && typeof n.text === 'string').map(n => ({
+          text: n.text, note: typeof n.note === 'string' ? n.note : '', ts: n.ts
+        }))
+      ]));
+    } catch { return {}; }
   }
   function saveNotes(n) { localStorage.setItem(STORE, JSON.stringify(n)); }
   function getPageId() { return location.hash.slice(1) || 'home'; }
@@ -91,7 +99,11 @@
     const pid = getPageId();
     const notes = getNotes();
     const pageNotes = notes[pid];
-    if (!pageNotes || !pageNotes.length) return;
+    if (!pageNotes || !pageNotes.length) {
+      const stale = document.querySelector('.notes-indicator');
+      if (stale) stale.remove();
+      return;
+    }
 
     // Show notes count indicator
     let indicator = document.querySelector('.notes-indicator');
@@ -118,19 +130,49 @@
     panel = document.createElement('div');
     panel.className = 'notes-panel';
 
-    let html = '<div class="np-header"><span>📝 Ghi chú của bạn</span><button onclick="this.closest(\'.notes-panel\').remove()">✕</button></div>';
+    // Persisted notes are untrusted text, never HTML (including quoted text).
+    const header = document.createElement('div');
+    header.className = 'np-header';
+    const title = document.createElement('span');
+    title.textContent = '📝 Ghi chú của bạn';
+    const close = document.createElement('button');
+    close.textContent = '✕';
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Đóng ghi chú');
+    close.addEventListener('click', () => panel.remove());
+    header.appendChild(title);
+    header.appendChild(close);
+    panel.appendChild(header);
     if (!pageNotes.length) {
-      html += '<div class="np-empty">Chưa có ghi chú. Bôi đen text để tạo.</div>';
+      const empty = document.createElement('div');
+      empty.className = 'np-empty';
+      empty.textContent = 'Chưa có ghi chú. Bôi đen text để tạo.';
+      panel.appendChild(empty);
     } else {
       pageNotes.forEach((n, i) => {
-        html += `<div class="np-item">
-          <div class="np-text">"${n.text.slice(0, 80)}${n.text.length > 80 ? '…' : ''}"</div>
-          ${n.note ? `<div class="np-comment">${n.note}</div>` : ''}
-          <button class="np-del" data-idx="${i}" title="Xóa">🗑️</button>
-        </div>`;
+        const item = document.createElement('div');
+        item.className = 'np-item';
+        const quote = document.createElement('div');
+        quote.className = 'np-text';
+        quote.textContent = `"${n.text.slice(0, 80)}${n.text.length > 80 ? '…' : ''}"`;
+        item.appendChild(quote);
+        if (n.note) {
+          const comment = document.createElement('div');
+          comment.className = 'np-comment';
+          comment.textContent = n.note;
+          item.appendChild(comment);
+        }
+        const del = document.createElement('button');
+        del.className = 'np-del';
+        del.type = 'button';
+        del.dataset.idx = String(i);
+        del.title = 'Xóa';
+        del.setAttribute('aria-label', 'Xóa ghi chú');
+        del.textContent = '🗑️';
+        item.appendChild(del);
+        panel.appendChild(item);
       });
     }
-    panel.innerHTML = html;
     document.body.appendChild(panel);
 
     // Delete handler

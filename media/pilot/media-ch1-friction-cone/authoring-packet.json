@@ -9,7 +9,9 @@
     "condition": "Given an incline angle beta and friction coefficient mu",
     "criterion": "classify equilibrium or slip by comparing beta with phi = arctan(mu) and locating the resultant reaction relative to the friction cone"
   },
-  "contentRoutes": ["ch1-5-3"],
+  "contentRoutes": [
+    "ch1-5-3"
+  ],
   "simulationId": "ch1-5-3",
   "gapDecision": {
     "decision": "selected",
@@ -26,9 +28,21 @@
       "Increase mu and explain why the cone widens."
     ],
     "storyboard": [
-      { "beat": 1, "visual": "Reaction inside the cone", "narrativePurpose": "Establish equilibrium" },
-      { "beat": 2, "visual": "Beta crosses phi", "narrativePurpose": "Expose the limiting boundary" },
-      { "beat": 3, "visual": "Wider cone at larger mu", "narrativePurpose": "Connect material friction to admissible reaction direction" }
+      {
+        "beat": 1,
+        "visual": "Reaction inside the cone",
+        "narrativePurpose": "Establish equilibrium"
+      },
+      {
+        "beat": 2,
+        "visual": "Beta crosses phi",
+        "narrativePurpose": "Expose the limiting boundary"
+      },
+      {
+        "beat": 3,
+        "visual": "Wider cone at larger mu",
+        "narrativePurpose": "Connect material friction to admissible reaction direction"
+      }
     ],
     "math": {
       "expression": "tan(phi) = mu; slip iff beta > phi",
@@ -46,7 +60,10 @@
     "staticFallback": "prototypes/media/friction-cone-sim2.html#phuong-an-tinh",
     "textAlternative": "The static diagram and formula example state cone angle, incline angle, and equilibrium result without relying on color.",
     "transcript": null,
-    "captions": { "required": false, "reason": "The asset has no audio or timed dialogue." },
+    "captions": {
+      "required": false,
+      "reason": "The asset has no audio or timed dialogue."
+    },
     "autoplay": false
   },
   "offline": {
@@ -55,9 +72,18 @@
     "remoteDependenciesAllowed": false
   },
   "sourceEvidence": [
-    { "path": "chapters/ch1/muc-V-3.html", "sha256": "781ccd0ba2730260120a91f66bcd0cc87320c21749cbffbd9e76ab63384975b1" },
-    { "path": "js/sim2/sims/ch1/ch1-5-3.js", "sha256": "dcbd85eb530739598cda39fd5644c5f4ef8ccf7e8177e8d9eb9cad5a6838c1eb" },
-    { "path": "js/sim2/physics/dynamics.js", "sha256": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c" }
+    {
+      "path": "chapters/ch1/muc-V-3.html",
+      "sha256": "7822a73607a7e3d96da0d2100c60815d60c2df88056a34ec224c54806917ec2f"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-5-3.js",
+      "sha256": "7eca89b737565a1284d4aaebe34114647f2c40df595b8ec735944c2220b3e670"
+    },
+    {
+      "path": "js/sim2/physics/dynamics.js",
+      "sha256": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c"
+    }
   ],
   "review": {
     "ownerRole": "Multimedia author",

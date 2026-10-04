@@ -3,6 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert');
 const fs = require('node:fs');
+const { createHash } = require('node:crypto');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const os = require('node:os');
@@ -331,7 +332,13 @@ test('build-acceptance-deck script is reproducible without overwriting delivered
     assert.strictEqual(result.webOutput, tempDir);
     const deliveredDir = path.resolve(ROOT, 'assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu');
     const deliveredPptx = path.join(deliveredDir, 'bao-cao-nghiem-thu-giao-trinh-dien-tu.pptx');
-    assert.deepStrictEqual(fs.readFileSync(tempPptx), fs.readFileSync(deliveredPptx), 'Delivered PPTX must match a fresh isolated build');
+    const freshPptxBytes = fs.readFileSync(tempPptx);
+    const deliveredPptxBytes = fs.readFileSync(deliveredPptx);
+    const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
+    assert.ok(
+      freshPptxBytes.equals(deliveredPptxBytes),
+      `Delivered PPTX must match a fresh isolated build; fresh: ${freshPptxBytes.length} bytes, SHA-256 ${sha256(freshPptxBytes)}; delivered: ${deliveredPptxBytes.length} bytes, SHA-256 ${sha256(deliveredPptxBytes)}`,
+    );
     assert.strictEqual(
       fs.readFileSync(path.join(tempDir, 'handout-in-an-hoi-dong.html'), 'utf8'),
       fs.readFileSync(path.join(deliveredDir, 'handout-in-an-hoi-dong.html'), 'utf8'),

@@ -54,6 +54,7 @@ figure figcaption {
 
 [data-theme="dark"] math,
 [data-theme="dark"] .math-tex,
+[data-theme="dark"] .math-tex-block,
 [data-theme="dark"] figure figcaption {
   color: var(--text-color-dark, #f0f0f0);
 }

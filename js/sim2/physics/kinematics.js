@@ -126,17 +126,24 @@
     return { vx: -omega * ry, vy: omega * rx };
   }
 
+  /**
+   * Unique finite instantaneous center from two point velocities of one rigid body.
+   * Uses delta-v = omega * k cross delta-r, including parallel velocities and a
+   * stationary endpoint. Returns null for translation, rest (nonunique center),
+   * coincident points, nonfinite inputs or incompatible/non-rigid velocities.
+   */
   function locateInstantCenter(a, b, va, vb) {
-    const vaMag = Math.hypot(va.vx, va.vy);
-    const vbMag = Math.hypot(vb.vx, vb.vy);
-    if (vaMag < 1e-9 || vbMag < 1e-9) return null;
-    const d1x = va.vy, d1y = -va.vx;
-    const d2x = vb.vy, d2y = -vb.vx;
+    if (![a.x, a.y, b.x, b.y, va.vx, va.vy, vb.vx, vb.vy].every(Number.isFinite)) return null;
     const dx = b.x - a.x, dy = b.y - a.y;
-    const denom = d1x * d2y - d1y * d2x;
-    if (Math.abs(denom) < 1e-12) return null;
-    const t2 = (dx * d1y - dy * d1x) / denom;
-    return { x: b.x + t2 * d2x, y: b.y + t2 * d2y };
+    const dvx = vb.vx - va.vx, dvy = vb.vy - va.vy;
+    const r2 = dx * dx + dy * dy;
+    if (!(r2 > 0) || !Number.isFinite(r2)) return null;
+    const omega = (dx * dvy - dy * dvx) / r2;
+    const velocityScale = Math.max(Math.hypot(va.vx, va.vy), Math.hypot(vb.vx, vb.vy));
+    const residual = Math.hypot(dvx + omega * dy, dvy - omega * dx);
+    if (residual > 1e-9 * velocityScale || omega === 0 || !Number.isFinite(omega)) return null;
+    const center = { x: a.x - va.vy / omega, y: a.y + va.vx / omega };
+    return Number.isFinite(center.x) && Number.isFinite(center.y) ? center : null;
   }
 
   function sliderCrankPos(r, L, theta) {

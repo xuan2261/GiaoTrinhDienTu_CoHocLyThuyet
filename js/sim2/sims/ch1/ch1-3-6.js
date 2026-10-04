@@ -27,7 +27,7 @@
     const rArrow = render.arrow(tf, svg, wall, wall, { stroke: Pal.reaction, width: 3 }); svg.appendChild(rArrow);
 
     // Cung mũi tên chỉ CHIỀU mô men ngàm quanh ngàm. Chiều từ tích có hướng
-    // tau = rx·fy − ry·fx (tải hướng XUỐNG ở x>0 → tau<0 → CW), KHÔNG từ |M|=P·a luôn dương.
+    // M_ngàm = −M_tải; quy ước CCW dương (tải xuống ở x>0 tạo M_tải<0).
     const momentArc = render.el('path', {
       class: 'sim2-moment-arc', fill: 'none', stroke: Pal.moment, 'stroke-width': 2.5
     });
@@ -51,15 +51,16 @@
       ar.setAttribute('x2', t.x); ar.setAttribute('y2', t.y);
     }
     function render2() {
-      const R = state.load, M = state.load * state.pos;
+      const R = state.load;
+      const loadMoment = P.momentFromVectors(state.pos, 0, 0, -state.load);
+      const M = -loadMoment;
       set(loadArrow, { x: state.pos, y: state.load * VIS }, { x: state.pos, y: 0 });
       set(rArrow, wall, { x: 0, y: R * VIS });
       overlay.moveLabel(lblP, { x: state.pos, y: state.load * VIS + 0.3 });
       overlay.moveLabel(lblR, { x: -0.3, y: R * VIS });
       handle.move({ x: state.pos, y: 0 });
-      // Chiều quay quanh ngàm: r=(pos,0), f=(0,−load) (tải xuống) → tau=−pos·load<0 → CW.
-      const tau = P.momentFromVectors(state.pos, 0, 0, -state.load);
-      const ccw = tau > 0;
+      // Phản lực mô men tác dụng lên dầm đối dấu với mô men của tải.
+      const ccw = M > 0;
       const r = 14 + Math.min(M, 1200) / 1200 * 20;
       const wc = tf.toScreen(wall);
       momentArc.setAttribute('d', arcD(wc, r, ccw));
@@ -68,35 +69,40 @@
         { key: 'P', label: 'P:', value: state.load + ' N' },
         { key: 'a', label: 'a:', value: state.pos.toFixed(2) + ' m' },
         { key: 'R', label: 'R:', value: R.toFixed(1) + ' N' },
-        { key: 'M', label: 'M ngàm:', value: M.toFixed(1) + ' N·m' }
+        { key: 'M', label: 'M ngàm:', value: (M >= 0 ? '+' : '') + M.toFixed(1) + ' N·m' },
+        { key: 'loadMoment', label: 'M tải:', value: loadMoment.toFixed(1) + ' N·m' },
+        { key: 'sumM', label: 'M ngàm + M tải:', value: (M + loadMoment).toFixed(6) + ' N·m' },
+        { key: 'sumFy', label: 'ΣFᵧ = R − P:', value: (R-state.load).toFixed(6) + ' N' }
       ]);
     }
 
     const panel = shell.setTheory({
       formulas: ['\\textcolor{#b10dc9}{R} = \\textcolor{#e03030}{P}', '\\textcolor{#7c3aed}{M} = \\textcolor{#e03030}{P} \\cdot a'],
       legend: [{ color: Pal.force, label: 'P (tải)' }, { color: Pal.reaction, label: 'R ngàm' }, { color: Pal.moment, label: 'M ngàm' }],
-      observe: 'Tải càng xa ngàm, mô men ngàm M = P·a càng lớn. Phản lực R luôn bằng P.'
+      observe: 'Dầm nhẹ, tải đứng. Phản lực R = P; mômen ngàm ngược chiều mômen tải (CCW dương). Cung chỉ chiều mômen, không phải biến dạng hay góc quay dầm; bán kính cung minh họa, không có thang vật lý.'
     });
 
     const controls = shell.addControls({
       sliders: [
         { id: 'P', label: 'P', min: 20, max: 150, step: 10, value: state.load, unit: 'N',
-          onInput: v => { state.load = v; render2(); } },
+          onInput: v => { state.load = Math.round(v/10)*10; controls.setValue('P', state.load); render2(); } },
         { id: 'a', label: 'a', min: 0.5, max: L, step: 0.5, value: state.pos, unit: 'm',
-          onInput: v => { state.pos = v; render2(); } }
+          onInput: v => { state.pos = Math.round(v*2)/2; controls.setValue('a', state.pos); render2(); } }
       ]
     });
 
     const handle = shell.addHandle({ x: state.pos, y: 0 }, {
       fill: Pal.handle,
-      a11y: { label: 'Vị trí lực trên dầm', axis: 'x', min: 0.5, max: L },
+      a11y: { label: 'Vị trí tải a từ ngàm', axis: 'x', min: 0.5, max: L, valueText: wp => `a ${wp.x.toFixed(1)} m từ ngàm` },
+      bounds: { minX: 0.5, maxX: L, minY: 0, maxY: 0 },
       keyboardStep: { x: 0.5, y: 0 },
       onDrag(wp) {
-        state.pos = Math.min(L, Math.max(0.5, wp.x));
+        state.pos = Math.round(Math.min(L, Math.max(0.5, wp.x)) * 2) / 2;
         controls.setValue('a', state.pos.toFixed(1));
         render2();
       }
     });
+    shell.addAction({ id: 'reset', label: 'Đặt lại', onClick() { state.load = 80; state.pos = 5; controls.setValue('P', 80); controls.setValue('a', 5); render2(); } });
     render2();
     return { dispose: shell.dispose };
   });

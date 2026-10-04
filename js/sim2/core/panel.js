@@ -22,8 +22,9 @@
   function createPanel(host, opts) {
     opts = opts || {};
     const previous = {};
-    const flashUntil = {};
     const flashTimers = {};
+    const rowNodes = new Map();
+    let currentRows = [];
     const root = document.createElement('div');
     root.className = 'sim2-theory';
 
@@ -52,6 +53,19 @@
     const live = document.createElement('div');
     live.className = 'sim2-readout-live';
     root.appendChild(live);
+    const readButton = document.createElement('button');
+    readButton.type = 'button';
+    readButton.className = 'sim2-read-current';
+    readButton.textContent = 'Đọc trạng thái hiện tại';
+    const status = document.createElement('div');
+    status.className = 'sim2-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.setAttribute('aria-atomic', 'true');
+    function announce(message) { status.textContent = String(message || ''); }
+    const announceCurrent = () => announce(currentRows.map(row => `${row.label || row.key}: ${row.value ?? ''}`).join('; '));
+    readButton.addEventListener('click', announceCurrent);
+    root.appendChild(readButton); root.appendChild(status);
 
     // ─── Legend ───
     if (opts.legend && opts.legend.length) {
@@ -84,39 +98,44 @@
 
     /** rows: [{label, value, latex?}] — label có thể KaTeX nếu kèm latex. */
     function setReadout(rows) {
-      live.innerHTML = '';
-      for (const it of (rows || [])) {
-        const key = it.key != null ? String(it.key) : String(it.label || '');
+      currentRows = (rows || []).map(row => ({ ...row }));
+      const active = new Set();
+      currentRows.forEach((it, index) => {
+        const key = it.key != null ? String(it.key) : String(it.label || index);
+        active.add(key);
         const value = it.value != null ? String(it.value) : '';
-        const row = document.createElement('div');
-        row.className = 'sim2-readout-row';
-        if (key) row.setAttribute('data-readout-key', key);
-        const lab = document.createElement('span');
-        lab.className = 'sim2-readout-label';
-        if (it.latex && typeof window.katex !== 'undefined') {
-          try { window.katex.render(it.latex, lab, { throwOnError: false }); }
-          catch (e) { lab.textContent = it.label != null ? it.label : ''; }
-        } else {
-          lab.textContent = it.label != null ? it.label : '';
+        let entry = rowNodes.get(key);
+        if (!entry) {
+          const row = document.createElement('div'); row.className = 'sim2-readout-row'; row.setAttribute('data-readout-key', key);
+          const lab = document.createElement('span'); lab.className = 'sim2-readout-label';
+          const val = document.createElement('span'); val.className = 'sim2-readout-value';
+          row.appendChild(lab); row.appendChild(val);
+          entry = { row, lab, val, label: null, latex: null }; rowNodes.set(key, entry);
         }
-        const val = document.createElement('span');
-        val.className = 'sim2-readout-value';
-        val.textContent = value;
-        row.appendChild(lab);
-        row.appendChild(val);
-        if (key && previous[key] != null && previous[key] !== value && !prefersReducedMotion()) {
+        const label = it.label != null ? String(it.label) : '';
+        if (entry.label !== label || entry.latex !== it.latex) {
+          if (it.latex && typeof window.katex !== 'undefined') {
+            try { window.katex.render(it.latex, entry.lab, { throwOnError: false }); }
+            catch (error) { entry.lab.textContent = label; }
+          } else entry.lab.textContent = label;
+          entry.label = label; entry.latex = it.latex;
+        }
+        if (entry.val.textContent !== value) entry.val.textContent = value;
+        if (previous[key] != null && previous[key] !== value && !prefersReducedMotion()) {
           if (flashTimers[key]) clearTimeout(flashTimers[key]);
-          flashUntil[key] = Date.now() + 500;
-          flashTimers[key] = setTimeout(() => {
-            delete flashUntil[key];
-            delete flashTimers[key];
-          }, 500);
+          entry.row.classList.add('sim2-readout-changed');
+          flashTimers[key] = setTimeout(() => { entry.row.classList.remove('sim2-readout-changed'); delete flashTimers[key]; }, 500);
         }
-        if (key && flashUntil[key] && Date.now() < flashUntil[key] && !prefersReducedMotion()) {
-          row.classList.add('sim2-readout-changed');
+        previous[key] = value;
+        if (live.children[index] !== entry.row) live.insertBefore(entry.row, live.children[index] || null);
+      });
+      for (const [key, entry] of rowNodes) {
+        if (!active.has(key)) {
+          if (flashTimers[key]) clearTimeout(flashTimers[key]);
+          delete flashTimers[key]; delete previous[key];
+          if (entry.row.parentNode) entry.row.parentNode.removeChild(entry.row);
+          rowNodes.delete(key);
         }
-        if (key) previous[key] = value;
-        live.appendChild(row);
       }
     }
 
@@ -135,10 +154,12 @@
 
     function dispose() {
       for (const key in flashTimers) clearTimeout(flashTimers[key]);
+      readButton.removeEventListener('click', announceCurrent);
+      rowNodes.clear();
       if (root.parentNode) root.parentNode.removeChild(root);
     }
 
-    return { root, setReadout, setFormulaHighlight, dispose };
+    return { root, setReadout, setFormulaHighlight, announce, dispose };
   }
 
   return { createPanel };

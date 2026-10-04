@@ -5,7 +5,7 @@
     const P = root.Sim3Primitives;
     const C = root.Sim3Coordinates;
     const DISPLAY_SCALE = 0.48;
-    let THREERef, b1, b2, cue, vArrow1, vArrow2, rail, beforeLabelPos, afterLabelPos, tick = 0;
+    let THREERef, b1, b2, cue, vArrow1, vArrow2, rail, beforeLabelPos, afterLabelPos, phaseLabel, tick = 0;
     let stateAfterTarget = null, impactContactResidual = null;
     const shell = root.Sim3Shell.create({
       host: opts.host, referenceEl: opts.referenceEl, height: 300, responsiveFraming: 'horizontal',
@@ -32,7 +32,7 @@
         grid.position.y = -0.62;
         scene.add(grid);
         labels.add('before', 'Trước', () => beforeLabelPos, { dx: -60, dy: -46 });
-        labels.add('impact', 'Va chạm', () => cue.position, { dx: -8, dy: -72 });
+        phaseLabel = labels.add('impact', 'Va chạm', () => cue.position, { dx: -8, dy: -72 });
         labels.add('after', 'Sau', () => stateAfterTarget || afterLabelPos, { dx: 74, dy: 48 });
       }
     });
@@ -67,7 +67,14 @@
       stateAfterTarget = state.collided ? b2.position : afterLabelPos;
       const sourceSeparation = Math.abs(state.p2.x - state.p1.x);
       const sourceRadiusSum = r1 + r2;
-      if (state.collided && impactContactResidual == null) impactContactResidual = Math.abs(sourceSeparation - sourceRadiusSum);
+      // The live positions include the remainder of the impact step. Contact
+      // diagnostics must use its saved sample, including when 3D opens later.
+      // Legacy direct callers may supply an exact contact state without a sample.
+      const contact = state.impactContact || (state.collided && Math.abs(sourceSeparation - sourceRadiusSum) <= 1e-9 ? state : null);
+      const contactResidual = contact ? Math.abs(Math.hypot(contact.p2.x - contact.p1.x, contact.p2.y - contact.p1.y) - sourceRadiusSum) : null;
+      if (state.collided && impactContactResidual == null) impactContactResidual = contactResidual;
+      const eventPhase=state.eventPhase || (state.collided?'after':'before');
+      if(phaseLabel) phaseLabel.textContent=eventPhase==='impact'?'Đúng tiếp xúc':eventPhase==='retained'?'Giữ kết quả':eventPhase==='after'?'Đã va chạm':'Chưa va chạm';
       shell.setState(state);
       const primaryPoints = [
         new THREERef.Vector3(-2.4, -0.55, 0), new THREERef.Vector3(2.4, -0.55, 0),
@@ -80,21 +87,21 @@
       const phaseLaneSeparationPx = Math.min(shell.projectDistance(beforeLabelPos, cue.position), shell.projectDistance(cue.position, afterTarget));
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
       root.__SIM3_DEBUG__['ch3-6-2'] = Object.assign({
-        updatedAt: tick, trailLength: 0, ghostCount: 0, phaseCue: state.collided ? 'after' : 'before',
-        capturePhase: state.collided ? 'after-impact' : 'before-impact', impactReached: !!state.collided,
+        updatedAt: tick, trailLength: 0, ghostCount: 0, phaseCue: eventPhase,
+        capturePhase: eventPhase==='impact'?'at-impact':state.collided?'after-impact':'before-impact', impactReached: !!state.collided,
         distanceToImpact: Math.max(0, sourceSeparation - sourceRadiusSum), impactContactResidual,
         liveScale1: s1, liveScale2: s2,
         physics: {
-          displayScale: DISPLAY_SCALE,
+          displayScale: DISPLAY_SCALE, eventPhase, time:state.time, impactTime:state.impactTime, retained:!!state.retained,
           lane: C.vector2D({ x: 1, y: 0 }, { plane: C.PLANES.HORIZONTAL }),
           radius1: b1.geometry.parameters.radius * b1.scale.x,
           radius2: b2.geometry.parameters.radius * b2.scale.x,
           ball1: { x: b1.position.x, y: b1.position.y, z: b1.position.z },
           ball2: { x: b2.position.x, y: b2.position.y, z: b2.position.z },
           sourceSeparation, sourceRadiusSum,
-          contactResidual: state.collided ? Math.abs(sourceSeparation - sourceRadiusSum) : null,
+          contactResidual: state.collided ? contactResidual : null,
           impactPoint: impact ? { x: cue.position.x, y: cue.position.y - 0.02, z: cue.position.z } : null,
-          impactRatio: state.impactPoint ? (state.impactPoint.x - state.p1.x) / (state.p2.x - state.p1.x) : null,
+          impactRatio: state.impactPoint && contact ? (state.impactPoint.x - contact.p1.x) / (contact.p2.x - contact.p1.x) : null,
           velocity1: { visible: vArrow1.visible, magnitude: vArrow1.userData.sim3PhysicalMagnitude, direction: vArrow1.userData.sim3DirectionVector ? { x: vArrow1.userData.sim3DirectionVector.x, y: vArrow1.userData.sim3DirectionVector.y, z: vArrow1.userData.sim3DirectionVector.z } : { x: 0, y: 0, z: 0 } },
           velocity2: { visible: vArrow2.visible, magnitude: vArrow2.userData.sim3PhysicalMagnitude, direction: vArrow2.userData.sim3DirectionVector ? { x: vArrow2.userData.sim3DirectionVector.x, y: vArrow2.userData.sim3DirectionVector.y, z: vArrow2.userData.sim3DirectionVector.z } : { x: 0, y: 0, z: 0 } }
         },

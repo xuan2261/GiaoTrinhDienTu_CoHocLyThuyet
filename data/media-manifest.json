@@ -65,13 +65,13 @@
       },
       "authoringPacket": {
         "path": "media/pilot/media-ch1-force-sliding/authoring-packet.json",
-        "sha256": "470d405f7e0a123d0fb7edb6cef40c866cb7ce13c2253c43bc004ffbae53387c"
+        "sha256": "fb381e0a32e5b18554f1d908c4b06ce54c044615469812d7ae0e0efd1b655345"
       },
       "sourceFiles": [
         {
           "path": "media/pilot/media-ch1-force-sliding/authoring-packet.json",
-          "sha256": "470d405f7e0a123d0fb7edb6cef40c866cb7ce13c2253c43bc004ffbae53387c",
-          "bytes": 3661
+          "sha256": "fb381e0a32e5b18554f1d908c4b06ce54c044615469812d7ae0e0efd1b655345",
+          "bytes": 3837
         },
         {
           "path": "prototypes/media/force-sliding.html",
@@ -115,7 +115,7 @@
         }
       ],
       "budget": {
-        "measuredBytes": 2064993,
+        "measuredBytes": 2065169,
         "maximumBytes": 2500000,
         "maintenanceTier": "reuse-only",
         "ownerRole": "Multimedia maintainer",
@@ -183,13 +183,13 @@
       },
       "authoringPacket": {
         "path": "media/pilot/media-ch1-resultant-angle/authoring-packet.json",
-        "sha256": "b1c50c80620617e1a513bc261930c07ace1ed544200155d85eb0169fce081a9a"
+        "sha256": "b1e6d5f412c5bac59ccef4d9dc9a1bdd2112cc6b76ba75049a5db794316ad072"
       },
       "sourceFiles": [
         {
           "path": "media/pilot/media-ch1-resultant-angle/authoring-packet.json",
-          "sha256": "b1c50c80620617e1a513bc261930c07ace1ed544200155d85eb0169fce081a9a",
-          "bytes": 3561
+          "sha256": "b1e6d5f412c5bac59ccef4d9dc9a1bdd2112cc6b76ba75049a5db794316ad072",
+          "bytes": 3723
         },
         {
           "path": "prototypes/media/resultant-angle-chart.html",
@@ -223,7 +223,7 @@
         }
       ],
       "budget": {
-        "measuredBytes": 25495,
+        "measuredBytes": 25657,
         "maximumBytes": 65536,
         "maintenanceTier": "small-script",
         "ownerRole": "Multimedia maintainer",
@@ -268,7 +268,7 @@
         "offlineSourcePath": "prototypes/media/friction-cone-sim2.html",
         "primary": {
           "path": "js/sim2/sims/ch1/ch1-5-3.js",
-          "sha256": "dcbd85eb530739598cda39fd5644c5f4ef8ccf7e8177e8d9eb9cad5a6838c1eb"
+          "sha256": "7eca89b737565a1284d4aaebe34114647f2c40df595b8ec735944c2220b3e670"
         },
         "staticFallback": {
           "path": "prototypes/media/friction-cone-sim2.html",
@@ -291,13 +291,13 @@
       },
       "authoringPacket": {
         "path": "media/pilot/media-ch1-friction-cone/authoring-packet.json",
-        "sha256": "2405d8ee7ad1c229d87ca80b35b3373417a1d528ed52ec5f82460c12ee9c76b1"
+        "sha256": "27c7a37f078813bb29a95a0d48691c4f7f36d9dd9edf996caa397abdb90cc62c"
       },
       "sourceFiles": [
         {
           "path": "media/pilot/media-ch1-friction-cone/authoring-packet.json",
-          "sha256": "2405d8ee7ad1c229d87ca80b35b3373417a1d528ed52ec5f82460c12ee9c76b1",
-          "bytes": 3691
+          "sha256": "27c7a37f078813bb29a95a0d48691c4f7f36d9dd9edf996caa397abdb90cc62c",
+          "bytes": 3853
         },
         {
           "path": "prototypes/media/friction-cone-sim2.html",
@@ -326,8 +326,8 @@
         },
         {
           "path": "css/style.css",
-          "sha256": "4425d5277f3708c816dcd0ea062386f48078d51772d94a5b5976fe54e293cf28",
-          "bytes": 78531
+          "sha256": "e7cad1903aab6a9f6a331dcbfe551e072b658d825d93978e01be034faea79b8c",
+          "bytes": 77022
         },
         {
           "path": "js/sim2/physics/dynamics.js",
@@ -351,8 +351,8 @@
         },
         {
           "path": "js/sim2/core/overlay.js",
-          "sha256": "d6c3172e0dc108253b51e5e3ff9390e06d78ea5c9118a746549c25eebf6573d5",
-          "bytes": 5674
+          "sha256": "e24d1c9844e0513f55ee12b07722eb3f3d7e86b07ae3e7f23458c3566d6e7956",
+          "bytes": 5967
         },
         {
           "path": "js/sim2/core/canvas-underlay.js",
@@ -361,18 +361,18 @@
         },
         {
           "path": "js/sim2/core/controls.js",
-          "sha256": "f67f4c7b4a161901a5c09531d95e88f47418bd4271a87d24aed59c3499552575",
-          "bytes": 5780
+          "sha256": "49985d5d0408d70263fd210141fa1ffc8bc899def3f698a07ee4642b62b14cae",
+          "bytes": 10184
         },
         {
           "path": "js/sim2/core/panel.js",
-          "sha256": "01717bc53285a0bd6dec4607260395948a8d1efa61411abe5b6714f0e16b1d3d",
-          "bytes": 5459
+          "sha256": "e43c670f0b9c7d70ef6ce6d51fabf5360859cb7a2a963f61b0d40fefc42ad41a",
+          "bytes": 6987
         },
         {
           "path": "js/sim2/core/sim-shell.js",
-          "sha256": "a4c8e6a043dde7bf87ecd4880f8ca984689fa7226e73592feab7ed24fdc91a29",
-          "bytes": 16142
+          "sha256": "81b59ec69598935503a3cca59e803f5760e53950f637705200b5949dcecbafa1",
+          "bytes": 19033
         },
         {
           "path": "js/sim2/registry.js",
@@ -381,12 +381,12 @@
         },
         {
           "path": "js/sim2/sims/ch1/ch1-5-3.js",
-          "sha256": "dcbd85eb530739598cda39fd5644c5f4ef8ccf7e8177e8d9eb9cad5a6838c1eb",
-          "bytes": 7671
+          "sha256": "7eca89b737565a1284d4aaebe34114647f2c40df595b8ec735944c2220b3e670",
+          "bytes": 11532
         }
       ],
       "budget": {
-        "measuredBytes": 160211,
+        "measuredBytes": 171841,
         "maximumBytes": 196608,
         "maintenanceTier": "canonical-runtime-mount",
         "ownerRole": "Sim2 and multimedia maintainers",
@@ -455,13 +455,13 @@
       },
       "authoringPacket": {
         "path": "media/pilot/media-ch1-centroid-steps/authoring-packet.json",
-        "sha256": "e2dc2a33e5d7287d5039655198c5801b7c3b465d7d50d9a3ef3906b28edbf8c7"
+        "sha256": "f407803afc2c123c1b8c4417478220cb81e93b9737206d651575e5472d9cef2f"
       },
       "sourceFiles": [
         {
           "path": "media/pilot/media-ch1-centroid-steps/authoring-packet.json",
-          "sha256": "e2dc2a33e5d7287d5039655198c5801b7c3b465d7d50d9a3ef3906b28edbf8c7",
-          "bytes": 4093
+          "sha256": "f407803afc2c123c1b8c4417478220cb81e93b9737206d651575e5472d9cef2f",
+          "bytes": 4305
         },
         {
           "path": "prototypes/media/centroid-reasoning.html",
@@ -495,7 +495,7 @@
         }
       ],
       "budget": {
-        "measuredBytes": 27649,
+        "measuredBytes": 27861,
         "maximumBytes": 65536,
         "maintenanceTier": "small-script",
         "ownerRole": "Multimedia maintainer",

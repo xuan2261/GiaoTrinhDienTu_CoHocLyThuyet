@@ -85,24 +85,24 @@
     {
       "id": "quiz-ch3-004",
       "chapter": "ch3",
-      "section": "I",
+      "section": "IV",
       "learningOutcomeIds": [
         "lo-ch3-dynamics"
       ],
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch3.json#quiz-ch3-004",
-      "question": "Bài toán cơ bản thứ nhất của động lực học:",
+      "question": "Theo quy ước của giáo trình, bài toán cơ bản thứ nhất (bài toán thuận) của động lực học là:",
       "options": [
         "Biết lực → tìm chuyển động",
         "Biết chuyển động → tìm lực",
         "Tìm cân bằng",
         "Tìm biến dạng"
       ],
-      "correct": 0,
-      "explanation": "❌ BT1: biết lực → tìm CĐ. BT2: biết CĐ → tìm lực.",
-      "feedbackCorrect": "✅ Bài toán 1: biết lực → tìm quy luật chuyển động.",
-      "feedbackWrong": "❌ BT1: biết lực → tìm CĐ. BT2: biết CĐ → tìm lực."
+      "correct": 1,
+      "explanation": "Bài toán thứ nhất: biết chuyển động để tìm lực. Bài toán thứ hai: biết lực và điều kiện đầu để tìm chuyển động. Cách đánh số này là quy ước của giáo trình.",
+      "feedbackCorrect": "Đúng. Bài toán thứ nhất: biết chuyển động để tìm lực. Bài toán thứ hai: biết lực và điều kiện đầu để tìm chuyển động. Cách đánh số này là quy ước của giáo trình.",
+      "feedbackWrong": "Chưa đúng. Bài toán thứ nhất: biết chuyển động để tìm lực. Bài toán thứ hai: biết lực và điều kiện đầu để tìm chuyển động. Cách đánh số này là quy ước của giáo trình."
     },
     {
       "id": "quiz-ch3-005",

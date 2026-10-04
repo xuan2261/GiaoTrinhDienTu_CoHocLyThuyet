@@ -220,7 +220,7 @@
   </mrow>
 </math></span>  hướng dọc theo cát tuyến MM<sub>1</sub>.</p>
 <p>Vận tốc của điểm ở thời điểm <em>t</em> được xác định như sau:</p>
-<div class="mathml-block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+<div class="mathml-block"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML" data-equation-id="2.2">
   <mrow>
     <mover accent="true">
       <mrow>
@@ -302,13 +302,13 @@
       </mrow>
     </mfrac>
     <mo>=</mo>
-    <mover accent="true">
+    <mover><mover accent="true">
       <mrow>
         <mi>r</mi>
       </mrow>
       <mo stretchy="true">→</mo>
     </mover>
-  </mrow>
+  <mo>˙</mo></mover></mrow>
 </math></div>
 <p>(2.2)</p>
 <p>Như thế, vận tốc của điểm là đạo hàm bậc nhất theo thời gian của véc-tơ định vị của điểm ấy.</p>
@@ -432,7 +432,7 @@
   </mrow>
 </math></span>.</p>
 <p>Gia tốc của điểm ở thời điểm t được xác định như sau:</p>
-<div class="mathml-block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+<div class="mathml-block"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML" data-equation-id="2.3">
   <mrow>
     <mover accent="true">
       <mrow>
@@ -544,13 +544,13 @@
       </mrow>
     </mfrac>
     <mo>=</mo>
-    <mover accent="true">
+    <mover><mover accent="true">
       <mrow>
         <mi>r</mi>
       </mrow>
       <mo stretchy="true">→</mo>
     </mover>
-  </mrow>
+  <mo>¨</mo></mover></mrow>
 </math></div>
 <p>(2.3)</p>
 <p>Như thế, gia tốc của điểm là đạo hàm bậc nhất theo thời gian của véc-tơ vận tốc và bằng đạo hàm bậc hai theo thời gian của véc-tơ định vị của điểm ấy. Đơn vị của gia tốc là mét/giây<sup>2</sup>, kí hiệu là m/s<sup>2</sup>.</p>
@@ -651,8 +651,8 @@
       <mo stretchy="true">→</mo>
     </mover>
   </mrow>
-</math></span>  nói chung không cùng phương. Tóm lại:</p>
-<div class="mathml-block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+</math></span>  nói chung không cùng phương. Tóm lại, xét trên khoảng có vận tốc khác không: tích có hướng đồng nhất bằng không trên khoảng mới suy ra quỹ đạo thẳng; bằng không tại một thời điểm riêng lẻ không đủ để suy ra điều đó.</p>
+<div class="mathml-block"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML" data-equation-id="direction-summary">
   <mrow>
     <mover accent="true">
       <mrow>
@@ -683,7 +683,7 @@
               <mo>:</mo>
             </mrow>
           </mtd>
-        </mtr>
+        <mtd><mtext>quỹ đạo thẳng trên khoảng xét</mtext></mtd></mtr>
         <mtr>
           <mtd>
             <mrow>
@@ -697,7 +697,7 @@
               <mo>:</mo>
             </mrow>
           </mtd>
-        </mtr>
+        <mtd><mtext>độ cong khác không tại thời điểm xét</mtext></mtd></mtr>
       </mtable>
     </mrow>
   </mrow>
@@ -811,7 +811,7 @@
   <img src="images/ch2/hinh-036.png" alt="Phương pháp véc tơ" loading="lazy">
   <figcaption>Hình minh họa - Phương pháp véc tơ</figcaption>
 </figure>
-<p>Từ đó rút ra  <span class="mathml-inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+<p>Với tốc độ khác không, từ đó rút ra (chuyển động đều trên một khoảng khi tích vô hướng bằng không tại mọi thời điểm trên khoảng đó; tại điểm dừng cần xét lân cận): <span class="mathml-inline"><math xmlns="http://www.w3.org/1998/Math/MathML" data-equation-id="speed-summary">
   <mrow>
     <mover accent="true">
       <mrow>
@@ -833,7 +833,7 @@
           <mtd>
             <mrow><mo>&gt;</mo><mn>0</mn><mo>:</mo> </mrow>
           </mtd>
-        </mtr>
+        <mtd><mtext>nhanh dần</mtext></mtd></mtr>
         <mtr>
           <mtd>
             <mrow>
@@ -842,7 +842,7 @@
               <mo>:</mo>
             </mrow>
           </mtd>
-        </mtr>
+        <mtd><mtext>tốc độ có đạo hàm bằng không</mtext></mtd></mtr>
         <mtr>
           <mtd>
             <mrow>
@@ -851,7 +851,7 @@
               <mo>:</mo>
             </mrow>
           </mtd>
-        </mtr>
+        <mtd><mtext>chậm dần</mtext></mtd></mtr>
       </mtable>
     </mrow>
   </mrow>

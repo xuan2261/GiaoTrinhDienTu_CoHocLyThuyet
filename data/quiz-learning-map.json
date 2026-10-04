@@ -76,7 +76,7 @@
       "id": "quiz-ch1-008",
       "sourceFile": "data/quiz-ch1.json",
       "sourceIndex": 7,
-      "questionHash": "f6e54fc25418d40cbd474c830be3b8bad182401cbfa8962ead42fbe10b680588",
+      "questionHash": "86ba273baae00d40f1e027e45ff569e569aaa843af75f73da636525a363eafd7",
       "learningOutcomeId": "lo-ch1-statics",
       "contentIds": [
         "ch1-quiz"
@@ -206,7 +206,7 @@
       "id": "quiz-ch1-021",
       "sourceFile": "data/quiz-ch1.json",
       "sourceIndex": 20,
-      "questionHash": "cbf4fedace9c977cd92719051c8d5edf7e50d7ed1e8d5110a5d1a3ee7b7fcf62",
+      "questionHash": "2cce029ca5de842f50ca7c7ff0f24661628cc43d51f84ad680d000ef4fb6d369",
       "learningOutcomeId": "lo-ch1-statics",
       "contentIds": [
         "ch1-quiz"
@@ -266,7 +266,7 @@
       "id": "quiz-ch1-027",
       "sourceFile": "data/quiz-ch1.json",
       "sourceIndex": 26,
-      "questionHash": "91c2067e1dba8f28713790120fb82635f729ffefecb9cda8e748940eb58eb185",
+      "questionHash": "05e60b18d7f616473e22955cab1990cb28d729ca358d8773e05d6ee5db873c18",
       "learningOutcomeId": "lo-ch1-statics",
       "contentIds": [
         "ch1-quiz"
@@ -496,7 +496,7 @@
       "id": "quiz-ch1-050",
       "sourceFile": "data/quiz-ch1.json",
       "sourceIndex": 49,
-      "questionHash": "2234b191a44abb74460528d6f185813d14c83520f049549e98e2780dcf6ee73e",
+      "questionHash": "691342657578847f4b291d3c60443e64b4d1ddeedd6babaac2ed0ec43f85236e",
       "learningOutcomeId": "lo-ch1-statics",
       "contentIds": [
         "ch1-quiz"
@@ -856,7 +856,7 @@
       "id": "quiz-ch1-086",
       "sourceFile": "data/quiz-ch1.json",
       "sourceIndex": 85,
-      "questionHash": "e4ab9ccda07ed612c00a4ed9b665a3993505a6fed0c5e65aea68bbef00e0bf44",
+      "questionHash": "37bc18a1d2a293589b438b62358a91b3237bf051c2e40d29f1232c912e5dc89c",
       "learningOutcomeId": "lo-ch1-statics",
       "contentIds": [
         "ch1-quiz"
@@ -1116,7 +1116,7 @@
       "id": "quiz-ch2-012",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 11,
-      "questionHash": "f00f0507cb9f8c10c076f9439e676ec391badfbf2af965537a91ca110d118108",
+      "questionHash": "706983ae9afe02d15488ff32ee33cf940f08ad2b552d7e7f827a5de3ef94d454",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1196,7 +1196,7 @@
       "id": "quiz-ch2-020",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 19,
-      "questionHash": "8d95d752fc9e92aaa1c5ba94240152188d66f0ee1d4af0c97d90baa30c775de3",
+      "questionHash": "f71e4102da46a7b3d9e3cf1740283809dac5aa282814231d279b1dfe366d7421",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1256,7 +1256,7 @@
       "id": "quiz-ch2-026",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 25,
-      "questionHash": "83c5b6d1ad82adc697bc8255bea891ad9d47957dd2bca5589cc7f7be2e255ea0",
+      "questionHash": "10e3dc7cbb0eef48290d3691f1ce27e0bbdea62a06579971121075a61c80719d",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1286,7 +1286,7 @@
       "id": "quiz-ch2-029",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 28,
-      "questionHash": "593910c8e02c6bd41555c8b4122e27ede0331aa08544b969a7c8c69f442d6693",
+      "questionHash": "f87e5a1cf011aa63333859da7d2eef5071cb6b075625282c691c680ae58911c7",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1296,7 +1296,7 @@
       "id": "quiz-ch2-030",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 29,
-      "questionHash": "e4bd86f7ef1bf6359743e090cac9b2ba83c7fe78837330bf73678045c7c8e229",
+      "questionHash": "1a26b6df17a9da56758352fba6508ba27b4db0e377c9f3b24b56416f4a6a9d66",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1336,7 +1336,7 @@
       "id": "quiz-ch2-034",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 33,
-      "questionHash": "a69a7db861d5b47044ed21a510d637ee1a99ebca25cf3413c9b09bb49709cbba",
+      "questionHash": "dd9cfec87dfc38cf668f1de722beeffa9e3e9cb78502f14451b2611e07faf896",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1386,7 +1386,7 @@
       "id": "quiz-ch2-039",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 38,
-      "questionHash": "1bce5d006dabfc81ac80a8c09189fc5afccc82f2685012db144e533adaa6f836",
+      "questionHash": "92c8900882ef5e2c51c735f6822b50580dadf4c47c0dc92ad85676acfba4c946",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1396,7 +1396,7 @@
       "id": "quiz-ch2-040",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 39,
-      "questionHash": "d09271f309c5c4fb6c0570d9d6a671be5e8eee5fbebd25c4af1160cb96abc2ad",
+      "questionHash": "4f7067e541d365955c394119a9cab09220374c258f3e916013f14fceb5c9319e",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1496,7 +1496,7 @@
       "id": "quiz-ch2-050",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 49,
-      "questionHash": "cf39a47bf1305a1f02a8a26527a8a04ef898ef6fe26cd9e2ceb776bac7f8b986",
+      "questionHash": "f3de3dc1bbba4768a7e2c727190918607533e293e16be9b4c01d64446500843f",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1646,7 +1646,7 @@
       "id": "quiz-ch2-065",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 64,
-      "questionHash": "bffd06610336f74f4aeae49bce440039d29b2584a0e6ef78d9f125f0e765a1f3",
+      "questionHash": "d8337fbccf5d971e6b2dddfd2a2d2e51d4860444b5cfea81383365741f4aa297",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -1816,7 +1816,7 @@
       "id": "quiz-ch2-082",
       "sourceFile": "data/quiz-ch2.json",
       "sourceIndex": 81,
-      "questionHash": "e13ef421588a5e68526b97a21f1a29317f8976cf343f89365cb3a87e205832b3",
+      "questionHash": "6f27019ad1d2d6a2c8c4d0bac768febe1e608cc2656d89bdd72bce1ced08acd1",
       "learningOutcomeId": "lo-ch2-kinematics",
       "contentIds": [
         "ch2-quiz"
@@ -2036,7 +2036,7 @@
       "id": "quiz-ch3-004",
       "sourceFile": "data/quiz-ch3.json",
       "sourceIndex": 3,
-      "questionHash": "e630a8175b79478db512fcb8a96b62267257e9aa2fc5383940cc3b6eb16994d9",
+      "questionHash": "baeb50031cdf5e493b2660d856ab45a5c8b4e7f6312c3cd091e95925160233c7",
       "learningOutcomeId": "lo-ch3-dynamics",
       "contentIds": [
         "ch3-quiz"

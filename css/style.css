@@ -2621,3 +2621,15 @@ input[type="range"]:focus-visible { outline: 3px solid var(--focus-ring); outlin
   .skip-link, .topbar, .sidebar, .main, .sub-menu, .l3-menu, .search { transition: none; }
   :is(a, button, input, select, textarea, [tabindex]):focus-visible { box-shadow: none; }
 }
+
+/* Source authority is distinct from the corrected web teaching content. */
+.pdf-source-errata-notice { padding: .75rem; margin: 0 auto 1rem; max-width: 76ch; border: 1px solid currentColor; border-radius: .4rem; color: inherit; line-height: 1.5; }
+
+/* Simulation roadmap: number entry remains available in both render modes. */
+.sim2-number-input { width: 6.5rem; max-width: 100%; min-height: 2.75rem; padding: .35rem; color: var(--tx); background: var(--bg); border: 1px solid currentColor; border-radius: .35rem; }
+.sim2-controls .sim2-action, .sim2-read-current { min-height: 2.75rem; padding: .5rem .75rem; border-radius: .4rem; cursor: pointer; }
+.sim2-number-input:focus-visible, .sim2-action:focus-visible, .sim2-read-current:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+.sim2-number-input[aria-invalid="true"] { border-width: 2px; border-style: dashed; }
+.sim2-status { font-size: .9rem; line-height: 1.5; overflow-wrap: anywhere; }
+.sim2-status:empty { display: none; }
+@media (max-width: 480px) { .sim2-controls { min-width: 0; } .sim2-slider { min-width: 0; max-width: 100%; } }

@@ -9,7 +9,10 @@
     "condition": "Given a 6 cm by 4 cm plate with a radius 1 cm circular hole centered at (4.5 cm, 2.5 cm)",
     "criterion": "calculate the remaining centroid with signed areas and predict the direction of its shift before the final arithmetic"
   },
-  "contentRoutes": ["ch1-6-2", "ch1-6-3"],
+  "contentRoutes": [
+    "ch1-6-2",
+    "ch1-6-3"
+  ],
   "simulationId": "ch1-6-3",
   "gapDecision": {
     "decision": "selected",
@@ -26,10 +29,26 @@
       "Divide by remaining area and interpret the shift direction."
     ],
     "storyboard": [
-      { "beat": 1, "visual": "Full plate", "narrativePurpose": "Establish the positive area" },
-      { "beat": 2, "visual": "Hole marked negative", "narrativePurpose": "Make the sign convention explicit" },
-      { "beat": 3, "visual": "Signed moment equations", "narrativePurpose": "Connect geometry to calculation" },
-      { "beat": 4, "visual": "Centroid and guides", "narrativePurpose": "Check the numerical result against the predicted direction" }
+      {
+        "beat": 1,
+        "visual": "Full plate",
+        "narrativePurpose": "Establish the positive area"
+      },
+      {
+        "beat": 2,
+        "visual": "Hole marked negative",
+        "narrativePurpose": "Make the sign convention explicit"
+      },
+      {
+        "beat": 3,
+        "visual": "Signed moment equations",
+        "narrativePurpose": "Connect geometry to calculation"
+      },
+      {
+        "beat": 4,
+        "visual": "Centroid and guides",
+        "narrativePurpose": "Check the numerical result against the predicted direction"
+      }
     ],
     "math": {
       "expression": "xC = sum(Ai xi)/sum(Ai); yC = sum(Ai yi)/sum(Ai), with Ahole < 0",
@@ -48,7 +67,10 @@
     "staticFallback": "prototypes/media/centroid-reasoning.html#loi-giai-tinh",
     "textAlternative": "The ordered step list, live formula, SVG title and description, and full static solution expose the same reasoning.",
     "transcript": null,
-    "captions": { "required": false, "reason": "The asset has no audio or timed dialogue." },
+    "captions": {
+      "required": false,
+      "reason": "The asset has no audio or timed dialogue."
+    },
     "autoplay": false
   },
   "offline": {
@@ -57,10 +79,22 @@
     "remoteDependenciesAllowed": false
   },
   "sourceEvidence": [
-    { "path": "chapters/ch1/muc-VI-2.html", "sha256": "52d521160bfcc2aee027321073e320a8a3b209e36b6947004854dc21f8b56775" },
-    { "path": "chapters/ch1/muc-VI-3.html", "sha256": "27ed7502e4bdd32c687c6a03257d5dc4b40481b60ae05179b29a0dc0bae91c7a" },
-    { "path": "js/sim2/sims/ch1/ch1-6-3.js", "sha256": "ef9c394a6bdc1e83fd2501b267de1496d50b4b2d13d97569561eb18c255de62d" },
-    { "path": "js/sim2/physics/statics.js", "sha256": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0" }
+    {
+      "path": "chapters/ch1/muc-VI-2.html",
+      "sha256": "32a4c021dfcd4de615afac6a344f2a16a141011e70152af1b4aefd76e8b657e7"
+    },
+    {
+      "path": "chapters/ch1/muc-VI-3.html",
+      "sha256": "8b3cd3baf469eb283b16e26c3d586fbaf09d806dd69459ff50f27ed6521c6c57"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-6-3.js",
+      "sha256": "41fcb059177fd8ec6e247a925268971055f966053d69909beaa8f2d755018ce7"
+    },
+    {
+      "path": "js/sim2/physics/statics.js",
+      "sha256": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0"
+    }
   ],
   "review": {
     "ownerRole": "Multimedia author",

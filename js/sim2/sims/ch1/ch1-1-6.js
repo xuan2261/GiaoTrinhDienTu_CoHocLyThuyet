@@ -23,6 +23,9 @@
     const dLine = render.line(tf, { x: 0, y: 0 }, { x: 0, y: 0 }, { stroke: Pal.moment, width: 1.5, dash: '4 3', class: 'sim2-guide-line sim2-couple-distance' });
     svg.appendChild(dLine); svg.appendChild(upArrow); svg.appendChild(dnArrow);
 
+    const momentArc = render.el('path', { class: 'sim2-moment-arc', fill: 'none', stroke: Pal.moment, 'stroke-width': 2.5, 'marker-end': `url(#${svg.__markerId})` });
+    svg.appendChild(momentArc);
+
     const lblF1 = overlay.label('F', { x: 0, y: 0 }, { anchor: 'right', color: Pal.force });
     const lblF2 = overlay.label("F'", { x: 0, y: 0 }, { anchor: 'left', color: Pal.force });
     const lblD = overlay.label('d', { x: 0, y: -0.6 }, { color: Pal.moment });
@@ -44,37 +47,42 @@
       overlay.moveLabel(lblD, { x: 0, y: -0.6 });
       handle.move({ x: state.half, y: 0 });
       const d = 2 * state.half;
+      const c = tf.toScreen({ x: 0, y: 0 }), r = 18;
+      momentArc.setAttribute('d', `M ${c.x + r} ${c.y} A ${r} ${r} 0 1 1 ${c.x} ${c.y - r}`);
+      momentArc.setAttribute('data-dir', 'cw');
       panel.setReadout([
         { key: 'F', label: 'F:', value: F + ' N' },
         { key: 'd', label: 'd:', value: d.toFixed(2) + ' m' },
-        { key: 'M', label: 'M ngẫu:', value: P.coupleMoment(F, d).toFixed(1) + ' N·m' },
-        { key: 'sumF', label: 'ΣF:', value: '0 (ngẫu lực)' }
+        { key: 'M', label: 'M ngẫu:', value: (-P.coupleMoment(F, d)).toFixed(1) + ' N·m' },
+        { key: 'sumF', label: 'ΣF:', value: '0 N (ngẫu lực)' }
       ]);
     }
 
     const panel = shell.setTheory({
-      formulas: ['M = \\textcolor{#e03030}{F} \\cdot \\textcolor{#7c3aed}{d}', '\\sum \\vec{F} = 0'],
+      formulas: ['M = -\\textcolor{#e03030}{F} \\cdot \\textcolor{#7c3aed}{d}', '\\sum \\vec{F} = 0'],
       legend: [{ color: Pal.force, label: 'cặp lực F' }, { color: Pal.moment, label: 'd' }],
-      observe: 'Ngẫu lực: hợp lực = 0 nhưng mô men M = F·d khác 0, không phụ thuộc điểm đặt.'
+      observe: 'CCW dương: lực trái lên, lực phải xuống tạo mômen M = −Fd (chiều kim đồng hồ). Hợp lực bằng 0, mômen không phụ thuộc tâm tính. Cung chỉ chiều, không mô phỏng vật quay. d có bước 0,5 m.'
     });
 
     const controls = shell.addControls({
       sliders: [
         { id: 'd', label: 'd', min: 1, max: 6, step: 0.5, value: 2 * state.half, unit: 'm',
-          onInput: v => { state.half = v / 2; render2(); } }
+          onInput: v => { state.half = Math.round(v*2)/4; controls.setValue('d', 2*state.half); render2(); } }
       ]
     });
 
     const handle = shell.addHandle({ x: state.half, y: 0 }, {
       fill: Pal.handle,
-      a11y: { label: 'Nửa khoảng cách giữa hai lực', axis: 'x', min: 1, max: 6, valueFromPoint: wp => 2 * Math.abs(wp.x) },
+      a11y: { label: 'Khoảng cách d giữa hai lực', axis: 'x', min: 1, max: 6, valueFromPoint: wp => 2 * wp.x, valueText: wp => `d ${(2 * wp.x).toFixed(1)} m` },
+      bounds: { minX: 0.5, maxX: 3, minY: 0, maxY: 0 },
       keyboardStep: { x: 0.25, y: 0 },
       onDrag(wp) {
-        state.half = Math.min(3, Math.max(0.5, Math.abs(wp.x)));
+        state.half = Math.round(Math.min(3, Math.max(0.5, wp.x)) * 4) / 4;
         controls.setValue('d', (2 * state.half).toFixed(1));
         render2();
       }
     });
+    shell.addAction({ id: 'reset', label: 'Đặt lại', onClick() { state.half = 1.5; controls.setValue('d', 3); render2(); } });
     render2();
     return { dispose: shell.dispose };
   });

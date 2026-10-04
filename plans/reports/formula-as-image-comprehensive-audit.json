@@ -8,7 +8,7 @@
       "unmapped": 59,
       "mapped_no_render": 0,
       "duplicate_count": 0,
-      "mixed_files": 3,
+      "mixed_files": 7,
       "generic_alt": 0,
       "no_alt": 0,
       "no_figcaption": 0
@@ -34,7 +34,7 @@
       "unmapped": 28,
       "mapped_no_render": 0,
       "duplicate_count": 0,
-      "mixed_files": 6,
+      "mixed_files": 5,
       "generic_alt": 0,
       "no_alt": 0,
       "no_figcaption": 0
@@ -446,7 +446,7 @@
       "chapter": "ch1",
       "file": "muc-VI-2.html",
       "src": "images/ch1/hinh-161.png",
-      "alt": "9",
+      "alt": "Tâm hệ lực song song",
       "size": 28541,
       "in_figure": false,
       "width": null
@@ -509,7 +509,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-212.png",
-      "alt": "4",
+      "alt": "Hai quả cầu trong hộp và các phản lực tiếp xúc",
       "size": 553343,
       "in_figure": false,
       "width": null
@@ -518,7 +518,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-217.png",
-      "alt": "5",
+      "alt": "Kết cấu ABC và CD, các tải và kích thước",
       "size": 290113,
       "in_figure": false,
       "width": null
@@ -527,7 +527,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-218.png",
-      "alt": "6",
+      "alt": "Sơ đồ hóa rắn toàn hệ và tách thanh CD",
       "size": 217972,
       "in_figure": false,
       "width": null
@@ -536,7 +536,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-222.png",
-      "alt": "7",
+      "alt": "Thang hai chân 45 độ với người tại D và dây EF",
       "size": 255103,
       "in_figure": false,
       "width": null
@@ -545,7 +545,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-224.png",
-      "alt": "8",
+      "alt": "Các lực tác dụng lên chân thang AC",
       "size": 73370,
       "in_figure": false,
       "width": null
@@ -1587,7 +1587,7 @@
       "chapter": "ch1",
       "file": "muc-VI-2.html",
       "src": "images/ch1/hinh-161.png",
-      "alt": "9",
+      "alt": "Tâm hệ lực song song",
       "size": 28541,
       "in_figure": false,
       "width": null
@@ -1650,7 +1650,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-212.png",
-      "alt": "4",
+      "alt": "Hai quả cầu trong hộp và các phản lực tiếp xúc",
       "size": 553343,
       "in_figure": false,
       "width": null
@@ -1659,7 +1659,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-217.png",
-      "alt": "5",
+      "alt": "Kết cấu ABC và CD, các tải và kích thước",
       "size": 290113,
       "in_figure": false,
       "width": null
@@ -1668,7 +1668,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-218.png",
-      "alt": "6",
+      "alt": "Sơ đồ hóa rắn toàn hệ và tách thanh CD",
       "size": 217972,
       "in_figure": false,
       "width": null
@@ -1677,7 +1677,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-222.png",
-      "alt": "7",
+      "alt": "Thang hai chân 45 độ với người tại D và dây EF",
       "size": 255103,
       "in_figure": false,
       "width": null
@@ -1686,7 +1686,7 @@
       "chapter": "ch1",
       "file": "muc-VII-1.html",
       "src": "images/ch1/hinh-224.png",
-      "alt": "8",
+      "alt": "Các lực tác dụng lên chân thang AC",
       "size": 73370,
       "in_figure": false,
       "width": null
@@ -2381,11 +2381,14 @@
   "duplicate_files": [],
   "mixed_render_files": [
     "ch1/muc-I-4.html",
+    "ch1/muc-IV-2.html",
     "ch1/muc-IV-3.html",
     "ch1/muc-IV-5.html",
+    "ch1/muc-V-4.html",
+    "ch1/muc-VI-2.html",
+    "ch1/muc-VII-1.html",
     "ch2/muc-I-1.html",
     "ch2/muc-II-2.html",
-    "ch3/muc-II-2.html",
     "ch3/muc-V-3.html",
     "ch3/muc-V-4.html",
     "ch3/muc-VI-3.html",

@@ -12,9 +12,9 @@ const { validate } = require('../tools/sim-validation/validate-simulation-drift.
 
 const REQUIRED = ['id', 'title', 'chapter', 'status', 'learningOutcomeId', 'phenomenon', 'assumptions', 'formula', 'controls', 'accessibility', 'oracle', 'boundaryChecks', 'capture', 'evidence', 'sources', 'freshness'];
 
-test('25 verified Sim2 specifications exactly join the canonical manifest with catalogued independent evidence', () => {
+test('25 draft Sim2 specifications exactly join the canonical manifest with catalogued independent evidence', () => {
   assert.strictEqual(document.schemaVersion, '1.1.0');
-  assert.strictEqual(document.status, 'verified');
+  assert.strictEqual(document.status, 'draft');
   assert.strictEqual(document.reviewRole, 'Project technical review');
   assert.deepStrictEqual(document.oraclePolicy, { kind: 'independent-executable-reference', debugMetricsSoleAuthority: false });
   assert.ok(Array.isArray(document.evidenceCatalog) && document.evidenceCatalog.length > 0);
@@ -22,14 +22,14 @@ test('25 verified Sim2 specifications exactly join the canonical manifest with c
   assert.deepStrictEqual(document.specifications.map(record => record.id).sort(), manifest.map(route => route.id).sort());
   for (const record of document.specifications) {
     for (const field of REQUIRED) assert.ok(record[field] != null, `${record.id} missing ${field}`);
-    assert.strictEqual(record.status, 'verified', `${record.id} must retain verified technical evidence`);
-    assert.strictEqual(record.evidence.verified, true, `${record.id} evidence must remain verified`);
+    assert.strictEqual(record.status, 'draft', `${record.id} needs current-source runtime review`);
+    assert.strictEqual(record.evidence.verified, false, `${record.id} historical evidence must not imply current acceptance`);
     assert.ok(fs.existsSync(path.join(ROOT, record.sources.factory.path)), `${record.id} factory resolves`);
     assert.ok(fs.existsSync(path.join(ROOT, record.oracle.helper)), `${record.id} helper oracle resolves`);
   }
 });
 
-test('specification mutations are rejected: missing, duplicate, renamed, title/chapter, stale source/helper hash, dead test, and downgraded status', () => {
+test('specification mutations are rejected: missing, duplicate, renamed, title/chapter, stale source/helper hash, dead test, and unsupported verified status', () => {
   const clone = () => JSON.parse(JSON.stringify(document));
   const mutations = [
     ['missing', data => data.specifications.pop()],
@@ -45,7 +45,7 @@ test('specification mutations are rejected: missing, duplicate, renamed, title/c
     ['stale catalog hash', data => { data.evidenceCatalog[0].sha256 = '0'.repeat(64); }],
     ['debug-only oracle policy', data => { data.oraclePolicy.debugMetricsSoleAuthority = true; }],
     ['invalid document review role', data => { data.reviewRole = 'Institutional approval'; }],
-    ['downgraded status', data => { data.specifications[0].status = 'draft'; data.specifications[0].evidence.verified = false; }]
+    ['unsupported verified status', data => { data.specifications[0].status = 'verified'; data.specifications[0].evidence.verified = true; }]
   ];
   for (const [name, mutate] of mutations) {
     const data = clone();

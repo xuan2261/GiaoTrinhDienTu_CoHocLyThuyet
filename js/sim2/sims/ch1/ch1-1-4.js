@@ -59,6 +59,7 @@
       overlay.moveLabel(lblArm, { x: state.app.x / 2, y: -0.5 });
       overlay.moveLabel(lblF, { x: state.app.x, y: state.app.y + state.F * VIS + 0.3 });
       handle.move(state.app);
+      dInput.setValue(state.app.x);
       // Chiều quay từ tích có hướng: r=(app.x,0), f=(0,+F) (lực hướng lên) → tau=app.x·F.
       const tau = P.momentFromVectors(state.app.x, 0, 0, state.F);
       const ccw = tau > 0;
@@ -68,32 +69,36 @@
       panel.setReadout([
         { key: 'F', label: 'F:', value: state.F.toFixed(0) + ' N' },
         { key: 'd', label: 'd:', value: d.toFixed(2) + ' m' },
-        { key: 'M', label: 'M:', value: M.toFixed(1) + ' N·m' }
+        { key: 'M', label: 'M:', value: '+' + M.toFixed(1) + ' N·m' },
+        { key: 'direction', label: 'Chiều M:', value: 'ngược chiều kim đồng hồ (CCW)' }
       ]);
     }
 
     const panel = shell.setTheory({
       formulas: ['M = \\textcolor{#e03030}{F} \\cdot \\textcolor{#7c3aed}{d}'],
       legend: [{ color: Pal.force, label: 'F' }, { color: Pal.moment, label: 'd (cánh tay đòn)' }],
-      observe: 'Kéo điểm đặt lực để đổi cánh tay đòn d; dùng thanh trượt đổi độ lớn F.'
+      observe: 'd là khoảng cách vuông góc từ O đến giá lực hướng lên trong cấu hình này. CCW dương. Cung chỉ chiều mômen, không biểu thị góc quay hay biến dạng; bán kính cung không có thang vật lý.'
     });
 
-    shell.addControls({
+    const controls = shell.addControls({
       sliders: [
         { id: 'F', label: 'F', min: 10, max: 100, step: 5, value: state.F, unit: 'N',
-          onInput: v => { state.F = v; render2(); } }
+          onInput: v => { state.F = Math.round(v/5)*5; controls.setValue('F', state.F); render2(); } }
       ]
     });
 
     const handle = shell.addHandle(state.app, {
       fill: Pal.handle,
-      a11y: { label: 'Điểm đặt lực trên tay đòn', axis: 'x', min: 0.5, max: 6.5 },
+      a11y: { label: 'Cánh tay đòn d', axis: 'x', min: 0.5, max: 6.5, valueText: wp => `d ${wp.x.toFixed(1)} m` },
+      bounds: { minX: 0.5, maxX: 6.5, minY: 0, maxY: 0 },
       keyboardStep: { x: 0.1, y: 0 },
       onDrag(wp) {
-        state.app = { x: Math.min(6.5, Math.max(0.5, wp.x)), y: 0 };
+        state.app = { x: Math.round(Math.min(6.5, Math.max(0.5, wp.x)) * 10) / 10, y: 0 };
         render2();
       }
     });
+    const dInput = shell.addNumberControl({ id: 'd', label: 'Cánh tay đòn d', min: 0.5, max: 6.5, step: 0.1, value: 4, unit: 'm', onInput(v) { state.app = { x: Math.round(v*10)/10, y: 0 }; render2(); } });
+    shell.addAction({ id: 'reset', label: 'Đặt lại', onClick() { state.F = 50; state.app = { x: 4, y: 0 }; controls.setValue('F', 50); render2(); } });
     render2();
     return { dispose: shell.dispose };
   });

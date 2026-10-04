@@ -67,33 +67,34 @@
         { color: Pal.x, label: 'Fₓ' },
         { color: Pal.y, label: 'Fᵧ' }
       ],
-      observe: 'Kéo đầu mũi tên hoặc dùng thanh trượt để đổi độ lớn F và góc α.'
+      observe: 'Điểm đặt O cố định; kéo đầu F chỉ đổi độ lớn và hướng. F và α có bước 1 N / 1° cho cả kéo, thanh trượt và nhập số. Hình lực dùng thang 0,04 đơn vị hình/N.'
     });
 
     const controls = shell.addControls({
       sliders: [
         { id: 'F', label: 'F', min: 10, max: 120, step: 1, value: state.F, unit: 'N',
-          onInput: v => { state.F = v; render2(); } },
+          onInput: v => { state.F = Math.round(v); controls.setValue('F', state.F); render2(); } },
         { id: 'alpha', label: 'α', min: 0, max: 90, step: 1, value: state.alphaDeg, unit: '°',
-          onInput: v => { state.alphaDeg = v; render2(); } }
+          onInput: v => { state.alphaDeg = Math.round(v); controls.setValue('alpha', state.alphaDeg); render2(); } }
       ]
     });
 
     const handle = shell.addHandle(tip(), {
       fill: Pal.handle,
-      a11y: { label: 'Đầu vectơ lực P', axis: 'both', min: 10, max: 120, valueFromPoint: wp => Math.hypot(wp.x, wp.y) / VIS },
+      a11y: { label: 'Đầu vectơ lực F', axis: 'both', min: 10, max: 120, valueFromPoint: wp => Math.hypot(wp.x, wp.y) / VIS, valueText: () => `F ${state.F} N, góc α ${state.alphaDeg} độ` },
       keyboardStep: { x: VIS, y: VIS },
       hintPulse: true,
       onDrag(wp) {
-        state.F = Math.min(120, Math.max(10, Math.hypot(wp.x, wp.y) / VIS));
+        state.F = Math.round(Math.min(120, Math.max(10, Math.hypot(wp.x, wp.y) / VIS)));
         let a = Math.atan2(wp.y, wp.x) * 180 / Math.PI;
-        state.alphaDeg = Math.min(90, Math.max(0, a));
+        state.alphaDeg = Math.round(Math.min(90, Math.max(0, a)));
         controls.setValue('F', state.F.toFixed(0));      // KHÔNG bắn input → không loop
         controls.setValue('alpha', state.alphaDeg.toFixed(0));
         render2();
       }
     });
 
+    shell.addAction({ id: 'reset', label: 'Đặt lại', onClick() { state.F = 100; state.alphaDeg = 35; controls.setValue('F', 100); controls.setValue('alpha', 35); render2(); } });
     render2();
     return { dispose: shell.dispose };
   });

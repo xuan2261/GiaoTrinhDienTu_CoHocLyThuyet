@@ -54,8 +54,9 @@
         for (let i = 0; i < 10; i++) beltDots.push(new THREE.Mesh(new THREE.SphereGeometry(0.055, 14, 10), P.material(THREE, 0xd97706)));
         scene.add(gear1, gear2, pulley1, pulley2, beltTop, beltBottom, beltWrap1, beltWrap2, axis1, axis2, axis3, axis4, gearArrow1, gearArrow2, pulleyArrow1, pulleyArrow2, ...beltDots);
         const grid = new THREE.GridHelper(7.2, 9, 0xdbe3ee, 0xedf2f7); grid.position.y = -1.35; scene.add(grid);
-        labels.add('gear-system', 'Bánh răng', () => gear1.position, { dx: -16, dy: -46 });
-        labels.add('belt-system', 'Đai', () => beltLabelTarget, { dx: 42, dy: 14 });
+        labels.add('gear-system', 'Bánh dẫn · răng minh họa', () => gear1.position, { dx: -16, dy: -46 });
+        labels.add('gear-driven', 'Bánh bị dẫn', () => gear2.position, { dx: 38, dy: -35 });
+        labels.add('belt-system', 'Đai hở', () => beltLabelTarget, { dx: 42, dy: 14 });
       }
     });
     if (!shell) return null;
@@ -100,8 +101,29 @@
       const topAngle = Math.atan2(normalY, normalX), bottomAngle = Math.atan2(-normalY, normalX);
       setWrap(beltWrap2, p2, r2, topAngle, bottomAngle);
       setWrap(beltWrap1, p1, r1, bottomAngle, topAngle - Math.PI * 2);
-      const loop = [topA, topB, bottomB, bottomA];
-      beltDots.forEach((dot, i) => { const u = ((i / beltDots.length) + (state.gearPhi1 || 0) / (2 * Math.PI)) % 1; const edge = Math.floor(u * 4); const a = loop[edge], b = loop[(edge + 1) % 4]; dot.position.lerpVectors(a, b, u * 4 - edge); });
+      // Travel counter-clockwise around each pulley: topA -> left wrap ->
+      // bottom span -> right wrap -> top span. Distance, not edge number,
+      // is the parameter, so ds/dt = r1 * omega1 everywhere (including joins).
+      const spanLength = Math.hypot(topB.x - topA.x, topB.y - topA.y);
+      const leftLength = r1 * (2 * Math.PI - 2 * topAngle);
+      const rightLength = r2 * 2 * topAngle;
+      const loopLength = leftLength + rightLength + 2 * spanLength;
+      const travel = r1 * (state.gearPhi1 || 0);
+      beltDots.forEach((dot, i) => {
+        let distance = ((i * loopLength / beltDots.length + travel) % loopLength + loopLength) % loopLength;
+        if (distance < leftLength) {
+          const angle = topAngle + distance / r1;
+          dot.position.set(p1.x + r1 * Math.cos(angle), p1.y + r1 * Math.sin(angle), pz);
+        } else if ((distance -= leftLength) < spanLength) {
+          dot.position.lerpVectors(bottomA, bottomB, distance / spanLength);
+        } else if ((distance -= spanLength) < rightLength) {
+          const angle = bottomAngle + distance / r2;
+          dot.position.set(p2.x + r2 * Math.cos(angle), p2.y + r2 * Math.sin(angle), pz);
+        } else {
+          distance -= rightLength;
+          dot.position.lerpVectors(topB, topA, distance / spanLength);
+        }
+      });
       shell.setState(state);
       const gearBeltSeparationPx = shell.projectDistance(gear1.position, pulley1.position);
       const primaryPoints = [topA, topB, bottomA, bottomB];
@@ -115,7 +137,7 @@
       ));
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
       root.__SIM3_DEBUG__['ch2-3-2'] = Object.assign({
-        updatedAt: tick,
+        updatedAt: tick, displayScales: { radii: 0.5, omegaArrow: 0.42, omegaArrowCap: 0.42 }, teethRole: 'decorative-not-tooth-count',
         physics: { objectCount: sceneRef.children.length, gear: { centers: [serial(gear1.position), serial(gear2.position)], radii: [r1, r2], axis: C.axisVector(1, plane), omegas: [omega1, gearOmega2], rotations: [gear1.rotation.z, gear2.rotation.z], shafts: [axis1, axis2].map(axis => axis.userData.sim3PhysicalEndpoints) }, pulley: { centers: [serial(pulley1.position), serial(pulley2.position)], radii: [r1, r2], axis: C.axisVector(1, plane), omegas: [omega1, beltOmega2], rotations: [pulley1.rotation.z, pulley2.rotation.z], shafts: [axis3, axis4].map(axis => axis.userData.sim3PhysicalEndpoints) }, belt: { top: [serial(topA), serial(topB)], bottom: [serial(bottomA), serial(bottomB)], wraps: [[serial(bottomA), serial(topA)], [serial(topB), serial(bottomB)]], normal: vector(normalX, normalY) } },
         visualMetrics: root.Sim3VisualKit && root.Sim3VisualKit.visualMetrics({ hierarchy: 'belt-gears-primary-supports-muted', supportOpacity: 0.32, secondaryArrowScale: 0.42, cropMarginTargetPx: 24, minSafeMarginPx: projectedMarginPx, projectedMarginPx, labelOverlapTarget: 0, labelFaceCoverageMax: 0.04, beltLabelSemanticTarget: 'belt-span', beltLabelAnchorRole: 'top-belt-span-midpoint', beltLabelSpanCoverage: 0.72, beltLabelPulleyFaceDistancePx, clutterReduced: true, beltNodeScale: 'reduced', cameraFit: 'wide-safe-crop', gearBeltSeparation: 'front-back-separated', physicalMeaningCue: 'gear-contact-belt-transfer', primarySceneFillRatio: sceneBounds ? sceneBounds.fillRatio : 0, visibleLabelCount: shell.labels.countVisible(), primaryObjectDominanceRatio: gearBeltSeparationPx / 60, gearBeltSeparationPx, hierarchy2: 'gears-and-belt-separated-primary' })
       }, state);

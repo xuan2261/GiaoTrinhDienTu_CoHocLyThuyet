@@ -11,6 +11,18 @@
     return btn;
   }
 
+  // Renderers receive an immutable copy, never a live mutable simulation object.
+  // This preserves the exact last physical state across lazy mount and fallback.
+  function snapshot(value) {
+    if (Array.isArray(value)) return Object.freeze(value.map(snapshot));
+    if (value && typeof value === 'object') {
+      const copy = {};
+      for (const key of Object.keys(value)) copy[key] = snapshot(value[key]);
+      return Object.freeze(copy);
+    }
+    return value;
+  }
+
   function attach(cfg) {
     const toggle = document.createElement('div');
     toggle.className = 'sim3-mode-toggle';
@@ -30,16 +42,17 @@
     cfg.container.insertBefore(toggle, cfg.container.firstChild);
     cfg.container.insertBefore(fallback, toggle.nextSibling);
 
-    let mode = '2d', sim3 = null, lastState = null, disposed = false, fallbackActive = false;
+    let mode = '2d', sim3 = null, sim3Host = null, lastState = null, disposed = false, fallbackActive = false;
     function setPressed(next) {
       [b2, b3].forEach(btn => {
         btn.setAttribute('aria-pressed', btn.dataset.mode === next ? 'true' : 'false');
       });
     }
     function releaseSim3() {
-      const current = sim3;
-      sim3 = null;
-      if (current && current.dispose) current.dispose();
+      const current = sim3, host = sim3Host;
+      sim3 = null; sim3Host = null;
+      try { if (current && current.dispose) current.dispose(); }
+      finally { if (host && host.parentNode) host.parentNode.removeChild(host); }
     }
     function restore2d(preserveStatus, focusButton) {
       mode = '2d';
@@ -68,15 +81,25 @@
       if (!sim3) {
         const host = document.createElement('div');
         host.className = 'sim3-host';
+        sim3Host = host;
         refParent.appendChild(host);
         try {
-          sim3 = cfg.create3d({ host, onFallback: fail });
+          const created = cfg.create3d({ host, onFallback: fail });
+          // A factory may notify fallback before returning an object. Never
+          // reactivate that failed scene or leave its pending host behind.
+          if (fallbackActive || disposed) {
+            try { if (created && created.dispose) created.dispose(); }
+            finally { if (host.parentNode) host.parentNode.removeChild(host); }
+            return;
+          }
+          sim3 = created;
         } catch (error) {
           if (host.parentNode) host.parentNode.removeChild(host);
           fail('create-3d-failed', error);
           return;
         }
         if (!sim3) {
+          releaseSim3();
           if (!fallbackActive) fail('create-3d-failed');
           return;
         }
@@ -106,9 +129,9 @@
 
     return {
       setState(state) {
-        lastState = state;
+        lastState = snapshot(state);
         if (mode !== '3d' || !sim3 || !sim3.setState) return;
-        try { sim3.setState(state); } catch (error) { fail('scene-update-failed', error); }
+        try { sim3.setState(lastState); } catch (error) { fail('scene-update-failed', error); }
       },
       reset() {
         if (!sim3 || !sim3.reset) return;

@@ -1,5 +1,5 @@
 /**
- * ch2-1-1 — Quỹ đạo chất điểm + v, a. parabolaPoint + đạo hàm số.
+ * ch2-1-1 — Quỹ đạo chất điểm + v, a. parabolaPoint + đạo hàm giải tích, sự kiện chính xác.
  * Slider v₀, α + playback (start paused). Canvas vẽ VẾT (#11); SVG vẽ v (lục) + a (lam).
  */
 (function(root) {
@@ -8,7 +8,7 @@
 
   Reg.register('ch2-1-1', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -1, minY: -1, maxX: 22, maxY: 12 }, canvas: true, reservePanel: true,
+      container, worldBox: { minX: -1, minY: -3.5, maxX: 23.5, maxY: 13.5 }, canvas: true, reservePanel: true,
       meta: { name: 'Quỹ đạo chất điểm + v, a', section: '1.1', chapter: 2 }
     });
     const { svg, tf, overlay, render, canvas } = shell;
@@ -45,10 +45,23 @@
     const lblA = overlay.label('a', { x: 0, y: 0 }, { anchor: 'left', color: Pal.a });
 
     let posFn, tFlight, trail, t;
+    const TRAIL_DT = 1 / 60;
+    let nextTrailSample = 1;
+    function sampleTrail() {
+      while (nextTrailSample * TRAIL_DT < t - 1e-12) {
+        trail.push(displayPoint(posFn(nextTrailSample * TRAIL_DT))); nextTrailSample += 1;
+      }
+    }
+    function seek(target) {
+      shell.stop(); t = Math.max(0, Math.min(tFlight, target));
+      trail = [displayPoint(posFn(0))]; nextTrailSample = 1; sampleTrail();
+      shell.seekTime(t); draw();
+      panel.announce(t === tFlight ? 'Đã đến chạm đất, tạm dừng.' : 'Đã đến đỉnh: vᵧ = 0, gia tốc vẫn hướng xuống.');
+    }
     function reset() {
       posFn = tt => K.parabolaPoint(params.v0, params.alphaDeg, g, tt, 0, 0);
       tFlight = 2 * params.v0 * Math.sin(params.alphaDeg * Math.PI / 180) / g;
-      trail = []; t = 0;
+      shell.stop(); trail = [{ x: 0, y: 0 }]; t = 0; nextTrailSample = 1;
       shell.resetClock();
       draw();
     }
@@ -59,13 +72,16 @@
     }
     function draw() {
       const p = posFn(t);
+      if (t === tFlight) p.y = 0;
       const displayP = displayPoint(p);
       canvas.clear();
-      canvas.drawTrail(trail, { fade: true, stroke: 'rgba(224,48,48,0.72)', width: 2, minAlpha: 0.16, maxAlpha: 0.72 });
+      canvas.drawTrail(trail.concat([displayP]), { fade: true, stroke: 'rgba(224,48,48,0.72)', width: 2, minAlpha: 0.16, maxAlpha: 0.72 });
       const sp = tf.toScreen(displayP);
       ptMark.setAttribute('cx', sp.x); ptMark.setAttribute('cy', sp.y);
-      const v = K.velocityFromTrajectory(posFn, t);
-      const a = K.accelerationFromVelocity(tt => K.velocityFromTrajectory(posFn, tt), t);
+      const alpha = params.alphaDeg * Math.PI / 180;
+      const v = { vx: params.v0 * Math.cos(alpha), vy: params.v0 * Math.sin(alpha) - g * t };
+      const a = { ax: 0, ay: -g };
+      const range = params.v0 * Math.cos(alpha) * tFlight;
       const displayV = displayVector({ x: v.vx, y: v.vy }, V_SCALE, 2.6);
       const displayA = displayVector({ x: a.ax, y: a.ay }, A_SCALE, 1.2);
       setArrow(vArrow, displayP, { x: displayP.x + displayV.x, y: displayP.y + displayV.y });
@@ -73,21 +89,31 @@
       overlay.moveLabel(lblV, { x: displayP.x + displayV.x + 0.7, y: displayP.y + displayV.y + 0.5 });
       overlay.moveLabel(lblA, { x: displayP.x + displayA.x - 0.7, y: displayP.y + displayA.y - 0.4 });
       panel.setReadout([
-        { key: 't', label: 't:', value: t.toFixed(2) + ' s' },
+        { key: 't', label: 't:', value: t.toFixed(3) + ' s' },
+        { key: 'phase', label: 'Pha:', value: t === tFlight ? 'Đã chạm đất · tạm dừng' : Math.abs(t - tFlight / 2) < 1e-10 ? 'Đỉnh quỹ đạo' : t === 0 ? 'Sẵn sàng' : t < tFlight / 2 ? 'Đang lên' : 'Đang xuống' },
+        { key: 'x', label: 'x:', value: p.x.toFixed(3) + ' m' },
+        { key: 'y', label: 'y:', value: p.y.toFixed(3) + ' m' },
+        { key: 'vx', label: 'vₓ:', value: v.vx.toFixed(3) + ' m/s' },
+        { key: 'vy', label: 'vᵧ:', value: v.vy.toFixed(3) + ' m/s' },
+        { key: 'ay', label: 'aᵧ:', value: '-9.810 m/s²' },
+        { key: 'flight', label: 'T bay:', value: tFlight.toFixed(3) + ' s' },
+        { key: 'range', label: 'Tầm xa R:', value: range.toFixed(3) + ' m' },
+        { key: 'scale', label: 'Thang hình:', value: trajectoryDisplayScale().toFixed(3) + ' đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)' },
+        { key: 'cap', label: 'Vectơ rút ngắn:', value: Math.hypot(v.vx, v.vy) * V_SCALE > 2.6 ? 'v (số đọc không bị giới hạn)' : 'không' },
         { key: 'v', label: '|v|:', value: Math.hypot(v.vx, v.vy).toFixed(1) + ' m/s' },
         { key: 'a', label: '|a|:', value: Math.hypot(a.ax, a.ay).toFixed(1) + ' m/s²' }
       ]);
     }
     function update(dt) {
-      t += dt;
-      if (t > tFlight) { t = 0; trail.length = 0; }
-      trail.push(displayPoint(posFn(t)));
+      if (t >= tFlight) { shell.stop(); shell.seekTime(tFlight); return; }
+      t = Math.min(tFlight, t + dt); sampleTrail();
+      if (t === tFlight) { shell.stop(); shell.seekTime(tFlight); panel.announce('Đã chạm đất, giữ kết quả. Chọn Phát lại để thử lại.'); }
     }
 
     const panel = shell.setTheory({
       formulas: ['x = v_0\\cos\\alpha \\cdot t', 'y = v_0\\sin\\alpha \\cdot t - \\tfrac{1}{2}gt^2'],
       legend: [{ color: Pal.v, label: 'v (vận tốc)' }, { color: Pal.a, label: 'a (gia tốc)' }],
-      observe: 'Bấm ▶ để phóng. Readout giữ đại lượng vật lý; quỹ đạo và vectơ tự thu tỉ lệ hiển thị khi tham số cực đại.'
+      observe: 'Ném xiên lý tưởng, không cản; x hướng phải, y hướng lên, g = 9,81 m/s². Đổi tham số đặt lại và tạm dừng. Chạm đất giữ kết quả; dùng Phát lại để phóng lại. Vết lấy mẫu mỗi 1/60 s. α và 90°−α cho cùng tầm xa; tại đỉnh a vẫn hướng xuống.'
     });
 
     shell.addControls({
@@ -97,9 +123,14 @@
         { id: 'alpha', label: 'α', min: 20, max: 80, step: 5, value: params.alphaDeg, unit: '°',
           onInput: v => { params.alphaDeg = v; reset(); } }
       ],
+      actions: [
+        { id: 'apex', label: 'Đến đỉnh', onClick: () => seek(tFlight / 2) },
+        { id: 'touchdown', label: 'Đến chạm đất', onClick: () => seek(tFlight) },
+        { id: 'replay', label: 'Phát lại', onClick: () => { reset(); shell.start(); } }
+      ],
       playback: {
         playing: false,
-        onPlay: () => shell.start(), onPause: () => shell.stop(),
+        onPlay: () => { if (t < tFlight) shell.start(); else shell.stop(); }, onPause: () => shell.stop(),
         onStep: () => shell.stepOnce(), onReset: () => { shell.stop(); reset(); }
       }
     });

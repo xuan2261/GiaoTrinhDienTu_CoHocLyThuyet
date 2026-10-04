@@ -154,7 +154,7 @@
      * onDrag(worldPt, phase) phase ∈ 'start'|'move'|'end'.
      */
     function onPointerDrag(onDrag) {
-      let dragging = false;
+      let dragging = false, activePointer = null;
 
       function localScreen(ev) {
         const rect = svg.getBoundingClientRect();
@@ -164,22 +164,32 @@
         };
       }
       function down(ev) {
+        if (dragging || (ev.button != null && ev.button !== 0)) return;
         dragging = true;
+        activePointer = ev.pointerId;
         svg.setPointerCapture && ev.pointerId != null && svg.setPointerCapture(ev.pointerId);
         onDrag(tf.toWorld(localScreen(ev)), 'start', ev);
       }
       function move(ev) {
-        if (!dragging) return;
+        if (!dragging || ev.pointerId !== activePointer) return;
         onDrag(tf.toWorld(localScreen(ev)), 'move', ev);
       }
-      function up(ev) {
-        if (!dragging) return;
-        dragging = false;
-        onDrag(tf.toWorld(localScreen(ev)), 'end', ev);
+      function finish(ev, phase) {
+        if (!dragging || ev.pointerId !== activePointer) return;
+        const pointer = activePointer;
+        dragging = false; activePointer = null;
+        if (svg.hasPointerCapture && svg.hasPointerCapture(pointer)) svg.releasePointerCapture(pointer);
+        const point = Number.isFinite(ev.clientX) && Number.isFinite(ev.clientY) ? tf.toWorld(localScreen(ev)) : null;
+        // Cancel has no new position; consumers must not apply a synthetic coordinate.
+        onDrag(point, phase, ev);
       }
+      function up(ev) { finish(ev, 'end'); }
+      function cancel(ev) { finish(ev, 'cancel'); }
       addListener(svg, 'pointerdown', down);
       addListener(svg, 'pointermove', move);
       addListener(window, 'pointerup', up);
+      addListener(window, 'pointercancel', cancel);
+      addListener(svg, 'lostpointercapture', cancel);
     }
 
     /** Đăng ký fixed-step update và draw sau khi accumulator đã drain; tự gọi start(). */
@@ -206,6 +216,7 @@
     }
 
     function start() {
+      if (controls && controls.setPlaying && !disposed) controls.setPlaying(true);
       if (!running && !disposed) {
         running = true;
         if (clock) clock.resetTimestamp();
@@ -214,6 +225,7 @@
     }
 
     function stop() {
+      if (controls && controls.setPlaying) controls.setPlaying(false);
       running = false;
       if (rafId != null) { root.cancelAnimationFrame(rafId); rafId = null; }
       if (clock) clock.resetTimestamp();
@@ -272,9 +284,11 @@
           y: (ev.clientY - rect.top) * height / rect.height
         };
       }
-      let dragging = false;
+      let dragging = false, activePointer = null;
       function down(ev) {
+        if (dragging || (ev.button != null && ev.button !== 0)) return;
         dragging = true;
+        activePointer = ev.pointerId;
         node.classList.add('is-active');
         node.classList.remove('sim2-handle-pulse');
         ev.stopPropagation();
@@ -282,17 +296,21 @@
         if (opts.onDrag) opts.onDrag(wp, 'start', ev);
       }
       function move(ev) {
-        if (!dragging) return;
+        if (!dragging || ev.pointerId !== activePointer) return;
         wp = tf.toWorld(localScreen(ev));
         moveTo(wp);
         if (opts.onDrag) opts.onDrag(wp, 'move', ev);
       }
-      function up(ev) {
-        if (!dragging) return;
-        dragging = false;
+      function finish(ev, phase) {
+        if (!dragging || ev.pointerId !== activePointer) return;
+        const pointer = activePointer;
+        dragging = false; activePointer = null;
         node.classList.remove('is-active');
-        if (opts.onDrag) opts.onDrag(wp, 'end', ev);
+        if (node.hasPointerCapture && node.hasPointerCapture(pointer)) node.releasePointerCapture(pointer);
+        if (opts.onDrag) opts.onDrag(wp, phase, ev);
       }
+      function up(ev) { finish(ev, 'end'); }
+      function cancel(ev) { finish(ev, 'cancel'); }
       function keydown(ev) {
         const directions = {
           ArrowLeft: { x: -1, y: 0 }, ArrowRight: { x: 1, y: 0 },
@@ -300,7 +318,16 @@
         };
         let next = null;
         const direction = directions[ev.key];
-        if (direction) {
+        if (typeof a11y.pointFromValue === 'function' && typeof a11y.valueFromPoint === 'function') {
+          const current = a11y.valueFromPoint(wp), delta = a11y.step != null ? a11y.step : 1;
+          let value = current;
+          if (direction) value += (direction.x || direction.y) * delta * (ev.shiftKey ? 5 : 1);
+          else if (ev.key === 'Home') value = a11y.min;
+          else if (ev.key === 'End') value = a11y.max;
+          else return;
+          value = Math.max(a11y.min, Math.min(a11y.max, value));
+          next = a11y.pointFromValue(value);
+        } else if (direction) {
           const multiplier = ev.shiftKey ? 5 : 1;
           next = {
             x: wp.x + direction.x * stepX * multiplier,
@@ -315,8 +342,10 @@
         if (!next) return;
         ev.preventDefault();
         node.classList.remove('sim2-handle-pulse');
-        next.x = Math.min(bounds.maxX, Math.max(bounds.minX, next.x));
-        next.y = Math.min(bounds.maxY, Math.max(bounds.minY, next.y));
+        if (typeof a11y.pointFromValue !== 'function') {
+          next.x = Math.min(bounds.maxX, Math.max(bounds.minX, next.x));
+          next.y = Math.min(bounds.maxY, Math.max(bounds.minY, next.y));
+        }
         moveTo(next);
         if (opts.onDrag) opts.onDrag(next, 'keyboard', ev);
       }
@@ -342,6 +371,8 @@
       addListener(node, 'pointerdown', down);
       addListener(window, 'pointermove', move);
       addListener(window, 'pointerup', up);
+      addListener(window, 'pointercancel', cancel);
+      addListener(node, 'lostpointercapture', cancel);
       addListener(node, 'keydown', keydown);
       updateA11y();
 
@@ -377,6 +408,20 @@
       return controls;
     }
 
+    // Additional controls live outside the render viewport, so switching to 3D
+    // never removes the only accessible way to change a physical parameter.
+    function addNumberControl(options) {
+      const control = Ctrl.createControls(container, { numbers: [options] });
+      addCleanup(() => control.dispose());
+      return { root: control.root, setValue(value) { control.setValue(options.id, value); } };
+    }
+    function addAction(options) {
+      const control = Ctrl.createControls(container, { actions: [options] });
+      addCleanup(() => control.dispose());
+      return control.root.querySelectorAll('button')[0];
+    }
+    function seekTime(time) { if (clock) clock.seekTime(time); }
+
     function dispose() {
       if (disposed) return;
       disposed = true;
@@ -400,8 +445,8 @@
     return {
       root: rootEl, svg, tf, overlay, canvas,
       render: R, // tiện gọi primitives
-      onPointerDrag, onFrame, start, stop, stepOnce, resetClock, getSimulationTime,
-      addHandle, addCleanup, addListener, setTheory, addControls, dispose
+      onPointerDrag, onFrame, start, stop, stepOnce, resetClock, seekTime, getSimulationTime,
+      addNumberControl, addAction, addHandle, addCleanup, addListener, setTheory, addControls, dispose
     };
   }
 
