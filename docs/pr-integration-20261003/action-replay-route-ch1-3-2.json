@@ -1,0 +1,824 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch1-3-2",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "reset",
+        "label": "Đặt lại",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "alpha",
+        "min": 5,
+        "max": 75,
+        "value": "30",
+        "step": "any",
+        "physicalStep": "1"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.778Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "W",
+          "value": "100 N"
+        },
+        {
+          "key": "alpha",
+          "value": "30°"
+        },
+        {
+          "key": "T",
+          "value": "57.7 N"
+        },
+        {
+          "key": "sumFx",
+          "value": "0.000000 N"
+        },
+        {
+          "key": "sumFy",
+          "value": "0.000000 N"
+        },
+        {
+          "key": "ropeLength",
+          "value": "3.000 m"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "alpha",
+          "type": "range",
+          "value": "30"
+        },
+        {
+          "id": "alpha",
+          "type": "number",
+          "value": "30"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "reset",
+          "label": "Đặt lại"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "a26e999ab6c0fd90f454148cc0218fb2712e3ff9fd3ddc2bc96596f10c5b33b6",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 4,
+      "nodes": 103,
+      "listenerCount": 14
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 4,
+      "nodes": 103,
+      "listenerCount": 14
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "alpha",
+            "value": 75,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.780Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "W",
+              "value": "100 N"
+            },
+            {
+              "key": "alpha",
+              "value": "30°"
+            },
+            {
+              "key": "T",
+              "value": "57.7 N"
+            },
+            {
+              "key": "sumFx",
+              "value": "0.000000 N"
+            },
+            {
+              "key": "sumFy",
+              "value": "0.000000 N"
+            },
+            {
+              "key": "ropeLength",
+              "value": "3.000 m"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "alpha",
+              "type": "range",
+              "value": "30"
+            },
+            {
+              "id": "alpha",
+              "type": "number",
+              "value": "30"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset",
+              "label": "Đặt lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "a26e999ab6c0fd90f454148cc0218fb2712e3ff9fd3ddc2bc96596f10c5b33b6",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 103,
+          "listenerCount": 14
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "alpha",
+            "value": 75,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "alpha",
+            "requested": 75,
+            "before": "30",
+            "committed": "75",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.780Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "W",
+                  "value": "100 N"
+                },
+                {
+                  "key": "alpha",
+                  "value": "30°"
+                },
+                {
+                  "key": "T",
+                  "value": "57.7 N"
+                },
+                {
+                  "key": "sumFx",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "ropeLength",
+                  "value": "3.000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "30"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "30"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "a26e999ab6c0fd90f454148cc0218fb2712e3ff9fd3ddc2bc96596f10c5b33b6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 103,
+              "listenerCount": 14
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.781Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "W",
+                  "value": "100 N"
+                },
+                {
+                  "key": "alpha",
+                  "value": "75°"
+                },
+                {
+                  "key": "T",
+                  "value": "193.2 N"
+                },
+                {
+                  "key": "sumFx",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "ropeLength",
+                  "value": "3.000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "75"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "75"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "1c2357fda4a6344edde8461a088fb7e99c96d6429d76602c46dd6526040642a5",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 103,
+              "listenerCount": 14
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.781Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "W",
+                  "value": "100 N"
+                },
+                {
+                  "key": "alpha",
+                  "value": "75°"
+                },
+                {
+                  "key": "T",
+                  "value": "193.2 N"
+                },
+                {
+                  "key": "sumFx",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "ropeLength",
+                  "value": "3.000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "75"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "75"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "1c2357fda4a6344edde8461a088fb7e99c96d6429d76602c46dd6526040642a5",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 103,
+              "listenerCount": 14
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"alpha:number\",\"alpha:range\"]",
+                "expected": "[\"alpha:number\",\"alpha:range\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:alpha",
+                "actual": 75,
+                "expected": 75,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:alpha",
+                "actual": 75,
+                "expected": 75,
+                "tolerance": 0.50000001,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "a0206cb8a9e64d65f47d60a708bec2823b9788fbbd1ddd20d4a4f7027e8b83f8"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.781Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "W",
+                  "value": "100 N"
+                },
+                {
+                  "key": "alpha",
+                  "value": "75°"
+                },
+                {
+                  "key": "T",
+                  "value": "193.2 N"
+                },
+                {
+                  "key": "sumFx",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "ropeLength",
+                  "value": "3.000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "75"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "75"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "1c2357fda4a6344edde8461a088fb7e99c96d6429d76602c46dd6526040642a5",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 103,
+              "listenerCount": 14
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.781Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "W",
+                  "value": "100 N"
+                },
+                {
+                  "key": "alpha",
+                  "value": "30°"
+                },
+                {
+                  "key": "T",
+                  "value": "57.7 N"
+                },
+                {
+                  "key": "sumFx",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "ropeLength",
+                  "value": "3.000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "30"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "30"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "a26e999ab6c0fd90f454148cc0218fb2712e3ff9fd3ddc2bc96596f10c5b33b6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 103,
+              "listenerCount": 14
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.782Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "W",
+                  "value": "100 N"
+                },
+                {
+                  "key": "alpha",
+                  "value": "30°"
+                },
+                {
+                  "key": "T",
+                  "value": "57.7 N"
+                },
+                {
+                  "key": "sumFx",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                },
+                {
+                  "key": "ropeLength",
+                  "value": "3.000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "30"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "30"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "a26e999ab6c0fd90f454148cc0218fb2712e3ff9fd3ddc2bc96596f10c5b33b6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 103,
+              "listenerCount": 14
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:alpha",
+                "actual": 30,
+                "expected": 30,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:alpha",
+                "actual": 30,
+                "expected": 30,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:W",
+                "actual": "100 N",
+                "expected": "100 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:alpha",
+                "actual": "30°",
+                "expected": "30°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:T",
+                "actual": "57.7 N",
+                "expected": "57.7 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:sumFx",
+                "actual": "0.000000 N",
+                "expected": "0.000000 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:sumFy",
+                "actual": "0.000000 N",
+                "expected": "0.000000 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ropeLength",
+                "actual": "3.000 m",
+                "expected": "3.000 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "3e7e733d02b5521ad4cafd995b8da2d652f7bcaa9797d0c7ddb1d8ba56f9c1d9"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 103,
+          "listenerCount": 14
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "reset"
+    ],
+    "plannedActionIds": [
+      "reset"
+    ],
+    "executedActionIds": [
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 1,
+    "executedCases": 1,
+    "operations": 2,
+    "oracleStatuses": {
+      "pass": 2,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 15,
+    "failedChecks": 0
+  }
+}

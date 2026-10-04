@@ -1,0 +1,3094 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch2-2-2",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "toggle-tangential",
+        "label": "Ẩn/hiện aτ",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "toggle-normal",
+        "label": "Ẩn/hiện aₙ",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "omega0",
+        "min": 0,
+        "max": 2,
+        "value": "0.5",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "alphaAcc",
+        "min": 0,
+        "max": 0.5,
+        "value": "0.15",
+        "step": "any",
+        "physicalStep": "0.05"
+      }
+    ],
+    "playback": true
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.876Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "t",
+          "value": "0.000 s"
+        },
+        {
+          "key": "radius",
+          "value": "3 m"
+        },
+        {
+          "key": "v",
+          "value": "1.500 m/s"
+        },
+        {
+          "key": "aTangential",
+          "value": "0.450 m/s²"
+        },
+        {
+          "key": "aNormal",
+          "value": "0.750 m/s²"
+        },
+        {
+          "key": "acceleration",
+          "value": "0.875 m/s²"
+        },
+        {
+          "key": "direction",
+          "value": "ngược chiều kim đồng hồ (+)"
+        },
+        {
+          "key": "components",
+          "value": "aτ aₙ"
+        },
+        {
+          "key": "cap",
+          "value": "không"
+        },
+        {
+          "key": "cap3d",
+          "value": "không"
+        },
+        {
+          "key": "omega0",
+          "value": "0.50 rad/s"
+        },
+        {
+          "key": "alpha",
+          "value": "0.15 rad/s²"
+        },
+        {
+          "key": "omega",
+          "value": "0.50 rad/s"
+        },
+        {
+          "key": "phi",
+          "value": "0.00 rad"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "omega0",
+          "type": "range",
+          "value": "0.5"
+        },
+        {
+          "id": "omega0",
+          "type": "number",
+          "value": "0.5"
+        },
+        {
+          "id": "alphaAcc",
+          "type": "range",
+          "value": "0.15"
+        },
+        {
+          "id": "alphaAcc",
+          "type": "number",
+          "value": "0.15"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "toggle-tangential",
+          "label": "Ẩn/hiện aτ"
+        },
+        {
+          "id": "toggle-normal",
+          "label": "Ẩn/hiện aₙ"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": "Chạy"
+    },
+    "stateHash": "da5a2d7a545f9e53ee1453328afb4a6373c6888e201a122b8d6ab730bf65cbcb",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 145,
+      "listenerCount": 19
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 145,
+      "listenerCount": 19
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-toggle-tangential",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "toggle-tangential"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.878Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "t",
+              "value": "0.000 s"
+            },
+            {
+              "key": "radius",
+              "value": "3 m"
+            },
+            {
+              "key": "v",
+              "value": "1.500 m/s"
+            },
+            {
+              "key": "aTangential",
+              "value": "0.450 m/s²"
+            },
+            {
+              "key": "aNormal",
+              "value": "0.750 m/s²"
+            },
+            {
+              "key": "acceleration",
+              "value": "0.875 m/s²"
+            },
+            {
+              "key": "direction",
+              "value": "ngược chiều kim đồng hồ (+)"
+            },
+            {
+              "key": "components",
+              "value": "aτ aₙ"
+            },
+            {
+              "key": "cap",
+              "value": "không"
+            },
+            {
+              "key": "cap3d",
+              "value": "không"
+            },
+            {
+              "key": "omega0",
+              "value": "0.50 rad/s"
+            },
+            {
+              "key": "alpha",
+              "value": "0.15 rad/s²"
+            },
+            {
+              "key": "omega",
+              "value": "0.50 rad/s"
+            },
+            {
+              "key": "phi",
+              "value": "0.00 rad"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "omega0",
+              "type": "range",
+              "value": "0.5"
+            },
+            {
+              "id": "omega0",
+              "type": "number",
+              "value": "0.5"
+            },
+            {
+              "id": "alphaAcc",
+              "type": "range",
+              "value": "0.15"
+            },
+            {
+              "id": "alphaAcc",
+              "type": "number",
+              "value": "0.15"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "toggle-tangential",
+              "label": "Ẩn/hiện aτ"
+            },
+            {
+              "id": "toggle-normal",
+              "label": "Ẩn/hiện aₙ"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "da5a2d7a545f9e53ee1453328afb4a6373c6888e201a122b8d6ab730bf65cbcb",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 145,
+          "listenerCount": 19
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "toggle-tangential"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "toggle-tangential",
+              "label": "Ẩn/hiện aτ"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.878Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "da5a2d7a545f9e53ee1453328afb4a6373c6888e201a122b8d6ab730bf65cbcb",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.879Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "8a912674663cee243a39fa9e5610802852926f63686fdd0facbdeedb9b562026",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.879Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "8a912674663cee243a39fa9e5610802852926f63686fdd0facbdeedb9b562026",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:components",
+                "actual": "aₙ",
+                "expected": "aₙ",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:omega",
+                "actual": "0.50 rad/s",
+                "expected": "0.50 rad/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:phi",
+                "actual": "0.00 rad",
+                "expected": "0.00 rad",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "1.500 m/s",
+                "expected": "1.500 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "0.450 m/s²",
+                "expected": "0.450 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "0.750 m/s²",
+                "expected": "0.750 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "7128fb15e65b19540c73c345764f7595161585f10502d1c685dc7c6dce66a06b"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 145,
+          "listenerCount": 19
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-1-toggle-normal",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "toggle-normal"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.882Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "t",
+              "value": "0.000 s"
+            },
+            {
+              "key": "radius",
+              "value": "3 m"
+            },
+            {
+              "key": "v",
+              "value": "1.500 m/s"
+            },
+            {
+              "key": "aTangential",
+              "value": "0.450 m/s²"
+            },
+            {
+              "key": "aNormal",
+              "value": "0.750 m/s²"
+            },
+            {
+              "key": "acceleration",
+              "value": "0.875 m/s²"
+            },
+            {
+              "key": "direction",
+              "value": "ngược chiều kim đồng hồ (+)"
+            },
+            {
+              "key": "components",
+              "value": "aτ aₙ"
+            },
+            {
+              "key": "cap",
+              "value": "không"
+            },
+            {
+              "key": "cap3d",
+              "value": "không"
+            },
+            {
+              "key": "omega0",
+              "value": "0.50 rad/s"
+            },
+            {
+              "key": "alpha",
+              "value": "0.15 rad/s²"
+            },
+            {
+              "key": "omega",
+              "value": "0.50 rad/s"
+            },
+            {
+              "key": "phi",
+              "value": "0.00 rad"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "omega0",
+              "type": "range",
+              "value": "0.5"
+            },
+            {
+              "id": "omega0",
+              "type": "number",
+              "value": "0.5"
+            },
+            {
+              "id": "alphaAcc",
+              "type": "range",
+              "value": "0.15"
+            },
+            {
+              "id": "alphaAcc",
+              "type": "number",
+              "value": "0.15"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "toggle-tangential",
+              "label": "Ẩn/hiện aτ"
+            },
+            {
+              "id": "toggle-normal",
+              "label": "Ẩn/hiện aₙ"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "da5a2d7a545f9e53ee1453328afb4a6373c6888e201a122b8d6ab730bf65cbcb",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 145,
+          "listenerCount": 19
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "toggle-normal"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "toggle-normal",
+              "label": "Ẩn/hiện aₙ"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.882Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "da5a2d7a545f9e53ee1453328afb4a6373c6888e201a122b8d6ab730bf65cbcb",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.883Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9187a8c48afaea62f2c25e624d39d5094c4c6c19869e30c3ddc9fc8caac12fbd",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.883Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9187a8c48afaea62f2c25e624d39d5094c4c6c19869e30c3ddc9fc8caac12fbd",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:components",
+                "actual": "aτ",
+                "expected": "aτ",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:omega",
+                "actual": "0.50 rad/s",
+                "expected": "0.50 rad/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:phi",
+                "actual": "0.00 rad",
+                "expected": "0.00 rad",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "1.500 m/s",
+                "expected": "1.500 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "0.450 m/s²",
+                "expected": "0.450 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "0.750 m/s²",
+                "expected": "0.750 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "967f9c9b85a2e77820002a248b32a88554182c3fe71b454393372ffd5b5c2912"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 145,
+          "listenerCount": 19
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "experiment-rotation-components",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "toggle-tangential"
+          },
+          {
+            "type": "action",
+            "action": "toggle-normal"
+          },
+          {
+            "type": "action",
+            "action": "toggle-tangential"
+          },
+          {
+            "type": "action",
+            "action": "toggle-normal"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.888Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "t",
+              "value": "0.000 s"
+            },
+            {
+              "key": "radius",
+              "value": "3 m"
+            },
+            {
+              "key": "v",
+              "value": "1.500 m/s"
+            },
+            {
+              "key": "aTangential",
+              "value": "0.450 m/s²"
+            },
+            {
+              "key": "aNormal",
+              "value": "0.750 m/s²"
+            },
+            {
+              "key": "acceleration",
+              "value": "0.875 m/s²"
+            },
+            {
+              "key": "direction",
+              "value": "ngược chiều kim đồng hồ (+)"
+            },
+            {
+              "key": "components",
+              "value": "aτ aₙ"
+            },
+            {
+              "key": "cap",
+              "value": "không"
+            },
+            {
+              "key": "cap3d",
+              "value": "không"
+            },
+            {
+              "key": "omega0",
+              "value": "0.50 rad/s"
+            },
+            {
+              "key": "alpha",
+              "value": "0.15 rad/s²"
+            },
+            {
+              "key": "omega",
+              "value": "0.50 rad/s"
+            },
+            {
+              "key": "phi",
+              "value": "0.00 rad"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "omega0",
+              "type": "range",
+              "value": "0.5"
+            },
+            {
+              "id": "omega0",
+              "type": "number",
+              "value": "0.5"
+            },
+            {
+              "id": "alphaAcc",
+              "type": "range",
+              "value": "0.15"
+            },
+            {
+              "id": "alphaAcc",
+              "type": "number",
+              "value": "0.15"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "toggle-tangential",
+              "label": "Ẩn/hiện aτ"
+            },
+            {
+              "id": "toggle-normal",
+              "label": "Ẩn/hiện aₙ"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "da5a2d7a545f9e53ee1453328afb4a6373c6888e201a122b8d6ab730bf65cbcb",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 145,
+          "listenerCount": 19
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "toggle-tangential"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "toggle-tangential",
+              "label": "Ẩn/hiện aτ"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.888Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "da5a2d7a545f9e53ee1453328afb4a6373c6888e201a122b8d6ab730bf65cbcb",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.889Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "8a912674663cee243a39fa9e5610802852926f63686fdd0facbdeedb9b562026",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.890Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "8a912674663cee243a39fa9e5610802852926f63686fdd0facbdeedb9b562026",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:components",
+                "actual": "aₙ",
+                "expected": "aₙ",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:omega",
+                "actual": "0.50 rad/s",
+                "expected": "0.50 rad/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:phi",
+                "actual": "0.00 rad",
+                "expected": "0.00 rad",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "1.500 m/s",
+                "expected": "1.500 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "0.450 m/s²",
+                "expected": "0.450 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "0.750 m/s²",
+                "expected": "0.750 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "7128fb15e65b19540c73c345764f7595161585f10502d1c685dc7c6dce66a06b"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "toggle-normal"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "toggle-normal",
+              "label": "Ẩn/hiện aₙ"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.890Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "8a912674663cee243a39fa9e5610802852926f63686fdd0facbdeedb9b562026",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.891Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "ẩn cả hai"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "3fd4603b1879715a88fa8bd3701dbf5675839fc75374e78bb9bf2c96eca3a6cf",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.892Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "ẩn cả hai"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "3fd4603b1879715a88fa8bd3701dbf5675839fc75374e78bb9bf2c96eca3a6cf",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:components",
+                "actual": "ẩn cả hai",
+                "expected": "ẩn cả hai",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:omega",
+                "actual": "0.50 rad/s",
+                "expected": "0.50 rad/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:phi",
+                "actual": "0.00 rad",
+                "expected": "0.00 rad",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "1.500 m/s",
+                "expected": "1.500 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "0.450 m/s²",
+                "expected": "0.450 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "0.750 m/s²",
+                "expected": "0.750 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "374eaea51b04c41672727ff7fa9a6de2d0197b4e49507aa3cefc5b8df883ebef"
+        },
+        {
+          "index": 2,
+          "requested": {
+            "type": "action",
+            "action": "toggle-tangential"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "toggle-tangential",
+              "label": "Ẩn/hiện aτ"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.892Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "ẩn cả hai"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "3fd4603b1879715a88fa8bd3701dbf5675839fc75374e78bb9bf2c96eca3a6cf",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.893Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9187a8c48afaea62f2c25e624d39d5094c4c6c19869e30c3ddc9fc8caac12fbd",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.894Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9187a8c48afaea62f2c25e624d39d5094c4c6c19869e30c3ddc9fc8caac12fbd",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:components",
+                "actual": "aτ",
+                "expected": "aτ",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:omega",
+                "actual": "0.50 rad/s",
+                "expected": "0.50 rad/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:phi",
+                "actual": "0.00 rad",
+                "expected": "0.00 rad",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "1.500 m/s",
+                "expected": "1.500 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "0.450 m/s²",
+                "expected": "0.450 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "0.750 m/s²",
+                "expected": "0.750 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "967f9c9b85a2e77820002a248b32a88554182c3fe71b454393372ffd5b5c2912"
+        },
+        {
+          "index": 3,
+          "requested": {
+            "type": "action",
+            "action": "toggle-normal"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "toggle-normal",
+              "label": "Ẩn/hiện aₙ"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.895Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9187a8c48afaea62f2c25e624d39d5094c4c6c19869e30c3ddc9fc8caac12fbd",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.895Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "da5a2d7a545f9e53ee1453328afb4a6373c6888e201a122b8d6ab730bf65cbcb",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.896Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "radius",
+                  "value": "3 m"
+                },
+                {
+                  "key": "v",
+                  "value": "1.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.450 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "0.750 m/s²"
+                },
+                {
+                  "key": "acceleration",
+                  "value": "0.875 m/s²"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (+)"
+                },
+                {
+                  "key": "components",
+                  "value": "aτ aₙ"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "cap3d",
+                  "value": "không"
+                },
+                {
+                  "key": "omega0",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "alpha",
+                  "value": "0.15 rad/s²"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.50 rad/s"
+                },
+                {
+                  "key": "phi",
+                  "value": "0.00 rad"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "omega0",
+                  "type": "range",
+                  "value": "0.5"
+                },
+                {
+                  "id": "omega0",
+                  "type": "number",
+                  "value": "0.5"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "range",
+                  "value": "0.15"
+                },
+                {
+                  "id": "alphaAcc",
+                  "type": "number",
+                  "value": "0.15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "toggle-tangential",
+                  "label": "Ẩn/hiện aτ"
+                },
+                {
+                  "id": "toggle-normal",
+                  "label": "Ẩn/hiện aₙ"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "da5a2d7a545f9e53ee1453328afb4a6373c6888e201a122b8d6ab730bf65cbcb",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 145,
+              "listenerCount": 19
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:components",
+                "actual": "aτ aₙ",
+                "expected": "aτ aₙ",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:omega",
+                "actual": "0.50 rad/s",
+                "expected": "0.50 rad/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:phi",
+                "actual": "0.00 rad",
+                "expected": "0.00 rad",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "1.500 m/s",
+                "expected": "1.500 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "0.450 m/s²",
+                "expected": "0.450 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "0.750 m/s²",
+                "expected": "0.750 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "430aacec898636bd9b7d4915fec4600edfbd9a8c321a279e60f160679ab3e39b"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 145,
+          "listenerCount": 19
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "toggle-tangential",
+      "toggle-normal"
+    ],
+    "plannedActionIds": [
+      "toggle-tangential",
+      "toggle-normal"
+    ],
+    "executedActionIds": [
+      "toggle-tangential",
+      "toggle-normal"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 3,
+    "executedCases": 3,
+    "operations": 6,
+    "oracleStatuses": {
+      "pass": 6,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 36,
+    "failedChecks": 0
+  }
+}

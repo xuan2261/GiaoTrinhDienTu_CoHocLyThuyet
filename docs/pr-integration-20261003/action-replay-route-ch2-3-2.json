@@ -1,0 +1,176 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch2-3-2",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [],
+    "numbers": [
+      {
+        "id": "r1",
+        "min": 0.8,
+        "max": 2.5,
+        "value": "1.4",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "r2",
+        "min": 0.8,
+        "max": 2.5,
+        "value": "2",
+        "step": "any",
+        "physicalStep": "0.1"
+      }
+    ],
+    "playback": true
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.910Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "r1",
+          "value": "1.4 m"
+        },
+        {
+          "key": "r2",
+          "value": "2.0 m"
+        },
+        {
+          "key": "omega1",
+          "value": "1.00 rad/s"
+        },
+        {
+          "key": "gearRatio12",
+          "value": "-1.429"
+        },
+        {
+          "key": "gearRatio21",
+          "value": "-0.700"
+        },
+        {
+          "key": "beltRatio12",
+          "value": "1.429"
+        },
+        {
+          "key": "beltRatio21",
+          "value": "0.700"
+        },
+        {
+          "key": "drivenSpeed",
+          "value": "1.400 m/s"
+        },
+        {
+          "key": "gearOmega",
+          "value": "-0.70 rad/s"
+        },
+        {
+          "key": "beltOmega",
+          "value": "0.70 rad/s"
+        },
+        {
+          "key": "beltV",
+          "value": "1.40 m/s"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "r1",
+          "type": "range",
+          "value": "1.4"
+        },
+        {
+          "id": "r1",
+          "type": "number",
+          "value": "1.4"
+        },
+        {
+          "id": "r2",
+          "type": "range",
+          "value": "2"
+        },
+        {
+          "id": "r2",
+          "type": "number",
+          "value": "2"
+        }
+      ],
+      "actionValues": [],
+      "geometry": [],
+      "playbackLabel": "Chạy"
+    },
+    "stateHash": "574940fe3678265a6d4060e3efa975f888f3fe9b729fb52f02ddd9ba205ffc9b",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 145,
+      "listenerCount": 17
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 145,
+      "listenerCount": 17
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [],
+  "coverage": {
+    "discoveredActionIds": [],
+    "plannedActionIds": [],
+    "executedActionIds": [],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 0,
+    "executedCases": 0,
+    "operations": 0,
+    "oracleStatuses": {
+      "pass": 0,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 0,
+    "failedChecks": 0
+  }
+}

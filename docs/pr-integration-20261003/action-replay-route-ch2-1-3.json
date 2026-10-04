@@ -1,0 +1,3265 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch2-1-3",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "reset-phase",
+        "label": "Đặt lại pha",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "toggle-scale",
+        "label": "Đổi thang cố định/tự vừa (2D)",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "phase",
+        "min": 0,
+        "max": 360,
+        "value": "40.10704565915762",
+        "step": "any",
+        "physicalStep": "0.1"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.853Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "phase",
+          "value": "40.11°"
+        },
+        {
+          "key": "t",
+          "value": "0.700 s"
+        },
+        {
+          "key": "point",
+          "value": "(3.059, 1.611) m"
+        },
+        {
+          "key": "v",
+          "value": "3.209 m/s"
+        },
+        {
+          "key": "aTangential",
+          "value": "1.497 m/s²"
+        },
+        {
+          "key": "aNormal",
+          "value": "3.116 m/s²"
+        },
+        {
+          "key": "curvature",
+          "value": "0.3027 m⁻¹"
+        },
+        {
+          "key": "scale",
+          "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+        },
+        {
+          "key": "a",
+          "value": "3.457 m/s²"
+        },
+        {
+          "key": "R",
+          "value": "3.3039 m"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "phase",
+          "type": "range",
+          "value": "40.10704565915762"
+        },
+        {
+          "id": "phase",
+          "type": "number",
+          "value": "40.10704565915762"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "reset-phase",
+          "label": "Đặt lại pha"
+        },
+        {
+          "id": "toggle-scale",
+          "label": "Đổi thang cố định/tự vừa (2D)"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 118,
+      "listenerCount": 17
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 118,
+      "listenerCount": 17
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-reset-phase",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "phase",
+            "value": 360,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset-phase"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.856Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "phase",
+              "value": "40.11°"
+            },
+            {
+              "key": "t",
+              "value": "0.700 s"
+            },
+            {
+              "key": "point",
+              "value": "(3.059, 1.611) m"
+            },
+            {
+              "key": "v",
+              "value": "3.209 m/s"
+            },
+            {
+              "key": "aTangential",
+              "value": "1.497 m/s²"
+            },
+            {
+              "key": "aNormal",
+              "value": "3.116 m/s²"
+            },
+            {
+              "key": "curvature",
+              "value": "0.3027 m⁻¹"
+            },
+            {
+              "key": "scale",
+              "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+            },
+            {
+              "key": "a",
+              "value": "3.457 m/s²"
+            },
+            {
+              "key": "R",
+              "value": "3.3039 m"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "phase",
+              "type": "range",
+              "value": "40.10704565915762"
+            },
+            {
+              "id": "phase",
+              "type": "number",
+              "value": "40.10704565915762"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset-phase",
+              "label": "Đặt lại pha"
+            },
+            {
+              "id": "toggle-scale",
+              "label": "Đổi thang cố định/tự vừa (2D)"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 118,
+          "listenerCount": 17
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "phase",
+            "value": 360,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "phase",
+            "requested": 360,
+            "before": "40.10704565915762",
+            "committed": "360",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.856Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.857Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "360.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "6.283 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(4.000, -0.000) m"
+                },
+                {
+                  "key": "v",
+                  "value": "2.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "-0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "4.000 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.6400 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "4.000 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "1.5625 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "360"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "360"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "b2cefbdf5c1c5ee4811221db5a2280e0dfdff5e85099bdb5b43d867160bc5632",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.857Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "360.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "6.283 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(4.000, -0.000) m"
+                },
+                {
+                  "key": "v",
+                  "value": "2.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "-0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "4.000 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.6400 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "4.000 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "1.5625 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "360"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "360"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "b2cefbdf5c1c5ee4811221db5a2280e0dfdff5e85099bdb5b43d867160bc5632",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"phase:number\",\"phase:range\"]",
+                "expected": "[\"phase:number\",\"phase:range\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:phase",
+                "actual": 360,
+                "expected": 360,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:phase",
+                "actual": 360,
+                "expected": 360,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "91da21ee90fc7fb30b97bc0b1bf59a4fac17317adf2686139414b69cb0eb0c36"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset-phase"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset-phase",
+              "label": "Đặt lại pha"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.857Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "360.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "6.283 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(4.000, -0.000) m"
+                },
+                {
+                  "key": "v",
+                  "value": "2.500 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "-0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "4.000 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.6400 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "4.000 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "1.5625 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "360"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "360"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "b2cefbdf5c1c5ee4811221db5a2280e0dfdff5e85099bdb5b43d867160bc5632",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.858Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.858Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:phase",
+                "actual": 40.10704565915762,
+                "expected": 40.10704565915762,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:phase",
+                "actual": 40.10704565915762,
+                "expected": 40.10704565915762,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:phase",
+                "actual": "40.11°",
+                "expected": "40.11°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:t",
+                "actual": "0.700 s",
+                "expected": "0.700 s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:point",
+                "actual": "(3.059, 1.611) m",
+                "expected": "(3.059, 1.611) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "3.209 m/s",
+                "expected": "3.209 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "1.497 m/s²",
+                "expected": "1.497 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "3.116 m/s²",
+                "expected": "3.116 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:curvature",
+                "actual": "0.3027 m⁻¹",
+                "expected": "0.3027 m⁻¹",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:scale",
+                "actual": "0.828 đơn vị hình/m · tự vừa cảnh",
+                "expected": "0.828 đơn vị hình/m · tự vừa cảnh",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:a",
+                "actual": "3.457 m/s²",
+                "expected": "3.457 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:R",
+                "actual": "3.3039 m",
+                "expected": "3.3039 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "c54b8c32c7224acea619e5765a2714ac3d787aedee2280b9f5c63fd34ca72e20"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 118,
+          "listenerCount": 17
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-1-toggle-scale",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "toggle-scale"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.861Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "phase",
+              "value": "40.11°"
+            },
+            {
+              "key": "t",
+              "value": "0.700 s"
+            },
+            {
+              "key": "point",
+              "value": "(3.059, 1.611) m"
+            },
+            {
+              "key": "v",
+              "value": "3.209 m/s"
+            },
+            {
+              "key": "aTangential",
+              "value": "1.497 m/s²"
+            },
+            {
+              "key": "aNormal",
+              "value": "3.116 m/s²"
+            },
+            {
+              "key": "curvature",
+              "value": "0.3027 m⁻¹"
+            },
+            {
+              "key": "scale",
+              "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+            },
+            {
+              "key": "a",
+              "value": "3.457 m/s²"
+            },
+            {
+              "key": "R",
+              "value": "3.3039 m"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "phase",
+              "type": "range",
+              "value": "40.10704565915762"
+            },
+            {
+              "id": "phase",
+              "type": "number",
+              "value": "40.10704565915762"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset-phase",
+              "label": "Đặt lại pha"
+            },
+            {
+              "id": "toggle-scale",
+              "label": "Đổi thang cố định/tự vừa (2D)"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 118,
+          "listenerCount": 17
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "toggle-scale"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "toggle-scale",
+              "label": "Đổi thang cố định/tự vừa (2D)"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.861Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.861Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "179495b39b4cafc1c9c2e05a861d69bcda06706fb4fd7b5742ca54a61568f597",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.861Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "179495b39b4cafc1c9c2e05a861d69bcda06706fb4fd7b5742ca54a61568f597",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "scale-mode",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM scale mode; fixed-scale geometry requires pixel review"
+              },
+              {
+                "key": "readout:scale",
+                "actual": 0.3,
+                "expected": 0.3,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:phase",
+                "actual": "40.11°",
+                "expected": "40.11°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:point",
+                "actual": "(3.059, 1.611) m",
+                "expected": "(3.059, 1.611) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "3.209 m/s",
+                "expected": "3.209 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "1.497 m/s²",
+                "expected": "1.497 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "3.116 m/s²",
+                "expected": "3.116 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:R",
+                "actual": "3.3039 m",
+                "expected": "3.3039 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "10dd63031c466fb6546ef305072356db1a1a85fb48c623ec6c1165eb9a4c4bfc"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 118,
+          "listenerCount": 17
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "experiment-fixed-scale",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "toggle-scale"
+          },
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "phase",
+            "value": 90
+          },
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "phase",
+            "value": 270
+          },
+          {
+            "type": "action",
+            "action": "toggle-scale"
+          },
+          {
+            "type": "action",
+            "action": "reset-phase"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.864Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "phase",
+              "value": "40.11°"
+            },
+            {
+              "key": "t",
+              "value": "0.700 s"
+            },
+            {
+              "key": "point",
+              "value": "(3.059, 1.611) m"
+            },
+            {
+              "key": "v",
+              "value": "3.209 m/s"
+            },
+            {
+              "key": "aTangential",
+              "value": "1.497 m/s²"
+            },
+            {
+              "key": "aNormal",
+              "value": "3.116 m/s²"
+            },
+            {
+              "key": "curvature",
+              "value": "0.3027 m⁻¹"
+            },
+            {
+              "key": "scale",
+              "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+            },
+            {
+              "key": "a",
+              "value": "3.457 m/s²"
+            },
+            {
+              "key": "R",
+              "value": "3.3039 m"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "phase",
+              "type": "range",
+              "value": "40.10704565915762"
+            },
+            {
+              "id": "phase",
+              "type": "number",
+              "value": "40.10704565915762"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset-phase",
+              "label": "Đặt lại pha"
+            },
+            {
+              "id": "toggle-scale",
+              "label": "Đổi thang cố định/tự vừa (2D)"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 118,
+          "listenerCount": 17
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "toggle-scale"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "toggle-scale",
+              "label": "Đổi thang cố định/tự vừa (2D)"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.865Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.865Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "179495b39b4cafc1c9c2e05a861d69bcda06706fb4fd7b5742ca54a61568f597",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.865Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "179495b39b4cafc1c9c2e05a861d69bcda06706fb4fd7b5742ca54a61568f597",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "scale-mode",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM scale mode; fixed-scale geometry requires pixel review"
+              },
+              {
+                "key": "readout:scale",
+                "actual": 0.3,
+                "expected": 0.3,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:phase",
+                "actual": "40.11°",
+                "expected": "40.11°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:point",
+                "actual": "(3.059, 1.611) m",
+                "expected": "(3.059, 1.611) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "3.209 m/s",
+                "expected": "3.209 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "1.497 m/s²",
+                "expected": "1.497 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "3.116 m/s²",
+                "expected": "3.116 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:R",
+                "actual": "3.3039 m",
+                "expected": "3.3039 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "10dd63031c466fb6546ef305072356db1a1a85fb48c623ec6c1165eb9a4c4bfc"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "phase",
+            "value": 90
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "phase",
+            "requested": 90,
+            "before": "40.10704565915762",
+            "committed": "90",
+            "targetReached": true,
+            "allowConstraintClamp": false,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.865Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "179495b39b4cafc1c9c2e05a861d69bcda06706fb4fd7b5742ca54a61568f597",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.866Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "90.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "1.571 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(0.000, 2.500) m"
+                },
+                {
+                  "key": "v",
+                  "value": "4.000 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.1563 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "6.4000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "90"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "90"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "d66c559b73b03ce55f7548f2be0aef9bf2e3f23bed444827d37f8efc39a708b8",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.866Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "90.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "1.571 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(0.000, 2.500) m"
+                },
+                {
+                  "key": "v",
+                  "value": "4.000 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.1563 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "6.4000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "90"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "90"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "d66c559b73b03ce55f7548f2be0aef9bf2e3f23bed444827d37f8efc39a708b8",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:phase",
+                "actual": 90,
+                "expected": 90,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:scale",
+                "actual": "0.300 đơn vị hình/m · cố định",
+                "expected": "0.300 đơn vị hình/m · cố định",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "f4fce3df3b9fb058a4d4475d5850bd6ec142eae46b9de99c11d62f5cc93c65af"
+        },
+        {
+          "index": 2,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "phase",
+            "value": 270
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "phase",
+            "requested": 270,
+            "before": "90",
+            "committed": "270",
+            "targetReached": true,
+            "allowConstraintClamp": false,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.869Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "90.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "1.571 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(0.000, 2.500) m"
+                },
+                {
+                  "key": "v",
+                  "value": "4.000 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.1563 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "6.4000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "90"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "90"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "d66c559b73b03ce55f7548f2be0aef9bf2e3f23bed444827d37f8efc39a708b8",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.869Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "270.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "4.712 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(-0.000, -2.500) m"
+                },
+                {
+                  "key": "v",
+                  "value": "4.000 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.1563 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "6.4000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "270"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "270"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "a9e156dd1cc4b07861979fb6eaa2cf234626679313542bc5e5de61e62969063e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.869Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "270.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "4.712 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(-0.000, -2.500) m"
+                },
+                {
+                  "key": "v",
+                  "value": "4.000 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.1563 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "6.4000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "270"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "270"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "a9e156dd1cc4b07861979fb6eaa2cf234626679313542bc5e5de61e62969063e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:phase",
+                "actual": 270,
+                "expected": 270,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:scale",
+                "actual": "0.300 đơn vị hình/m · cố định",
+                "expected": "0.300 đơn vị hình/m · cố định",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "9078dc3e98ceab36b3a73d483abb1bf1977b371feb21d0d46e3ee648da322005"
+        },
+        {
+          "index": 3,
+          "requested": {
+            "type": "action",
+            "action": "toggle-scale"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "toggle-scale",
+              "label": "Đổi thang cố định/tự vừa (2D)"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.870Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "270.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "4.712 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(-0.000, -2.500) m"
+                },
+                {
+                  "key": "v",
+                  "value": "4.000 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.1563 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.300 đơn vị hình/m · cố định"
+                },
+                {
+                  "key": "a",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "6.4000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "270"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "270"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "a9e156dd1cc4b07861979fb6eaa2cf234626679313542bc5e5de61e62969063e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.870Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "270.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "4.712 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(-0.000, -2.500) m"
+                },
+                {
+                  "key": "v",
+                  "value": "4.000 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.1563 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.350 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "6.4000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "270"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "270"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "4f771b3527b9718f8cd61e67260e517e23d046d4ae6d215dae8d9a5266163fcb",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.870Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "270.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "4.712 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(-0.000, -2.500) m"
+                },
+                {
+                  "key": "v",
+                  "value": "4.000 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.1563 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.350 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "6.4000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "270"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "270"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "4f771b3527b9718f8cd61e67260e517e23d046d4ae6d215dae8d9a5266163fcb",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "scale-mode",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM scale mode; fixed-scale geometry requires pixel review"
+              },
+              {
+                "key": "readout:phase",
+                "actual": "270.00°",
+                "expected": "270.00°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:point",
+                "actual": "(-0.000, -2.500) m",
+                "expected": "(-0.000, -2.500) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "4.000 m/s",
+                "expected": "4.000 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "0.000 m/s²",
+                "expected": "0.000 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "2.500 m/s²",
+                "expected": "2.500 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:R",
+                "actual": "6.4000 m",
+                "expected": "6.4000 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "0a17180c9dc4e2d108fca6890b8703148a21fba2d866f78cdd13471e92dc838a"
+        },
+        {
+          "index": 4,
+          "requested": {
+            "type": "action",
+            "action": "reset-phase"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset-phase",
+              "label": "Đặt lại pha"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.871Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "270.00°"
+                },
+                {
+                  "key": "t",
+                  "value": "4.712 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(-0.000, -2.500) m"
+                },
+                {
+                  "key": "v",
+                  "value": "4.000 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "0.000 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.1563 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.350 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "2.500 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "6.4000 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "270"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "270"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "4f771b3527b9718f8cd61e67260e517e23d046d4ae6d215dae8d9a5266163fcb",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.871Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.871Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "phase",
+                  "value": "40.11°"
+                },
+                {
+                  "key": "t",
+                  "value": "0.700 s"
+                },
+                {
+                  "key": "point",
+                  "value": "(3.059, 1.611) m"
+                },
+                {
+                  "key": "v",
+                  "value": "3.209 m/s"
+                },
+                {
+                  "key": "aTangential",
+                  "value": "1.497 m/s²"
+                },
+                {
+                  "key": "aNormal",
+                  "value": "3.116 m/s²"
+                },
+                {
+                  "key": "curvature",
+                  "value": "0.3027 m⁻¹"
+                },
+                {
+                  "key": "scale",
+                  "value": "0.828 đơn vị hình/m · tự vừa cảnh"
+                },
+                {
+                  "key": "a",
+                  "value": "3.457 m/s²"
+                },
+                {
+                  "key": "R",
+                  "value": "3.3039 m"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "phase",
+                  "type": "range",
+                  "value": "40.10704565915762"
+                },
+                {
+                  "id": "phase",
+                  "type": "number",
+                  "value": "40.10704565915762"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset-phase",
+                  "label": "Đặt lại pha"
+                },
+                {
+                  "id": "toggle-scale",
+                  "label": "Đổi thang cố định/tự vừa (2D)"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f8325ba7c465ae732eae90d2b349b35ab3a748e3de45aa285b8e889efeb17a5c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 118,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:phase",
+                "actual": 40.10704565915762,
+                "expected": 40.10704565915762,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:phase",
+                "actual": 40.10704565915762,
+                "expected": 40.10704565915762,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:phase",
+                "actual": "40.11°",
+                "expected": "40.11°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:t",
+                "actual": "0.700 s",
+                "expected": "0.700 s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:point",
+                "actual": "(3.059, 1.611) m",
+                "expected": "(3.059, 1.611) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v",
+                "actual": "3.209 m/s",
+                "expected": "3.209 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aTangential",
+                "actual": "1.497 m/s²",
+                "expected": "1.497 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:aNormal",
+                "actual": "3.116 m/s²",
+                "expected": "3.116 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:curvature",
+                "actual": "0.3027 m⁻¹",
+                "expected": "0.3027 m⁻¹",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:scale",
+                "actual": "0.828 đơn vị hình/m · tự vừa cảnh",
+                "expected": "0.828 đơn vị hình/m · tự vừa cảnh",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:a",
+                "actual": "3.457 m/s²",
+                "expected": "3.457 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:R",
+                "actual": "3.3039 m",
+                "expected": "3.3039 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "c54b8c32c7224acea619e5765a2714ac3d787aedee2280b9f5c63fd34ca72e20"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 118,
+          "listenerCount": 17
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "reset-phase",
+      "toggle-scale"
+    ],
+    "plannedActionIds": [
+      "reset-phase",
+      "toggle-scale"
+    ],
+    "executedActionIds": [
+      "reset-phase",
+      "toggle-scale"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 3,
+    "executedCases": 3,
+    "operations": 8,
+    "oracleStatuses": {
+      "pass": 8,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 58,
+    "failedChecks": 0
+  }
+}

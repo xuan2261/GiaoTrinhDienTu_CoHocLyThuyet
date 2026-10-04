@@ -1,0 +1,976 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch1-3-6",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "reset",
+        "label": "Đặt lại",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "P",
+        "min": 20,
+        "max": 150,
+        "value": "80",
+        "step": "any",
+        "physicalStep": "10"
+      },
+      {
+        "id": "a",
+        "min": 0.5,
+        "max": 8,
+        "value": "5",
+        "step": "any",
+        "physicalStep": "0.5"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.785Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "P",
+          "value": "80 N"
+        },
+        {
+          "key": "a",
+          "value": "5.00 m"
+        },
+        {
+          "key": "R",
+          "value": "80.0 N"
+        },
+        {
+          "key": "M",
+          "value": "+400.0 N·m"
+        },
+        {
+          "key": "loadMoment",
+          "value": "-400.0 N·m"
+        },
+        {
+          "key": "sumM",
+          "value": "0.000000 N·m"
+        },
+        {
+          "key": "sumFy",
+          "value": "0.000000 N"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "P",
+          "type": "range",
+          "value": "80"
+        },
+        {
+          "id": "P",
+          "type": "number",
+          "value": "80"
+        },
+        {
+          "id": "a",
+          "type": "range",
+          "value": "5"
+        },
+        {
+          "id": "a",
+          "type": "number",
+          "value": "5"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "reset",
+          "label": "Đặt lại"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "c86bf4cb78f9a5c8e4565949fc1bca6c678d79ae97ec6c8f56fb5cef74a91d92",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 4,
+      "nodes": 118,
+      "listenerCount": 19
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 4,
+      "nodes": 118,
+      "listenerCount": 19
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "P",
+            "value": 150,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.788Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "P",
+              "value": "80 N"
+            },
+            {
+              "key": "a",
+              "value": "5.00 m"
+            },
+            {
+              "key": "R",
+              "value": "80.0 N"
+            },
+            {
+              "key": "M",
+              "value": "+400.0 N·m"
+            },
+            {
+              "key": "loadMoment",
+              "value": "-400.0 N·m"
+            },
+            {
+              "key": "sumM",
+              "value": "0.000000 N·m"
+            },
+            {
+              "key": "sumFy",
+              "value": "0.000000 N"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "P",
+              "type": "range",
+              "value": "80"
+            },
+            {
+              "id": "P",
+              "type": "number",
+              "value": "80"
+            },
+            {
+              "id": "a",
+              "type": "range",
+              "value": "5"
+            },
+            {
+              "id": "a",
+              "type": "number",
+              "value": "5"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset",
+              "label": "Đặt lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "c86bf4cb78f9a5c8e4565949fc1bca6c678d79ae97ec6c8f56fb5cef74a91d92",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 118,
+          "listenerCount": 19
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "P",
+            "value": 150,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "P",
+            "requested": 150,
+            "before": "80",
+            "committed": "150",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.788Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "P",
+                  "value": "80 N"
+                },
+                {
+                  "key": "a",
+                  "value": "5.00 m"
+                },
+                {
+                  "key": "R",
+                  "value": "80.0 N"
+                },
+                {
+                  "key": "M",
+                  "value": "+400.0 N·m"
+                },
+                {
+                  "key": "loadMoment",
+                  "value": "-400.0 N·m"
+                },
+                {
+                  "key": "sumM",
+                  "value": "0.000000 N·m"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "P",
+                  "type": "range",
+                  "value": "80"
+                },
+                {
+                  "id": "P",
+                  "type": "number",
+                  "value": "80"
+                },
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "5"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "c86bf4cb78f9a5c8e4565949fc1bca6c678d79ae97ec6c8f56fb5cef74a91d92",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 118,
+              "listenerCount": 19
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.789Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "P",
+                  "value": "150 N"
+                },
+                {
+                  "key": "a",
+                  "value": "5.00 m"
+                },
+                {
+                  "key": "R",
+                  "value": "150.0 N"
+                },
+                {
+                  "key": "M",
+                  "value": "+750.0 N·m"
+                },
+                {
+                  "key": "loadMoment",
+                  "value": "-750.0 N·m"
+                },
+                {
+                  "key": "sumM",
+                  "value": "0.000000 N·m"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "P",
+                  "type": "range",
+                  "value": "150"
+                },
+                {
+                  "id": "P",
+                  "type": "number",
+                  "value": "150"
+                },
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "5"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "8ded67f523e32109a0709485f36e291bc2fa1aba6425c5f5e6fba94ca8489852",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 118,
+              "listenerCount": 19
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.789Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "P",
+                  "value": "150 N"
+                },
+                {
+                  "key": "a",
+                  "value": "5.00 m"
+                },
+                {
+                  "key": "R",
+                  "value": "150.0 N"
+                },
+                {
+                  "key": "M",
+                  "value": "+750.0 N·m"
+                },
+                {
+                  "key": "loadMoment",
+                  "value": "-750.0 N·m"
+                },
+                {
+                  "key": "sumM",
+                  "value": "0.000000 N·m"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "P",
+                  "type": "range",
+                  "value": "150"
+                },
+                {
+                  "id": "P",
+                  "type": "number",
+                  "value": "150"
+                },
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "5"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "8ded67f523e32109a0709485f36e291bc2fa1aba6425c5f5e6fba94ca8489852",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 118,
+              "listenerCount": 19
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"P:number\",\"P:range\",\"a:number\",\"a:range\"]",
+                "expected": "[\"P:number\",\"P:range\",\"a:number\",\"a:range\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:P",
+                "actual": 150,
+                "expected": 150,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:a",
+                "actual": 5,
+                "expected": 5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:P",
+                "actual": 150,
+                "expected": 150,
+                "tolerance": 0.50000001,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "14484ebcf9c947c04d9ab70c26c19cc48cab82de21a2fb2cabcd7bc22950a08d"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.789Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "P",
+                  "value": "150 N"
+                },
+                {
+                  "key": "a",
+                  "value": "5.00 m"
+                },
+                {
+                  "key": "R",
+                  "value": "150.0 N"
+                },
+                {
+                  "key": "M",
+                  "value": "+750.0 N·m"
+                },
+                {
+                  "key": "loadMoment",
+                  "value": "-750.0 N·m"
+                },
+                {
+                  "key": "sumM",
+                  "value": "0.000000 N·m"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "P",
+                  "type": "range",
+                  "value": "150"
+                },
+                {
+                  "id": "P",
+                  "type": "number",
+                  "value": "150"
+                },
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "5"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "8ded67f523e32109a0709485f36e291bc2fa1aba6425c5f5e6fba94ca8489852",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 118,
+              "listenerCount": 19
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.790Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "P",
+                  "value": "80 N"
+                },
+                {
+                  "key": "a",
+                  "value": "5.00 m"
+                },
+                {
+                  "key": "R",
+                  "value": "80.0 N"
+                },
+                {
+                  "key": "M",
+                  "value": "+400.0 N·m"
+                },
+                {
+                  "key": "loadMoment",
+                  "value": "-400.0 N·m"
+                },
+                {
+                  "key": "sumM",
+                  "value": "0.000000 N·m"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "P",
+                  "type": "range",
+                  "value": "80"
+                },
+                {
+                  "id": "P",
+                  "type": "number",
+                  "value": "80"
+                },
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "5"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "c86bf4cb78f9a5c8e4565949fc1bca6c678d79ae97ec6c8f56fb5cef74a91d92",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 118,
+              "listenerCount": 19
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.790Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "P",
+                  "value": "80 N"
+                },
+                {
+                  "key": "a",
+                  "value": "5.00 m"
+                },
+                {
+                  "key": "R",
+                  "value": "80.0 N"
+                },
+                {
+                  "key": "M",
+                  "value": "+400.0 N·m"
+                },
+                {
+                  "key": "loadMoment",
+                  "value": "-400.0 N·m"
+                },
+                {
+                  "key": "sumM",
+                  "value": "0.000000 N·m"
+                },
+                {
+                  "key": "sumFy",
+                  "value": "0.000000 N"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "P",
+                  "type": "range",
+                  "value": "80"
+                },
+                {
+                  "id": "P",
+                  "type": "number",
+                  "value": "80"
+                },
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "5"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "c86bf4cb78f9a5c8e4565949fc1bca6c678d79ae97ec6c8f56fb5cef74a91d92",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 118,
+              "listenerCount": 19
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:P",
+                "actual": 80,
+                "expected": 80,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:P",
+                "actual": 80,
+                "expected": 80,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:a",
+                "actual": 5,
+                "expected": 5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:a",
+                "actual": 5,
+                "expected": 5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:P",
+                "actual": "80 N",
+                "expected": "80 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:a",
+                "actual": "5.00 m",
+                "expected": "5.00 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:R",
+                "actual": "80.0 N",
+                "expected": "80.0 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:M",
+                "actual": "+400.0 N·m",
+                "expected": "+400.0 N·m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:loadMoment",
+                "actual": "-400.0 N·m",
+                "expected": "-400.0 N·m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:sumM",
+                "actual": "0.000000 N·m",
+                "expected": "0.000000 N·m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:sumFy",
+                "actual": "0.000000 N",
+                "expected": "0.000000 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "2d51df69af8c8b85d754d457de63adcc45ba6ab0ae7932dffc620359f1b3d3ee"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 118,
+          "listenerCount": 19
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "reset"
+    ],
+    "plannedActionIds": [
+      "reset"
+    ],
+    "executedActionIds": [
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 1,
+    "executedCases": 1,
+    "operations": 2,
+    "oracleStatuses": {
+      "pass": 2,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 19,
+    "failedChecks": 0
+  }
+}

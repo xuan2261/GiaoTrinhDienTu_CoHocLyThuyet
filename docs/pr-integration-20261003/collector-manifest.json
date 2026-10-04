@@ -1,0 +1,31 @@
+{
+  "algorithm": "sha256",
+  "sourceHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "files": [
+    {
+      "path": "tools/sim-upgrade-qualification/actions.js",
+      "bytes": 25269,
+      "sha256": "85524fb592dcb7cc6abc1d0e5c7902bc773cce7157b68f2447ee7ba01c91f26b"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/browser.js",
+      "bytes": 9110,
+      "sha256": "61daed807da8cabe3850f5d66ac6ee7cdb67d1e6ee985ec8492352d893db0c78"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/core.js",
+      "bytes": 11709,
+      "sha256": "b5d2a29121721d107beb0928c05673eb0a7fb66fa94f9bfeb600f6327fdeaf5d"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/run.js",
+      "bytes": 24267,
+      "sha256": "9b3b6ae64fe4655c878d295f7890371a85e7d6a988b5a227ab90b28c1f75e34c"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/server.js",
+      "bytes": 2416,
+      "sha256": "0b79bcce858b4092b5dfbb81862371bf8d9405d13caac3eb3d589ba1ce632648"
+    }
+  ]
+}

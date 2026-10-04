@@ -1,0 +1,2345 @@
+TAP version 13
+# Subtest: ch1-1-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 1 - ch1-1-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 14.857254
+  type: 'test'
+  ...
+# Subtest: ch1-1-4 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 2 - ch1-1-4 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 3.641186
+  type: 'test'
+  ...
+# Subtest: ch1-1-5 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 3 - ch1-1-5 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 6.338053
+  type: 'test'
+  ...
+# Subtest: ch1-1-6 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 4 - ch1-1-6 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 3.416595
+  type: 'test'
+  ...
+# Subtest: ch1-2-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 5 - ch1-2-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 4.706353
+  type: 'test'
+  ...
+# Subtest: ch1-1-8 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 6 - ch1-1-8 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 3.478727
+  type: 'test'
+  ...
+# Subtest: ch1-3-2 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 7 - ch1-3-2 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 4.431709
+  type: 'test'
+  ...
+# Subtest: ch1-3-6 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 8 - ch1-3-6 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 3.189662
+  type: 'test'
+  ...
+# Subtest: ch1-5-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 9 - ch1-5-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 4.279655
+  type: 'test'
+  ...
+# Subtest: ch1-6-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 10 - ch1-6-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 3.771477
+  type: 'test'
+  ...
+# Subtest: ch2-1-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 11 - ch2-1-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 6.228442
+  type: 'test'
+  ...
+# Subtest: ch2-5-2 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 12 - ch2-5-2 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 3.41266
+  type: 'test'
+  ...
+# Subtest: ch3-2-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 13 - ch3-2-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 3.245995
+  type: 'test'
+  ...
+# Subtest: ch3-1-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 14 - ch3-1-3 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 3.938133
+  type: 'test'
+  ...
+# Subtest: ch3-5-2 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 15 - ch3-5-2 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 5.919057
+  type: 'test'
+  ...
+# Subtest: ch3-5-4 reset preparation has bounded control/state criteria and rejects corrupted observations
+ok 16 - ch3-5-4 reset preparation has bounded control/state criteria and rejects corrupted observations
+  ---
+  duration_ms: 3.177634
+  type: 'test'
+  ...
+# Subtest: coupled force setup checks nearest feasible lattice value, not just finiteness or a loose bound
+ok 17 - coupled force setup checks nearest feasible lattice value, not just finiteness or a loose bound
+  ---
+  duration_ms: 6.525548
+  type: 'test'
+  ...
+# Subtest: coupled clamps depend on the untouched force and signed endpoint geometry
+ok 18 - coupled clamps depend on the untouched force and signed endpoint geometry
+  ---
+  duration_ms: 20.411713
+  type: 'test'
+  ...
+# Subtest: angular preparation checks elapsed physical clock and independent inertia, momentum and energy
+ok 19 - angular preparation checks elapsed physical clock and independent inertia, momentum and energy
+  ---
+  duration_ms: 7.470188
+  type: 'test'
+  ...
+# Subtest: unrecognized future preparations and actions remain explicitly not evaluated
+ok 20 - unrecognized future preparations and actions remain explicitly not evaluated
+  ---
+  duration_ms: 0.236928
+  type: 'test'
+  ...
+# sim-probe-a-logic: 21 assertions passed
+# Subtest: tests/sim-probe-a-logic.test.js
+ok 2 - tests/sim-probe-a-logic.test.js
+  ---
+  duration_ms: 54.057593
+  type: 'test'
+  ...
+# sim-probe-b-sign: 16 assertions passed
+# Subtest: tests/sim-probe-b-sign.test.js
+ok 3 - tests/sim-probe-b-sign.test.js
+  ---
+  duration_ms: 51.829237
+  type: 'test'
+  ...
+# sim-probe-delta: 31 assertions passed
+# Subtest: tests/sim-probe-delta.test.js
+ok 4 - tests/sim-probe-delta.test.js
+  ---
+  duration_ms: 49.894499
+  type: 'test'
+  ...
+# sim-probe-validation: PASS (35 routes)
+# Subtest: tests/sim-probe-validation.test.js
+ok 5 - tests/sim-probe-validation.test.js
+  ---
+  duration_ms: 58.981866
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-1-3
+ok 25 - production core/route controls: ch1-1-3
+  ---
+  duration_ms: 14.543682
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-1-4
+ok 26 - production core/route controls: ch1-1-4
+  ---
+  duration_ms: 4.42566
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-1-5
+ok 27 - production core/route controls: ch1-1-5
+  ---
+  duration_ms: 7.650323
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-1-6
+ok 28 - production core/route controls: ch1-1-6
+  ---
+  duration_ms: 5.298884
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-2-3
+ok 29 - production core/route controls: ch1-2-3
+  ---
+  duration_ms: 4.178556
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-1-8
+ok 30 - production core/route controls: ch1-1-8
+  ---
+  duration_ms: 4.297421
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-3-2
+ok 31 - production core/route controls: ch1-3-2
+  ---
+  duration_ms: 4.060883
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-3-6
+ok 32 - production core/route controls: ch1-3-6
+  ---
+  duration_ms: 4.841712
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-5-3
+ok 33 - production core/route controls: ch1-5-3
+  ---
+  duration_ms: 4.988156
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch1-6-3
+ok 34 - production core/route controls: ch1-6-3
+  ---
+  duration_ms: 5.474463
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch2-1-1
+ok 35 - production core/route controls: ch2-1-1
+  ---
+  duration_ms: 6.039704
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch2-1-3
+ok 36 - production core/route controls: ch2-1-3
+  ---
+  duration_ms: 4.601959
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch2-2-2
+ok 37 - production core/route controls: ch2-2-2
+  ---
+  duration_ms: 5.890054
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch2-3-2
+ok 38 - production core/route controls: ch2-3-2
+  ---
+  duration_ms: 5.863214
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch2-4-4
+ok 39 - production core/route controls: ch2-4-4
+  ---
+  duration_ms: 3.740712
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch2-5-2
+ok 40 - production core/route controls: ch2-5-2
+  ---
+  duration_ms: 3.46712
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch2-5-3
+ok 41 - production core/route controls: ch2-5-3
+  ---
+  duration_ms: 11.047069
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch3-2-2
+ok 42 - production core/route controls: ch3-2-2
+  ---
+  duration_ms: 3.635818
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch3-2-3
+ok 43 - production core/route controls: ch3-2-3
+  ---
+  duration_ms: 2.755864
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch3-1-3
+ok 44 - production core/route controls: ch3-1-3
+  ---
+  duration_ms: 3.311781
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch3-3-1
+ok 45 - production core/route controls: ch3-3-1
+  ---
+  duration_ms: 4.053853
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch3-5-2
+ok 46 - production core/route controls: ch3-5-2
+  ---
+  duration_ms: 4.384328
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch3-5-3
+ok 47 - production core/route controls: ch3-5-3
+  ---
+  duration_ms: 4.202822
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch3-5-4
+ok 48 - production core/route controls: ch3-5-4
+  ---
+  duration_ms: 3.952945
+  type: 'test'
+  ...
+# Subtest: production core/route controls: ch3-6-2
+ok 49 - production core/route controls: ch3-6-2
+  ---
+  duration_ms: 6.926789
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-1-3
+ok 50 - production U1 action handlers and no-motion handles: ch1-1-3
+  ---
+  duration_ms: 2.747852
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-1-4
+ok 51 - production U1 action handlers and no-motion handles: ch1-1-4
+  ---
+  duration_ms: 2.377507
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-1-5
+ok 52 - production U1 action handlers and no-motion handles: ch1-1-5
+  ---
+  duration_ms: 3.835032
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-1-6
+ok 53 - production U1 action handlers and no-motion handles: ch1-1-6
+  ---
+  duration_ms: 2.710998
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-2-3
+ok 54 - production U1 action handlers and no-motion handles: ch1-2-3
+  ---
+  duration_ms: 3.385089
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-1-8
+ok 55 - production U1 action handlers and no-motion handles: ch1-1-8
+  ---
+  duration_ms: 2.983789
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-3-2
+ok 56 - production U1 action handlers and no-motion handles: ch1-3-2
+  ---
+  duration_ms: 2.820629
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-3-6
+ok 57 - production U1 action handlers and no-motion handles: ch1-3-6
+  ---
+  duration_ms: 2.783174
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-5-3
+ok 58 - production U1 action handlers and no-motion handles: ch1-5-3
+  ---
+  duration_ms: 5.999415
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch1-6-3
+ok 59 - production U1 action handlers and no-motion handles: ch1-6-3
+  ---
+  duration_ms: 2.897382
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch2-1-1
+ok 60 - production U1 action handlers and no-motion handles: ch2-1-1
+  ---
+  duration_ms: 5.464288
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch2-1-3
+ok 61 - production U1 action handlers and no-motion handles: ch2-1-3
+  ---
+  duration_ms: 3.266896
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch2-2-2
+ok 62 - production U1 action handlers and no-motion handles: ch2-2-2
+  ---
+  duration_ms: 5.737278
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch2-3-2
+ok 63 - production U1 action handlers and no-motion handles: ch2-3-2
+  ---
+  duration_ms: 4.474672
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch2-4-4
+ok 64 - production U1 action handlers and no-motion handles: ch2-4-4
+  ---
+  duration_ms: 9.569025
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch2-5-2
+ok 65 - production U1 action handlers and no-motion handles: ch2-5-2
+  ---
+  duration_ms: 2.986523
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch2-5-3
+ok 66 - production U1 action handlers and no-motion handles: ch2-5-3
+  ---
+  duration_ms: 4.851336
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch3-2-2
+ok 67 - production U1 action handlers and no-motion handles: ch3-2-2
+  ---
+  duration_ms: 4.913417
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch3-2-3
+ok 68 - production U1 action handlers and no-motion handles: ch3-2-3
+  ---
+  duration_ms: 2.672942
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch3-1-3
+ok 69 - production U1 action handlers and no-motion handles: ch3-1-3
+  ---
+  duration_ms: 2.997028
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch3-3-1
+ok 70 - production U1 action handlers and no-motion handles: ch3-3-1
+  ---
+  duration_ms: 15.117176
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch3-5-2
+ok 71 - production U1 action handlers and no-motion handles: ch3-5-2
+  ---
+  duration_ms: 3.68492
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch3-5-3
+ok 72 - production U1 action handlers and no-motion handles: ch3-5-3
+  ---
+  duration_ms: 4.800651
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch3-5-4
+ok 73 - production U1 action handlers and no-motion handles: ch3-5-4
+  ---
+  duration_ms: 2.837945
+  type: 'test'
+  ...
+# Subtest: production U1 action handlers and no-motion handles: ch3-6-2
+ok 74 - production U1 action handlers and no-motion handles: ch3-6-2
+  ---
+  duration_ms: 7.965636
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-1-3
+ok 75 - production fractional controls preserve no-motion state: ch1-1-3
+  ---
+  duration_ms: 5.35703
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-1-4
+ok 76 - production fractional controls preserve no-motion state: ch1-1-4
+  ---
+  duration_ms: 2.290069
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-1-5
+ok 77 - production fractional controls preserve no-motion state: ch1-1-5
+  ---
+  duration_ms: 3.407011
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-1-6
+ok 78 - production fractional controls preserve no-motion state: ch1-1-6
+  ---
+  duration_ms: 2.145546
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-2-3
+ok 79 - production fractional controls preserve no-motion state: ch1-2-3
+  ---
+  duration_ms: 2.906225
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-1-8
+ok 80 - production fractional controls preserve no-motion state: ch1-1-8
+  ---
+  duration_ms: 2.396385
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-3-2
+ok 81 - production fractional controls preserve no-motion state: ch1-3-2
+  ---
+  duration_ms: 2.29805
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-3-6
+ok 82 - production fractional controls preserve no-motion state: ch1-3-6
+  ---
+  duration_ms: 2.337158
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-5-3
+ok 83 - production fractional controls preserve no-motion state: ch1-5-3
+  ---
+  duration_ms: 3.365981
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch1-6-3
+ok 84 - production fractional controls preserve no-motion state: ch1-6-3
+  ---
+  duration_ms: 2.832706
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch2-1-1
+ok 85 - production fractional controls preserve no-motion state: ch2-1-1
+  ---
+  duration_ms: 2.777907
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch2-1-3
+ok 86 - production fractional controls preserve no-motion state: ch2-1-3
+  ---
+  duration_ms: 3.467731
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch2-2-2
+ok 87 - production fractional controls preserve no-motion state: ch2-2-2
+  ---
+  duration_ms: 2.882811
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch2-3-2
+ok 88 - production fractional controls preserve no-motion state: ch2-3-2
+  ---
+  duration_ms: 2.978381
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch2-4-4
+ok 89 - production fractional controls preserve no-motion state: ch2-4-4
+  ---
+  duration_ms: 2.894467
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch2-5-2
+ok 90 - production fractional controls preserve no-motion state: ch2-5-2
+  ---
+  duration_ms: 2.958873
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch2-5-3
+ok 91 - production fractional controls preserve no-motion state: ch2-5-3
+  ---
+  duration_ms: 4.865867
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch3-2-2
+ok 92 - production fractional controls preserve no-motion state: ch3-2-2
+  ---
+  duration_ms: 2.59037
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch3-2-3
+ok 93 - production fractional controls preserve no-motion state: ch3-2-3
+  ---
+  duration_ms: 2.352841
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch3-1-3
+ok 94 - production fractional controls preserve no-motion state: ch3-1-3
+  ---
+  duration_ms: 8.336151
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch3-3-1
+ok 95 - production fractional controls preserve no-motion state: ch3-3-1
+  ---
+  duration_ms: 2.840578
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch3-5-2
+ok 96 - production fractional controls preserve no-motion state: ch3-5-2
+  ---
+  duration_ms: 2.464495
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch3-5-3
+ok 97 - production fractional controls preserve no-motion state: ch3-5-3
+  ---
+  duration_ms: 2.385398
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch3-5-4
+ok 98 - production fractional controls preserve no-motion state: ch3-5-4
+  ---
+  duration_ms: 2.169801
+  type: 'test'
+  ...
+# Subtest: production fractional controls preserve no-motion state: ch3-6-2
+ok 99 - production fractional controls preserve no-motion state: ch3-6-2
+  ---
+  duration_ms: 2.898624
+  type: 'test'
+  ...
+# Subtest: static reset restores all physical and display choices: ch3-1-3
+ok 100 - static reset restores all physical and display choices: ch3-1-3
+  ---
+  duration_ms: 3.271843
+  type: 'test'
+  ...
+# Subtest: static reset restores all physical and display choices: ch3-2-3
+ok 101 - static reset restores all physical and display choices: ch3-2-3
+  ---
+  duration_ms: 2.212455
+  type: 'test'
+  ...
+# Subtest: static reset restores all physical and display choices: ch3-5-2
+ok 102 - static reset restores all physical and display choices: ch3-5-2
+  ---
+  duration_ms: 2.733431
+  type: 'test'
+  ...
+# Subtest: static reset restores all physical and display choices: ch3-5-4
+ok 103 - static reset restores all physical and display choices: ch3-5-4
+  ---
+  duration_ms: 2.463784
+  type: 'test'
+  ...
+# Subtest: ch1-1-5: actual production controls → physical state → real Three geometry and label projection
+ok 104 - ch1-1-5: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 68.449212
+  type: 'test'
+  ...
+# Subtest: ch1-5-3: actual production controls → physical state → real Three geometry and label projection
+ok 105 - ch1-5-3: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 23.006531
+  type: 'test'
+  ...
+# Subtest: ch2-1-3: actual production controls → physical state → real Three geometry and label projection
+ok 106 - ch2-1-3: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 27.203984
+  type: 'test'
+  ...
+# Subtest: ch2-2-2: actual production controls → physical state → real Three geometry and label projection
+ok 107 - ch2-2-2: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 49.458964
+  type: 'test'
+  ...
+# Subtest: ch2-3-2: actual production controls → physical state → real Three geometry and label projection
+ok 108 - ch2-3-2: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 88.089501
+  type: 'test'
+  ...
+# Subtest: ch2-4-4: actual production controls → physical state → real Three geometry and label projection
+ok 109 - ch2-4-4: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 91.920906
+  type: 'test'
+  ...
+# Subtest: ch2-5-3: actual production controls → physical state → real Three geometry and label projection
+ok 110 - ch2-5-3: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 26.61098
+  type: 'test'
+  ...
+# Subtest: ch3-1-3: actual production controls → physical state → real Three geometry and label projection
+ok 111 - ch3-1-3: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 25.185073
+  type: 'test'
+  ...
+# Subtest: ch3-5-3: actual production controls → physical state → real Three geometry and label projection
+ok 112 - ch3-5-3: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 33.435836
+  type: 'test'
+  ...
+# Subtest: ch3-6-2: actual production controls → physical state → real Three geometry and label projection
+ok 113 - ch3-6-2: actual production controls → physical state → real Three geometry and label projection
+  ---
+  duration_ms: 89.967984
+  type: 'test'
+  ...
+# Subtest: ch1-1-5: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 114 - ch1-1-5: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 232.211036
+  type: 'test'
+  ...
+# Subtest: ch1-5-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 115 - ch1-5-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 87.132053
+  type: 'test'
+  ...
+# Subtest: ch2-1-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 116 - ch2-1-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 182.795372
+  type: 'test'
+  ...
+# Subtest: ch2-2-2: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 117 - ch2-2-2: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 170.092523
+  type: 'test'
+  ...
+# Subtest: ch2-3-2: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 118 - ch2-3-2: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 301.398563
+  type: 'test'
+  ...
+# Subtest: ch2-4-4: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 119 - ch2-4-4: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 116.474832
+  type: 'test'
+  ...
+# Subtest: ch2-5-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 120 - ch2-5-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 138.980994
+  type: 'test'
+  ...
+# Subtest: ch3-1-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 121 - ch3-1-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 145.918536
+  type: 'test'
+  ...
+# Subtest: ch3-5-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 122 - ch3-5-3: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 112.547216
+  type: 'test'
+  ...
+# Subtest: ch3-6-2: 20 real 2D/3D cycles preserve state, controls and release owned resources
+ok 123 - ch3-6-2: 20 real 2D/3D cycles preserve state, controls and release owned resources
+  ---
+  duration_ms: 120.280276
+  type: 'test'
+  ...
+# Subtest: ch1-1-5: production clock controls or explicitly static no-clock behavior
+ok 124 - ch1-1-5: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 22.843981
+  type: 'test'
+  ...
+# Subtest: ch1-5-3: production clock controls or explicitly static no-clock behavior
+ok 125 - ch1-5-3: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 16.373296
+  type: 'test'
+  ...
+# Subtest: ch2-1-3: production clock controls or explicitly static no-clock behavior
+ok 126 - ch2-1-3: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 22.393208
+  type: 'test'
+  ...
+# Subtest: ch2-2-2: production clock controls or explicitly static no-clock behavior
+ok 127 - ch2-2-2: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 25.914186
+  type: 'test'
+  ...
+# Subtest: ch2-3-2: production clock controls or explicitly static no-clock behavior
+ok 128 - ch2-3-2: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 27.883271
+  type: 'test'
+  ...
+# Subtest: ch2-4-4: production clock controls or explicitly static no-clock behavior
+ok 129 - ch2-4-4: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 17.267761
+  type: 'test'
+  ...
+# Subtest: ch2-5-3: production clock controls or explicitly static no-clock behavior
+ok 130 - ch2-5-3: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 16.888665
+  type: 'test'
+  ...
+# Subtest: ch3-1-3: production clock controls or explicitly static no-clock behavior
+ok 131 - ch3-1-3: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 19.844866
+  type: 'test'
+  ...
+# Subtest: ch3-5-3: production clock controls or explicitly static no-clock behavior
+ok 132 - ch3-5-3: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 16.657043
+  type: 'test'
+  ...
+# Subtest: ch3-6-2: production clock controls or explicitly static no-clock behavior
+ok 133 - ch3-6-2: production clock controls or explicitly static no-clock behavior
+  ---
+  duration_ms: 17.348771
+  type: 'test'
+  ...
+# Subtest: the fixture loads the full production stack, actual registry and exactly ten supported adapters
+ok 134 - the fixture loads the full production stack, actual registry and exactly ten supported adapters
+  ---
+  duration_ms: 25.461721
+  type: 'test'
+  ...
+# Subtest: static reset, scale, frame and signed-field actions propagate through actual adapters
+ok 135 - static reset, scale, frame and signed-field actions propagate through actual adapters
+  ---
+  duration_ms: 104.095849
+  type: 'test'
+  ...
+# Subtest: rotation visibility actions change acceleration display without changing physical vectors
+ok 136 - rotation visibility actions change acceleration display without changing physical vectors
+  ---
+  duration_ms: 58.362729
+  type: 'test'
+  ...
+# Subtest: angular momentum compare and radius actions retain phase/L while accounting for work
+ok 137 - angular momentum compare and radius actions retain phase/L while accounting for work
+  ---
+  duration_ms: 25.993502
+  type: 'test'
+  ...
+# Subtest: collision event actions, impact pause and retained end-of-lane state use the real clock and adapter
+ok 138 - collision event actions, impact pause and retained end-of-lane state use the real clock and adapter
+  ---
+  duration_ms: 41.460986
+  type: 'test'
+  ...
+# Subtest: production canvas underlay transforms all 63 signed velocity segments and dots
+ok 139 - production canvas underlay transforms all 63 signed velocity segments and dots
+  ---
+  duration_ms: 30.986534
+  type: 'test'
+  ...
+# Subtest: production canvas trails carry independently computed Coriolis and collision positions
+ok 140 - production canvas trails carry independently computed Coriolis and collision positions
+  ---
+  duration_ms: 69.183491
+  type: 'test'
+  ...
+# Subtest: actual label layer clamps synthetic projection coordinates, updates text and removes ownership
+ok 141 - actual label layer clamps synthetic projection coordinates, updates text and removes ownership
+  ---
+  duration_ms: 16.147735
+  type: 'test'
+  ...
+# Subtest: independent per-route geometry oracles reject all ten in-memory adapter scale sentinels
+ok 142 - independent per-route geometry oracles reject all ten in-memory adapter scale sentinels
+  ---
+  duration_ms: 251.342377
+  type: 'test'
+  ...
+# Subtest: independent physics, clock, immutable bridge, projection and disposal assertions reject targeted sentinels
+ok 143 - independent physics, clock, immutable bridge, projection and disposal assertions reject targeted sentinels
+  ---
+  duration_ms: 125.787966
+  type: 'test'
+  ...
+# {"runId":"b179c4bb-6276-4622-a5d3-c6ccd56c5056","status":"not-run","sourceHash":"887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d","directory":"/tmp/q0-action-plan-Hdwtt5/runs/b179c4bb-6276-4622-a5d3-c6ccd56c5056","plannedDefaults":420}
+# Subtest: 35 source-derived routes contain 25 Sim2 defaults and 10 paired Sim3 defaults
+ok 144 - 35 source-derived routes contain 25 Sim2 defaults and 10 paired Sim3 defaults
+  ---
+  duration_ms: 1.714401
+  type: 'test'
+  ...
+# Subtest: desktop matrix has 320/768/1280 x DPR1/2 x light/dark
+ok 145 - desktop matrix has 320/768/1280 x DPR1/2 x light/dark
+  ---
+  duration_ms: 0.837692
+  type: 'test'
+  ...
+# Subtest: hash is canonical, rejects non-finite or non-JSON state instead of silently serializing
+ok 146 - hash is canonical, rejects non-finite or non-JSON state instead of silently serializing
+  ---
+  duration_ms: 0.563859
+  type: 'test'
+  ...
+# Subtest: source snapshot binds contents and detects a same-name byte change
+ok 147 - source snapshot binds contents and detects a same-name byte change
+  ---
+  duration_ms: 1.051856
+  type: 'test'
+  ...
+# Subtest: source snapshot rejects escaping paths and symlink assets
+ok 148 - source snapshot rejects escaping paths and symlink assets
+  ---
+  duration_ms: 0.309355
+  type: 'test'
+  ...
+# Subtest: measurement guard rejects implementation targets/debug declarations as observations
+ok 149 - measurement guard rejects implementation targets/debug declarations as observations
+  ---
+  duration_ms: 0.342263
+  type: 'test'
+  ...
+# Subtest: measurement requires source, state, method, scope and timestamp provenance
+ok 150 - measurement requires source, state, method, scope and timestamp provenance
+  ---
+  duration_ms: 0.310126
+  type: 'test'
+  ...
+# Subtest: unsupported canvas and fallback are never a captured WebGL success
+ok 151 - unsupported canvas and fallback are never a captured WebGL success
+  ---
+  duration_ms: 0.193154
+  type: 'test'
+  ...
+# Subtest: DOM overlap measures actual rectangles including border contact policy, not declared metrics
+ok 152 - DOM overlap measures actual rectangles including border contact policy, not declared metrics
+  ---
+  duration_ms: 0.990246
+  type: 'test'
+  ...
+# Subtest: empty or malformed bounds do not imply zero-overlap qualification
+ok 153 - empty or malformed bounds do not imply zero-overlap qualification
+  ---
+  duration_ms: 0.272611
+  type: 'test'
+  ...
+# Subtest: case plan includes explicit collision event boundaries and 20 toggle pairs
+ok 154 - case plan includes explicit collision event boundaries and 20 toggle pairs
+  ---
+  duration_ms: 1.008393
+  type: 'test'
+  ...
+# Subtest: artifact validation checks PNG bytes and rejects traversal
+ok 155 - artifact validation checks PNG bytes and rejects traversal
+  ---
+  duration_ms: 0.610298
+  type: 'test'
+  ...
+# Subtest: runner rejects unsafe custom flags and unknown profiles before browser launch
+ok 156 - runner rejects unsafe custom flags and unknown profiles before browser launch
+  ---
+  duration_ms: 3.013721
+  type: 'test'
+  ...
+# Subtest: record guards reject unstable screenshots, missing environment, wrong hash and acceptance claims
+ok 157 - record guards reject unstable screenshots, missing environment, wrong hash and acceptance claims
+  ---
+  duration_ms: 3.357487
+  type: 'test'
+  ...
+# Subtest: paired range/numeric controls have stable distinct case artifact keys
+ok 158 - paired range/numeric controls have stable distinct case artifact keys
+  ---
+  duration_ms: 0.209078
+  type: 'test'
+  ...
+# Subtest: bound HTTP handler serves hashed source bytes and fails closed after mutation
+ok 159 - bound HTTP handler serves hashed source bytes and fails closed after mutation
+  ---
+  duration_ms: 1.289656
+  type: 'test'
+  ...
+# Subtest: artifact/source safe paths reject symlinks in ancestor directories
+ok 160 - artifact/source safe paths reject symlinks in ancestor directories
+  ---
+  duration_ms: 0.196699
+  type: 'test'
+  ...
+# Subtest: collector preserves coupled-bound clamp as requested/actual evidence rather than dropping screenshot case
+ok 161 - collector preserves coupled-bound clamp as requested/actual evidence rather than dropping screenshot case
+  ---
+  duration_ms: 0.655804
+  type: 'test'
+  ...
+# Subtest: browser observer forwards original arguments/returns and snapshots mutable bridge state
+ok 162 - browser observer forwards original arguments/returns and snapshots mutable bridge state
+  ---
+  duration_ms: 1.312259
+  type: 'test'
+  ...
+# Subtest: control inventory preserves native step=any and declared physical step separately
+ok 163 - control inventory preserves native step=any and declared physical step separately
+  ---
+  duration_ms: 0.705788
+  type: 'test'
+  ...
+# Subtest: U2 discovered action buttons get individual cases and stateful experiments never disappear silently
+ok 164 - U2 discovered action buttons get individual cases and stateful experiments never disappear silently
+  ---
+  duration_ms: 1.308144
+  type: 'test'
+  ...
+# Subtest: U2 button inventory retains stable source IDs, current labels and disabled/hidden observations
+ok 165 - U2 button inventory retains stable source IDs, current labels and disabled/hidden observations
+  ---
+  duration_ms: 0.711727
+  type: 'test'
+  ...
+# Subtest: U2 independently calculated projectile oracle rejects wrong actual state despite matching debug predictions
+ok 166 - U2 independently calculated projectile oracle rejects wrong actual state despite matching debug predictions
+  ---
+  duration_ms: 0.409011
+  type: 'test'
+  ...
+# Subtest: U2 receipt schema requires producer/source/run binding and actual observed hashes
+ok 167 - U2 receipt schema requires producer/source/run binding and actual observed hashes
+  ---
+  duration_ms: 0.510681
+  type: 'test'
+  ...
+# Subtest: U2 action plans/oracles execute every production action handler and stateful experiment on CPU only
+ok 168 - U2 action plans/oracles execute every production action handler and stateful experiment on CPU only
+  ---
+  duration_ms: 138.129143
+  type: 'test'
+  ...
+# Subtest: U2 action dispatch uses real locator click contract and retains immediate versus paused observations (CPU transport test only)
+ok 169 - U2 action dispatch uses real locator click contract and retains immediate versus paused observations (CPU transport test only)
+  ---
+  duration_ms: 1.057535
+  type: 'test'
+  ...
+# Subtest: U2 action dispatch cannot report a hidden, disabled or ambiguous button as executed (CPU transport test only)
+ok 170 - U2 action dispatch cannot report a hidden, disabled or ambiguous button as executed (CPU transport test only)
+  ---
+  duration_ms: 0.370966
+  type: 'test'
+  ...
+# Subtest: U2 receipt validator recomputes bounded oracles and rejects rewritten pass flags or requested/actual target drift
+ok 171 - U2 receipt validator recomputes bounded oracles and rejects rewritten pass flags or requested/actual target drift
+  ---
+  duration_ms: 0.742302
+  type: 'test'
+  ...
+# Subtest: U2 collision auto-pause plan crosses contact while running rather than stopping exactly by click count
+ok 172 - U2 collision auto-pause plan crosses contact while running rather than stopping exactly by click count
+  ---
+  duration_ms: 0.159885
+  type: 'test'
+  ...
+# Subtest: U2 real plan-only entrypoint binds all five producer files and leaves actions and pixels explicitly not-run
+ok 173 - U2 real plan-only entrypoint binds all five producer files and leaves actions and pixels explicitly not-run
+  ---
+  duration_ms: 168.476657
+  type: 'test'
+  ...
+# Subtest: U2 signed-field action plans include sign reversal, rest and zero-sample sequences
+ok 174 - U2 signed-field action plans include sign reversal, rest and zero-sample sequences
+  ---
+  duration_ms: 1.283758
+  type: 'test'
+  ...
+# Subtest: U2 signed-field collector formula checks actual readouts and rejects inverted components or nonzero rest
+ok 175 - U2 signed-field collector formula checks actual readouts and rejects inverted components or nonzero rest
+  ---
+  duration_ms: 1.761029
+  type: 'test'
+  ...
+# Subtest: U2 all legitimate not-run envelopes validate without screenshot evidence and retain protected v2 provenance
+ok 176 - U2 all legitimate not-run envelopes validate without screenshot evidence and retain protected v2 provenance
+  ---
+  duration_ms: 0.430574
+  type: 'test'
+  ...
+# Subtest: U1 Ch1: every static route provides numeric controls and reset without an animation loop
+ok 177 - U1 Ch1: every static route provides numeric controls and reset without an animation loop
+  ---
+  duration_ms: 23.204072
+  type: 'test'
+  ...
+# Subtest: U1 vector: F naming, fixed O, drag quantization and orthogonal components agree
+ok 178 - U1 vector: F naming, fixed O, drag quantization and orthogonal components agree
+  ---
+  duration_ms: 1.233285
+  type: 'test'
+  ...
+# Subtest: U1 moment: perpendicular arm, CCW convention, signed value and numeric d
+ok 179 - U1 moment: perpendicular arm, CCW convention, signed value and numeric d
+  ---
+  duration_ms: 0.993852
+  type: 'test'
+  ...
+# Subtest: U1 reduction: signed M0 at O, independent force components and SI parity into 3D
+ok 180 - U1 reduction: signed M0 at O, independent force components and SI parity into 3D
+  ---
+  duration_ms: 2.794571
+  type: 'test'
+  ...
+# Subtest: U1 couple: true Home/End parameter bounds, meaningful ARIA and clockwise signed moment
+ok 181 - U1 couple: true Home/End parameter bounds, meaningful ARIA and clockwise signed moment
+  ---
+  duration_ms: 3.883492
+  type: 'test'
+  ...
+# Subtest: U1 beam: support interpretation and independent force/moment residuals
+ok 182 - U1 beam: support interpretation and independent force/moment residuals
+  ---
+  duration_ms: 4.972424
+  type: 'test'
+  ...
+# Subtest: U1 parallelogram: a zero vector has no angle or arrowhead, finite R components
+ok 183 - U1 parallelogram: a zero vector has no angle or arrowhead, finite R components
+  ---
+  duration_ms: 1.625722
+  type: 'test'
+  ...
+# Subtest: U1 ropes: fixed-length assumptions, vertical/angle cues and force balance for all 71 degrees
+ok 184 - U1 ropes: fixed-length assumptions, vertical/angle cues and force balance for all 71 degrees
+  ---
+  duration_ms: 4.054123
+  type: 'test'
+  ...
+# Subtest: U1 cantilever: load and support moment explicitly cancel; display arc is not rotation
+ok 185 - U1 cantilever: load and support moment explicitly cancel; display arc is not rotation
+  ---
+  duration_ms: 1.416133
+  type: 'test'
+  ...
+# Subtest: U1 friction: required reaction, normalized force components and all three static regimes
+ok 186 - U1 friction: required reaction, normalized force components and all three static regimes
+  ---
+  duration_ms: 2.667243
+  type: 'test'
+  ...
+# Subtest: U1 centroid: SI assumptions, x/y formulas and signed first-area contributions
+ok 187 - U1 centroid: SI assumptions, x/y formulas and signed first-area contributions
+  ---
+  duration_ms: 1.889429
+  type: 'test'
+  ...
+# Subtest: U1 reduction 3D: separate labels, equal F/R scales and zero moment cue hidden
+ok 188 - U1 reduction 3D: separate labels, equal F/R scales and zero moment cue hidden
+  ---
+  duration_ms: 44.642035
+  type: 'test'
+  ...
+# Subtest: U1 friction 3D: required-reaction components and limit classification preserve repaired cone
+ok 189 - U1 friction 3D: required-reaction components and limit classification preserve repaired cone
+  ---
+  duration_ms: 14.655557
+  type: 'test'
+  ...
+# Subtest: U1 numeric/drag round trips use one resolution, including rope click with no drag
+ok 190 - U1 numeric/drag round trips use one resolution, including rope click with no drag
+  ---
+  duration_ms: 7.763239
+  type: 'test'
+  ...
+# Subtest: U1 friction vectors: transformed N plus required friction equals required R; reuse cone for beta-only updates
+ok 191 - U1 friction vectors: transformed N plus required friction equals required R; reuse cone for beta-only updates
+  ---
+  duration_ms: 16.596812
+  type: 'test'
+  ...
+# Subtest: U1 friction announces only meaningful equilibrium transitions after mount
+ok 192 - U1 friction announces only meaningful equilibrium transitions after mount
+  ---
+  duration_ms: 1.316216
+  type: 'test'
+  ...
+# Subtest: U1 projectile reaches exact touchdown, pauses, retains result, and seeks apex/replay
+ok 193 - U1 projectile reaches exact touchdown, pauses, retains result, and seeks apex/replay
+  ---
+  duration_ms: 20.416722
+  type: 'test'
+  ...
+# Subtest: U1 ellipse phase controls preserve SI differential geometry at all quadrants and seam
+ok 194 - U1 ellipse phase controls preserve SI differential geometry at all quadrants and seam
+  ---
+  duration_ms: 3.720863
+  type: 'test'
+  ...
+# Subtest: U1 rotation exposes independent SI v/a components and caps, including uniform rotation
+ok 195 - U1 rotation exposes independent SI v/a components and caps, including uniform rotation
+  ---
+  duration_ms: 3.534909
+  type: 'test'
+  ...
+# Subtest: U1 transmission has explicit signed reciprocal ratios and SI no-slip readouts
+ok 196 - U1 transmission has explicit signed reciprocal ratios and SI no-slip readouts
+  ---
+  duration_ms: 2.471666
+  type: 'test'
+  ...
+# Subtest: U1 Coriolis component sum equals independent second derivative and reset semantics match
+ok 197 - U1 Coriolis component sum equals independent second derivative and reset semantics match
+  ---
+  duration_ms: 6.063329
+  type: 'test'
+  ...
+# Subtest: U1 constrained rod numeric A/omega controls preserve rigid motion, geometry and zero endpoint
+ok 198 - U1 constrained rod numeric A/omega controls preserve rigid motion, geometry and zero endpoint
+  ---
+  duration_ms: 2.153838
+  type: 'test'
+  ...
+# Subtest: U1 velocity field numeric IC, uncapped sample data and fixed sparse measurements
+ok 199 - U1 velocity field numeric IC, uncapped sample data and fixed sparse measurements
+  ---
+  duration_ms: 4.298953
+  type: 'test'
+  ...
+# Subtest: U1 3D rotation renders physical acceleration components, uniform rotation and display toggles
+ok 200 - U1 3D rotation renders physical acceleration components, uniform rotation and display toggles
+  ---
+  duration_ms: 41.936265
+  type: 'test'
+  ...
+# Subtest: U1 3D Coriolis right-angle sector follows actual vector directions and hides at zero
+ok 201 - U1 3D Coriolis right-angle sector follows actual vector directions and hides at zero
+  ---
+  duration_ms: 18.673227
+  type: 'test'
+  ...
+# Subtest: U1 all five Chapter 2 adapters retain exact immutable SI snapshots across 20 2D/3D toggles
+ok 202 - U1 all five Chapter 2 adapters retain exact immutable SI snapshots across 20 2D/3D toggles
+  ---
+  duration_ms: 675.13091
+  type: 'test'
+  ...
+# Subtest: U1 numerical handle valueText uses the actual core API and physical SI/phase semantics
+ok 203 - U1 numerical handle valueText uses the actual core API and physical SI/phase semantics
+  ---
+  duration_ms: 3.738329
+  type: 'test'
+  ...
+# Subtest: U1 projectile fixed clock stops at exact event and announces once, including repeated endpoint steps
+ok 204 - U1 projectile fixed clock stops at exact event and announces once, including repeated endpoint steps
+  ---
+  duration_ms: 3.134941
+  type: 'test'
+  ...
+# Subtest: U1 2D belt marker has no-slip arc speed for equal and unequal pulley radii
+ok 205 - U1 2D belt marker has no-slip arc speed for equal and unequal pulley radii
+  ---
+  duration_ms: 5.856074
+  type: 'test'
+  ...
+# Subtest: integration: all 10 paired adapters receive unchanged frozen physical state through 20 toggles
+ok 206 - integration: all 10 paired adapters receive unchanged frozen physical state through 20 toggles
+  ---
+  duration_ms: 1135.738289
+  type: 'test'
+  ...
+# Subtest: U1/Newton: A/B shares fixed SI axes, independent acceleration, and retains both parameter sets
+ok 207 - U1/Newton: A/B shares fixed SI axes, independent acceleration, and retains both parameter sets
+  ---
+  duration_ms: 5.250883
+  type: 'test'
+  ...
+# Subtest: U1/oscillator: continuous physical time, exact overlay, energy and 100-cycle independent oracle
+ok 208 - U1/oscillator: continuous physical time, exact overlay, energy and 100-cycle independent oracle
+  ---
+  duration_ms: 3951.29463
+  type: 'test'
+  ...
+# Subtest: U1/impulse: physical fixed axes and independent momentum/velocity; equal impulse experiment
+ok 209 - U1/impulse: physical fixed axes and independent momentum/velocity; equal impulse experiment
+  ---
+  duration_ms: 2.384025
+  type: 'test'
+  ...
+# Subtest: U1/work: independent displayed kinetic energies and physically dimensioned force-distance area
+ok 210 - U1/work: independent displayed kinetic energies and physically dimensioned force-distance area
+  ---
+  duration_ms: 1.433638
+  type: 'test'
+  ...
+# Subtest: U1/frame equilibrium: tension components and inertial/ground FBD share one state
+ok 211 - U1/frame equilibrium: tension components and inertial/ground FBD share one state
+  ---
+  duration_ms: 1.801529
+  type: 'test'
+  ...
+# Subtest: U1/action reaction: names identify receiving objects and subsystem selectors never claim equilibrium
+ok 212 - U1/action reaction: names identify receiving objects and subsystem selectors never claim equilibrium
+  ---
+  duration_ms: 1.52995
+  type: 'test'
+  ...
+# Subtest: U1/angular momentum: radial keyboard semantics, continuous angle, work is change in rotational energy
+ok 213 - U1/angular momentum: radial keyboard semantics, continuous angle, work is change in rotational energy
+  ---
+  duration_ms: 1.560735
+  type: 'test'
+  ...
+# Subtest: U1/collision: before/contact/after event steps, independent impulses/loss, pause exact and retained result
+ok 214 - U1/collision: before/contact/after event steps, independent impulses/loss, pause exact and retained result
+  ---
+  duration_ms: 5.65801
+  type: 'test'
+  ...
+# Subtest: U1/paired frame 3D: actual force arrows share uncapped scale and ground view hides only fictitious force
+ok 215 - U1/paired frame 3D: actual force arrows share uncapped scale and ground view hides only fictitious force
+  ---
+  duration_ms: 34.218841
+  type: 'test'
+  ...
+# Subtest: U1/paired angular 3D: geometry reused, visible energy is SI and independent of display radius
+ok 216 - U1/paired angular 3D: geometry reused, visible energy is SI and independent of display radius
+  ---
+  duration_ms: 19.664798
+  type: 'test'
+  ...
+# Subtest: U1/paired collision 3D: phase and contact snapshot survive impact-step remainder and late mount
+ok 217 - U1/paired collision 3D: phase and contact snapshot survive impact-step remainder and late mount
+  ---
+  duration_ms: 10.79138
+  type: 'test'
+  ...
+# Subtest: U1/collision: real fixed-step event pause keeps physical clock aligned and retained step is inert
+ok 218 - U1/collision: real fixed-step event pause keeps physical clock aligned and retained step is inert
+  ---
+  duration_ms: 1.684697
+  type: 'test'
+  ...
+# Subtest: U1/handle controls: physical drag snapping matches scalar slider resolution and ARIA values
+ok 219 - U1/handle controls: physical drag snapping matches scalar slider resolution and ARIA values
+  ---
+  duration_ms: 4.690908
+  type: 'test'
+  ...
+# Subtest: U1/collision: meaningful event announcements occur once, never on redraw frames
+ok 220 - U1/collision: meaningful event announcements occur once, never on redraw frames
+  ---
+  duration_ms: 1.478133
+  type: 'test'
+  ...
+# Subtest: U1/numeric-to-handle: decimal parameters survive pointer start/end and identical move replay
+ok 221 - U1/numeric-to-handle: decimal parameters survive pointer start/end and identical move replay
+  ---
+  duration_ms: 4.115832
+  type: 'test'
+  ...
+# Subtest: scalar keyboard maps physical value independent of handle coordinates
+ok 222 - scalar keyboard maps physical value independent of handle coordinates
+  ---
+  duration_ms: 3.878614
+  type: 'test'
+  ...
+# Subtest: both drag APIs track pointer identity and cancel/lost capture end active drag once
+ok 223 - both drag APIs track pointer identity and cancel/lost capture end active drag once
+  ---
+  duration_ms: 1.87003
+  type: 'test'
+  ...
+# Subtest: readout preserves keyed DOM nodes and only announces on explicit user request
+ok 224 - readout preserves keyed DOM nodes and only announces on explicit user request
+  ---
+  duration_ms: 1.689955
+  type: 'test'
+  ...
+# Subtest: controls validate numeric edits, preserve empty drafts, share slider value and dispose callbacks
+ok 225 - controls validate numeric edits, preserve empty drafts, share slider value and dispose callbacks
+  ---
+  duration_ms: 2.389945
+  type: 'test'
+  ...
+# Subtest: standalone numeric/action controls survive viewport hiding and shell cleanup
+ok 226 - standalone numeric/action controls survive viewport hiding and shell cleanup
+  ---
+  duration_ms: 1.092257
+  type: 'test'
+  ...
+# Subtest: event seek binds exact physical time and clears accumulated wall time
+ok 227 - event seek binds exact physical time and clears accumulated wall time
+  ---
+  duration_ms: 1.141759
+  type: 'test'
+  ...
+# Subtest: 2D/3D bridge snapshots nested physical state against caller mutation
+ok 228 - 2D/3D bridge snapshots nested physical state against caller mutation
+  ---
+  duration_ms: 1.252191
+  type: 'test'
+  ...
+# Subtest: meaningful event announcements are explicit and never frame-driven
+ok 229 - meaningful event announcements are explicit and never frame-driven
+  ---
+  duration_ms: 0.869378
+  type: 'test'
+  ...
+# Subtest: programmatic pause/play keeps shared playback button truthful
+ok 230 - programmatic pause/play keeps shared playback button truthful
+  ---
+  duration_ms: 0.971248
+  type: 'test'
+  ...
+# Subtest: numeric input colors reference existing theme tokens in light and dark mode
+ok 231 - numeric input colors reference existing theme tokens in light and dark mode
+  ---
+  duration_ms: 0.641433
+  type: 'test'
+  ...
+# Subtest: number typing preserves fractional drafts until explicit change commit
+ok 232 - number typing preserves fractional drafts until explicit change commit
+  ---
+  duration_ms: 1.879624
+  type: 'test'
+  ...
+# Subtest: native controls can represent exact decimals while explicit range/key step remains meaningful
+ok 233 - native controls can represent exact decimals while explicit range/key step remains meaningful
+  ---
+  duration_ms: 0.896358
+  type: 'test'
+  ...
+# Subtest: draft statics specifications state the actual supported force/moment/rope models
+ok 234 - draft statics specifications state the actual supported force/moment/rope models
+  ---
+  duration_ms: 0.687521
+  type: 'test'
+  ...
+# Subtest: current upgrade tests are associated but do not grant draft specifications acceptance
+ok 235 - current upgrade tests are associated but do not grant draft specifications acceptance
+  ---
+  duration_ms: 0.261224
+  type: 'test'
+  ...
+# Subtest: U2 signed/zero omega domain, formula and unchanged initial field
+ok 236 - U2 signed/zero omega domain, formula and unchanged initial field
+  ---
+  duration_ms: 33.138864
+  type: 'test'
+  ...
+# Subtest: U2 production numeric controls preserve continuous signed field invariants and sign symmetry
+ok 237 - U2 production numeric controls preserve continuous signed field invariants and sign symmetry
+  ---
+  duration_ms: 1293.930501
+  type: 'test'
+  ...
+# Subtest: U2 all 63 2D field segments retain signed directions, scales and cap counts
+ok 238 - U2 all 63 2D field segments retain signed directions, scales and cap counts
+  ---
+  duration_ms: 19.780789
+  type: 'test'
+  ...
+# Subtest: U2 explicit direction, rest and IC=M distinguish zero velocity from rotation sense
+ok 239 - U2 explicit direction, rest and IC=M distinguish zero velocity from rotation sense
+  ---
+  duration_ms: 10.700927
+  type: 'test'
+  ...
+# Subtest: U2 compare/rest actions and keyboard changes use the same physical controls
+ok 240 - U2 compare/rest actions and keyboard changes use the same physical controls
+  ---
+  duration_ms: 11.842846
+  type: 'test'
+  ...
+# Subtest: U2 vendored Three CPU arrows reverse without negative speeds, changing geometry or zero ghosts
+ok 241 - U2 vendored Three CPU arrows reverse without negative speeds, changing geometry or zero ghosts
+  ---
+  duration_ms: 230.854746
+  type: 'test'
+  ...
+# Subtest: U2 20 full production 2D/3D cycles preserve exact signed/rest state and accessible controls
+ok 242 - U2 20 full production 2D/3D cycles preserve exact signed/rest state and accessible controls
+  ---
+  duration_ms: 130.060067
+  type: 'test'
+  ...
+# sim2-animation-clock: PASS
+# Subtest: tests/sim2-animation-clock.test.js
+ok 15 - tests/sim2-animation-clock.test.js
+  ---
+  duration_ms: 51.298566
+  type: 'test'
+  ...
+# [
+#   {
+#     "id": "ch1-1-3",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch1-1-4",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch1-1-5",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 0,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch1-1-6",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch1-2-3",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 0,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch1-1-8",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch1-3-2",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch1-3-6",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch1-5-3",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch1-6-3",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 0,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch2-1-1",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch2-1-3",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch2-2-2",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch2-3-2",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch2-4-4",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch2-5-2",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 0,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch2-5-3",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch3-2-2",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch3-2-3",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch3-1-3",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch3-3-1",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch3-5-2",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 4,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch3-5-3",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch3-5-4",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 2,
+#     "disposed": true
+#   },
+#   {
+#     "id": "ch3-6-2",
+#     "mounted": true,
+#     "finiteBoundaryChecks": 6,
+#     "disposed": true
+#   }
+# ]
+# Subtest: tests/sim2-audit-domain-sweep.test.js
+ok 16 - tests/sim2-audit-domain-sweep.test.js
+  ---
+  duration_ms: 281.357372
+  type: 'test'
+  ...
+# Subtest: K-01: finite IC for parallel velocities and stationary endpoint; rigid-body oracle and invalid inputs
+ok 245 - K-01: finite IC for parallel velocities and stationary endpoint; rigid-body oracle and invalid inputs
+  ---
+  duration_ms: 1.384837
+  type: 'test'
+  ...
+# Subtest: R2D-01: Newton physical x/v/work-energy and continuous time through graph wrap
+ok 246 - R2D-01: Newton physical x/v/work-energy and continuous time through graph wrap
+  ---
+  duration_ms: 144.052509
+  type: 'test'
+  ...
+# Subtest: R2D-02: support reaction moment cancels load moment and SVG sweep agrees
+ok 247 - R2D-02: support reaction moment cancels load moment and SVG sweep agrees
+  ---
+  duration_ms: 2.512847
+  type: 'test'
+  ...
+# Subtest: R2D-03: IC velocity magnitudes obey one angular speed, including IC=A endpoint
+ok 248 - R2D-03: IC velocity magnitudes obey one angular speed, including IC=A endpoint
+  ---
+  duration_ms: 3.237462
+  type: 'test'
+  ...
+# Subtest: R2D-04: rope slider/geometry/drag/ARIA round trips without pointer movement
+ok 249 - R2D-04: rope slider/geometry/drag/ARIA round trips without pointer movement
+  ---
+  duration_ms: 2.32494
+  type: 'test'
+  ...
+# Subtest: R2D-05: impact consumes full dt; independent piecewise trajectory, contact snapshot and invariants
+ok 250 - R2D-05: impact consumes full dt; independent piecewise trajectory, contact snapshot and invariants
+  ---
+  duration_ms: 78.417536
+  type: 'test'
+  ...
+# Subtest: R2D-06: 1000 collision/reset cycles retain only active overlay labels; dispose releases them
+ok 251 - R2D-06: 1000 collision/reset cycles retain only active overlay labels; dispose releases them
+  ---
+  duration_ms: 31.860384
+  type: 'test'
+  ...
+# Subtest: R2D-07/projectile: all vector endpoints fit including immediately before touchdown
+ok 252 - R2D-07/projectile: all vector endpoints fit including immediately before touchdown
+  ---
+  duration_ms: 99.384896
+  type: 'test'
+  ...
+# Subtest: R2D-07/gears: every circle fits at all radius boundaries with stroke padding
+ok 253 - R2D-07/gears: every circle fits at all radius boundaries with stroke padding
+  ---
+  duration_ms: 3.270301
+  type: 'test'
+  ...
+# Subtest: R2D-07/IC: whole rigid bar, velocity arrows and center fit through handle domain
+ok 254 - R2D-07/IC: whole rigid bar, velocity arrows and center fit through handle domain
+  ---
+  duration_ms: 2.466708
+  type: 'test'
+  ...
+# Subtest: R2D-05: collision with real fixed-step clock preserves pause/reset and 2-second position
+ok 255 - R2D-05: collision with real fixed-step clock preserves pause/reset and 2-second position
+  ---
+  duration_ms: 3.212486
+  type: 'test'
+  ...
+# sim2-ch1-physics: PASS (10/10)
+# Subtest: tests/sim2-ch1-physics.test.js
+ok 18 - tests/sim2-ch1-physics.test.js
+  ---
+  duration_ms: 52.472002
+  type: 'test'
+  ...
+# sim2-ch2-physics: PASS (7/7)
+# Subtest: tests/sim2-ch2-physics.test.js
+ok 19 - tests/sim2-ch2-physics.test.js
+  ---
+  duration_ms: 56.147678
+  type: 'test'
+  ...
+# sim2-ch3-physics: PASS (8/8)
+# Subtest: tests/sim2-ch3-physics.test.js
+ok 20 - tests/sim2-ch3-physics.test.js
+  ---
+  duration_ms: 64.603666
+  type: 'test'
+  ...
+# sim2-no-legacy-physics: PASS
+# Subtest: tests/sim2-no-legacy-physics.test.js
+ok 21 - tests/sim2-no-legacy-physics.test.js
+  ---
+  duration_ms: 58.551754
+  type: 'test'
+  ...
+# sim2-physics-port: PASS
+# Subtest: tests/sim2-physics-port.test.js
+ok 22 - tests/sim2-physics-port.test.js
+  ---
+  duration_ms: 58.50757
+  type: 'test'
+  ...
+# sim2-removal-guard: PASS
+# Subtest: tests/sim2-removal-guard.test.js
+ok 23 - tests/sim2-removal-guard.test.js
+  ---
+  duration_ms: 52.177058
+  type: 'test'
+  ...
+# sim2-route-coverage: PASS (25 route, factory + physics + mount + palette đủ)
+# Subtest: tests/sim2-route-coverage.test.js
+ok 24 - tests/sim2-route-coverage.test.js
+  ---
+  duration_ms: 63.995857
+  type: 'test'
+  ...
+# sim2-transform: PASS
+# Subtest: tests/sim2-transform.test.js
+ok 25 - tests/sim2-transform.test.js
+  ---
+  duration_ms: 53.610166
+  type: 'test'
+  ...
+# sim2-visual-capture-plan: PASS (25 route)
+# Subtest: tests/sim2-visual-capture-plan.test.js
+ok 26 - tests/sim2-visual-capture-plan.test.js
+  ---
+  duration_ms: 55.017701
+  type: 'test'
+  ...
+# sim2-visual-capture-validation: PASS (25 routes)
+# Subtest: tests/sim2-visual-capture-validation.test.js
+ok 27 - tests/sim2-visual-capture-validation.test.js
+  ---
+  duration_ms: 54.348722
+  type: 'test'
+  ...
+# sim2-visual-contact-sheet: PASS (7 route, 14 img)
+# Subtest: tests/sim2-visual-contact-sheet.test.js
+ok 28 - tests/sim2-visual-contact-sheet.test.js
+  ---
+  duration_ms: 49.422626
+  type: 'test'
+  ...
+# sim2-visual-physics-regression: PASS
+# Subtest: tests/sim2-visual-physics-regression.test.js
+ok 29 - tests/sim2-visual-physics-regression.test.js
+  ---
+  duration_ms: 57.380562
+  type: 'test'
+  ...
+# Subtest: Collision impact diagnostic uses the contact snapshot after the full step advances
+ok 268 - Collision impact diagnostic uses the contact snapshot after the full step advances
+  ---
+  duration_ms: 66.225192
+  type: 'test'
+  ...
+# Subtest: S3-01: Coriolis disk, rim, sector and bead share XY plane at every phase
+ok 269 - S3-01: Coriolis disk, rim, sector and bead share XY plane at every phase
+  ---
+  duration_ms: 20.876037
+  type: 'test'
+  ...
+# Subtest: S3-02: friction-cone apex starts at contact and every section opens along normal
+ok 270 - S3-02: friction-cone apex starts at contact and every section opens along normal
+  ---
+  duration_ms: 19.449708
+  type: 'test'
+  ...
+# Subtest: S3-03: belt dots follow tangent spans and wraps at signed no-slip arc speed
+ok 271 - S3-03: belt dots follow tangent spans and wraps at signed no-slip arc speed
+  ---
+  duration_ms: 96.154795
+  type: 'test'
+  ...
+# Subtest: S3-04: theta arc is centered at pivot, coplanar and bounded by cord/vertical
+ok 272 - S3-04: theta arc is centered at pivot, coplanar and bounded by cord/vertical
+  ---
+  duration_ms: 23.510962
+  type: 'test'
+  ...
+# Subtest: S3-05: full ellipse/circle/marker/vector geometry fits frustum across states and resize
+ok 273 - S3-05: full ellipse/circle/marker/vector geometry fits frustum across states and resize
+  ---
+  duration_ms: 651.884365
+  type: 'test'
+  ...
+# Subtest: S3-06: block bottom and contact cues sit on the inclined top surface
+ok 274 - S3-06: block bottom and contact cues sit on the inclined top surface
+  ---
+  duration_ms: 13.901629
+  type: 'test'
+  ...
+# Subtest: S3-07: null, thrown and synchronous-fallback factories leave no host or canvas
+ok 275 - S3-07: null, thrown and synchronous-fallback factories leave no host or canvas
+  ---
+  duration_ms: 37.570212
+  type: 'test'
+  ...
+# Subtest: S3-08: arrow display length includes actual cone tip for zero/min/max/signed cases
+ok 276 - S3-08: arrow display length includes actual cone tip for zero/min/max/signed cases
+  ---
+  duration_ms: 12.887426
+  type: 'test'
+  ...
+# Subtest: All ten adapters remain demand-rendered and dispose each owned resource once
+ok 277 - All ten adapters remain demand-rendered and dispose each owned resource once
+  ---
+  duration_ms: 114.740033
+  type: 'test'
+  ...
+# Subtest: Changed cone/angle geometry is disposed and unchanged angle geometry is reused
+ok 278 - Changed cone/angle geometry is disposed and unchanged angle geometry is reused
+  ---
+  duration_ms: 22.657056
+  type: 'test'
+  ...
+# Subtest: Mode owns its host through normal toggles, update failure and throwing disposal
+ok 279 - Mode owns its host through normal toggles, update failure and throwing disposal
+  ---
+  duration_ms: 8.156979
+  type: 'test'
+  ...
+# Subtest: S3-08 review: force and moment geometry stays framed over expanded synthetic endpoints and resize
+ok 280 - S3-08 review: force and moment geometry stays framed over expanded synthetic endpoints and resize
+  ---
+  duration_ms: 563.007695
+  type: 'test'
+  ...
+# sim3-coordinate-system: PASS
+# Subtest: tests/sim3-coordinate-system.test.js
+ok 31 - tests/sim3-coordinate-system.test.js
+  ---
+  duration_ms: 55.660311
+  type: 'test'
+  ...
+# Subtest: 10 Sim3 reviews document pedagogical decision and equivalent Sim2 fallback with catalogued evidence
+ok 282 - 10 Sim3 reviews document pedagogical decision and equivalent Sim2 fallback with catalogued evidence
+  ---
+  duration_ms: 1.49527
+  type: 'test'
+  ...
+# Subtest: review mutations reject duplicate, title/chapter drift, unknown adapter, stale hash, and unsupported authority
+ok 283 - review mutations reject duplicate, title/chapter drift, unknown adapter, stale hash, and unsupported authority
+  ---
+  duration_ms: 1030.142532
+  type: 'test'
+  ...
+# sim3-visual-capture-validation: PASS (10 routes)
+# Subtest: tests/sim3-visual-capture-validation.test.js
+ok 33 - tests/sim3-visual-capture-validation.test.js
+  ---
+  duration_ms: 53.129047
+  type: 'test'
+  ...
+# simulation-console-policy: PASS
+# Subtest: tests/simulation-console-policy.test.js
+ok 34 - tests/simulation-console-policy.test.js
+  ---
+  duration_ms: 55.188752
+  type: 'test'
+  ...
+# Subtest: historical completed artifacts cannot approve the repaired current source
+ok 286 - historical completed artifacts cannot approve the repaired current source
+  ---
+  duration_ms: 127.989744
+  type: 'test'
+  ...
+# Subtest: font, image, GIF and source-PDF byte changes invalidate the captured source fingerprint
+ok 287 - font, image, GIF and source-PDF byte changes invalidate the captured source fingerprint
+  ---
+  duration_ms: 4.659763
+  type: 'test'
+  ...
+# Subtest: simulation documentation files and referenced implementation paths exist
+ok 288 - simulation documentation files and referenced implementation paths exist
+  ---
+  duration_ms: 1.113588
+  type: 'test'
+  ...
+# Subtest: documented simulation commands exist in package.json
+ok 289 - documented simulation commands exist in package.json
+  ---
+  duration_ms: 0.161477
+  type: 'test'
+  ...
+# Subtest: architecture and policy docs describe the final contracts without stale blockers
+ok 290 - architecture and policy docs describe the final contracts without stale blockers
+  ---
+  duration_ms: 1.078987
+  type: 'test'
+  ...
+# Subtest: default drift validation accepts current structural metadata without claiming runtime acceptance
+ok 291 - default drift validation accepts current structural metadata without claiming runtime acceptance
+  ---
+  duration_ms: 133.731818
+  type: 'test'
+  ...
+# Subtest: historical plan and hashed artifacts do not satisfy current-source acceptance
+ok 292 - historical plan and hashed artifacts do not satisfy current-source acceptance
+  ---
+  duration_ms: 107.715217
+  type: 'test'
+  ...
+# Subtest: a source-bound current evidence manifest and explicit review permit verified records in a synthetic fixture
+ok 293 - a source-bound current evidence manifest and explicit review permit verified records in a synthetic fixture
+  ---
+  duration_ms: 238.07787
+  type: 'test'
+  ...
+# Subtest: verified evidence rejects a capture manifest whose bound run artifact is missing
+ok 294 - verified evidence rejects a capture manifest whose bound run artifact is missing
+  ---
+  duration_ms: 210.781789
+  type: 'test'
+  ...
+# Subtest: verified evidence rejects a missing selective visual baseline
+ok 295 - verified evidence rejects a missing selective visual baseline
+  ---
+  duration_ms: 209.16436
+  type: 'test'
+  ...
+# Subtest: verified evidence requires every approved selective visual baseline
+ok 296 - verified evidence requires every approved selective visual baseline
+  ---
+  duration_ms: 213.40112
+  type: 'test'
+  ...
+# Subtest: rehashing changed factory metadata cannot retain verified runtime claims
+ok 297 - rehashing changed factory metadata cannot retain verified runtime claims
+  ---
+  duration_ms: 209.308221
+  type: 'test'
+  ...
+# Subtest: shared core changes invalidate acceptance even when all route hashes match
+ok 298 - shared core changes invalidate acceptance even when all route hashes match
+  ---
+  duration_ms: 211.021611
+  type: 'test'
+  ...
+# Subtest: current-source receipt requires an explicit reviewer, not just refreshed hashes
+ok 299 - current-source receipt requires an explicit reviewer, not just refreshed hashes
+  ---
+  duration_ms: 210.623966
+  type: 'test'
+  ...
+# Subtest: the historical evidence manifest cannot be relabelled as current revalidation
+ok 300 - the historical evidence manifest cannot be relabelled as current revalidation
+  ---
+  duration_ms: 205.503446
+  type: 'test'
+  ...
+# Subtest: every current artifact must have source-bound execution metadata
+ok 301 - every current artifact must have source-bound execution metadata
+  ---
+  duration_ms: 208.659357
+  type: 'test'
+  ...
+# Subtest: new and deleted scoped sources invalidate the complete-source snapshot
+ok 302 - new and deleted scoped sources invalidate the complete-source snapshot
+  ---
+  duration_ms: 387.677103
+  type: 'test'
+  ...
+# Subtest: malformed current receipt fails closed without throwing
+ok 303 - malformed current receipt fails closed without throwing
+  ---
+  duration_ms: 130.983963
+  type: 'test'
+  ...
+# Subtest: a retry-free flag alone cannot substitute for three executed release runs
+ok 304 - a retry-free flag alone cannot substitute for three executed release runs
+  ---
+  duration_ms: 214.4892
+  type: 'test'
+  ...
+# Subtest: renamed historical evidence with new wrapper hashes and dates is not current execution
+ok 305 - renamed historical evidence with new wrapper hashes and dates is not current execution
+  ---
+  duration_ms: 281.088883
+  type: 'test'
+  ...
+# Subtest: embedded execution source, clock and run identity remain authoritative after wrapper rehashing
+ok 306 - embedded execution source, clock and run identity remain authoritative after wrapper rehashing
+  ---
+  duration_ms: 781.023976
+  type: 'test'
+  ...
+# simulation-release-scripts: PASS
+# Subtest: tests/simulation-release-scripts.test.js
+ok 38 - tests/simulation-release-scripts.test.js
+  ---
+  duration_ms: 54.957305
+  type: 'test'
+  ...
+# simulation-route-truth: PASS (25 Sim2 / 10 Sim3 / 35 contracts)
+# Subtest: tests/simulation-route-truth.test.js
+ok 39 - tests/simulation-route-truth.test.js
+  ---
+  duration_ms: 67.863749
+  type: 'test'
+  ...
+# Subtest: 25 draft Sim2 specifications exactly join the canonical manifest with catalogued independent evidence
+ok 309 - 25 draft Sim2 specifications exactly join the canonical manifest with catalogued independent evidence
+  ---
+  duration_ms: 1.770854
+  type: 'test'
+  ...
+# Subtest: specification mutations are rejected: missing, duplicate, renamed, title/chapter, stale source/helper hash, dead test, and unsupported verified status
+ok 310 - specification mutations are rejected: missing, duplicate, renamed, title/chapter, stale source/helper hash, dead test, and unsupported verified status
+  ---
+  duration_ms: 1337.722211
+  type: 'test'
+  ...
+# Subtest: contract ch1-1-3: explicit SI, actual controls/reset, and honest calculation provenance
+ok 311 - contract ch1-1-3: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 6.888142
+  type: 'test'
+  ...
+# Subtest: contract ch1-1-4: explicit SI, actual controls/reset, and honest calculation provenance
+ok 312 - contract ch1-1-4: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.498294
+  type: 'test'
+  ...
+# Subtest: contract ch1-1-5: explicit SI, actual controls/reset, and honest calculation provenance
+ok 313 - contract ch1-1-5: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 4.86801
+  type: 'test'
+  ...
+# Subtest: contract ch1-1-6: explicit SI, actual controls/reset, and honest calculation provenance
+ok 314 - contract ch1-1-6: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.251431
+  type: 'test'
+  ...
+# Subtest: contract ch1-2-3: explicit SI, actual controls/reset, and honest calculation provenance
+ok 315 - contract ch1-2-3: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.938291
+  type: 'test'
+  ...
+# Subtest: contract ch1-1-8: explicit SI, actual controls/reset, and honest calculation provenance
+ok 316 - contract ch1-1-8: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.387972
+  type: 'test'
+  ...
+# Subtest: contract ch1-3-2: explicit SI, actual controls/reset, and honest calculation provenance
+ok 317 - contract ch1-3-2: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.44155
+  type: 'test'
+  ...
+# Subtest: contract ch1-3-6: explicit SI, actual controls/reset, and honest calculation provenance
+ok 318 - contract ch1-3-6: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 2.452217
+  type: 'test'
+  ...
+# Subtest: contract ch1-5-3: explicit SI, actual controls/reset, and honest calculation provenance
+ok 319 - contract ch1-5-3: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.884051
+  type: 'test'
+  ...
+# Subtest: contract ch1-6-3: explicit SI, actual controls/reset, and honest calculation provenance
+ok 320 - contract ch1-6-3: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.433759
+  type: 'test'
+  ...
+# Subtest: contract ch2-1-1: explicit SI, actual controls/reset, and honest calculation provenance
+ok 321 - contract ch2-1-1: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.499095
+  type: 'test'
+  ...
+# Subtest: contract ch2-1-3: explicit SI, actual controls/reset, and honest calculation provenance
+ok 322 - contract ch2-1-3: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.651559
+  type: 'test'
+  ...
+# Subtest: contract ch2-2-2: explicit SI, actual controls/reset, and honest calculation provenance
+ok 323 - contract ch2-2-2: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.707381
+  type: 'test'
+  ...
+# Subtest: contract ch2-3-2: explicit SI, actual controls/reset, and honest calculation provenance
+ok 324 - contract ch2-3-2: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.864333
+  type: 'test'
+  ...
+# Subtest: contract ch2-4-4: explicit SI, actual controls/reset, and honest calculation provenance
+ok 325 - contract ch2-4-4: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.351548
+  type: 'test'
+  ...
+# Subtest: contract ch2-5-2: explicit SI, actual controls/reset, and honest calculation provenance
+ok 326 - contract ch2-5-2: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.376294
+  type: 'test'
+  ...
+# Subtest: contract ch2-5-3: explicit SI, actual controls/reset, and honest calculation provenance
+ok 327 - contract ch2-5-3: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.596938
+  type: 'test'
+  ...
+# Subtest: contract ch3-2-2: explicit SI, actual controls/reset, and honest calculation provenance
+ok 328 - contract ch3-2-2: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.441961
+  type: 'test'
+  ...
+# Subtest: contract ch3-2-3: explicit SI, actual controls/reset, and honest calculation provenance
+ok 329 - contract ch3-2-3: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.103503
+  type: 'test'
+  ...
+# Subtest: contract ch3-1-3: explicit SI, actual controls/reset, and honest calculation provenance
+ok 330 - contract ch3-1-3: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.411046
+  type: 'test'
+  ...
+# Subtest: contract ch3-3-1: explicit SI, actual controls/reset, and honest calculation provenance
+ok 331 - contract ch3-3-1: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.910239
+  type: 'test'
+  ...
+# Subtest: contract ch3-5-2: explicit SI, actual controls/reset, and honest calculation provenance
+ok 332 - contract ch3-5-2: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.371227
+  type: 'test'
+  ...
+# Subtest: contract ch3-5-3: explicit SI, actual controls/reset, and honest calculation provenance
+ok 333 - contract ch3-5-3: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.186174
+  type: 'test'
+  ...
+# Subtest: contract ch3-5-4: explicit SI, actual controls/reset, and honest calculation provenance
+ok 334 - contract ch3-5-4: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 1.211471
+  type: 'test'
+  ...
+# Subtest: contract ch3-6-2: explicit SI, actual controls/reset, and honest calculation provenance
+ok 335 - contract ch3-6-2: explicit SI, actual controls/reset, and honest calculation provenance
+  ---
+  duration_ms: 2.10734
+  type: 'test'
+  ...
+# Subtest: math ch1-1-3: displayed force components and arrow encode the prescribed input
+ok 336 - math ch1-1-3: displayed force components and arrow encode the prescribed input
+  ---
+  duration_ms: 1.596699
+  type: 'test'
+  ...
+# Subtest: math ch1-1-4: perpendicular arm gives signed CCW moment, not an arbitrary input angle
+ok 337 - math ch1-1-4: perpendicular arm gives signed CCW moment, not an arbitrary input angle
+  ---
+  duration_ms: 2.560917
+  type: 'test'
+  ...
+# Subtest: math ch1-1-5: force and moment reduction uses fixed application points, including a pure couple
+ok 338 - math ch1-1-5: force and moment reduction uses fixed application points, including a pure couple
+  ---
+  duration_ms: 2.072839
+  type: 'test'
+  ...
+# Subtest: math ch1-1-6: signed couple is independent of the chosen moment origin
+ok 339 - math ch1-1-6: signed couple is independent of the chosen moment origin
+  ---
+  duration_ms: 1.064075
+  type: 'test'
+  ...
+# Subtest: math ch1-2-3: zero vectors have no angle; nonzero parallelogram obeys cosine law
+ok 340 - math ch1-2-3: zero vectors have no angle; nonzero parallelogram obeys cosine law
+  ---
+  duration_ms: 2.251172
+  type: 'test'
+  ...
+# Subtest: math ch1-1-8: actual reaction arrows balance the load and moment over the allowed beam
+ok 341 - math ch1-1-8: actual reaction arrows balance the load and moment over the allowed beam
+  ---
+  duration_ms: 1.450634
+  type: 'test'
+  ...
+# Subtest: math ch1-3-2: tension follows geometry-derived direction cosines for all 71 rope angles
+ok 342 - math ch1-3-2: tension follows geometry-derived direction cosines for all 71 rope angles
+  ---
+  duration_ms: 2.475812
+  type: 'test'
+  ...
+# Subtest: math ch1-3-6: support moment cancels the signed load moment
+ok 343 - math ch1-3-6: support moment cancels the signed load moment
+  ---
+  duration_ms: 1.263308
+  type: 'test'
+  ...
+# Subtest: math ch1-5-3: normalized required forces balance, but infeasible static reaction is not sliding dynamics
+ok 344 - math ch1-5-3: normalized required forces balance, but infeasible static reaction is not sliding dynamics
+  ---
+  duration_ms: 3.094342
+  type: 'test'
+  ...
+# Subtest: math ch1-6-3: negative-area centroid and first moments use m, m² and m³ correctly
+ok 345 - math ch1-6-3: negative-area centroid and first moments use m, m² and m³ correctly
+  ---
+  duration_ms: 1.48175
+  type: 'test'
+  ...
+# Subtest: math ch2-1-1: complementary launch angles, exact apex and touchdown use physical SI state
+ok 346 - math ch2-1-1: complementary launch angles, exact apex and touchdown use physical SI state
+  ---
+  duration_ms: 5.617683
+  type: 'test'
+  ...
+# Subtest: math ch2-1-3: Frenet frame comes from independent derivatives, not a unit acceleration arrow
+ok 347 - math ch2-1-3: Frenet frame comes from independent derivatives, not a unit acceleration arrow
+  ---
+  duration_ms: 2.098938
+  type: 'test'
+  ...
+# Subtest: math ch2-2-2: constant angular acceleration has tangential and nonzero centripetal terms
+ok 348 - math ch2-2-2: constant angular acceleration has tangential and nonzero centripetal terms
+  ---
+  duration_ms: 2.54322
+  type: 'test'
+  ...
+# Subtest: math ch2-3-2: signed no-slip ratios and observed marker speed agree across unequal/equal radii
+ok 349 - math ch2-3-2: signed no-slip ratios and observed marker speed agree across unequal/equal radii
+  ---
+  duration_ms: 3.611943
+  type: 'test'
+  ...
+# Subtest: math ch2-4-4: position differentiation independently checks full acceleration including inward radial motion
+ok 350 - math ch2-4-4: position differentiation independently checks full acceleration including inward radial motion
+  ---
+  duration_ms: 4.102455
+  type: 'test'
+  ...
+# Subtest: math ch2-5-2: independently decoded endpoint velocities obey rigid-rod compatibility and finite IC
+ok 351 - math ch2-5-2: independently decoded endpoint velocities obey rigid-rod compatibility and finite IC
+  ---
+  duration_ms: 1.472306
+  type: 'test'
+  ...
+# Subtest: math ch2-5-3: sample table is calculated from physical coordinates, not capped arrows or empirical measurements
+ok 352 - math ch2-5-3: sample table is calculated from physical coordinates, not capped arrows or empirical measurements
+  ---
+  duration_ms: 6.124909
+  type: 'test'
+  ...
+# Subtest: math ch3-1-3: frame changes do not change relative equilibrium; force triangle has actual SI values
+ok 353 - math ch3-1-3: frame changes do not change relative equilibrium; force triangle has actual SI values
+  ---
+  duration_ms: 1.593233
+  type: 'test'
+  ...
+# Subtest: math ch3-2-2: Newton solution and A/B graph scale remain physical after wrapping
+ok 354 - math ch3-2-2: Newton solution and A/B graph scale remain physical after wrapping
+  ---
+  duration_ms: 2.390727
+  type: 'test'
+  ...
+# Subtest: math ch3-2-3: forces are attached to distinct recipients and their internal sum is zero
+ok 355 - math ch3-2-3: forces are attached to distinct recipients and their internal sum is zero
+  ---
+  duration_ms: 1.790254
+  type: 'test'
+  ...
+# Subtest: math ch3-3-1: RK4 numerical solution is compared with a separate analytic solution at non-periodic times
+ok 356 - math ch3-3-1: RK4 numerical solution is compared with a separate analytic solution at non-periodic times
+  ---
+  duration_ms: 578.992491
+  type: 'test'
+  ...
+# Subtest: math ch3-5-2: momentum slope and force-time area are predictions of the same constant-force model
+ok 357 - math ch3-5-2: momentum slope and force-time area are predictions of the same constant-force model
+  ---
+  duration_ms: 1.988325
+  type: 'test'
+  ...
+# Subtest: math ch3-5-3: radial edit preserves phase and L, while required work equals the rotational energy difference
+ok 358 - math ch3-5-3: radial edit preserves phase and L, while required work equals the rotational energy difference
+  ---
+  duration_ms: 1.497432
+  type: 'test'
+  ...
+# Subtest: math ch3-5-4: work predicts final speed; recalculated kinetic energy is an identity, not independent measurement
+ok 359 - math ch3-5-4: work predicts final speed; recalculated kinetic energy is an identity, not independent measurement
+  ---
+  duration_ms: 1.348683
+  type: 'test'
+  ...
+# Subtest: math ch3-6-2: independent center-of-mass collision oracle checks before/contact/after and unequal masses
+ok 360 - math ch3-6-2: independent center-of-mass collision oracle checks before/contact/after and unequal masses
+  ---
+  duration_ms: 4.112299
+  type: 'test'
+  ...
+1..360
+# tests 360
+# suites 0
+# pass 360
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 23900.659897

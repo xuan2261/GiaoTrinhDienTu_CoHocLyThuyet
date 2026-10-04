@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "runId": "5191657d-e155-41b8-b1c2-24ba00f2e158",
+  "startedAt": "2026-10-03T23:54:43.443Z",
+  "completedAt": "2026-10-03T23:54:43.578Z",
+  "pin": {
+    "commit": "3adb06550659d621eda4d28c688e75795bee2007",
+    "source": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+    "collector": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a"
+  },
+  "sourceCheck": {
+    "ok": true,
+    "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+    "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+    "errors": []
+  },
+  "git": {
+    "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+    "dirty": false
+  },
+  "status": "source-verified",
+  "q0Status": "not-run",
+  "formalAcceptance": "pending",
+  "browser": {
+    "engine": "chromium",
+    "attempted": false,
+    "version": null,
+    "probe": null
+  },
+  "errors": [],
+  "exitCode": 0,
+  "preflightSha256": "71b70fd8d2ce11fe66cc414adc13890cffb17d5ea718fab9d9bfdfec7e8e7f9a"
+}

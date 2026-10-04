@@ -1,0 +1,2722 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch1-5-3",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "threshold",
+        "label": "Đến ngưỡng β = atan μₛ",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "reset",
+        "label": "Đặt lại",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "beta",
+        "min": 3,
+        "max": 60,
+        "value": "18",
+        "step": "any",
+        "physicalStep": "any"
+      },
+      {
+        "id": "mu",
+        "min": 0.1,
+        "max": 1,
+        "value": "0.45",
+        "step": "any",
+        "physicalStep": "any"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.794Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "mu",
+          "value": "0.4500"
+        },
+        {
+          "key": "phi",
+          "value": "24.2°"
+        },
+        {
+          "key": "beta",
+          "value": "18.0°"
+        },
+        {
+          "key": "state",
+          "value": "cân bằng tĩnh khả thi"
+        },
+        {
+          "key": "Nratio",
+          "value": "0.951"
+        },
+        {
+          "key": "Fratio",
+          "value": "0.309"
+        },
+        {
+          "key": "ratio",
+          "value": "0.325"
+        },
+        {
+          "key": "margin",
+          "value": "0.1190"
+        },
+        {
+          "key": "reactionRole",
+          "value": "phản lực để cân bằng: R cần = −P"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "beta",
+          "type": "range",
+          "value": "18"
+        },
+        {
+          "id": "beta",
+          "type": "number",
+          "value": "18"
+        },
+        {
+          "id": "mu",
+          "type": "range",
+          "value": "0.45"
+        },
+        {
+          "id": "mu",
+          "type": "number",
+          "value": "0.45"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "threshold",
+          "label": "Đến ngưỡng β = atan μₛ"
+        },
+        {
+          "id": "reset",
+          "label": "Đặt lại"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 7,
+      "nodes": 136,
+      "listenerCount": 22
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 7,
+      "nodes": 136,
+      "listenerCount": 22
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-threshold",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "threshold"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.796Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "mu",
+              "value": "0.4500"
+            },
+            {
+              "key": "phi",
+              "value": "24.2°"
+            },
+            {
+              "key": "beta",
+              "value": "18.0°"
+            },
+            {
+              "key": "state",
+              "value": "cân bằng tĩnh khả thi"
+            },
+            {
+              "key": "Nratio",
+              "value": "0.951"
+            },
+            {
+              "key": "Fratio",
+              "value": "0.309"
+            },
+            {
+              "key": "ratio",
+              "value": "0.325"
+            },
+            {
+              "key": "margin",
+              "value": "0.1190"
+            },
+            {
+              "key": "reactionRole",
+              "value": "phản lực để cân bằng: R cần = −P"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "beta",
+              "type": "range",
+              "value": "18"
+            },
+            {
+              "id": "beta",
+              "type": "number",
+              "value": "18"
+            },
+            {
+              "id": "mu",
+              "type": "range",
+              "value": "0.45"
+            },
+            {
+              "id": "mu",
+              "type": "number",
+              "value": "0.45"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "threshold",
+              "label": "Đến ngưỡng β = atan μₛ"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 7,
+          "nodes": 136,
+          "listenerCount": 22
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "threshold"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "threshold",
+              "label": "Đến ngưỡng β = atan μₛ"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.798Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.1190"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.799Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng giới hạn"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.912"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.410"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.450"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.0000"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "24.22774531795417"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "24.22774531795417"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "1de4615a2ddaaa43478346e22668236aa1a2b1e7bbdd55d044a1fffd41a6d3b9",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.799Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng giới hạn"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.912"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.410"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.450"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.0000"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "24.22774531795417"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "24.22774531795417"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "1de4615a2ddaaa43478346e22668236aa1a2b1e7bbdd55d044a1fffd41a6d3b9",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:beta",
+                "actual": 24.22774531795417,
+                "expected": 24.22774531795417,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:beta",
+                "actual": 24.2,
+                "expected": 24.22774531795417,
+                "tolerance": 0.05000001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:margin",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:state",
+                "actual": "cân bằng giới hạn",
+                "expected": "cân bằng giới hạn",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "021788ef24f8010dd74cbefae6ed9323fc3e06e856819416e4763293c64170d4"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 7,
+          "nodes": 136,
+          "listenerCount": 22
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-1-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "beta",
+            "value": 60,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.802Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "mu",
+              "value": "0.4500"
+            },
+            {
+              "key": "phi",
+              "value": "24.2°"
+            },
+            {
+              "key": "beta",
+              "value": "18.0°"
+            },
+            {
+              "key": "state",
+              "value": "cân bằng tĩnh khả thi"
+            },
+            {
+              "key": "Nratio",
+              "value": "0.951"
+            },
+            {
+              "key": "Fratio",
+              "value": "0.309"
+            },
+            {
+              "key": "ratio",
+              "value": "0.325"
+            },
+            {
+              "key": "margin",
+              "value": "0.1190"
+            },
+            {
+              "key": "reactionRole",
+              "value": "phản lực để cân bằng: R cần = −P"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "beta",
+              "type": "range",
+              "value": "18"
+            },
+            {
+              "id": "beta",
+              "type": "number",
+              "value": "18"
+            },
+            {
+              "id": "mu",
+              "type": "range",
+              "value": "0.45"
+            },
+            {
+              "id": "mu",
+              "type": "number",
+              "value": "0.45"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "threshold",
+              "label": "Đến ngưỡng β = atan μₛ"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 7,
+          "nodes": 136,
+          "listenerCount": 22
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "beta",
+            "value": 60,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "beta",
+            "requested": 60,
+            "before": "18",
+            "committed": "60",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.802Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.1190"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.803Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "60.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "không tồn tại cân bằng tĩnh"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.500"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.866"
+                },
+                {
+                  "key": "ratio",
+                  "value": "1.732"
+                },
+                {
+                  "key": "margin",
+                  "value": "-0.6410"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "không phải phản lực tiếp xúc thực khi trượt"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "60"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "b076dcfc96a3fad113aa88e3f78448ed0949957b066fd6e4712d80c968e7f629",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.803Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "60.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "không tồn tại cân bằng tĩnh"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.500"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.866"
+                },
+                {
+                  "key": "ratio",
+                  "value": "1.732"
+                },
+                {
+                  "key": "margin",
+                  "value": "-0.6410"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "không phải phản lực tiếp xúc thực khi trượt"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "60"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "b076dcfc96a3fad113aa88e3f78448ed0949957b066fd6e4712d80c968e7f629",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"beta:number\",\"beta:range\",\"mu:number\",\"mu:range\"]",
+                "expected": "[\"beta:number\",\"beta:range\",\"mu:number\",\"mu:range\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:beta",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:mu",
+                "actual": 0.45,
+                "expected": 0.45,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:beta",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 0.05000001,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "c9d494c4a4a126eabe6db6d06e0a2ccd3be2ab1ad8985c42bc077677a326af49"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.803Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "60.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "không tồn tại cân bằng tĩnh"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.500"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.866"
+                },
+                {
+                  "key": "ratio",
+                  "value": "1.732"
+                },
+                {
+                  "key": "margin",
+                  "value": "-0.6410"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "không phải phản lực tiếp xúc thực khi trượt"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "60"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "b076dcfc96a3fad113aa88e3f78448ed0949957b066fd6e4712d80c968e7f629",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.804Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.1190"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.804Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.1190"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:beta",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:beta",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:mu",
+                "actual": 0.45,
+                "expected": 0.45,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:mu",
+                "actual": 0.45,
+                "expected": 0.45,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:mu",
+                "actual": "0.4500",
+                "expected": "0.4500",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:phi",
+                "actual": "24.2°",
+                "expected": "24.2°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:beta",
+                "actual": "18.0°",
+                "expected": "18.0°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:state",
+                "actual": "cân bằng tĩnh khả thi",
+                "expected": "cân bằng tĩnh khả thi",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Nratio",
+                "actual": "0.951",
+                "expected": "0.951",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Fratio",
+                "actual": "0.309",
+                "expected": "0.309",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ratio",
+                "actual": "0.325",
+                "expected": "0.325",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:margin",
+                "actual": "0.1190",
+                "expected": "0.1190",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:reactionRole",
+                "actual": "phản lực để cân bằng: R cần = −P",
+                "expected": "phản lực để cân bằng: R cần = −P",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "9f936f6394cae8574f5a01aacb9dcc388e5fba0d0f4f63fab11d9ac36f10cd98"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 7,
+          "nodes": 136,
+          "listenerCount": 22
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "experiment-friction-threshold",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "mu",
+            "value": 0.6
+          },
+          {
+            "type": "action",
+            "action": "threshold"
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.807Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "mu",
+              "value": "0.4500"
+            },
+            {
+              "key": "phi",
+              "value": "24.2°"
+            },
+            {
+              "key": "beta",
+              "value": "18.0°"
+            },
+            {
+              "key": "state",
+              "value": "cân bằng tĩnh khả thi"
+            },
+            {
+              "key": "Nratio",
+              "value": "0.951"
+            },
+            {
+              "key": "Fratio",
+              "value": "0.309"
+            },
+            {
+              "key": "ratio",
+              "value": "0.325"
+            },
+            {
+              "key": "margin",
+              "value": "0.1190"
+            },
+            {
+              "key": "reactionRole",
+              "value": "phản lực để cân bằng: R cần = −P"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "beta",
+              "type": "range",
+              "value": "18"
+            },
+            {
+              "id": "beta",
+              "type": "number",
+              "value": "18"
+            },
+            {
+              "id": "mu",
+              "type": "range",
+              "value": "0.45"
+            },
+            {
+              "id": "mu",
+              "type": "number",
+              "value": "0.45"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "threshold",
+              "label": "Đến ngưỡng β = atan μₛ"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 7,
+          "nodes": 136,
+          "listenerCount": 22
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "mu",
+            "value": 0.6
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "mu",
+            "requested": 0.6,
+            "before": "0.45",
+            "committed": "0.6",
+            "targetReached": true,
+            "allowConstraintClamp": false,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.807Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.1190"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.808Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.6000"
+                },
+                {
+                  "key": "phi",
+                  "value": "31.0°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.2616"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.6"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.6"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "90ba954b4f7a84dff886ef2331224591e2e5cd0702fe59939d94c4bd7c5dd67b",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.808Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.6000"
+                },
+                {
+                  "key": "phi",
+                  "value": "31.0°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.2616"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.6"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.6"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "90ba954b4f7a84dff886ef2331224591e2e5cd0702fe59939d94c4bd7c5dd67b",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:mu",
+                "actual": 0.6,
+                "expected": 0.6,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "4b9a38644e5f1a5a820b1ade8a58499a5143ef0843136f47e146cd06fd203292"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "threshold"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "threshold",
+              "label": "Đến ngưỡng β = atan μₛ"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.808Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.6000"
+                },
+                {
+                  "key": "phi",
+                  "value": "31.0°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.2616"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.6"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.6"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "90ba954b4f7a84dff886ef2331224591e2e5cd0702fe59939d94c4bd7c5dd67b",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.809Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.6000"
+                },
+                {
+                  "key": "phi",
+                  "value": "31.0°"
+                },
+                {
+                  "key": "beta",
+                  "value": "31.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng giới hạn"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.857"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.514"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.600"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.0000"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "30.96375653207352"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "30.96375653207352"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.6"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.6"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "153dab36d6938eba7f62a6a1ab1338e53d31eea9f51a6e02dc8aeb263808f395",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.809Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.6000"
+                },
+                {
+                  "key": "phi",
+                  "value": "31.0°"
+                },
+                {
+                  "key": "beta",
+                  "value": "31.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng giới hạn"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.857"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.514"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.600"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.0000"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "30.96375653207352"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "30.96375653207352"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.6"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.6"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "153dab36d6938eba7f62a6a1ab1338e53d31eea9f51a6e02dc8aeb263808f395",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:beta",
+                "actual": 30.96375653207352,
+                "expected": 30.96375653207352,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:beta",
+                "actual": 31,
+                "expected": 30.96375653207352,
+                "tolerance": 0.05000001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:margin",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:state",
+                "actual": "cân bằng giới hạn",
+                "expected": "cân bằng giới hạn",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "2b12973fcccb3d8798ec953c812a09158182be1f244a0434bb312d41dccbcb60"
+        },
+        {
+          "index": 2,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.809Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.6000"
+                },
+                {
+                  "key": "phi",
+                  "value": "31.0°"
+                },
+                {
+                  "key": "beta",
+                  "value": "31.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng giới hạn"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.857"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.514"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.600"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.0000"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "30.96375653207352"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "30.96375653207352"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.6"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.6"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "153dab36d6938eba7f62a6a1ab1338e53d31eea9f51a6e02dc8aeb263808f395",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.810Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.1190"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.810Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "mu",
+                  "value": "0.4500"
+                },
+                {
+                  "key": "phi",
+                  "value": "24.2°"
+                },
+                {
+                  "key": "beta",
+                  "value": "18.0°"
+                },
+                {
+                  "key": "state",
+                  "value": "cân bằng tĩnh khả thi"
+                },
+                {
+                  "key": "Nratio",
+                  "value": "0.951"
+                },
+                {
+                  "key": "Fratio",
+                  "value": "0.309"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.325"
+                },
+                {
+                  "key": "margin",
+                  "value": "0.1190"
+                },
+                {
+                  "key": "reactionRole",
+                  "value": "phản lực để cân bằng: R cần = −P"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "beta",
+                  "type": "range",
+                  "value": "18"
+                },
+                {
+                  "id": "beta",
+                  "type": "number",
+                  "value": "18"
+                },
+                {
+                  "id": "mu",
+                  "type": "range",
+                  "value": "0.45"
+                },
+                {
+                  "id": "mu",
+                  "type": "number",
+                  "value": "0.45"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "threshold",
+                  "label": "Đến ngưỡng β = atan μₛ"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "f23b157bb17546ad4989ddff548643716dc3b6212da97e7625b1b6cded5709e6",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 136,
+              "listenerCount": 22
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:beta",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:beta",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:mu",
+                "actual": 0.45,
+                "expected": 0.45,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:mu",
+                "actual": 0.45,
+                "expected": 0.45,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:mu",
+                "actual": "0.4500",
+                "expected": "0.4500",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:phi",
+                "actual": "24.2°",
+                "expected": "24.2°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:beta",
+                "actual": "18.0°",
+                "expected": "18.0°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:state",
+                "actual": "cân bằng tĩnh khả thi",
+                "expected": "cân bằng tĩnh khả thi",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Nratio",
+                "actual": "0.951",
+                "expected": "0.951",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Fratio",
+                "actual": "0.309",
+                "expected": "0.309",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ratio",
+                "actual": "0.325",
+                "expected": "0.325",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:margin",
+                "actual": "0.1190",
+                "expected": "0.1190",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:reactionRole",
+                "actual": "phản lực để cân bằng: R cần = −P",
+                "expected": "phản lực để cân bằng: R cần = −P",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "9f936f6394cae8574f5a01aacb9dcc388e5fba0d0f4f63fab11d9ac36f10cd98"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 7,
+          "nodes": 136,
+          "listenerCount": 22
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "threshold",
+      "reset"
+    ],
+    "plannedActionIds": [
+      "threshold",
+      "reset"
+    ],
+    "executedActionIds": [
+      "threshold",
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 3,
+    "executedCases": 3,
+    "operations": 6,
+    "oracleStatuses": {
+      "pass": 6,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 43,
+    "failedChecks": 0
+  }
+}

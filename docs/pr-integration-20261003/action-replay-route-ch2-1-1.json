@@ -1,0 +1,3728 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch2-1-1",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "apex",
+        "label": "Đến đỉnh",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "touchdown",
+        "label": "Đến chạm đất",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "replay",
+        "label": "Phát lại",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "v0",
+        "min": 8,
+        "max": 20,
+        "value": "14",
+        "step": "any",
+        "physicalStep": "1"
+      },
+      {
+        "id": "alpha",
+        "min": 20,
+        "max": 80,
+        "value": "55",
+        "step": "any",
+        "physicalStep": "5"
+      }
+    ],
+    "playback": true
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.828Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "t",
+          "value": "0.000 s"
+        },
+        {
+          "key": "phase",
+          "value": "Sẵn sàng"
+        },
+        {
+          "key": "x",
+          "value": "0.000 m"
+        },
+        {
+          "key": "y",
+          "value": "0.000 m"
+        },
+        {
+          "key": "vx",
+          "value": "8.030 m/s"
+        },
+        {
+          "key": "vy",
+          "value": "11.468 m/s"
+        },
+        {
+          "key": "ay",
+          "value": "-9.810 m/s²"
+        },
+        {
+          "key": "flight",
+          "value": "2.338 s"
+        },
+        {
+          "key": "range",
+          "value": "18.775 m"
+        },
+        {
+          "key": "scale",
+          "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+        },
+        {
+          "key": "cap",
+          "value": "v (số đọc không bị giới hạn)"
+        },
+        {
+          "key": "v",
+          "value": "14.0 m/s"
+        },
+        {
+          "key": "a",
+          "value": "9.8 m/s²"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "v0",
+          "type": "range",
+          "value": "14"
+        },
+        {
+          "id": "v0",
+          "type": "number",
+          "value": "14"
+        },
+        {
+          "id": "alpha",
+          "type": "range",
+          "value": "55"
+        },
+        {
+          "id": "alpha",
+          "type": "number",
+          "value": "55"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "apex",
+          "label": "Đến đỉnh"
+        },
+        {
+          "id": "touchdown",
+          "label": "Đến chạm đất"
+        },
+        {
+          "id": "replay",
+          "label": "Phát lại"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": "Chạy"
+    },
+    "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 3,
+      "nodes": 131,
+      "listenerCount": 18
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 3,
+      "nodes": 131,
+      "listenerCount": 18
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-apex",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "apex"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.830Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "t",
+              "value": "0.000 s"
+            },
+            {
+              "key": "phase",
+              "value": "Sẵn sàng"
+            },
+            {
+              "key": "x",
+              "value": "0.000 m"
+            },
+            {
+              "key": "y",
+              "value": "0.000 m"
+            },
+            {
+              "key": "vx",
+              "value": "8.030 m/s"
+            },
+            {
+              "key": "vy",
+              "value": "11.468 m/s"
+            },
+            {
+              "key": "ay",
+              "value": "-9.810 m/s²"
+            },
+            {
+              "key": "flight",
+              "value": "2.338 s"
+            },
+            {
+              "key": "range",
+              "value": "18.775 m"
+            },
+            {
+              "key": "scale",
+              "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+            },
+            {
+              "key": "cap",
+              "value": "v (số đọc không bị giới hạn)"
+            },
+            {
+              "key": "v",
+              "value": "14.0 m/s"
+            },
+            {
+              "key": "a",
+              "value": "9.8 m/s²"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "v0",
+              "type": "range",
+              "value": "14"
+            },
+            {
+              "id": "v0",
+              "type": "number",
+              "value": "14"
+            },
+            {
+              "id": "alpha",
+              "type": "range",
+              "value": "55"
+            },
+            {
+              "id": "alpha",
+              "type": "number",
+              "value": "55"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "apex",
+              "label": "Đến đỉnh"
+            },
+            {
+              "id": "touchdown",
+              "label": "Đến chạm đất"
+            },
+            {
+              "id": "replay",
+              "label": "Phát lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 3,
+          "nodes": 131,
+          "listenerCount": 18
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "apex"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "apex",
+              "label": "Đến đỉnh"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.830Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Sẵn sàng"
+                },
+                {
+                  "key": "x",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.831Z",
+            "state": {
+              "clockSeconds": 1.1690243241636986,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "1.169 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đỉnh quỹ đạo"
+                },
+                {
+                  "key": "x",
+                  "value": "9.387 m"
+                },
+                {
+                  "key": "y",
+                  "value": "6.703 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "0.000 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "v",
+                  "value": "8.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "ff62557648ad6c9985a8c958fb965736bcc8ba8202b90b790e42deb0e2100a5d",
+            "context": {
+              "clockSeconds": 1.1690243241636986,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.831Z",
+            "state": {
+              "clockSeconds": 1.1690243241636986,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "1.169 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đỉnh quỹ đạo"
+                },
+                {
+                  "key": "x",
+                  "value": "9.387 m"
+                },
+                {
+                  "key": "y",
+                  "value": "6.703 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "0.000 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "v",
+                  "value": "8.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "ff62557648ad6c9985a8c958fb965736bcc8ba8202b90b790e42deb0e2100a5d",
+            "context": {
+              "clockSeconds": 1.1690243241636986,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "clockSeconds",
+                "actual": 1.1690243241636986,
+                "expected": 1.1690243241636986,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              },
+              {
+                "key": "readout:t",
+                "actual": 1.169,
+                "expected": 1.1690243241636986,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:x",
+                "actual": 9.387,
+                "expected": 9.38734728206106,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:y",
+                "actual": 6.703,
+                "expected": 6.703260654735756,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vx",
+                "actual": 8.03,
+                "expected": 8.030070108914645,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vy",
+                "actual": 0,
+                "expected": 1.7763568394002505e-15,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ay",
+                "actual": -9.81,
+                "expected": -9.81,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "c2848111e7dfbd0562372e1960f0e44415733c19a349e10b62c27a6ff61a9194"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 1.1690243241636986,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 3,
+          "nodes": 131,
+          "listenerCount": 18
+        },
+        "after": {
+          "clockSeconds": 1.1690243241636986,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-1-touchdown",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "touchdown"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.834Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "t",
+              "value": "0.000 s"
+            },
+            {
+              "key": "phase",
+              "value": "Sẵn sàng"
+            },
+            {
+              "key": "x",
+              "value": "0.000 m"
+            },
+            {
+              "key": "y",
+              "value": "0.000 m"
+            },
+            {
+              "key": "vx",
+              "value": "8.030 m/s"
+            },
+            {
+              "key": "vy",
+              "value": "11.468 m/s"
+            },
+            {
+              "key": "ay",
+              "value": "-9.810 m/s²"
+            },
+            {
+              "key": "flight",
+              "value": "2.338 s"
+            },
+            {
+              "key": "range",
+              "value": "18.775 m"
+            },
+            {
+              "key": "scale",
+              "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+            },
+            {
+              "key": "cap",
+              "value": "v (số đọc không bị giới hạn)"
+            },
+            {
+              "key": "v",
+              "value": "14.0 m/s"
+            },
+            {
+              "key": "a",
+              "value": "9.8 m/s²"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "v0",
+              "type": "range",
+              "value": "14"
+            },
+            {
+              "id": "v0",
+              "type": "number",
+              "value": "14"
+            },
+            {
+              "id": "alpha",
+              "type": "range",
+              "value": "55"
+            },
+            {
+              "id": "alpha",
+              "type": "number",
+              "value": "55"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "apex",
+              "label": "Đến đỉnh"
+            },
+            {
+              "id": "touchdown",
+              "label": "Đến chạm đất"
+            },
+            {
+              "id": "replay",
+              "label": "Phát lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 3,
+          "nodes": 131,
+          "listenerCount": 18
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "touchdown"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "touchdown",
+              "label": "Đến chạm đất"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.834Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Sẵn sàng"
+                },
+                {
+                  "key": "x",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.835Z",
+            "state": {
+              "clockSeconds": 2.3380486483273972,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đã chạm đất · tạm dừng"
+                },
+                {
+                  "key": "x",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "-11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "55c580dca9c50a70c6bae8a81d740bc7ad8ee4927fb49223dd7fdeb9b67ec608",
+            "context": {
+              "clockSeconds": 2.3380486483273972,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.835Z",
+            "state": {
+              "clockSeconds": 2.3380486483273972,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đã chạm đất · tạm dừng"
+                },
+                {
+                  "key": "x",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "-11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "55c580dca9c50a70c6bae8a81d740bc7ad8ee4927fb49223dd7fdeb9b67ec608",
+            "context": {
+              "clockSeconds": 2.3380486483273972,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "clockSeconds",
+                "actual": 2.3380486483273972,
+                "expected": 2.3380486483273972,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              },
+              {
+                "key": "readout:t",
+                "actual": 2.338,
+                "expected": 2.3380486483273972,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:x",
+                "actual": 18.775,
+                "expected": 18.77469456412212,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:y",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vx",
+                "actual": 8.03,
+                "expected": 8.030070108914645,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vy",
+                "actual": -11.468,
+                "expected": -11.468128620045881,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ay",
+                "actual": -9.81,
+                "expected": -9.81,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "6fb74789aed0dc54364608631efcdea0b84c7968f840e93fec0d402a613c494d"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 2.3380486483273972,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 3,
+          "nodes": 131,
+          "listenerCount": 18
+        },
+        "after": {
+          "clockSeconds": 2.3380486483273972,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-2-replay",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "touchdown"
+          },
+          {
+            "type": "action",
+            "action": "replay"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.838Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "t",
+              "value": "0.000 s"
+            },
+            {
+              "key": "phase",
+              "value": "Sẵn sàng"
+            },
+            {
+              "key": "x",
+              "value": "0.000 m"
+            },
+            {
+              "key": "y",
+              "value": "0.000 m"
+            },
+            {
+              "key": "vx",
+              "value": "8.030 m/s"
+            },
+            {
+              "key": "vy",
+              "value": "11.468 m/s"
+            },
+            {
+              "key": "ay",
+              "value": "-9.810 m/s²"
+            },
+            {
+              "key": "flight",
+              "value": "2.338 s"
+            },
+            {
+              "key": "range",
+              "value": "18.775 m"
+            },
+            {
+              "key": "scale",
+              "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+            },
+            {
+              "key": "cap",
+              "value": "v (số đọc không bị giới hạn)"
+            },
+            {
+              "key": "v",
+              "value": "14.0 m/s"
+            },
+            {
+              "key": "a",
+              "value": "9.8 m/s²"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "v0",
+              "type": "range",
+              "value": "14"
+            },
+            {
+              "id": "v0",
+              "type": "number",
+              "value": "14"
+            },
+            {
+              "id": "alpha",
+              "type": "range",
+              "value": "55"
+            },
+            {
+              "id": "alpha",
+              "type": "number",
+              "value": "55"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "apex",
+              "label": "Đến đỉnh"
+            },
+            {
+              "id": "touchdown",
+              "label": "Đến chạm đất"
+            },
+            {
+              "id": "replay",
+              "label": "Phát lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 3,
+          "nodes": 131,
+          "listenerCount": 18
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "touchdown"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "touchdown",
+              "label": "Đến chạm đất"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.838Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Sẵn sàng"
+                },
+                {
+                  "key": "x",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.839Z",
+            "state": {
+              "clockSeconds": 2.3380486483273972,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đã chạm đất · tạm dừng"
+                },
+                {
+                  "key": "x",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "-11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "55c580dca9c50a70c6bae8a81d740bc7ad8ee4927fb49223dd7fdeb9b67ec608",
+            "context": {
+              "clockSeconds": 2.3380486483273972,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.839Z",
+            "state": {
+              "clockSeconds": 2.3380486483273972,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đã chạm đất · tạm dừng"
+                },
+                {
+                  "key": "x",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "-11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "55c580dca9c50a70c6bae8a81d740bc7ad8ee4927fb49223dd7fdeb9b67ec608",
+            "context": {
+              "clockSeconds": 2.3380486483273972,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "clockSeconds",
+                "actual": 2.3380486483273972,
+                "expected": 2.3380486483273972,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              },
+              {
+                "key": "readout:t",
+                "actual": 2.338,
+                "expected": 2.3380486483273972,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:x",
+                "actual": 18.775,
+                "expected": 18.77469456412212,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:y",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vx",
+                "actual": 8.03,
+                "expected": 8.030070108914645,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vy",
+                "actual": -11.468,
+                "expected": -11.468128620045881,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ay",
+                "actual": -9.81,
+                "expected": -9.81,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "6fb74789aed0dc54364608631efcdea0b84c7968f840e93fec0d402a613c494d"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "replay"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "replay",
+              "label": "Phát lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.840Z",
+            "state": {
+              "clockSeconds": 2.3380486483273972,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đã chạm đất · tạm dừng"
+                },
+                {
+                  "key": "x",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "-11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "55c580dca9c50a70c6bae8a81d740bc7ad8ee4927fb49223dd7fdeb9b67ec608",
+            "context": {
+              "clockSeconds": 2.3380486483273972,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.840Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Sẵn sàng"
+                },
+                {
+                  "key": "x",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Tạm dừng"
+            },
+            "stateHash": "64819d0033ee46e6f9f02282aa6e14e063a92609825a10fcf12a1e9420365c06",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Tạm dừng",
+              "queuedAnimationFrames": 1,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.841Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Sẵn sàng"
+                },
+                {
+                  "key": "x",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "replay-started",
+                "actual": "Tạm dừng",
+                "expected": "Tạm dừng",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM playback state immediately after real click, before collector pause"
+              },
+              {
+                "key": "replay-returned-before-touchdown",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:t",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:x",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:y",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vx",
+                "actual": 8.03,
+                "expected": 8.030070108914645,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vy",
+                "actual": 11.468,
+                "expected": 11.468128620045885,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ay",
+                "actual": -9.81,
+                "expected": -9.81,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "2b8b70efc102494494a2aacc83ce2c709ffeee64f043e44b5dbd4c0203031855"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 3,
+          "nodes": 131,
+          "listenerCount": 18
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "experiment-projectile-events",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "apex"
+          },
+          {
+            "type": "action",
+            "action": "touchdown"
+          },
+          {
+            "type": "action",
+            "action": "replay"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.844Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "t",
+              "value": "0.000 s"
+            },
+            {
+              "key": "phase",
+              "value": "Sẵn sàng"
+            },
+            {
+              "key": "x",
+              "value": "0.000 m"
+            },
+            {
+              "key": "y",
+              "value": "0.000 m"
+            },
+            {
+              "key": "vx",
+              "value": "8.030 m/s"
+            },
+            {
+              "key": "vy",
+              "value": "11.468 m/s"
+            },
+            {
+              "key": "ay",
+              "value": "-9.810 m/s²"
+            },
+            {
+              "key": "flight",
+              "value": "2.338 s"
+            },
+            {
+              "key": "range",
+              "value": "18.775 m"
+            },
+            {
+              "key": "scale",
+              "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+            },
+            {
+              "key": "cap",
+              "value": "v (số đọc không bị giới hạn)"
+            },
+            {
+              "key": "v",
+              "value": "14.0 m/s"
+            },
+            {
+              "key": "a",
+              "value": "9.8 m/s²"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "v0",
+              "type": "range",
+              "value": "14"
+            },
+            {
+              "id": "v0",
+              "type": "number",
+              "value": "14"
+            },
+            {
+              "id": "alpha",
+              "type": "range",
+              "value": "55"
+            },
+            {
+              "id": "alpha",
+              "type": "number",
+              "value": "55"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "apex",
+              "label": "Đến đỉnh"
+            },
+            {
+              "id": "touchdown",
+              "label": "Đến chạm đất"
+            },
+            {
+              "id": "replay",
+              "label": "Phát lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 3,
+          "nodes": 131,
+          "listenerCount": 18
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "apex"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "apex",
+              "label": "Đến đỉnh"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.844Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Sẵn sàng"
+                },
+                {
+                  "key": "x",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.844Z",
+            "state": {
+              "clockSeconds": 1.1690243241636986,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "1.169 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đỉnh quỹ đạo"
+                },
+                {
+                  "key": "x",
+                  "value": "9.387 m"
+                },
+                {
+                  "key": "y",
+                  "value": "6.703 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "0.000 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "v",
+                  "value": "8.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "ff62557648ad6c9985a8c958fb965736bcc8ba8202b90b790e42deb0e2100a5d",
+            "context": {
+              "clockSeconds": 1.1690243241636986,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.845Z",
+            "state": {
+              "clockSeconds": 1.1690243241636986,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "1.169 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đỉnh quỹ đạo"
+                },
+                {
+                  "key": "x",
+                  "value": "9.387 m"
+                },
+                {
+                  "key": "y",
+                  "value": "6.703 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "0.000 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "v",
+                  "value": "8.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "ff62557648ad6c9985a8c958fb965736bcc8ba8202b90b790e42deb0e2100a5d",
+            "context": {
+              "clockSeconds": 1.1690243241636986,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "clockSeconds",
+                "actual": 1.1690243241636986,
+                "expected": 1.1690243241636986,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              },
+              {
+                "key": "readout:t",
+                "actual": 1.169,
+                "expected": 1.1690243241636986,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:x",
+                "actual": 9.387,
+                "expected": 9.38734728206106,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:y",
+                "actual": 6.703,
+                "expected": 6.703260654735756,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vx",
+                "actual": 8.03,
+                "expected": 8.030070108914645,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vy",
+                "actual": 0,
+                "expected": 1.7763568394002505e-15,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ay",
+                "actual": -9.81,
+                "expected": -9.81,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "c2848111e7dfbd0562372e1960f0e44415733c19a349e10b62c27a6ff61a9194"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "touchdown"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "touchdown",
+              "label": "Đến chạm đất"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.845Z",
+            "state": {
+              "clockSeconds": 1.1690243241636986,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "1.169 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đỉnh quỹ đạo"
+                },
+                {
+                  "key": "x",
+                  "value": "9.387 m"
+                },
+                {
+                  "key": "y",
+                  "value": "6.703 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "0.000 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "không"
+                },
+                {
+                  "key": "v",
+                  "value": "8.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "ff62557648ad6c9985a8c958fb965736bcc8ba8202b90b790e42deb0e2100a5d",
+            "context": {
+              "clockSeconds": 1.1690243241636986,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.848Z",
+            "state": {
+              "clockSeconds": 2.3380486483273972,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đã chạm đất · tạm dừng"
+                },
+                {
+                  "key": "x",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "-11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "55c580dca9c50a70c6bae8a81d740bc7ad8ee4927fb49223dd7fdeb9b67ec608",
+            "context": {
+              "clockSeconds": 2.3380486483273972,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.848Z",
+            "state": {
+              "clockSeconds": 2.3380486483273972,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đã chạm đất · tạm dừng"
+                },
+                {
+                  "key": "x",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "-11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "55c580dca9c50a70c6bae8a81d740bc7ad8ee4927fb49223dd7fdeb9b67ec608",
+            "context": {
+              "clockSeconds": 2.3380486483273972,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "clockSeconds",
+                "actual": 2.3380486483273972,
+                "expected": 2.3380486483273972,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              },
+              {
+                "key": "readout:t",
+                "actual": 2.338,
+                "expected": 2.3380486483273972,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:x",
+                "actual": 18.775,
+                "expected": 18.77469456412212,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:y",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vx",
+                "actual": 8.03,
+                "expected": 8.030070108914645,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vy",
+                "actual": -11.468,
+                "expected": -11.468128620045881,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ay",
+                "actual": -9.81,
+                "expected": -9.81,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "6fb74789aed0dc54364608631efcdea0b84c7968f840e93fec0d402a613c494d"
+        },
+        {
+          "index": 2,
+          "requested": {
+            "type": "action",
+            "action": "replay"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "replay",
+              "label": "Phát lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.848Z",
+            "state": {
+              "clockSeconds": 2.3380486483273972,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Đã chạm đất · tạm dừng"
+                },
+                {
+                  "key": "x",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "-11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "55c580dca9c50a70c6bae8a81d740bc7ad8ee4927fb49223dd7fdeb9b67ec608",
+            "context": {
+              "clockSeconds": 2.3380486483273972,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.849Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Sẵn sàng"
+                },
+                {
+                  "key": "x",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Tạm dừng"
+            },
+            "stateHash": "64819d0033ee46e6f9f02282aa6e14e063a92609825a10fcf12a1e9420365c06",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Tạm dừng",
+              "queuedAnimationFrames": 1,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.849Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "t",
+                  "value": "0.000 s"
+                },
+                {
+                  "key": "phase",
+                  "value": "Sẵn sàng"
+                },
+                {
+                  "key": "x",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "y",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "vx",
+                  "value": "8.030 m/s"
+                },
+                {
+                  "key": "vy",
+                  "value": "11.468 m/s"
+                },
+                {
+                  "key": "ay",
+                  "value": "-9.810 m/s²"
+                },
+                {
+                  "key": "flight",
+                  "value": "2.338 s"
+                },
+                {
+                  "key": "range",
+                  "value": "18.775 m"
+                },
+                {
+                  "key": "scale",
+                  "value": "1.000 đơn vị hình/m; v ×0,25 (cap 2,6); a ×0,08 (cap 1,2)"
+                },
+                {
+                  "key": "cap",
+                  "value": "v (số đọc không bị giới hạn)"
+                },
+                {
+                  "key": "v",
+                  "value": "14.0 m/s"
+                },
+                {
+                  "key": "a",
+                  "value": "9.8 m/s²"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "v0",
+                  "type": "range",
+                  "value": "14"
+                },
+                {
+                  "id": "v0",
+                  "type": "number",
+                  "value": "14"
+                },
+                {
+                  "id": "alpha",
+                  "type": "range",
+                  "value": "55"
+                },
+                {
+                  "id": "alpha",
+                  "type": "number",
+                  "value": "55"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "apex",
+                  "label": "Đến đỉnh"
+                },
+                {
+                  "id": "touchdown",
+                  "label": "Đến chạm đất"
+                },
+                {
+                  "id": "replay",
+                  "label": "Phát lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "9411b53875fffa6a15000aa2416a1b1b7f76f4c4e9c99288afcf8e032dd22797",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 3,
+              "nodes": 131,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "replay-started",
+                "actual": "Tạm dừng",
+                "expected": "Tạm dừng",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM playback state immediately after real click, before collector pause"
+              },
+              {
+                "key": "replay-returned-before-touchdown",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:t",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:x",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:y",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vx",
+                "actual": 8.03,
+                "expected": 8.030070108914645,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:vy",
+                "actual": 11.468,
+                "expected": 11.468128620045885,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ay",
+                "actual": -9.81,
+                "expected": -9.81,
+                "tolerance": 0.00050001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "2b8b70efc102494494a2aacc83ce2c709ffeee64f043e44b5dbd4c0203031855"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 3,
+          "nodes": 131,
+          "listenerCount": 18
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "apex",
+      "touchdown",
+      "replay"
+    ],
+    "plannedActionIds": [
+      "apex",
+      "touchdown",
+      "replay"
+    ],
+    "executedActionIds": [
+      "apex",
+      "touchdown",
+      "replay"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 4,
+    "executedCases": 4,
+    "operations": 7,
+    "oracleStatuses": {
+      "pass": 7,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 51,
+    "failedChecks": 0
+  }
+}
