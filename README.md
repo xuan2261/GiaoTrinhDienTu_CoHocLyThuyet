@@ -136,6 +136,14 @@ Bộ canvas `.sim-lab` 52 route là lịch sử, đã gỡ khỏi master và ch�
 - State browser giữ trong `localStorage`: `theme`, `fontZoom`, `contentWidth` (`standard|wide`), `gifMotionEnabled`, `chlyt_quiz_attempts` (đọc/migrate aggregate `quizScores` cũ; lưu scope quiz cuối cùng theo chương), `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes`.
 - Không sửa trực tiếp `assets/gifs/`; tái tạo trong `gif-conversion-workspace/`, kiểm tra nội dung vật lý, rồi chạy `python gif-conversion-workspace/publish-gifs.py`.
 
+## Bộ slide hội đồng nâng cao
+
+- [PowerPoint 34 slide](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/bao-cao-hoi-dong-nang-cao.pptx), [PDF](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/bao-cao-hoi-dong-nang-cao.pdf) và [gói ZIP bàn giao](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/bao-cao-hoi-dong-nang-cao-33-slides.zip): slide đầu chứa QR tới [giáo trình trực tuyến](https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/), tiếp theo là 33 chủ đề theo `NghienCuuLamSlideMoi.txt`. Giữ nguyên bộ báo cáo kết quả ở trên và tên thư mục/ZIP chứa `33-slides` để bảo toàn đường dẫn bàn giao.
+- [Trình chiếu ngoại tuyến](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/presentation-slides.html), [lời thuyết trình và Q&A](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/huong-dan-thuyet-trinh.md), [handout 12 trang A4, tối đa ba slide/trang](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/handout-in-an-hoi-dong.pdf).
+- Tham chiếu nguồn được giữ trong Speaker Notes và hướng dẫn thuyết trình; không còn dòng `Nguồn:` ở chân slide hiển thị.
+- Nội dung do [module báo cáo nâng cao](tools/presentation/advanced-deck-content.js) sở hữu; dựng bằng `node tools/presentation/advanced-build-deck.js`, xuất PDF bằng `powershell -NoProfile -ExecutionPolicy Bypass -File tools/presentation/advanced-export-deck.ps1` khi PowerPoint đã đóng, tạo ảnh tổng quan và ZIP bằng `python tools/presentation/advanced-preview-deck.py`.
+- Bộ này phân biệt số liệu phạm vi, snapshot QA lịch sử và mục tiêu đề xuất; không nâng trạng thái phát hành hoặc thẩm định nguồn mô phỏng hiện tại.
+
 ## Tài liệu
 
 - [Project Overview & PDR](docs/project-overview-pdr.md)

@@ -2622,9 +2622,6 @@ input[type="range"]:focus-visible { outline: 3px solid var(--focus-ring); outlin
   :is(a, button, input, select, textarea, [tabindex]):focus-visible { box-shadow: none; }
 }
 
-/* Source authority is distinct from the corrected web teaching content. */
-.pdf-source-errata-notice { padding: .75rem; margin: 0 auto 1rem; max-width: 76ch; border: 1px solid currentColor; border-radius: .4rem; color: inherit; line-height: 1.5; }
-
 /* Simulation roadmap: number entry remains available in both render modes. */
 .sim2-number-input { width: 6.5rem; max-width: 100%; min-height: 2.75rem; padding: .35rem; color: var(--tx); background: var(--bg); border: 1px solid currentColor; border-radius: .35rem; }
 .sim2-controls .sim2-action, .sim2-read-current { min-height: 2.75rem; padding: .5rem .75rem; border-radius: .4rem; cursor: pointer; }

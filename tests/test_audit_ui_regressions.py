@@ -42,12 +42,6 @@ class AuditUiRegression(unittest.TestCase):
             tex=r'<div class="math-tex-block">\[R\]</div>'
             for original in (mml+tex,tex+mml): self.assertEqual(dedupe.dedupe(original),original)
 
-    def test_original_pdf_correction_status_is_disclosed(self):
-        html = (ROOT/'index.html').read_text()
-        self.assertIn('aria-describedby="pdf-source-errata-notice"', html)
-        self.assertIn('chưa tích hợp các đính chính', html)
-        self.assertIn('nghiệm thu học thuật độc lập', html)
-
     def test_dark_rule_covers_display_katex_container(self):
         css = (ROOT/'css/equations-and-figure-styling-mathml-katex-font-sync-figure-figcaption.css').read_text()
         self.assertRegex(css, r'\[data-theme="dark"\] \.math-tex-block\s*[,\{]')

@@ -1,5 +1,31 @@
 # Project Changelog
 
+## 2026-10-05 — QR-first council report and PDF notice cleanup
+
+### Changed
+- Prepended a QR slide linking to https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/: the report now has 34 slides and a twelve-page A4 handout. Kept the directory and ZIP names containing `33-slides` as stable delivery paths.
+- Removed visible `Nguồn:` slide footers while retaining references in speaker notes and the presentation guide.
+- Removed the requested PDF warning from `index.html`, its orphan ARIA description reference and CSS rule, and the obsolete warning-wording assertion.
+
+### Verification scope
+- Rebuilt presentation artifacts and opened the revised deck for direct verification; checked the QR destination, native PPTX/PDF, A4 handout, matching delivery ZIP and web PDF viewer. No tests were run, as requested; this revision asserts no product QA or acceptance result.
+
+## 2026-10-05 — Advanced council report
+
+### Added
+- Added a separate 33-slide Vietnamese report from `NghienCuuLamSlideMoi.txt`, with editable PowerPoint, matching native PDF, portable offline HTML, speaker notes, ten anticipated Q&A answers and an eleven-sheet three-up A4 handout.
+- Added the content/scene builder, native export inspector and four-column preview/ZIP packager under `tools/presentation/advanced-*`; kept the existing report artifacts unchanged.
+
+### Evidence boundaries
+- Replaced illustrative percentages and unsupported ratings with source-bound scope and the historical QA snapshot. Distinguished ten 3D augmentations from twenty-five base simulation positions, and proposed educational/KPI outcomes from measured results.
+- Preserved academic, candidate, acceptance and current-source revalidation records. No product acceptance or new simulation QA was asserted by generating this report.
+
+### Verified
+- Exercised all 33 offline HTML pages, previous/next, Home/End, notes, hash navigation, image loading, print visibility and 390-pixel presentation scaling. Browser text boxes had no measured overflow.
+- Exported the handout through Chromium: eleven A4 pages, with all thirty-three slides and the final route appendix present. The PPTX contains thirty-three speaker-note parts.
+- Microsoft PowerPoint 16 opened the final thirty-three-slide PPTX and exported the matching PDF and slide previews. Inspected the four-column contact sheet, corrected methodology/PDF panels and complete route appendix; exported PDF glyphs stayed within page bounds. Native frame inspection retains end-marker overhang observations on right-aligned institution/page labels, not hidden body-text clipping.
+- The delivery ZIP contains seven portable artifacts and passed ZIP integrity inspection. Close PDF readers before re-exporting the same target PDF to avoid Windows file-lock stalls.
+
 ## 2026-08-29 — Deterministic candidate refresh
 
 ### Corrected

@@ -1,0 +1,1359 @@
+# Bộ Slides NÂNG CAO — Phiên bản Chuyên nghiệp cho Hội đồng & Ban giám khảo
+
+> **Cập nhật lớn so với bản trước:** Tăng từ 24 → **33 slides**, bổ sung **Executive Summary**, **Phương pháp luận**, **Bằng chứng định lượng**, **Phân tích so sánh**, **Phân tích rủi ro**, **Tác động giáo dục**, **KPI đo lường**, **Backup slides cho Q&A**. Mỗi slide được thiết kế để **thuyết phục hội đồng** bằng dữ liệu cụ thể, không chỉ mô tả tính năng.
+
+---
+
+## 🎯 TRIẾT LÝ THIẾT KẾ BẢN NÂNG CAO
+
+Bản trước trả lời câu hỏi: *"Dự án này có gì?"*
+Bản nâng cao trả lời 3 câu hỏi hội đồng luôn đặt ra:
+
+| Câu hỏi hội đồng | Slide trả lời |
+|---|---|
+| **"Tại sao dự án này quan trọng?"** | Slides 2, 4, 25 |
+| **"Bằng chứng đâu?"** | Slides 5, 6, 7, 18, 20 |
+| **"So với giải pháp khác thì sao?"** | Slides 21, 22, 24 |
+
+---
+
+## 🎨 HỆ THỐNG THIẾT KẾ (nâng cấp)
+
+| Yếu tố | Giá trị |
+|---|---|
+| **Màu chính** | Navy `#0B2545` |
+| **Màu phụ** | Xanh biển `#13315C` |
+| **Màu nhấn** | Cam `#F77F00` |
+| **Màu thành công** | Xanh lá `#2E7D32` |
+| **Màu cảnh báo** | Đỏ `#C62828` |
+| **Màu nền** | Trắng `#FFFFFF` / Xám nhạt `#F5F7FA` |
+| **Font tiêu đề** | Inter Bold / Montserrat Bold |
+| **Font nội dung** | Inter Regular / Source Sans Pro |
+| **Cỡ tiêu đề** | 30–40pt |
+| **Cỡ nội dung** | 16–20pt |
+| **Cỡ số liệu lớn** | 60–96pt (điểm nhấn dữ liệu) |
+| **Logo** | Góc phải trên: logo Học viện |
+| **Progress bar** | Dưới cùng: hiển thị tiến độ báo cáo |
+| **Số trang** | Góc phải dưới |
+
+**Nguyên tắc vàng:**
+- 1 slide = 1 ý tưởng lớn
+- Số liệu phải **cụ thể**, không nói "nhiều" mà nói "372 files", "25 route"
+- Mỗi slide phải trả lời được: *"Vậy thì sao?"* (So what?)
+
+---
+
+# PHẦN 0 — MỞ ĐẦU NÂNG CAO (Slides 1–4)
+
+---
+
+## SLIDE 1 — Title (Cinematic)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  [Nền navy gradient + lưới tọa độ mờ]                 │
+│                                                       │
+│                    HỌC VIỆN HẢI QUÂN                  │
+│                                                       │
+│         ═══════════════════════════════               │
+│                                                       │
+│              GIÁO TRÌNH ĐIỆN TỬ                       │
+│              CƠ HỌC LÝ THUYẾT                         │
+│                                                       │
+│              Kiến trúc · Chất lượng · Tác động        │
+│                                                       │
+│         ═══════════════════════════════               │
+│                                                       │
+│  Người báo cáo: [Tên]      Ngày: [dd/mm/yyyy]        │
+│  Hội đồng: [Tên hội đồng]                             │
+│                                     [Logo Học viện]   │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+> **HỌC VIỆN HẢI QUÂN**
+> ═══════════════════════════════
+> **GIÁO TRÌNH ĐIỆN TỬ CƠ HỌC LÝ THUYẾT**
+> *Kiến trúc · Chất lượng · Tác động*
+> ═══════════════════════════════
+> Người báo cáo: [Tên bạn]
+> Hội đồng: [Tên hội đồng]
+> Ngày: [dd/mm/yyyy]
+
+**Ghi chú thuyết trình (30 giây):**
+> "Kính thưa hội đồng, hôm nay tôi xin trình bày **phân tích đánh giá** một giáo trình điện tử được thiết kế cho môi trường đào tạo quân sự. Đây không chỉ là một website — đây là một **hệ sinh thái học tập offline-first**, được chứng minh bằng **372 files release, 25 mô phỏng 2D, 10 mô phỏng 3D, và pipeline QA 8 tầng**. Báo cáo sẽ chứng minh 3 luận điểm: dự án này **khả thi về kỹ thuật**, **đáng tin về học thuật**, và **có giá trị chuyển giao** cho các môn học khác."
+
+---
+
+## SLIDE 2 — Executive Summary (NÂNG CẤP MỚI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  TÓM TẮT ĐIỀU HÀNH                                    │
+│  ─────────────────                                    │
+│                                                       │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
+│  │   372    │ │    25    │ │    10    │ │    8     │ │
+│  │  files   │ │  Sim2    │ │  Sim3    │ │ QA tầng  │ │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────┘ │
+│                                                       │
+│  ┌─────────────────────────────────────────────────┐ │
+│  │ KẾT LUẬN CHÍNH:                                 │ │
+│  │ ✅ Khả thi kỹ thuật — chạy được trên USB        │ │
+│  │ ⚠️ Chưa đạt chấp nhận học thuật chính thức      │ │
+│  │ ✅ Có giá trị chuyển giao cho các môn khác      │ │
+│  └─────────────────────────────────────────────────┘ │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**4 CON SỐ QUYẾT ĐỊNH:**
+
+| 372 | 25 | 10 | 8 |
+|---|---|---|---|
+| files trong gói release | mô phỏng Sim2 (SVG) | mô phỏng Sim3 (3D) | tầng QA tự động |
+| SHA-256 verifiable | SVG-first runtime | Three.js pilot | content→release |
+
+**KẾT LUẬN CHÍNH (3 điểm):**
+- ✅ **Khả thi kỹ thuật** — chạy được hoàn toàn offline qua `file://`
+- ⚠️ **Chưa đạt chấp nhận học thuật chính thức** — còn chờ signoff độc lập
+- ✅ **Có giá trị chuyển giao** — pipeline có thể áp dụng cho môn khác
+
+**Ghi chú (60 giây):**
+> "Đây là slide quan trọng nhất. Nếu hội đồng chỉ nhớ 1 slide, tôi muốn đó là slide này. Bốn con số: 372 files trong release có thể xác minh SHA-256; 25 mô phỏng 2D canonical; 10 mô phỏng 3D pilot; và 8 tầng QA tự động. Ba kết luận: dự án khả thi về kỹ thuật, chưa đạt chấp nhận học thuật chính thức, và có giá trị chuyển giao cao."
+
+---
+
+## SLIDE 3 — Agenda (Nâng cấp — có timing chi tiết)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  LỘ TRÌNH BÁO CÁO — 25 PHÚT                           │
+│  ─────────────────────────                            │
+│                                                       │
+│  ┌─────────────────────────────────────────────────┐ │
+│  │ Phần 1  Phương pháp luận            ▓▓▓░░  3'   │ │
+│  │ Phần 2  Tổng quan dự án             ▓▓▓░░  3'   │ │
+│  │ Phần 3  Kiến trúc & tính năng       ▓▓▓▓▓  8'   │ │
+│  │ Phần 4  Chất lượng & bằng chứng     ▓▓▓▓░  5'   │ │
+│  │ Phần 5  So sánh & đánh giá          ▓▓▓░░  4'   │ │
+│  │ Phần 6  Tác động & khuyến nghị      ▓▓░░░  2'   │ │
+│  └─────────────────────────────────────────────────┘ │
+│                                                       │
+│  Q&A: 5–10 phút  |  Backup slides: 3 slides          │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| Phần | Nội dung | Thời lượng |
+|---|---|---|
+| 1 | Phương pháp luận đánh giá | 3 phút |
+| 2 | Tổng quan dự án | 3 phút |
+| 3 | Kiến trúc & tính năng | 8 phút |
+| 4 | Chất lượng & bằng chứng | 5 phút |
+| 5 | So sánh & đánh giá | 4 phút |
+| 6 | Tác động & khuyến nghị | 2 phút |
+
+**Ghi chú:**
+> "Báo cáo được thiết kế 25 phút, để 5–10 phút cho Q&A. Tôi cũng chuẩn bị 3 backup slides nếu hội đồng muốn đào sâu."
+
+---
+
+## SLIDE 4 — Hook: Tại sao điều này quan trọng? (NÂNG CẤP MỚI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  BỐI CẢNH: ĐÀO TẠO QUÂN SỰ TRONG KỶ NGUYÊN SỐ         │
+│  ────────────────────────────────────────────         │
+│                                                       │
+│  ┌─────────────────────────────────────────────────┐ │
+│  │  73%          │  thiết bị học tập không có       │ │
+│  │               │  kết nối internet ổn định        │ │
+│  └─────────────────────────────────────────────────┘ │
+│  ┌─────────────────────────────────────────────────┐ │
+│  │  0            │  backend / server cần thiết      │ │
+│  │               │  để vận hành giáo trình này      │ │
+│  └─────────────────────────────────────────────────┘ │
+│  ┌─────────────────────────────────────────────────┐ │
+│  │  100%         │  tính năng hoạt động qua USB     │ │
+│  └─────────────────────────────────────────────────┘ │
+│                                                       │
+│  → Offline-first KHÔNG phải là tùy chọn, mà là       │
+│    ĐIỀU KIỆN TIÊN QUYẾT cho môi trường quân sự       │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**Ba con số đặt vấn đề:**
+- **73%** thiết bị học tập không có kết nối internet ổn định *(số liệu minh họa — thay bằng số liệu thực của đơn vị)*
+- **0** backend/server cần thiết để vận hành
+- **100%** tính năng hoạt động qua USB
+
+**Thông điệp cốt lõi:**
+> Offline-first **không phải là tùy chọn**, mà là **điều kiện tiên quyết** cho môi trường đào tạo quân sự.
+
+**Ghi chú (45 giây):**
+> "Thưa hội đồng, khi nói về giáo trình điện tử, chúng ta thường nghĩ đến các nền tảng cloud như Google Classroom hay Moodle. Nhưng trong môi trường quân sự, những nền tảng đó không khả thi. Dự án này chứng minh rằng chúng ta có thể có một giáo trình điện tử chất lượng cao, chạy hoàn toàn trên USB, không cần bất kỳ kết nối nào."
+
+---
+
+# PHẦN 1 — PHƯƠNG PHÁP LUẬN (Slides 5–7) [NÂNG CẤP MỚI]
+
+---
+
+## SLIDE 5 — Phương pháp đánh giá
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  PHƯƠNG PHÁP ĐÁNH GIÁ                                 │
+│  ────────────────────                                 │
+│                                                       │
+│  ┌───────────────────────────────────────────────┐   │
+│  │  BƯỚC 1: Phân tích tĩnh (static analysis)     │   │
+│  │    → Đọc source code, README, docs/           │   │
+│  ├───────────────────────────────────────────────┤   │
+│  │  BƯỚC 2: Kiểm chứng động (dynamic analysis)   │   │
+│  │    → Chạy thử file://, USB, HTTP              │   │
+│  ├───────────────────────────────────────────────┤   │
+│  │  BƯỚC 3: Đối chiếu bằng chứng                 │   │
+│  │    → Release ZIP, evidence/, capture/         │   │
+│  ├───────────────────────────────────────────────┤   │
+│  │  BƯỚC 4: So sánh chuẩn ngành                  │   │
+│  │    → WCAG 2.2, QTI 3, Common Cartridge        │   │
+│  └───────────────────────────────────────────────┘   │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**Phương pháp 4 bước:**
+
+| Bước | Phương pháp | Nguồn |
+|---|---|---|
+| 1 | Phân tích tĩnh | README, docs/, source code |
+| 2 | Kiểm chứng động | Chạy `file://`, USB, HTTP |
+| 3 | Đối chiếu bằng chứng | Release ZIP, evidence/, captures |
+| 4 | So sánh chuẩn ngành | WCAG 2.2 AA, QTI 3, Common Cartridge 1.4 |
+
+**Ghi chú:**
+> "Để đảm bảo tính khách quan, tôi áp dụng phương pháp 4 bước: phân tích tĩnh source code, kiểm chứng động bằng cách chạy thực tế, đối chiếu với bằng chứng release, và so sánh với chuẩn ngành."
+
+---
+
+## SLIDE 6 — Tiêu chí đánh giá
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  6 TIÊU CHÍ ĐÁNH GIÁ                                  │
+│  ────────────────────                                 │
+│                                                       │
+│  ① Kiến trúc & thiết kế           ████████░░  8/10   │
+│  ② Tính năng & trải nghiệm         █████████░  9/10   │
+│  ③ Chất lượng & QA                ██████████  10/10  │
+│  ④ Khả năng tiếp cận              ███████░░░  7/10   │
+│  ⑤ Mức độ sẵn sàng phát hành      ██████░░░░  6/10   │
+│  ⑥ Giá trị chuyển giao            █████████░  9/10   │
+│                                                       │
+│  TỔNG KẾT: ████████░░  8.2/10                        │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| # | Tiêu chí | Điểm | Nhận xét |
+|---|---|---|---|
+| 1 | Kiến trúc & thiết kế | 8/10 | Rõ ràng, tách biệt tốt |
+| 2 | Tính năng & trải nghiệm | 9/10 | Phong phú, mượt mà |
+| 3 | Chất lượng & QA | 10/10 | Cấp công nghiệp |
+| 4 | Khả năng tiếp cận | 7/10 | Có nền tảng, cần review độc lập |
+| 5 | Mức độ sẵn sàng phát hành | 6/10 | Candidate, chưa final |
+| 6 | Giá trị chuyển giao | 9/10 | Pipeline tái sử dụng cao |
+| | **TỔNG KẾT** | **8.2/10** | **Rất tốt, có tiềm năng** |
+
+**Ghi chú:**
+> "Tôi đánh giá dự án theo 6 tiêu chí. Điểm mạnh nhất là QA cấp công nghiệp. Điểm cần cải thiện là mức độ sẵn sàng phát hành — hiện tại vẫn là candidate."
+
+---
+
+## SLIDE 7 — Nguồn dữ liệu & bằng chứng
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  NGUỒN DỮ LIỆU & BẰNG CHỨNG                           │
+│  ──────────────────────────                           │
+│                                                       │
+│  ┌────────────────────┬───────────────────────────┐  │
+│  │ Nguồn              │ Vai trò                   │  │
+│  ├────────────────────┼───────────────────────────┤  │
+│  │ README.md          │ Tổng quan, quickstart     │  │
+│  │ docs/              │ Kiến trúc, tiêu chuẩn     │  │
+│  │ release/           │ Gói phát hành (verifiable)│  │
+│  │ evidence/          │ Capture, QA output        │  │
+│  │ data/              │ Traceability, LMS targets │  │
+│  │ tests/             │ QA definitions            │  │
+│  │ tools/             │ Pipeline scripts          │  │
+│  │ .git log           │ Lịch sử phát triển        │  │
+│  └────────────────────┴───────────────────────────┘  │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| Nguồn | Vai trò |
+|---|---|
+| `README.md` | Tổng quan, quickstart |
+| `docs/` | Kiến trúc, tiêu chuẩn code, deployment |
+| `release/` | Gói phát hành có SHA-256 |
+| `evidence/` | Capture QA, output test |
+| `data/` | Traceability, LMS targets |
+| `tests/` | Định nghĩa QA |
+| `tools/` | Script pipeline Python |
+| `.git log` | Lịch sử phát triển |
+
+**Ghi chú:**
+> "Mọi kết luận trong báo cáo này đều có thể kiểm chứng từ 8 nguồn dữ liệu này. Đây là nguyên tắc: không có tuyên bố nào mà không có bằng chứng."
+
+---
+
+# PHẦN 2 — TỔNG QUAN (Slides 8–10)
+
+---
+
+## SLIDE 8 — Tổng quan dự án (Nâng cấp)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  TỔNG QUAN DỰ ÁN                                      │
+│  ───────────────                                      │
+│                                                       │
+│  ┌───────────────────────┬───────────────────────┐   │
+│  │  THÔNG TIN            │  ĐIỂM KHÁC BIỆT        │   │
+│  ├───────────────────────┼───────────────────────┤   │
+│  │ Loại: Giáo trình tĩnh │ ✅ Không backend      │   │
+│  │ Công nghệ: HTML/CSS/JS│ ✅ Chạy hoàn toàn offline│ │
+│  │ Nguồn: DOCX           │ ✅ QA cấp công nghiệp │   │
+│  │ Phạm vi: 3 chương     │ ✅ Pipeline tự động   │   │
+│  │ Đơn vị: HV Hải quân   │ ✅ Traceability đầy đủ│   │
+│  └───────────────────────┴───────────────────────┘   │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**THÔNG TIN CƠ BẢN:**
+
+| Thuộc tính | Giá trị |
+|---|---|
+| Loại | Giáo trình điện tử tĩnh |
+| Công nghệ | HTML5, CSS3, Vanilla JS |
+| Nguồn | `CoHocLyThuyet_Full_New.docx` |
+| Phạm vi | 3 chương: Tĩnh học, Động học, Động lực học |
+| Đơn vị | Học viện Hải quân |
+
+**5 ĐIỂM KHÁC BIỆT:**
+- ✅ Không backend, không tài khoản, không cloud
+- ✅ Chạy hoàn toàn offline qua `file://`
+- ✅ QA cấp công nghiệp — 8 tầng kiểm thử
+- ✅ Pipeline nội dung tự động từ DOCX
+- ✅ Traceability học thuật đầy đủ
+
+**Ghi chú:**
+> "5 điểm khác biệt này là lý do dự án đáng được hội đồng lưu tâm. Đặc biệt là QA cấp công nghiệp — điều rất hiếm thấy ở một dự án giáo trình."
+
+---
+
+## SLIDE 9 — Phạm vi (Nâng cấp với bảng có căn cứ)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  PHẠM VI DỰ ÁN                                        │
+│  ─────────────                                        │
+│                                                       │
+│  ✅ CÓ                         ❌ KHÔNG CÓ            │
+│  ──────────────────────        ────────────────────── │
+│  • Runtime offline             • Backend / Server    │
+│  • Search, Quiz, Progress      • Tài khoản người dùng│
+│  • Sim 2D (25 route)           • Đồng bộ cloud       │
+│  • Sim 3D (10 route, pilot)    • CMS                 │
+│  • PDF viewer nội tuyến        • Analytics           │
+│  • QA pipeline 8 tầng          • xAPI/cmi5, SCORM    │
+│  • Academic ledger             • Multi-tenancy       │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| ✅ Trong phạm vi | ❌ Ngoài phạm vi |
+|---|---|
+| Runtime offline hoàn chỉnh | Backend / Server |
+| Search, Quiz, Progress, Notes | Tài khoản người dùng |
+| Mô phỏng 2D (25 route) | Đồng bộ đám mây |
+| Mô phỏng 3D (10 route, pilot) | CMS |
+| PDF viewer nội tuyến | Phân tích máy chủ |
+| QA pipeline 8 tầng | xAPI/cmi5, SCORM |
+| Academic review ledger | Multi-tenancy |
+
+**Ghi chú:**
+> "Xác định rõ ranh giới giúp tránh kỳ vọng sai. Đây là sản phẩm offline-first, không phải LMS."
+
+---
+
+## SLIDE 10 — Kiến trúc hệ thống (Nâng cấp với sơ đồ chi tiết)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  KIẾN TRÚC 5 LỚP                                      │
+│  ─────────────────                                    │
+│                                                       │
+│  ┌─────────────────────────────────────────────────┐ │
+│  │ LỚP 1: SHELL (index.html + css/ + app.js)       │ │
+│  ├─────────────────────────────────────────────────┤ │
+│  │ LỚP 2: LOADER (loader.js + pages.js)            │ │
+│  ├─────────────────────────────────────────────────┤ │
+│  │ LỚP 3: RUNTIME (sim2/ sim3/ pdf-viewer/ quiz/)  │ │
+│  ├─────────────────────────────────────────────────┤ │
+│  │ LỚP 4: CONTENT (chapters/ images/ assets/gifs/) │ │
+│  ├─────────────────────────────────────────────────┤ │
+│  │ LỚP 5: DATA (data/ + traceability + evidence)   │ │
+│  └─────────────────────────────────────────────────┘ │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**Kiến trúc 5 lớp:**
+
+| Lớp | Thành phần | Trách nhiệm |
+|---|---|---|
+| **Shell** | `index.html`, `css/`, `app.js` | UI, theme, search, breadcrumb |
+| **Loader** | `loader.js`, `pages.js` | Route map, tải fragment, mount sim |
+| **Runtime** | `sim2/`, `sim3/`, `pdf-viewer/`, `quiz/` | Mô phỏng, PDF, quiz, progress |
+| **Content** | `chapters/`, `images/`, `assets/gifs/` | Nội dung HTML, ảnh, GIF |
+| **Data** | `data/`, traceability, evidence | Quiz schema, index, ledger |
+
+**Ghi chú:**
+> "Kiến trúc 5 lớp này cho phép mỗi lớp phát triển độc lập. Ví dụ, có thể thay Sim2 bằng engine khác mà không ảnh hưởng đến content."
+
+---
+
+# PHẦN 3 — KIẾN TRÚC & TÍNH NĂNG (Slides 11–16)
+
+---
+
+## SLIDE 11 — Offline-first (Nâng cấp với proof)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  OFFLINE-FIRST — CHỨNG MINH                           │
+│  ─────────────────────────                            │
+│                                                       │
+│         📶 ❌      ┌─────────────────────┐           │
+│      NO INTERNET   │  ✅ 100% tính năng  │           │
+│                    │  ✅ 0 backend       │           │
+│                    │  ✅ 0 CDN           │           │
+│                    │  ✅ 0 dependency    │           │
+│                    └─────────────────────┘           │
+│                                                       │
+│  Kiểm chứng:                                          │
+│  • file:// hoạt động — không cần HTTP server          │
+│  • USB: copy → mở index.html → dùng ngay              │
+│  • Airplane mode: mọi tính năng vẫn chạy              │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**Cam kết:**
+- ✅ 100% tính năng hoạt động offline
+- ✅ 0 backend cần thiết
+- ✅ 0 CDN call
+- ✅ 0 dependency động
+
+**Kiểm chứng:**
+- `file://` hoạt động — không cần HTTP server
+- USB: copy → mở `index.html` → dùng ngay
+- Airplane mode: mọi tính năng vẫn chạy
+
+**Ghi chú:**
+> "Đây không phải tuyên bố suông. Chúng tôi đã test trên airplane mode, USB, và file://. Kết quả: mọi tính năng hoạt động."
+
+---
+
+## SLIDE 12 — Mô phỏng (Nâng cấp với so sánh)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  SIM2 vs SIM3 — CHIẾN LƯỢC HAI TẦNG                   │
+│  ─────────────────────────────────                    │
+│                                                       │
+│  ┌────────────────────┬────────────────────┐         │
+│  │      SIM2          │      SIM3          │         │
+│  ├────────────────────┼────────────────────┤         │
+│  │ 25 route           │ 10 route           │         │
+│  │ SVG-first         │ Three.js           │         │
+│  │ Canonical         │ Pilot              │         │
+│  │ Luôn hoạt động    │ Fallback → Sim2    │         │
+│  │ Không cần WebGL   │ Cần WebGL          │         │
+│  │ 60fps ổn định     │ Demand-rendered    │         │
+│  └────────────────────┴────────────────────┘         │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| Tiêu chí | Sim2 | Sim3 |
+|---|---|---|
+| Số route | 25 | 10 |
+| Công nghệ | SVG | Three.js |
+| Vai trò | Canonical | Pilot |
+| WebGL | Không cần | Cần |
+| Fallback | — | → Sim2 |
+| Render | Fixed 60fps | Demand-rendered |
+| Dispose | Đầy đủ | Đầy đủ |
+
+**Ghi chú:**
+> "Chiến lược 2 tầng: Sim2 là canonical, luôn hoạt động. Sim3 là pilot, có fallback thông minh. Nếu WebGL lỗi, người dùng thấy thông báo tiếng Việt và tự động chuyển về Sim2."
+
+---
+
+## SLIDE 13 — Học tập tương tác (Nâng cấp với metrics)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  6 TÍNH NĂNG HỌC TẬP — HOẠT ĐỘNG 100% OFFLINE          │
+│  ────────────────────────────────────────             │
+│                                                       │
+│  🔍 Search      — Index sinh tự động, tìm offline     │
+│  📝 Quiz        — All/random, seed, LO metadata       │
+│  📊 Progress    — Lưu localStorage                    │
+│  🔖 Bookmark    — Đánh dấu trang                      │
+│  📓 Notes       — Ghi chú cá nhân                     │
+│  📖 Glossary    — Tooltip thuật ngữ                   │
+│                                                       │
+│  💾 Storage: localStorage (không cần server)          │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| Tính năng | Chi tiết | Storage |
+|---|---|---|
+| 🔍 Search | Index sinh tự động, tìm offline | In-memory |
+| 📝 Quiz | All/random, seed, LO metadata, khôi phục attempt | localStorage |
+| 📊 Progress | Theo dõi tiến độ đọc | localStorage |
+| 🔖 Bookmark | Đánh dấu trang | localStorage |
+| 📓 Notes | Ghi chú cá nhân | localStorage |
+| 📖 Glossary | Tooltip thuật ngữ, highlight | In-memory |
+
+**Ghi chú:**
+> "6 tính năng học tập, tất cả hoạt động offline, dữ liệu lưu trong localStorage của trình duyệt. Không cần server, không cần tài khoản."
+
+---
+
+## SLIDE 14 — PDF Viewer (Nâng cấp)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  PDF VIEWER — KHÔNG PHÁ VỠ TRẠNG THÁI                 │
+│  ────────────────────────────────────                 │
+│                                                       │
+│  ┌─────────────────────────────────────────────────┐ │
+│  │  [Mockup dialog PDF]                            │ │
+│  │  ◀ Trang 5/20 ▶   🔍 Zoom   ⬇ Tải   ✕ Đóng    │ │
+│  └─────────────────────────────────────────────────┘ │
+│                                                       │
+│  ✅ Không đổi route                                   │
+│  ✅ Không dispose simulation                         │
+│  ✅ Không mất tiến độ đọc                             │
+│  ✅ Escape / Browser Back                            │
+│  ✅ Lazy-load asset                                   │
+│  ✅ Hỗ trợ file:// và HTTP                            │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**6 cam kết:**
+- ✅ Không đổi route
+- ✅ Không dispose simulation
+- ✅ Không mất tiến độ đọc
+- ✅ Escape / Browser Back
+- ✅ Lazy-load asset
+- ✅ Hỗ trợ cả `file://` và HTTP
+
+**Ghi chú:**
+> "Đây là điểm thiết kế tinh tế — nhiều ứng dụng khác làm hỏng trạng thái khi mở PDF. Ở đây, người dùng có thể mở PDF, đóng lại, và tiếp tục đúng nơi đã dừng."
+
+---
+
+## SLIDE 15 — GIF thông minh (Nâng cấp)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  GIF VỚI FALLBACK — PROGRESSIVE ENHANCEMENT           │
+│  ────────────────────────────────────────             │
+│                                                       │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐            │
+│  │   GIF    │→ │   PNG    │  │ Reduced  │            │
+│  │  (động)  │  │  (tĩnh)  │  │ motion   │            │
+│  └──────────┘  └──────────┘  └──────────┘            │
+│                                                       │
+│  • 20 hình cơ học có bản GIF                          │
+│  • Manifest js/gif-figures.js kiểm soát               │
+│  • Tự động dùng PNG khi prefers-reduced-motion       │
+│  • GIF lỗi → tự động fallback PNG, không ảnh vỡ       │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+- 20 hình cơ học có bản GIF trong `assets/gifs/`
+- Manifest `js/gif-figures.js` kiểm soát
+- Nút **Ảnh động** đổi GIF ↔ PNG
+- Tự động dùng PNG khi `prefers-reduced-motion: reduce`
+- Nếu GIF lỗi → tự động về PNG, không hiện ảnh vỡ
+
+**Ghi chú:**
+> "Đây là ví dụ điển hình của progressive enhancement: trải nghiệm tốt nhất có thể, luôn có fallback an toàn."
+
+---
+
+## SLIDE 16 — Accessibility (Nâng cấp với honesty)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  ACCESSIBILITY — TRUNG THỰC VỀ GIỚI HẠN               │
+│  ──────────────────────────────────────               │
+│                                                       │
+│  ✅ ĐÃ CÓ:                                            │
+│  Landmarks · Keyboard · Focus · Reflow · Contrast     │
+│  Reduced-motion · axe-core automated test             │
+│                                                       │
+│  ⚠️ CHƯA CÓ:                                          │
+│  Đánh giá thủ công độc lập                            │
+│  Chứng nhận WCAG 2.2 AA chính thức                    │
+│                                                       │
+│  → Dự án trung thực: test tự động pass               │
+│    KHÔNG đồng nghĩa với đạt chuẩn WCAG                │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**ĐÃ CÓ:**
+- ✅ Landmarks, Keyboard, Focus, Reflow, Contrast
+- ✅ Reduced-motion
+- ✅ axe-core automated test
+
+**CHƯA CÓ:**
+- ⚠️ Đánh giá thủ công độc lập
+- ⚠️ Chứng nhận WCAG 2.2 AA chính thức
+
+**Ghi chú:**
+> "Dự án rất trung thực về giới hạn này. Test tự động pass không có nghĩa là đạt WCAG. Cần đánh giá thủ công độc lập. Đây là thái độ học thuật đúng đắn mà hội đồng nên ghi nhận."
+
+---
+
+# PHẦN 4 — CHẤT LƯỢNG & BẰNG CHỨNG (Slides 17–20)
+
+---
+
+## SLIDE 17 — QA Pipeline 8 tầng (Nâng cấp với sơ đồ)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  8 TẦNG QA — CẤP CÔNG NGHIỆP                          │
+│  ────────────────────────                             │
+│                                                       │
+│  ① Content      → test:content-manifest               │
+│  ② Academic     → validate:academic-review            │
+│  ③ Simulation   → test:sim:release                    │
+│  ④ Accessibility→ test:accessibility                  │
+│  ⑤ Media Pilot  → validate:media-pilot                │
+│  ⑥ LMS          → test:lms                            │
+│  ⑦ PDF          → test:pdf:release                    │
+│  ⑧ Release      → test:release                        │
+│                                                       │
+│  🔥 Soak test: 3 lần liên tiếp không retry            │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| # | Tầng | Lệnh | Mục đích |
+|---|---|---|---|
+| 1 | Content | `test:content-manifest` | Manifest, traceability |
+| 2 | Academic | `validate:academic-review` | Ledger, signoff |
+| 3 | Simulation | `test:sim:release` | 25 Sim2 + 10 Sim3 |
+| 4 | Accessibility | `test:accessibility` | 4 hợp đồng tự động |
+| 5 | Media Pilot | `validate:media-pilot` | Index, rubric, hash |
+| 6 | LMS | `test:lms` | QTI 3, Common Cartridge |
+| 7 | PDF | `test:pdf:release` | Provenance, transport |
+| 8 | Release | `test:release` | Gói phát hành, evidence |
+
+**Đặc biệt:**
+- 🔥 **Soak test** yêu cầu 3 lần liên tiếp không retry
+- 🔥 **Gate blocking:** approval không thể thực hiện khi gate failed
+
+**Ghi chú:**
+> "8 tầng QA này là điểm mạnh nhất của dự án. Soak test 3 lần liên tiếp là tiêu chuẩn thường chỉ thấy trong dự án phần mềm thương mại."
+
+---
+
+## SLIDE 18 — Academic Review (Nâng cấp với traceability chain)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  ACADEMIC REVIEW — CHUỖI TRACEABILITY                 │
+│  ────────────────────────────────────                 │
+│                                                       │
+│       Yêu cầu pháp lý                                 │
+│              ↓                                        │
+│       Learning Outcome                                │
+│              ↓                                        │
+│       Content / Quiz / Sim / Evidence                 │
+│                                                       │
+│  📁 academic_review_ledger.json (821 KB)              │
+│  📁 academic_signoffs.json                            │
+│  ⚠️ Candidate CHƯA đạt chấp nhận học thuật chính thức │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**Chuỗi traceability:**
+```
+Yêu cầu pháp lý → Learning Outcome → Content/Quiz/Sim/Evidence
+```
+
+**Files:**
+- `data/academic_review_ledger.json` (821 KB) — sổ cái review
+- `academic_signoffs.json` — ghi nhận chữ ký
+
+**Trạng thái:**
+- ⚠️ Candidate hiện tại **chưa đạt** chấp nhận học thuật chính thức
+- Gate phát hành **bị chặn** cho đến khi có signoff độc lập
+
+**Ghi chú:**
+> "Điểm mạnh: dự án không tự tuyên bố hoàn thành. Họ để gate chặn cho đến khi có review độc lập. Đây là thái độ học thuật đúng đắn."
+
+---
+
+## SLIDE 19 — Release Process (Nâng cấp)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  RELEASE — REPRODUCIBLE & VERIFIABLE                  │
+│  ────────────────────────────────────                 │
+│                                                       │
+│  📦 release/2026.09.02-candidate/                     │
+│  ├── 372 files                                        │
+│  ├── ZIP SHA-256: 3defec...005a                       │
+│  ├── Derivatives: QTI 3, Common Cartridge 1.4         │
+│  └── Standalone ZIP chạy trực tiếp                    │
+│                                                       │
+│  🔒 Gates:                                            │
+│  • test:release-candidate                             │
+│  • test:release-smoke-review                          │
+│  • test:acceptance                                    │
+│                                                       │
+│  ⚠️ Approval bị chặn khi gate failed                  │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**Release hiện tại:**
+- 📦 `release/2026.09.02-candidate/`
+- 372 files
+- ZIP SHA-256: `3defec...005a`
+- Derivatives: QTI 3, Common Cartridge 1.4
+- Standalone ZIP chạy trực tiếp
+
+**Gates:**
+- `test:release-candidate`
+- `test:release-smoke-review`
+- `test:acceptance`
+
+**Đặc biệt:**
+- Approval **không thể** thực hiện khi gate failed/blocked
+- LMS: `data/lms-targets.json` chưa ghi nhận target nào đã chạy
+
+**Ghi chú:**
+> "Tính reproducible của release là điểm rất chuyên nghiệp — bất kỳ ai cũng có thể tái tạo cùng một gói phát hành và xác minh SHA-256."
+
+---
+
+## SLIDE 20 — Bằng chứng & Traceability (NÂNG CẤP MỚI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  BẰNG CHỨNG — KHÔNG TUYÊN BỐ SUÔNG                    │
+│  ──────────────────────────────────                   │
+│                                                       │
+│  Mỗi tuyên bố đều có nguồn:                           │
+│                                                       │
+│  • "372 files"          → ls -la release/             │
+│  • "SHA-256 verifiable" → sha256sum *.zip             │
+│  • "25 Sim2 route"      → js/sim2/routes.json         │
+│  • "10 Sim3 route"      → js/sim3/routes.json         │
+│  • "8 QA tầng"          → data/qa-gates.json          │
+│  • "Academic ledger"    → academic_review_ledger.json │
+│  • "Traceability"       → validate:traceability       │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| Tuyên bố | Nguồn kiểm chứng |
+|---|---|
+| 372 files | `ls -la release/` |
+| SHA-256 verifiable | `sha256sum *.zip` |
+| 25 Sim2 route | `js/sim2/routes.json` |
+| 10 Sim3 route | `js/sim3/routes.json` |
+| 8 QA tầng | `data/qa-gates.json` |
+| Academic ledger | `academic_review_ledger.json` |
+| Traceability | `validate:traceability` |
+
+**Ghi chú:**
+> "Mọi tuyên bố trong báo cáo này đều có thể kiểm chứng. Đây là nguyên tắc: không có tuyên bố nào mà không có bằng chứng."
+
+---
+
+# PHẦN 5 — SO SÁNH & ĐÁNH GIÁ (Slides 21–24)
+
+---
+
+## SLIDE 21 — So sánh với giải pháp khác (NÂNG CẤP MỚI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  SO SÁNH VỚI CÁC GIẢI PHÁP KHÁC                       │
+│  ──────────────────────────────                       │
+│                                                       │
+│  ┌────────────┬────────┬────────┬────────┬────────┐  │
+│  │ Tiêu chí   │ Dự án  │Moodle  │Google  │Giáo    │  │
+│  │            │ này    │        │Classrm │trình   │  │
+│  │            │        │        │        │giấy    │  │
+│  ├────────────┼────────┼────────┼────────┼────────┤  │
+│  │ Offline    │   ✅   │   ❌   │   ❌   │   ✅   │  │
+│  │ Sim 2D/3D  │   ✅   │   △    │   ❌   │   ❌   │  │
+│  │ QA pipeline│   ✅   │   △    │   △    │   ❌   │  │
+│  │ Zero-cost  │   ✅   │   ❌   │   △    │   ✅   │  │
+│  │ Traceable  │   ✅   │   △    │   ❌   │   ❌   │  │
+│  └────────────┴────────┴────────┴────────┴────────┘  │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| Tiêu chí | Dự án này | Moodle | Google Classroom | Giáo trình giấy |
+|---|---|---|---|---|
+| **Offline** | ✅ | ❌ | ❌ | ✅ |
+| **Sim 2D/3D** | ✅ | △ | ❌ | ❌ |
+| **QA pipeline** | ✅ | △ | △ | ❌ |
+| **Zero-cost** | ✅ | ❌ | △ | ✅ |
+| **Traceable** | ✅ | △ | ❌ | ❌ |
+| **Không cần server** | ✅ | ❌ | ❌ | ✅ |
+
+**Ghi chú:**
+> "So với Moodle, Google Classroom, hay giáo trình giấy, dự án này có lợi thế kép: offline như giáo trình giấy, nhưng có mô phỏng và QA như nền tảng LMS."
+
+---
+
+## SLIDE 22 — Điểm mạnh (Nâng cấp với phân loại)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  10 ĐIỂM MẠNH — PHÂN LOẠI THEO 3 NHÓM                 │
+│  ─────────────────────────────────────                │
+│                                                       │
+│  🏗️  KỸ THUẬT (4)                                     │
+│  ① Offline-first hoàn chỉnh                          │
+│  ② Kiến trúc 5 lớp rõ ràng                           │
+│  ③ Pipeline nội dung tự động                         │
+│  ④ Mô phỏng 2 tầng (SVG + Three.js)                  │
+│                                                       │
+│  📚 HỌC THUẬT (3)                                     │
+│  ⑤ QA cấp công nghiệp (8 tầng)                       │
+│  ⑥ Traceability đầy đủ                               │
+│  ⑦ Academic review ledger                            │
+│                                                       │
+│  🎯 NGƯỜI DÙNG (3)                                    │
+│  ⑧ Accessibility được chú trọng                       │
+│  ⑨ PDF không phá vỡ trạng thái                       │
+│  ⑩ GIF có fallback thông minh                        │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**🏗️ KỸ THUẬT (4):**
+1. Offline-first hoàn chỉnh — chạy `file://`, USB
+2. Kiến trúc 5 lớp rõ ràng
+3. Pipeline nội dung tự động
+4. Mô phỏng 2 tầng (SVG + Three.js)
+
+**📚 HỌC THUẬT (3):**
+5. QA cấp công nghiệp — 8 tầng
+6. Traceability đầy đủ
+7. Academic review ledger
+
+**🎯 NGƯỜI DÙNG (3):**
+8. Accessibility được chú trọng
+9. PDF không phá vỡ trạng thái
+10. GIF có fallback thông minh
+
+**Ghi chú:**
+> "10 điểm mạnh được phân loại theo 3 nhóm. Nhóm kỹ thuật, nhóm học thuật, và nhóm người dùng. Đây là điểm cân bằng của dự án."
+
+---
+
+## SLIDE 23 — Hạn chế (Nâng cấp với impact)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  HẠN CHẾ — PHÂN LOẠI THEO MỨC ĐỘ ẢNH HƯỞNG            │
+│  ────────────────────────────────────────             │
+│                                                       │
+│  🔴 ẢNH HƯỞNG CAO (2)                                 │
+│  ① Chưa có chấp nhận học thuật chính thức            │
+│  ② LMS interoperability chưa thực thi                 │
+│                                                       │
+│  🟡 ẢNH HƯỞNG TRUNG BÌNH (4)                          │
+│  ③ Phụ thuộc DOCX                                     │
+│  ④ QA cần môi trường dev đầy đủ                      │
+│  ⑤ Sim3 là pilot                                      │
+│  ⑥ PDF thiếu search/annotation                        │
+│                                                       │
+│  🟢 ẢNH HƯỞNG THẤP (2)                                │
+│  ⑦ Bundle js/pages.js có thể lớn                     │
+│  ⑧ Một số route Chương 3 bị loại bỏ                  │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**🔴 ẢNH HƯỞNG CAO (2):**
+1. Chưa có chấp nhận học thuật chính thức
+2. LMS interoperability chưa thực thi
+
+**🟡 ẢNH HƯỞNG TRUNG BÌNH (4):**
+3. Phụ thuộc DOCX
+4. QA cần môi trường dev đầy đủ (npm, Playwright, Python)
+5. Sim3 là pilot (10 route)
+6. PDF thiếu search/thumbnail/annotation
+
+**🟢 ẢNH HƯỞNG THẤP (2):**
+7. Bundle `js/pages.js` có thể lớn
+8. Một số route bài tập Chương 3 bị loại bỏ
+
+**Ghi chú:**
+> "Trình bày trung thực, phân loại theo mức độ ảnh hưởng. Điều này giúp hội đồng biết ưu tiên cải thiện cái gì trước."
+
+---
+
+## SLIDE 24 — Phân tích rủi ro (NÂNG CẤP MỚI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  PHÂN TÍCH RỦI RO                                     │
+│  ─────────────────                                    │
+│                                                       │
+│  ┌────────────┬────────┬────────┬──────────────────┐ │
+│  │ Rủi ro     │ Xác    │ Ảnh    │ Biện pháp         │ │
+│  │            │ suất   │ hưởng  │ giảm thiểu        │ │
+│  ├────────────┼────────┼────────┼──────────────────┤ │
+│  │ DOCX đổi   │  Cao   │Trung   │ Pipeline tự động │ │
+│  │ Browser    │ Trung  │ Cao    │ Fallback PNG,    │ │
+│  │ không hỗ trợ│      │        │ Sim2 fallback    │ │
+│  │ WebGL      │        │        │                  │ │
+│  │ Nội dung   │ Trung  │ Cao    │ Academic ledger  │ │
+│  │ lỗi thời   │        │        │ + gate blocking  │ │
+│  │ Bundle lớn │  Thấp  │ Thấp   │ Lazy-load, cache │ │
+│  └────────────┴────────┴────────┴──────────────────┘ │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| Rủi ro | Xác suất | Ảnh hưởng | Biện pháp giảm thiểu |
+|---|---|---|---|
+| DOCX thay đổi | Cao | Trung bình | Pipeline tự động, test:content |
+| Browser không hỗ trợ WebGL | Trung bình | Cao | Fallback PNG, Sim2 fallback |
+| Nội dung lỗi thời | Trung bình | Cao | Academic ledger + gate blocking |
+| Bundle `pages.js` lớn | Thấp | Thấp | Lazy-load, cache |
+| Mất dữ liệu localStorage | Thấp | Trung bình | Export/import JSON |
+
+**Ghi chú:**
+> "Dự án đã có biện pháp giảm thiểu cho hầu hết các rủi ro. Đặc biệt, cơ chế fallback rất chắc chắn."
+
+---
+
+# PHẦN 6 — TÁC ĐỘNG & KHUYẾN NGHỊ (Slides 25–29)
+
+---
+
+## SLIDE 25 — Tác động giáo dục (NÂNG CẤP MỚI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  TÁC ĐỘNG GIÁO DỤC — KHÔNG CHỈ LÀ KỸ THUẬT            │
+│  ────────────────────────────────────────             │
+│                                                       │
+│  📚 HỌC VIÊN                                          │
+│  • Học mọi lúc, mọi nơi — không cần internet         │
+│  • Tương tác với mô phỏng trực quan                  │
+│  • Tự đánh giá qua quiz                              │
+│                                                       │
+│  👨‍🏫 GIẢNG VIÊN                                        │
+│  • Cập nhật nội dung qua DOCX → pipeline             │
+│  • Không cần kỹ năng lập trình                       │
+│  • Theo dõi chất lượng qua QA                        │
+│                                                       │
+│  🏛️ NHÀ TRƯỜNG                                        │
+│  • Tiết kiệm chi phí in ấn, server                   │
+│  • Có thể nhân rộng sang môn khác                    │
+│  • Nâng cao chất lượng đào tạo số                    │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**📚 HỌC VIÊN:**
+- Học mọi lúc, mọi nơi — không cần internet
+- Tương tác với mô phỏng trực quan
+- Tự đánh giá qua quiz
+
+**👨‍🏫 GIẢNG VIÊN:**
+- Cập nhật nội dung qua DOCX → pipeline
+- Không cần kỹ năng lập trình
+- Theo dõi chất lượng qua QA
+
+**🏛️ NHÀ TRƯỜNG:**
+- Tiết kiệm chi phí in ấn, server
+- Có thể nhân rộng sang môn khác
+- Nâng cao chất lượng đào tạo số
+
+**Ghi chú:**
+> "Dự án này không chỉ là kỹ thuật. Nó tác động đến 3 nhóm: học viên, giảng viên, và nhà trường. Đặc biệt, giá trị chuyển giao sang môn khác rất cao."
+
+---
+
+## SLIDE 26 — Bài học kinh nghiệm (Nâng cấp)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  6 BÀI HỌC — CÓ THỂ ÁP DỤNG CHO MỌI DỰ ÁN            │
+│  ────────────────────────────────────────             │
+│                                                       │
+│  ① Offline-first ≠ chất lượng thấp                    │
+│  ② Pipeline tự động là chìa khóa                      │
+│  ③ Traceability phải thiết kế từ đầu                  │
+│  ④ Accessibility cần hợp đồng rõ ràng                 │
+│  ⑤ Reproducible release giúp kiểm chứng               │
+│  ⑥ Trung thực về giới hạn = chất lượng học thuật      │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+1. **Offline-first ≠ chất lượng thấp** — vẫn có QA đầy đủ
+2. **Pipeline tự động là chìa khóa** — DOCX → HTML → bundle → audit
+3. **Traceability phải thiết kế từ đầu** — không thể thêm sau
+4. **Accessibility cần hợp đồng rõ ràng** — không chỉ "best effort"
+5. **Reproducible release giúp kiểm chứng** — ai cũng tái tạo được
+6. **Trung thực về giới hạn = chất lượng học thuật** — không tự tuyên bố
+
+**Ghi chú:**
+> "6 bài học này có thể áp dụng cho bất kỳ dự án giáo trình điện tử nào khác. Đây là giá trị chuyển giao lớn nhất."
+
+---
+
+## SLIDE 27 — Roadmap (Nâng cấp với KPI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  ROADMAP — 3 GIAI ĐOẠN                                │
+│  ──────────────────                                   │
+│                                                       │
+│  NGẮN HẠN (0–3 tháng)  🎯 Hoàn thiện học thuật       │
+│  • Independent academic signoff                       │
+│  • Independent accessibility review                   │
+│  • Word round-trip kiểm tra                           │
+│                                                       │
+│  TRUNG HẠN (3–6 tháng) 🎯 Mở rộng tính năng          │
+│  • Mở rộng Sim3 lên toàn bộ route                    │
+│  • LMS interoperability thực tế (Moodle, Canvas)      │
+│                                                       │
+│  DÀI HẠN (6–12 tháng)  🎯 Nhân rộng & tối ưu         │
+│  • PDF search/thumbnail/annotation                    │
+│  • Tối ưu bundle pages.js                             │
+│  • Áp dụng cho môn học khác                           │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**NGẮN HẠN (0–3 tháng)** — Hoàn thiện học thuật:
+1. Independent academic signoff
+2. Independent accessibility review
+3. Independent candidate smoke review
+4. Word round-trip
+
+**TRUNG HẠN (3–6 tháng)** — Mở rộng tính năng:
+5. Mở rộng Sim3 lên toàn bộ route
+6. LMS interoperability thực tế (Moodle, Canvas)
+
+**DÀI HẠN (6–12 tháng)** — Nhân rộng & tối ưu:
+7. PDF search/thumbnail/annotation
+8. Tối ưu bundle `js/pages.js`
+9. Áp dụng cho môn học khác
+
+**Ghi chú:**
+> "Roadmap 3 giai đoạn với mục tiêu rõ ràng. Giai đoạn 1 quan trọng nhất vì liên quan đến chấp nhận học thuật."
+
+---
+
+## SLIDE 28 — KPI & Success Metrics (NÂNG CẤP MỚI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  KPI ĐO LƯỜNG THÀNH CÔNG                              │
+│  ─────────────────────────                            │
+│                                                       │
+│  ┌────────────┬──────────┬──────────┬──────────┐     │
+│  │ Chỉ số     │ Hiện tại │ Mục tiêu │ Timeline │     │
+│  ├────────────┼──────────┼──────────┼──────────┤     │
+│  │ QA pass    │    8/8   │   8/8    │ Đạt      │     │
+│  │ A11y review│    0%    │   100%   │ 3 tháng  │     │
+│  │ Academic   │    0%    │   100%   │ 3 tháng  │     │
+│  │ Sim route  │   35     │    40+   │ 6 tháng  │     │
+│  │ LMS target │    0     │     2    │ 6 tháng  │     │
+│  │ Môn học    │    1     │     3    │ 12 tháng │     │
+│  └────────────┴──────────┴──────────┴──────────┘     │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+| Chỉ số | Hiện tại | Mục tiêu | Timeline |
+|---|---|---|---|
+| QA pass | 8/8 | 8/8 | Đạt |
+| A11y review độc lập | 0% | 100% | 3 tháng |
+| Academic signoff | 0% | 100% | 3 tháng |
+| Sim route | 35 | 40+ | 6 tháng |
+| LMS target | 0 | 2 | 6 tháng |
+| Môn học áp dụng | 1 | 3 | 12 tháng |
+
+**Ghi chú:**
+> "Bảng KPI này cho phép hội đồng theo dõi tiến độ. Mục tiêu ngắn hạn là hoàn thiện học thuật trong 3 tháng."
+
+---
+
+## SLIDE 29 — Khuyến nghị (NÂNG CẤP MỚI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  5 KHUYẾN NGHỊ                                        │
+│  ─────────────                                        │
+│                                                       │
+│  ① Ưu tiên hoàn thiện chấp nhận học thuật             │
+│  ② Đầu tư vào independent accessibility review        │
+│  ③ Xây dựng lộ trình LMS interoperability             │
+│  ④ Nhân rộng pipeline sang môn học khác               │
+│  ⑤ Duy trì triết lý "trung thực về giới hạn"          │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+1. **Ưu tiên hoàn thiện chấp nhận học thuật** — gate blocking hiện tại
+2. **Đầu tư vào independent accessibility review** — để đạt WCAG 2.2 AA
+3. **Xây dựng lộ trình LMS interoperability** — Moodle, Canvas thực tế
+4. **Nhân rộng pipeline sang môn học khác** — tận dụng giá trị chuyển giao
+5. **Duy trì triết lý "trung thực về giới hạn"** — không tự tuyên bố đạt chuẩn
+
+**Ghi chú:**
+> "5 khuyến nghị này là đề xuất của tôi cho hội đồng. Đặc biệt, khuyến nghị số 5 là triết lý cốt lõi của dự án."
+
+---
+
+# PHẦN 7 — KẾT THÚC (Slides 30–33)
+
+---
+
+## SLIDE 30 — Kết luận (NÂNG CẤP MỚI)
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│  KẾT LUẬN — 3 LUẬN ĐIỂM CHÍNH                         │
+│  ──────────────────────────                           │
+│                                                       │
+│  ✅ KHẢ THI KỸ THUẬT                                  │
+│     Chạy hoàn toàn offline, 0 backend                 │
+│                                                       │
+│  ⚠️ CHƯA ĐẠT CHẤP NHẬN HỌC THUẬT                      │
+│     Candidate chờ signoff độc lập                     │
+│                                                       │
+│  ✅ CÓ GIÁ TRỊ CHUYỂN GIAO CAO                        │
+│     Pipeline tái sử dụng cho môn khác                 │
+│                                                       │
+│  → Dự án xứng đáng được đầu tư tiếp                   │
+└───────────────────────────────────────────────────────┘
+```
+
+**Nội dung:**
+
+**3 luận điểm chính:**
+
+✅ **Khả thi kỹ thuật** — Chạy hoàn toàn offline, 0 backend, 0 CDN
+
+⚠️ **Chưa đạt chấp nhận học thuật** — Candidate chờ signoff độc lập
+
+✅ **Có giá trị chuyển giao cao** — Pipeline tái sử dụng cho môn khác
+
+**Kết luận:**
+> Dự án xứng đáng được đầu tư tiếp và có tiềm năng nhân rộng.
+
+**Ghi chú:**
+> "Ba luận điểm: khả thi kỹ thuật, chưa đạt chấp nhận học thuật, và có giá trị chuyển giao cao. Tôi tin dự án xứng đáng được đầu tư tiếp."
+
+---
+
+## SLIDE 31 — Q&A
+
+**Bố cục:**
+```
+┌───────────────────────────────────────────────────────┐
+│                                                       │
+│                                                       │
+│                CẢM ƠN ĐÃ LẮNG NGHE                    │
+│                                                       │
+│                     Q & A                             │
+│                                                       │
+│                                                       │
+│  Liên hệ: [Email]                                     │
+│  GitHub: xuan2261/GiaoTrinhDienTu_CoHocLyThuyet       │
+│                                                       │
+│  Backup slides: 3 slides (nếu cần đào sâu)            │
+│                                                       │
+└───────────────────────────────────────────────────────┘
+```
+
+**Ghi chú:**
+> "Cảm ơn hội đồng đã lắng nghe. Tôi sẵn sàng nhận câu hỏi. Tôi cũng đã chuẩn bị 3 backup slides nếu hội đồng muốn đào sâu chi tiết kỹ thuật."
+
+---
+
+## SLIDE 32 — BACKUP: Chi tiết kiến trúc (Dành cho Q&A)
+
+**Nội dung:** Chi tiết loader.js, PAGE_MAP, fragment loading, KaTeX render, simulation mount/dispose lifecycle. Dùng khi hội đồng hỏi sâu về kỹ thuật.
+
+---
+
+## SLIDE 33 — BACKUP: Danh sách đầy đủ Sim route (Dành cho Q&A)
+
+**Nội dung:** Bảng 25 Sim2 route + 10 Sim3 route với tên bài và chủ đề. Dùng khi hội đồng hỏi về phạm vi mô phỏng.
+
+---
+
+# 📋 CHECKLIST TRƯỚC KHI BÁO CÁO (Nâng cấp)
+
+## Chuẩn bị nội dung
+- [ ] Đã **điền số liệu thực** của đơn vị vào slide 4 (thay 73%)
+- [ ] Đã **chuẩn bị 3 backup slides** cho Q&A
+- [ ] Đã **test demo live** trên máy trình chiếu
+- [ ] Đã **in handout** (bản PDF 2–3 slide/trang) cho hội đồng
+
+## Chuẩn bị kỹ thuật
+- [ ] Đã **backup slides** trên USB + Google Drive + email
+- [ ] Đã **kiểm tra font** Inter/Montserrat hiển thị đúng
+- [ ] Đã **kiểm tra màu** trên máy chiếu (navy có thể bị tối)
+- [ ] Đã **chuẩn bị laptop dự phòng** nếu máy chính lỗi
+
+## Chuẩn bị thuyết trình
+- [ ] Đã **tập dượt ít nhất 3 lần**, bấm giờ
+- [ ] Đã **chuẩn bị 10 câu hỏi dự kiến** + câu trả lời
+- [ ] Đã **chuẩn bị số liệu backup** cho câu hỏi đào sâu
+- [ ] Đã **chuẩn bị nước uống** và bút chỉ
+
+---
+
+# 🎯 10 CÂU HỎI DỰ KIẾN & TRẢ LỜI
+
+| # | Câu hỏi | Trả lời gợi ý |
+|---|---|---|
+| 1 | Tại sao chọn vanilla JS thay vì React/Vue? | Offline-first, 0 dependency, giảm kích thước bundle, không cần build step |
+| 2 | Làm sao đảm bảo DOCX và HTML đồng bộ? | Pipeline tự động + test:content kiểm tra cleanup route, placeholder |
+| 3 | Sim3 có thay thế Sim2 không? | Không. Sim2 canonical, Sim3 pilot có fallback |
+| 4 | Chi phí vận hành QA có lớn? | QA dev-only, không ảnh hưởng runtime phát hành |
+| 5 | Có thể áp dụng cho môn khác? | Có. Pipeline DOCX → HTML có thể tái sử dụng, chỉ cần thay content |
+| 6 | Tại sao chưa đạt chấp nhận học thuật? | Cần independent signoff — gate blocking để đảm bảo chất lượng |
+| 7 | LMS interoperability khi nào? | Trung hạn 3–6 tháng, ưu tiên Moodle và Canvas |
+| 8 | Bundle pages.js lớn bao nhiêu? | [Điền số thực] — có kế hoạch lazy-load |
+| 9 | Accessibility có đạt WCAG không? | Chưa có chứng nhận chính thức — cần review độc lập |
+| 10 | So với Moodle thì sao? | Offline-first, zero-cost, QA pipeline là 3 lợi thế chính |
+
+---
+
+# 🎨 SO SÁNH BẢN CŨ vs BẢN NÂNG CẤP
+
+| Tiêu chí | Bản cũ (24 slides) | Bản nâng cấp (33 slides) |
+|---|---|---|
+| **Executive Summary** | ❌ | ✅ Slide 2 |
+| **Phương pháp luận** | ❌ | ✅ Slides 5–7 |
+| **Bằng chứng định lượng** | △ | ✅ Slide 20, 28 |
+| **So sánh với giải pháp khác** | ❌ | ✅ Slide 21 |
+| **Phân tích rủi ro** | ❌ | ✅ Slide 24 |
+| **Tác động giáo dục** | ❌ | ✅ Slide 25 |
+| **KPI đo lường** | ❌ | ✅ Slide 28 |
+| **Khuyến nghị** | ❌ | ✅ Slide 29 |
+| **Kết luận 3 luận điểm** | ❌ | ✅ Slide 30 |
+| **Backup slides** | ❌ | ✅ Slides 32–33 |
+| **Câu hỏi dự kiến** | ✅ (5) | ✅ (10) |
+| **Timing chi tiết** | △ | ✅ Từng phần |
+
+---
+
+Bạn muốn tôi:
+
+1. **Cập nhật script Python** để tạo file `.pptx` với **33 slides nâng cấp** này?
+2. **Viết lời thoại chi tiết** (word-by-word) cho từng slide — đặc biệt slides quan trọng 2, 21, 25, 30?
+3. **Thiết kế handout PDF 3 trang** tóm tắt toàn bộ báo cáo?
+4. **Chuẩn bị bộ 20 câu hỏi Q&A** đầy đủ hơn với câu trả lời chi tiết?
+
+Hãy cho tôi biết bạn muốn tôi thực hiện tiếp phần nào.
