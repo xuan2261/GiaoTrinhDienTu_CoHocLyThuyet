@@ -1,0 +1,808 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch1-1-4",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "reset",
+        "label": "Đặt lại",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "F",
+        "min": 10,
+        "max": 100,
+        "value": "50",
+        "step": "any",
+        "physicalStep": "5"
+      },
+      {
+        "id": "d",
+        "min": 0.5,
+        "max": 6.5,
+        "value": "4",
+        "step": "any",
+        "physicalStep": "0.1"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.732Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "F",
+          "value": "50 N"
+        },
+        {
+          "key": "d",
+          "value": "4.00 m"
+        },
+        {
+          "key": "M",
+          "value": "+200.0 N·m"
+        },
+        {
+          "key": "direction",
+          "value": "ngược chiều kim đồng hồ (CCW)"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "F",
+          "type": "range",
+          "value": "50"
+        },
+        {
+          "id": "F",
+          "type": "number",
+          "value": "50"
+        },
+        {
+          "id": "d",
+          "type": "number",
+          "value": "4"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "reset",
+          "label": "Đặt lại"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "a68e2649b46df97163d5f56e3118874297312ebaf27a8bd91404feac591a38ea",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 99,
+      "listenerCount": 17
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 99,
+      "listenerCount": 17
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F",
+            "value": 100,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.734Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "F",
+              "value": "50 N"
+            },
+            {
+              "key": "d",
+              "value": "4.00 m"
+            },
+            {
+              "key": "M",
+              "value": "+200.0 N·m"
+            },
+            {
+              "key": "direction",
+              "value": "ngược chiều kim đồng hồ (CCW)"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "F",
+              "type": "range",
+              "value": "50"
+            },
+            {
+              "id": "F",
+              "type": "number",
+              "value": "50"
+            },
+            {
+              "id": "d",
+              "type": "number",
+              "value": "4"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset",
+              "label": "Đặt lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "a68e2649b46df97163d5f56e3118874297312ebaf27a8bd91404feac591a38ea",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 99,
+          "listenerCount": 17
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F",
+            "value": 100,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "F",
+            "requested": 100,
+            "before": "50",
+            "committed": "100",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.734Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "50 N"
+                },
+                {
+                  "key": "d",
+                  "value": "4.00 m"
+                },
+                {
+                  "key": "M",
+                  "value": "+200.0 N·m"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (CCW)"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "50"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "50"
+                },
+                {
+                  "id": "d",
+                  "type": "number",
+                  "value": "4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "a68e2649b46df97163d5f56e3118874297312ebaf27a8bd91404feac591a38ea",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 99,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.736Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "100 N"
+                },
+                {
+                  "key": "d",
+                  "value": "4.00 m"
+                },
+                {
+                  "key": "M",
+                  "value": "+400.0 N·m"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (CCW)"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "100"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "100"
+                },
+                {
+                  "id": "d",
+                  "type": "number",
+                  "value": "4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "4cc3c080354d652c4d4ae0ae73da4ffe6afb36bd0b8d79c2ef4149653ff200f3",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 99,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.736Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "100 N"
+                },
+                {
+                  "key": "d",
+                  "value": "4.00 m"
+                },
+                {
+                  "key": "M",
+                  "value": "+400.0 N·m"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (CCW)"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "100"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "100"
+                },
+                {
+                  "id": "d",
+                  "type": "number",
+                  "value": "4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "4cc3c080354d652c4d4ae0ae73da4ffe6afb36bd0b8d79c2ef4149653ff200f3",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 99,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"F:number\",\"F:range\",\"d:number\"]",
+                "expected": "[\"F:number\",\"F:range\",\"d:number\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:F",
+                "actual": 100,
+                "expected": 100,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:d",
+                "actual": 4,
+                "expected": 4,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:F",
+                "actual": 100,
+                "expected": 100,
+                "tolerance": 0.50000001,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "bc487b65f5738e588045e5fbdb091d9e500c3ac28edca1d396bb3a30436016c9"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.736Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "100 N"
+                },
+                {
+                  "key": "d",
+                  "value": "4.00 m"
+                },
+                {
+                  "key": "M",
+                  "value": "+400.0 N·m"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (CCW)"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "100"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "100"
+                },
+                {
+                  "id": "d",
+                  "type": "number",
+                  "value": "4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "4cc3c080354d652c4d4ae0ae73da4ffe6afb36bd0b8d79c2ef4149653ff200f3",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 99,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.736Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "50 N"
+                },
+                {
+                  "key": "d",
+                  "value": "4.00 m"
+                },
+                {
+                  "key": "M",
+                  "value": "+200.0 N·m"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (CCW)"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "50"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "50"
+                },
+                {
+                  "id": "d",
+                  "type": "number",
+                  "value": "4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "a68e2649b46df97163d5f56e3118874297312ebaf27a8bd91404feac591a38ea",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 99,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.737Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "50 N"
+                },
+                {
+                  "key": "d",
+                  "value": "4.00 m"
+                },
+                {
+                  "key": "M",
+                  "value": "+200.0 N·m"
+                },
+                {
+                  "key": "direction",
+                  "value": "ngược chiều kim đồng hồ (CCW)"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "50"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "50"
+                },
+                {
+                  "id": "d",
+                  "type": "number",
+                  "value": "4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "a68e2649b46df97163d5f56e3118874297312ebaf27a8bd91404feac591a38ea",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 99,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:F",
+                "actual": 50,
+                "expected": 50,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:F",
+                "actual": 50,
+                "expected": 50,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:d",
+                "actual": 4,
+                "expected": 4,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:F",
+                "actual": "50 N",
+                "expected": "50 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:d",
+                "actual": "4.00 m",
+                "expected": "4.00 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:M",
+                "actual": "+200.0 N·m",
+                "expected": "+200.0 N·m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:direction",
+                "actual": "ngược chiều kim đồng hồ (CCW)",
+                "expected": "ngược chiều kim đồng hồ (CCW)",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "d61eb55da32ff0108265e7c91d0ffdc58fd11ac81d1e6867f38855c5942f9b78"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 99,
+          "listenerCount": 17
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "reset"
+    ],
+    "plannedActionIds": [
+      "reset"
+    ],
+    "executedActionIds": [
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 1,
+    "executedCases": 1,
+    "operations": 2,
+    "oracleStatuses": {
+      "pass": 2,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 15,
+    "failedChecks": 0
+  }
+}

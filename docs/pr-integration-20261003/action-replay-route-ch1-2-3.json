@@ -1,0 +1,1048 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch1-2-3",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "reset",
+        "label": "Đặt lại",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "F1x",
+        "min": 0,
+        "max": 137.5,
+        "value": "80",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "F1y",
+        "min": 0,
+        "max": 137.5,
+        "value": "20",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "F2x",
+        "min": 0,
+        "max": 137.5,
+        "value": "25",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "F2y",
+        "min": 0,
+        "max": 137.5,
+        "value": "70",
+        "step": "any",
+        "physicalStep": "0.1"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.758Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "F1",
+          "value": "82 N"
+        },
+        {
+          "key": "F2",
+          "value": "74 N"
+        },
+        {
+          "key": "angle",
+          "value": "56°"
+        },
+        {
+          "key": "R",
+          "value": "138.3 N"
+        },
+        {
+          "key": "Rx",
+          "value": "105.0 N"
+        },
+        {
+          "key": "Ry",
+          "value": "90.0 N"
+        },
+        {
+          "key": "resultantAngle",
+          "value": "40.6°"
+        },
+        {
+          "key": "zero",
+          "value": "không có"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "F1x",
+          "type": "number",
+          "value": "80"
+        },
+        {
+          "id": "F1y",
+          "type": "number",
+          "value": "20"
+        },
+        {
+          "id": "F2x",
+          "type": "number",
+          "value": "25"
+        },
+        {
+          "id": "F2y",
+          "type": "number",
+          "value": "70"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "reset",
+          "label": "Đặt lại"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "efc5c2d9ccfafc20ecbb9c5ff2568af2bed99818084cd570b1c8edff4d3643f5",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 7,
+      "nodes": 126,
+      "listenerCount": 27
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 7,
+      "nodes": 126,
+      "listenerCount": 27
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F1x",
+            "value": 137.5,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.761Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "F1",
+              "value": "82 N"
+            },
+            {
+              "key": "F2",
+              "value": "74 N"
+            },
+            {
+              "key": "angle",
+              "value": "56°"
+            },
+            {
+              "key": "R",
+              "value": "138.3 N"
+            },
+            {
+              "key": "Rx",
+              "value": "105.0 N"
+            },
+            {
+              "key": "Ry",
+              "value": "90.0 N"
+            },
+            {
+              "key": "resultantAngle",
+              "value": "40.6°"
+            },
+            {
+              "key": "zero",
+              "value": "không có"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "F1x",
+              "type": "number",
+              "value": "80"
+            },
+            {
+              "id": "F1y",
+              "type": "number",
+              "value": "20"
+            },
+            {
+              "id": "F2x",
+              "type": "number",
+              "value": "25"
+            },
+            {
+              "id": "F2y",
+              "type": "number",
+              "value": "70"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset",
+              "label": "Đặt lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "efc5c2d9ccfafc20ecbb9c5ff2568af2bed99818084cd570b1c8edff4d3643f5",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 7,
+          "nodes": 126,
+          "listenerCount": 27
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F1x",
+            "value": 137.5,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "F1x",
+            "requested": 137.5,
+            "before": "80",
+            "committed": "112.5",
+            "targetReached": false,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.763Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F1",
+                  "value": "82 N"
+                },
+                {
+                  "key": "F2",
+                  "value": "74 N"
+                },
+                {
+                  "key": "angle",
+                  "value": "56°"
+                },
+                {
+                  "key": "R",
+                  "value": "138.3 N"
+                },
+                {
+                  "key": "Rx",
+                  "value": "105.0 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "90.0 N"
+                },
+                {
+                  "key": "resultantAngle",
+                  "value": "40.6°"
+                },
+                {
+                  "key": "zero",
+                  "value": "không có"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "80"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "25"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "70"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "efc5c2d9ccfafc20ecbb9c5ff2568af2bed99818084cd570b1c8edff4d3643f5",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 126,
+              "listenerCount": 27
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.763Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F1",
+                  "value": "114 N"
+                },
+                {
+                  "key": "F2",
+                  "value": "74 N"
+                },
+                {
+                  "key": "angle",
+                  "value": "60°"
+                },
+                {
+                  "key": "R",
+                  "value": "164.3 N"
+                },
+                {
+                  "key": "Rx",
+                  "value": "137.5 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "90.0 N"
+                },
+                {
+                  "key": "resultantAngle",
+                  "value": "33.2°"
+                },
+                {
+                  "key": "zero",
+                  "value": "không có"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "112.5"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "25"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "70"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "88795fb5138534808d7740df8afb1bd3dafd1b553605d40ad6abb320dbcd3bde",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 126,
+              "listenerCount": 27
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.763Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F1",
+                  "value": "114 N"
+                },
+                {
+                  "key": "F2",
+                  "value": "74 N"
+                },
+                {
+                  "key": "angle",
+                  "value": "60°"
+                },
+                {
+                  "key": "R",
+                  "value": "164.3 N"
+                },
+                {
+                  "key": "Rx",
+                  "value": "137.5 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "90.0 N"
+                },
+                {
+                  "key": "resultantAngle",
+                  "value": "33.2°"
+                },
+                {
+                  "key": "zero",
+                  "value": "không có"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "112.5"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "25"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "70"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "88795fb5138534808d7740df8afb1bd3dafd1b553605d40ad6abb320dbcd3bde",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 126,
+              "listenerCount": 27
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"F1x:number\",\"F1y:number\",\"F2x:number\",\"F2y:number\"]",
+                "expected": "[\"F1x:number\",\"F1y:number\",\"F2x:number\",\"F2y:number\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:F1x",
+                "actual": 112.5,
+                "expected": 112.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:F1y",
+                "actual": 20,
+                "expected": 20,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:F2x",
+                "actual": 25,
+                "expected": 25,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:F2y",
+                "actual": 70,
+                "expected": 70,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:Rx",
+                "actual": 137.5,
+                "expected": 137.5,
+                "tolerance": 0.05000001,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "565d71cdf569e7d89685803a0a894c5ebb6a413bbce7562c8ef4cdc653435958"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.764Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F1",
+                  "value": "114 N"
+                },
+                {
+                  "key": "F2",
+                  "value": "74 N"
+                },
+                {
+                  "key": "angle",
+                  "value": "60°"
+                },
+                {
+                  "key": "R",
+                  "value": "164.3 N"
+                },
+                {
+                  "key": "Rx",
+                  "value": "137.5 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "90.0 N"
+                },
+                {
+                  "key": "resultantAngle",
+                  "value": "33.2°"
+                },
+                {
+                  "key": "zero",
+                  "value": "không có"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "112.5"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "25"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "70"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "88795fb5138534808d7740df8afb1bd3dafd1b553605d40ad6abb320dbcd3bde",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 126,
+              "listenerCount": 27
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.764Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F1",
+                  "value": "82 N"
+                },
+                {
+                  "key": "F2",
+                  "value": "74 N"
+                },
+                {
+                  "key": "angle",
+                  "value": "56°"
+                },
+                {
+                  "key": "R",
+                  "value": "138.3 N"
+                },
+                {
+                  "key": "Rx",
+                  "value": "105.0 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "90.0 N"
+                },
+                {
+                  "key": "resultantAngle",
+                  "value": "40.6°"
+                },
+                {
+                  "key": "zero",
+                  "value": "không có"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "80"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "25"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "70"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "efc5c2d9ccfafc20ecbb9c5ff2568af2bed99818084cd570b1c8edff4d3643f5",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 126,
+              "listenerCount": 27
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.764Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F1",
+                  "value": "82 N"
+                },
+                {
+                  "key": "F2",
+                  "value": "74 N"
+                },
+                {
+                  "key": "angle",
+                  "value": "56°"
+                },
+                {
+                  "key": "R",
+                  "value": "138.3 N"
+                },
+                {
+                  "key": "Rx",
+                  "value": "105.0 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "90.0 N"
+                },
+                {
+                  "key": "resultantAngle",
+                  "value": "40.6°"
+                },
+                {
+                  "key": "zero",
+                  "value": "không có"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "80"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "25"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "70"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "efc5c2d9ccfafc20ecbb9c5ff2568af2bed99818084cd570b1c8edff4d3643f5",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 7,
+              "nodes": 126,
+              "listenerCount": 27
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:F1x",
+                "actual": 80,
+                "expected": 80,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:F1y",
+                "actual": 20,
+                "expected": 20,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:F2x",
+                "actual": 25,
+                "expected": 25,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:F2y",
+                "actual": 70,
+                "expected": 70,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:F1",
+                "actual": "82 N",
+                "expected": "82 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:F2",
+                "actual": "74 N",
+                "expected": "74 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:angle",
+                "actual": "56°",
+                "expected": "56°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:R",
+                "actual": "138.3 N",
+                "expected": "138.3 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Rx",
+                "actual": "105.0 N",
+                "expected": "105.0 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Ry",
+                "actual": "90.0 N",
+                "expected": "90.0 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:resultantAngle",
+                "actual": "40.6°",
+                "expected": "40.6°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:zero",
+                "actual": "không có",
+                "expected": "không có",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "fb2a6e6282c1f09ebc86b305c3fb14a8894413c48248fdb7c09f4f7fe646f013"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 7,
+          "nodes": 126,
+          "listenerCount": 27
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "reset"
+    ],
+    "plannedActionIds": [
+      "reset"
+    ],
+    "executedActionIds": [
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 1,
+    "executedCases": 1,
+    "operations": 2,
+    "oracleStatuses": {
+      "pass": 2,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 22,
+    "failedChecks": 0
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "pending",
+  "sourceHash": null,
+  "evidenceManifest": null,
+  "review": null,
+  "reason": "Current-source revalidation is pending; historical runtime evidence does not verify changed source.",
+  "requiredEvidence": [
+    "fresh objective runtime execution",
+    "WebGL visual and browser interaction capture",
+    "three retry-free release runs",
+    "explicit current-source technical review"
+  ]
+}

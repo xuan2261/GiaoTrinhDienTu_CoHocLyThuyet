@@ -1,0 +1,188 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch2-4-4",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [],
+    "numbers": [
+      {
+        "id": "omega",
+        "min": 0.4,
+        "max": 2.5,
+        "value": "1.2",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "vRel",
+        "min": 0.5,
+        "max": 3,
+        "value": "1.5",
+        "step": "any",
+        "physicalStep": "0.1"
+      }
+    ],
+    "playback": true
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.914Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "t",
+          "value": "0.000 s"
+        },
+        {
+          "key": "radius",
+          "value": "2.000 m"
+        },
+        {
+          "key": "vAbs",
+          "value": "(1.500, 2.400) m/s"
+        },
+        {
+          "key": "aRel",
+          "value": "(0.000, 0.000) m/s²"
+        },
+        {
+          "key": "aTransport",
+          "value": "(-2.880, 0.000) m/s²"
+        },
+        {
+          "key": "aCorXY",
+          "value": "(0.000, 3.600) m/s²"
+        },
+        {
+          "key": "aAbs",
+          "value": "(-2.880, 3.600) m/s²"
+        },
+        {
+          "key": "direction",
+          "value": "ra xa tâm; a_cor bên trái v_rel với ω dương"
+        },
+        {
+          "key": "caps",
+          "value": "v_rel"
+        },
+        {
+          "key": "caps3d",
+          "value": "không"
+        },
+        {
+          "key": "omega",
+          "value": "1.20 rad/s"
+        },
+        {
+          "key": "vRelMax",
+          "value": "1.50 m/s"
+        },
+        {
+          "key": "vRel",
+          "value": "1.50 m/s"
+        },
+        {
+          "key": "aCor",
+          "value": "3.60 m/s²"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "omega",
+          "type": "range",
+          "value": "1.2"
+        },
+        {
+          "id": "omega",
+          "type": "number",
+          "value": "1.2"
+        },
+        {
+          "id": "vRel",
+          "type": "range",
+          "value": "1.5"
+        },
+        {
+          "id": "vRel",
+          "type": "number",
+          "value": "1.5"
+        }
+      ],
+      "actionValues": [],
+      "geometry": [],
+      "playbackLabel": "Chạy"
+    },
+    "stateHash": "afab9297c3ea4ec30e6da292d0d095c272ee30ff5077cb9b747a25158364b956",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 135,
+      "listenerCount": 17
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 135,
+      "listenerCount": 17
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [],
+  "coverage": {
+    "discoveredActionIds": [],
+    "plannedActionIds": [],
+    "executedActionIds": [],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 0,
+    "executedCases": 0,
+    "operations": 0,
+    "oracleStatuses": {
+      "pass": 0,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 0,
+    "failedChecks": 0
+  }
+}

@@ -1,23 +1,98 @@
 {
   "schemaVersion": "1.1.0",
-  "status": "verified",
+  "status": "draft",
   "reviewAuthority": "Project technical review; no independent institutional approval.",
   "oraclePolicy": {
     "kind": "independent-executable-reference",
     "selfReportedMetricsSoleAuthority": false
   },
   "evidenceCatalog": [
-    { "path": "tests/sim3-pilot-fallback-dispose.spec.js", "sha256": "c54d04d3b99ac7d8c7274d0fceb8a3129eff9c3749baafcbfdd30347d7d87a93", "routeIds": ["ch1-1-5", "ch1-5-3", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-3", "ch3-1-3", "ch3-5-3", "ch3-6-2"] },
-    { "path": "js/sim3/sims/ch1-1-5-3d.js", "sha256": "a732a4cdb532aaab3ba1e0ba950a8607b103e2877fb969b1441aed612f90eea5", "routeIds": ["ch1-1-5"] },
-    { "path": "js/sim3/sims/ch1-5-3-3d.js", "sha256": "7f832982b01cd3db84b7cb5f788b384c9c29ea41a3f9e0b6641e7e597fdebad7", "routeIds": ["ch1-5-3"] },
-    { "path": "js/sim3/sims/ch2-1-3-3d.js", "sha256": "edfa507dbf3c56d599cb993fcbe720431f36e342aa11c68b3d27af2c269365fd", "routeIds": ["ch2-1-3"] },
-    { "path": "js/sim3/sims/ch2-2-2-3d.js", "sha256": "6fafed5e2478ebd980d2e36130b32db8503d85fa8ad919e9d1a3c770c2d2838f", "routeIds": ["ch2-2-2"] },
-    { "path": "js/sim3/sims/ch2-3-2-3d.js", "sha256": "110f67872efad15ca0e4d9a84cd0bcb9f8bbf169b491ab720c45c93d5adc1d21", "routeIds": ["ch2-3-2"] },
-    { "path": "js/sim3/sims/ch2-4-4-3d.js", "sha256": "3fda07c1dd5a93ba248b05de3462fae4f79888a0a92e189db4e761ec9f1c03b3", "routeIds": ["ch2-4-4"] },
-    { "path": "js/sim3/sims/ch2-5-3-3d.js", "sha256": "9fe124a9cd30332fe0b41ec90e0ff38773a70b828818f7db836446289d61129b", "routeIds": ["ch2-5-3"] },
-    { "path": "js/sim3/sims/ch3-1-3-3d.js", "sha256": "458834313fb4a95a086451ad17bf5010e258541c4e1bcb906d822fe6d86d97af", "routeIds": ["ch3-1-3"] },
-    { "path": "js/sim3/sims/ch3-5-3-3d.js", "sha256": "ed4dc530e3bb34545b6dad9c007f8528e0142bc87b9ab14418fe2b24402281d1", "routeIds": ["ch3-5-3"] },
-    { "path": "js/sim3/sims/ch3-6-2-3d.js", "sha256": "651a53abe4f236be786d8b77d087ce1b55e1e928b1abdafd54502cfc0ffe1a29", "routeIds": ["ch3-6-2"] }
+    {
+      "path": "tests/sim3-pilot-fallback-dispose.spec.js",
+      "sha256": "c54d04d3b99ac7d8c7274d0fceb8a3129eff9c3749baafcbfdd30347d7d87a93",
+      "routeIds": [
+        "ch1-1-5",
+        "ch1-5-3",
+        "ch2-1-3",
+        "ch2-2-2",
+        "ch2-3-2",
+        "ch2-4-4",
+        "ch2-5-3",
+        "ch3-1-3",
+        "ch3-5-3",
+        "ch3-6-2"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch1-1-5-3d.js",
+      "sha256": "f438a3100fa537137a5199d9c6d4a7d2324787f3d2c6bf427ae25c16c738e16c",
+      "routeIds": [
+        "ch1-1-5"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch1-5-3-3d.js",
+      "sha256": "7d43944d14fa1dbe50685eed9c42e4b4c714ebb3d787a11c3270fe95a215001e",
+      "routeIds": [
+        "ch1-5-3"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch2-1-3-3d.js",
+      "sha256": "95751f63d5ecce9a2fded8414d09073e3b2eac43d4d1247c5743b40230e275ed",
+      "routeIds": [
+        "ch2-1-3"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch2-2-2-3d.js",
+      "sha256": "258aa13badc68645c37456f514c903c2039fddf7761a7e93917fc94af998e538",
+      "routeIds": [
+        "ch2-2-2"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch2-3-2-3d.js",
+      "sha256": "82b6e6bad3bdf2e0ca6e58a3cac7affde0987f34955173d65c691cf05cb48b4c",
+      "routeIds": [
+        "ch2-3-2"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch2-4-4-3d.js",
+      "sha256": "249d2bb5b38e3c0d149e376bec72d52a51dc8e3d21171894b0a444ee364ed1e9",
+      "routeIds": [
+        "ch2-4-4"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch2-5-3-3d.js",
+      "sha256": "2d6a2ecd6d7352728bae408c34799ca8165b89f0eb0c5b910609bbaa82dbe688",
+      "routeIds": [
+        "ch2-5-3"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch3-1-3-3d.js",
+      "sha256": "f760e9041ed07becf075e54cb25183453b83112ed1a4837345de472fb6e118eb",
+      "routeIds": [
+        "ch3-1-3"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch3-5-3-3d.js",
+      "sha256": "4ee5f2822f3f6d088d5d865a5d0fd0d21faa566dfde16f8a8960468d3a5b0f35",
+      "routeIds": [
+        "ch3-5-3"
+      ]
+    },
+    {
+      "path": "js/sim3/sims/ch3-6-2-3d.js",
+      "sha256": "e0ddd96bb207c888caa4a3b8b8dff722b070301b4b2b48d634fa865ed61d8bc8",
+      "routeIds": [
+        "ch3-6-2"
+      ]
+    }
   ],
   "reviews": [
     {
@@ -26,9 +101,9 @@
       "chapter": 1,
       "adapter": {
         "path": "js/sim3/sims/ch1-1-5-3d.js",
-        "sha256": "a732a4cdb532aaab3ba1e0ba950a8607b103e2877fb969b1441aed612f90eea5"
+        "sha256": "f438a3100fa537137a5199d9c6d4a7d2324787f3d2c6bf427ae25c16c738e16c"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "2d-only",
       "twoDimensionalLimitation": "2D force reduction can already show resultant and moment without perspective",
       "threeDimensionalValue": "Layered force locations and free-moment direction can distinguish placement from resultant",
@@ -45,11 +120,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch1-1-5-3d.js"
@@ -58,7 +134,9 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     },
     {
@@ -67,9 +145,9 @@
       "chapter": 1,
       "adapter": {
         "path": "js/sim3/sims/ch1-5-3-3d.js",
-        "sha256": "7f832982b01cd3db84b7cb5f788b384c9c29ea41a3f9e0b6641e7e597fdebad7"
+        "sha256": "7d43944d14fa1dbe50685eed9c42e4b4c714ebb3d787a11c3270fe95a215001e"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "retain-3d",
       "twoDimensionalLimitation": "A planar wedge cannot make the friction cone around the contact normal visible",
       "threeDimensionalValue": "Cone, contact normal, and slip state make the admissible reaction direction spatially legible",
@@ -86,11 +164,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch1-5-3-3d.js"
@@ -99,7 +178,9 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     },
     {
@@ -108,9 +189,9 @@
       "chapter": 2,
       "adapter": {
         "path": "js/sim3/sims/ch2-1-3-3d.js",
-        "sha256": "edfa507dbf3c56d599cb993fcbe720431f36e342aa11c68b3d27af2c269365fd"
+        "sha256": "95751f63d5ecce9a2fded8414d09073e3b2eac43d4d1247c5743b40230e275ed"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "2d-only",
       "twoDimensionalLimitation": "The tangent-normal construction is fully planar for the supplied ellipse",
       "threeDimensionalValue": "A tilted path and osculating circle make the local frame separable from the page",
@@ -127,11 +208,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch2-1-3-3d.js"
@@ -140,7 +222,9 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     },
     {
@@ -149,9 +233,9 @@
       "chapter": 2,
       "adapter": {
         "path": "js/sim3/sims/ch2-2-2-3d.js",
-        "sha256": "6fafed5e2478ebd980d2e36130b32db8503d85fa8ad919e9d1a3c770c2d2838f"
+        "sha256": "258aa13badc68645c37456f514c903c2039fddf7761a7e93917fc94af998e538"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "retain-3d",
       "twoDimensionalLimitation": "Axis, rim point, and tangential velocity are harder to read as a flat disk",
       "threeDimensionalValue": "Visible axis thickness and rim trajectory distinguish rotation from translation",
@@ -168,11 +252,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch2-2-2-3d.js"
@@ -181,7 +266,9 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     },
     {
@@ -190,9 +277,9 @@
       "chapter": 2,
       "adapter": {
         "path": "js/sim3/sims/ch2-3-2-3d.js",
-        "sha256": "110f67872efad15ca0e4d9a84cd0bcb9f8bbf169b491ab720c45c93d5adc1d21"
+        "sha256": "82b6e6bad3bdf2e0ca6e58a3cac7affde0987f34955173d65c691cf05cb48b4c"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "retain-3d",
       "twoDimensionalLimitation": "Flat diagrams obscure separate gear axes, belt lanes, and rotation directions",
       "threeDimensionalValue": "Separated gears, pulleys, belt lanes, and axis markers show distinct mechanisms",
@@ -209,11 +296,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch2-3-2-3d.js"
@@ -222,7 +310,9 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     },
     {
@@ -231,9 +321,9 @@
       "chapter": 2,
       "adapter": {
         "path": "js/sim3/sims/ch2-4-4-3d.js",
-        "sha256": "3fda07c1dd5a93ba248b05de3462fae4f79888a0a92e189db4e761ec9f1c03b3"
+        "sha256": "249d2bb5b38e3c0d149e376bec72d52a51dc8e3d21171894b0a444ee364ed1e9"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "retain-3d",
       "twoDimensionalLimitation": "A flat vector plot can conflate platform rotation with radial relative motion",
       "threeDimensionalValue": "Platform plane, bead height, and separated vectors support frame-of-reference comparison",
@@ -250,11 +340,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch2-4-4-3d.js"
@@ -263,7 +354,9 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     },
     {
@@ -272,9 +365,9 @@
       "chapter": 2,
       "adapter": {
         "path": "js/sim3/sims/ch2-5-3-3d.js",
-        "sha256": "9fe124a9cd30332fe0b41ec90e0ff38773a70b828818f7db836446289d61129b"
+        "sha256": "2d6a2ecd6d7352728bae408c34799ca8165b89f0eb0c5b910609bbaa82dbe688"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "retain-3d",
       "twoDimensionalLimitation": "Velocity vectors on a planar body are visible in 2D but IC relation is crowded",
       "threeDimensionalValue": "Raised IC post, radius guide, and sampled vector field separate reference geometry",
@@ -291,11 +384,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch2-5-3-3d.js"
@@ -304,7 +398,9 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     },
     {
@@ -313,9 +409,9 @@
       "chapter": 3,
       "adapter": {
         "path": "js/sim3/sims/ch3-1-3-3d.js",
-        "sha256": "458834313fb4a95a086451ad17bf5010e258541c4e1bcb906d822fe6d86d97af"
+        "sha256": "f760e9041ed07becf075e54cb25183453b83112ed1a4837345de472fb6e118eb"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "2d-only",
       "twoDimensionalLimitation": "The car, pendulum, and fictitious force are describable in a side view",
       "threeDimensionalValue": "Depth separates pendulum, vehicle, and force arrows while retaining the lateral sign",
@@ -332,11 +428,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch3-1-3-3d.js"
@@ -345,7 +442,9 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     },
     {
@@ -354,9 +453,9 @@
       "chapter": 3,
       "adapter": {
         "path": "js/sim3/sims/ch3-5-3-3d.js",
-        "sha256": "ed4dc530e3bb34545b6dad9c007f8528e0142bc87b9ab14418fe2b24402281d1"
+        "sha256": "4ee5f2822f3f6d088d5d865a5d0fd0d21faa566dfde16f8a8960468d3a5b0f35"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "retain-3d",
       "twoDimensionalLimitation": "The axis, orbit, radius, and angular-momentum vector benefit from spatial relation",
       "threeDimensionalValue": "Axis-normal L vector and rotating mass arms make direction and radius explicit",
@@ -373,11 +472,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch3-5-3-3d.js"
@@ -386,7 +486,9 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     },
     {
@@ -395,9 +497,9 @@
       "chapter": 3,
       "adapter": {
         "path": "js/sim3/sims/ch3-6-2-3d.js",
-        "sha256": "651a53abe4f236be786d8b77d087ce1b55e1e928b1abdafd54502cfc0ffe1a29"
+        "sha256": "e0ddd96bb207c888caa4a3b8b8dff722b070301b4b2b48d634fa865ed61d8bc8"
       },
-      "status": "verified",
+      "status": "draft",
       "decision": "retain-3d",
       "twoDimensionalLimitation": "Two-body collision can be understood as a one-dimensional before/after lane",
       "threeDimensionalValue": "Separated depth lanes distinguish objects, velocity arrows, impact cue, and phases",
@@ -414,11 +516,12 @@
       "reviewer": {
         "role": "Project technical reviewer",
         "unit": "Simulation QA and pedagogy working group",
-        "independence": "Internal technical review only; not independent or institutional approval."
+        "independence": "Internal technical review only; not independent or institutional approval.",
+        "currentReviewPending": true
       },
       "evidence": {
-        "status": "verified",
-        "verified": true,
+        "status": "draft",
+        "verified": false,
         "executableRefs": [
           "tests/sim3-pilot-fallback-dispose.spec.js",
           "js/sim3/sims/ch3-6-2-3d.js"
@@ -427,8 +530,16 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashRequired": true
+        "sourceHashRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
       }
     }
-  ]
+  ],
+  "upstreamBlocker": "Current-source revalidation is pending; historical runtime evidence does not verify changed source.",
+  "historicalSnapshot": {
+    "path": "data/review-history/97994592ffa2ae0fbfb668a5b2bcfa80a59cdedd8c1321b364728776e83e73f1-sim3-pedagogical-reviews.json",
+    "sha256": "97994592ffa2ae0fbfb668a5b2bcfa80a59cdedd8c1321b364728776e83e73f1",
+    "scope": "historical record only; not current acceptance"
+  }
 }

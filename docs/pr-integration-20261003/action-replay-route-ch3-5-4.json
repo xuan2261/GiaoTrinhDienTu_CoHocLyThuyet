@@ -1,0 +1,984 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch3-5-4",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "reset",
+        "label": "Đặt lại thí nghiệm",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "F",
+        "min": 1,
+        "max": 15,
+        "value": "4",
+        "step": "any",
+        "physicalStep": "1"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:43.151Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "F",
+          "value": "4 N"
+        },
+        {
+          "key": "d",
+          "value": "6 m"
+        },
+        {
+          "key": "W",
+          "value": "24.0 J"
+        },
+        {
+          "key": "dT",
+          "value": "24.000 J"
+        },
+        {
+          "key": "m",
+          "value": "2 kg"
+        },
+        {
+          "key": "v1",
+          "value": "1 m/s"
+        },
+        {
+          "key": "v2",
+          "value": "5.000000 m/s"
+        },
+        {
+          "key": "T1",
+          "value": "1.000 J"
+        },
+        {
+          "key": "T2",
+          "value": "25.000 J"
+        },
+        {
+          "key": "area",
+          "value": "4 N × 6 m = 24.000 J"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "F",
+          "type": "range",
+          "value": "4"
+        },
+        {
+          "id": "F",
+          "type": "number",
+          "value": "4"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "reset",
+          "label": "Đặt lại thí nghiệm"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "734bbbb064db12a2cd9adff3720ddaa942fa5725ff6bbdcd037a8cbbb0bef1fd",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 4,
+      "nodes": 125,
+      "listenerCount": 14
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 4,
+      "nodes": 125,
+      "listenerCount": 14
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F",
+            "value": 15,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.153Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "F",
+              "value": "4 N"
+            },
+            {
+              "key": "d",
+              "value": "6 m"
+            },
+            {
+              "key": "W",
+              "value": "24.0 J"
+            },
+            {
+              "key": "dT",
+              "value": "24.000 J"
+            },
+            {
+              "key": "m",
+              "value": "2 kg"
+            },
+            {
+              "key": "v1",
+              "value": "1 m/s"
+            },
+            {
+              "key": "v2",
+              "value": "5.000000 m/s"
+            },
+            {
+              "key": "T1",
+              "value": "1.000 J"
+            },
+            {
+              "key": "T2",
+              "value": "25.000 J"
+            },
+            {
+              "key": "area",
+              "value": "4 N × 6 m = 24.000 J"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "F",
+              "type": "range",
+              "value": "4"
+            },
+            {
+              "id": "F",
+              "type": "number",
+              "value": "4"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "734bbbb064db12a2cd9adff3720ddaa942fa5725ff6bbdcd037a8cbbb0bef1fd",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 125,
+          "listenerCount": 14
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F",
+            "value": 15,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "F",
+            "requested": 15,
+            "before": "4",
+            "committed": "15",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.154Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "4 N"
+                },
+                {
+                  "key": "d",
+                  "value": "6 m"
+                },
+                {
+                  "key": "W",
+                  "value": "24.0 J"
+                },
+                {
+                  "key": "dT",
+                  "value": "24.000 J"
+                },
+                {
+                  "key": "m",
+                  "value": "2 kg"
+                },
+                {
+                  "key": "v1",
+                  "value": "1 m/s"
+                },
+                {
+                  "key": "v2",
+                  "value": "5.000000 m/s"
+                },
+                {
+                  "key": "T1",
+                  "value": "1.000 J"
+                },
+                {
+                  "key": "T2",
+                  "value": "25.000 J"
+                },
+                {
+                  "key": "area",
+                  "value": "4 N × 6 m = 24.000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "4"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "734bbbb064db12a2cd9adff3720ddaa942fa5725ff6bbdcd037a8cbbb0bef1fd",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 125,
+              "listenerCount": 14
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.154Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "15 N"
+                },
+                {
+                  "key": "d",
+                  "value": "6 m"
+                },
+                {
+                  "key": "W",
+                  "value": "90.0 J"
+                },
+                {
+                  "key": "dT",
+                  "value": "90.000 J"
+                },
+                {
+                  "key": "m",
+                  "value": "2 kg"
+                },
+                {
+                  "key": "v1",
+                  "value": "1 m/s"
+                },
+                {
+                  "key": "v2",
+                  "value": "9.539392 m/s"
+                },
+                {
+                  "key": "T1",
+                  "value": "1.000 J"
+                },
+                {
+                  "key": "T2",
+                  "value": "91.000 J"
+                },
+                {
+                  "key": "area",
+                  "value": "15 N × 6 m = 90.000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "15"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "25db3190ce039c10237f9924ca07ebbfb0cdda33aebe5a546256226fb4f2c34b",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 125,
+              "listenerCount": 14
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.154Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "15 N"
+                },
+                {
+                  "key": "d",
+                  "value": "6 m"
+                },
+                {
+                  "key": "W",
+                  "value": "90.0 J"
+                },
+                {
+                  "key": "dT",
+                  "value": "90.000 J"
+                },
+                {
+                  "key": "m",
+                  "value": "2 kg"
+                },
+                {
+                  "key": "v1",
+                  "value": "1 m/s"
+                },
+                {
+                  "key": "v2",
+                  "value": "9.539392 m/s"
+                },
+                {
+                  "key": "T1",
+                  "value": "1.000 J"
+                },
+                {
+                  "key": "T2",
+                  "value": "91.000 J"
+                },
+                {
+                  "key": "area",
+                  "value": "15 N × 6 m = 90.000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "15"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "25db3190ce039c10237f9924ca07ebbfb0cdda33aebe5a546256226fb4f2c34b",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 125,
+              "listenerCount": 14
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"F:number\",\"F:range\"]",
+                "expected": "[\"F:number\",\"F:range\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:F",
+                "actual": 15,
+                "expected": 15,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:F",
+                "actual": 15,
+                "expected": 15,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "83cbcc5e0bbe93228a01548d8edb8cdddc07ba3d01a31e8b978b132ceb05d9f8"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.155Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "15 N"
+                },
+                {
+                  "key": "d",
+                  "value": "6 m"
+                },
+                {
+                  "key": "W",
+                  "value": "90.0 J"
+                },
+                {
+                  "key": "dT",
+                  "value": "90.000 J"
+                },
+                {
+                  "key": "m",
+                  "value": "2 kg"
+                },
+                {
+                  "key": "v1",
+                  "value": "1 m/s"
+                },
+                {
+                  "key": "v2",
+                  "value": "9.539392 m/s"
+                },
+                {
+                  "key": "T1",
+                  "value": "1.000 J"
+                },
+                {
+                  "key": "T2",
+                  "value": "91.000 J"
+                },
+                {
+                  "key": "area",
+                  "value": "15 N × 6 m = 90.000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "15"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "15"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "25db3190ce039c10237f9924ca07ebbfb0cdda33aebe5a546256226fb4f2c34b",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 125,
+              "listenerCount": 14
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.155Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "4 N"
+                },
+                {
+                  "key": "d",
+                  "value": "6 m"
+                },
+                {
+                  "key": "W",
+                  "value": "24.0 J"
+                },
+                {
+                  "key": "dT",
+                  "value": "24.000 J"
+                },
+                {
+                  "key": "m",
+                  "value": "2 kg"
+                },
+                {
+                  "key": "v1",
+                  "value": "1 m/s"
+                },
+                {
+                  "key": "v2",
+                  "value": "5.000000 m/s"
+                },
+                {
+                  "key": "T1",
+                  "value": "1.000 J"
+                },
+                {
+                  "key": "T2",
+                  "value": "25.000 J"
+                },
+                {
+                  "key": "area",
+                  "value": "4 N × 6 m = 24.000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "4"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "734bbbb064db12a2cd9adff3720ddaa942fa5725ff6bbdcd037a8cbbb0bef1fd",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 125,
+              "listenerCount": 14
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.155Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "F",
+                  "value": "4 N"
+                },
+                {
+                  "key": "d",
+                  "value": "6 m"
+                },
+                {
+                  "key": "W",
+                  "value": "24.0 J"
+                },
+                {
+                  "key": "dT",
+                  "value": "24.000 J"
+                },
+                {
+                  "key": "m",
+                  "value": "2 kg"
+                },
+                {
+                  "key": "v1",
+                  "value": "1 m/s"
+                },
+                {
+                  "key": "v2",
+                  "value": "5.000000 m/s"
+                },
+                {
+                  "key": "T1",
+                  "value": "1.000 J"
+                },
+                {
+                  "key": "T2",
+                  "value": "25.000 J"
+                },
+                {
+                  "key": "area",
+                  "value": "4 N × 6 m = 24.000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "4"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "734bbbb064db12a2cd9adff3720ddaa942fa5725ff6bbdcd037a8cbbb0bef1fd",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 125,
+              "listenerCount": 14
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:F",
+                "actual": 4,
+                "expected": 4,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:F",
+                "actual": 4,
+                "expected": 4,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:F",
+                "actual": "4 N",
+                "expected": "4 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:d",
+                "actual": "6 m",
+                "expected": "6 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:W",
+                "actual": "24.0 J",
+                "expected": "24.0 J",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:dT",
+                "actual": "24.000 J",
+                "expected": "24.000 J",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:m",
+                "actual": "2 kg",
+                "expected": "2 kg",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v1",
+                "actual": "1 m/s",
+                "expected": "1 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:v2",
+                "actual": "5.000000 m/s",
+                "expected": "5.000000 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:T1",
+                "actual": "1.000 J",
+                "expected": "1.000 J",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:T2",
+                "actual": "25.000 J",
+                "expected": "25.000 J",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:area",
+                "actual": "4 N × 6 m = 24.000 J",
+                "expected": "4 N × 6 m = 24.000 J",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "2a69a5df57ae920c7afb012562b2600d5bcebbc0357d7e97e75e2c622949ac54"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 125,
+          "listenerCount": 14
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "reset"
+    ],
+    "plannedActionIds": [
+      "reset"
+    ],
+    "executedActionIds": [
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 1,
+    "executedCases": 1,
+    "operations": 2,
+    "oracleStatuses": {
+      "pass": 2,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 19,
+    "failedChecks": 0
+  }
+}

@@ -1,0 +1,3784 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch2-5-2",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "construction-step",
+        "label": "Dựng pháp tuyến từng bước",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "reset-geometry",
+        "label": "Đặt lại hình học",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "ax",
+        "min": -3,
+        "max": 1.5,
+        "value": "-2",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "omega",
+        "min": 0.1,
+        "max": 0.4,
+        "value": "0.4",
+        "step": "any",
+        "physicalStep": "0.01"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.917Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "A",
+          "value": "(-2.0, 0) m"
+        },
+        {
+          "key": "B",
+          "value": "(2.0, 3.0) m"
+        },
+        {
+          "key": "IC",
+          "value": "(-2.0, 3.0) m"
+        },
+        {
+          "key": "construction",
+          "value": "2: pháp tuyến qua B; giao tại IC"
+        },
+        {
+          "key": "ICStatus",
+          "value": "Tâm hữu hạn của trường vận tốc tức thời"
+        },
+        {
+          "key": "PA",
+          "value": "3.000 m"
+        },
+        {
+          "key": "PB",
+          "value": "4.000 m"
+        },
+        {
+          "key": "ratio",
+          "value": "0.750"
+        },
+        {
+          "key": "omega",
+          "value": "0.400 rad/s"
+        },
+        {
+          "key": "vA",
+          "value": "1.20 m/s"
+        },
+        {
+          "key": "vB",
+          "value": "1.60 m/s"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "ax",
+          "type": "number",
+          "value": "-2"
+        },
+        {
+          "id": "omega",
+          "type": "number",
+          "value": "0.4"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "construction-step",
+          "label": "Dựng pháp tuyến từng bước"
+        },
+        {
+          "id": "reset-geometry",
+          "label": "Đặt lại hình học"
+        }
+      ],
+      "geometry": [
+        {
+          "selector": ".sim2-ic-radius-guide",
+          "index": 0,
+          "visibility": "visible",
+          "points": null
+        },
+        {
+          "selector": ".sim2-ic-radius-guide",
+          "index": 1,
+          "visibility": "visible",
+          "points": null
+        }
+      ],
+      "playbackLabel": null
+    },
+    "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 6,
+      "nodes": 126,
+      "listenerCount": 16
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 6,
+      "nodes": 126,
+      "listenerCount": 16
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-construction-step",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "construction-step"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.920Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "A",
+              "value": "(-2.0, 0) m"
+            },
+            {
+              "key": "B",
+              "value": "(2.0, 3.0) m"
+            },
+            {
+              "key": "IC",
+              "value": "(-2.0, 3.0) m"
+            },
+            {
+              "key": "construction",
+              "value": "2: pháp tuyến qua B; giao tại IC"
+            },
+            {
+              "key": "ICStatus",
+              "value": "Tâm hữu hạn của trường vận tốc tức thời"
+            },
+            {
+              "key": "PA",
+              "value": "3.000 m"
+            },
+            {
+              "key": "PB",
+              "value": "4.000 m"
+            },
+            {
+              "key": "ratio",
+              "value": "0.750"
+            },
+            {
+              "key": "omega",
+              "value": "0.400 rad/s"
+            },
+            {
+              "key": "vA",
+              "value": "1.20 m/s"
+            },
+            {
+              "key": "vB",
+              "value": "1.60 m/s"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "ax",
+              "type": "number",
+              "value": "-2"
+            },
+            {
+              "id": "omega",
+              "type": "number",
+              "value": "0.4"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "construction-step",
+              "label": "Dựng pháp tuyến từng bước"
+            },
+            {
+              "id": "reset-geometry",
+              "label": "Đặt lại hình học"
+            }
+          ],
+          "geometry": [
+            {
+              "selector": ".sim2-ic-radius-guide",
+              "index": 0,
+              "visibility": "visible",
+              "points": null
+            },
+            {
+              "selector": ".sim2-ic-radius-guide",
+              "index": 1,
+              "visibility": "visible",
+              "points": null
+            }
+          ],
+          "playbackLabel": null
+        },
+        "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 126,
+          "listenerCount": 16
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "construction-step"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "construction-step",
+              "label": "Dựng pháp tuyến từng bước"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.920Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.921Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "0: xác định vA, vB"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "dcad44b52f357482b6205eb527b4b96c83f5a26e687b3c8b46d1f3838c332530",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.921Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "0: xác định vA, vB"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "dcad44b52f357482b6205eb527b4b96c83f5a26e687b3c8b46d1f3838c332530",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:construction",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "svg-visibility:.sim2-ic-radius-guide",
+                "actual": "[\"hidden\",\"hidden\"]",
+                "expected": "[\"hidden\",\"hidden\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:A",
+                "actual": "(-2.0, 0) m",
+                "expected": "(-2.0, 0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:B",
+                "actual": "(2.0, 3.0) m",
+                "expected": "(2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:IC",
+                "actual": "(-2.0, 3.0) m",
+                "expected": "(-2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vA",
+                "actual": "1.20 m/s",
+                "expected": "1.20 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vB",
+                "actual": "1.60 m/s",
+                "expected": "1.60 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "7251ea5922cd496ae00813a2e6053dff36aadcab214ac9a1d3195c90ede94207"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 126,
+          "listenerCount": 16
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-1-reset-geometry",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "ax",
+            "value": 1.5,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset-geometry"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.924Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "A",
+              "value": "(-2.0, 0) m"
+            },
+            {
+              "key": "B",
+              "value": "(2.0, 3.0) m"
+            },
+            {
+              "key": "IC",
+              "value": "(-2.0, 3.0) m"
+            },
+            {
+              "key": "construction",
+              "value": "2: pháp tuyến qua B; giao tại IC"
+            },
+            {
+              "key": "ICStatus",
+              "value": "Tâm hữu hạn của trường vận tốc tức thời"
+            },
+            {
+              "key": "PA",
+              "value": "3.000 m"
+            },
+            {
+              "key": "PB",
+              "value": "4.000 m"
+            },
+            {
+              "key": "ratio",
+              "value": "0.750"
+            },
+            {
+              "key": "omega",
+              "value": "0.400 rad/s"
+            },
+            {
+              "key": "vA",
+              "value": "1.20 m/s"
+            },
+            {
+              "key": "vB",
+              "value": "1.60 m/s"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "ax",
+              "type": "number",
+              "value": "-2"
+            },
+            {
+              "id": "omega",
+              "type": "number",
+              "value": "0.4"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "construction-step",
+              "label": "Dựng pháp tuyến từng bước"
+            },
+            {
+              "id": "reset-geometry",
+              "label": "Đặt lại hình học"
+            }
+          ],
+          "geometry": [
+            {
+              "selector": ".sim2-ic-radius-guide",
+              "index": 0,
+              "visibility": "visible",
+              "points": null
+            },
+            {
+              "selector": ".sim2-ic-radius-guide",
+              "index": 1,
+              "visibility": "visible",
+              "points": null
+            }
+          ],
+          "playbackLabel": null
+        },
+        "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 126,
+          "listenerCount": 16
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "ax",
+            "value": 1.5,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "ax",
+            "requested": 1.5,
+            "before": "-2",
+            "committed": "1.5",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.924Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.925Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(1.5, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 5.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(1.5, 5.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "4.975 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "0.500 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "9.950"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.99 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "0.20 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "1.5"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "97a62661eebc7ab93779e15e2d7108973110db135a1c7403626a9788b700a7b3",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.925Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(1.5, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 5.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(1.5, 5.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "4.975 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "0.500 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "9.950"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.99 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "0.20 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "1.5"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "97a62661eebc7ab93779e15e2d7108973110db135a1c7403626a9788b700a7b3",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"ax:number\",\"omega:number\"]",
+                "expected": "[\"ax:number\",\"omega:number\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:ax",
+                "actual": 1.5,
+                "expected": 1.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:omega",
+                "actual": 0.4,
+                "expected": 0.4,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:A",
+                "actual": "(1.5, 0) m",
+                "expected": "(1.5, 0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "320827b4136d5753507413c573e7339a1e6441218de4824f280bfe00a9c930fb"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset-geometry"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset-geometry",
+              "label": "Đặt lại hình học"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.925Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(1.5, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 5.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(1.5, 5.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "4.975 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "0.500 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "9.950"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.99 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "0.20 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "1.5"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "97a62661eebc7ab93779e15e2d7108973110db135a1c7403626a9788b700a7b3",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.925Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.926Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:ax",
+                "actual": -2,
+                "expected": -2,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:omega",
+                "actual": 0.4,
+                "expected": 0.4,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:A",
+                "actual": "(-2.0, 0) m",
+                "expected": "(-2.0, 0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:B",
+                "actual": "(2.0, 3.0) m",
+                "expected": "(2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:IC",
+                "actual": "(-2.0, 3.0) m",
+                "expected": "(-2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:construction",
+                "actual": "2: pháp tuyến qua B; giao tại IC",
+                "expected": "2: pháp tuyến qua B; giao tại IC",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ICStatus",
+                "actual": "Tâm hữu hạn của trường vận tốc tức thời",
+                "expected": "Tâm hữu hạn của trường vận tốc tức thời",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:PA",
+                "actual": "3.000 m",
+                "expected": "3.000 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:PB",
+                "actual": "4.000 m",
+                "expected": "4.000 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ratio",
+                "actual": "0.750",
+                "expected": "0.750",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:omega",
+                "actual": "0.400 rad/s",
+                "expected": "0.400 rad/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vA",
+                "actual": "1.20 m/s",
+                "expected": "1.20 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vB",
+                "actual": "1.60 m/s",
+                "expected": "1.60 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "f36b516e07130671a1d468bb1dccac2a31a1d415f07290609c3123ce2d300e05"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 126,
+          "listenerCount": 16
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "experiment-ic-construction",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "construction-step"
+          },
+          {
+            "type": "action",
+            "action": "construction-step"
+          },
+          {
+            "type": "action",
+            "action": "construction-step"
+          },
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "ax",
+            "value": -3
+          },
+          {
+            "type": "action",
+            "action": "reset-geometry"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.928Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "A",
+              "value": "(-2.0, 0) m"
+            },
+            {
+              "key": "B",
+              "value": "(2.0, 3.0) m"
+            },
+            {
+              "key": "IC",
+              "value": "(-2.0, 3.0) m"
+            },
+            {
+              "key": "construction",
+              "value": "2: pháp tuyến qua B; giao tại IC"
+            },
+            {
+              "key": "ICStatus",
+              "value": "Tâm hữu hạn của trường vận tốc tức thời"
+            },
+            {
+              "key": "PA",
+              "value": "3.000 m"
+            },
+            {
+              "key": "PB",
+              "value": "4.000 m"
+            },
+            {
+              "key": "ratio",
+              "value": "0.750"
+            },
+            {
+              "key": "omega",
+              "value": "0.400 rad/s"
+            },
+            {
+              "key": "vA",
+              "value": "1.20 m/s"
+            },
+            {
+              "key": "vB",
+              "value": "1.60 m/s"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "ax",
+              "type": "number",
+              "value": "-2"
+            },
+            {
+              "id": "omega",
+              "type": "number",
+              "value": "0.4"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "construction-step",
+              "label": "Dựng pháp tuyến từng bước"
+            },
+            {
+              "id": "reset-geometry",
+              "label": "Đặt lại hình học"
+            }
+          ],
+          "geometry": [
+            {
+              "selector": ".sim2-ic-radius-guide",
+              "index": 0,
+              "visibility": "visible",
+              "points": null
+            },
+            {
+              "selector": ".sim2-ic-radius-guide",
+              "index": 1,
+              "visibility": "visible",
+              "points": null
+            }
+          ],
+          "playbackLabel": null
+        },
+        "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 126,
+          "listenerCount": 16
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "construction-step"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "construction-step",
+              "label": "Dựng pháp tuyến từng bước"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.928Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.929Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "0: xác định vA, vB"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "dcad44b52f357482b6205eb527b4b96c83f5a26e687b3c8b46d1f3838c332530",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.929Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "0: xác định vA, vB"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "dcad44b52f357482b6205eb527b4b96c83f5a26e687b3c8b46d1f3838c332530",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:construction",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "svg-visibility:.sim2-ic-radius-guide",
+                "actual": "[\"hidden\",\"hidden\"]",
+                "expected": "[\"hidden\",\"hidden\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:A",
+                "actual": "(-2.0, 0) m",
+                "expected": "(-2.0, 0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:B",
+                "actual": "(2.0, 3.0) m",
+                "expected": "(2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:IC",
+                "actual": "(-2.0, 3.0) m",
+                "expected": "(-2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vA",
+                "actual": "1.20 m/s",
+                "expected": "1.20 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vB",
+                "actual": "1.60 m/s",
+                "expected": "1.60 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "7251ea5922cd496ae00813a2e6053dff36aadcab214ac9a1d3195c90ede94207"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "construction-step"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "construction-step",
+              "label": "Dựng pháp tuyến từng bước"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.929Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "0: xác định vA, vB"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "dcad44b52f357482b6205eb527b4b96c83f5a26e687b3c8b46d1f3838c332530",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.930Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "1: pháp tuyến qua A"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "f31a60e016a3a0c734637d694233b025289f605077100b3e24dca9f3f28c10e3",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.930Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "1: pháp tuyến qua A"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "f31a60e016a3a0c734637d694233b025289f605077100b3e24dca9f3f28c10e3",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:construction",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "svg-visibility:.sim2-ic-radius-guide",
+                "actual": "[\"visible\",\"hidden\"]",
+                "expected": "[\"visible\",\"hidden\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:A",
+                "actual": "(-2.0, 0) m",
+                "expected": "(-2.0, 0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:B",
+                "actual": "(2.0, 3.0) m",
+                "expected": "(2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:IC",
+                "actual": "(-2.0, 3.0) m",
+                "expected": "(-2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vA",
+                "actual": "1.20 m/s",
+                "expected": "1.20 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vB",
+                "actual": "1.60 m/s",
+                "expected": "1.60 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "6121c514ef0e3e2afb78d631c13fa4354836353e5262867e573a147f9ea29925"
+        },
+        {
+          "index": 2,
+          "requested": {
+            "type": "action",
+            "action": "construction-step"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "construction-step",
+              "label": "Dựng pháp tuyến từng bước"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.930Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "1: pháp tuyến qua A"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "f31a60e016a3a0c734637d694233b025289f605077100b3e24dca9f3f28c10e3",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.931Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.931Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:construction",
+                "actual": 2,
+                "expected": 2,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "svg-visibility:.sim2-ic-radius-guide",
+                "actual": "[\"visible\",\"visible\"]",
+                "expected": "[\"visible\",\"visible\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:A",
+                "actual": "(-2.0, 0) m",
+                "expected": "(-2.0, 0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:B",
+                "actual": "(2.0, 3.0) m",
+                "expected": "(2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:IC",
+                "actual": "(-2.0, 3.0) m",
+                "expected": "(-2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vA",
+                "actual": "1.20 m/s",
+                "expected": "1.20 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vB",
+                "actual": "1.60 m/s",
+                "expected": "1.60 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "8a1aa73dc0120560b15eda603bf022a800504ab708c67ae9c1eece0c8df6ae0e"
+        },
+        {
+          "index": 3,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "ax",
+            "value": -3
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "ax",
+            "requested": -3,
+            "before": "-2",
+            "committed": "-3",
+            "targetReached": true,
+            "allowConstraintClamp": false,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.931Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.931Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-3.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 0.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-3.0, 0.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "5.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.000"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "0.00 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "2.00 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-3"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "6a0031db5ca1fff410798f4c2c993b53e383410a447c061dab5b3cba2ccfa280",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.932Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-3.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 0.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-3.0, 0.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "5.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.000"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "0.00 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "2.00 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-3"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "6a0031db5ca1fff410798f4c2c993b53e383410a447c061dab5b3cba2ccfa280",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:ax",
+                "actual": -3,
+                "expected": -3,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "93038d7273772de28d2de991f06da3155c1e75a1f7b1484ffc21bd5443ce35a4"
+        },
+        {
+          "index": 4,
+          "requested": {
+            "type": "action",
+            "action": "reset-geometry"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset-geometry",
+              "label": "Đặt lại hình học"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.932Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-3.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 0.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-3.0, 0.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "0.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "5.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.000"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "0.00 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "2.00 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-3"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "6a0031db5ca1fff410798f4c2c993b53e383410a447c061dab5b3cba2ccfa280",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.932Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.933Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "A",
+                  "value": "(-2.0, 0) m"
+                },
+                {
+                  "key": "B",
+                  "value": "(2.0, 3.0) m"
+                },
+                {
+                  "key": "IC",
+                  "value": "(-2.0, 3.0) m"
+                },
+                {
+                  "key": "construction",
+                  "value": "2: pháp tuyến qua B; giao tại IC"
+                },
+                {
+                  "key": "ICStatus",
+                  "value": "Tâm hữu hạn của trường vận tốc tức thời"
+                },
+                {
+                  "key": "PA",
+                  "value": "3.000 m"
+                },
+                {
+                  "key": "PB",
+                  "value": "4.000 m"
+                },
+                {
+                  "key": "ratio",
+                  "value": "0.750"
+                },
+                {
+                  "key": "omega",
+                  "value": "0.400 rad/s"
+                },
+                {
+                  "key": "vA",
+                  "value": "1.20 m/s"
+                },
+                {
+                  "key": "vB",
+                  "value": "1.60 m/s"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "ax",
+                  "type": "number",
+                  "value": "-2"
+                },
+                {
+                  "id": "omega",
+                  "type": "number",
+                  "value": "0.4"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "construction-step",
+                  "label": "Dựng pháp tuyến từng bước"
+                },
+                {
+                  "id": "reset-geometry",
+                  "label": "Đặt lại hình học"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-ic-radius-guide",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "8f823007af84c74ddd86bcb65c18ebcbc41e17702c6177348f3d80c3eca9c022",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 126,
+              "listenerCount": 16
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:ax",
+                "actual": -2,
+                "expected": -2,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:omega",
+                "actual": 0.4,
+                "expected": 0.4,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:A",
+                "actual": "(-2.0, 0) m",
+                "expected": "(-2.0, 0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:B",
+                "actual": "(2.0, 3.0) m",
+                "expected": "(2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:IC",
+                "actual": "(-2.0, 3.0) m",
+                "expected": "(-2.0, 3.0) m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:construction",
+                "actual": "2: pháp tuyến qua B; giao tại IC",
+                "expected": "2: pháp tuyến qua B; giao tại IC",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ICStatus",
+                "actual": "Tâm hữu hạn của trường vận tốc tức thời",
+                "expected": "Tâm hữu hạn của trường vận tốc tức thời",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:PA",
+                "actual": "3.000 m",
+                "expected": "3.000 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:PB",
+                "actual": "4.000 m",
+                "expected": "4.000 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ratio",
+                "actual": "0.750",
+                "expected": "0.750",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:omega",
+                "actual": "0.400 rad/s",
+                "expected": "0.400 rad/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vA",
+                "actual": "1.20 m/s",
+                "expected": "1.20 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:vB",
+                "actual": "1.60 m/s",
+                "expected": "1.60 m/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "f36b516e07130671a1d468bb1dccac2a31a1d415f07290609c3123ce2d300e05"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 126,
+          "listenerCount": 16
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "construction-step",
+      "reset-geometry"
+    ],
+    "plannedActionIds": [
+      "construction-step",
+      "reset-geometry"
+    ],
+    "executedActionIds": [
+      "construction-step",
+      "reset-geometry"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 3,
+    "executedCases": 3,
+    "operations": 8,
+    "oracleStatuses": {
+      "pass": 8,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 63,
+    "failedChecks": 0
+  }
+}

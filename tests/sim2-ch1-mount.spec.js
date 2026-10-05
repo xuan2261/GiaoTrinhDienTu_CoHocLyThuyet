@@ -204,12 +204,12 @@ test.describe('sim2 Ch1 — mô men: arc chỉ chiều + no-clip (ch1-1-4, ch1-3
     await page.evaluate(() => window.__sim.dispose());
   });
 
-  test('ch1-3-6: arc mô men tồn tại, chiều CW (tải xuống, x>0), bán kính đổi theo |M|, no-clip ở P/a max', async ({ page }) => {
+  test('ch1-3-6: arc mô men ngàm tồn tại, chiều CCW cân bằng tải xuống, bán kính đổi theo |M|, no-clip ở P/a max', async ({ page }) => {
     await page.goto(FIXTURE_URL, { waitUntil: 'domcontentloaded' });
     await page.evaluate(() => { window.__sim = window.SIM_MAP['ch1-3-6'](document.getElementById('host')); });
 
-    // Chiều: r=(pos,0), f=(0,−load) → tau=−pos·load<0 → CW. Nếu lấy dấu từ |M| (P·a>0) sẽ ra CCW SAI.
-    expect(await arcAttr(page, 'data-dir'), 'ch1-3-6 arc chiều CW (tải hướng xuống ở x>0)').toBe('cw');
+    // M_tải = −P·a; mô men phản lực ngàm trên dầm phải +P·a (CCW) để tổng mô men bằng 0.
+    expect(await arcAttr(page, 'data-dir'), 'ch1-3-6 phản lực mô men ngàm CCW cân bằng mô men tải CW').toBe('ccw');
 
     await page.evaluate(() => {
       const s = document.querySelector('#host .sim2-controls input[data-id=P]');

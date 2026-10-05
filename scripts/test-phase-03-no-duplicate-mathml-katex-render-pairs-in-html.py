@@ -17,40 +17,20 @@ spec.loader.exec_module(helpers)
 project_root = helpers.project_root
 chapter_files = helpers.chapter_files
 
-DUP_FORWARD = re.compile(
-    r'<span class="mathml-inline">.*?</math>\s*</span>'
-    r'[^<]{0,30}<span class="math-tex">\\\([^)]+\\\)</span>',
-    re.DOTALL,
-)
-DUP_REVERSE = re.compile(
-    r'<span class="math-tex">\\\([^)]+\\\)</span>'
-    r'[^<]{0,30}<span class="mathml-inline">.*?</math>\s*</span>',
-    re.DOTALL,
-)
-DUP_BLOCK_FORWARD = re.compile(
-    r'<div class="mathml-block">.*?</math>\s*</div>\s*'
-    r'<span class="math-tex">\\\[[^\]]+\\\]</span>',
-    re.DOTALL,
-)
-DUP_BLOCK_REVERSE = re.compile(
-    r'<span class="math-tex">\\\[[^\]]+\\\]</span>\s*'
-    r'<div class="mathml-block">.*?</math>\s*</div>',
-    re.DOTALL,
-)
 
 
 def main():
+    spec = importlib.util.spec_from_file_location("dedupe", HERE / "dedupe-mathml-and-katex-render-pairs-keep-mathml.py")
+    processor = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(processor)
     proj = project_root()
     total = 0
     per_file = []
     for f in chapter_files():
         html = f.read_text(encoding='utf-8')
-        n = (
-            len(DUP_FORWARD.findall(html))
-            + len(DUP_REVERSE.findall(html))
-            + len(DUP_BLOCK_FORWARD.findall(html))
-            + len(DUP_BLOCK_REVERSE.findall(html))
-        )
+        processed = processor.dedupe(html)
+        n = (len(re.findall(r'class="math-tex(?:-block)?"', html))
+             - len(re.findall(r'class="math-tex(?:-block)?"', processed)))
         if n:
             per_file.append((str(f.relative_to(proj)).replace('\\', '/'), n))
             total += n

@@ -4,10 +4,11 @@
   function create(opts) {
     const P = root.Sim3Primitives, C = root.Sim3Coordinates, plane = C.PLANES.VERTICAL;
     let THREERef, sceneRef, plate, icPost, icMarker, sampleMarker, radiusGuide, velocityArrow, omegaArrow, tick = 0;
+    let icLabel, velocityLabel, omegaLabel;
     const fieldArrows = [], serial = value => ({ x: value.x, y: value.y, z: value.z });
     const point = value => C.point2D(value, { plane, depth: 0 });
     const shell = root.Sim3Shell.create({
-      host: opts.host, referenceEl: opts.referenceEl, label: 'Phan bo van toc 3D', onFallback: opts.onFallback,
+      host: opts.host, referenceEl: opts.referenceEl, label: 'Phân bố vận tốc tức thời 3D', onFallback: opts.onFallback,
       setup({ THREE, scene, camera, labels }) {
         THREERef = THREE; sceneRef = scene;
         if (root.Sim3VisualKit) root.Sim3VisualKit.setCamera(camera, { x: 4.45, y: 3.55, z: 6.2 }, { x: 0.28, y: 0.1, z: 0.06 });
@@ -23,7 +24,7 @@
           arrow.traverse(child => { if (child.material) { child.material.transparent = true; child.material.opacity = 0.62; } }); fieldArrows.push(arrow);
         }
         scene.add(icPost, icMarker, sampleMarker, radiusGuide, velocityArrow, omegaArrow, ...fieldArrows);
-        labels.add('instant-center', 'P (IC)', () => icMarker.position, { dx: -34, dy: -32 }); labels.add('sample-m', 'M', () => sampleMarker.position, { dx: 34, dy: 34 }); labels.add('velocity-m', 'v_M', () => velocityArrow.position, { dx: 74, dy: -42 }); labels.add('omega', 'ω', () => omegaArrow.position, { dx: -34, dy: -32 });
+        icLabel = labels.add('instant-center', 'P (IC)', () => icMarker.position, { dx: -34, dy: -32 }); labels.add('sample-m', 'M', () => sampleMarker.position, { dx: 34, dy: 34 }); velocityLabel = labels.add('velocity-m', 'v_M', () => velocityArrow.position, { dx: 74, dy: -42 }); omegaLabel = labels.add('omega', 'ω', () => omegaArrow.position, { dx: -34, dy: -32 });
       }
     });
     if (!shell) return null;
@@ -41,8 +42,8 @@
       const sampleVelocity = velocity(omega, sampleInput, icInput);
       icMarker.position.set(ic.x, ic.y, ic.z); sampleMarker.position.set(sample.x, sample.y, sample.z);
       P.setCylinderBetween(THREERef, icPost, ic, { x: ic.x, y: ic.y, z: ic.z + 0.8 }); P.setCylinderBetween(THREERef, radiusGuide, ic, sample);
-      P.updateArrow(THREERef, velocityArrow, sampleVelocity.vector, { base: { x: sample.x, y: sample.y, z: sample.z + 0.12 }, factor: 0.24, minLength: 0.08, maxLength: 2.2 });
-      P.updateArrow(THREERef, omegaArrow, C.axisVector(omega, plane), { base: point({ x: -2.9, y: -2.7 }), factor: 0.55, minLength: 0.08, maxLength: 2.2 });
+      P.updateArrow(THREERef, velocityArrow, sampleVelocity.vector, { base: { x: sample.x, y: sample.y, z: sample.z + 0.12 }, factor: 0.24, minLength: 0, maxLength: 2.2 });
+      P.updateArrow(THREERef, omegaArrow, C.axisVector(omega, plane), { base: point({ x: -2.9, y: -2.7 }), factor: 0.55, minLength: 0, maxLength: 2.2 });
       const samples = [icInput, { x: sampleInput.x * 0.65, y: sampleInput.y * 0.65 }, { x: sampleInput.x * 0.4 - 0.9, y: sampleInput.y * 0.35 }, { x: sampleInput.x * 0.35, y: sampleInput.y * 0.45 + 0.9 }, { x: sampleInput.x * 0.55 + 0.6, y: sampleInput.y * 0.25 - 0.7 }, { x: icInput.x * 0.45 + sampleInput.x * 0.2 + 0.55, y: icInput.y * 0.45 + sampleInput.y * 0.2 + 0.55 }, { x: icInput.x * 0.35 + sampleInput.x * 0.25 - 0.65, y: icInput.y * 0.35 + sampleInput.y * 0.25 + 0.15 }];
       const field = samples.map((source, i) => {
         const displaySource = { x: source.x * 0.55, y: source.y * 0.55 };
@@ -50,10 +51,14 @@
         P.updateArrow(THREERef, arrow, result.vector, { base: { x: p.x, y: p.y, z: p.z + 0.08 }, factor: 0.14, minLength: 0, maxLength: 2.2 });
         return { point: serial(p), radius: result.r, vector: result.vector, magnitude: arrow.userData.sim3PhysicalMagnitude };
       });
+      // Labels share the exact zero state; no direction is invented for a zero vector.
+      if (icLabel) icLabel.textContent = omega === 0 ? 'P (mốc)' : 'P (IC)';
+      if (velocityLabel) velocityLabel.textContent = velocityArrow.visible ? 'v_M' : 'v_M = 0';
+      if (omegaLabel) omegaLabel.textContent = omega === 0 ? 'ω = 0' : 'ω';
       plate.rotation.z = 0; shell.setState(state);
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
       root.__SIM3_DEBUG__['ch2-5-3'] = Object.assign({
-        updatedAt: tick, fieldArrowCount: fieldArrows.length,
+        updatedAt: tick, displayScales: { position: 0.55, sampleVelocity: 0.24, fieldVelocity: 0.14, velocityCap: 2.2 }, sampleVelocityCapped: Math.hypot(sampleVelocity.vector.x, sampleVelocity.vector.y, sampleVelocity.vector.z) * 0.24 > 2.2, fieldArrowCount: fieldArrows.length,
         physics: { objectCount: sceneRef.children.length, ic: serial(icMarker.position), sample: serial(sampleMarker.position), omegaAxis: C.axisVector(omega, plane), sampleVelocity: { radius: sampleVelocity.r, vector: sampleVelocity.vector, magnitude: velocityArrow.userData.sim3PhysicalMagnitude }, field },
         visualMetrics: root.Sim3VisualKit && root.Sim3VisualKit.visualMetrics({ velocityScaleFactor: 0.24, constructionArrowScaleFactor: 0.14, constructionOpacity: 0.62, fieldDistributionCue: 'dense-scaled-tangential', radiusGuide: 'P-to-M', velocityLeftMarginTargetPx: 20, radiusGuideContrast: 'enhanced' })
       }, state);

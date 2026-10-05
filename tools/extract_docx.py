@@ -46,6 +46,29 @@ ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 OMML_XSL = r"C:\Program Files\Microsoft Office\root\Office16\OMML2MML.XSL"
 MATHML_NS = "http://www.w3.org/1998/Math/MathML"
 
+# Font-encoded w:sym values are not Unicode. These are the glyphs present in
+# the canonical DOCX, plus common comparison operators. Adobe/Unicode mapping:
+# https://unicode.org/Public/MAPPINGS/VENDORS/ADOBE/symbol.txt
+# Word may store the same byte as U+F000 + byte. Unknown glyphs fail closed.
+SYMBOL_GLYPHS = {
+    0x20: ' ', 0x44: 'Δ', 0x53: 'Σ', 0x61: 'α', 0x62: 'β', 0x65: 'ε',
+    0x67: 'γ', 0x68: 'η', 0x6A: 'ϕ', 0x70: 'π', 0x72: 'ρ', 0x77: 'ω',
+    0x78: 'ξ', 0xA3: '≤', 0xA5: '∞', 0xAB: '↔', 0xAE: '→',
+    0xB1: '±', 0xB3: '≥', 0xB4: '×', 0xB9: '≠', 0xBA: '≡',
+    0xD7: '⋅', 0xDE: '⇒', 0xF2: '∫',
+}
+
+
+def symbol_character(font, value):
+    code = int(value, 16)
+    if (font or '').strip().lower() != 'symbol':
+        return chr(code)
+    if 0xF000 <= code <= 0xF0FF:
+        code -= 0xF000
+    if code not in SYMBOL_GLYPHS:
+        raise ValueError(f'Unmapped Symbol font glyph {value}; review before extracting')
+    return SYMBOL_GLYPHS[code]
+
 
 def resolve_path(path, base=None):
     if os.path.isabs(path):
@@ -662,10 +685,7 @@ def render_run_segments(run, chapter, paragraph_index, paragraph_text, image_wri
         elif child.tag == qn("w", "sym"):
             char = child.get(qn("w", "char"))
             if char:
-                try:
-                    text_buffer.append(chr(int(char, 16)))
-                except ValueError:
-                    pass
+                text_buffer.append(symbol_character(child.get(qn("w", "font")), char))
         elif child.findall(".//a:blip", NS) or child.findall(".//v:imagedata", NS):
             flush_text()
             for image_node in child.findall(".//a:blip", NS):
@@ -1098,6 +1118,14 @@ def extract(args):
     if not os.path.exists(docx_path):
         raise SystemExit(f"Input DOCX not found: {docx_path}")
 
+    # Reject an unknown archival source before cleanup_generated/ImageWriter.prepare.
+    if args.write:
+        from apply_content_errata import validate_source, MANIFEST
+        manifest_path = pathlib.Path(root) / MANIFEST
+        if not manifest_path.is_file():
+            raise SystemExit('Web errata manifest required before writing regenerated content')
+        validate_source(pathlib.Path(root), json.loads(manifest_path.read_text(encoding='utf-8')), actual_source=docx_path)
+
     doc = Document(docx_path)
     xml_paras, rid_to_media, media_blobs = package_data(docx_path)
     if len(xml_paras) != len(doc.paragraphs):
@@ -1230,7 +1258,8 @@ def _run_auto_fix_known_issues(args):
     """Re-apply Phase 02 (replace 8 raster) + Phase 05 (alt/figcaption) post-processors.
 
     Idempotent: if a script already applied its edits, the script exits 0 silently.
-    Errors are logged but do not fail the extract (extract is the load-bearing step).
+    Post-processing failures stop extraction; uncorrected teaching content must not
+    be silently promoted to the offline bundle. Archival DOCX bytes are unchanged.
     """
     import subprocess
     repo = pathlib.Path(__file__).resolve().parent.parent
@@ -1265,8 +1294,11 @@ def _run_auto_fix_known_issues(args):
             print(f'[AUTO-FIX WARN] {rel} crashed: {exc}')
             had_failure = True
     if had_failure:
-        print("[AUTO-FIX WARN] skipping image prune because a post-extract fixer failed")
+        raise SystemExit("Post-extract fixer failed; do not bundle or publish this output")
     else:
+        from apply_content_errata import apply as apply_errata, MANIFEST
+        errata = json.loads((repo / MANIFEST).read_text(encoding="utf-8"))
+        apply_errata(repo, errata, write=True)
         _prune_unreferenced_images(repo)
 
 
@@ -1283,6 +1315,8 @@ def main():
         help="After --write, run scripts/replace-eight-critical-... and apply-image-alt-... in --idempotent mode (default: on).",
     )
     args = parser.parse_args()
+    if args.write and args.auto_fix_known_issues and pathlib.Path(args.output).resolve() != pathlib.Path(__file__).resolve().parent.parent:
+        raise SystemExit("Post-processors require --output to be this checkout; use an isolated checkout for regeneration")
     extract(args)
     if args.write and args.auto_fix_known_issues:
         _run_auto_fix_known_issues(args)

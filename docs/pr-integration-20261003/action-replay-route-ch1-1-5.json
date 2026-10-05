@@ -1,0 +1,1056 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch1-1-5",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "reset",
+        "label": "Đặt lại",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "F1x",
+        "min": -50,
+        "max": 183.3,
+        "value": "40",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "F1y",
+        "min": -150,
+        "max": 83.3,
+        "value": "20",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "F2x",
+        "min": -183.3,
+        "max": 50,
+        "value": "-20",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "F2y",
+        "min": -83.3,
+        "max": 150,
+        "value": "40",
+        "step": "any",
+        "physicalStep": "0.1"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.741Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "Rx",
+          "value": "20.0 N"
+        },
+        {
+          "key": "Ry",
+          "value": "60.0 N"
+        },
+        {
+          "key": "R",
+          "value": "63.2 N"
+        },
+        {
+          "key": "Mo",
+          "value": "-20.0 N·m"
+        },
+        {
+          "key": "force1",
+          "value": "(40.0; 20.0) N"
+        },
+        {
+          "key": "force2",
+          "value": "(-20.0; 40.0) N"
+        },
+        {
+          "key": "system",
+          "value": "R tại O và M₀"
+        },
+        {
+          "key": "inputLimit",
+          "value": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "F1x",
+          "type": "number",
+          "value": "40"
+        },
+        {
+          "id": "F1y",
+          "type": "number",
+          "value": "20"
+        },
+        {
+          "id": "F2x",
+          "type": "number",
+          "value": "-20"
+        },
+        {
+          "id": "F2y",
+          "type": "number",
+          "value": "40"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "reset",
+          "label": "Đặt lại"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "7c3aea31ba0d6256fc91d169aaa3adc3ec176e16788b5a86d77fbc3db7c73a7f",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 9,
+      "nodes": 131,
+      "listenerCount": 29
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 9,
+      "nodes": 131,
+      "listenerCount": 29
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F1x",
+            "value": 183.3,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.744Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "Rx",
+              "value": "20.0 N"
+            },
+            {
+              "key": "Ry",
+              "value": "60.0 N"
+            },
+            {
+              "key": "R",
+              "value": "63.2 N"
+            },
+            {
+              "key": "Mo",
+              "value": "-20.0 N·m"
+            },
+            {
+              "key": "force1",
+              "value": "(40.0; 20.0) N"
+            },
+            {
+              "key": "force2",
+              "value": "(-20.0; 40.0) N"
+            },
+            {
+              "key": "system",
+              "value": "R tại O và M₀"
+            },
+            {
+              "key": "inputLimit",
+              "value": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "F1x",
+              "type": "number",
+              "value": "40"
+            },
+            {
+              "id": "F1y",
+              "type": "number",
+              "value": "20"
+            },
+            {
+              "id": "F2x",
+              "type": "number",
+              "value": "-20"
+            },
+            {
+              "id": "F2y",
+              "type": "number",
+              "value": "40"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset",
+              "label": "Đặt lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "7c3aea31ba0d6256fc91d169aaa3adc3ec176e16788b5a86d77fbc3db7c73a7f",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 9,
+          "nodes": 131,
+          "listenerCount": 29
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F1x",
+            "value": 183.3,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "F1x",
+            "requested": 183.3,
+            "before": "40",
+            "committed": "136.6",
+            "targetReached": false,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.744Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "Rx",
+                  "value": "20.0 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "60.0 N"
+                },
+                {
+                  "key": "R",
+                  "value": "63.2 N"
+                },
+                {
+                  "key": "Mo",
+                  "value": "-20.0 N·m"
+                },
+                {
+                  "key": "force1",
+                  "value": "(40.0; 20.0) N"
+                },
+                {
+                  "key": "force2",
+                  "value": "(-20.0; 40.0) N"
+                },
+                {
+                  "key": "system",
+                  "value": "R tại O và M₀"
+                },
+                {
+                  "key": "inputLimit",
+                  "value": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "40"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "-20"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "40"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "7c3aea31ba0d6256fc91d169aaa3adc3ec176e16788b5a86d77fbc3db7c73a7f",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 9,
+              "nodes": 131,
+              "listenerCount": 29
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.745Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "Rx",
+                  "value": "116.6 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "60.0 N"
+                },
+                {
+                  "key": "R",
+                  "value": "131.1 N"
+                },
+                {
+                  "key": "Mo",
+                  "value": "-116.6 N·m"
+                },
+                {
+                  "key": "force1",
+                  "value": "(136.6; 20.0) N"
+                },
+                {
+                  "key": "force2",
+                  "value": "(-20.0; 40.0) N"
+                },
+                {
+                  "key": "system",
+                  "value": "R tại O và M₀"
+                },
+                {
+                  "key": "inputLimit",
+                  "value": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "136.6"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "-20"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "40"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "9bc43f879a6bbdfe2abbefb5851604414da38bc8126cf5315998898ff9b82a30",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 9,
+              "nodes": 131,
+              "listenerCount": 29
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.745Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "Rx",
+                  "value": "116.6 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "60.0 N"
+                },
+                {
+                  "key": "R",
+                  "value": "131.1 N"
+                },
+                {
+                  "key": "Mo",
+                  "value": "-116.6 N·m"
+                },
+                {
+                  "key": "force1",
+                  "value": "(136.6; 20.0) N"
+                },
+                {
+                  "key": "force2",
+                  "value": "(-20.0; 40.0) N"
+                },
+                {
+                  "key": "system",
+                  "value": "R tại O và M₀"
+                },
+                {
+                  "key": "inputLimit",
+                  "value": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "136.6"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "-20"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "40"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "9bc43f879a6bbdfe2abbefb5851604414da38bc8126cf5315998898ff9b82a30",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 9,
+              "nodes": 131,
+              "listenerCount": 29
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"F1x:number\",\"F1y:number\",\"F2x:number\",\"F2y:number\"]",
+                "expected": "[\"F1x:number\",\"F1y:number\",\"F2x:number\",\"F2y:number\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:F1x",
+                "actual": 136.6,
+                "expected": 136.6,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:F1y",
+                "actual": 20,
+                "expected": 20,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:F2x",
+                "actual": -20,
+                "expected": -20,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:F2y",
+                "actual": 40,
+                "expected": 40,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:force1",
+                "actual": "(136.6; 20.0) N",
+                "expected": "(136.6; 20.0) N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:Rx",
+                "actual": 116.6,
+                "expected": 116.6,
+                "tolerance": 0.05000001,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "ee74439019eaabaf504e1161120cb9385047f69b93acd25b336f357364d60e82"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.746Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "Rx",
+                  "value": "116.6 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "60.0 N"
+                },
+                {
+                  "key": "R",
+                  "value": "131.1 N"
+                },
+                {
+                  "key": "Mo",
+                  "value": "-116.6 N·m"
+                },
+                {
+                  "key": "force1",
+                  "value": "(136.6; 20.0) N"
+                },
+                {
+                  "key": "force2",
+                  "value": "(-20.0; 40.0) N"
+                },
+                {
+                  "key": "system",
+                  "value": "R tại O và M₀"
+                },
+                {
+                  "key": "inputLimit",
+                  "value": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "136.6"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "-20"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "40"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "9bc43f879a6bbdfe2abbefb5851604414da38bc8126cf5315998898ff9b82a30",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 9,
+              "nodes": 131,
+              "listenerCount": 29
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.746Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "Rx",
+                  "value": "20.0 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "60.0 N"
+                },
+                {
+                  "key": "R",
+                  "value": "63.2 N"
+                },
+                {
+                  "key": "Mo",
+                  "value": "-20.0 N·m"
+                },
+                {
+                  "key": "force1",
+                  "value": "(40.0; 20.0) N"
+                },
+                {
+                  "key": "force2",
+                  "value": "(-20.0; 40.0) N"
+                },
+                {
+                  "key": "system",
+                  "value": "R tại O và M₀"
+                },
+                {
+                  "key": "inputLimit",
+                  "value": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "40"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "-20"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "40"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "7c3aea31ba0d6256fc91d169aaa3adc3ec176e16788b5a86d77fbc3db7c73a7f",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 9,
+              "nodes": 131,
+              "listenerCount": 29
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.746Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "Rx",
+                  "value": "20.0 N"
+                },
+                {
+                  "key": "Ry",
+                  "value": "60.0 N"
+                },
+                {
+                  "key": "R",
+                  "value": "63.2 N"
+                },
+                {
+                  "key": "Mo",
+                  "value": "-20.0 N·m"
+                },
+                {
+                  "key": "force1",
+                  "value": "(40.0; 20.0) N"
+                },
+                {
+                  "key": "force2",
+                  "value": "(-20.0; 40.0) N"
+                },
+                {
+                  "key": "system",
+                  "value": "R tại O và M₀"
+                },
+                {
+                  "key": "inputLimit",
+                  "value": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F1x",
+                  "type": "number",
+                  "value": "40"
+                },
+                {
+                  "id": "F1y",
+                  "type": "number",
+                  "value": "20"
+                },
+                {
+                  "id": "F2x",
+                  "type": "number",
+                  "value": "-20"
+                },
+                {
+                  "id": "F2y",
+                  "type": "number",
+                  "value": "40"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "7c3aea31ba0d6256fc91d169aaa3adc3ec176e16788b5a86d77fbc3db7c73a7f",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 9,
+              "nodes": 131,
+              "listenerCount": 29
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:F1x",
+                "actual": 40,
+                "expected": 40,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:F1y",
+                "actual": 20,
+                "expected": 20,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:F2x",
+                "actual": -20,
+                "expected": -20,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:F2y",
+                "actual": 40,
+                "expected": 40,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:Rx",
+                "actual": "20.0 N",
+                "expected": "20.0 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Ry",
+                "actual": "60.0 N",
+                "expected": "60.0 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:R",
+                "actual": "63.2 N",
+                "expected": "63.2 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Mo",
+                "actual": "-20.0 N·m",
+                "expected": "-20.0 N·m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:force1",
+                "actual": "(40.0; 20.0) N",
+                "expected": "(40.0; 20.0) N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:force2",
+                "actual": "(-20.0; 40.0) N",
+                "expected": "(-20.0; 40.0) N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:system",
+                "actual": "R tại O và M₀",
+                "expected": "R tại O và M₀",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:inputLimit",
+                "actual": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn",
+                "expected": "Đầu lực và R trong ±3,5 đơn vị hình; nhập ngoài miền được giới hạn",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "20f63e53710857b47a8ddeba6971676ea186778fa9d66d9eb874f520e72a82d5"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 9,
+          "nodes": 131,
+          "listenerCount": 29
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "reset"
+    ],
+    "plannedActionIds": [
+      "reset"
+    ],
+    "executedActionIds": [
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 1,
+    "executedCases": 1,
+    "operations": 2,
+    "oracleStatuses": {
+      "pass": 2,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 23,
+    "failedChecks": 0
+  }
+}

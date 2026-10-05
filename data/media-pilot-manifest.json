@@ -10,11 +10,31 @@
     "claim": "Technical pilot only. No learner outcome or institutional acceptance claim is made."
   },
   "contractFiles": [
-    { "path": "data/multimedia-gap-analysis.json", "sha256": "7ae1a6267a8589b1d5e0e4398fefc6512f0247f5c3ac3d8645327dd3b0bddff8", "bytes": 6176 },
-    { "path": "data/multimedia-content-contracts.json", "sha256": "67998fea7d6706058efcb30161bf3030b8d435d7fbe929e8edaf552e3bb6e750", "bytes": 5980 },
-    { "path": "data/multimedia-learning-map.json", "sha256": "a6a95661ad57b55ad92fb5149ccdaf1a460d98e56a24d5738804aeadab2c14e8", "bytes": 2182 },
-    { "path": "data/media-manifest.json", "sha256": "5e3e718d65738fd3077a2de5497b701bc93a352017eb76d382cfa94f266152ad", "bytes": 20589 },
-    { "path": "data/multimedia-accessibility.json", "sha256": "80d0886a5f3445aa9afba1700de23c46c5c805016aa6735c3070ed81512d391a", "bytes": 6108 }
+    {
+      "path": "data/multimedia-gap-analysis.json",
+      "sha256": "a2b1d7204211ac4103bd289487197524aa45b3e05324e0ed7cbe919253de698d",
+      "bytes": 7254
+    },
+    {
+      "path": "data/multimedia-content-contracts.json",
+      "sha256": "9e149341c6dc4a45e1eb1b1a25887f66edcdb346370a002e9129db64b3fbbbb1",
+      "bytes": 6786
+    },
+    {
+      "path": "data/multimedia-learning-map.json",
+      "sha256": "43e35c29e4d85b658c1d389c34cf06d226fc94be2e42b52436252e8f382e6761",
+      "bytes": 2254
+    },
+    {
+      "path": "data/media-manifest.json",
+      "sha256": "b7510dd8a4dcac712008b5d362faa84bb3e60da0218112dbc007c0d4df503782",
+      "bytes": 20591
+    },
+    {
+      "path": "data/multimedia-accessibility.json",
+      "sha256": "d6c9af8e6d71f6996b113b4a628e9e5e7af4e948a49f9fee96c3419c1b3dd2e1",
+      "bytes": 5971
+    }
   ],
   "selectedAssetIds": [
     "media-ch1-force-sliding",

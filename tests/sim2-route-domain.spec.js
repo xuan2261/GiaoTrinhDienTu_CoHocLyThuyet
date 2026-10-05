@@ -173,9 +173,12 @@ test('collision reaches tangent contact once and resets after complete exit', as
   const states = await page.evaluate(() => window.__states);
   const impacts = states.filter(s => s.collided && s.impactPoint);
   expect(impacts.length).toBeGreaterThan(0);
-  expect(Math.abs(Math.hypot(impacts[0].p2.x-impacts[0].p1.x, impacts[0].p2.y-impacts[0].p1.y)-(impacts[0].r1+impacts[0].r2))).toBeLessThan(1e-6);
-  expect(Math.hypot(impacts[0].impactPoint.x-impacts[0].p1.x, impacts[0].impactPoint.y-impacts[0].p1.y)).toBeCloseTo(impacts[0].r1, 6);
-  expect(Math.hypot(impacts[0].impactPoint.x-impacts[0].p2.x, impacts[0].impactPoint.y-impacts[0].p2.y)).toBeCloseTo(impacts[0].r2, 6);
+  // Contact is an event snapshot; end-of-step positions include the remaining dt.
+  const contact = impacts[0].impactContact;
+  expect(contact).toBeTruthy();
+  expect(Math.hypot(contact.p2.x-contact.p1.x, contact.p2.y-contact.p1.y)).toBeCloseTo(impacts[0].r1+impacts[0].r2, 6);
+  expect(Math.hypot(impacts[0].impactPoint.x-contact.p1.x, impacts[0].impactPoint.y-contact.p1.y)).toBeCloseTo(impacts[0].r1, 6);
+  expect(Math.hypot(impacts[0].impactPoint.x-contact.p2.x, impacts[0].impactPoint.y-contact.p2.y)).toBeCloseTo(impacts[0].r2, 6);
   expect(new Set(impacts.map(s => `${s.impactPoint.x},${s.impactPoint.y}`)).size).toBe(1);
   expect(states.at(-1).collided).toBe(false);
 });

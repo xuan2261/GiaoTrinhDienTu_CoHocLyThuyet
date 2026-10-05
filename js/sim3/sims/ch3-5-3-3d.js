@@ -5,7 +5,7 @@
     const P = root.Sim3Primitives;
     const C = root.Sim3Coordinates;
     const DISPLAY_SCALE = 0.62;
-    let THREERef, pivot, mass1, mass2, arm1, arm2, lArrow, orbit, hub, tick = 0;
+    let THREERef, pivot, mass1, mass2, arm1, arm2, lArrow, orbit, hub, energyLabel, tick = 0;
     const shell = root.Sim3Shell.create({
       host: opts.host,
       referenceEl: opts.referenceEl,
@@ -34,8 +34,9 @@
         scene.add(grid);
         labels.add('mass-1', 'm₁', () => mass1.position, { dx: 22, dy: -12 });
         labels.add('mass-2', 'm₂', () => mass2.position, { dx: -46, dy: -28 });
-        labels.add('angular-momentum', 'L', () => lArrow.position, { dx: -34, dy: -20 });
-        labels.add('radius', 'r', () => arm1.position, { dx: 24, dy: 34 });
+        labels.add('angular-momentum', 'L (kg·m²/s)', () => lArrow.position, { dx: -34, dy: -20 });
+        energyLabel = labels.add('energy', 'E quay', () => hub.position, {dx:0,dy:48});
+        labels.add('radius', 'r (m)', () => arm1.position, { dx: 24, dy: 34 });
       }
     });
     if (!shell) return null;
@@ -62,6 +63,8 @@
       P.setCylinderBetween(THREERef, arm1, { x: 0, y: 0, z: 0 }, p1);
       P.setCylinderBetween(THREERef, arm2, { x: 0, y: 0, z: 0 }, p2);
       P.updateArrow(THREERef, lArrow, C.axisVector(signedL, C.PLANES.HORIZONTAL), { base: { x: -2.2, y: -0.6, z: 0 }, factor: 0.06, maxLength: 1.8 });
+      const rotationalEnergy=Number.isFinite(state.rotationalEnergy)?state.rotationalEnergy:.5*(state.inertia||0)*omega*omega;
+      if(energyLabel) energyLabel.textContent='E quay = '+rotationalEnergy.toFixed(2)+' J';
       shell.setState(state);
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
       root.__SIM3_DEBUG__['ch3-5-3'] = Object.assign({
@@ -78,7 +81,10 @@
           rightHandCross: cross,
           inertia: state.inertia,
           omega,
-          angularMomentum: signedL,
+          angularMomentum: signedL, rotationalEnergy,
+          workFromInitial:state.workFromInitial,
+          modelAssumptions:'no-external-torque; prescribed-radius; radial-energy-not-modelled',
+          angularMomentumUnits:'kg·m²/s', rotationalEnergyUnits:'J',
           angularMomentumArrow: { visible: lArrow.visible, magnitude: lArrow.userData.sim3PhysicalMagnitude, displayLength: lArrow.userData.sim3DisplayLength, direction: lArrow.userData.sim3DirectionVector ? { x: lArrow.userData.sim3DirectionVector.x, y: lArrow.userData.sim3DirectionVector.y, z: lArrow.userData.sim3DirectionVector.z } : { x: 0, y: 0, z: 0 } }
         },
         visualMetrics: root.Sim3VisualKit && root.Sim3VisualKit.visualMetrics({

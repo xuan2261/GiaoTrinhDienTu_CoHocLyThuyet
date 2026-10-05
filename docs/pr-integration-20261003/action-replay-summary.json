@@ -1,0 +1,426 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "startedAt": "2026-10-03T23:54:42.573Z",
+  "finishedAt": "2026-10-03T23:54:43.377Z",
+  "node": "v24.19.0",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "routes": 25,
+  "cases": 61,
+  "executedCases": 61,
+  "operations": 133,
+  "oracleStatuses": {
+    "pass": 133,
+    "fail": 0,
+    "not-evaluated": 0
+  },
+  "boundedChecks": 1153,
+  "failedChecks": 0,
+  "routeReceipts": [
+    {
+      "route": "ch1-1-3",
+      "file": "action-replay-route-ch1-1-3.json",
+      "sha256": "83cfa532d754ce5f595a33f94f460e42eda115d2246e6ff42ca1119a463e4396",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 16,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch1-1-4",
+      "file": "action-replay-route-ch1-1-4.json",
+      "sha256": "cac45c6b64e0addc1e1adb109916cc23522c2db7cbf817fb1331cdd7d2b9d4fc",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 15,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch1-1-5",
+      "file": "action-replay-route-ch1-1-5.json",
+      "sha256": "b8be581ba5bb7386ade4701675f732d4e69b8bc2e61290eb5694ae2d5cfa5967",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 23,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch1-1-6",
+      "file": "action-replay-route-ch1-1-6.json",
+      "sha256": "bb5cb1831c62fe5ccfdcd47d12e0425f5755c9cb8512aeed91445f498fba00e7",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 13,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch1-2-3",
+      "file": "action-replay-route-ch1-2-3.json",
+      "sha256": "8f9e2dbec20912b46585a525ab1c6283e8df18e8a858abeae03e2fc9a44cfc50",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 22,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch1-1-8",
+      "file": "action-replay-route-ch1-1-8.json",
+      "sha256": "56c5b5c8ef9fb83ce45643f96f35d6d8c14bdf6a843405a51357c924a96c26d4",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 19,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch1-3-2",
+      "file": "action-replay-route-ch1-3-2.json",
+      "sha256": "8fc6b6a2d1a771748612590e63a4b1a759e04d6e3a0f3b1151b4b885c3c555e2",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 15,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch1-3-6",
+      "file": "action-replay-route-ch1-3-6.json",
+      "sha256": "2a270764abbce1cd7556cf6ca23da3cb81d5409e4562b451dc9f0dccaeb1f2ec",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 19,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch1-5-3",
+      "file": "action-replay-route-ch1-5-3.json",
+      "sha256": "a26f17119a350c06d53712363830dccc4a57261fdae5af5fcbbebd9bac588200",
+      "cases": 3,
+      "executedCases": 3,
+      "operations": 6,
+      "oracleStatuses": {
+        "pass": 6,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 43,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch1-6-3",
+      "file": "action-replay-route-ch1-6-3.json",
+      "sha256": "2f31a6f9c97b632de6c2ca29e092f334693dde52a1fd6d3cba55525fecd3d080",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 19,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch2-1-1",
+      "file": "action-replay-route-ch2-1-1.json",
+      "sha256": "f4123f13a52ed0ca947f3e6a5d2c708cef79094885bacff4cac37fb7cfe68111",
+      "cases": 4,
+      "executedCases": 4,
+      "operations": 7,
+      "oracleStatuses": {
+        "pass": 7,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 51,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch2-1-3",
+      "file": "action-replay-route-ch2-1-3.json",
+      "sha256": "fc38a5a237d91d0cc151dbec36c44755f87bdbbe049a47856aa9c1bfd9dad86a",
+      "cases": 3,
+      "executedCases": 3,
+      "operations": 8,
+      "oracleStatuses": {
+        "pass": 8,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 58,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch2-2-2",
+      "file": "action-replay-route-ch2-2-2.json",
+      "sha256": "f549c8084866da1b086e2dde4f14fbb76b0255271c39de33129b6a036a2f6a63",
+      "cases": 3,
+      "executedCases": 3,
+      "operations": 6,
+      "oracleStatuses": {
+        "pass": 6,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 36,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch2-3-2",
+      "file": "action-replay-route-ch2-3-2.json",
+      "sha256": "ebacca58266d344ed922588daf0ff7000ea25ef8eab17af9dfdd21d56be423e2",
+      "cases": 0,
+      "executedCases": 0,
+      "operations": 0,
+      "oracleStatuses": {
+        "pass": 0,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 0,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch2-4-4",
+      "file": "action-replay-route-ch2-4-4.json",
+      "sha256": "bc72c8d50161993bdcd9ba4d5acd83d44a586f1fb5290bbff0ea30c6e34d3fae",
+      "cases": 0,
+      "executedCases": 0,
+      "operations": 0,
+      "oracleStatuses": {
+        "pass": 0,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 0,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch2-5-2",
+      "file": "action-replay-route-ch2-5-2.json",
+      "sha256": "d40eb0f2f0995fd1412c4ba332a21d3eda650a100ae08010084a4a067c8f290e",
+      "cases": 3,
+      "executedCases": 3,
+      "operations": 8,
+      "oracleStatuses": {
+        "pass": 8,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 63,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch2-5-3",
+      "file": "action-replay-route-ch2-5-3.json",
+      "sha256": "6990956102761a90747e30fc22d6381f43bbeb38aeda1b70cff157ee08f29997",
+      "cases": 6,
+      "executedCases": 6,
+      "operations": 17,
+      "oracleStatuses": {
+        "pass": 17,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 287,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch3-2-2",
+      "file": "action-replay-route-ch3-2-2.json",
+      "sha256": "a26479b94692dcf4a64f23f5758391d9c209899eae867d692ee6c5a6a4aea004",
+      "cases": 3,
+      "executedCases": 3,
+      "operations": 10,
+      "oracleStatuses": {
+        "pass": 10,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 64,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch3-2-3",
+      "file": "action-replay-route-ch3-2-3.json",
+      "sha256": "fbe8917151403716c5306f459037e3c72e94644ead6374d44291e3f7ba71b79c",
+      "cases": 5,
+      "executedCases": 5,
+      "operations": 8,
+      "oracleStatuses": {
+        "pass": 8,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 38,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch3-1-3",
+      "file": "action-replay-route-ch3-1-3.json",
+      "sha256": "9f9a31010994d372f92b5b18ec15f9c76a48862478b9fb3d2155fc420e60d6a1",
+      "cases": 4,
+      "executedCases": 4,
+      "operations": 6,
+      "oracleStatuses": {
+        "pass": 6,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 60,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch3-3-1",
+      "file": "action-replay-route-ch3-3-1.json",
+      "sha256": "ca20680f69a6e39ed59ceb45a4feca7b760f76fea0950721c961d53b9f78583e",
+      "cases": 2,
+      "executedCases": 2,
+      "operations": 5,
+      "oracleStatuses": {
+        "pass": 5,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 17,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch3-5-2",
+      "file": "action-replay-route-ch3-5-2.json",
+      "sha256": "c0f50c32df73ed41dd7185fcac05024bb5851f18f88e1f63a4ce0b0909426934",
+      "cases": 4,
+      "executedCases": 4,
+      "operations": 6,
+      "oracleStatuses": {
+        "pass": 6,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 47,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch3-5-3",
+      "file": "action-replay-route-ch3-5-3.json",
+      "sha256": "42242e02df1c1787a33910dd6bf2529197b9797d81bd8e6d1bd8c63dc15ecf22",
+      "cases": 4,
+      "executedCases": 4,
+      "operations": 10,
+      "oracleStatuses": {
+        "pass": 10,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 92,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch3-5-4",
+      "file": "action-replay-route-ch3-5-4.json",
+      "sha256": "296b375aaa4666b5e8744b98e09377f96c88186256659e9662a38ee41bc850d4",
+      "cases": 1,
+      "executedCases": 1,
+      "operations": 2,
+      "oracleStatuses": {
+        "pass": 2,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 19,
+      "failedChecks": 0
+    },
+    {
+      "route": "ch3-6-2",
+      "file": "action-replay-route-ch3-6-2.json",
+      "sha256": "730f7e4d8749869184c819b717142e88729e7b8abf439659e9925e627c737fab",
+      "cases": 7,
+      "executedCases": 7,
+      "operations": 16,
+      "oracleStatuses": {
+        "pass": 16,
+        "fail": 0,
+        "not-evaluated": 0
+      },
+      "boundedChecks": 117,
+      "failedChecks": 0
+    }
+  ],
+  "receiptRevalidation": {
+    "status": "pass",
+    "errors": []
+  },
+  "sourceVerification": {
+    "product": [],
+    "collector": [],
+    "harness": [],
+    "replayUnchanged": true,
+    "headBefore": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+    "headAfter": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+    "statusBefore": "",
+    "statusAfter": ""
+  },
+  "failures": [],
+  "status": "pass"
+}

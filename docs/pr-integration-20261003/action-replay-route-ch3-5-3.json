@@ -1,0 +1,4485 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch3-5-3",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "capture-state",
+        "label": "Lưu trạng thái tham chiếu",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "radius-full",
+        "label": "r = 3 m",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "radius-half",
+        "label": "r = 1,5 m",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "r",
+        "min": 0.8,
+        "max": 3.5,
+        "value": "3",
+        "step": "any",
+        "physicalStep": "0.1"
+      }
+    ],
+    "playback": true
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:43.121Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "r",
+          "value": "3 m"
+        },
+        {
+          "key": "I",
+          "value": "36.00 kg·m²"
+        },
+        {
+          "key": "omega",
+          "value": "1.00 rad/s"
+        },
+        {
+          "key": "L",
+          "value": "36.00 kg·m²/s (không đổi)"
+        },
+        {
+          "key": "energy",
+          "value": "18.00000 J"
+        },
+        {
+          "key": "work",
+          "value": "0.00000 J"
+        },
+        {
+          "key": "referenceRadius",
+          "value": "3.00 m"
+        },
+        {
+          "key": "referenceInertia",
+          "value": "36.0000 kg·m²"
+        },
+        {
+          "key": "referenceOmega",
+          "value": "1.0000 rad/s"
+        },
+        {
+          "key": "referenceEnergy",
+          "value": "18.00000 J"
+        },
+        {
+          "key": "deltaEnergy",
+          "value": "0.00000 J"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "r",
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "id": "r",
+          "type": "number",
+          "value": "3"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "capture-state",
+          "label": "Lưu trạng thái tham chiếu"
+        },
+        {
+          "id": "radius-full",
+          "label": "r = 3 m"
+        },
+        {
+          "id": "radius-half",
+          "label": "r = 1,5 m"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": "Chạy"
+    },
+    "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 123,
+      "listenerCount": 21
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": "Chạy",
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 123,
+      "listenerCount": 21
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-capture-state",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "radius-half"
+          },
+          {
+            "type": "action",
+            "action": "capture-state"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.123Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "r",
+              "value": "3 m"
+            },
+            {
+              "key": "I",
+              "value": "36.00 kg·m²"
+            },
+            {
+              "key": "omega",
+              "value": "1.00 rad/s"
+            },
+            {
+              "key": "L",
+              "value": "36.00 kg·m²/s (không đổi)"
+            },
+            {
+              "key": "energy",
+              "value": "18.00000 J"
+            },
+            {
+              "key": "work",
+              "value": "0.00000 J"
+            },
+            {
+              "key": "referenceRadius",
+              "value": "3.00 m"
+            },
+            {
+              "key": "referenceInertia",
+              "value": "36.0000 kg·m²"
+            },
+            {
+              "key": "referenceOmega",
+              "value": "1.0000 rad/s"
+            },
+            {
+              "key": "referenceEnergy",
+              "value": "18.00000 J"
+            },
+            {
+              "key": "deltaEnergy",
+              "value": "0.00000 J"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "r",
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "id": "r",
+              "type": "number",
+              "value": "3"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "capture-state",
+              "label": "Lưu trạng thái tham chiếu"
+            },
+            {
+              "id": "radius-full",
+              "label": "r = 3 m"
+            },
+            {
+              "id": "radius-half",
+              "label": "r = 1,5 m"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 123,
+          "listenerCount": 21
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "radius-half"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "radius-half",
+              "label": "r = 1,5 m"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.123Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.124Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "17b0cd75154cc249d918deb0f3866fcc683f502b85b2152cad3ca44c94dc91fe",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.124Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "17b0cd75154cc249d918deb0f3866fcc683f502b85b2152cad3ca44c94dc91fe",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:r",
+                "actual": 1.5,
+                "expected": 1.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:referenceRadius",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 9,
+                "expected": 9,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 4,
+                "expected": 4,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 72,
+                "expected": 72,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:referenceEnergy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": 54,
+                "expected": 54,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "a607790bdc7f83e708250e5ddd25ccbfa2f90d0fcf53258705c9888d48d022c3"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "capture-state"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "capture-state",
+              "label": "Lưu trạng thái tham chiếu"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.124Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "17b0cd75154cc249d918deb0f3866fcc683f502b85b2152cad3ca44c94dc91fe",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.124Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "1.50 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "9.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "4.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "eab2ec6a37b47db32079ca17dfb7fadccf0e55e8a08d73eed578366aaf6dd42c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.125Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "1.50 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "9.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "4.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "eab2ec6a37b47db32079ca17dfb7fadccf0e55e8a08d73eed578366aaf6dd42c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:r",
+                "actual": 1.5,
+                "expected": 1.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:referenceRadius",
+                "actual": 1.5,
+                "expected": 1.5,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 9,
+                "expected": 9,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 4,
+                "expected": 4,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 72,
+                "expected": 72,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:referenceEnergy",
+                "actual": 72,
+                "expected": 72,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "591f2254acb55bfb96954ba8957878cdeef1d378b291f03569ee8e56fb8e9118"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 123,
+          "listenerCount": 21
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-1-radius-full",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "radius-full"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.127Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "r",
+              "value": "3 m"
+            },
+            {
+              "key": "I",
+              "value": "36.00 kg·m²"
+            },
+            {
+              "key": "omega",
+              "value": "1.00 rad/s"
+            },
+            {
+              "key": "L",
+              "value": "36.00 kg·m²/s (không đổi)"
+            },
+            {
+              "key": "energy",
+              "value": "18.00000 J"
+            },
+            {
+              "key": "work",
+              "value": "0.00000 J"
+            },
+            {
+              "key": "referenceRadius",
+              "value": "3.00 m"
+            },
+            {
+              "key": "referenceInertia",
+              "value": "36.0000 kg·m²"
+            },
+            {
+              "key": "referenceOmega",
+              "value": "1.0000 rad/s"
+            },
+            {
+              "key": "referenceEnergy",
+              "value": "18.00000 J"
+            },
+            {
+              "key": "deltaEnergy",
+              "value": "0.00000 J"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "r",
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "id": "r",
+              "type": "number",
+              "value": "3"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "capture-state",
+              "label": "Lưu trạng thái tham chiếu"
+            },
+            {
+              "id": "radius-full",
+              "label": "r = 3 m"
+            },
+            {
+              "id": "radius-half",
+              "label": "r = 1,5 m"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 123,
+          "listenerCount": 21
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "radius-full"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "radius-full",
+              "label": "r = 3 m"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.127Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.128Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.128Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:r",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:referenceRadius",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 36,
+                "expected": 36,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:referenceEnergy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "903048440bd84a5d5815a363e973385a64da2d2c2d139059058cd13776673d9d"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 123,
+          "listenerCount": 21
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-2-radius-half",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "radius-half"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.130Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "r",
+              "value": "3 m"
+            },
+            {
+              "key": "I",
+              "value": "36.00 kg·m²"
+            },
+            {
+              "key": "omega",
+              "value": "1.00 rad/s"
+            },
+            {
+              "key": "L",
+              "value": "36.00 kg·m²/s (không đổi)"
+            },
+            {
+              "key": "energy",
+              "value": "18.00000 J"
+            },
+            {
+              "key": "work",
+              "value": "0.00000 J"
+            },
+            {
+              "key": "referenceRadius",
+              "value": "3.00 m"
+            },
+            {
+              "key": "referenceInertia",
+              "value": "36.0000 kg·m²"
+            },
+            {
+              "key": "referenceOmega",
+              "value": "1.0000 rad/s"
+            },
+            {
+              "key": "referenceEnergy",
+              "value": "18.00000 J"
+            },
+            {
+              "key": "deltaEnergy",
+              "value": "0.00000 J"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "r",
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "id": "r",
+              "type": "number",
+              "value": "3"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "capture-state",
+              "label": "Lưu trạng thái tham chiếu"
+            },
+            {
+              "id": "radius-full",
+              "label": "r = 3 m"
+            },
+            {
+              "id": "radius-half",
+              "label": "r = 1,5 m"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 123,
+          "listenerCount": 21
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "radius-half"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "radius-half",
+              "label": "r = 1,5 m"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.130Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.131Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "17b0cd75154cc249d918deb0f3866fcc683f502b85b2152cad3ca44c94dc91fe",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.137Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "17b0cd75154cc249d918deb0f3866fcc683f502b85b2152cad3ca44c94dc91fe",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:r",
+                "actual": 1.5,
+                "expected": 1.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:referenceRadius",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 9,
+                "expected": 9,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 4,
+                "expected": 4,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 72,
+                "expected": 72,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:referenceEnergy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": 54,
+                "expected": 54,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "a607790bdc7f83e708250e5ddd25ccbfa2f90d0fcf53258705c9888d48d022c3"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 123,
+          "listenerCount": 21
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "experiment-angular-reference",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "steps",
+            "steps": 30
+          },
+          {
+            "type": "action",
+            "action": "radius-full"
+          },
+          {
+            "type": "action",
+            "action": "capture-state"
+          },
+          {
+            "type": "action",
+            "action": "radius-half"
+          },
+          {
+            "type": "action",
+            "action": "capture-state"
+          },
+          {
+            "type": "action",
+            "action": "radius-full"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.140Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "r",
+              "value": "3 m"
+            },
+            {
+              "key": "I",
+              "value": "36.00 kg·m²"
+            },
+            {
+              "key": "omega",
+              "value": "1.00 rad/s"
+            },
+            {
+              "key": "L",
+              "value": "36.00 kg·m²/s (không đổi)"
+            },
+            {
+              "key": "energy",
+              "value": "18.00000 J"
+            },
+            {
+              "key": "work",
+              "value": "0.00000 J"
+            },
+            {
+              "key": "referenceRadius",
+              "value": "3.00 m"
+            },
+            {
+              "key": "referenceInertia",
+              "value": "36.0000 kg·m²"
+            },
+            {
+              "key": "referenceOmega",
+              "value": "1.0000 rad/s"
+            },
+            {
+              "key": "referenceEnergy",
+              "value": "18.00000 J"
+            },
+            {
+              "key": "deltaEnergy",
+              "value": "0.00000 J"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "r",
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "id": "r",
+              "type": "number",
+              "value": "3"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "capture-state",
+              "label": "Lưu trạng thái tham chiếu"
+            },
+            {
+              "id": "radius-full",
+              "label": "r = 3 m"
+            },
+            {
+              "id": "radius-half",
+              "label": "r = 1,5 m"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": "Chạy"
+        },
+        "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 123,
+          "listenerCount": 21
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "steps",
+            "steps": 30
+          },
+          "actual": {
+            "dispatch": "CPU recording-node clicks -> production step button handler",
+            "cpuClickCount": 30,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.140Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "7ae6d6b5053dc0a558168088674b1ecf219ad8078356d1b90ea748968d76d582",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.142Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "b9ad850b27821afdac79d720e58c7ee083e063387a470522c0379dac411e21e9",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.142Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "b9ad850b27821afdac79d720e58c7ee083e063387a470522c0379dac411e21e9",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "quantitative-angular-state-and-clock",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "angular-step-count",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "angular-start-time",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0.49999999999999994,
+                "expected": 0.5,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              },
+              {
+                "key": "control:r",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "angular-radius-domain",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:r",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 36,
+                "expected": 36,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:L",
+                "actual": 36,
+                "expected": 36,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:work",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "reference-present:referenceRadius",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Captured reference readout preservation across steps; rounded reference radius is not exact model state"
+              },
+              {
+                "key": "reference-preserved:referenceRadius",
+                "actual": "3.00 m",
+                "expected": "3.00 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Captured reference readout preservation across steps; rounded reference radius is not exact model state"
+              },
+              {
+                "key": "reference-present:referenceInertia",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Captured reference readout preservation across steps; rounded reference radius is not exact model state"
+              },
+              {
+                "key": "reference-preserved:referenceInertia",
+                "actual": "36.0000 kg·m²",
+                "expected": "36.0000 kg·m²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Captured reference readout preservation across steps; rounded reference radius is not exact model state"
+              },
+              {
+                "key": "reference-present:referenceOmega",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Captured reference readout preservation across steps; rounded reference radius is not exact model state"
+              },
+              {
+                "key": "reference-preserved:referenceOmega",
+                "actual": "1.0000 rad/s",
+                "expected": "1.0000 rad/s",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Captured reference readout preservation across steps; rounded reference radius is not exact model state"
+              },
+              {
+                "key": "reference-present:referenceEnergy",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Captured reference readout preservation across steps; rounded reference radius is not exact model state"
+              },
+              {
+                "key": "reference-preserved:referenceEnergy",
+                "actual": "18.00000 J",
+                "expected": "18.00000 J",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Captured reference readout preservation across steps; rounded reference radius is not exact model state"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.0000100001,
+                "pass": true,
+                "scope": "Independent current rotational energy minus observed prior reference energy; combined display-rounding tolerance"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "c9ca46b1e9d2d50186bfb07af5b2de08d383c7977d52c11cd2428845864c10c0"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "radius-full"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "radius-full",
+              "label": "r = 3 m"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.142Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "b9ad850b27821afdac79d720e58c7ee083e063387a470522c0379dac411e21e9",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.143Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "b9ad850b27821afdac79d720e58c7ee083e063387a470522c0379dac411e21e9",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.143Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "b9ad850b27821afdac79d720e58c7ee083e063387a470522c0379dac411e21e9",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:r",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:referenceRadius",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 36,
+                "expected": 36,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:referenceEnergy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0.49999999999999994,
+                "expected": 0.49999999999999994,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "d49ff41f5cff27831f9e2d554d24df6f5691afcc0a865400cd06e053b843665c"
+        },
+        {
+          "index": 2,
+          "requested": {
+            "type": "action",
+            "action": "capture-state"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "capture-state",
+              "label": "Lưu trạng thái tham chiếu"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.144Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "b9ad850b27821afdac79d720e58c7ee083e063387a470522c0379dac411e21e9",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.144Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "b9ad850b27821afdac79d720e58c7ee083e063387a470522c0379dac411e21e9",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.144Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "b9ad850b27821afdac79d720e58c7ee083e063387a470522c0379dac411e21e9",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:r",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:referenceRadius",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 36,
+                "expected": 36,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:referenceEnergy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0.49999999999999994,
+                "expected": 0.49999999999999994,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "d49ff41f5cff27831f9e2d554d24df6f5691afcc0a865400cd06e053b843665c"
+        },
+        {
+          "index": 3,
+          "requested": {
+            "type": "action",
+            "action": "radius-half"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "radius-half",
+              "label": "r = 1,5 m"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.144Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "b9ad850b27821afdac79d720e58c7ee083e063387a470522c0379dac411e21e9",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.145Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "d7d25717bfde22109126c9cec6682007f190628d02c2ec91b91b6c603886ec4c",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.145Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "d7d25717bfde22109126c9cec6682007f190628d02c2ec91b91b6c603886ec4c",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:r",
+                "actual": 1.5,
+                "expected": 1.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:referenceRadius",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 9,
+                "expected": 9,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 4,
+                "expected": 4,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 72,
+                "expected": 72,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:referenceEnergy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": 54,
+                "expected": 54,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0.49999999999999994,
+                "expected": 0.49999999999999994,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "119f8ba299a09133f3173988a99fd3c751c9ebed496c8edb306e9f1910a81456"
+        },
+        {
+          "index": 4,
+          "requested": {
+            "type": "action",
+            "action": "capture-state"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "capture-state",
+              "label": "Lưu trạng thái tham chiếu"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.145Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "3.00 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "36.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "1.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "d7d25717bfde22109126c9cec6682007f190628d02c2ec91b91b6c603886ec4c",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.146Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "1.50 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "9.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "4.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "81ae5b7c621290fa0b3f91b723f2742de59ad3713dc5bf32690629955c4123ff",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.146Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "1.50 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "9.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "4.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "81ae5b7c621290fa0b3f91b723f2742de59ad3713dc5bf32690629955c4123ff",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:r",
+                "actual": 1.5,
+                "expected": 1.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:referenceRadius",
+                "actual": 1.5,
+                "expected": 1.5,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 9,
+                "expected": 9,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 4,
+                "expected": 4,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 72,
+                "expected": 72,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:referenceEnergy",
+                "actual": 72,
+                "expected": 72,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0.49999999999999994,
+                "expected": 0.49999999999999994,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "450d222b7b5f8652459b26ca2d4cdc5e3afd7d4425bda2cd6b86d2a66237c0b6"
+        },
+        {
+          "index": 5,
+          "requested": {
+            "type": "action",
+            "action": "radius-full"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "radius-full",
+              "label": "r = 3 m"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.146Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "1.5 m"
+                },
+                {
+                  "key": "I",
+                  "value": "9.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "4.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "54.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "1.50 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "9.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "4.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "0.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "1.5"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "1.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "81ae5b7c621290fa0b3f91b723f2742de59ad3713dc5bf32690629955c4123ff",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.146Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "1.50 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "9.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "4.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "-54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "606c6d88297132b6c47a0a4308946b609089c362be206430cb9527a9d960b841",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.147Z",
+            "state": {
+              "clockSeconds": 0.49999999999999994,
+              "readoutValues": [
+                {
+                  "key": "r",
+                  "value": "3 m"
+                },
+                {
+                  "key": "I",
+                  "value": "36.00 kg·m²"
+                },
+                {
+                  "key": "omega",
+                  "value": "1.00 rad/s"
+                },
+                {
+                  "key": "L",
+                  "value": "36.00 kg·m²/s (không đổi)"
+                },
+                {
+                  "key": "energy",
+                  "value": "18.00000 J"
+                },
+                {
+                  "key": "work",
+                  "value": "0.00000 J"
+                },
+                {
+                  "key": "referenceRadius",
+                  "value": "1.50 m"
+                },
+                {
+                  "key": "referenceInertia",
+                  "value": "9.0000 kg·m²"
+                },
+                {
+                  "key": "referenceOmega",
+                  "value": "4.0000 rad/s"
+                },
+                {
+                  "key": "referenceEnergy",
+                  "value": "72.00000 J"
+                },
+                {
+                  "key": "deltaEnergy",
+                  "value": "-54.00000 J"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "r",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "r",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "capture-state",
+                  "label": "Lưu trạng thái tham chiếu"
+                },
+                {
+                  "id": "radius-full",
+                  "label": "r = 3 m"
+                },
+                {
+                  "id": "radius-half",
+                  "label": "r = 1,5 m"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": "Chạy"
+            },
+            "stateHash": "606c6d88297132b6c47a0a4308946b609089c362be206430cb9527a9d960b841",
+            "context": {
+              "clockSeconds": 0.49999999999999994,
+              "playbackLabel": "Chạy",
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 123,
+              "listenerCount": 21
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:r",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:referenceRadius",
+                "actual": 1.5,
+                "expected": 1.5,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:I",
+                "actual": 36,
+                "expected": 36,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:omega",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0.00500001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:energy",
+                "actual": 18,
+                "expected": 18,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:referenceEnergy",
+                "actual": 72,
+                "expected": 72,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:deltaEnergy",
+                "actual": -54,
+                "expected": -54,
+                "tolerance": 0.00000501,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "clockSeconds",
+                "actual": 0.49999999999999994,
+                "expected": 0.49999999999999994,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "observed production physical clock; independent expected time"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "e24e0787133b69774945f46aaa27f32db0cf1e3142d2343e503d973007c959b7"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0.49999999999999994,
+          "playbackLabel": "Chạy",
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 123,
+          "listenerCount": 21
+        },
+        "after": {
+          "clockSeconds": 0.49999999999999994,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "capture-state",
+      "radius-full",
+      "radius-half"
+    ],
+    "plannedActionIds": [
+      "radius-half",
+      "capture-state",
+      "radius-full"
+    ],
+    "executedActionIds": [
+      "radius-half",
+      "capture-state",
+      "radius-full"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 4,
+    "executedCases": 4,
+    "operations": 10,
+    "oracleStatuses": {
+      "pass": 10,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 92,
+    "failedChecks": 0
+  }
+}

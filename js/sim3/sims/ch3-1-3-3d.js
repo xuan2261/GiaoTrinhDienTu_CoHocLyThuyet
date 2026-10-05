@@ -6,7 +6,7 @@
     const C = root.Sim3Coordinates;
     const LENGTH = 1.35;
     const pivot = { x: 0, y: 1.95, z: 0 };
-    let THREERef, car, cord, cordAxis, bob, aArrow, fArrow, thetaGuide, thetaArc, tick = 0;
+    let THREERef, car, cord, cordAxis, bob, aArrow, fArrow, gravityArrow, tensionArrow, thetaGuide, thetaArc, tick = 0;
     const shell = root.Sim3Shell.create({
       host: opts.host,
       referenceEl: opts.referenceEl,
@@ -40,17 +40,22 @@
 
         aArrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.a, { radius: 0.045, headRadius: 0.14, headLength: 0.36 });
         fArrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.force, { radius: 0.045, headRadius: 0.14, headLength: 0.36 });
+        gravityArrow = P.arrow(THREE, root.Sim3VisualKit.colors.v, { radius:.035,headRadius:.1,headLength:.2 });
+        tensionArrow = P.arrow(THREE, root.Sim3VisualKit.colors.reaction || 0xb10dc9, { radius:.035,headRadius:.1,headLength:.2 });
+        scene.add(gravityArrow,tensionArrow);
         thetaGuide = root.Sim3Primitives.cylinderBetween(THREE, { x: 0, y: 1.95, z: 0 }, { x: 0, y: 0.75, z: 0 }, 0.018, root.Sim3VisualKit.colors.guide);
         thetaArc = new THREE.Mesh(
           new THREE.TorusGeometry(0.42, 0.014, 8, 48, Math.PI / 2),
           root.Sim3VisualKit.material(THREE, 'guide', { transparent: true, opacity: 0.72, emissive: 0x111827 })
         );
-        thetaArc.position.set(0, 1.72, 0.04);
-        thetaArc.rotation.x = Math.PI / 2;
+        thetaArc.position.set(pivot.x, pivot.y, pivot.z + 0.04);
+        thetaArc.visible = false;
         scene.add(aArrow, fArrow, thetaGuide, thetaArc);
 
         labels.add('a', 'a', () => aArrow.position, root.Sim3VisualKit.labelOffset('vector'));
-        labels.add('f', 'F*', () => fArrow.position, root.Sim3VisualKit.labelOffset('vector', { dx: -16, dy: 8 }));
+        labels.add('f', 'F*', () => fArrow.visible ? fArrow.position : null, root.Sim3VisualKit.labelOffset('vector', { dx: -16, dy: 8 }));
+        labels.add('gravity', 'P=mg', () => gravityArrow.position, {dx:18,dy:32});
+        labels.add('tension', 'T', () => tensionArrow.position, {dx:22,dy:-32});
         labels.add('theta', 'θ', () => bob.position, root.Sim3VisualKit.labelOffset('point', { dx: 20, dy: -12 }));
       }
     });
@@ -68,10 +73,25 @@
       bob.position.set(bobPoint.x, bobPoint.y, bobPoint.z);
       P.setCylinderBetween(THREERef, cord, pivot, bobPoint);
       P.setCylinderBetween(THREERef, thetaGuide, pivot, { x: pivot.x, y: pivot.y - LENGTH, z: pivot.z });
-      thetaArc.scale.setScalar(Math.max(0.75, Math.min(1.18, 0.85 + theta)));
-      thetaArc.rotation.z = -theta;
+      const sweep = Math.abs(theta);
+      if (thetaArc.geometry.parameters.arc !== sweep) {
+        thetaArc.geometry.dispose();
+        thetaArc.geometry = new THREERef.TorusGeometry(0.42, 0.014, 8, 48, sweep);
+      }
+      thetaArc.visible = sweep > 1e-8;
+      // Torus starts at +X and sweeps CCW in XY. Endpoints are the
+      // downward vertical and the signed deflected cord, both at the pivot.
+      thetaArc.rotation.z = -Math.PI / 2 - Math.max(theta, 0);
       P.updateArrow(THREERef, aArrow, frameAcceleration, { base: { x: -1.55, y: 2.24, z: 0.78 }, factor: 0.22, maxLength: 1.5 });
-      P.updateArrow(THREERef, fArrow, force, { base: { x: bob.position.x, y: bob.position.y, z: 0.36 }, factor: 0.24, maxLength: 1.5 });
+      const forceBase={x:bob.position.x,y:bob.position.y,z:.36};
+      const gravity=C.vector2D(state.gravity || {x:0,y:-mass*9.81},{plane:C.PLANES.VERTICAL});
+      const tension=C.vector2D(state.tensionForce || {x:mass*acceleration,y:mass*9.81},{plane:C.PLANES.VERTICAL});
+      // All forces share one uncapped scale; at a=0 the weight tip stays
+      // above the floor (0.6 - 9.81*0.05 > 0), avoiding plane occlusion.
+      P.updateArrow(THREERef,fArrow,force,{base:forceBase,factor:.05});
+      P.updateArrow(THREERef,gravityArrow,gravity,{base:forceBase,factor:.05});
+      P.updateArrow(THREERef,tensionArrow,tension,{base:forceBase,factor:.05});
+      if(state.referenceFrame==='ground') fArrow.visible=false;
       shell.setState(state);
       const cordLength = cord.geometry.parameters.height * cord.scale.y;
       const cordDirection = cordAxis.set(0, 1, 0).applyQuaternion(cord.quaternion);
@@ -90,7 +110,12 @@
           bob: { x: bob.position.x, y: bob.position.y, z: bob.position.z },
           cord: { length: cordLength, start: cordStart, end: cordEnd, midpoint: { x: cord.position.x, y: cord.position.y, z: cord.position.z } },
           frameAcceleration,
-          inertialForce: force,
+          inertialForce: force, gravity, tension,
+          referenceFrame:state.referenceFrame || 'car', modelAssumptions:'relative-equilibrium', forceDisplayScale:.05,
+          tensionMagnitude:Math.hypot(tension.x,tension.y,tension.z),
+          groundForceSum:{x:tension.x+gravity.x,y:tension.y+gravity.y,z:tension.z+gravity.z},
+          gravityArrow:{visible:gravityArrow.visible,magnitude:gravityArrow.userData.sim3PhysicalMagnitude,displayLength:gravityArrow.userData.sim3DisplayLength},
+          tensionArrow:{visible:tensionArrow.visible,magnitude:tensionArrow.userData.sim3PhysicalMagnitude,displayLength:tensionArrow.userData.sim3DisplayLength},
           forceArrow: { visible: fArrow.visible, magnitude: fArrow.userData.sim3PhysicalMagnitude, displayLength: fArrow.userData.sim3DisplayLength, direction: fArrow.userData.sim3DirectionVector ? { x: fArrow.userData.sim3DirectionVector.x, y: fArrow.userData.sim3DirectionVector.y, z: fArrow.userData.sim3DirectionVector.z } : { x: 0, y: 0, z: 0 } },
           accelerationArrow: { visible: aArrow.visible, magnitude: aArrow.userData.sim3PhysicalMagnitude, direction: aArrow.userData.sim3DirectionVector ? { x: aArrow.userData.sim3DirectionVector.x, y: aArrow.userData.sim3DirectionVector.y, z: aArrow.userData.sim3DirectionVector.z } : { x: 0, y: 0, z: 0 } }
         },

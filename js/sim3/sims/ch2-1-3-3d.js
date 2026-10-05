@@ -2,16 +2,19 @@
   'use strict';
 
   function create(opts) {
-    let THREERef, point, tangentArrow, normalArrow, radiusLine, centerDot, circle, tick = 0;
+    let THREERef, point, tangentArrow, normalArrow, radiusLine, centerDot, circle, radiusLabelTarget, tick = 0;
     const pathScale = 0.54, C = root.Sim3Coordinates;
+    const fitObjects = [];
     const shell = root.Sim3Shell.create({
       host: opts.host, referenceEl: opts.referenceEl, label: 'Tiếp pháp tuyến và bán kính cong 3D', onFallback: opts.onFallback,
+      beforeRender({ THREE, camera }) { root.Sim3VisualKit.fitCameraToObjects(THREE, camera, fitObjects, 0.1); },
       setup({ THREE, scene, camera, labels }) {
-        THREERef = THREE; root.Sim3VisualKit.setCamera(camera, { x: 3.6, y: 3.0, z: 5.2 }, { x: 0.15, y: 0.15, z: 0 });
+        THREERef = THREE; radiusLabelTarget = new THREE.Vector3(); root.Sim3VisualKit.setCamera(camera, { x: 3.6, y: 3.0, z: 5.2 }, { x: 0.15, y: 0.15, z: 0 });
         scene.add(root.Sim3VisualKit.shadowPlane(THREE, 7));
         const curve = new THREE.EllipseCurve(0, 0, 4 * pathScale, 2.5 * pathScale, 0, Math.PI * 2);
         const pts = curve.getPoints(96).map(p => new THREE.Vector3(p.x, 0.04, -p.y));
-        scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color: root.Sim3VisualKit.colors.axis })));
+        const path = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color: root.Sim3VisualKit.colors.axis }));
+        scene.add(path);
         point = new THREE.Mesh(new THREE.SphereGeometry(0.12, 20, 14), root.Sim3VisualKit.roleMaterial(THREE, 'force', 'primarySurface'));
         tangentArrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.v, { radius: 0.035, headRadius: 0.11 });
         normalArrow = root.Sim3Primitives.arrow(THREE, root.Sim3VisualKit.colors.a, { radius: 0.035, headRadius: 0.11 });
@@ -19,9 +22,10 @@
         centerDot = new THREE.Mesh(new THREE.SphereGeometry(0.07, 16, 12), root.Sim3VisualKit.material(THREE, 'moment'));
         circle = new THREE.Mesh(new THREE.TorusGeometry(1, 0.02, 10, 112), root.Sim3VisualKit.material(THREE, 'moment', { transparent: true, opacity: 0.78, emissive: 0x120020 }));
         circle.rotation.x = Math.PI / 2; scene.add(point, tangentArrow, normalArrow, radiusLine, centerDot, circle);
-        labels.add('tau', 'τ', () => tangentArrow.position, root.Sim3VisualKit.labelOffset('vector', { dx: 28, dy: -18 }));
-        labels.add('normal', 'n', () => normalArrow.position, root.Sim3VisualKit.labelOffset('vector', { dx: -34, dy: 22 }));
-        labels.add('radius', 'R', () => centerDot.position, root.Sim3VisualKit.labelOffset('guide', { dx: 26, dy: -18 }));
+        fitObjects.push(path, point, tangentArrow, normalArrow, radiusLine, centerDot, circle);
+        labels.add('tau', 'τ (đơn vị)', () => tangentArrow.position, root.Sim3VisualKit.labelOffset('vector', { dx: 28, dy: -18 }));
+        labels.add('normal', 'n (đơn vị)', () => normalArrow.position, root.Sim3VisualKit.labelOffset('vector', { dx: -34, dy: 22 }));
+        labels.add('radius', 'R (m)', () => radiusLabelTarget, root.Sim3VisualKit.labelOffset('guide', { dx: 26, dy: -18 }));
       }
     });
     if (!shell) return null;
@@ -41,6 +45,7 @@
       root.Sim3Primitives.updateArrow(THREERef, tangentArrow, tangent, { base: pos, factor: 0.9, minLength: 0 });
       root.Sim3Primitives.updateArrow(THREERef, normalArrow, normal, { base: pos, factor: 0.82, minLength: 0 });
       circle.position.set(center.x, center.y, center.z); centerDot.position.set(center.x, center.y + 0.03, center.z); circle.scale.setScalar(Math.max(0.2, radius * pathScale));
+      radiusLabelTarget.lerpVectors(point.position, centerDot.position, 0.5);
       root.Sim3Primitives.setCylinderBetween(THREERef, radiusLine, pos, center); shell.setState(state);
       root.__SIM3_DEBUG__ = root.__SIM3_DEBUG__ || {};
       root.__SIM3_DEBUG__['ch2-1-3'] = Object.assign({}, state, {

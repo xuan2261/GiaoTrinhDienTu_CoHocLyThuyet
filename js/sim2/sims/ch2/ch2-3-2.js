@@ -9,7 +9,7 @@
 
   Reg.register('ch2-3-2', function(container) {
     const shell = Shell.createSimShell({
-      container, worldBox: { minX: -4.8, minY: -5.4, maxX: 9.2, maxY: 5.4 }, reservePanel: true,
+      container, worldBox: { minX: -5.8, minY: -5.8, maxX: 9.2, maxY: 5.8 }, reservePanel: true,
       meta: { name: 'Truyền động bánh răng–đai–puli', section: '3.2', chapter: 2 }
     });
     const { svg, tf, overlay, render } = shell;
@@ -40,8 +40,10 @@
     const pulleySp1 = render.line(tf, P1, { x: P1.x + params.r1, y: P1.y }, { stroke: Pal.v, width: 3 }); svg.appendChild(pulleySp1);
     const pulleySp2 = render.line(tf, P2, { x: P2.x + params.r2, y: P2.y }, { stroke: Pal.a, width: 3 }); svg.appendChild(pulleySp2);
 
-    const lblZ1 = overlay.label('Z₁', { x: G1.x, y: G1.y + params.r1 + 0.25 }, { anchor: 'bottom', color: Pal.v });
-    const lblZ2 = overlay.label('Z₂', { x: G2().x, y: G2().y + params.r2 + 0.25 }, { anchor: 'bottom', color: Pal.a });
+    const beltMarker = render.circle(tf, P1, 4, { pixel: true, fill: Pal.force, stroke: Pal.force, class: 'sim2-belt-marker' }); svg.appendChild(beltMarker);
+    const beltDirection = render.arrow(tf, svg, P1, P2, { stroke: Pal.force, width: 2, class: 'sim2-belt-direction' }); svg.appendChild(beltDirection);
+    const lblZ1 = overlay.label('r₁ · dẫn', { x: G1.x, y: G1.y + params.r1 + 0.25 }, { anchor: 'bottom', color: Pal.v });
+    const lblZ2 = overlay.label('r₂ · bị dẫn', { x: G2().x, y: G2().y + params.r2 + 0.25 }, { anchor: 'bottom', color: Pal.a });
     const lblBelt = overlay.label('đai', { x: (P1.x + P2.x) / 2, y: P1.y + Math.max(params.r1, params.r2) + 0.28 }, { anchor: 'bottom', color: Pal.resultant });
     const lblPulley = overlay.label('puli', { x: P2.x + params.r2 + 0.28, y: P2.y }, { anchor: 'left', color: Pal.a });
 
@@ -82,6 +84,20 @@
       beltBottom.setAttribute('x1', sC.x); beltBottom.setAttribute('y1', sC.y);
       beltBottom.setAttribute('x2', sD.x); beltBottom.setAttribute('y2', sD.y);
 
+      // Follow the exact open-belt path by physical arc length (positive CCW driving wheel).
+      const angle = Math.acos(normalX), span = Math.hypot(beltD.x - beltC.x, beltD.y - beltC.y);
+      const leftArc = params.r1 * (2 * Math.PI - 2 * angle), rightArc = params.r2 * 2 * angle;
+      const length = leftArc + rightArc + 2 * span;
+      let distance = ((omega1 * params.r1 * t) % length + length) % length, markerPoint;
+      if (distance < leftArc) { const q = angle + distance / params.r1; markerPoint = { x: P1.x + params.r1 * Math.cos(q), y: P1.y + params.r1 * Math.sin(q) }; }
+      else if ((distance -= leftArc) < span) { const f = distance / span; markerPoint = { x: beltC.x + f * (beltD.x - beltC.x), y: beltC.y + f * (beltD.y - beltC.y) }; }
+      else if ((distance -= span) < rightArc) { const q = -angle + distance / params.r2; markerPoint = { x: P2.x + params.r2 * Math.cos(q), y: P2.y + params.r2 * Math.sin(q) }; }
+      else { distance -= rightArc; const f = distance / span; markerPoint = { x: beltB.x + f * (beltA.x - beltB.x), y: beltB.y + f * (beltA.y - beltB.y) }; }
+      const mp = tf.toScreen(markerPoint); beltMarker.setAttribute('cx', mp.x); beltMarker.setAttribute('cy', mp.y);
+      const mid = { x: (beltA.x + beltB.x) / 2, y: (beltA.y + beltB.y) / 2 };
+      const directionBase = tf.toScreen({ x: mid.x + normalY * 0.5, y: mid.y - normalX * 0.5 });
+      const directionTip = tf.toScreen({ x: mid.x - normalY * 0.5, y: mid.y + normalX * 0.5 });
+      beltDirection.setAttribute('x1', directionBase.x); beltDirection.setAttribute('y1', directionBase.y); beltDirection.setAttribute('x2', directionTip.x); beltDirection.setAttribute('y2', directionTip.y);
       const phi1 = omega1 * t, gearPhi2 = gearOmega2 * t, beltPhi2 = beltOmega2 * t;
       setSpoke(gearSp1, G1, params.r1, phi1);
       setSpoke(gearSp2, g2, params.r2, gearPhi2);
@@ -92,19 +108,25 @@
       overlay.moveLabel(lblBelt, { x: (P1.x + P2.x) / 2, y: P1.y + Math.max(params.r1, params.r2) + 0.28 });
       overlay.moveLabel(lblPulley, { x: P2.x + params.r2 + 0.28, y: P2.y });
       panel.setReadout([
-        { key: 'r1', label: 'r₁:', value: params.r1.toFixed(1) },
-        { key: 'r2', label: 'r₂:', value: params.r2.toFixed(1) },
+        { key: 'r1', label: 'r₁:', value: params.r1.toFixed(1) + ' m' },
+        { key: 'r2', label: 'r₂:', value: params.r2.toFixed(1) + ' m' },
+        { key: 'omega1', label: 'ω₁ dẫn:', value: omega1.toFixed(2) + ' rad/s' },
+        { key: 'gearRatio12', label: 'i₁₂ bánh răng = ω₁/ω₂:', value: (-1 / transferRatio).toFixed(3) },
+        { key: 'gearRatio21', label: 'k₂₁ bánh răng = ω₂/ω₁:', value: (-transferRatio).toFixed(3) },
+        { key: 'beltRatio12', label: 'i₁₂ đai = ω₁/ω₂:', value: (1 / transferRatio).toFixed(3) },
+        { key: 'beltRatio21', label: 'k₂₁ đai = ω₂/ω₁:', value: transferRatio.toFixed(3) },
+        { key: 'drivenSpeed', label: '|ω₂|r₂ = ω₁r₁:', value: (Math.abs(beltOmega2) * params.r2).toFixed(3) + ' m/s' },
         { key: 'gearOmega', label: 'ω₂ bánh răng:', value: gearOmega2.toFixed(2) + ' rad/s' },
         { key: 'beltOmega', label: 'ω₂ đai-puli:', value: beltOmega2.toFixed(2) + ' rad/s' },
-        { key: 'beltV', label: 'v đai:', value: K.beltVelocity(omega1, params.r1).toFixed(2) }
+        { key: 'beltV', label: 'v đai:', value: K.beltVelocity(omega1, params.r1).toFixed(2) + ' m/s' }
       ]);
       if (sim3) sim3.setState({
-        r1: params.r1, r2: params.r2, omega1, gearOmega2, beltOmega2,
+        time: t, r1: params.r1, r2: params.r2, omega1, gearOmega2, beltOmega2, gearRatio12: -1 / transferRatio, beltRatio12: 1 / transferRatio, beltSpeed: omega1 * params.r1, beltMarker: markerPoint,
         gearPhi1: phi1, gearPhi2, beltPhi2
       });
     }
     function update(dt) { t += dt; }
-    function reset() { t = 0; shell.resetClock(); draw(); }
+    function reset() { shell.stop(); t = 0; shell.resetClock(); draw(); }
 
     const panel = shell.setTheory({
       formulas: ['\\omega_{2,\\,gear} = -\\omega_1\\dfrac{r_1}{r_2}', '\\omega_{2,\\,belt} = \\omega_1\\dfrac{r_1}{r_2}', 'v = \\omega_1 r_1 = \\omega_2 r_2'],
@@ -114,7 +136,7 @@
         { color: Pal.resultant, label: 'đai' },
         { color: Pal.axis, label: 'puli' }
       ],
-      observe: 'Bấm ▶. Bánh răng ngoài quay ngược chiều; đai hở kéo hai puli quay cùng chiều, cùng v tiếp tuyến.'
+      observe: 'Không trượt; chiều dương ngược kim đồng hồ. Bánh răng ngoài ngược chiều; đai hở cùng chiều. r là bán kính vòng chia (m), không phải số răng Z; răng 3D chỉ minh họa, tỷ số tính theo bán kính. Chấm đỏ chạy theo chiều dài đường đai, mũi tên đỏ chỉ chiều. Đổi bán kính đặt lại và tạm dừng.'
     });
     const sim3 = root.Sim3Mode && root.Sim3Ch232 ? root.Sim3Mode.attach({
       container,
@@ -125,9 +147,9 @@
 
     shell.addControls({
       sliders: [
-        { id: 'r1', label: 'r₁', min: 0.8, max: 2.5, step: 0.1, value: params.r1, unit: '',
+        { id: 'r1', label: 'r₁', min: 0.8, max: 2.5, step: 0.1, value: params.r1, unit: 'm',
           onInput: v => { params.r1 = v; reset(); } },
-        { id: 'r2', label: 'r₂', min: 0.8, max: 2.5, step: 0.1, value: params.r2, unit: '',
+        { id: 'r2', label: 'r₂', min: 0.8, max: 2.5, step: 0.1, value: params.r2, unit: 'm',
           onInput: v => { params.r2 = v; reset(); } }
       ],
       playback: {

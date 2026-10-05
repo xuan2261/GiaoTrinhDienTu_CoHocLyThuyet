@@ -1,57 +1,328 @@
 {
   "schemaVersion": "1.1.0",
-  "status": "verified",
+  "status": "draft",
   "reviewRole": "Project technical review",
   "oraclePolicy": {
     "kind": "independent-executable-reference",
     "debugMetricsSoleAuthority": false
   },
   "evidenceCatalog": [
-    { "path": "tests/sim2-ch1-physics.test.js", "sha256": "9db8929ed29ede0c18ff31ae9ef847f3fab9f79b26ed4d6ac88db3628c1d9652", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3"] },
-    { "path": "tests/sim2-ch1-mount.spec.js", "sha256": "c6c70efb64370cb9e2fd6365910b14c980cc7b35a65eddd900c759b5b8ce7454", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3"] },
-    { "path": "tests/sim2-ch2-physics.test.js", "sha256": "0b6c3346f22b17e23ae9a808b00244e7cd591a760d521fcad3aee1dd754bf8e7", "routeIds": ["ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3"] },
-    { "path": "tests/sim2-ch2-mount.spec.js", "sha256": "e7b58a55ee4f16a11736d1cc4bb09bc6996cb1690c98412f9199555cbabe5d8f", "routeIds": ["ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3"] },
-    { "path": "tests/sim2-ch3-physics.test.js", "sha256": "5e5e21374958f6eb8a5f755ef18cb0f2294f86c083d4e3aafd6af6c2ac728ee7", "routeIds": ["ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] },
-    { "path": "tests/sim2-ch3-mount.spec.js", "sha256": "63c1237e91e041c11bf5e1cfbd5f6b05b7f0ecc7be637829229291282cb5226d", "routeIds": ["ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] },
-    { "path": "tests/sim2-visual-capture-plan.test.js", "sha256": "5453dd0e67d025861b65c8663e76f82678c258367184eec435b0d810a08102c6", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3", "ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3", "ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] },
-    { "path": "tools/sim2-visual/capture-plan.js", "sha256": "39a43530772fc408853dab9e56b97f6102d0c18fcdd2c8ee2ab6c00a8c6f51d3", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3", "ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3", "ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] },
-    { "path": "tools/sim2-visual/capture-sims.spec.js", "sha256": "5d93820aeecaecf1cbfcb5649e367b07ab65241c157b741f888b83fc41c1cbc2", "routeIds": ["ch1-1-3", "ch1-1-4", "ch1-1-5", "ch1-1-6", "ch1-2-3", "ch1-1-8", "ch1-3-2", "ch1-3-6", "ch1-5-3", "ch1-6-3", "ch2-1-1", "ch2-1-3", "ch2-2-2", "ch2-3-2", "ch2-4-4", "ch2-5-2", "ch2-5-3", "ch3-2-2", "ch3-2-3", "ch3-1-3", "ch3-3-1", "ch3-5-2", "ch3-5-3", "ch3-5-4", "ch3-6-2"] }
+    {
+      "path": "tests/sim2-ch1-physics.test.js",
+      "sha256": "9db8929ed29ede0c18ff31ae9ef847f3fab9f79b26ed4d6ac88db3628c1d9652",
+      "routeIds": [
+        "ch1-1-3",
+        "ch1-1-4",
+        "ch1-1-5",
+        "ch1-1-6",
+        "ch1-2-3",
+        "ch1-1-8",
+        "ch1-3-2",
+        "ch1-3-6",
+        "ch1-5-3",
+        "ch1-6-3"
+      ]
+    },
+    {
+      "path": "tests/sim2-ch1-mount.spec.js",
+      "sha256": "f3d0474cad81f1ee5d1ebd9e4296374477524c904c1260971d72f8edcb68f851",
+      "routeIds": [
+        "ch1-1-3",
+        "ch1-1-4",
+        "ch1-1-5",
+        "ch1-1-6",
+        "ch1-2-3",
+        "ch1-1-8",
+        "ch1-3-2",
+        "ch1-3-6",
+        "ch1-5-3",
+        "ch1-6-3"
+      ]
+    },
+    {
+      "path": "tests/sim2-ch2-physics.test.js",
+      "sha256": "0b6c3346f22b17e23ae9a808b00244e7cd591a760d521fcad3aee1dd754bf8e7",
+      "routeIds": [
+        "ch2-1-1",
+        "ch2-1-3",
+        "ch2-2-2",
+        "ch2-3-2",
+        "ch2-4-4",
+        "ch2-5-2",
+        "ch2-5-3"
+      ]
+    },
+    {
+      "path": "tests/sim2-ch2-mount.spec.js",
+      "sha256": "e7b58a55ee4f16a11736d1cc4bb09bc6996cb1690c98412f9199555cbabe5d8f",
+      "routeIds": [
+        "ch2-1-1",
+        "ch2-1-3",
+        "ch2-2-2",
+        "ch2-3-2",
+        "ch2-4-4",
+        "ch2-5-2",
+        "ch2-5-3"
+      ]
+    },
+    {
+      "path": "tests/sim2-ch3-physics.test.js",
+      "sha256": "5e5e21374958f6eb8a5f755ef18cb0f2294f86c083d4e3aafd6af6c2ac728ee7",
+      "routeIds": [
+        "ch3-2-2",
+        "ch3-2-3",
+        "ch3-1-3",
+        "ch3-3-1",
+        "ch3-5-2",
+        "ch3-5-3",
+        "ch3-5-4",
+        "ch3-6-2"
+      ]
+    },
+    {
+      "path": "tests/sim2-ch3-mount.spec.js",
+      "sha256": "63c1237e91e041c11bf5e1cfbd5f6b05b7f0ecc7be637829229291282cb5226d",
+      "routeIds": [
+        "ch3-2-2",
+        "ch3-2-3",
+        "ch3-1-3",
+        "ch3-3-1",
+        "ch3-5-2",
+        "ch3-5-3",
+        "ch3-5-4",
+        "ch3-6-2"
+      ]
+    },
+    {
+      "path": "tests/sim2-visual-capture-plan.test.js",
+      "sha256": "5453dd0e67d025861b65c8663e76f82678c258367184eec435b0d810a08102c6",
+      "routeIds": [
+        "ch1-1-3",
+        "ch1-1-4",
+        "ch1-1-5",
+        "ch1-1-6",
+        "ch1-2-3",
+        "ch1-1-8",
+        "ch1-3-2",
+        "ch1-3-6",
+        "ch1-5-3",
+        "ch1-6-3",
+        "ch2-1-1",
+        "ch2-1-3",
+        "ch2-2-2",
+        "ch2-3-2",
+        "ch2-4-4",
+        "ch2-5-2",
+        "ch2-5-3",
+        "ch3-2-2",
+        "ch3-2-3",
+        "ch3-1-3",
+        "ch3-3-1",
+        "ch3-5-2",
+        "ch3-5-3",
+        "ch3-5-4",
+        "ch3-6-2"
+      ]
+    },
+    {
+      "path": "tools/sim2-visual/capture-plan.js",
+      "sha256": "39a43530772fc408853dab9e56b97f6102d0c18fcdd2c8ee2ab6c00a8c6f51d3",
+      "routeIds": [
+        "ch1-1-3",
+        "ch1-1-4",
+        "ch1-1-5",
+        "ch1-1-6",
+        "ch1-2-3",
+        "ch1-1-8",
+        "ch1-3-2",
+        "ch1-3-6",
+        "ch1-5-3",
+        "ch1-6-3",
+        "ch2-1-1",
+        "ch2-1-3",
+        "ch2-2-2",
+        "ch2-3-2",
+        "ch2-4-4",
+        "ch2-5-2",
+        "ch2-5-3",
+        "ch3-2-2",
+        "ch3-2-3",
+        "ch3-1-3",
+        "ch3-3-1",
+        "ch3-5-2",
+        "ch3-5-3",
+        "ch3-5-4",
+        "ch3-6-2"
+      ]
+    },
+    {
+      "path": "tools/sim2-visual/capture-sims.spec.js",
+      "sha256": "5d93820aeecaecf1cbfcb5649e367b07ab65241c157b741f888b83fc41c1cbc2",
+      "routeIds": [
+        "ch1-1-3",
+        "ch1-1-4",
+        "ch1-1-5",
+        "ch1-1-6",
+        "ch1-2-3",
+        "ch1-1-8",
+        "ch1-3-2",
+        "ch1-3-6",
+        "ch1-5-3",
+        "ch1-6-3",
+        "ch2-1-1",
+        "ch2-1-3",
+        "ch2-2-2",
+        "ch2-3-2",
+        "ch2-4-4",
+        "ch2-5-2",
+        "ch2-5-3",
+        "ch3-2-2",
+        "ch3-2-3",
+        "ch3-1-3",
+        "ch3-3-1",
+        "ch3-5-2",
+        "ch3-5-3",
+        "ch3-5-4",
+        "ch3-6-2"
+      ]
+    },
+    {
+      "path": "tests/sim-upgrades-ch1.test.js",
+      "sha256": "e6a287a9a7b90ab35f2143de3bbeea836967747c54b920c26d94806255e03857",
+      "routeIds": [
+        "ch1-1-3",
+        "ch1-1-4",
+        "ch1-1-5",
+        "ch1-1-6",
+        "ch1-2-3",
+        "ch1-1-8",
+        "ch1-3-2",
+        "ch1-3-6",
+        "ch1-5-3",
+        "ch1-6-3"
+      ]
+    },
+    {
+      "path": "tests/sim-upgrades-ch2.test.js",
+      "sha256": "9d969650060dda82827e9084c4d31e8f7738b810968306fb7e3b8605d8586593",
+      "routeIds": [
+        "ch2-1-1",
+        "ch2-1-3",
+        "ch2-2-2",
+        "ch2-3-2",
+        "ch2-4-4",
+        "ch2-5-2",
+        "ch2-5-3"
+      ]
+    },
+    {
+      "path": "tests/sim-upgrades-ch3.test.js",
+      "sha256": "e3cc7ce980e9c70e06531aa9e420edb72e85fa8ca34f21f7c37aa9af88678976",
+      "routeIds": [
+        "ch3-2-2",
+        "ch3-2-3",
+        "ch3-1-3",
+        "ch3-3-1",
+        "ch3-5-2",
+        "ch3-5-3",
+        "ch3-5-4",
+        "ch3-6-2"
+      ]
+    },
+    {
+      "path": "tests/simulation-teaching-contracts.test.js",
+      "sha256": "264a5307e570ebaf4df8a6c0c2523a3cc4c82b15296768c4189d7313aaf09d66",
+      "routeIds": [
+        "ch1-1-3",
+        "ch1-1-4",
+        "ch1-1-5",
+        "ch1-1-6",
+        "ch1-2-3",
+        "ch1-1-8",
+        "ch1-3-2",
+        "ch1-3-6",
+        "ch1-5-3",
+        "ch1-6-3",
+        "ch2-1-1",
+        "ch2-1-3",
+        "ch2-2-2",
+        "ch2-3-2",
+        "ch2-4-4",
+        "ch2-5-2",
+        "ch2-5-3",
+        "ch3-2-2",
+        "ch3-2-3",
+        "ch3-1-3",
+        "ch3-3-1",
+        "ch3-5-2",
+        "ch3-5-3",
+        "ch3-5-4",
+        "ch3-6-2"
+      ]
+    }
   ],
   "specifications": [
     {
       "id": "ch1-1-3",
       "title": "Véc tơ lực: điểm đặt / phương / độ lớn",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Resolve a force into signed Cartesian components",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Force is applied at fixed O; +x right, +y up; only quadrant I is available (0–90°).",
+        "F and angle inputs are quantized to 1 N and 1°; dragging changes components, not application position."
       ],
       "formula": {
-        "expression": "F_x=F cos α; F_y=F sin α",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "F_x=F cos(α); F_y=F sin(α); α_rad=α_deg π/180",
+        "units": "F,F_x,F_y: N; α_deg: °; α_rad: rad",
+        "quantityUnits": {
+          "F,F_x,F_y": "N",
+          "α_deg": "°",
+          "α_rad": "rad"
+        }
       },
       "controls": {
-        "primary": "F",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "F, alpha",
+        "parameters": [
+          {
+            "id": "F",
+            "min": 10,
+            "max": 120,
+            "step": 1,
+            "unit": "N",
+            "initial": 100
+          },
+          {
+            "id": "alpha",
+            "min": 0,
+            "max": 90,
+            "step": 1,
+            "unit": "°",
+            "initial": 35
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores F=100 N and α=35°; no clock or motion.",
+        "parameterChange": "Parameter edits recompute the static diagram.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Static Ch1 routes explicitly quantize finite inputs to their stated control steps; force-reduction/parallelogram bounds are coupled and may further clamp values."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Véc tơ lực: điểm đặt / phương / độ lớn",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/statics.js",
         "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "F=10/73/120 N with α=0/35/90°: compare components and decoded arrow.",
+        "Check force length independently from the arrow endpoints.",
+        "Only quadrant I is supported; negative components require a new domain."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -59,17 +330,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -79,17 +355,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-1-3.js",
-          "sha256": "3321f0b99c089b5a8094b4fd5aabbdf42e624061c1152c38251360894966639f"
+          "sha256": "379df88d254330667c9a6a95a77be3e6dfc31fd06b2a715d61ccc997a28ef144"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-3",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -98,43 +376,78 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-force-diagram",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Force components are algebraic predictions from the prescribed F and α; arrow geometry uses 0.04 display units/N.",
+        "comparisonLimit": "Pythagorean/component agreement checks the force representation, not a measured force or an experiment."
       }
     },
     {
       "id": "ch1-1-4",
       "title": "Mô men lực & cánh tay đòn",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Relate a force, lever arm, and signed moment",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "The force always points upward at (d,0); d>0 is its perpendicular distance from O, not a general radius at variable θ.",
+        "CCW is positive; moment arc represents direction only, not beam rotation or deformation."
       ],
       "formula": {
-        "expression": "M_O=rF sin θ",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "M_O=r_x F_y-r_y F_x=+Fd (F_y=F, r_x=d)",
+        "units": "F: N; d: m; M_O: N·m",
+        "quantityUnits": {
+          "F": "N",
+          "d": "m",
+          "M_O": "N·m"
+        }
       },
       "controls": {
-        "primary": "F",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "F, d",
+        "parameters": [
+          {
+            "id": "F",
+            "min": 10,
+            "max": 100,
+            "step": 5,
+            "unit": "N",
+            "initial": 50
+          },
+          {
+            "id": "d",
+            "min": 0.5,
+            "max": 6.5,
+            "step": 0.1,
+            "unit": "m",
+            "initial": 4
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores F=50 N and d=4 m.",
+        "parameterChange": "Edits recompute the static moment; F rounds to 5 N and d to 0.1 m.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Static Ch1 routes explicitly quantize finite inputs to their stated control steps; force-reduction/parallelogram bounds are coupled and may further clamp values."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Mô men lực & cánh tay đòn",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/statics.js",
         "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "F=10/55/100 N and d=0.5/4.2/6.5 m.",
+        "Check signed cross product using rendered arrow base and force.",
+        "Moment arc must remain CCW throughout this positive-only domain."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -142,17 +455,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -162,17 +480,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-1-4.js",
-          "sha256": "d2258f1be1726b84f275c180088b5187689076aaf433edbac8a3e2204411dcae"
+          "sha256": "87f690a65ea58c4ab43271af0ba12e326738dde5b3176178d77dc88a6cee0e86"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-4",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -181,43 +501,94 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-moment-diagram",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Moment is calculated from the prescribed force and lever arm; the independent test also decodes the rendered force geometry.",
+        "comparisonLimit": "UI does not support a variable θ, a force through O, or negative moment; the general rF sinθ formula must not imply those controls."
       }
     },
     {
       "id": "ch1-1-5",
       "title": "Thu gọn hệ lực phẳng → R + Mo",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Reduce coplanar forces to a resultant and free moment",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Two fixed application points r1=(-2,1) m and r2=(2,-1) m; input components are forces in N, not positions.",
+        "CCW is positive. Both force tips and resultant tip are constrained to ±3.5 display units; this is a coupled viewport restriction, not a physical law."
       ],
       "formula": {
-        "expression": "R=ΣF; M_O=Σ(r×F)",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "R_x=F_1x+F_2x; R_y=F_1y+F_2y; M_O=Σ(r_ix F_iy-r_iy F_ix)",
+        "units": "r_ix,r_iy: m; F_ix,F_iy,R_x,R_y: N; M_O: N·m",
+        "quantityUnits": {
+          "r_ix,r_iy": "m",
+          "F_ix,F_iy,R_x,R_y": "N",
+          "M_O": "N·m"
+        }
       },
       "controls": {
-        "primary": "drag force points",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "F1x, F1y, F2x, F2y",
+        "parameters": [
+          {
+            "id": "F1x",
+            "min": -50,
+            "max": 183.3,
+            "step": 0.1,
+            "unit": "N",
+            "initial": 40
+          },
+          {
+            "id": "F1y",
+            "min": -150,
+            "max": 83.3,
+            "step": 0.1,
+            "unit": "N",
+            "initial": 20
+          },
+          {
+            "id": "F2x",
+            "min": -183.3,
+            "max": 50,
+            "step": 0.1,
+            "unit": "N",
+            "initial": -20
+          },
+          {
+            "id": "F2y",
+            "min": -83.3,
+            "max": 150,
+            "step": 0.1,
+            "unit": "N",
+            "initial": 40
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores F1=(40,20) N and F2=(-20,40) N at the fixed points.",
+        "parameterChange": "Recompute reduction after component edit; clamp coupled force/resultant tips then quantize components to 0.1 N.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Static Ch1 routes explicitly quantize finite inputs to their stated control steps; force-reduction/parallelogram bounds are coupled and may further clamp values."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Thu gọn hệ lực phẳng → R + Mo",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/statics.js",
         "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "Default R=(20,60) N and M_O=-20 N·m.",
+        "F1=(0,40),F2=(0,-40) N gives R=0 and M_O=-160 N·m.",
+        "All-zero forces give balance and hide zero arrows/moment; test coupled clamps separately."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -225,17 +596,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -245,17 +621,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-1-5.js",
-          "sha256": "b356844ebc438cf7fbc75916a69f553475d68893457bd3cfdb2f468e4835d30a"
+          "sha256": "8f4a19a1371728c1775e69141d0ac3102842acb7856d199180fe23721bbdb706"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-5",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -264,43 +642,70 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-force-reduction",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Resultant and free moment are computed from the input force table; scale is 0.03 display units/N.",
+        "comparisonLimit": "A reduction identity is a mathematical consistency check. It does not independently measure resultant force or moment."
       }
     },
     {
       "id": "ch1-1-6",
       "title": "Ngẫu lực & mô men ngẫu",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Relate a force couple separation to couple moment",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Two equal 50 N forces act at x=±d/2; left upward and right downward; CCW is positive.",
+        "Only separation d changes; rigid-body angular motion and moment of inertia are not modeled."
       ],
       "formula": {
-        "expression": "M_c=Fd",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "ΣF=0; M_O=-Fd=-50d for every moment origin O",
+        "units": "F: N; d: m; M_O: N·m",
+        "quantityUnits": {
+          "F": "N",
+          "d": "m",
+          "M_O": "N·m"
+        }
       },
       "controls": {
         "primary": "d",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "d",
+            "min": 1,
+            "max": 6,
+            "step": 0.5,
+            "unit": "m",
+            "initial": 3
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores full separation d=3 m.",
+        "parameterChange": "Recompute static couple with separation quantized to 0.5 m.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Static Ch1 routes explicitly quantize finite inputs to their stated control steps; force-reduction/parallelogram bounds are coupled and may further clamp values."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Ngẫu lực & mô men ngẫu",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/statics.js",
         "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "d=1/3/6 m gives M=-50/-150/-300 N·m.",
+        "Recalculate from each force about O=(0,0),(13,-7),(-8,3) m.",
+        "Zero resultant and CW moment are distinct, simultaneously valid results."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -308,17 +713,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -328,17 +738,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-1-6.js",
-          "sha256": "b91dc3eba5227e5087ff4b1821da272a888399b556176f3eae15475ae6117066"
+          "sha256": "d2448e0602f161bb033e29e28c7b01cc29ff25992b78d54b5b740bbffa03cf6e"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-6",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -347,43 +759,93 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-force-couple",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Couple moment is a signed algebraic calculation; the independent test sums moments from both arrow geometries about three origins.",
+        "comparisonLimit": "Origin-independent moment does not imply a simulated angular acceleration or a freely rotating object."
       }
     },
     {
       "id": "ch1-2-3",
       "title": "Hình bình hành lực (2 đồng quy)",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Construct the resultant of two concurrent forces",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Two concurrent forces at O; each component is nonnegative and each component sum is at most 137.5 N.",
+        "Component controls share the force-tip/resultant viewport limit; zero vectors have no direction or angle."
       ],
       "formula": {
-        "expression": "R=F_1+F_2",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "R=F_1+F_2; |R|²=|F_1|²+|F_2|²+2(F_1·F_2)",
+        "units": "F_1,F_2,R: N; angle: °",
+        "quantityUnits": {
+          "F_1,F_2,R": "N",
+          "angle": "°"
+        }
       },
       "controls": {
-        "primary": "drag force points",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "F1x, F1y, F2x, F2y",
+        "parameters": [
+          {
+            "id": "F1x",
+            "min": 0,
+            "max": 137.5,
+            "step": 0.1,
+            "unit": "N",
+            "initial": 80
+          },
+          {
+            "id": "F1y",
+            "min": 0,
+            "max": 137.5,
+            "step": 0.1,
+            "unit": "N",
+            "initial": 20
+          },
+          {
+            "id": "F2x",
+            "min": 0,
+            "max": 137.5,
+            "step": 0.1,
+            "unit": "N",
+            "initial": 25
+          },
+          {
+            "id": "F2y",
+            "min": 0,
+            "max": 137.5,
+            "step": 0.1,
+            "unit": "N",
+            "initial": 70
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores F1=(80,20) N and F2=(25,70) N.",
+        "parameterChange": "Component edits recompute the static diagram with coupled sum clamps and 0.1 N quantization.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Static Ch1 routes explicitly quantize finite inputs to their stated control steps; force-reduction/parallelogram bounds are coupled and may further clamp values."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Hình bình hành lực (2 đồng quy)",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/statics.js",
         "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "Check nonzero forces by independent dot-product/cosine-law result.",
+        "F1=0 and both forces zero must show undefined angle, not 0° as a direction.",
+        "Check total component ≤137.5 N rather than treating every control maximum as simultaneously achievable."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -391,17 +853,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -411,17 +878,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-2-3.js",
-          "sha256": "f4b2f4dc95099effa03ecc06b9b5147c285820cdfd454ed084ae8e87df3d34b6"
+          "sha256": "dbf2b499d8c9c4bc8fe658155396501139e194b46a49b06c346713c8d02970eb"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-2-3",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -430,43 +899,78 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-vector-addition",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Components, magnitudes and angles are calculated from the same two prescribed input vectors; zero-angle states are undefined.",
+        "comparisonLimit": "The UI cannot produce opposing signed forces, although the general vector-addition theorem includes them."
       }
     },
     {
       "id": "ch1-1-8",
       "title": "Phản lực liên kết + dựng FBD",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Solve support reactions from planar equilibrium",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Massless 10 m beam; downward point load P at x=a; pin at A and roller at B (support symbols are simplified).",
+        "Only vertical loading is modeled; A_x=0, reactions point upward, 0.3≤a≤9.7 m."
       ],
       "formula": {
-        "expression": "ΣF_x=ΣF_y=ΣM=0",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "R_A=P(10-a)/10; R_B=Pa/10; A_x=0; R_A+R_B-P=0; 10R_B-Pa=0",
+        "units": "P,R_A,R_B,A_x: N; a,L: m; ΣM_A: N·m",
+        "quantityUnits": {
+          "P,R_A,R_B,A_x": "N",
+          "a,L": "m",
+          "ΣM_A": "N·m"
+        }
       },
       "controls": {
-        "primary": "P",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "P, a",
+        "parameters": [
+          {
+            "id": "P",
+            "min": 20,
+            "max": 200,
+            "step": 10,
+            "unit": "N",
+            "initial": 100
+          },
+          {
+            "id": "a",
+            "min": 0.3,
+            "max": 9.7,
+            "step": 0.1,
+            "unit": "m",
+            "initial": 4
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores P=100 N and a=4 m.",
+        "parameterChange": "P rounds to 10 N; a rounds to 0.1 m, then static equilibrium is recalculated.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Static Ch1 routes explicitly quantize finite inputs to their stated control steps; force-reduction/parallelogram bounds are coupled and may further clamp values."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Phản lực liên kết + dựng FBD",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/statics.js",
         "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "P=20/110/200 N × a=0.3/5/9.7 m.",
+        "Decode reaction arrows and independently sum vertical force and moment about A.",
+        "a=0 and a=10 are deliberately unavailable; no zero-reaction UI claim."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -474,17 +978,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -494,17 +1003,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-1-8.js",
-          "sha256": "9ff1e122d41f50cb77c844e9eeedf4aa8c4176098337b18b30c13f007e8fd5ed"
+          "sha256": "6c1595a3a1c41d509bc50c1734389d38d5e9d01cf7b44d0f6ac4ae2a6b69243c"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-1-8",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -513,43 +1024,70 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-support-equilibrium",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Reactions are solved algebraically from equilibrium. Residual readouts are recomputed from those same calculated reactions.",
+        "comparisonLimit": "Zero force/moment residuals are internal consistency checks, not independent experimental evidence of equilibrium."
       }
     },
     {
       "id": "ch1-3-2",
       "title": "Lực căng dây (ràng buộc 1 chiều)",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Relate cable angle to tension under a one-way constraint",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Two light inextensible ropes, each length 3 m, suspend W=100 N in symmetric static equilibrium.",
+        "α is the angle from vertical (5–75°); anchors share height 4 m and the node rises when α increases."
       ],
       "formula": {
-        "expression": "T=W/sin α",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "T=W/(2cosα); x_anchor=3sinα; y_node=4-3cosα",
+        "units": "T,W: N; rope length,x_anchor,y_node: m; α: °",
+        "quantityUnits": {
+          "T,W": "N",
+          "rope length,x_anchor,y_node": "m",
+          "α": "°"
+        }
       },
       "controls": {
         "primary": "alpha",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "alpha",
+            "min": 5,
+            "max": 75,
+            "step": 1,
+            "unit": "°",
+            "initial": 30
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores α=30°.",
+        "parameterChange": "Recompute static geometry and tension after angle edit, rounded to 1°.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Static Ch1 routes explicitly quantize finite inputs to their stated control steps; force-reduction/parallelogram bounds are coupled and may further clamp values."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Lực căng dây (ràng buộc 1 chiều)",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/statics.js",
         "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "Test all 71 integer angles from 5° to 75°.",
+        "Obtain cosα from rendered rope direction and independently calculate T.",
+        "Length must remain 3 m; no 90° or singular-angle UI support."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -557,17 +1095,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -577,17 +1120,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-3-2.js",
-          "sha256": "b07df68ada66d1f1e2de150fdbd5d18c73107e984cb4168d30ee1a4bb4cc3895"
+          "sha256": "b90e5d6475c2e27fcc08a8789ecd170c0e01196bf5ed3d5e153f4cdbda867551"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-3-2",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -596,43 +1141,78 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-rope-equilibrium",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Tension is calculated from the prescribed weight and geometry; rope length readout is derived from actual generated endpoints.",
+        "comparisonLimit": "Force-balance residuals use calculated T. They check consistency, not an independent tension measurement."
       }
     },
     {
       "id": "ch1-3-6",
       "title": "Phản lực & mô men ngàm",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Relate a cantilever load to shear and fixed-end moment",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Massless fixed beam of length 8 m with one downward point load P at a>0; no horizontal load.",
+        "CCW positive: load moment is negative, fixed-end reaction moment positive; no deformation is modeled."
       ],
       "formula": {
-        "expression": "V=wL; M=wL²/2",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "R=P; M_load=-Pa; M_support=+Pa; R-P=0; M_support+M_load=0",
+        "units": "P,R: N; a,L: m; M_load,M_support: N·m",
+        "quantityUnits": {
+          "P,R": "N",
+          "a,L": "m",
+          "M_load,M_support": "N·m"
+        }
       },
       "controls": {
-        "primary": "P",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "P, a",
+        "parameters": [
+          {
+            "id": "P",
+            "min": 20,
+            "max": 150,
+            "step": 10,
+            "unit": "N",
+            "initial": 80
+          },
+          {
+            "id": "a",
+            "min": 0.5,
+            "max": 8,
+            "step": 0.5,
+            "unit": "m",
+            "initial": 5
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores P=80 N and a=5 m.",
+        "parameterChange": "P rounds to 10 N and a to 0.5 m; static reactions recalculate.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Static Ch1 routes explicitly quantize finite inputs to their stated control steps; force-reduction/parallelogram bounds are coupled and may further clamp values."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Phản lực & mô men ngàm",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/statics.js",
         "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "P=20/80/150 N × a=0.5/5/8 m.",
+        "Independent r×F gives negative applied moment and positive support moment.",
+        "Residuals must vanish and the support moment arc must be CCW."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -640,17 +1220,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -660,17 +1245,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-3-6.js",
-          "sha256": "a87538df1ed6416a9b0c95d81c1e43907f115fb2d1fe311739e0d7fbdff63efa"
+          "sha256": "fee6a18f9b4f6ed245df6b617e9a4ea209b38c00ec8a59695d54933d6e385b13"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-3-6",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -679,43 +1266,79 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-cantilever-equilibrium",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Support force/moment are algebraic equilibrium results; residuals reuse these calculated values.",
+        "comparisonLimit": "The arc encodes sign only. Zero residuals do not constitute a measured beam response or deflection solution."
       }
     },
     {
       "id": "ch1-5-3",
       "title": "Nón ma sát trên mặt nghiêng",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Distinguish equilibrium and slip with a friction cone",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Coulomb static friction coefficient μ_s; arbitrary P=mg>0; displayed forces are normalized by P.",
+        "β=φ is limiting equilibrium; outside the cone R_required=-P is not the actual contact reaction during sliding.",
+        "No μ_k, sliding velocity, acceleration or time integration exists; classification tolerance is 1e-9 on normalized margin."
       ],
       "formula": {
-        "expression": "φ=atan μ; |F_t|≤μN",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "φ=atanμ_s; N/P=cosβ; F_t,required/P=sinβ; margin=μ_s cosβ-sinβ; equilibrium iff margin≥0",
+        "units": "μ_s,N/P,F_t,required/P,margin: 1 (dimensionless); β,φ displayed: °; atan argument/result convention: μ_s dimensionless; atan in rad, then degrees",
+        "quantityUnits": {
+          "μ_s,N/P,F_t,required/P,margin": "1 (dimensionless)",
+          "β,φ displayed": "°",
+          "atan argument/result convention": "μ_s dimensionless; atan in rad, then degrees"
+        }
       },
       "controls": {
-        "primary": "mu",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "beta, mu",
+        "parameters": [
+          {
+            "id": "beta",
+            "min": 3,
+            "max": 60,
+            "step": "any",
+            "unit": "°",
+            "initial": 18
+          },
+          {
+            "id": "mu",
+            "min": 0.1,
+            "max": 1,
+            "step": "any",
+            "unit": "",
+            "initial": 0.45
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores β=18° and μ_s=0.45; threshold action sets β=atanμ_s exactly.",
+        "parameterChange": "Both inputs preserve finite decimals; the exact threshold is classified from unrounded state.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Nón ma sát trên mặt nghiêng",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/dynamics.js",
         "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "β=3/18/60° × μ_s=0.1/0.45/1.",
+        "At β=atanμ_s and ±0.00001° check limiting/static/impossible states from unrounded inputs.",
+        "Outside cone must explicitly label required reaction as not the actual sliding reaction."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -723,17 +1346,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -743,17 +1371,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-5-3.js",
-          "sha256": "dcbd85eb530739598cda39fd5644c5f4ef8ccf7e8177e8d9eb9cad5a6838c1eb"
+          "sha256": "7eca89b737565a1284d4aaebe34114647f2c40df595b8ec735944c2220b3e670"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-5-3",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -762,43 +1392,78 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-friction-feasibility",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Normalized forces and feasibility are computed from β and μ_s; independently decoded force vectors sum to zero for the required equilibrium construction.",
+        "comparisonLimit": "That vector sum still holds for an impossible equilibrium construction; it must not be mistaken for actual sliding contact forces."
       }
     },
     {
       "id": "ch1-6-3",
       "title": "Trọng tâm hình ghép / khoét",
       "chapter": 1,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch1-statics",
       "phenomenon": "Find a composite centroid including a removed area",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Homogeneous 6 m × 4 m plate, uniform thickness and gravity; its center of mass equals its area centroid.",
+        "Circular hole radius is fixed at 1 m; center lies in [1,5]×[1,3] m, so the hole remains inside and net area is positive."
       ],
       "formula": {
-        "expression": "x̄=ΣAx/ΣA; ȳ=ΣAy/ΣA",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "A_net=24-π; x_C=(72-πx_h)/A_net; y_C=(48-πy_h)/A_net",
+        "units": "x_h,y_h,x_C,y_C,r: m; A_net,A_plate,A_hole: m²; first area moments: m³",
+        "quantityUnits": {
+          "x_h,y_h,x_C,y_C,r": "m",
+          "A_net,A_plate,A_hole": "m²",
+          "first area moments": "m³"
+        }
       },
       "controls": {
-        "primary": "drag geometry",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "holeX, holeY",
+        "parameters": [
+          {
+            "id": "holeX",
+            "min": 1,
+            "max": 5,
+            "step": 0.1,
+            "unit": "m",
+            "initial": 4.5
+          },
+          {
+            "id": "holeY",
+            "min": 1,
+            "max": 3,
+            "step": 0.1,
+            "unit": "m",
+            "initial": 2.5
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores hole center (4.5,2.5) m.",
+        "parameterChange": "Hole coordinates round to 0.1 m; area and centroid recalculate without time.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Static Ch1 routes explicitly quantize finite inputs to their stated control steps; force-reduction/parallelogram bounds are coupled and may further clamp values."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Trọng tâm hình ghép / khoét",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/statics.js",
         "helperHash": "5e390e4525de6c29626eb7fd9effd0c7c0bea703041084feaf519d7a9c8b6fd0",
-        "independentTest": "tests/sim2-ch1-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "Test four allowed hole-center corners and centered hole (3,2) m.",
+        "Independently verify A_net*x_C=72-πx_h and A_net*y_C=48-πy_h.",
+        "First moments have units m³, areas m² and centroid coordinates m."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -806,17 +1471,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -826,17 +1496,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch1/ch1-6-3.js",
-          "sha256": "ef9c394a6bdc1e83fd2501b267de1496d50b4b2d13d97569561eb18c255de62d"
+          "sha256": "41fcb059177fd8ec6e247a925268971055f966053d69909beaa8f2d755018ce7"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch1-6-3",
         "tests": [
           "tests/sim2-ch1-physics.test.js",
           "tests/sim2-ch1-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch1.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -845,43 +1517,80 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-area-centroid",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Centroid uses negative-area first moments; the table displays signed contributions and derived centroid coordinates.",
+        "comparisonLimit": "Only this single contained hole is supported; zero/negative net area, unequal density or variable hole radius is outside the model."
       }
     },
     {
       "id": "ch2-1-1",
       "title": "Quỹ đạo chất điểm + v, a",
       "chapter": 2,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch2-kinematics",
       "phenomenon": "Connect a particle trajectory with velocity and acceleration",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Point projectile launched from (0,0), x right and y up; g=9.81 m/s² downward with no air drag.",
+        "Launch/landing elevations are equal; event time is clamped exactly at first touchdown and state retained."
       ],
       "formula": {
-        "expression": "v=dr/dt; a=dv/dt",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "x=v0 cosα t; y=v0 sinα t-gt²/2; v_x=v0 cosα; v_y=v0 sinα-gt; T=2v0 sinα/g; R=v0²sin(2α)/g",
+        "units": "x,y,R: m; v0,v_x,v_y: m/s; g,a_y: m/s²; t,T: s; α: °",
+        "quantityUnits": {
+          "x,y,R": "m",
+          "v0,v_x,v_y": "m/s",
+          "g,a_y": "m/s²",
+          "t,T": "s",
+          "α": "°"
+        }
       },
       "controls": {
         "primary": "v0, alpha",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "v0",
+            "min": 8,
+            "max": 20,
+            "step": 1,
+            "unit": "m/s",
+            "initial": 14
+          },
+          {
+            "id": "alpha",
+            "min": 20,
+            "max": 80,
+            "step": 5,
+            "unit": "°",
+            "initial": 55
+          }
+        ],
+        "resetMode": "restart-time-preserve-parameters",
+        "reset": "Playback Reset sets t=0 and pauses while keeping v0 and α; Replay restarts and plays.",
+        "parameterChange": "Parameter edits start a new paused experiment; apex/touchdown seek exact event time.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Quỹ đạo chất điểm + v, a",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/kinematics.js",
-        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
-        "independentTest": "tests/sim2-ch2-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "helperHash": "66798efe41ed5c4f07909c69a63784658bbd3c6624da9530ddd8abc0ada35b2c",
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "v0=8/14/20 m/s with α=20/45/70/80°.",
+        "At apex v_y=0 but a_y=-9.81 m/s²; at touchdown y=0 and x=R.",
+        "Complementary 20°/70° ranges agree; repeated step after touchdown retains state."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -889,17 +1598,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -909,17 +1623,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch2/ch2-1-1.js",
-          "sha256": "07a6b0a79eaa99696c22c166ae320d15776c5c3f88c8845d8e5fd3b9aa5ee220"
+          "sha256": "e722189e4a248ee3f8555abc79bd79fdbb6e26b77531271d1bea9450c3d602ff"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-1-1",
         "tests": [
           "tests/sim2-ch2-physics.test.js",
           "tests/sim2-ch2-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch2.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -928,43 +1644,74 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "analytic-projectile",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Position/velocity/acceleration and range are analytical model predictions; trajectory/vector display scales and caps never feed the SI readouts.",
+        "comparisonLimit": "Range and velocity readouts share the same ideal trajectory. Agreement does not validate aerodynamic effects or experimental flight data."
       }
     },
     {
       "id": "ch2-1-3",
       "title": "Tiếp/pháp tuyến + bán kính cong",
       "chapter": 2,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch2-kinematics",
       "phenomenon": "Interpret tangent, normal, and curvature radius on a path",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Ellipse semi-axes a=4 m,b=2.5 m; θ=(1 rad/s)t is a prescribed phase convention, not constant arc speed.",
+        "τ and principal n are dimensionless unit directions; n is not the direction of total acceleration when a_t≠0."
       ],
       "formula": {
-        "expression": "a=a_t τ+v²/R n",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "p=(4cosθ,2.5sinθ); v=(-4sinθ,2.5cosθ); a=(-4cosθ,-2.5sinθ); R=|v|³/|v×a|; κ=1/R; a_t=a·τ; a_n=|v|²/R",
+        "units": "p,R: m; v: m/s; a,a_t,a_n: m/s²; κ: m⁻¹; t: s; θ displayed: °; τ,n: 1 (dimensionless)",
+        "quantityUnits": {
+          "p,R": "m",
+          "v": "m/s",
+          "a,a_t,a_n": "m/s²",
+          "κ": "m⁻¹",
+          "t": "s",
+          "θ displayed": "°",
+          "τ,n": "1 (dimensionless)"
+        }
       },
       "controls": {
-        "primary": "drag point",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "phase",
+        "parameters": [
+          {
+            "id": "phase",
+            "min": 0,
+            "max": 360,
+            "step": 0.1,
+            "unit": "°",
+            "initial": 40.10704565915762
+          }
+        ],
+        "resetMode": "restore-phase",
+        "reset": "Reset phase sets θ=0.7 rad; chosen 2D fixed/auto scale is retained.",
+        "parameterChange": "Phase edits select a static kinematic snapshot; scale toggle changes only the 2D presentation.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Tiếp/pháp tuyến + bán kính cong",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/kinematics.js",
-        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
-        "independentTest": "tests/sim2-ch2-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "helperHash": "66798efe41ed5c4f07909c69a63784658bbd3c6624da9530ddd8abc0ada35b2c",
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "Quadrants plus 40°,140°,359°,360° test signs and seam.",
+        "R(0)=1.5625 m and R(π/2)=6.4 m.",
+        "Independent a_t τ+a_n n must recover the Cartesian second derivative."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -972,17 +1719,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -992,17 +1744,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch2/ch2-1-3.js",
-          "sha256": "6cfd2f2634cff9397173bad3dc1cb27faf7eb5b6eaacffd33c9ee1abb20c2d80"
+          "sha256": "789110b9173e2db983b75b7c05eff67221c365e91c717b5d0f6da46547504b8f"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-1-3",
         "tests": [
           "tests/sim2-ch2-physics.test.js",
           "tests/sim2-ch2-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch2.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1011,43 +1765,82 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "prescribed-ellipse-kinematics",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Analytic derivatives determine speed, tangent, principal normal and curvature for the prescribed ellipse.",
+        "comparisonLimit": "The unit normal arrow is not total acceleration; fixed/auto scale changes no physical quantity and no movement is time-integrated."
       }
     },
     {
       "id": "ch2-2-2",
       "title": "Quay quanh trục cố định (ω, α)",
       "chapter": 2,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch2-kinematics",
       "phenomenon": "Relate fixed-axis rotation to angular velocity and acceleration",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Physical radius R=3 m; constant nonnegative angular acceleration and initial angular velocity, CCW positive.",
+        "Velocity and acceleration arrows have separate display scales/caps; zero arrows hide rather than impose a minimum magnitude."
       ],
       "formula": {
-        "expression": "ω=dφ/dt; α=dω/dt",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "φ=ω0 t+αt²/2; ω=ω0+αt; v_t=ωR; a_t=αR; a_n=ω²R; |a|=sqrt(a_t²+a_n²)",
+        "units": "R: m; φ: rad; ω,ω0: rad/s; α: rad/s²; v_t: m/s; a_t,a_n,|a|: m/s²; t: s",
+        "quantityUnits": {
+          "R": "m",
+          "φ": "rad",
+          "ω,ω0": "rad/s",
+          "α": "rad/s²",
+          "v_t": "m/s",
+          "a_t,a_n,|a|": "m/s²",
+          "t": "s"
+        }
       },
       "controls": {
-        "primary": "omega0, alpha",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "omega0, alphaAcc",
+        "parameters": [
+          {
+            "id": "omega0",
+            "min": 0,
+            "max": 2,
+            "step": 0.1,
+            "unit": "rad/s",
+            "initial": 0.5
+          },
+          {
+            "id": "alphaAcc",
+            "min": 0,
+            "max": 0.5,
+            "step": 0.05,
+            "unit": "rad/s²",
+            "initial": 0.15
+          }
+        ],
+        "resetMode": "restart-time-preserve-parameters",
+        "reset": "Reset pauses at t=0 keeping ω0, α and component visibility.",
+        "parameterChange": "Either parameter edit pauses and resets time; component toggles retain time/state.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Quay quanh trục cố định (ω, α)",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/kinematics.js",
-        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
-        "independentTest": "tests/sim2-ch2-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "helperHash": "66798efe41ed5c4f07909c69a63784658bbd3c6624da9530ddd8abc0ada35b2c",
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "ω0=0/0.5/2 × α=0/0.15/0.5 at t=0/1/10 s.",
+        "Check Cartesian velocity and normal acceleration independently from φ.",
+        "α=0,ω≠0 must give a_t=0,a_n>0; a stationary instant with α>0 can have nonzero a_t."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1055,17 +1848,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1075,17 +1873,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch2/ch2-2-2.js",
-          "sha256": "e82b59db5755b3975f0dc33d93a0950fddaeafda4f7d827387ef0ab61895ddb4"
+          "sha256": "05c04510c3d058dab9ca822ad0e14718cba7ada0cd7625a8cc7877750743a10c"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-2-2",
         "tests": [
           "tests/sim2-ch2-physics.test.js",
           "tests/sim2-ch2-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch2.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1094,43 +1894,80 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "analytic-fixed-axis-rotation",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Rotation is calculated analytically; physical R is distinct from the smaller display disk and capped arrows.",
+        "comparisonLimit": "Uniform rotation still has centripetal acceleration. Negative angular velocity/acceleration and reversal are outside current UI."
       }
     },
     {
       "id": "ch2-3-2",
       "title": "Truyền động bánh răng–đai–puli",
       "chapter": 2,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch2-kinematics",
       "phenomenon": "Compare gear and belt angular-speed constraints",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Positive driver angular speed ω1=1 rad/s, ideal no-slip contact; radii in metres are pitch radii, not tooth counts.",
+        "External gears turn opposite ways; an open belt turns pulleys the same way. 3D teeth are illustrative and do not encode integer tooth engagement."
       ],
       "formula": {
-        "expression": "v_t=rω",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "ω2,gear=-ω1 r1/r2; ω2,belt=+ω1 r1/r2; i12=ω1/ω2; k21=ω2/ω1; v_belt=ω1r1=ω2,belt r2",
+        "units": "r1,r2: m; ω1,ω2: rad/s; v_belt: m/s; i12,k21: 1 (dimensionless); t: s",
+        "quantityUnits": {
+          "r1,r2": "m",
+          "ω1,ω2": "rad/s",
+          "v_belt": "m/s",
+          "i12,k21": "1 (dimensionless)",
+          "t": "s"
+        }
       },
       "controls": {
         "primary": "r1, r2",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "r1",
+            "min": 0.8,
+            "max": 2.5,
+            "step": 0.1,
+            "unit": "m",
+            "initial": 1.4
+          },
+          {
+            "id": "r2",
+            "min": 0.8,
+            "max": 2.5,
+            "step": 0.1,
+            "unit": "m",
+            "initial": 2
+          }
+        ],
+        "resetMode": "restart-time-preserve-parameters",
+        "reset": "Reset pauses at t=0 keeping r1 and r2.",
+        "parameterChange": "Changing either radius resets a paused experiment.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Truyền động bánh răng–đai–puli",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/kinematics.js",
-        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
-        "independentTest": "tests/sim2-ch2-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "helperHash": "66798efe41ed5c4f07909c69a63784658bbd3c6624da9530ddd8abc0ada35b2c",
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "Radius pairs (0.8,2.5),(2.5,0.8),(1.4,2),(1,1) m.",
+        "Check signed reciprocal ratios separately for gears and belt.",
+        "Finite-difference belt-marker position at five times must give speed r1 m/s."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1138,17 +1975,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1158,17 +2000,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch2/ch2-3-2.js",
-          "sha256": "b9b45d4d081c9287e68f0c7ffa1efca2dceed6c18cf345faa5248fc71b76ee12"
+          "sha256": "6f8491aed52c6a9eeb3048a1f640010c44ce134ad81fb6569bc146ae2ff91368"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-3-2",
         "tests": [
           "tests/sim2-ch2-physics.test.js",
           "tests/sim2-ch2-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch2.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1177,43 +2021,80 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "prescribed-no-slip-transmission",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Ratios are analytical no-slip predictions; the independent test differentiates marker position rather than trusting its reported speed.",
+        "comparisonLimit": "Equal belt speed readouts are algebraically linked. They do not prove tooth meshing, real friction or tension; no crossed-belt UI exists."
       }
     },
     {
       "id": "ch2-4-4",
       "title": "Hợp chuyển động & Coriolis",
       "chapter": 2,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch2-kinematics",
       "phenomenon": "Resolve relative motion and Coriolis acceleration",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Rotating frame has constant positive ω; prescribed radial displacement r=2+1.5sin(vmax t/1.5) m.",
+        "vmax is a control amplitude, distinct from instantaneous signed radial speed; motion is kinematic, not a force-driven solution."
       ],
       "formula": {
-        "expression": "a_cor=2ω×v_rel",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "r_dot=vmax cos(vmax t/1.5); r_ddot=-(vmax²/1.5)sin(vmax t/1.5); v_abs=r_dot e_r+ωr e_θ; a_abs=(r_ddot-ω²r)e_r+2ωr_dot e_θ; a_cor=2ω×v_rel",
+        "units": "r: m; vmax,r_dot,v_abs,v_rel: m/s; r_ddot,a_abs,a_cor: m/s²; ω: rad/s; t: s",
+        "quantityUnits": {
+          "r": "m",
+          "vmax,r_dot,v_abs,v_rel": "m/s",
+          "r_ddot,a_abs,a_cor": "m/s²",
+          "ω": "rad/s",
+          "t": "s"
+        }
       },
       "controls": {
         "primary": "omega, vRel",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "omega",
+            "min": 0.4,
+            "max": 2.5,
+            "step": 0.1,
+            "unit": "rad/s",
+            "initial": 1.2
+          },
+          {
+            "id": "vRel",
+            "min": 0.5,
+            "max": 3,
+            "step": 0.1,
+            "unit": "m/s",
+            "initial": 1.5
+          }
+        ],
+        "resetMode": "restart-time-preserve-parameters",
+        "reset": "Reset pauses at t=0 keeping ω and vmax, and clears the trail.",
+        "parameterChange": "Either parameter edit starts a new paused experiment; no instantaneous phase-preserving ω change is modeled.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Hợp chuyển động & Coriolis",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/kinematics.js",
-        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
-        "independentTest": "tests/sim2-ch2-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "helperHash": "66798efe41ed5c4f07909c69a63784658bbd3c6624da9530ddd8abc0ada35b2c",
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "ω=0.4/1.2/2.5 × vmax=0.5/1.5/3 at outward/inward/turning phases.",
+        "Differentiate inertial position independently for v_abs and a_abs.",
+        "a_cor·v_rel=0, and radial turning gives zero Coriolis acceleration."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1221,17 +2102,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1241,17 +2127,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch2/ch2-4-4.js",
-          "sha256": "add40a7a6ede679845d8ec82bfda1569903dfe81be946f0a1fb5d7559b4d1eb7"
+          "sha256": "1f0d13f581d0b488b615a10e5a506167278443c0fdb9505fe5170ff58b998587"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-4-4",
         "tests": [
           "tests/sim2-ch2-physics.test.js",
           "tests/sim2-ch2-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch2.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1260,43 +2148,79 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "prescribed-planar-relative-motion",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Acceleration components are analytic derivatives of the prescribed point trajectory; independent central differences check the total.",
+        "comparisonLimit": "Positive Coriolis acceleration contribution is distinct from the fictitious force -2mω×v_rel in rotating-frame dynamics."
       }
     },
     {
       "id": "ch2-5-2",
       "title": "Tâm vận tốc tức thời (IC)",
       "chapter": 2,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch2-kinematics",
       "phenomenon": "Locate an instantaneous center for planar rigid motion",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Rigid rod length 5 m; A=(ax,0), B=(2,sqrt(25-(2-ax)²)) m, with A horizontal and B vertical sliders.",
+        "Positive finite ω=0.1–0.4 rad/s; instantaneous center P=(ax,B_y), not necessarily a permanent physical hinge."
       ],
       "formula": {
-        "expression": "v=ω×r_IC",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "P=(A_x,B_y); v_A=(ω B_y,0); v_B=(0,ω(2-A_x)); (v_B-v_A)·(B-A)=0; |v_A|/|v_B|=PA/PB",
+        "units": "A,B,P,PA,PB: m; v_A,v_B: m/s; ω: rad/s; speed ratio: 1 (dimensionless)",
+        "quantityUnits": {
+          "A,B,P,PA,PB": "m",
+          "v_A,v_B": "m/s",
+          "ω": "rad/s",
+          "speed ratio": "1 (dimensionless)"
+        }
       },
       "controls": {
-        "primary": "drag rod",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "ax, omega",
+        "parameters": [
+          {
+            "id": "ax",
+            "min": -3,
+            "max": 1.5,
+            "step": 0.1,
+            "unit": "m",
+            "initial": -2
+          },
+          {
+            "id": "omega",
+            "min": 0.1,
+            "max": 0.4,
+            "step": 0.01,
+            "unit": "rad/s",
+            "initial": 0.4
+          }
+        ],
+        "resetMode": "restore-geometry",
+        "reset": "Reset geometry restores A.x=-2 m, ω=0.4 rad/s and both construction guides.",
+        "parameterChange": "Edits choose a new static instantaneous velocity configuration; construction steps change visibility only.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Tâm vận tốc tức thời (IC)",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/kinematics.js",
-        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
-        "independentTest": "tests/sim2-ch2-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "helperHash": "66798efe41ed5c4f07909c69a63784658bbd3c6624da9530ddd8abc0ada35b2c",
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "A.x=-3/-2/0/1.5 m with ω=0.1/0.4 rad/s.",
+        "Check length 5 m and (v_B-v_A)·AB=0.",
+        "At A.x=-3, A=P and v_A=0 without inventing an undefined IC."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1304,17 +2228,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1324,17 +2253,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch2/ch2-5-2.js",
-          "sha256": "770114f80ee06b1f0dac7930315d149665afe62d978fca5d6ad7992ed106cce7"
+          "sha256": "4c3c51c752053a898be6c89801c35c7f04dd5e91af6cefa6ca71e6cd3da1c0e2"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-5-2",
         "tests": [
           "tests/sim2-ch2-physics.test.js",
           "tests/sim2-ch2-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch2.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1343,43 +2274,87 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "instantaneous-rigid-rod-kinematics",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Endpoint velocities follow rigid-body constraints; the test decodes actual arrow components and the constructed IC location.",
+        "comparisonLimit": "The current rod model always has a finite center, including P=A. Kernel null cases for translation/rest are not UI capabilities."
       }
     },
     {
       "id": "ch2-5-3",
       "title": "Phân bố vận tốc điểm trên vật rắn",
       "chapter": 2,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch2-kinematics",
       "phenomenon": "Show rigid-body velocity distribution about an instantaneous center",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Planar instantaneous field with signed ω∈[-2.5,2.5] rad/s and prescribed v(P)=0; M=(2,1.5) m is fixed. Source x-right/y-up maps to 3D XY with axial ω along ±Z.",
+        "Viewed from +Z toward XY, ω>0 is CCW and ω<0 is CW. At ω=0 every point is at rest: IC is non-unique and selected P is a reference point, not a translation center.",
+        "Sparse numerical table uses fixed physical points and uncapped SI values; main/field arrows have different display scales."
       ],
       "formula": {
-        "expression": "v_M=ω×r_IM",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "r=M-P; v=(-ω r_y,ω r_x); |v|=|ω||r|; v·r=0; ω=0 and v(P)=0 imply rest with non-unique IC",
+        "units": "M,P,IC,r: m; v: m/s; ω: rad/s",
+        "quantityUnits": {
+          "M,P,IC,r": "m",
+          "v": "m/s",
+          "ω": "rad/s"
+        }
       },
       "controls": {
-        "primary": "omega, drag IC",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "omega, icx, icy",
+        "parameters": [
+          {
+            "id": "omega",
+            "min": -2.5,
+            "max": 2.5,
+            "step": 0.1,
+            "unit": "rad/s",
+            "initial": 1
+          },
+          {
+            "id": "icx",
+            "min": -4,
+            "max": 4,
+            "step": 0.1,
+            "unit": "m",
+            "initial": -1
+          },
+          {
+            "id": "icy",
+            "min": -3,
+            "max": 3,
+            "step": 0.1,
+            "unit": "m",
+            "initial": -1
+          }
+        ],
+        "resetMode": "restore-field",
+        "reset": "Reset field restores IC=(-1,-1) m and ω=1 rad/s. Reverse-ω changes sign at fixed magnitude; rest sets ω=0; zero-sample sets IC=M.",
+        "parameterChange": "Edits recompute a static instantaneous field; the drawn plate does not advance through finite rotation.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Phân bố vận tốc điểm trên vật rắn",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/kinematics.js",
-        "helperHash": "ee3b0484f538c74ceade4a143db07d049f08bd9ae863e75b31fc59ec6c1be78c",
-        "independentTest": "tests/sim2-ch2-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "helperHash": "66798efe41ed5c4f07909c69a63784658bbd3c6624da9530ddd8abc0ada35b2c",
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "All four IC domain corners, default and IC=M with ω=-2.5/-0.3/0/0.3/2.5 rad/s.",
+        "Check each sparse point from its physical displacement to P; reversing ω reverses velocity components but preserves speed.",
+        "Rest action gives every v=0 and non-unique IC; IC=M alone gives only v_M=0 while other points may rotate; caps never alter readouts."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1387,17 +2362,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1407,17 +2387,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch2/ch2-5-3.js",
-          "sha256": "d7818c05f9d40e45ffc9fd96810990ea4d0aca6439dc563f7e57d8236a63e0a4"
+          "sha256": "e2fb39cc46e676832f1a3e369a0b8d197290260fa97927deb4245d2b16c91e85"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch2-5-3",
         "tests": [
           "tests/sim2-ch2-physics.test.js",
           "tests/sim2-ch2-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch2.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1426,43 +2408,81 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "instantaneous-rigid-velocity-field",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "The so-called measurement table is a set of calculated samples of v=ω×r, not independently observed velocities.",
+        "comparisonLimit": "Sample-table/arrow agreement verifies implementation consistency. An empirical measurement or independent learner experiment is not supplied."
       }
     },
     {
       "id": "ch3-2-2",
       "title": "Định luật II Newton F = m·a",
       "chapter": 3,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch3-dynamics",
       "phenomenon": "Relate net force, mass, and acceleration",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Constant positive net force, no friction; mass fixed within each run; initial x0=0 and v0=0.",
+        "Physical x and time remain continuous while the displayed block is scaled and wraps around a lane; F arrow is symbolic."
       ],
       "formula": {
-        "expression": "ΣF=ma",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "a=F/m; v=at; x=at²/2",
+        "units": "F: N; m: kg; a: m/s²; v: m/s; x: m; t: s",
+        "quantityUnits": {
+          "F": "N",
+          "m": "kg",
+          "a": "m/s²",
+          "v": "m/s",
+          "x": "m",
+          "t": "s"
+        }
       },
       "controls": {
-        "primary": "F",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "F, m",
+        "parameters": [
+          {
+            "id": "F",
+            "min": 2,
+            "max": 20,
+            "step": 1,
+            "unit": "N",
+            "initial": 6
+          },
+          {
+            "id": "m",
+            "min": 1,
+            "max": 6,
+            "step": 0.5,
+            "unit": "kg",
+            "initial": 2
+          }
+        ],
+        "resetMode": "restart-time-preserve-parameters",
+        "reset": "Playback Reset pauses and restarts t=x=v=0, keeping F,m and any saved A samples.",
+        "parameterChange": "Changing F or m restarts run B at t=0 but does not itself stop an already running playback.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Định luật II Newton F = m·a",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/dynamics.js",
         "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
-        "independentTest": "tests/sim2-ch3-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "(F,m)=(2,6),(6,2),(20,1),(6.25,2.5) at t=1/2.8/8 s.",
+        "Check actual plotted endpoint against the fixed 56 m/s scale after physical time exceeds graph window.",
+        "Saving A then editing B must retain A samples and their scale."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1470,17 +2490,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1490,17 +2515,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch3/ch3-2-2.js",
-          "sha256": "d407f40c23e99e6b02daf4ccaa498528ea27b0e5ac6f0d3a754d5d1e0a461980"
+          "sha256": "dff383cd76ca69ae8637bc9b0c5feeeb76a1f3f88392703e8534c68c771c1b3d"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-2-2",
         "tests": [
           "tests/sim2-ch3-physics.test.js",
           "tests/sim2-ch3-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch3.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1509,43 +2536,69 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "analytic-newton-motion",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Current and saved A/B graph samples are evaluated from the same analytic constant-force model; fixed graph axes are t=0–2.8 s and v=0–56 m/s.",
+        "comparisonLimit": "Saved samples are model-generated, not empirical measurements or an independent numerical integration; equal work/energy relations would be model consistency checks."
       }
     },
     {
       "id": "ch3-2-3",
       "title": "Định luật III: lực & phản lực",
       "chapter": 3,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch3-dynamics",
       "phenomenon": "Identify equal-magnitude, opposite-direction action-reaction pairs",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "F_AB means force A exerts on B and is attached to B; F_BA means force B exerts on A and is attached to A.",
+        "+x is rightward; equal and opposite internal forces cancel only for system A+B; other external forces and individual accelerations are not modeled."
       ],
       "formula": {
-        "expression": "F_AB=-F_BA",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "F_AB=+F e_x; F_BA=-F e_x; F_AB+F_BA=0 for the internal pair",
+        "units": "F,F_AB,F_BA: N; force scale: 0.03 display units/N",
+        "quantityUnits": {
+          "F,F_AB,F_BA": "N",
+          "force scale": "0.03 display units/N"
+        }
       },
       "controls": {
         "primary": "F",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "F",
+            "min": 20,
+            "max": 80,
+            "step": 5,
+            "unit": "N",
+            "initial": 60
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores F=60 N and system A+B; the paired force control is synchronized.",
+        "parameterChange": "Force edits recalculate a static pair; individual/system selectors change which bodies and forces are displayed.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Định luật III: lực & phản lực",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/dynamics.js",
         "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
-        "independentTest": "tests/sim2-ch3-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "F=20/62.5/80 N and each A/B/system selector.",
+        "Decode arrow bases on distinct bodies and equal/opposite force components.",
+        "Readout must state internal pair only and must not claim individual equilibrium."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1553,17 +2606,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1573,17 +2631,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch3/ch3-2-3.js",
-          "sha256": "9ceee357c2240419da0464c710741b2e7b421a319d1906b727ff101e274026f9"
+          "sha256": "a7773cf1ee34aa95396b3612130106ca6d298214fbddae5f8250828809c9e621"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-2-3",
         "tests": [
           "tests/sim2-ch3-physics.test.js",
           "tests/sim2-ch3-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch3.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1592,43 +2652,71 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-action-reaction-diagram",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "The equal-and-opposite pair is prescribed by Newton III, with receiver identity encoded by each arrow base.",
+        "comparisonLimit": "Zero internal-force sum is not zero resultant force on each body; no unknown external forces or accelerations are inferred."
       }
     },
     {
       "id": "ch3-1-3",
       "title": "HQC quán tính vs phi quán tính",
       "chapter": 3,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch3-dynamics",
       "phenomenon": "Compare inertial and accelerating frames using inertia force",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Bob mass 1 kg; g=9.81 m/s²; ideal massless cord; car has constant rightward acceleration a.",
+        "The bob is in relative equilibrium, not an integrated transient pendulum; changing frame only selects a force diagram."
       ],
       "formula": {
-        "expression": "F*=−ma",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "tanθ=a/g; T=m sqrt(g²+a²); T_x=ma; T_y=mg; F*=(-ma,0); car: T+P+F*=0; ground: T+P=ma",
+        "units": "a,g: m/s²; m: kg; T,P,F*,T_x,T_y: N; θ displayed: °",
+        "quantityUnits": {
+          "a,g": "m/s²",
+          "m": "kg",
+          "T,P,F*,T_x,T_y": "N",
+          "θ displayed": "°"
+        }
       },
       "controls": {
         "primary": "a",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "a",
+            "min": 0,
+            "max": 8,
+            "step": 0.5,
+            "unit": "m/s²",
+            "initial": 3
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores a=3 m/s² and the car-frame force diagram; paired controls are synchronized.",
+        "parameterChange": "Changing a instantly recomputes relative equilibrium; frame selector leaves the same bob geometry.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify HQC quán tính vs phi quán tính",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/dynamics.js",
         "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
-        "independentTest": "tests/sim2-ch3-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "a=0/3.25/8 m/s².",
+        "Tsinθ=ma, Tcosθ=mg and rendered cord length stays 3 display units.",
+        "Switch ground/car diagrams without moving the bob; fictitious force belongs only in the accelerating-frame balance."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1636,17 +2724,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1656,17 +2749,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch3/ch3-1-3.js",
-          "sha256": "a1afd8a7c1c362d2d87f9e2598e93146f41433ff57ed10050f2683dc59cd1475"
+          "sha256": "37c3c8aa410015e1a18eb030a618e77cfb5110a98359b12bfefb9edf0bfad805"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-1-3",
         "tests": [
           "tests/sim2-ch3-physics.test.js",
           "tests/sim2-ch3-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch3.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1675,43 +2770,82 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "relative-equilibrium-force-diagram",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Tension and bob angle are equilibrium predictions; the test independently checks the force triangle and fixed cord geometry.",
+        "comparisonLimit": "There is no measured transient response or moving-camera frame simulation; equilibrium force sums do not establish dynamic settling."
       }
     },
     {
       "id": "ch3-3-1",
       "title": "Giải ODE chuyển động (RK4)",
       "chapter": 3,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch3-dynamics",
       "phenomenon": "Compare numerical integration with an ODE motion model",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Ideal undamped, unforced linear spring: x0=2 m,v0=0, m>0,k>0; F_ext=0 identically.",
+        "RK4 advances physical state with playback step 1/60 s; plotted time window is 2π s, not a reset of physical state."
       ],
       "formula": {
-        "expression": "x¨=(F_ext−kx)/m",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "x_ddot=-(k/m)x; ω=sqrt(k/m); x_exact=2cos(ωt); v_exact=-2ωsin(ωt); T=2π/ω; E=mv²/2+kx²/2; E0=2k",
+        "units": "x: m; v: m/s; m: kg; k: N/m; ω: rad/s; t,T: s; E,E0: J",
+        "quantityUnits": {
+          "x": "m",
+          "v": "m/s",
+          "m": "kg",
+          "k": "N/m",
+          "ω": "rad/s",
+          "t,T": "s",
+          "E,E0": "J"
+        }
       },
       "controls": {
-        "primary": "k",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "k, m",
+        "parameters": [
+          {
+            "id": "k",
+            "min": 1,
+            "max": 12,
+            "step": 1,
+            "unit": "N/m",
+            "initial": 4
+          },
+          {
+            "id": "m",
+            "min": 0.5,
+            "max": 4,
+            "step": 0.5,
+            "unit": "kg",
+            "initial": 1
+          }
+        ],
+        "resetMode": "restart-state-preserve-parameters",
+        "reset": "Playback Reset pauses at x=2 m,v=0,t=0 keeping k and m. One-cycle resets then integrates exactly one period and pauses.",
+        "parameterChange": "Changing k or m resets initial state/time but does not itself stop already running playback.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Giải ODE chuyển động (RK4)",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/dynamics.js",
         "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
-        "independentTest": "tests/sim2-ch3-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "(k,m)=(1,4),(4,1),(12,0.5), step≤1/60 s.",
+        "Compare at 13.375 periods, not only at full-cycle endpoints: |x/v error|≤0.0004 in SI, |E-E0|≤0.00011 J.",
+        "Existing 100-cycle suite retains its separately declared larger long-time tolerances."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1719,17 +2853,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1739,17 +2878,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch3/ch3-3-1.js",
-          "sha256": "b11cbb1743173eb5d64aa4b0020297ae370361fc4fedd4934fdabc9f19abc6bf"
+          "sha256": "464629f88fedb134a2897ef86bd90fc4286fc890246a8137d678af35228ba57d"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-3-1",
         "tests": [
           "tests/sim2-ch3-physics.test.js",
           "tests/sim2-ch3-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch3.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1758,43 +2899,81 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "numerically-integrated-free-oscillator",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "RK4 state is compared with a separately evaluated closed-form oscillator solution; energy is computed from RK4 x and v.",
+        "comparisonLimit": "This is an independent numerical-versus-analytic comparison within the same ideal model, not independent experimental measurement. Published tolerances apply only to the tested step/time domain."
       }
     },
     {
       "id": "ch3-5-2",
       "title": "Định lý động lượng & xung lượng",
       "chapter": 3,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch3-dynamics",
       "phenomenon": "Relate impulse to momentum change",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Constant positive force along +x; m=2 kg,v1=1 m/s; duration is a parameter, not a running simulation clock.",
+        "Force-time and momentum-time diagrams use fixed physical axes; no variable force profile is implemented."
       ],
       "formula": {
-        "expression": "J=∫Fdt=Δp",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "J=FΔt; v2=v1+FΔt/m; p1=mv1; p2=mv2; Δp=J; dp/dt=F",
+        "units": "F: N; Δt: s; m: kg; v1,v2: m/s; J: N·s; p1,p2,Δp: kg·m/s",
+        "quantityUnits": {
+          "F": "N",
+          "Δt": "s",
+          "m": "kg",
+          "v1,v2": "m/s",
+          "J": "N·s",
+          "p1,p2,Δp": "kg·m/s"
+        }
       },
       "controls": {
-        "primary": "F",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "primary": "F, t",
+        "parameters": [
+          {
+            "id": "F",
+            "min": 2,
+            "max": 20,
+            "step": 1,
+            "unit": "N",
+            "initial": 6
+          },
+          {
+            "id": "t",
+            "min": 0.5,
+            "max": 4,
+            "step": 0.5,
+            "unit": "s",
+            "initial": 2
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores F=6 N and duration 2 s; both paired controls are synchronized.",
+        "parameterChange": "Any edit recomputes the entire static prediction and both graphs.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Định lý động lượng & xung lượng",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/dynamics.js",
         "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
-        "independentTest": "tests/sim2-ch3-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "(F,Δt)=(2,0.5),(12,1),(3,4),(20,4),(6.25,1.75).",
+        "Decode force-time area and momentum graph slope independently from plotted coordinates.",
+        "Short/strong and long/weak presets both give J=12 N·s and v2=7 m/s."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1802,17 +2981,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1822,17 +3006,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch3/ch3-5-2.js",
-          "sha256": "8e928a0a1a62d2382887001de30b4de054e395a71adf477e87a554fac4a97b1c"
+          "sha256": "3e9c63060e05b4c1ebe7cfe19481f951589dac836d4d3b3f3ba8971fb08337e2"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-5-2",
         "tests": [
           "tests/sim2-ch3-physics.test.js",
           "tests/sim2-ch3-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch3.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1841,43 +3027,73 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-constant-force-impulse",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "v2 is predicted using constant acceleration F/m; momentum and graph slope are calculated from that prediction; force-time area uses prescribed F and duration.",
+        "comparisonLimit": "J=Δp is algebraic consistency within one model. It is not a comparison against independently measured final velocity or momentum."
       }
     },
     {
       "id": "ch3-5-3",
       "title": "Bảo toàn mô men động lượng",
       "chapter": 3,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch3-dynamics",
       "phenomenon": "Relate angular momentum, inertia, and angular speed",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Two opposite point masses, each 2 kg; initial r0=3 m,ω0=1 rad/s, no external torque, L=36 kg·m²/s.",
+        "Radius changes instantaneously between steady rotational states; radial motion, radial kinetic energy and actuator dynamics are excluded."
       ],
       "formula": {
-        "expression": "L=Iω",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "I=4r²; ω=36/I=9/r²; L=Iω=36; E_rot=L²/(2I)=162/r²; W=E_rot-18",
+        "units": "r: m; I: kg·m²; ω: rad/s; L: kg·m²/s; E_rot,W: J; φ: rad",
+        "quantityUnits": {
+          "r": "m",
+          "I": "kg·m²",
+          "ω": "rad/s",
+          "L": "kg·m²/s",
+          "E_rot,W": "J",
+          "φ": "rad"
+        }
       },
       "controls": {
         "primary": "r",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "r",
+            "min": 0.8,
+            "max": 3.5,
+            "step": 0.1,
+            "unit": "m",
+            "initial": 3
+          }
+        ],
+        "resetMode": "restart-phase-preserve-radius",
+        "reset": "Reset pauses and sets φ=0, keeping current r and saved reference radius.",
+        "parameterChange": "Radius edit or radius preset preserves current phase and playback; saved reference sets a radius for steady-state comparison.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Bảo toàn mô men động lượng",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/dynamics.js",
         "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
-        "independentTest": "tests/sim2-ch3-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "r=0.8/1.5/3/3.5/1.55 m with nonzero phase.",
+        "Halving r from 3 to 1.5 gives I/4,ω×4,E×4 and work +54 J.",
+        "Radius edits preserve phase and L=36; all energy readouts exclude radial energy."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1885,17 +3101,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1905,17 +3126,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch3/ch3-5-3.js",
-          "sha256": "693be8c5e48412d7ecabc1699e9bc83a2e573f9b9a41ed2fa95c5fef5556aa05"
+          "sha256": "5d1dee1704519df23d69df5c4e093d0062f310402478d4036b635be184383075"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-5-3",
         "tests": [
           "tests/sim2-ch3-physics.test.js",
           "tests/sim2-ch3-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch3.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -1924,43 +3147,72 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "prescribed-radius-angular-momentum",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Angular momentum fixes ω algebraically for prescribed r; phase integrates the resulting angular velocity between edits; work is the rotational-energy difference.",
+        "comparisonLimit": "Conservation of L does not conserve E_rot. Work is a steady-state energy balance, not a resolved actuator/radial-transient measurement."
       }
     },
     {
       "id": "ch3-5-4",
       "title": "Định lý động năng (công–năng)",
       "chapter": 3,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch3-dynamics",
       "phenomenon": "Relate work to kinetic-energy change",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Constant positive force parallel to +x displacement; m=2 kg,v1=1 m/s,d=6 m; no resisting force.",
+        "No angle control, negative work or stop-before-distance event is supported; final velocity is predicted rather than observed."
       ],
       "formula": {
-        "expression": "W=Fd cos α=ΔT",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "W=Fd=6F; v2=sqrt(v1²+2W/m)=sqrt(1+6F); T1=1; T2=1+6F; ΔT=W",
+        "units": "F: N; d: m; m: kg; v1,v2: m/s; W,T1,T2,ΔT: J",
+        "quantityUnits": {
+          "F": "N",
+          "d": "m",
+          "m": "kg",
+          "v1,v2": "m/s",
+          "W,T1,T2,ΔT": "J"
+        }
       },
       "controls": {
         "primary": "F",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "F",
+            "min": 1,
+            "max": 15,
+            "step": 1,
+            "unit": "N",
+            "initial": 4
+          }
+        ],
+        "resetMode": "restore-defaults",
+        "reset": "Reset restores F=4 N and recomputes the work/energy prediction; paired control is synchronized.",
+        "parameterChange": "Force edit recomputes the entire static prediction and F–x area.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Định lý động năng (công–năng)",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/dynamics.js",
         "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
-        "independentTest": "tests/sim2-ch3-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "F=1/4/15/4.25 N: v2=sqrt(1+6F), W=6F.",
+        "Decode physical force-distance area from plotted coordinates.",
+        "Formula and assumptions must restrict angle to 0; no implication of 90°/180° or braking UI."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -1968,17 +3220,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -1988,17 +3245,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch3/ch3-5-4.js",
-          "sha256": "64a774d4f2ed2c7fda7bc8f03b7bc8e221c6062fd46f7c98251e323159a6d2b5"
+          "sha256": "61c0894306321ab6fd19f42e59554f88b40cdf0f2a23479136c080f03f693e06"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-5-4",
         "tests": [
           "tests/sim2-ch3-physics.test.js",
           "tests/sim2-ch3-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch3.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -2007,43 +3266,92 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "static-positive-work-energy",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "v2 is calculated from W, and ΔT is then recalculated from that same v2; the F–x shaded area uses the prescribed constant force.",
+        "comparisonLimit": "The equal W and ΔT readouts are an algebraic identity, not independent evidence for the work-energy theorem or a measured final speed."
       }
     },
     {
       "id": "ch3-6-2",
       "title": "Va chạm với hệ số phục hồi e",
       "chapter": 3,
-      "status": "verified",
+      "status": "draft",
       "learningOutcomeId": "lo-ch3-dynamics",
       "phenomenon": "Predict post-impact velocities from restitution and momentum",
       "assumptions": [
-        "SI-style scalar inputs shown by the route",
-        "Model remains within the two-dimensional instructional scenario shown"
+        "Head-on 1D collision; no friction or external impulse; +x right; initial x1=-4 m,x2=3 m,u1=2.2 m/s,u2=-1 m/s.",
+        "Fixed radii r1=0.6 m,r2=0.8 m independent of mass; restitution 0≤e≤1; contact time is 1.75 s.",
+        "At impact, positions are exact contact and velocities are immediately after the ideal impulse; lane-edge stop is a display terminal event."
       ],
       "formula": {
-        "expression": "v_after by e; p_before=p_after",
-        "units": "SI units where a dimensional quantity is displayed"
+        "expression": "p=m1u1+m2u2; v1=(p-m2e(u1-u2))/(m1+m2); v2=(p+m1e(u1-u2))/(m1+m2); J_i=m_i(v_i-u_i); ΔT=-0.5[m1m2/(m1+m2)](1-e²)(u1-u2)²",
+        "units": "x1,x2,r1,r2: m; u1,u2,v1,v2: m/s; m1,m2: kg; p: kg·m/s; J_i: N·s; T,ΔT: J; t_hit: s; e: 1 (dimensionless)",
+        "quantityUnits": {
+          "x1,x2,r1,r2": "m",
+          "u1,u2,v1,v2": "m/s",
+          "m1,m2": "kg",
+          "p": "kg·m/s",
+          "J_i": "N·s",
+          "T,ΔT": "J",
+          "t_hit": "s",
+          "e": "1 (dimensionless)"
+        }
       },
       "controls": {
         "primary": "e, m1, m2",
-        "reset": "Use the visible reset control when the route provides playback",
-        "learnerInteraction": "Change the named control or drag the named handle and compare readouts"
+        "parameters": [
+          {
+            "id": "e",
+            "min": 0,
+            "max": 1,
+            "step": 0.05,
+            "unit": "",
+            "initial": 0.7
+          },
+          {
+            "id": "m1",
+            "min": 1,
+            "max": 5,
+            "step": 0.5,
+            "unit": "kg",
+            "initial": 2
+          },
+          {
+            "id": "m2",
+            "min": 1,
+            "max": 5,
+            "step": 0.5,
+            "unit": "kg",
+            "initial": 3
+          }
+        ],
+        "resetMode": "restart-state-preserve-parameters",
+        "reset": "Reset pauses/replays initial positions and velocities keeping m1,m2,e and pause-on-impact preference.",
+        "parameterChange": "Mass/restitution edits reset and pause; event actions seek 1.70/1.75/1.80 s; ordinary impact consumes remaining step time.",
+        "learnerInteraction": "Change the listed numeric/range controls or associated semantic handles; compare calculated SI readouts within the stated model.",
+        "numericPolicy": "Finite typed decimals within each domain are preserved; step describes the range/keyboard increment, not an assurance that every numeric value is quantized. Readout decimals are presentation rounding."
       },
       "accessibility": {
         "textAlternative": "Text labels and readouts identify Va chạm với hệ số phục hồi e",
-        "keyboard": "Native range inputs and buttons remain available in the Sim2 surface",
+        "keyboard": "Native range plus numeric inputs, buttons and semantic handles; actual assistive-technology qualification pending",
         "reducedMotion": "Playback starts paused and follows the Sim2 reduced-motion contract"
       },
       "oracle": {
         "helper": "js/sim2/physics/dynamics.js",
         "helperHash": "58c4117f4840a15340786b974d3098e6afb08f11236492e0dd22f636b857a87c",
-        "independentTest": "tests/sim2-ch3-physics.test.js",
-        "rationale": "The helper formula and chapter physics test are separate from the route factory; debug metrics are not accepted as the only oracle."
+        "independentTest": "tests/simulation-teaching-contracts.test.js",
+        "rationale": "Production route output is checked by independently written mechanics expectations, force/arrow geometry or trajectory finite differences in the referenced test. The helper is system-under-test provenance, not an independent oracle. Chapter tests remain supplemental; derived readout agreement alone is not experimental evidence."
       },
       "boundaryChecks": [
-        "Inspect named control at a safe endpoint and reset to the initial state",
-        "Compare displayed signed quantity against the stated formula or invariant"
+        "e=0/0.7/1 with masses (1,5),(2,3),(5,1) kg.",
+        "At t=1.75 s x1=-0.15 m,x2=1.25 m; compare velocities with independent center-of-mass oracle.",
+        "After 0.05 s propagate with post-impact velocities; preserve exact impactContact separately from live separation."
       ],
       "capture": {
         "plan": "tools/sim2-visual/capture-plan.js",
@@ -2051,17 +3359,22 @@
         "requiredShot": "manifest-driven initial/live or time-step evidence"
       },
       "evidence": {
-        "manualStatus": "verified",
+        "manualStatus": "draft",
         "required": [
           "factory and theory/readout review",
           "independent physics or mount test reference",
           "manual accessibility/control observation"
         ],
-        "verified": true,
+        "verified": false,
         "manualEvidence": {
-          "status": "verified",
+          "status": "draft",
           "reviewerRole": "Project technical reviewer",
-          "record": "Route-by-route technical review record is verified against the completed runtime and Phase 11 release evidence."
+          "record": "Current-source review has not been performed. Prior review wording is preserved in the document historicalSnapshot."
+        },
+        "technicalReview": {
+          "scope": "source-and-cpu-only",
+          "record": "docs/simulation-teaching-technical-review.md",
+          "independentHumanReview": false
         }
       },
       "sources": {
@@ -2071,17 +3384,19 @@
         },
         "factory": {
           "path": "js/sim2/sims/ch3/ch3-6-2.js",
-          "sha256": "f79775734dd6c0cd0ab48b5e90df96f892d8c893351298b05fbdf9c531b91c2d"
+          "sha256": "b6859e7361bc208cf0b0c6b12f5013225777b1c0988dc86639eadbd35e5219c0"
         },
         "learningMap": {
           "path": "data/simulation-learning-map.json",
-          "sha256": "7f8bcc944507893dd9ca24475260243df10f25be162adb50438b909135ed6f17"
+          "sha256": "78da71e489ac1bd3e4880217d2ff7f85c565d6e7e2f7f680d9325805763a86cd"
         },
         "theoryReference": "CoHocLyThuyet_Full_New.docx § ch3-6-2",
         "tests": [
           "tests/sim2-ch3-physics.test.js",
           "tests/sim2-ch3-mount.spec.js",
-          "tests/sim2-visual-capture-plan.test.js"
+          "tests/sim2-visual-capture-plan.test.js",
+          "tests/sim-upgrades-ch3.test.js",
+          "tests/simulation-teaching-contracts.test.js"
         ],
         "registry": {
           "path": "js/sim2/registry.js",
@@ -2090,8 +3405,22 @@
       },
       "freshness": {
         "checkedOn": "2026-08-22",
-        "sourceHashesRequired": true
+        "sourceHashesRequired": true,
+        "metadataRefreshedOn": "2026-10-03",
+        "scope": "byte-currentness only; runtime and human review pending"
+      },
+      "modelKind": "event-driven-frictionless-head-on-collision",
+      "readoutSemantics": {
+        "experimentalMeasurement": false,
+        "derivation": "Current velocities are produced by the collision kernel; separate closed-form readouts predict velocities, impulse and kinetic loss from initial parameters.",
+        "comparisonLimit": "Kernel-versus-closed-form agreement checks an implementation of one ideal impact model. Analytic J/ΔT are future post-impact predictions even before impact, whereas current energy loss is zero then."
       }
     }
-  ]
+  ],
+  "upstreamBlocker": "Current-source revalidation is pending; historical runtime evidence does not verify changed source.",
+  "historicalSnapshot": {
+    "path": "data/review-history/a5ecf141498e5388121ff0f654bcee0b4e59a93fbb8f931761c9afb73eee4ac7-simulation-specifications.json",
+    "sha256": "a5ecf141498e5388121ff0f654bcee0b4e59a93fbb8f931761c9afb73eee4ac7",
+    "scope": "historical record only; not current acceptance"
+  }
 }

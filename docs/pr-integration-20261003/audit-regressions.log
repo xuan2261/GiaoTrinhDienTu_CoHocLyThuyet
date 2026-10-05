@@ -1,0 +1,313 @@
+=== /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python tests/test_audit_ch23_content.py ===
+test_C2_01_direction_and_speed_are_distinct (__main__.AcademicRepairTests.test_C2_01_direction_and_speed_are_distinct) ... ok
+test_C2_02_tangential_acceleration_uses_radius (__main__.AcademicRepairTests.test_C2_02_tangential_acceleration_uses_radius) ... ok
+test_C2_03_angle_matches_integrated_angular_velocity (__main__.AcademicRepairTests.test_C2_03_angle_matches_integrated_angular_velocity) ... ok
+test_C2_04_driver_driven_ratio_reciprocates_geometry (__main__.AcademicRepairTests.test_C2_04_driver_driven_ratio_reciprocates_geometry) ... ok
+test_C2_05_position_derivative_accents (__main__.AcademicRepairTests.test_C2_05_position_derivative_accents) ... ok
+test_C2_06_ellipse_velocity_has_no_constant_offset (__main__.AcademicRepairTests.test_C2_06_ellipse_velocity_has_no_constant_offset) ... ok
+test_C2_07_projectile_initial_vertical_velocity (__main__.AcademicRepairTests.test_C2_07_projectile_initial_vertical_velocity) ... ok
+test_C2_08_velocity_uses_actual_point_M (__main__.AcademicRepairTests.test_C2_08_velocity_uses_actual_point_M) ... ok
+test_C2_09_finite_centers_include_degenerate_cases (__main__.AcademicRepairTests.test_C2_09_finite_centers_include_degenerate_cases) ... ok
+test_C2_10_speed_nonnegative_and_reversal_intervals (__main__.AcademicRepairTests.test_C2_10_speed_nonnegative_and_reversal_intervals) ... ok
+test_C2_11_flywheel_acceleration_norm (__main__.AcademicRepairTests.test_C2_11_flywheel_acceleration_norm) ... ok
+test_C2_12_angular_acceleration_units (__main__.AcademicRepairTests.test_C2_12_angular_acceleration_units) ... ok
+test_C2_13_motion_summary_cells_are_complete (__main__.AcademicRepairTests.test_C2_13_motion_summary_cells_are_complete) ... ok
+test_C3_01_collision_velocity_conserves_momentum (__main__.AcademicRepairTests.test_C3_01_collision_velocity_conserves_momentum) ... ok
+test_C3_02_restitution_is_separation_over_approach (__main__.AcademicRepairTests.test_C3_02_restitution_is_separation_over_approach) ... ok
+test_C3_03_ode_has_velocity_and_acceleration_derivatives (__main__.AcademicRepairTests.test_C3_03_ode_has_velocity_and_acceleration_derivatives) ... ok
+test_C3_04_angular_momentum_is_cross_product (__main__.AcademicRepairTests.test_C3_04_angular_momentum_is_cross_product) ... ok
+test_C3_05_all_six_component_and_moment_repairs (__main__.AcademicRepairTests.test_C3_05_all_six_component_and_moment_repairs) ... ok
+test_C3_06_opposite_recovery_impulses (__main__.AcademicRepairTests.test_C3_06_opposite_recovery_impulses) ... ok
+test_C3_07_both_ellipse_second_derivatives_negative (__main__.AcademicRepairTests.test_C3_07_both_ellipse_second_derivatives_negative) ... ok
+test_C3_08_pulled_block_intermediate_steps (__main__.AcademicRepairTests.test_C3_08_pulled_block_intermediate_steps) ... ok
+test_C3_09_pulley_acceleration_keeps_chosen_sign (__main__.AcademicRepairTests.test_C3_09_pulley_acceleration_keeps_chosen_sign) ... ok
+test_C3_10_incline_coefficient_and_friction_dimensions (__main__.AcademicRepairTests.test_C3_10_incline_coefficient_and_friction_dimensions) ... ok
+test_C3_11_force_changes_velocity (__main__.AcademicRepairTests.test_C3_11_force_changes_velocity) ... ok
+test_C3_12_impulse_limits_match_states (__main__.AcademicRepairTests.test_C3_12_impulse_limits_match_states) ... ok
+test_Q_01_open_belt_grading_and_feedback (__main__.AcademicRepairTests.test_Q_01_open_belt_grading_and_feedback) ... ok
+test_Q_02_first_problem_follows_course_convention (__main__.AcademicRepairTests.test_Q_02_first_problem_follows_course_convention) ... ok
+test_Q_03_Euler_angle_convention_consistent (__main__.AcademicRepairTests.test_Q_03_Euler_angle_convention_consistent) ... ok
+test_Q_04_slider_crank_finite_rod (__main__.AcademicRepairTests.test_Q_04_slider_crank_finite_rod) ... ok
+test_Q_05_single_choice_domains_and_distinct_options (__main__.AcademicRepairTests.test_Q_05_single_choice_domains_and_distinct_options) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.099s
+
+OK
+=== /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python tests/test_statics_content_regression.py ===
+................
+----------------------------------------------------------------------
+Ran 16 tests in 0.006s
+
+OK
+=== /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python tests/test_statics_quiz_export.py ===
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.084s
+
+OK
+=== /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python tests/test_audit_ch23_quiz_generators.py ===
+test_validate_does_not_write_and_export_preserves_all_fields (__main__.QuizGeneratorPreservationTests.test_validate_does_not_write_and_export_preserves_all_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.172s
+
+OK
+=== /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python tests/test_audit_ui_regressions.py ===
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK
+=== /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python tests/test_content_errata.py ===
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.050s
+
+OK
+=== /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python tests/test_symbol_font_extraction.py ===
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+=== node --test tests/sim2-audit-repairs.test.js ===
+✔ K-01: finite IC for parallel velocities and stationary endpoint; rigid-body oracle and invalid inputs (1.358178ms)
+✔ R2D-01: Newton physical x/v/work-energy and continuous time through graph wrap (147.180276ms)
+✔ R2D-02: support reaction moment cancels load moment and SVG sweep agrees (2.477915ms)
+✔ R2D-03: IC velocity magnitudes obey one angular speed, including IC=A endpoint (3.368635ms)
+✔ R2D-04: rope slider/geometry/drag/ARIA round trips without pointer movement (2.838545ms)
+✔ R2D-05: impact consumes full dt; independent piecewise trajectory, contact snapshot and invariants (73.127422ms)
+✔ R2D-06: 1000 collision/reset cycles retain only active overlay labels; dispose releases them (32.292839ms)
+✔ R2D-07/projectile: all vector endpoints fit including immediately before touchdown (106.87722ms)
+✔ R2D-07/gears: every circle fits at all radius boundaries with stroke padding (3.801572ms)
+✔ R2D-07/IC: whole rigid bar, velocity arrows and center fit through handle domain (2.960815ms)
+✔ R2D-05: collision with real fixed-step clock preserves pause/reset and 2-second position (3.536852ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 472.785001
+=== node --test tests/sim2-audit-domain-sweep.test.js ===
+[
+  {
+    "id": "ch1-1-3",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch1-1-4",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch1-1-5",
+    "mounted": true,
+    "finiteBoundaryChecks": 0,
+    "disposed": true
+  },
+  {
+    "id": "ch1-1-6",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch1-2-3",
+    "mounted": true,
+    "finiteBoundaryChecks": 0,
+    "disposed": true
+  },
+  {
+    "id": "ch1-1-8",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch1-3-2",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch1-3-6",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch1-5-3",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch1-6-3",
+    "mounted": true,
+    "finiteBoundaryChecks": 0,
+    "disposed": true
+  },
+  {
+    "id": "ch2-1-1",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch2-1-3",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch2-2-2",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch2-3-2",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch2-4-4",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch2-5-2",
+    "mounted": true,
+    "finiteBoundaryChecks": 0,
+    "disposed": true
+  },
+  {
+    "id": "ch2-5-3",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch3-2-2",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch3-2-3",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch3-1-3",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch3-3-1",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch3-5-2",
+    "mounted": true,
+    "finiteBoundaryChecks": 4,
+    "disposed": true
+  },
+  {
+    "id": "ch3-5-3",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch3-5-4",
+    "mounted": true,
+    "finiteBoundaryChecks": 2,
+    "disposed": true
+  },
+  {
+    "id": "ch3-6-2",
+    "mounted": true,
+    "finiteBoundaryChecks": 6,
+    "disposed": true
+  }
+]
+✔ tests/sim2-audit-domain-sweep.test.js (304.587836ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 312.281813
+=== node --test tests/sim3-audit-regression.test.js ===
+✔ Collision impact diagnostic uses the contact snapshot after the full step advances (66.343614ms)
+✔ S3-01: Coriolis disk, rim, sector and bead share XY plane at every phase (18.97425ms)
+✔ S3-02: friction-cone apex starts at contact and every section opens along normal (19.465632ms)
+✔ S3-03: belt dots follow tangent spans and wraps at signed no-slip arc speed (110.126204ms)
+✔ S3-04: theta arc is centered at pivot, coplanar and bounded by cord/vertical (22.332128ms)
+✔ S3-05: full ellipse/circle/marker/vector geometry fits frustum across states and resize (680.561332ms)
+✔ S3-06: block bottom and contact cues sit on the inclined top surface (16.552417ms)
+✔ S3-07: null, thrown and synchronous-fallback factories leave no host or canvas (37.202491ms)
+✔ S3-08: arrow display length includes actual cone tip for zero/min/max/signed cases (11.581265ms)
+✔ All ten adapters remain demand-rendered and dispose each owned resource once (91.487198ms)
+✔ Changed cone/angle geometry is disposed and unchanged angle geometry is reused (19.174603ms)
+✔ Mode owns its host through normal toggles, update failure and throwing disposal (8.96079ms)
+✔ S3-08 review: force and moment geometry stays framed over expanded synthetic endpoints and resize (633.428495ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1835.422949
+=== node --test tests/notes-security-audit.test.js ===
+SEC-01: literal rendering, deletion, empty state and malformed storage PASS
+✔ tests/notes-security-audit.test.js (61.439901ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 68.208407
+=== node --test tests/content-math-render-audit.test.js ===
+{"htmlFiles":111,"htmlParsedTexFormulas":139,"result":"PASS","browserLayoutVerified":false}
+✔ tests/content-math-render-audit.test.js (3065.313229ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3072.036578
+=== node --test tests/simulation-current-revalidation.test.js ===
+✔ historical completed artifacts cannot approve the repaired current source (137.804806ms)
+✔ font, image, GIF and source-PDF byte changes invalidate the captured source fingerprint (5.096837ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 222.698865
+=== /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python tools/apply_content_errata.py --check ===
+Web errata: 0 fragment(s) require application; independent academic acceptance remains pending
+Audit repair commands: 14/14 PASS; browser/GPU/human acceptance separate

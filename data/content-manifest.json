@@ -3,7 +3,7 @@
   "source": {
     "logicalPath": "CoHocLyThuyet_Full_New.docx",
     "sha256": "6396a72512613f867f93332968fc876daccb1d65ed3b6d52efaa74d44bf4b79a",
-    "docxManifestSha256": "a49f6fb6adaf5413d4cd9f2ed507cbaf7fcc5c059b8914d76089dcafa7bed29e",
+    "docxManifestSha256": "1e8282fda95afba058e6c4f7c3ace6bd0d41e4aedd758549bd3c941eeb4ea57d",
     "chapterReference": {
       "logicalPath": "data/chapter-reference.json",
       "sha256": "0b2272d54d6a3d3152562eab58b6cbf241860971e4a0932c79bb05c142fb1187"
@@ -103,7 +103,7 @@
       ],
       "chapterFile": "chapters/ch1/muc-I-2.html",
       "bundleKey": "ch1-1-2",
-      "contentHash": "fcfc474afdb08728b1b84ed786627772b86645d71e2d947f8a0a83aebc3f263f",
+      "contentHash": "f86af3437f3c8ec1dc254bc5f24e946998761062a29556c838482da104a5bc1a",
       "figureRefs": [],
       "equationRefs": [],
       "hasQuiz": false,
@@ -138,7 +138,7 @@
       ],
       "chapterFile": "chapters/ch1/muc-I-4.html",
       "bundleKey": "ch1-1-4",
-      "contentHash": "135cd017448c06b3cb9ce96960f4c4b98385a0c9d9b630d0d2cffc597cdf704a",
+      "contentHash": "c6377a3ed5f4f7a9c912dd299acbb06de34c44c6e1e95d6110ca05ab1a49917a",
       "figureRefs": [
         "images/ch1/hinh-002.png",
         "images/ch1/hinh-013.png"
@@ -609,7 +609,7 @@
       ],
       "chapterFile": "chapters/ch1/muc-IV-2.html",
       "bundleKey": "ch1-4-2",
-      "contentHash": "83fcb0ce8b02051c00b02bf281da06c41b3c7b1e1eaf5c9701f8a93f83371b12",
+      "contentHash": "07f9dbbeab829a99a9d63577d5624f9296f96c712e6edb3fac28795eabcace52",
       "figureRefs": [
         "images/ch1/hinh-056.png"
       ],
@@ -625,7 +625,36 @@
         "ch1-4-2#eq-9",
         "ch1-4-2#eq-10",
         "ch1-4-2#eq-11",
-        "ch1-4-2#eq-12"
+        "ch1-4-2#eq-12",
+        "ch1-4-2#eq-13",
+        "ch1-4-2#eq-14",
+        "ch1-4-2#eq-15",
+        "ch1-4-2#eq-16",
+        "ch1-4-2#eq-17",
+        "ch1-4-2#eq-18",
+        "ch1-4-2#eq-19",
+        "ch1-4-2#eq-20",
+        "ch1-4-2#eq-21",
+        "ch1-4-2#eq-22",
+        "ch1-4-2#eq-23",
+        "ch1-4-2#eq-24",
+        "ch1-4-2#eq-25",
+        "ch1-4-2#eq-26",
+        "ch1-4-2#eq-27",
+        "ch1-4-2#eq-28",
+        "ch1-4-2#eq-29",
+        "ch1-4-2#eq-30",
+        "ch1-4-2#eq-31",
+        "ch1-4-2#eq-32",
+        "ch1-4-2#eq-33",
+        "ch1-4-2#eq-34",
+        "ch1-4-2#eq-35",
+        "ch1-4-2#eq-36",
+        "ch1-4-2#eq-37",
+        "ch1-4-2#eq-38",
+        "ch1-4-2#eq-39",
+        "ch1-4-2#eq-40",
+        "ch1-4-2#eq-41"
       ],
       "hasQuiz": false,
       "hasSimulation": false
@@ -640,7 +669,7 @@
       ],
       "chapterFile": "chapters/ch1/muc-IV-3.html",
       "bundleKey": "ch1-4-3",
-      "contentHash": "15c97585cb52d9e7f88e333d90777c25f8bb85392a88db20da1f13e24432e51a",
+      "contentHash": "610885b2f87ef5acd2418d71c2edf2d39fedb34284ed023e2af67259e7851203",
       "figureRefs": [
         "images/ch1/hinh-078.png",
         "images/ch1/hinh-086.png",
@@ -698,8 +727,7 @@
         "ch1-4-3#eq-49",
         "ch1-4-3#eq-50",
         "ch1-4-3#eq-51",
-        "ch1-4-3#eq-52",
-        "ch1-4-3#eq-53"
+        "ch1-4-3#eq-52"
       ],
       "hasQuiz": false,
       "hasSimulation": false
@@ -841,7 +869,7 @@
       ],
       "chapterFile": "chapters/ch1/muc-V-3.html",
       "bundleKey": "ch1-5-3",
-      "contentHash": "bbc4cbb33a156f27520b0005f037ffcbe4ac8415ac020e3a763ca55f37915118",
+      "contentHash": "7822a73607a7e3d96da0d2100c60815d60c2df88056a34ec224c54806917ec2f",
       "figureRefs": [
         "images/ch1/hinh-127.png",
         "images/ch1/hinh-132.png",
@@ -941,7 +969,7 @@
       ],
       "chapterFile": "chapters/ch1/muc-V-4.html",
       "bundleKey": "ch1-5-4",
-      "contentHash": "247066c3478f8eb718c266bdf0383909ed362e151ff8bea1293fb3a9ff8d6b72",
+      "contentHash": "9225dbfe0f89a26919e7ce5d9a60cc5589cb82c514fbdf043cd86ac322e59fe1",
       "figureRefs": [
         "images/ch1/hinh-156.png"
       ],
@@ -949,7 +977,9 @@
         "ch1-5-4#eq-1",
         "ch1-5-4#eq-2",
         "ch1-5-4#eq-3",
-        "ch1-5-4#eq-4"
+        "ch1-5-4#eq-4",
+        "ch1-5-4#eq-5",
+        "ch1-5-4#eq-6"
       ],
       "hasQuiz": false,
       "hasSimulation": false
@@ -995,7 +1025,7 @@
       ],
       "chapterFile": "chapters/ch1/muc-VI-2.html",
       "bundleKey": "ch1-6-2",
-      "contentHash": "5a6a07e92849d18a1a13722c3104b96af0a9cac496fdceb50c9b5709c833be6f",
+      "contentHash": "32a4c021dfcd4de615afac6a344f2a16a141011e70152af1b4aefd76e8b657e7",
       "figureRefs": [
         "images/ch1/hinh-161.png"
       ],
@@ -1019,11 +1049,7 @@
         "ch1-6-2#eq-17",
         "ch1-6-2#eq-18",
         "ch1-6-2#eq-19",
-        "ch1-6-2#eq-20",
-        "ch1-6-2#eq-21",
-        "ch1-6-2#eq-22",
-        "ch1-6-2#eq-23",
-        "ch1-6-2#eq-24"
+        "ch1-6-2#eq-20"
       ],
       "hasQuiz": false,
       "hasSimulation": false
@@ -1069,7 +1095,7 @@
       ],
       "chapterFile": "chapters/ch1/muc-VII-1.html",
       "bundleKey": "ch1-7-1",
-      "contentHash": "98034b3d54624efffb8c9115b313bb1d976930ff1fc08e6f6e16c3ee5b9688f3",
+      "contentHash": "7311feeb8352036a68af7f4ce6d541c8130a2c8029e668d9c8d313c4c4f9fba7",
       "figureRefs": [
         "images/ch1/hinh-172.png",
         "images/ch1/hinh-173.png",
@@ -1167,7 +1193,19 @@
         "ch1-7-1#eq-81",
         "ch1-7-1#eq-82",
         "ch1-7-1#eq-83",
-        "ch1-7-1#eq-84"
+        "ch1-7-1#eq-84",
+        "ch1-7-1#eq-85",
+        "ch1-7-1#eq-86",
+        "ch1-7-1#eq-87",
+        "ch1-7-1#eq-88",
+        "ch1-7-1#eq-89",
+        "ch1-7-1#eq-90",
+        "ch1-7-1#eq-91",
+        "ch1-7-1#eq-92",
+        "ch1-7-1#eq-93",
+        "ch1-7-1#eq-94",
+        "ch1-7-1#eq-95",
+        "ch1-7-1#eq-96"
       ],
       "hasQuiz": false,
       "hasSimulation": false
@@ -1182,7 +1220,7 @@
       ],
       "chapterFile": "chapters/ch1/muc-VII-2.html",
       "bundleKey": "ch1-7-2",
-      "contentHash": "c4c056bcfc3f64f6b0f7fb66503a9428cc7f3e24992ee5d41977103f8df767e6",
+      "contentHash": "40d29ae85af2296b33c800d8868e944c8598cdb995a44dac0efa1197aedf4812",
       "figureRefs": [
         "images/ch1/hinh-229.png",
         "images/ch1/hinh-230.png",
@@ -1285,7 +1323,7 @@
       ],
       "chapterFile": "chapters/ch2/muc-I-1.html",
       "bundleKey": "ch2-1-1",
-      "contentHash": "40c6f1820ef5b92a2a7436012f0f8dc697c84c600d45589f08c7f2428551402c",
+      "contentHash": "a6be796bc9f099e2b5a6eaea6b960e6b93f8aae0e9b42982c3a8da8d23c096f4",
       "figureRefs": [
         "images/ch2/hinh-005.png",
         "images/ch2/hinh-009.png",
@@ -1361,7 +1399,7 @@
       ],
       "chapterFile": "chapters/ch2/muc-I-2.html",
       "bundleKey": "ch2-1-2",
-      "contentHash": "b51b77aa3dcf181aff04126543ce6a09c4de2c15b51fd56dbda4182e6ed7b341",
+      "contentHash": "f4218924d60429aadeebe006e9de458d0303d5249480eae0a66e36bd4529cd5c",
       "figureRefs": [
         "images/ch2/hinh-050.png"
       ],
@@ -1401,7 +1439,7 @@
       ],
       "chapterFile": "chapters/ch2/muc-I-3.html",
       "bundleKey": "ch2-1-3",
-      "contentHash": "afcea8895e92a685b1871d460f2c6deab0ee5a050a19e7817807c805a60e6c4f",
+      "contentHash": "6e5bd7150ce92e199f9a7638c45f2e03255716f4f1e169ea83cc2a4cbe19aefb",
       "figureRefs": [
         "images/ch2/hinh-056.png"
       ],
@@ -1421,35 +1459,7 @@
         "ch2-1-3#eq-13",
         "ch2-1-3#eq-14",
         "ch2-1-3#eq-15",
-        "ch2-1-3#eq-16",
-        "ch2-1-3#eq-17",
-        "ch2-1-3#eq-18",
-        "ch2-1-3#eq-19",
-        "ch2-1-3#eq-20",
-        "ch2-1-3#eq-21",
-        "ch2-1-3#eq-22",
-        "ch2-1-3#eq-23",
-        "ch2-1-3#eq-24",
-        "ch2-1-3#eq-25",
-        "ch2-1-3#eq-26",
-        "ch2-1-3#eq-27",
-        "ch2-1-3#eq-28",
-        "ch2-1-3#eq-29",
-        "ch2-1-3#eq-30",
-        "ch2-1-3#eq-31",
-        "ch2-1-3#eq-32",
-        "ch2-1-3#eq-33",
-        "ch2-1-3#eq-34",
-        "ch2-1-3#eq-35",
-        "ch2-1-3#eq-36",
-        "ch2-1-3#eq-37",
-        "ch2-1-3#eq-38",
-        "ch2-1-3#eq-39",
-        "ch2-1-3#eq-40",
-        "ch2-1-3#eq-41",
-        "ch2-1-3#eq-42",
-        "ch2-1-3#eq-43",
-        "ch2-1-3#eq-44"
+        "ch2-1-3#eq-16"
       ],
       "hasQuiz": false,
       "hasSimulation": true
@@ -1464,7 +1474,7 @@
       ],
       "chapterFile": "chapters/ch2/muc-I-4.html",
       "bundleKey": "ch2-1-4",
-      "contentHash": "efdad3c5730d7dbcec1649c7ead47d31ee8caf7f09aa0f069e6902b526d736eb",
+      "contentHash": "16b583ade39bdb740c00c60a4c1996a200586594559c7666d81c608a682a4a8a",
       "figureRefs": [
         "images/ch2/hinh-072.png",
         "images/ch2/hinh-079.png"
@@ -1521,7 +1531,7 @@
       ],
       "chapterFile": "chapters/ch2/muc-II-2.html",
       "bundleKey": "ch2-2-2",
-      "contentHash": "9d465d15b6613e252d148c023bccbb1f0b24804d4a34c550978c87e7b026ffd8",
+      "contentHash": "f93f602591541a3703da336bded31a37d7b948ac3c577730c67fcecd261027e0",
       "figureRefs": [
         "images/ch2/hinh-080.png",
         "images/ch2/hinh-082.png",
@@ -1665,7 +1675,7 @@
       ],
       "chapterFile": "chapters/ch2/muc-III-2.html",
       "bundleKey": "ch2-3-2",
-      "contentHash": "ecd0abc9a562db615ef62ac966759579f6aefbfc8490ffea0a81c7d7a24623c6",
+      "contentHash": "61d9b6b68c12291e1fc85c8a93b0da7e62124d4937e14925c2ced9fb36de04b6",
       "figureRefs": [
         "images/ch2/hinh-143.png",
         "images/ch2/hinh-147.png"
@@ -1784,7 +1794,7 @@
       ],
       "chapterFile": "chapters/ch2/muc-IV-4.html",
       "bundleKey": "ch2-4-4",
-      "contentHash": "8362a78f18f42bf568be53602a464cd9989732a73fdbc6df3a4b907078607c5c",
+      "contentHash": "5612ea2a821dc31da949c5e40e14634a2f3f1e16e6030c7a923a285399bcb8ab",
       "figureRefs": [
         "images/ch2/hinh-173.png",
         "images/ch2/hinh-182.png",
@@ -1924,7 +1934,7 @@
       ],
       "chapterFile": "chapters/ch2/muc-V-3.html",
       "bundleKey": "ch2-5-3",
-      "contentHash": "7b53cd48984a39c650afb3452120ffa126fb8fe26c81e75ac87a7a3e58ed8c81",
+      "contentHash": "d58ec6ddada1e07aaf0be669257af3e9c1156f72de0f5fafdf07238cae4f8664",
       "figureRefs": [
         "images/ch2/hinh-208.png",
         "images/ch2/hinh-209.png",
@@ -2070,7 +2080,7 @@
       ],
       "chapterFile": "chapters/ch2/muc-VII-1.html",
       "bundleKey": "ch2-7-1",
-      "contentHash": "00a0215951cbe5d1ce1eaad84e0fdd80318fa28c0ecd11ed1bff1d0dbe56bce9",
+      "contentHash": "f0e7576c459430fc26ab1ee460746ef9ad8e79b68681573bc926e5385f821653",
       "figureRefs": [
         "images/ch2/hinh-239.png",
         "images/ch2/hinh-253.png",
@@ -2166,9 +2176,7 @@
         "ch2-7-1#eq-81",
         "ch2-7-1#eq-82",
         "ch2-7-1#eq-83",
-        "ch2-7-1#eq-84",
-        "ch2-7-1#eq-85",
-        "ch2-7-1#eq-86"
+        "ch2-7-1#eq-84"
       ],
       "hasQuiz": false,
       "hasSimulation": false
@@ -2380,7 +2388,7 @@
       ],
       "chapterFile": "chapters/ch3/muc-II-2.html",
       "bundleKey": "ch3-2-2",
-      "contentHash": "ca8419e8e2b439ecdfed427c1470e2621fe05ead59d86000bce994de12dd0990",
+      "contentHash": "962a731917ed288ab497c80b6797335da47787ac079e334797a7e10643d71fd8",
       "figureRefs": [
         "images/ch3/hinh-008.png"
       ],
@@ -2403,9 +2411,7 @@
         "ch3-2-2#eq-16",
         "ch3-2-2#eq-17",
         "ch3-2-2#eq-18",
-        "ch3-2-2#eq-19",
-        "ch3-2-2#eq-20",
-        "ch3-2-2#eq-21"
+        "ch3-2-2#eq-19"
       ],
       "hasQuiz": false,
       "hasSimulation": true
@@ -2489,7 +2495,7 @@
       ],
       "chapterFile": "chapters/ch3/muc-III-1.html",
       "bundleKey": "ch3-3-1",
-      "contentHash": "d62c894c2b80eb57a2c195507ecf2b497fc17fcff243d8e3c2ff6e1c253285f2",
+      "contentHash": "908fd01bc9415149429fd37fe3ad67dde0ec9855436bcc4f6a1010605728c3aa",
       "figureRefs": [],
       "equationRefs": [
         "ch3-3-1#eq-1",
@@ -2561,7 +2567,7 @@
       ],
       "chapterFile": "chapters/ch3/muc-IV-1.html",
       "bundleKey": "ch3-4-1",
-      "contentHash": "8af2ba6878a4b12268b8d0d69654243c4330ee95921c90c3f1793946e3e56cab",
+      "contentHash": "a5cfb394fb4ae7ea0e907c1c2bb4fc051da85a7355da94e9dca2a111ab602f81",
       "figureRefs": [
         "images/ch3/hinh-033.png",
         "images/ch3/hinh-043.png",
@@ -2654,7 +2660,7 @@
       ],
       "chapterFile": "chapters/ch3/muc-V-1.html",
       "bundleKey": "ch3-5-1",
-      "contentHash": "ba55013ad7ce0d8b508d85e1d14d0d372ec4897099cfcbe54d484a59457fd911",
+      "contentHash": "53b06858302ab24e9e4bf546f63d3249fcc2fefdbe901c0f072d8c91dc67a4f8",
       "figureRefs": [],
       "equationRefs": [
         "ch3-5-1#eq-1",
@@ -2680,7 +2686,7 @@
       ],
       "chapterFile": "chapters/ch3/muc-V-2.html",
       "bundleKey": "ch3-5-2",
-      "contentHash": "34090c74bd248e4aedda4faabe4e9b7e135f810d1da80ef0973860dfeebe756b",
+      "contentHash": "0afd64eaa9fdd6ad5892fd341442d84a680dd6f7340b2d1890b6a779623f3ad9",
       "figureRefs": [
         "images/ch3/hinh-068.png",
         "images/ch3/hinh-101.png"
@@ -2773,7 +2779,7 @@
       ],
       "chapterFile": "chapters/ch3/muc-V-3.html",
       "bundleKey": "ch3-5-3",
-      "contentHash": "bd1635b7951a22d0f8a5e0eb81a30683f04e6294c24a56892c376c3f6968ee15",
+      "contentHash": "8d7507e1ef03929ed664cfebdd6eef5996d8003b85f7d641210cf566ccb4c8bf",
       "figureRefs": [
         "images/ch3/hinh-111.png",
         "images/ch3/hinh-115.png",
@@ -2943,7 +2949,7 @@
       ],
       "chapterFile": "chapters/ch3/muc-VI-3.html",
       "bundleKey": "ch3-6-3",
-      "contentHash": "055511a14ac3c95d3aa0aca70d5f3fe3db0cd27f7181c85fc095665226bb23a5",
+      "contentHash": "8a7ae042dee0762d7c26ab68f676844662f07167a28ab8712a30aaa74cc40ed6",
       "figureRefs": [
         "images/ch3/hinh-169.png",
         "images/ch3/hinh-174.png",
@@ -3048,7 +3054,7 @@
       ],
       "chapterFile": "chapters/ch3/muc-VII-1.html",
       "bundleKey": "ch3-7-1",
-      "contentHash": "ea9c159a88dc4d9b6156414763bc470aedadcd573f94ff16bf09ff1836120766",
+      "contentHash": "b3e06daad80a49ffc849409f157473b67e7f583304d5e1d086fd60bcb1253654",
       "figureRefs": [
         "images/ch3/hinh-216.png",
         "images/ch3/hinh-217.png",
@@ -3119,7 +3125,7 @@
       ],
       "chapterFile": "chapters/ch3/muc-VII-2.html",
       "bundleKey": "ch3-7-2",
-      "contentHash": "165b1f629081553baf688cf6bd81bbc58ab2ae0b1c4e0a42ef72a251c8e0dbba",
+      "contentHash": "24715be409cc25126ea2216be8e91824b50be665aacf64a4d14ccea5fff3c111",
       "figureRefs": [
         "images/ch3/hinh-256.png",
         "images/ch3/hinh-275.png",
@@ -3241,5 +3247,5 @@
       "hasSimulation": false
     }
   ],
-  "contentHash": "656f93409d33fbbd50425a305b0034cb8518cb91b05246c70501eccceec8b591"
+  "contentHash": "0ba8360b8f3d5d7eb99dc2e1f20f0c56ab2de77dc160867e604aa3996718d531"
 }

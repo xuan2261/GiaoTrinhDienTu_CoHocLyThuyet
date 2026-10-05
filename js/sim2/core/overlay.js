@@ -52,6 +52,14 @@
       return div;
     }
 
+    /** Remove a label from both the DOM and the layout registry. Idempotent. */
+    function removeLabel(div) {
+      const index = labels.indexOf(div);
+      if (index < 0) return;
+      labels.splice(index, 1);
+      if (div.parentNode) div.parentNode.removeChild(div);
+    }
+
     function anchorTransform(anchor) {
       switch (anchor) {
         case 'left':   return 'translate(0,-50%)';
@@ -145,7 +153,7 @@
       labels.length = 0;
     }
 
-    return { layer, label, moveLabel, reflow, resize, readoutCard, dispose };
+    return { layer, label, removeLabel, moveLabel, reflow, resize, readoutCard, dispose };
   }
 
   return { createOverlay };

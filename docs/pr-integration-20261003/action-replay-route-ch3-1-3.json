@@ -1,0 +1,3028 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch3-1-3",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "frame-car",
+        "label": "Sơ đồ lực trong hệ toa",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "frame-ground",
+        "label": "Sơ đồ lực trong hệ mặt đất",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "reset",
+        "label": "Đặt lại thí nghiệm",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "a",
+        "min": 0,
+        "max": 8,
+        "value": "3",
+        "step": "any",
+        "physicalStep": "0.5"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:43.055Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "aFrame",
+          "value": "3 m/s²"
+        },
+        {
+          "key": "inertiaForce",
+          "value": "-3.0 N"
+        },
+        {
+          "key": "theta",
+          "value": "17.0°"
+        },
+        {
+          "key": "tan",
+          "value": "0.306"
+        },
+        {
+          "key": "model",
+          "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+        },
+        {
+          "key": "tension",
+          "value": "10.2585 N"
+        },
+        {
+          "key": "gravity",
+          "value": "9.81 N, xuống"
+        },
+        {
+          "key": "tx",
+          "value": "3.0000 N"
+        },
+        {
+          "key": "ty",
+          "value": "9.8100 N"
+        },
+        {
+          "key": "frame",
+          "value": "Toa gia tốc (phi quán tính)"
+        },
+        {
+          "key": "balance",
+          "value": "T + P + F* = 0; bob đứng yên tương đối"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "a",
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "id": "a",
+          "type": "number",
+          "value": "3"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "frame-car",
+          "label": "Sơ đồ lực trong hệ toa"
+        },
+        {
+          "id": "frame-ground",
+          "label": "Sơ đồ lực trong hệ mặt đất"
+        },
+        {
+          "id": "reset",
+          "label": "Đặt lại thí nghiệm"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 6,
+      "nodes": 125,
+      "listenerCount": 18
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 6,
+      "nodes": 125,
+      "listenerCount": 18
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-frame-car",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "frame-car"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.058Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "aFrame",
+              "value": "3 m/s²"
+            },
+            {
+              "key": "inertiaForce",
+              "value": "-3.0 N"
+            },
+            {
+              "key": "theta",
+              "value": "17.0°"
+            },
+            {
+              "key": "tan",
+              "value": "0.306"
+            },
+            {
+              "key": "model",
+              "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+            },
+            {
+              "key": "tension",
+              "value": "10.2585 N"
+            },
+            {
+              "key": "gravity",
+              "value": "9.81 N, xuống"
+            },
+            {
+              "key": "tx",
+              "value": "3.0000 N"
+            },
+            {
+              "key": "ty",
+              "value": "9.8100 N"
+            },
+            {
+              "key": "frame",
+              "value": "Toa gia tốc (phi quán tính)"
+            },
+            {
+              "key": "balance",
+              "value": "T + P + F* = 0; bob đứng yên tương đối"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "a",
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "id": "a",
+              "type": "number",
+              "value": "3"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "frame-car",
+              "label": "Sơ đồ lực trong hệ toa"
+            },
+            {
+              "id": "frame-ground",
+              "label": "Sơ đồ lực trong hệ mặt đất"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 125,
+          "listenerCount": 18
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "frame-car"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "frame-car",
+              "label": "Sơ đồ lực trong hệ toa"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.058Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.058Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.058Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:frame",
+                "actual": "Toa gia tốc (phi quán tính)",
+                "expected": "Toa gia tốc (phi quán tính)",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:balance",
+                "actual": "T + P + F* = 0; bob đứng yên tương đối",
+                "expected": "T + P + F* = 0; bob đứng yên tương đối",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tension",
+                "actual": 10.2585,
+                "expected": 10.258464797424613,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:tx",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ty",
+                "actual": 9.81,
+                "expected": 9.81,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:aFrame",
+                "actual": "3 m/s²",
+                "expected": "3 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:theta",
+                "actual": "17.0°",
+                "expected": "17.0°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tension",
+                "actual": "10.2585 N",
+                "expected": "10.2585 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tx",
+                "actual": "3.0000 N",
+                "expected": "3.0000 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ty",
+                "actual": "9.8100 N",
+                "expected": "9.8100 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "a02cac19eb9be20edbb21e2dcd0d0ad2c0c2603dd4dd51b21398a26e61bf3550"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 125,
+          "listenerCount": 18
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-1-frame-ground",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "frame-ground"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.061Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "aFrame",
+              "value": "3 m/s²"
+            },
+            {
+              "key": "inertiaForce",
+              "value": "-3.0 N"
+            },
+            {
+              "key": "theta",
+              "value": "17.0°"
+            },
+            {
+              "key": "tan",
+              "value": "0.306"
+            },
+            {
+              "key": "model",
+              "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+            },
+            {
+              "key": "tension",
+              "value": "10.2585 N"
+            },
+            {
+              "key": "gravity",
+              "value": "9.81 N, xuống"
+            },
+            {
+              "key": "tx",
+              "value": "3.0000 N"
+            },
+            {
+              "key": "ty",
+              "value": "9.8100 N"
+            },
+            {
+              "key": "frame",
+              "value": "Toa gia tốc (phi quán tính)"
+            },
+            {
+              "key": "balance",
+              "value": "T + P + F* = 0; bob đứng yên tương đối"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "a",
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "id": "a",
+              "type": "number",
+              "value": "3"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "frame-car",
+              "label": "Sơ đồ lực trong hệ toa"
+            },
+            {
+              "id": "frame-ground",
+              "label": "Sơ đồ lực trong hệ mặt đất"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 125,
+          "listenerCount": 18
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "frame-ground"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "frame-ground",
+              "label": "Sơ đồ lực trong hệ mặt đất"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.061Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.061Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Mặt đất (quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P = ma; bob gia tốc cùng toa"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "267f40bfd4a34d7ff86551df86ac522e17f31436aa93056445fb71ba1a2f5b79",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.062Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Mặt đất (quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P = ma; bob gia tốc cùng toa"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "267f40bfd4a34d7ff86551df86ac522e17f31436aa93056445fb71ba1a2f5b79",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:frame",
+                "actual": "Mặt đất (quán tính)",
+                "expected": "Mặt đất (quán tính)",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:balance",
+                "actual": "T + P = ma; bob gia tốc cùng toa",
+                "expected": "T + P = ma; bob gia tốc cùng toa",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tension",
+                "actual": 10.2585,
+                "expected": 10.258464797424613,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:tx",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ty",
+                "actual": 9.81,
+                "expected": 9.81,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:aFrame",
+                "actual": "3 m/s²",
+                "expected": "3 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:theta",
+                "actual": "17.0°",
+                "expected": "17.0°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tension",
+                "actual": "10.2585 N",
+                "expected": "10.2585 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tx",
+                "actual": "3.0000 N",
+                "expected": "3.0000 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ty",
+                "actual": "9.8100 N",
+                "expected": "9.8100 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "90bc2f2cce4fc07f5e4d967554e7faf589097fa6a0e2015b572e6762dd42b6de"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 125,
+          "listenerCount": 18
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-2-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "a",
+            "value": 8,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.064Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "aFrame",
+              "value": "3 m/s²"
+            },
+            {
+              "key": "inertiaForce",
+              "value": "-3.0 N"
+            },
+            {
+              "key": "theta",
+              "value": "17.0°"
+            },
+            {
+              "key": "tan",
+              "value": "0.306"
+            },
+            {
+              "key": "model",
+              "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+            },
+            {
+              "key": "tension",
+              "value": "10.2585 N"
+            },
+            {
+              "key": "gravity",
+              "value": "9.81 N, xuống"
+            },
+            {
+              "key": "tx",
+              "value": "3.0000 N"
+            },
+            {
+              "key": "ty",
+              "value": "9.8100 N"
+            },
+            {
+              "key": "frame",
+              "value": "Toa gia tốc (phi quán tính)"
+            },
+            {
+              "key": "balance",
+              "value": "T + P + F* = 0; bob đứng yên tương đối"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "a",
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "id": "a",
+              "type": "number",
+              "value": "3"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "frame-car",
+              "label": "Sơ đồ lực trong hệ toa"
+            },
+            {
+              "id": "frame-ground",
+              "label": "Sơ đồ lực trong hệ mặt đất"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 125,
+          "listenerCount": 18
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "a",
+            "value": 8,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "a",
+            "requested": 8,
+            "before": "3",
+            "committed": "8",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.064Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.065Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "8 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-8.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "39.2°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.815"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "12.6584 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "8.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "8"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "8"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "374a7ff171c560de5f96d31aa586545fd3e6c4c54e9da307bb89ab41c7046422",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.065Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "8 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-8.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "39.2°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.815"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "12.6584 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "8.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "8"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "8"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "374a7ff171c560de5f96d31aa586545fd3e6c4c54e9da307bb89ab41c7046422",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"a:number\",\"a:range\"]",
+                "expected": "[\"a:number\",\"a:range\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:a",
+                "actual": 8,
+                "expected": 8,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:aFrame",
+                "actual": 8,
+                "expected": 8,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "068948d748b65dcb990c0f02719dda273550ab435c83d5b7a9ae136452a01384"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.065Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "8 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-8.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "39.2°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.815"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "12.6584 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "8.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "8"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "8"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "374a7ff171c560de5f96d31aa586545fd3e6c4c54e9da307bb89ab41c7046422",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.066Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.066Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:a",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:a",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:aFrame",
+                "actual": "3 m/s²",
+                "expected": "3 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:inertiaForce",
+                "actual": "-3.0 N",
+                "expected": "-3.0 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:theta",
+                "actual": "17.0°",
+                "expected": "17.0°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tan",
+                "actual": "0.306",
+                "expected": "0.306",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:model",
+                "actual": "Trạng thái cân bằng tương đối; không giải quá độ",
+                "expected": "Trạng thái cân bằng tương đối; không giải quá độ",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tension",
+                "actual": "10.2585 N",
+                "expected": "10.2585 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:gravity",
+                "actual": "9.81 N, xuống",
+                "expected": "9.81 N, xuống",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tx",
+                "actual": "3.0000 N",
+                "expected": "3.0000 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ty",
+                "actual": "9.8100 N",
+                "expected": "9.8100 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:frame",
+                "actual": "Toa gia tốc (phi quán tính)",
+                "expected": "Toa gia tốc (phi quán tính)",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:balance",
+                "actual": "T + P + F* = 0; bob đứng yên tương đối",
+                "expected": "T + P + F* = 0; bob đứng yên tương đối",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "0550a41be28a3039eba63d2461ab879403a2874f7a0fbdaf6506146682b73bd1"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 125,
+          "listenerCount": 18
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "experiment-reference-frames",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "frame-ground"
+          },
+          {
+            "type": "action",
+            "action": "frame-car"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.069Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "aFrame",
+              "value": "3 m/s²"
+            },
+            {
+              "key": "inertiaForce",
+              "value": "-3.0 N"
+            },
+            {
+              "key": "theta",
+              "value": "17.0°"
+            },
+            {
+              "key": "tan",
+              "value": "0.306"
+            },
+            {
+              "key": "model",
+              "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+            },
+            {
+              "key": "tension",
+              "value": "10.2585 N"
+            },
+            {
+              "key": "gravity",
+              "value": "9.81 N, xuống"
+            },
+            {
+              "key": "tx",
+              "value": "3.0000 N"
+            },
+            {
+              "key": "ty",
+              "value": "9.8100 N"
+            },
+            {
+              "key": "frame",
+              "value": "Toa gia tốc (phi quán tính)"
+            },
+            {
+              "key": "balance",
+              "value": "T + P + F* = 0; bob đứng yên tương đối"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "a",
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "id": "a",
+              "type": "number",
+              "value": "3"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "frame-car",
+              "label": "Sơ đồ lực trong hệ toa"
+            },
+            {
+              "id": "frame-ground",
+              "label": "Sơ đồ lực trong hệ mặt đất"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 125,
+          "listenerCount": 18
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "frame-ground"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "frame-ground",
+              "label": "Sơ đồ lực trong hệ mặt đất"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.069Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.069Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Mặt đất (quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P = ma; bob gia tốc cùng toa"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "267f40bfd4a34d7ff86551df86ac522e17f31436aa93056445fb71ba1a2f5b79",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.069Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Mặt đất (quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P = ma; bob gia tốc cùng toa"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "267f40bfd4a34d7ff86551df86ac522e17f31436aa93056445fb71ba1a2f5b79",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:frame",
+                "actual": "Mặt đất (quán tính)",
+                "expected": "Mặt đất (quán tính)",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:balance",
+                "actual": "T + P = ma; bob gia tốc cùng toa",
+                "expected": "T + P = ma; bob gia tốc cùng toa",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tension",
+                "actual": 10.2585,
+                "expected": 10.258464797424613,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:tx",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ty",
+                "actual": 9.81,
+                "expected": 9.81,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:aFrame",
+                "actual": "3 m/s²",
+                "expected": "3 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:theta",
+                "actual": "17.0°",
+                "expected": "17.0°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tension",
+                "actual": "10.2585 N",
+                "expected": "10.2585 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tx",
+                "actual": "3.0000 N",
+                "expected": "3.0000 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ty",
+                "actual": "9.8100 N",
+                "expected": "9.8100 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "90bc2f2cce4fc07f5e4d967554e7faf589097fa6a0e2015b572e6762dd42b6de"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "frame-car"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "frame-car",
+              "label": "Sơ đồ lực trong hệ toa"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.070Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Mặt đất (quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P = ma; bob gia tốc cùng toa"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "267f40bfd4a34d7ff86551df86ac522e17f31436aa93056445fb71ba1a2f5b79",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.070Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.071Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "aFrame",
+                  "value": "3 m/s²"
+                },
+                {
+                  "key": "inertiaForce",
+                  "value": "-3.0 N"
+                },
+                {
+                  "key": "theta",
+                  "value": "17.0°"
+                },
+                {
+                  "key": "tan",
+                  "value": "0.306"
+                },
+                {
+                  "key": "model",
+                  "value": "Trạng thái cân bằng tương đối; không giải quá độ"
+                },
+                {
+                  "key": "tension",
+                  "value": "10.2585 N"
+                },
+                {
+                  "key": "gravity",
+                  "value": "9.81 N, xuống"
+                },
+                {
+                  "key": "tx",
+                  "value": "3.0000 N"
+                },
+                {
+                  "key": "ty",
+                  "value": "9.8100 N"
+                },
+                {
+                  "key": "frame",
+                  "value": "Toa gia tốc (phi quán tính)"
+                },
+                {
+                  "key": "balance",
+                  "value": "T + P + F* = 0; bob đứng yên tương đối"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "a",
+                  "type": "range",
+                  "value": "3"
+                },
+                {
+                  "id": "a",
+                  "type": "number",
+                  "value": "3"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "frame-car",
+                  "label": "Sơ đồ lực trong hệ toa"
+                },
+                {
+                  "id": "frame-ground",
+                  "label": "Sơ đồ lực trong hệ mặt đất"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "37ee4f6499b128aa3c2d52a56df2d033db502a584376d24bb12d3cf86e1ea62e",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 6,
+              "nodes": 125,
+              "listenerCount": 18
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:frame",
+                "actual": "Toa gia tốc (phi quán tính)",
+                "expected": "Toa gia tốc (phi quán tính)",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:balance",
+                "actual": "T + P + F* = 0; bob đứng yên tương đối",
+                "expected": "T + P + F* = 0; bob đứng yên tương đối",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tension",
+                "actual": 10.2585,
+                "expected": 10.258464797424613,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:tx",
+                "actual": 3,
+                "expected": 3,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:ty",
+                "actual": 9.81,
+                "expected": 9.81,
+                "tolerance": 0.00005001,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:aFrame",
+                "actual": "3 m/s²",
+                "expected": "3 m/s²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:theta",
+                "actual": "17.0°",
+                "expected": "17.0°",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tension",
+                "actual": "10.2585 N",
+                "expected": "10.2585 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:tx",
+                "actual": "3.0000 N",
+                "expected": "3.0000 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:ty",
+                "actual": "9.8100 N",
+                "expected": "9.8100 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "a02cac19eb9be20edbb21e2dcd0d0ad2c0c2603dd4dd51b21398a26e61bf3550"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 6,
+          "nodes": 125,
+          "listenerCount": 18
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "frame-car",
+      "frame-ground",
+      "reset"
+    ],
+    "plannedActionIds": [
+      "frame-car",
+      "frame-ground",
+      "reset"
+    ],
+    "executedActionIds": [
+      "frame-car",
+      "frame-ground",
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 4,
+    "executedCases": 4,
+    "operations": 6,
+    "oracleStatuses": {
+      "pass": 6,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 60,
+    "failedChecks": 0
+  }
+}

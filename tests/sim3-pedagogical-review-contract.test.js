@@ -13,7 +13,7 @@ const EXPECTED = ['ch1-1-5', 'ch1-5-3', 'ch2-1-3', 'ch2-2-2', 'ch2-3-2', 'ch2-4-
 
 test('10 Sim3 reviews document pedagogical decision and equivalent Sim2 fallback with catalogued evidence', () => {
   assert.strictEqual(document.schemaVersion, '1.1.0');
-  assert.strictEqual(document.status, 'verified');
+  assert.strictEqual(document.status, 'draft');
   assert.match(document.reviewAuthority, /Project technical review/);
   assert.match(document.reviewAuthority, /no independent institutional approval/i);
   assert.deepStrictEqual(document.oraclePolicy, { kind: 'independent-executable-reference', selfReportedMetricsSoleAuthority: false });
@@ -25,7 +25,8 @@ test('10 Sim3 reviews document pedagogical decision and equivalent Sim2 fallback
     assert.strictEqual(review.fallbackEquivalence.canonicalMode, 'Sim2 SVG-first');
     assert.strictEqual(review.reviewer.role, 'Project technical reviewer');
     assert.match(review.reviewer.independence, /Internal technical review only/);
-    assert.strictEqual(review.evidence.verified, true);
+    assert.strictEqual(review.evidence.verified, false);
+    assert.strictEqual(review.status, 'draft');
     assert.ok(fs.existsSync(path.join(ROOT, review.adapter.path)), `${review.id} adapter resolves`);
   }
 });

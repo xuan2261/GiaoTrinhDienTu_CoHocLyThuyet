@@ -50,36 +50,44 @@
       overlay.moveLabel(lblRa, { x: -0.3, y: r.ra * VIS });
       overlay.moveLabel(lblRb, { x: L + 0.3, y: r.rb * VIS });
       handle.move({ x: state.pos, y: 0 });
+      aInput.setValue(state.pos);
       panel.setReadout([
         { key: 'P', label: 'P:', value: state.load + ' N' },
         { key: 'a', label: 'a:', value: state.pos.toFixed(2) + ' m' },
         { key: 'Ra', label: 'Rₐ:', value: r.ra.toFixed(1) + ' N' },
-        { key: 'Rb', label: 'Rᵦ:', value: r.rb.toFixed(1) + ' N' }
+        { key: 'Rb', label: 'Rᵦ:', value: r.rb.toFixed(1) + ' N' },
+        { key: 'Ax', label: 'Aₓ:', value: '0 N' },
+        { key: 'sumFy', label: 'ΣFᵧ = Rₐ + Rᵦ − P:', value: (r.ra + r.rb - state.load).toFixed(6) + ' N' },
+        { key: 'sumMA', label: 'ΣMₐ = RᵦL − Pa:', value: (r.rb * L - state.load * state.pos).toFixed(6) + ' N·m' },
+        { key: 'dimensions', label: 'Kích thước:', value: `a = ${state.pos.toFixed(1)} m; L−a = ${(L-state.pos).toFixed(1)} m; L = ${L} m` }
       ]);
     }
 
     const panel = shell.setTheory({
       formulas: ['\\textcolor{#b10dc9}{R_A} = \\textcolor{#e03030}{P}\\dfrac{L-a}{L}', '\\textcolor{#b10dc9}{R_B} = \\textcolor{#e03030}{P}\\dfrac{a}{L}'],
       legend: [{ color: Pal.force, label: 'P (tải)' }, { color: Pal.reaction, label: 'phản lực gối' }],
-      observe: 'Tải càng gần gối nào, phản lực gối đó càng lớn. Kéo tải hoặc đổi P.'
+      observe: 'Ký hiệu gối giản lược: khớp A (Aₓ, Rₐ), gối lăn B (Rᵦ). Dầm nhẹ, tải đứng; Aₓ = 0. Tải càng gần gối nào, phản lực gối đó càng lớn. Bảng kích thước và tổng lực/mômen kiểm chứng cân bằng.'
     });
 
     const controls = shell.addControls({
       sliders: [
         { id: 'P', label: 'P', min: 20, max: 200, step: 10, value: state.load, unit: 'N',
-          onInput: v => { state.load = v; render2(); } }
+          onInput: v => { state.load = Math.round(v/10)*10; controls.setValue('P', state.load); render2(); } }
       ]
     });
 
     const handle = shell.addHandle({ x: state.pos, y: 0 }, {
       fill: Pal.handle,
-      a11y: { label: 'Điểm đặt lực trên dầm', axis: 'x', min: 0.3, max: L - 0.3 },
+      a11y: { label: 'Vị trí tải a từ gối A', axis: 'x', min: 0.3, max: L - 0.3, valueText: wp => `a ${wp.x.toFixed(1)} m từ A` },
+      bounds: { minX: 0.3, maxX: L - 0.3, minY: 0, maxY: 0 },
       keyboardStep: { x: 0.5, y: 0 },
       onDrag(wp) {
-        state.pos = Math.min(L - 0.3, Math.max(0.3, wp.x));
+        state.pos = Math.round(Math.min(L - 0.3, Math.max(0.3, wp.x)) * 10) / 10;
         render2();
       }
     });
+    const aInput = shell.addNumberControl({ id: 'a', label: 'Vị trí tải a', min: 0.3, max: 9.7, step: 0.1, value: 4, unit: 'm', onInput(v) { state.pos = Math.round(v*10)/10; render2(); } });
+    shell.addAction({ id: 'reset', label: 'Đặt lại', onClick() { state.load = 100; state.pos = 4; controls.setValue('P', 100); render2(); } });
     render2();
     return { dispose: shell.dispose };
   });

@@ -268,17 +268,17 @@
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-012",
-      "question": "Vận tốc góc ω của vật quay quanh trục:",
+      "question": "Biểu thức nào là định nghĩa vận tốc góc đại số bằng đạo hàm góc quay theo thời gian?",
       "options": [
         "ω = dφ/dt",
         "ω = ds/dt",
         "ω = dv/dt",
-        "ω = v/r"
+        "ω = d²φ/dt²"
       ],
       "correct": 0,
-      "explanation": "❌ Vận tốc góc ω = đạo hàm góc quay theo thời gian.",
-      "feedbackCorrect": "✅ ω = dφ/dt.",
-      "feedbackWrong": "❌ Vận tốc góc ω = đạo hàm góc quay theo thời gian."
+      "explanation": "Theo định nghĩa, ω = dφ/dt. Công thức tốc độ dài v = |ω|r là hệ quả khi điểm quay quanh trục cách trục r, không phải định nghĩa bằng đạo hàm góc quay.",
+      "feedbackCorrect": "Đúng. Theo định nghĩa, ω = dφ/dt. Công thức tốc độ dài v = |ω|r là hệ quả khi điểm quay quanh trục cách trục r, không phải định nghĩa bằng đạo hàm góc quay.",
+      "feedbackWrong": "Chưa đúng. Theo định nghĩa, ω = dφ/dt. Công thức tốc độ dài v = |ω|r là hệ quả khi điểm quay quanh trục cách trục r, không phải định nghĩa bằng đạo hàm góc quay."
     },
     {
       "id": "quiz-ch2-013",
@@ -444,17 +444,17 @@
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-020",
-      "question": "Truyền động đai: 2 bánh đai quay:",
+      "question": "Trong bộ truyền đai thẳng (không bắt chéo), hai trục song song và không trượt, hai bánh đai quay theo chiều nào?",
       "options": [
         "Cùng chiều",
-        "Ngược chiều (đai thẳng)",
-        "Luôn cùng chiều",
-        "Không xác định"
+        "Ngược chiều",
+        "Một bánh quay, bánh kia đứng yên",
+        "Chiều quay liên tục đổi sau mỗi vòng"
       ],
-      "correct": 1,
-      "explanation": "❌ Đai thẳng → ngược chiều; đai chéo → cùng chiều.",
-      "feedbackCorrect": "✅ Đai thẳng: 2 bánh quay ngược chiều; đai chéo: cùng chiều.",
-      "feedbackWrong": "❌ Đai thẳng → ngược chiều; đai chéo → cùng chiều."
+      "correct": 0,
+      "explanation": "Đai thẳng: hai bánh quay cùng chiều; đai chéo: hai bánh quay ngược chiều (nhìn từ cùng một phía các trục).",
+      "feedbackCorrect": "Đúng. Đai thẳng: hai bánh quay cùng chiều; đai chéo: hai bánh quay ngược chiều (nhìn từ cùng một phía các trục).",
+      "feedbackWrong": "Chưa đúng. Đai thẳng: hai bánh quay cùng chiều; đai chéo: hai bánh quay ngược chiều (nhìn từ cùng một phía các trục)."
     },
     {
       "id": "quiz-ch2-021",
@@ -576,17 +576,17 @@
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-026",
-      "question": "Gia tốc Coriolis xuất hiện khi:",
+      "question": "Điều kiện cần và đủ để gia tốc Coriolis khác không là:",
       "options": [
-        "Chuyển động kéo theo là tịnh tiến",
-        "Vận tốc tương đối = 0",
-        "Chuyển động kéo theo là quay VÀ có vận tốc tương đối",
-        "Gia tốc kéo theo = 0"
+        "Hệ động chỉ tịnh tiến",
+        "Vận tốc tương đối bằng không",
+        "ω và vᵣ đều khác không và không song song",
+        "ω song song với vᵣ"
       ],
       "correct": 2,
-      "explanation": "❌ aC = 2ωe × vr, chỉ xuất hiện khi kéo theo quay VÀ vr ≠ 0.",
-      "feedbackCorrect": "✅ Coriolis khi kéo theo là quay + vr ≠ 0.",
-      "feedbackWrong": "❌ aC = 2ωe × vr, chỉ xuất hiện khi kéo theo quay VÀ vr ≠ 0."
+      "explanation": "aC = 2ω × vᵣ. Tích có hướng khác không khi ω và vᵣ đều khác không và không song song; nếu song song thì aC = 0 dù cả hai khác không.",
+      "feedbackCorrect": "Đúng. aC = 2ω × vᵣ. Tích có hướng khác không khi ω và vᵣ đều khác không và không song song; nếu song song thì aC = 0 dù cả hai khác không.",
+      "feedbackWrong": "Chưa đúng. aC = 2ω × vᵣ. Tích có hướng khác không khi ω và vᵣ đều khác không và không song song; nếu song song thì aC = 0 dù cả hai khác không."
     },
     {
       "id": "quiz-ch2-027",
@@ -642,17 +642,17 @@
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-029",
-      "question": "Quy tắc xác định hướng Coriolis:",
+      "question": "Khi ω và vᵣ đều khác không và vuông góc nhau, quy tắc xác định hướng gia tốc Coriolis là:",
       "options": [
-        "Quay vr theo ωe góc 90°",
-        "vr × ωe",
-        "Ngược hướng vr",
-        "Vuông góc ωe"
+        "Quay vᵣ 90° quanh trục ω theo chiều quay của hệ động",
+        "Theo hướng vᵣ × ω",
+        "Ngược hướng vᵣ",
+        "Song song với ω"
       ],
       "correct": 0,
-      "explanation": "❌ Coriolis: quay véc tơ vr theo chiều ωe một góc 90°.",
-      "feedbackCorrect": "✅ Quay vr theo chiều ωe góc π/2.",
-      "feedbackWrong": "❌ Coriolis: quay véc tơ vr theo chiều ωe một góc 90°."
+      "explanation": "aC = 2ω × vᵣ. Khi ω vuông góc vᵣ, quay vᵣ 90° theo chiều quay của hệ động. Trong không gian tổng quát, áp dụng quy tắc này cho hình chiếu của vᵣ lên mặt phẳng vuông góc ω.",
+      "feedbackCorrect": "Đúng. aC = 2ω × vᵣ. Khi ω vuông góc vᵣ, quay vᵣ 90° theo chiều quay của hệ động. Trong không gian tổng quát, áp dụng quy tắc này cho hình chiếu của vᵣ lên mặt phẳng vuông góc ω.",
+      "feedbackWrong": "Chưa đúng. aC = 2ω × vᵣ. Khi ω vuông góc vᵣ, quay vᵣ 90° theo chiều quay của hệ động. Trong không gian tổng quát, áp dụng quy tắc này cho hình chiếu của vᵣ lên mặt phẳng vuông góc ω."
     },
     {
       "id": "quiz-ch2-030",
@@ -664,17 +664,17 @@
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-030",
-      "question": "Chuyển động song phẳng = ?",
+      "question": "Chuyển động song phẳng tổng quát có thể phân tích thành hai chuyển động nào?",
       "options": [
-        "Tịnh tiến + quay quanh trục",
-        "Chỉ tịnh tiến",
-        "Chỉ quay",
-        "Tịnh tiến + quay quanh 1 điểm"
+        "Tịnh tiến theo cực A và quay quanh trục qua A vuông góc mặt phẳng chuyển động",
+        "Chỉ tịnh tiến theo cực A",
+        "Chỉ quay quanh một trục cố định trong không gian",
+        "Hai chuyển động tịnh tiến"
       ],
       "correct": 0,
-      "explanation": "❌ CĐ song phẳng phân tích thành tịnh tiến theo cực + quay quanh cực.",
-      "feedbackCorrect": "✅ Song phẳng = tịnh tiến (theo cực) + quay quanh cực.",
-      "feedbackWrong": "❌ CĐ song phẳng phân tích thành tịnh tiến theo cực + quay quanh cực."
+      "explanation": "Có thể phân tích thành tịnh tiến theo cực A và quay quanh trục qua A vuông góc mặt phẳng chuyển động; thường gọi ngắn là quay quanh cực A trong mặt phẳng.",
+      "feedbackCorrect": "Đúng. Có thể phân tích thành tịnh tiến theo cực A và quay quanh trục qua A vuông góc mặt phẳng chuyển động; thường gọi ngắn là quay quanh cực A trong mặt phẳng.",
+      "feedbackWrong": "Chưa đúng. Có thể phân tích thành tịnh tiến theo cực A và quay quanh trục qua A vuông góc mặt phẳng chuyển động; thường gọi ngắn là quay quanh cực A trong mặt phẳng."
     },
     {
       "id": "quiz-ch2-031",
@@ -752,17 +752,17 @@
       "difficulty": "foundation",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-034",
-      "question": "Khi vật tịnh tiến tức thời (ω=0), TVTTT nằm ở:",
+      "question": "Vật rắn phẳng có ω = 0 và vận tốc tịnh tiến khác không tại thời điểm xét. Tâm vận tốc tức thời:",
       "options": [
-        "Tâm vật",
-        "Vô cùng",
-        "Gốc tọa độ",
-        "Không tồn tại"
+        "Là tâm hình học của vật",
+        "Không có tâm hữu hạn; quy ước nói tâm ở vô cực",
+        "Là gốc tọa độ bất kỳ",
+        "Là trung điểm hai điểm bất kỳ"
       ],
       "correct": 1,
-      "explanation": "❌ ω=0: TVTTT lùi ra vô cực, vật tịnh tiến tức thời.",
-      "feedbackCorrect": "✅ ω=0 → TVTTT ở vô cùng → mọi điểm cùng vận tốc.",
-      "feedbackWrong": "❌ ω=0: TVTTT lùi ra vô cực, vật tịnh tiến tức thời."
+      "explanation": "Khi ω = 0 và vận tốc tịnh tiến khác không, mọi điểm có cùng vận tốc khác không nên không có tâm hữu hạn; nói tâm ở vô cực là quy ước. Nếu vận tốc cũng bằng không thì mọi điểm là tâm, không duy nhất.",
+      "feedbackCorrect": "Đúng. Khi ω = 0 và vận tốc tịnh tiến khác không, mọi điểm có cùng vận tốc khác không nên không có tâm hữu hạn; nói tâm ở vô cực là quy ước. Nếu vận tốc cũng bằng không thì mọi điểm là tâm, không duy nhất.",
+      "feedbackWrong": "Chưa đúng. Khi ω = 0 và vận tốc tịnh tiến khác không, mọi điểm có cùng vận tốc khác không nên không có tâm hữu hạn; nói tâm ở vô cực là quy ước. Nếu vận tốc cũng bằng không thì mọi điểm là tâm, không duy nhất."
     },
     {
       "id": "quiz-ch2-035",
@@ -862,17 +862,17 @@
       "difficulty": "intermediate",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-039",
-      "question": "3 góc Euler gồm:",
+      "question": "Theo quy ước các góc Euler trong giáo trình, bộ ký hiệu và tên gọi đúng là:",
       "options": [
-        "φ, ψ, θ (nutation, precession, spin)",
-        "x, y, z",
-        "r, θ, φ",
-        "α, β, γ"
+        "ψ: tiến động; θ: trương động; φ: quay riêng",
+        "φ: tiến động; θ: trương động; ψ: quay riêng",
+        "ψ: trương động; θ: quay riêng; φ: tiến động",
+        "ψ, θ, φ là ba tọa độ Đề các"
       ],
       "correct": 0,
-      "explanation": "❌ Góc Euler: precession φ, nutation θ, spin ψ.",
-      "feedbackCorrect": "✅ 3 góc Euler: φ (tiến động), ψ (tự quay), θ (chương động).",
-      "feedbackWrong": "❌ Góc Euler: precession φ, nutation θ, spin ψ."
+      "explanation": "Giáo trình dùng ψ cho tiến động, θ cho trương động và φ cho quay riêng; sách khác có thể dùng quy ước ký hiệu khác.",
+      "feedbackCorrect": "Đúng. Giáo trình dùng ψ cho tiến động, θ cho trương động và φ cho quay riêng; sách khác có thể dùng quy ước ký hiệu khác.",
+      "feedbackWrong": "Chưa đúng. Giáo trình dùng ψ cho tiến động, θ cho trương động và φ cho quay riêng; sách khác có thể dùng quy ước ký hiệu khác."
     },
     {
       "id": "quiz-ch2-040",
@@ -884,17 +884,17 @@
       "difficulty": "intermediate",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-040",
-      "question": "Vận tốc góc tức thời ω của vật quay quanh điểm cố định:",
+      "question": "Mệnh đề tổng quát đúng về véc tơ vận tốc góc của vật quay quanh một điểm cố định là:",
       "options": [
-        "Là véc tơ không đổi",
-        "Có phương, chiều, độ lớn đều thay đổi",
-        "Luôn vuông góc trục cố định",
+        "Luôn không đổi",
+        "Phương, chiều và độ lớn có thể thay đổi",
+        "Luôn vuông góc với mọi trục qua điểm cố định",
         "Luôn nằm ngang"
       ],
       "correct": 1,
-      "explanation": "❌ CĐ quay quanh điểm: ω thay đổi phương, chiều, trị số.",
-      "feedbackCorrect": "✅ ω thay đổi cả phương chiều và độ lớn.",
-      "feedbackWrong": "❌ CĐ quay quanh điểm: ω thay đổi phương, chiều, trị số."
+      "explanation": "Phương, chiều và độ lớn của ω có thể thay đổi, nhưng không bắt buộc đều thay đổi. Quay đều quanh một trục cố định đi qua điểm ấy là trường hợp riêng có ω không đổi.",
+      "feedbackCorrect": "Đúng. Phương, chiều và độ lớn của ω có thể thay đổi, nhưng không bắt buộc đều thay đổi. Quay đều quanh một trục cố định đi qua điểm ấy là trường hợp riêng có ω không đổi.",
+      "feedbackWrong": "Chưa đúng. Phương, chiều và độ lớn của ω có thể thay đổi, nhưng không bắt buộc đều thay đổi. Quay đều quanh một trục cố định đi qua điểm ấy là trường hợp riêng có ω không đổi."
     },
     {
       "id": "quiz-ch2-041",
@@ -1104,17 +1104,17 @@
       "difficulty": "intermediate",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-050",
-      "question": "Cơ cấu tay quay OA=R, con trượt B. Khi OA quay đều, vB là:",
+      "question": "Cơ cấu tay quay–con trượt thẳng hàng có OA = R > 0, thanh truyền AB = L > R; OA quay đều với ω ≠ 0. Vận tốc con trượt B nói chung:",
       "options": [
         "Không đổi",
-        "Thay đổi theo sin/cos",
+        "Biến thiên tuần hoàn, phụ thuộc cả R, L và góc quay φ",
         "Luôn bằng 0",
-        "Bằng vA"
+        "Luôn bằng vận tốc điểm A"
       ],
       "correct": 1,
-      "explanation": "❌ vB = Rω·sinφ → thay đổi hàm sin.",
-      "feedbackCorrect": "✅ vB thay đổi theo hàm sin/cos (cơ cấu tay quay con trượt).",
-      "feedbackWrong": "❌ vB = Rω·sinφ → thay đổi hàm sin."
+      "explanation": "Với trục x dọc đường trượt và nhánh x = R cosφ + √(L² − R² sin²φ), vB = −Rω sinφ[1 + R cosφ/√(L² − R² sin²φ)]. Với L hữu hạn, đây không phải một hàm sin thuần; vB ≈ −Rω sinφ chỉ là xấp xỉ khi R/L rất nhỏ.",
+      "feedbackCorrect": "Đúng. Với trục x dọc đường trượt và nhánh x = R cosφ + √(L² − R² sin²φ), vB = −Rω sinφ[1 + R cosφ/√(L² − R² sin²φ)]. Với L hữu hạn, đây không phải một hàm sin thuần; vB ≈ −Rω sinφ chỉ là xấp xỉ khi R/L rất nhỏ.",
+      "feedbackWrong": "Chưa đúng. Với trục x dọc đường trượt và nhánh x = R cosφ + √(L² − R² sin²φ), vB = −Rω sinφ[1 + R cosφ/√(L² − R² sin²φ)]. Với L hữu hạn, đây không phải một hàm sin thuần; vB ≈ −Rω sinφ chỉ là xấp xỉ khi R/L rất nhỏ."
     },
     {
       "id": "quiz-ch2-051",
@@ -1434,17 +1434,17 @@
       "difficulty": "intermediate",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-065",
-      "question": "Gia tốc Coriolis xuất hiện khi điều kiện nào đồng thời tồn tại?",
+      "question": "Trong không gian ba chiều, bộ điều kiện nào bảo đảm aC = 2ω × vᵣ khác không?",
       "options": [
-        "Hệ động chỉ tịnh tiến đều",
-        "Điểm đứng yên trong hệ động",
-        "Hệ động quay và điểm có vận tốc tương đối",
-        "Không có chuyển động tương đối"
+        "Hệ động chỉ tịnh tiến",
+        "Vận tốc tương đối bằng không",
+        "ω và vᵣ đều khác không và không song song",
+        "ω song song với vᵣ"
       ],
       "correct": 2,
-      "explanation": "Sai. a_C = 2ω × v_r, cần cả ω và v_r khác 0.",
-      "feedbackCorrect": "Đúng. a_C = 2ω × v_r, cần cả ω và v_r khác 0.",
-      "feedbackWrong": "Sai. a_C = 2ω × v_r, cần cả ω và v_r khác 0."
+      "explanation": "aC = 2ω × vᵣ. Tích có hướng khác không khi ω và vᵣ đều khác không và không song song; nếu song song thì aC = 0 dù cả hai khác không.",
+      "feedbackCorrect": "Đúng. aC = 2ω × vᵣ. Tích có hướng khác không khi ω và vᵣ đều khác không và không song song; nếu song song thì aC = 0 dù cả hai khác không.",
+      "feedbackWrong": "Chưa đúng. aC = 2ω × vᵣ. Tích có hướng khác không khi ω và vᵣ đều khác không và không song song; nếu song song thì aC = 0 dù cả hai khác không."
     },
     {
       "id": "quiz-ch2-066",
@@ -1808,7 +1808,7 @@
       "difficulty": "advanced",
       "type": "single-choice",
       "sourceRef": "data/quiz-ch2.json#quiz-ch2-082",
-      "question": "Khi vật rắn phẳng tịnh tiến thuần túy, tâm vận tốc tức thời được xem ở đâu?",
+      "question": "Vật rắn phẳng tịnh tiến tức thời với vận tốc khác không. Theo quy ước mở rộng, tâm vận tốc tức thời được xem ở đâu?",
       "options": [
         "Tại trọng tâm",
         "Tại điểm tiếp xúc",
@@ -1816,9 +1816,9 @@
         "Ở vô cực"
       ],
       "correct": 3,
-      "explanation": "Sai. Tịnh tiến thuần túy có ω = 0 nên TVTTT ở vô cực.",
-      "feedbackCorrect": "Đúng. Tịnh tiến thuần túy có ω = 0 nên TVTTT ở vô cực.",
-      "feedbackWrong": "Sai. Tịnh tiến thuần túy có ω = 0 nên TVTTT ở vô cực."
+      "explanation": "Khi ω = 0 và vận tốc tịnh tiến khác không, không có tâm hữu hạn; quy ước xem tâm ở vô cực. Nếu toàn vật tức thời đứng yên thì mọi điểm có vận tốc bằng không và tâm không duy nhất.",
+      "feedbackCorrect": "Đúng. Khi ω = 0 và vận tốc tịnh tiến khác không, không có tâm hữu hạn; quy ước xem tâm ở vô cực. Nếu toàn vật tức thời đứng yên thì mọi điểm có vận tốc bằng không và tâm không duy nhất.",
+      "feedbackWrong": "Chưa đúng. Khi ω = 0 và vận tốc tịnh tiến khác không, không có tâm hữu hạn; quy ước xem tâm ở vô cực. Nếu toàn vật tức thời đứng yên thì mọi điểm có vận tốc bằng không và tâm không duy nhất."
     },
     {
       "id": "quiz-ch2-083",

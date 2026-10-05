@@ -7,11 +7,13 @@ const path = require('path');
 const { validateCapture } = require('../sim2-visual/validate-capture.js');
 const { validateSim3Capture } = require('../sim3-visual/validate-capture.js');
 const { validateProbe } = require('../sim-probe/probe-validation.js');
+const { sourceSnapshot } = require('./source-snapshot.js');
 
 const ROOT = path.resolve(__dirname, '../..');
 const UPSTREAM = 'plans/260713-1524-fix-all-sim2-sim3-defects-deep-tdd';
 const PHASE_11_EVIDENCE = `${UPSTREAM}/phase-11-evidence.json`;
-const UPSTREAM_BLOCKER = 'Runtime/evidence plan 260713-1524 is pending; draft records are not verified.';
+const CURRENT_REVALIDATION = 'data/simulation-current-revalidation.json';
+const UPSTREAM_BLOCKER = 'Current-source revalidation is pending; historical runtime evidence does not verify changed source.';
 const SPEC_REVIEW_ROLE = 'Project technical review';
 const REVIEW_AUTHORITY = 'Project technical review; no independent institutional approval.';
 const ORACLE_POLICY = 'independent-executable-reference';
@@ -51,7 +53,10 @@ function rootFile(root, rel) {
   const file = path.resolve(resolvedRoot, rel);
   if (file !== resolvedRoot && !file.startsWith(`${resolvedRoot}${path.sep}`)) return null;
   try {
-    return fs.statSync(file).isFile() ? file : null;
+    const realRoot = fs.realpathSync(resolvedRoot);
+    const realFile = fs.realpathSync(file);
+    if (!realFile.startsWith(`${realRoot}${path.sep}`)) return null;
+    return fs.statSync(realFile).isFile() ? realFile : null;
   } catch {
     return null;
   }
@@ -89,20 +94,20 @@ function frontmatterStatus(file) {
   const match = fs.readFileSync(file, 'utf8').match(/^status:\s*([^\s]+)\s*$/m);
   return match && match[1];
 }
-function validateConcreteArtifact(root, artifact, artifactFile, pending) {
+function validateConcreteArtifact(root, artifact, artifactFile, pending, current = false) {
   if (!artifactFile) return;
   try {
     if (artifact.kind === 'sim2-capture') {
       const payload = readJson(artifactFile);
-      const timestamp = Date.parse(payload && payload.generatedAt) || Date.now();
+      const timestamp = current ? Date.now() : Date.parse(payload && payload.generatedAt) || Date.now();
       validateCapture(payload, timestamp, path.dirname(artifactFile));
     } else if (artifact.kind === 'sim3-capture') {
       const payload = readJson(artifactFile);
-      const timestamp = Date.parse(payload && payload.generatedAt) || Date.now();
+      const timestamp = current ? Date.now() : Date.parse(payload && payload.generatedAt) || Date.now();
       validateSim3Capture(payload, timestamp, path.dirname(artifactFile));
     } else if (artifact.kind === 'interaction-probe') {
       const payload = readJson(artifactFile);
-      const timestamp = Date.parse(payload && payload.generatedAt) || Date.now();
+      const timestamp = current ? Date.now() : Date.parse(payload && payload.generatedAt) || Date.now();
       validateProbe(payload, timestamp);
     }
   } catch (error) {
@@ -126,8 +131,8 @@ function validateConcreteArtifact(root, artifact, artifactFile, pending) {
 }
 
 
-function validateEvidenceManifest(root) {
-  const file = rootFile(root, PHASE_11_EVIDENCE);
+function validateEvidenceManifest(root, manifestPath = PHASE_11_EVIDENCE, currentSourceHash = null) {
+  const file = rootFile(root, manifestPath);
   if (!file) return { ready: false, pending: ['phase 11 evidence manifest'] };
   let manifest;
   try {
@@ -136,18 +141,106 @@ function validateEvidenceManifest(root) {
     return { ready: false, pending: ['valid phase 11 evidence manifest'] };
   }
   const pending = [];
+  if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) return { ready: false, pending: ['valid phase 11 evidence manifest object'] };
   if (manifest.schemaVersion !== '1.0.0' || manifest.phase !== 11 || !isComplete(manifest.status)) pending.push('completed phase 11 evidence manifest metadata');
+  if (currentSourceHash && (manifest.sourceHash !== currentSourceHash || !validTimestamp(manifest.generatedAt))) pending.push('current-source evidence manifest binding');
   const kinds = new Set();
   for (const artifact of Array.isArray(manifest.artifacts) ? manifest.artifacts : []) {
+    if (kinds.has(artifact && artifact.kind)) pending.push(`duplicate phase 11 artifact ${artifact && artifact.kind || '<unknown>'}`);
     kinds.add(artifact && artifact.kind);
+    if (currentSourceHash && (!artifact || artifact.sourceHash !== currentSourceHash || artifact.status !== 'passed' || !validTimestamp(artifact.observedAt) || typeof artifact.environment !== 'string' || !artifact.environment.trim() || Date.parse(artifact.observedAt) > Date.parse(manifest.generatedAt))) pending.push(`current-source execution receipt ${artifact && artifact.kind || '<unknown>'}`);
     const artifactFile = rootFile(root, artifact && artifact.path);
     const digestValid = artifactFile && /^[a-f0-9]{64}$/i.test(artifact && artifact.sha256 || '') && sha256(artifactFile) === artifact.sha256;
     if (!digestValid) pending.push(`fresh phase 11 artifact ${artifact && artifact.kind || '<unknown>'}`);
-    else validateConcreteArtifact(root, artifact, artifactFile, pending);
-    if (artifact && artifact.kind === 'release-soak' && (artifact.retryFree !== true || artifact.runs < 3)) pending.push('three retry-free release runs');
+    else {
+      validateConcreteArtifact(root, artifact, artifactFile, pending, Boolean(currentSourceHash));
+      if (currentSourceHash) validateEmbeddedRun(root, artifact, artifactFile, manifest, currentSourceHash, pending);
+    }
+    if (artifact && artifact.kind === 'release-soak' && (artifact.retryFree !== true || !Number.isInteger(artifact.runs) || artifact.runs < 3)) pending.push('three retry-free release runs');
   }
   for (const kind of REQUIRED_PHASE_11_ARTIFACTS) if (!kinds.has(kind)) pending.push(`phase 11 ${kind} artifact`);
   return { ready: pending.length === 0, pending };
+}
+
+const RELEASE_COMMANDS = {
+  'objective-release': 'npm run test:sim:release',
+  'visual-release': 'npm run test:sim:release:full',
+  'release-soak': 'npm run test:sim:release:soak'
+};
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function validateEmbeddedRun(root, artifact, artifactFile, manifest, sourceHash, pending) {
+  const label = `current-source embedded payload ${artifact.kind}`;
+  let payload;
+  try {
+    const contents = fs.readFileSync(artifactFile, 'utf8');
+    if (RELEASE_COMMANDS[artifact.kind]) {
+      const firstLine = contents.split(/\r?\n/, 1)[0];
+      const prefix = 'simulation-run-evidence: ';
+      if (!firstLine.startsWith(prefix)) throw new Error('missing execution log header');
+      payload = JSON.parse(firstLine.slice(prefix.length));
+      if (!contents.includes('\n--- stdout ---\n')) throw new Error('missing captured stdout section');
+    } else if (artifact.kind.endsWith('-contact-sheet')) {
+      const match = contents.match(/<script type="application\/json" id="simulation-run-evidence">([\s\S]*?)<\/script>/);
+      if (!match) throw new Error('missing contact-sheet run metadata');
+      payload = JSON.parse(match[1]);
+    } else payload = readJson(artifactFile);
+  } catch (error) {
+    pending.push(`${label}: ${error.message}`);
+    return;
+  }
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload) || payload.sourceHash !== sourceHash || !UUID.test(payload.runId || '') || payload.runId !== artifact.runId || payload.status !== 'passed' || payload.environment !== artifact.environment || !validTimestamp(payload.generatedAt) || payload.generatedAt !== artifact.observedAt || Date.parse(payload.generatedAt) > Date.parse(manifest.generatedAt)) {
+    pending.push(`${label}: source hash, run identity, result, environment or timestamp mismatch`);
+    return;
+  }
+  if (Date.now() - Date.parse(payload.generatedAt) > 86400000) pending.push(`${label}: execution is not fresh within 24 hours`);
+  if (RELEASE_COMMANDS[artifact.kind]) {
+    if (payload.command !== RELEASE_COMMANDS[artifact.kind] || payload.exitCode !== 0 || !validTimestamp(payload.startedAt) || Date.parse(payload.startedAt) > Date.parse(payload.generatedAt)) pending.push(`${label}: invalid executed command, exit code or chronology`);
+    if (artifact.kind === 'release-soak') {
+      const runs = payload.runs;
+      if (!Array.isArray(runs) || runs.length < 3 || runs.length !== artifact.runs || payload.retryFree !== true || new Set(runs.map(run => run && run.runId)).size !== runs.length || runs.some(run => !run || !UUID.test(run.runId || '') || run.sourceHash !== sourceHash || run.command !== RELEASE_COMMANDS['objective-release'] || run.exitCode !== 0 || !validTimestamp(run.startedAt) || !validTimestamp(run.completedAt) || Date.parse(run.startedAt) > Date.parse(run.completedAt) || Date.parse(run.startedAt) < Date.parse(payload.startedAt) || Date.parse(run.completedAt) > Date.parse(payload.generatedAt))) pending.push(`${label}: three distinct retry-free executed runs required`);
+    }
+  }
+  if (artifact.kind === 'visual-baselines' && JSON.stringify(payload.files) !== JSON.stringify(artifact.files)) pending.push(`${label}: baseline report file bindings mismatch`);
+  if (artifact.kind.endsWith('-contact-sheet')) {
+    const kind = artifact.kind.replace('-contact-sheet', '-capture');
+    const capture = (manifest.artifacts || []).find(item => item && item.kind === kind);
+    const ref = payload.captureManifest;
+    if (!capture || !ref || ref.path !== capture.path || ref.sha256 !== capture.sha256 || ref.runId !== capture.runId || payload.runId !== capture.runId || Date.parse(payload.generatedAt) < Date.parse(capture.observedAt)) pending.push(`${label}: capture manifest/run binding mismatch`);
+  }
+}
+
+function validTimestamp(value) {
+  return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(value) && Number.isFinite(Date.parse(value)) && Date.parse(value) <= Date.now();
+}
+
+function currentRevalidationState(root) {
+  const pending = [];
+  const file = rootFile(root, CURRENT_REVALIDATION);
+  if (!file) return { ready: false, pending: ['current-source revalidation receipt'] };
+  let receipt;
+  try { receipt = readJson(file); }
+  catch { return { ready: false, pending: ['valid current-source revalidation receipt'] }; }
+  if (!receipt || typeof receipt !== 'object' || Array.isArray(receipt)) return { ready: false, pending: ['valid current-source revalidation receipt object'] };
+  if (receipt.schemaVersion !== '1.0.0' || receipt.status !== 'verified') pending.push('completed current-source revalidation');
+  let snapshot;
+  try { snapshot = sourceSnapshot(root); }
+  catch (error) { pending.push(`current-source revalidation inventory: ${error.message}`); }
+  if (!snapshot || receipt.sourceHash !== snapshot.sha256) pending.push('current-source revalidation source hash');
+  const review = receipt.review;
+  if (!review || review.decision !== 'accept' || typeof review.reviewer !== 'string' || !review.reviewer.trim() || review.role !== 'Project technical reviewer' || !validTimestamp(review.reviewedAt) || review.sourceHash !== receipt.sourceHash) pending.push('current-source revalidation explicit technical review');
+  const ref = receipt.evidenceManifest;
+  const evidenceFile = rootFile(root, ref && ref.path);
+  if (!evidenceFile || ref.path === PHASE_11_EVIDENCE || sha256(evidenceFile) !== ref.sha256) {
+    pending.push('current-source revalidation fresh evidence manifest (historical phase 11 cannot be reused)');
+  } else if (snapshot) {
+    pending.push(...validateEvidenceManifest(root, ref.path, snapshot.sha256).pending);
+    try {
+      const evidence = readJson(evidenceFile);
+      if (!review || Date.parse(review.reviewedAt) < Date.parse(evidence.generatedAt)) pending.push('current-source revalidation review after evidence capture');
+    } catch { /* The manifest validator already reports invalid JSON. */ }
+  }
+  return { ready: pending.length === 0, pending, sourceHash: snapshot && snapshot.sha256 };
 }
 
 function upstreamState(root) {
@@ -161,7 +254,10 @@ function upstreamState(root) {
     if (!file || !isComplete(frontmatterStatus(path.join(directory, file)))) pending.push(`phase ${String(phase).padStart(2, '0')}`);
   }
   pending.push(...validateEvidenceManifest(root).pending);
-  return { ready: pending.length === 0, pending };
+  const historicalReady = pending.length === 0;
+  const current = currentRevalidationState(root);
+  pending.push(...current.pending);
+  return { ready: pending.length === 0, historicalReady, current, pending };
 }
 
 function validateCatalog(root, catalog, label, issues) {
@@ -286,7 +382,7 @@ function validate(options = {}) {
   validateReviews(root, reviewDocument, manifest, upstream, issues);
   const claimsVerified = (specDocument.specifications || []).concat(reviewDocument.reviews || []).some(record => record.status === 'verified' || (record.evidence && record.evidence.verified === true));
   if (claimsVerified && !upstream.ready) issue(issues, `verified evidence rejected: upstream precondition incomplete (${upstream.pending.join(', ')})`);
-  if (options.requireVerified && !upstream.ready) issue(issues, `--require-verified blocked: upstream plan ${UPSTREAM} and hashed phase 11 objective/visual/release evidence are pending (${upstream.pending.join(', ')})`);
+  if (options.requireVerified && !upstream.ready) issue(issues, `--require-verified blocked: historical plan plus current-source runtime/visual evidence and explicit review are required (${upstream.pending.join(', ')})`);
   if (options.requireVerified && !claimsVerified && upstream.ready) issue(issues, '--require-verified requires verified evidence records after upstream preconditions are met');
   return { ok: issues.length === 0, issues, counts: { sim2: (specDocument.specifications || []).length, sim3: (reviewDocument.reviews || []).length }, upstream };
 }
@@ -296,7 +392,7 @@ if (require.main === module) {
   if (!result.ok) {
     console.error(result.issues.join('\n'));
     process.exitCode = 1;
-  } else console.log(`simulation drift validation: PASS (${result.counts.sim2} Sim2, ${result.counts.sim3} Sim3)`);
+  } else console.log(`simulation drift validation: PASS (${result.counts.sim2} Sim2, ${result.counts.sim3} Sim3; current runtime acceptance: ${result.upstream.ready ? 'verified' : 'pending'})`);
 }
 
-module.exports = { validate, upstreamState };
+module.exports = { validate, upstreamState, currentRevalidationState, UPSTREAM_BLOCKER };

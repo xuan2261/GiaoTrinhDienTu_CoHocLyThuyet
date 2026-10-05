@@ -20,17 +20,20 @@
   function arrow(THREE, color, opts) {
     opts = opts || {};
     const group = new THREE.Group();
+    // Normalize shaft + cone to unit total length. updateArrow scales the
+    // complete base-to-tip extent, not just the shaft.
+    const headRatio = opts.headLength || 0.28;
+    const shaftLength = 1 / (1 + headRatio), headLength = headRatio / (1 + headRatio);
     const shaft = new THREE.Mesh(
-      new THREE.CylinderGeometry(opts.radius || 0.035, opts.radius || 0.035, 1, 16),
+      new THREE.CylinderGeometry(opts.radius || 0.035, opts.radius || 0.035, shaftLength, 16),
       material(THREE, color)
     );
-    const headLength = opts.headLength || 0.28;
     const head = new THREE.Mesh(
       new THREE.ConeGeometry(opts.headRadius || 0.11, headLength, 20),
       material(THREE, color)
     );
-    shaft.position.y = 0.5;
-    head.position.y = 1 + headLength / 2;
+    shaft.position.y = shaftLength / 2;
+    head.position.y = shaftLength + headLength / 2;
     group.add(shaft, head);
     return group;
   }

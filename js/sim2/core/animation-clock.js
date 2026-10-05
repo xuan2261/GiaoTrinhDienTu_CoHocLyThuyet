@@ -65,9 +65,15 @@
       accumulator = 0;
     }
 
+    function seekTime(time) {
+      if (!Number.isFinite(time) || time < 0) throw new RangeError('Physical time must be finite and non-negative');
+      simulationTime = time;
+      resetTimestamp();
+    }
+
     function getSimulationTime() { return simulationTime; }
 
-    return { advance, stepOnce, resetTimestamp, resetSimulationTime, getSimulationTime };
+    return { advance, stepOnce, resetTimestamp, resetSimulationTime, seekTime, getSimulationTime };
   }
 
   return { createClock };

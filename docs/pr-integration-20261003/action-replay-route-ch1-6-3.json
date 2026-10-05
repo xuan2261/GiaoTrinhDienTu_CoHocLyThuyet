@@ -1,0 +1,960 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch1-6-3",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "reset",
+        "label": "Đặt lại",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "holeX",
+        "min": 1,
+        "max": 5,
+        "value": "4.5",
+        "step": "any",
+        "physicalStep": "0.1"
+      },
+      {
+        "id": "holeY",
+        "min": 1,
+        "max": 3,
+        "value": "2.5",
+        "step": "any",
+        "physicalStep": "0.1"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:42.816Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "plateArea",
+          "value": "24.0 m²"
+        },
+        {
+          "key": "holeArea",
+          "value": "-3.14 m²"
+        },
+        {
+          "key": "Cx",
+          "value": "2.77 m"
+        },
+        {
+          "key": "Cy",
+          "value": "1.92 m"
+        },
+        {
+          "key": "netArea",
+          "value": "20.86 m²"
+        },
+        {
+          "key": "plateContribution",
+          "value": "(72.00; 48.00) m³"
+        },
+        {
+          "key": "holeContribution",
+          "value": "(-14.14; -7.85) m³"
+        },
+        {
+          "key": "sumAx",
+          "value": "57.86 m³"
+        },
+        {
+          "key": "sumAy",
+          "value": "40.15 m³"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "holeX",
+          "type": "number",
+          "value": "4.5"
+        },
+        {
+          "id": "holeY",
+          "type": "number",
+          "value": "2.5"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "reset",
+          "label": "Đặt lại"
+        }
+      ],
+      "geometry": [],
+      "playbackLabel": null
+    },
+    "stateHash": "d89d02e73e09dc4a7377a38b439ebca0c9dfe839efbfddae94c166f4cea23200",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 120,
+      "listenerCount": 15
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 5,
+      "nodes": 120,
+      "listenerCount": 15
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "holeX",
+            "value": 5,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:42.819Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "plateArea",
+              "value": "24.0 m²"
+            },
+            {
+              "key": "holeArea",
+              "value": "-3.14 m²"
+            },
+            {
+              "key": "Cx",
+              "value": "2.77 m"
+            },
+            {
+              "key": "Cy",
+              "value": "1.92 m"
+            },
+            {
+              "key": "netArea",
+              "value": "20.86 m²"
+            },
+            {
+              "key": "plateContribution",
+              "value": "(72.00; 48.00) m³"
+            },
+            {
+              "key": "holeContribution",
+              "value": "(-14.14; -7.85) m³"
+            },
+            {
+              "key": "sumAx",
+              "value": "57.86 m³"
+            },
+            {
+              "key": "sumAy",
+              "value": "40.15 m³"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "holeX",
+              "type": "number",
+              "value": "4.5"
+            },
+            {
+              "id": "holeY",
+              "type": "number",
+              "value": "2.5"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "reset",
+              "label": "Đặt lại"
+            }
+          ],
+          "geometry": [],
+          "playbackLabel": null
+        },
+        "stateHash": "d89d02e73e09dc4a7377a38b439ebca0c9dfe839efbfddae94c166f4cea23200",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 120,
+          "listenerCount": 15
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "holeX",
+            "value": 5,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "holeX",
+            "requested": 5,
+            "before": "4.5",
+            "committed": "5",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.820Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "plateArea",
+                  "value": "24.0 m²"
+                },
+                {
+                  "key": "holeArea",
+                  "value": "-3.14 m²"
+                },
+                {
+                  "key": "Cx",
+                  "value": "2.77 m"
+                },
+                {
+                  "key": "Cy",
+                  "value": "1.92 m"
+                },
+                {
+                  "key": "netArea",
+                  "value": "20.86 m²"
+                },
+                {
+                  "key": "plateContribution",
+                  "value": "(72.00; 48.00) m³"
+                },
+                {
+                  "key": "holeContribution",
+                  "value": "(-14.14; -7.85) m³"
+                },
+                {
+                  "key": "sumAx",
+                  "value": "57.86 m³"
+                },
+                {
+                  "key": "sumAy",
+                  "value": "40.15 m³"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "holeX",
+                  "type": "number",
+                  "value": "4.5"
+                },
+                {
+                  "id": "holeY",
+                  "type": "number",
+                  "value": "2.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "d89d02e73e09dc4a7377a38b439ebca0c9dfe839efbfddae94c166f4cea23200",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 120,
+              "listenerCount": 15
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.820Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "plateArea",
+                  "value": "24.0 m²"
+                },
+                {
+                  "key": "holeArea",
+                  "value": "-3.14 m²"
+                },
+                {
+                  "key": "Cx",
+                  "value": "2.70 m"
+                },
+                {
+                  "key": "Cy",
+                  "value": "1.92 m"
+                },
+                {
+                  "key": "netArea",
+                  "value": "20.86 m²"
+                },
+                {
+                  "key": "plateContribution",
+                  "value": "(72.00; 48.00) m³"
+                },
+                {
+                  "key": "holeContribution",
+                  "value": "(-15.71; -7.85) m³"
+                },
+                {
+                  "key": "sumAx",
+                  "value": "56.29 m³"
+                },
+                {
+                  "key": "sumAy",
+                  "value": "40.15 m³"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "holeX",
+                  "type": "number",
+                  "value": "5"
+                },
+                {
+                  "id": "holeY",
+                  "type": "number",
+                  "value": "2.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "3d94433eae5f521f433013f9ebe7b34d1de6d79715a5846cac9bbcd46e05fd34",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 120,
+              "listenerCount": 15
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.820Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "plateArea",
+                  "value": "24.0 m²"
+                },
+                {
+                  "key": "holeArea",
+                  "value": "-3.14 m²"
+                },
+                {
+                  "key": "Cx",
+                  "value": "2.70 m"
+                },
+                {
+                  "key": "Cy",
+                  "value": "1.92 m"
+                },
+                {
+                  "key": "netArea",
+                  "value": "20.86 m²"
+                },
+                {
+                  "key": "plateContribution",
+                  "value": "(72.00; 48.00) m³"
+                },
+                {
+                  "key": "holeContribution",
+                  "value": "(-15.71; -7.85) m³"
+                },
+                {
+                  "key": "sumAx",
+                  "value": "56.29 m³"
+                },
+                {
+                  "key": "sumAy",
+                  "value": "40.15 m³"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "holeX",
+                  "type": "number",
+                  "value": "5"
+                },
+                {
+                  "id": "holeY",
+                  "type": "number",
+                  "value": "2.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "3d94433eae5f521f433013f9ebe7b34d1de6d79715a5846cac9bbcd46e05fd34",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 120,
+              "listenerCount": 15
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"holeX:number\",\"holeY:number\"]",
+                "expected": "[\"holeX:number\",\"holeY:number\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:holeX",
+                "actual": 5,
+                "expected": 5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:unchanged:holeY",
+                "actual": 2.5,
+                "expected": 2.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:holeContribution",
+                "actual": "(-15.71; -7.85) m³",
+                "expected": "(-15.71; -7.85) m³",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "610d7a9fc76b4571a18345ed7ac0c118d96f0cc619fd8430c7e98a4041161e82"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:42.821Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "plateArea",
+                  "value": "24.0 m²"
+                },
+                {
+                  "key": "holeArea",
+                  "value": "-3.14 m²"
+                },
+                {
+                  "key": "Cx",
+                  "value": "2.70 m"
+                },
+                {
+                  "key": "Cy",
+                  "value": "1.92 m"
+                },
+                {
+                  "key": "netArea",
+                  "value": "20.86 m²"
+                },
+                {
+                  "key": "plateContribution",
+                  "value": "(72.00; 48.00) m³"
+                },
+                {
+                  "key": "holeContribution",
+                  "value": "(-15.71; -7.85) m³"
+                },
+                {
+                  "key": "sumAx",
+                  "value": "56.29 m³"
+                },
+                {
+                  "key": "sumAy",
+                  "value": "40.15 m³"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "holeX",
+                  "type": "number",
+                  "value": "5"
+                },
+                {
+                  "id": "holeY",
+                  "type": "number",
+                  "value": "2.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "3d94433eae5f521f433013f9ebe7b34d1de6d79715a5846cac9bbcd46e05fd34",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 120,
+              "listenerCount": 15
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:42.821Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "plateArea",
+                  "value": "24.0 m²"
+                },
+                {
+                  "key": "holeArea",
+                  "value": "-3.14 m²"
+                },
+                {
+                  "key": "Cx",
+                  "value": "2.77 m"
+                },
+                {
+                  "key": "Cy",
+                  "value": "1.92 m"
+                },
+                {
+                  "key": "netArea",
+                  "value": "20.86 m²"
+                },
+                {
+                  "key": "plateContribution",
+                  "value": "(72.00; 48.00) m³"
+                },
+                {
+                  "key": "holeContribution",
+                  "value": "(-14.14; -7.85) m³"
+                },
+                {
+                  "key": "sumAx",
+                  "value": "57.86 m³"
+                },
+                {
+                  "key": "sumAy",
+                  "value": "40.15 m³"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "holeX",
+                  "type": "number",
+                  "value": "4.5"
+                },
+                {
+                  "id": "holeY",
+                  "type": "number",
+                  "value": "2.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "d89d02e73e09dc4a7377a38b439ebca0c9dfe839efbfddae94c166f4cea23200",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 120,
+              "listenerCount": 15
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:42.821Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "plateArea",
+                  "value": "24.0 m²"
+                },
+                {
+                  "key": "holeArea",
+                  "value": "-3.14 m²"
+                },
+                {
+                  "key": "Cx",
+                  "value": "2.77 m"
+                },
+                {
+                  "key": "Cy",
+                  "value": "1.92 m"
+                },
+                {
+                  "key": "netArea",
+                  "value": "20.86 m²"
+                },
+                {
+                  "key": "plateContribution",
+                  "value": "(72.00; 48.00) m³"
+                },
+                {
+                  "key": "holeContribution",
+                  "value": "(-14.14; -7.85) m³"
+                },
+                {
+                  "key": "sumAx",
+                  "value": "57.86 m³"
+                },
+                {
+                  "key": "sumAy",
+                  "value": "40.15 m³"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "holeX",
+                  "type": "number",
+                  "value": "4.5"
+                },
+                {
+                  "id": "holeY",
+                  "type": "number",
+                  "value": "2.5"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "reset",
+                  "label": "Đặt lại"
+                }
+              ],
+              "geometry": [],
+              "playbackLabel": null
+            },
+            "stateHash": "d89d02e73e09dc4a7377a38b439ebca0c9dfe839efbfddae94c166f4cea23200",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 5,
+              "nodes": 120,
+              "listenerCount": 15
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:holeX",
+                "actual": 4.5,
+                "expected": 4.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:holeY",
+                "actual": 2.5,
+                "expected": 2.5,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:plateArea",
+                "actual": "24.0 m²",
+                "expected": "24.0 m²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:holeArea",
+                "actual": "-3.14 m²",
+                "expected": "-3.14 m²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Cx",
+                "actual": "2.77 m",
+                "expected": "2.77 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:Cy",
+                "actual": "1.92 m",
+                "expected": "1.92 m",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:netArea",
+                "actual": "20.86 m²",
+                "expected": "20.86 m²",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:plateContribution",
+                "actual": "(72.00; 48.00) m³",
+                "expected": "(72.00; 48.00) m³",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:holeContribution",
+                "actual": "(-14.14; -7.85) m³",
+                "expected": "(-14.14; -7.85) m³",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:sumAx",
+                "actual": "57.86 m³",
+                "expected": "57.86 m³",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:sumAy",
+                "actual": "40.15 m³",
+                "expected": "40.15 m³",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "9fa57f087cfe95828ff814ce42ac086f501821e9e63389770a687ffa1d1c0cab"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 5,
+          "nodes": 120,
+          "listenerCount": 15
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "reset"
+    ],
+    "plannedActionIds": [
+      "reset"
+    ],
+    "executedActionIds": [
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 1,
+    "executedCases": 1,
+    "operations": 2,
+    "oracleStatuses": {
+      "pass": 2,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 19,
+    "failedChecks": 0
+  }
+}

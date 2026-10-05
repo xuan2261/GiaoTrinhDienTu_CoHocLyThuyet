@@ -44,45 +44,63 @@
       overlay.moveLabel(lF2, { x: t2.x + 0.3, y: t2.y });
       overlay.moveLabel(lR, { x: tR.x + 0.3, y: tR.y + 0.2 });
       h1.move(t1); h2.move(t2);
+      inputs[0].x.setValue(f1.fx); inputs[0].y.setValue(f1.fy);
+      inputs[1].x.setValue(f2.fx); inputs[1].y.setValue(f2.fy);
       const Rx = f1.fx + f2.fx, Ry = f1.fy + f2.fy;
       const m1 = Math.hypot(f1.fx, f1.fy), m2 = Math.hypot(f2.fx, f2.fy);
       // guard: kéo lực về gốc (m=0) → tránh acos(0/0)=NaN ở readout góc
+      a1.setAttribute('visibility', m1 < 1e-9 ? 'hidden' : 'visible');
+      a2.setAttribute('visibility', m2 < 1e-9 ? 'hidden' : 'visible');
+      aR.setAttribute('visibility', Math.hypot(Rx,Ry) < 1e-9 ? 'hidden' : 'visible');
+      const angleDefined = m1 > 1e-9 && m2 > 1e-9;
       const cosA = (m1 > 1e-9 && m2 > 1e-9) ? (f1.fx * f2.fx + f1.fy * f2.fy) / (m1 * m2) : 1;
       const ang = Math.acos(Math.max(-1, Math.min(1, cosA))) * 180 / Math.PI;
       panel.setReadout([
         { key: 'F1', label: '|F₁|:', value: m1.toFixed(0) + ' N' },
         { key: 'F2', label: '|F₂|:', value: m2.toFixed(0) + ' N' },
-        { key: 'angle', label: '∠(F₁,F₂):', value: ang.toFixed(0) + '°' },
-        { key: 'R', label: '|R|:', value: Math.hypot(Rx, Ry).toFixed(1) + ' N' }
+        { key: 'angle', label: '∠(F₁,F₂):', value: angleDefined ? ang.toFixed(0) + '°' : 'không xác định (vectơ 0)' },
+        { key: 'R', label: '|R|:', value: Math.hypot(Rx, Ry).toFixed(1) + ' N' },
+        { key: 'Rx', label: 'Rₓ:', value: Rx.toFixed(1) + ' N' },
+        { key: 'Ry', label: 'Rᵧ:', value: Ry.toFixed(1) + ' N' },
+        { key: 'resultantAngle', label: 'Góc R từ +x:', value: Math.hypot(Rx,Ry) < 1e-9 ? 'không xác định (R = 0)' : (Math.atan2(Ry,Rx)*180/Math.PI).toFixed(1) + '°' },
+        { key: 'zero', label: 'Vectơ 0:', value: [m1 < 1e-9 ? 'F₁ = 0' : '', m2 < 1e-9 ? 'F₂ = 0' : ''].filter(Boolean).join('; ') || 'không có' }
       ]);
     }
 
     const panel = shell.setTheory({
       formulas: ['\\textcolor{#e06a00}{\\vec{R}} = \\textcolor{#d81b60}{\\vec{F_1}} + \\textcolor{#1565c0}{\\vec{F_2}}'],
       legend: [{ color: Pal.x, label: 'F₁' }, { color: Pal.y, label: 'F₂' }, { color: Pal.resultant, label: 'R' }],
-      observe: 'Kéo đầu 2 véc tơ; hợp lực R là đường chéo hình bình hành dựng từ F₁, F₂.'
+      observe: 'Hai lực đồng quy tại O, giới hạn góc phần tư I. Thành phần nhập bằng N; cả lực và R dùng 0,04 đơn vị hình/N. Tổng từng thành phần giới hạn 137,5 N để giữ trong khung. Vectơ 0 không có hướng, nên góc với nó không xác định. Nhập số giúp chọn từng lực khi hai handle trùng nhau.'
     });
 
+    function change(index, fx, fy) {
+      const f = index === 0 ? f1 : f2, other = index === 0 ? f2 : f1;
+      f.fx = Math.max(0, Math.min(137.5-other.fx, Math.round(fx*10)/10));
+      f.fy = Math.max(0, Math.min(137.5-other.fy, Math.round(fy*10)/10));
+    }
+    const inputs = [f1,f2].map((f,index) => {
+      const make = (axis,component) => shell.addNumberControl({ id: `F${index+1}${axis}`, label: `F${index+1}${axis}`, min: 0, max: 137.5, step: 0.1, value: f[component], unit: 'N', onInput(v) { change(index, axis==='x' ? v : f.fx, axis==='y' ? v : f.fy); render2(); } });
+      return { x: make('x','fx'), y: make('y','fy') };
+    });
     const h1 = shell.addHandle({ x: f1.fx * VIS, y: f1.fy * VIS }, {
       fill: Pal.handle,
-      a11y: { label: 'Đầu vectơ lực thứ nhất', axis: 'both' },
+      a11y: { label: 'Đầu vectơ lực F₁', axis: 'both', valueText: () => `F₁x ${f1.fx.toFixed(1)} N, F₁y ${f1.fy.toFixed(1)} N` },
       keyboardStep: { x: VIS, y: VIS },
       onDrag(wp) {
-        f1.fx = Math.max(0, Math.min(5.5 - f2.fx * VIS, wp.x)) / VIS;
-        f1.fy = Math.max(0, Math.min(5.5 - f2.fy * VIS, wp.y)) / VIS;
+        change(0, wp.x/VIS, wp.y/VIS);
         render2();
       }
     });
     const h2 = shell.addHandle({ x: f2.fx * VIS, y: f2.fy * VIS }, {
       fill: Pal.handle,
-      a11y: { label: 'Đầu vectơ lực thứ hai', axis: 'both' },
+      a11y: { label: 'Đầu vectơ lực F₂', axis: 'both', valueText: () => `F₂x ${f2.fx.toFixed(1)} N, F₂y ${f2.fy.toFixed(1)} N` },
       keyboardStep: { x: VIS, y: VIS },
       onDrag(wp) {
-        f2.fx = Math.max(0, Math.min(5.5 - f1.fx * VIS, wp.x)) / VIS;
-        f2.fy = Math.max(0, Math.min(5.5 - f1.fy * VIS, wp.y)) / VIS;
+        change(1, wp.x/VIS, wp.y/VIS);
         render2();
       }
     });
+    shell.addAction({ id: 'reset', label: 'Đặt lại', onClick() { Object.assign(f1,{fx:80,fy:20}); Object.assign(f2,{fx:25,fy:70}); render2(); } });
     render2();
     return { dispose: shell.dispose };
   });

@@ -1,0 +1,3387 @@
+{
+  "runId": "cpu-full-pr-887b318-20261003-2354",
+  "head": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "sourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "harnessHash": "789af647862ebcc8e4fbb2887608233c740d0a7eb5c727595d1eba9679c07cd5",
+  "replayHash": "8c5b92fc7085f1423a3303be9d5bb756749bfaba9ee01a2ee78b4e53e88fcc24",
+  "producerVersion": "1.2.0",
+  "method": "production-cpu-dom-action-replay-v1",
+  "formalAcceptance": "pending",
+  "route": "ch3-2-3",
+  "engine": "sim2",
+  "scope": "Actual production Sim2 controls, core clock and route handlers in the supplied CPU recording DOM host; bounded formulas, text transitions and recorded SVG attributes only",
+  "limitations": [
+    "No browser launched; no trusted native input, native range/number sanitization, pointer/touch/AT or browser DOM/layout measurement",
+    "CPU recording DOM nodes expose fixed 640x440 rectangles and reduced-motion=true; no responsive/zoom, pixels, screenshots or visual overlap evidence",
+    "Sim3 bridge endpoints are CPU stubs in this host; no Three renderer, WebGL/GPU/context recovery or resource/performance acceptance",
+    "No formal academic/learner effectiveness acceptance; action oracles are bounded to existing Q0 plans and checks",
+    "Source hashes establish byte currentness and replayability, not cryptographic authentication of execution"
+  ],
+  "inventory": {
+    "actions": [
+      {
+        "id": "fbd-a",
+        "label": "Xét riêng vật A",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "fbd-b",
+        "label": "Xét riêng vật B",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "fbd-system",
+        "label": "Xét hệ A+B",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      },
+      {
+        "id": "reset",
+        "label": "Đặt lại thí nghiệm",
+        "disabled": false,
+        "visibility": "not-evaluated-in-CPU-host"
+      }
+    ],
+    "numbers": [
+      {
+        "id": "F",
+        "min": 20,
+        "max": 80,
+        "value": "60",
+        "step": "any",
+        "physicalStep": "5"
+      }
+    ],
+    "playback": false
+  },
+  "initialState": {
+    "measuredAt": "2026-10-03T23:54:43.031Z",
+    "state": {
+      "clockSeconds": 0,
+      "readoutValues": [
+        {
+          "key": "FAB",
+          "value": "+60 N"
+        },
+        {
+          "key": "FBA",
+          "value": "-60 N"
+        },
+        {
+          "key": "pairMag",
+          "value": "60 N"
+        },
+        {
+          "key": "sum",
+          "value": "0 N (chỉ cặp nội lực)"
+        },
+        {
+          "key": "system",
+          "value": "Hệ A+B: hai nội lực triệt tiêu"
+        }
+      ],
+      "controlValues": [
+        {
+          "id": "F",
+          "type": "range",
+          "value": "60"
+        },
+        {
+          "id": "F",
+          "type": "number",
+          "value": "60"
+        }
+      ],
+      "actionValues": [
+        {
+          "id": "fbd-a",
+          "label": "Xét riêng vật A"
+        },
+        {
+          "id": "fbd-b",
+          "label": "Xét riêng vật B"
+        },
+        {
+          "id": "fbd-system",
+          "label": "Xét hệ A+B"
+        },
+        {
+          "id": "reset",
+          "label": "Đặt lại thí nghiệm"
+        }
+      ],
+      "geometry": [
+        {
+          "selector": ".sim2-action-reaction-pair",
+          "index": 0,
+          "visibility": "visible",
+          "points": null
+        },
+        {
+          "selector": ".sim2-action-reaction-pair",
+          "index": 1,
+          "visibility": "visible",
+          "points": null
+        }
+      ],
+      "playbackLabel": null
+    },
+    "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+    "context": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 4,
+      "nodes": 100,
+      "listenerCount": 17
+    }
+  },
+  "inventoryDisposal": {
+    "before": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 4,
+      "nodes": 100,
+      "listenerCount": 17
+    },
+    "after": {
+      "clockSeconds": 0,
+      "playbackLabel": null,
+      "queuedAnimationFrames": 0,
+      "ownedTimers": 0,
+      "hostChildren": 0,
+      "nodes": 1,
+      "listenerCount": 0
+    },
+    "checks": {
+      "hostCleared": true,
+      "animationFramesCleared": true,
+      "timersCleared": true,
+      "listenersCleared": true
+    },
+    "status": "pass"
+  },
+  "cases": [
+    {
+      "plan": {
+        "id": "action-0-fbd-a",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "fbd-a"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.034Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "FAB",
+              "value": "+60 N"
+            },
+            {
+              "key": "FBA",
+              "value": "-60 N"
+            },
+            {
+              "key": "pairMag",
+              "value": "60 N"
+            },
+            {
+              "key": "sum",
+              "value": "0 N (chỉ cặp nội lực)"
+            },
+            {
+              "key": "system",
+              "value": "Hệ A+B: hai nội lực triệt tiêu"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "F",
+              "type": "range",
+              "value": "60"
+            },
+            {
+              "id": "F",
+              "type": "number",
+              "value": "60"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "fbd-a",
+              "label": "Xét riêng vật A"
+            },
+            {
+              "id": "fbd-b",
+              "label": "Xét riêng vật B"
+            },
+            {
+              "id": "fbd-system",
+              "label": "Xét hệ A+B"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 0,
+              "visibility": "visible",
+              "points": null
+            },
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 1,
+              "visibility": "visible",
+              "points": null
+            }
+          ],
+          "playbackLabel": null
+        },
+        "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "fbd-a"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "fbd-a",
+              "label": "Xét riêng vật A"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.034Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.034Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật A: nhận F_BA; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "2e5f2d1e6f52fc4bd1d278961a94928da82b912e90a174ba4622159f63bd332a",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.034Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật A: nhận F_BA; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "2e5f2d1e6f52fc4bd1d278961a94928da82b912e90a174ba4622159f63bd332a",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:system",
+                "actual": "Vật A: nhận F_BA; chưa biết lực ngoài",
+                "expected": "Vật A: nhận F_BA; chưa biết lực ngoài",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "svg-visibility:.sim2-action-reaction-pair",
+                "actual": "[\"hidden\",\"visible\"]",
+                "expected": "[\"hidden\",\"visible\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:FAB",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:FBA",
+                "actual": -60,
+                "expected": -60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "5611330ea46b91000866a26c31c5ae6a4f4d21f5c6e797f50dce458ee1955012"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-1-fbd-b",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "fbd-b"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.037Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "FAB",
+              "value": "+60 N"
+            },
+            {
+              "key": "FBA",
+              "value": "-60 N"
+            },
+            {
+              "key": "pairMag",
+              "value": "60 N"
+            },
+            {
+              "key": "sum",
+              "value": "0 N (chỉ cặp nội lực)"
+            },
+            {
+              "key": "system",
+              "value": "Hệ A+B: hai nội lực triệt tiêu"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "F",
+              "type": "range",
+              "value": "60"
+            },
+            {
+              "id": "F",
+              "type": "number",
+              "value": "60"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "fbd-a",
+              "label": "Xét riêng vật A"
+            },
+            {
+              "id": "fbd-b",
+              "label": "Xét riêng vật B"
+            },
+            {
+              "id": "fbd-system",
+              "label": "Xét hệ A+B"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 0,
+              "visibility": "visible",
+              "points": null
+            },
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 1,
+              "visibility": "visible",
+              "points": null
+            }
+          ],
+          "playbackLabel": null
+        },
+        "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "fbd-b"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "fbd-b",
+              "label": "Xét riêng vật B"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.037Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.037Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật B: nhận F_AB; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "789757d7b99900622156d79cf27cdd4a329acca5e75d4b56bef82fb143a539c9",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.037Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật B: nhận F_AB; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "789757d7b99900622156d79cf27cdd4a329acca5e75d4b56bef82fb143a539c9",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:system",
+                "actual": "Vật B: nhận F_AB; chưa biết lực ngoài",
+                "expected": "Vật B: nhận F_AB; chưa biết lực ngoài",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "svg-visibility:.sim2-action-reaction-pair",
+                "actual": "[\"visible\",\"hidden\"]",
+                "expected": "[\"visible\",\"hidden\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:FAB",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:FBA",
+                "actual": -60,
+                "expected": -60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "18b4e9626ae167a3a58eb2a643343e46e2e1c8d6b638bd8375abde4552c4a4dd"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-2-fbd-system",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "fbd-system"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.040Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "FAB",
+              "value": "+60 N"
+            },
+            {
+              "key": "FBA",
+              "value": "-60 N"
+            },
+            {
+              "key": "pairMag",
+              "value": "60 N"
+            },
+            {
+              "key": "sum",
+              "value": "0 N (chỉ cặp nội lực)"
+            },
+            {
+              "key": "system",
+              "value": "Hệ A+B: hai nội lực triệt tiêu"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "F",
+              "type": "range",
+              "value": "60"
+            },
+            {
+              "id": "F",
+              "type": "number",
+              "value": "60"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "fbd-a",
+              "label": "Xét riêng vật A"
+            },
+            {
+              "id": "fbd-b",
+              "label": "Xét riêng vật B"
+            },
+            {
+              "id": "fbd-system",
+              "label": "Xét hệ A+B"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 0,
+              "visibility": "visible",
+              "points": null
+            },
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 1,
+              "visibility": "visible",
+              "points": null
+            }
+          ],
+          "playbackLabel": null
+        },
+        "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "fbd-system"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "fbd-system",
+              "label": "Xét hệ A+B"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.040Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.040Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.040Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:system",
+                "actual": "Hệ A+B: hai nội lực triệt tiêu",
+                "expected": "Hệ A+B: hai nội lực triệt tiêu",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "svg-visibility:.sim2-action-reaction-pair",
+                "actual": "[\"visible\",\"visible\"]",
+                "expected": "[\"visible\",\"visible\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:FAB",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:FBA",
+                "actual": -60,
+                "expected": -60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "ab4786b4cbc953a637cca648dfc4e00fddf6fe4295cf072df2a6a828b51a00c2"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "action-3-reset",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F",
+            "value": 80,
+            "allowConstraintClamp": true
+          },
+          {
+            "type": "action",
+            "action": "reset"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.042Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "FAB",
+              "value": "+60 N"
+            },
+            {
+              "key": "FBA",
+              "value": "-60 N"
+            },
+            {
+              "key": "pairMag",
+              "value": "60 N"
+            },
+            {
+              "key": "sum",
+              "value": "0 N (chỉ cặp nội lực)"
+            },
+            {
+              "key": "system",
+              "value": "Hệ A+B: hai nội lực triệt tiêu"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "F",
+              "type": "range",
+              "value": "60"
+            },
+            {
+              "id": "F",
+              "type": "number",
+              "value": "60"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "fbd-a",
+              "label": "Xét riêng vật A"
+            },
+            {
+              "id": "fbd-b",
+              "label": "Xét riêng vật B"
+            },
+            {
+              "id": "fbd-system",
+              "label": "Xét hệ A+B"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 0,
+              "visibility": "visible",
+              "points": null
+            },
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 1,
+              "visibility": "visible",
+              "points": null
+            }
+          ],
+          "playbackLabel": null
+        },
+        "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "control-value",
+            "kind": "number",
+            "control": "F",
+            "value": 80,
+            "allowConstraintClamp": true
+          },
+          "actual": {
+            "dispatch": "CPU number.value assignment + input + keydown Enter + change -> production listeners",
+            "control": "F",
+            "requested": 80,
+            "before": "60",
+            "committed": "80",
+            "targetReached": true,
+            "allowConstraintClamp": true,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.043Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.043Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+80 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-80 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "80 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "80"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "80"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "6693999ca6cf60185976006165420ff4e0ee59441a16cd5155b6df876b51355c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.046Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+80 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-80 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "80 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "80"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "80"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "6693999ca6cf60185976006165420ff4e0ee59441a16cd5155b6df876b51355c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "preparation-control-and-state-consistency",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "preparation:requested-finite-number",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:control-topology",
+                "actual": "[\"F:number\",\"F:range\"]",
+                "expected": "[\"F:number\",\"F:range\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:required-number-control",
+                "actual": 1,
+                "expected": 1,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:committed:F",
+                "actual": 80,
+                "expected": 80,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-finite",
+                "actual": true,
+                "expected": true,
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:clock-preserved",
+                "actual": 0,
+                "expected": 0,
+                "tolerance": 1e-9,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              },
+              {
+                "key": "preparation:readout:pairMag",
+                "actual": 80,
+                "expected": 80,
+                "tolerance": 0.50000001,
+                "pass": true,
+                "scope": "Preparation criterion: requested/committed control and displayed setup consistency; not complete quantitative physics verification"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "b0b27349ec573b82a1c22ad62437e904d2f117c97f654d490e98ddf07dd12e02"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "reset"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.046Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+80 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-80 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "80 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "80"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "80"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "6693999ca6cf60185976006165420ff4e0ee59441a16cd5155b6df876b51355c",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.047Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.047Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "control:F",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "control:F",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM committed numeric value; companion controls must agree"
+              },
+              {
+                "key": "readout:FAB",
+                "actual": "+60 N",
+                "expected": "+60 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:FBA",
+                "actual": "-60 N",
+                "expected": "-60 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:pairMag",
+                "actual": "60 N",
+                "expected": "60 N",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:sum",
+                "actual": "0 N (chỉ cặp nội lực)",
+                "expected": "0 N (chỉ cặp nội lực)",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "readout:system",
+                "actual": "Hệ A+B: hai nội lực triệt tiêu",
+                "expected": "Hệ A+B: hai nội lực triệt tiêu",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "3baeb79ac175852036b840bb002e4737ca053a2d7a818974cf936f9e29ef30dd"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    },
+    {
+      "plan": {
+        "id": "experiment-fbd-selection",
+        "type": "action-sequence",
+        "operations": [
+          {
+            "type": "action",
+            "action": "fbd-a"
+          },
+          {
+            "type": "action",
+            "action": "fbd-b"
+          },
+          {
+            "type": "action",
+            "action": "fbd-system"
+          }
+        ],
+        "unavailableReason": null
+      },
+      "status": "executed",
+      "baseline": {
+        "measuredAt": "2026-10-03T23:54:43.049Z",
+        "state": {
+          "clockSeconds": 0,
+          "readoutValues": [
+            {
+              "key": "FAB",
+              "value": "+60 N"
+            },
+            {
+              "key": "FBA",
+              "value": "-60 N"
+            },
+            {
+              "key": "pairMag",
+              "value": "60 N"
+            },
+            {
+              "key": "sum",
+              "value": "0 N (chỉ cặp nội lực)"
+            },
+            {
+              "key": "system",
+              "value": "Hệ A+B: hai nội lực triệt tiêu"
+            }
+          ],
+          "controlValues": [
+            {
+              "id": "F",
+              "type": "range",
+              "value": "60"
+            },
+            {
+              "id": "F",
+              "type": "number",
+              "value": "60"
+            }
+          ],
+          "actionValues": [
+            {
+              "id": "fbd-a",
+              "label": "Xét riêng vật A"
+            },
+            {
+              "id": "fbd-b",
+              "label": "Xét riêng vật B"
+            },
+            {
+              "id": "fbd-system",
+              "label": "Xét hệ A+B"
+            },
+            {
+              "id": "reset",
+              "label": "Đặt lại thí nghiệm"
+            }
+          ],
+          "geometry": [
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 0,
+              "visibility": "visible",
+              "points": null
+            },
+            {
+              "selector": ".sim2-action-reaction-pair",
+              "index": 1,
+              "visibility": "visible",
+              "points": null
+            }
+          ],
+          "playbackLabel": null
+        },
+        "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+        "context": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        }
+      },
+      "operations": [
+        {
+          "index": 0,
+          "requested": {
+            "type": "action",
+            "action": "fbd-a"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "fbd-a",
+              "label": "Xét riêng vật A"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.049Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.049Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật A: nhận F_BA; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "2e5f2d1e6f52fc4bd1d278961a94928da82b912e90a174ba4622159f63bd332a",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.050Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật A: nhận F_BA; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "2e5f2d1e6f52fc4bd1d278961a94928da82b912e90a174ba4622159f63bd332a",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:system",
+                "actual": "Vật A: nhận F_BA; chưa biết lực ngoài",
+                "expected": "Vật A: nhận F_BA; chưa biết lực ngoài",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "svg-visibility:.sim2-action-reaction-pair",
+                "actual": "[\"hidden\",\"visible\"]",
+                "expected": "[\"hidden\",\"visible\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:FAB",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:FBA",
+                "actual": -60,
+                "expected": -60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "5611330ea46b91000866a26c31c5ae6a4f4d21f5c6e797f50dce458ee1955012"
+        },
+        {
+          "index": 1,
+          "requested": {
+            "type": "action",
+            "action": "fbd-b"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "fbd-b",
+              "label": "Xét riêng vật B"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.050Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật A: nhận F_BA; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "hidden",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "2e5f2d1e6f52fc4bd1d278961a94928da82b912e90a174ba4622159f63bd332a",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.050Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật B: nhận F_AB; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "789757d7b99900622156d79cf27cdd4a329acca5e75d4b56bef82fb143a539c9",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.050Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật B: nhận F_AB; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "789757d7b99900622156d79cf27cdd4a329acca5e75d4b56bef82fb143a539c9",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:system",
+                "actual": "Vật B: nhận F_AB; chưa biết lực ngoài",
+                "expected": "Vật B: nhận F_AB; chưa biết lực ngoài",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "svg-visibility:.sim2-action-reaction-pair",
+                "actual": "[\"visible\",\"hidden\"]",
+                "expected": "[\"visible\",\"hidden\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:FAB",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:FBA",
+                "actual": -60,
+                "expected": -60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "18b4e9626ae167a3a58eb2a643343e46e2e1c8d6b638bd8375abde4552c4a4dd"
+        },
+        {
+          "index": 2,
+          "requested": {
+            "type": "action",
+            "action": "fbd-system"
+          },
+          "actual": {
+            "dispatch": "CPU recording-node click -> production registered event handler",
+            "button": {
+              "id": "fbd-system",
+              "label": "Xét hệ A+B"
+            },
+            "cpuClickCount": 1,
+            "trustedInput": false
+          },
+          "before": {
+            "measuredAt": "2026-10-03T23:54:43.050Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Vật B: nhận F_AB; chưa biết lực ngoài"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "hidden",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "789757d7b99900622156d79cf27cdd4a329acca5e75d4b56bef82fb143a539c9",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "immediate": {
+            "measuredAt": "2026-10-03T23:54:43.051Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "after": {
+            "measuredAt": "2026-10-03T23:54:43.051Z",
+            "state": {
+              "clockSeconds": 0,
+              "readoutValues": [
+                {
+                  "key": "FAB",
+                  "value": "+60 N"
+                },
+                {
+                  "key": "FBA",
+                  "value": "-60 N"
+                },
+                {
+                  "key": "pairMag",
+                  "value": "60 N"
+                },
+                {
+                  "key": "sum",
+                  "value": "0 N (chỉ cặp nội lực)"
+                },
+                {
+                  "key": "system",
+                  "value": "Hệ A+B: hai nội lực triệt tiêu"
+                }
+              ],
+              "controlValues": [
+                {
+                  "id": "F",
+                  "type": "range",
+                  "value": "60"
+                },
+                {
+                  "id": "F",
+                  "type": "number",
+                  "value": "60"
+                }
+              ],
+              "actionValues": [
+                {
+                  "id": "fbd-a",
+                  "label": "Xét riêng vật A"
+                },
+                {
+                  "id": "fbd-b",
+                  "label": "Xét riêng vật B"
+                },
+                {
+                  "id": "fbd-system",
+                  "label": "Xét hệ A+B"
+                },
+                {
+                  "id": "reset",
+                  "label": "Đặt lại thí nghiệm"
+                }
+              ],
+              "geometry": [
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 0,
+                  "visibility": "visible",
+                  "points": null
+                },
+                {
+                  "selector": ".sim2-action-reaction-pair",
+                  "index": 1,
+                  "visibility": "visible",
+                  "points": null
+                }
+              ],
+              "playbackLabel": null
+            },
+            "stateHash": "adccd6ccb77e55810438352469c918f105ae9c5bd017d69bb484a39b2ad33e62",
+            "context": {
+              "clockSeconds": 0,
+              "playbackLabel": null,
+              "queuedAnimationFrames": 0,
+              "ownedTimers": 0,
+              "hostChildren": 4,
+              "nodes": 100,
+              "listenerCount": 17
+            }
+          },
+          "collectorPause": {
+            "method": "production shell.stop",
+            "cpuOnly": true
+          },
+          "oracle": {
+            "method": "collector-independent-formula-or-dom-transition",
+            "criteria": "bounded-action-or-state",
+            "status": "pass",
+            "checks": [
+              {
+                "key": "readout:system",
+                "actual": "Hệ A+B: hai nội lực triệt tiêu",
+                "expected": "Hệ A+B: hai nội lực triệt tiêu",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "DOM text contract, not rendered geometry"
+              },
+              {
+                "key": "svg-visibility:.sim2-action-reaction-pair",
+                "actual": "[\"visible\",\"visible\"]",
+                "expected": "[\"visible\",\"visible\"]",
+                "tolerance": 0,
+                "pass": true,
+                "scope": "Actual SVG visibility attributes, not pixels or occlusion"
+              },
+              {
+                "key": "readout:FAB",
+                "actual": 60,
+                "expected": 60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              },
+              {
+                "key": "readout:FBA",
+                "actual": -60,
+                "expected": -60,
+                "tolerance": 1e-10,
+                "pass": true,
+                "scope": "DOM reported physical value"
+              }
+            ],
+            "scope": "Bounded action/state checks only; DOM text/SVG attributes are observations, never proof of pixel correctness, complete physics, WebGL, accessibility or formal acceptance"
+          },
+          "oracleHash": "ab4786b4cbc953a637cca648dfc4e00fddf6fe4295cf072df2a6a828b51a00c2"
+        }
+      ],
+      "disposal": {
+        "before": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 4,
+          "nodes": 100,
+          "listenerCount": 17
+        },
+        "after": {
+          "clockSeconds": 0,
+          "playbackLabel": null,
+          "queuedAnimationFrames": 0,
+          "ownedTimers": 0,
+          "hostChildren": 0,
+          "nodes": 1,
+          "listenerCount": 0
+        },
+        "checks": {
+          "hostCleared": true,
+          "animationFramesCleared": true,
+          "timersCleared": true,
+          "listenersCleared": true
+        },
+        "status": "pass"
+      },
+      "error": null
+    }
+  ],
+  "coverage": {
+    "discoveredActionIds": [
+      "fbd-a",
+      "fbd-b",
+      "fbd-system",
+      "reset"
+    ],
+    "plannedActionIds": [
+      "fbd-a",
+      "fbd-b",
+      "fbd-system",
+      "reset"
+    ],
+    "executedActionIds": [
+      "fbd-a",
+      "fbd-b",
+      "fbd-system",
+      "reset"
+    ],
+    "missingActionIds": []
+  },
+  "summary": {
+    "cases": 5,
+    "executedCases": 5,
+    "operations": 8,
+    "oracleStatuses": {
+      "pass": 8,
+      "fail": 0,
+      "not-evaluated": 0
+    },
+    "boundedChecks": 38,
+    "failedChecks": 0
+  }
+}

@@ -1,0 +1,22 @@
+GIÁO TRÌNH ĐIỆN TỬ CƠ HỌC LÝ THUYẾT — BẢN SỬA THỬ NGÀY 02/10/2026
+
+Đây là gói web đã sửa từ commit 36e92895a69a82f9744c544cd166fc06e7e45c3c.
+Đây chưa phải bản nghiệm thu/phát hành chính thức.
+
+Cách mở:
+1. Giải nén toàn bộ ZIP vào một thư mục; giữ nguyên cấu trúc thư mục.
+2. Mở index.html trong trình duyệt desktop. Tài nguyên chính đã được đóng gói để dùng offline.
+3. Nếu trình duyệt hạn chế file://, dùng máy chủ tĩnh cục bộ trong chính thư mục đã giải nén, ví dụ:
+   python -m http.server 8000 --bind 127.0.0.1
+   Sau đó mở http://127.0.0.1:8000 . Không cần tài khoản/API key.
+4. Có thể bắt đầu với mô phỏng Newton II ch3-2-2, phản lực ngàm ch1-3-6 và va chạm ch3-6-2.
+
+Phạm vi:
+- Nội dung web/quiz và các mô phỏng đã được sửa, kiểm tra mã nguồn, toán học và kiểm thử CPU.
+- Không có chứng nhận browser/GPU của bản sửa. 3D cần WebGL; nếu thiết bị không hỗ trợ, ứng dụng phải quay về 2D.
+- Bản CoHocLyThuyet.pdf được lưu nguyên trạng để đối chiếu nguồn, CHƯA nhận các đính chính. Trình đọc PDF có cảnh báo này.
+- Chưa có ký duyệt học thuật, accessibility độc lập hay chấp thuận phát hành.
+
+SHA256SUMS và release-manifest.json dùng để kiểm tra tính toàn vẹn của gói.
+Chúng không thay thế kiểm thử hiển thị và nghiệm thu nội dung.
+Không dùng báo cáo/slides/release tháng 09 để chứng nhận gói ngày 02/10 này.

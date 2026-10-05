@@ -113,6 +113,34 @@
     camera.updateProjectionMatrix();
   }
 
+  // Fit actual object bounds without changing physical geometry. Preserve the
+  // viewing direction and reserve a symmetric NDC margin on both viewport axes.
+  function fitCameraToObjects(THREE, camera, objects, padding) {
+    const margin = padding == null ? 0.1 : padding;
+    const bounds = new THREE.Box3();
+    objects.filter(object => object.visible).forEach(object => {
+      object.updateWorldMatrix(true, true);
+      bounds.expandByObject(object);
+    });
+    if (bounds.isEmpty()) return;
+    const center = bounds.getCenter(new THREE.Vector3());
+    const inverse = camera.quaternion.clone().invert();
+    const tanY = Math.tan(camera.fov * Math.PI / 360) * (1 - margin);
+    const tanX = tanY * camera.aspect;
+    let distance = 0, depth = 0;
+    for (const x of [bounds.min.x, bounds.max.x])
+      for (const y of [bounds.min.y, bounds.max.y])
+        for (const z of [bounds.min.z, bounds.max.z]) {
+          const local = new THREE.Vector3(x, y, z).sub(center).applyQuaternion(inverse);
+          distance = Math.max(distance, local.z + Math.abs(local.x) / tanX, local.z + Math.abs(local.y) / tanY, local.z + camera.near * 2);
+          depth = Math.max(depth, Math.abs(local.z));
+        }
+    camera.position.copy(center).add(new THREE.Vector3(0, 0, distance).applyQuaternion(camera.quaternion));
+    camera.far = Math.max(100, distance + depth + 1);
+    camera.updateProjectionMatrix();
+    camera.updateMatrixWorld(true);
+  }
+
   root.Sim3VisualKit = {
     colors,
     materials,
@@ -123,6 +151,7 @@
     shadowPlane,
     applyShadows,
     setCamera,
+    fitCameraToObjects,
     vectorScale,
     labelOffset,
     visualMetrics

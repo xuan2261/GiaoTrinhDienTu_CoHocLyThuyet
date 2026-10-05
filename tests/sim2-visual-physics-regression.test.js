@@ -111,11 +111,20 @@ const read = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8');
     'ch1-1-8 minY -1.5 cũ để dead-space dưới');
 }
 {
-  const src = read('js/sim2/sims/ch3/ch3-5-4.js');
-  assert.ok(src.includes('minY: -0.4,'),
-    'ch3-5-4 thu minY -0.8→-0.4 (nét đứt đáy y=-0.3 còn margin 0.1)');
-  assert.ok(!src.includes('minY: -0.8,'),
-    'ch3-5-4 minY -0.8 cũ để nửa dưới trống');
+  // U1 adds the SI force-distance graph below the existing scene. Verify its
+  // physical extrema fit instead of freezing the old empty-space crop.
+  const { mount } = require('./helpers/sim2-route-harness.cjs');
+  const h = mount('ch3-5-4');
+  for (const force of [1,4,15]) {
+    h.slider('F',force);
+    const area=h.svg.children.find(n=>n.attrs.class==='sim2-work-area');
+    assert.ok(area,'ch3-5-4 exposes the actual F–x work area');
+    for(const p of area.attrs.points.split(' ').map(s=>s.split(',').map(Number))) {
+      assert.ok(p[0]>=h.cfg.worldBox.minX+.1 && p[0]<=h.cfg.worldBox.maxX-.1,'work area fits horizontally');
+      assert.ok(p[1]>=h.cfg.worldBox.minY+.1 && p[1]<=h.cfg.worldBox.maxY-.1,'work area fits vertically');
+    }
+  }
+  h.dispose();
 }
 {
   const src = read('js/sim2/sims/ch3/ch3-3-1.js');

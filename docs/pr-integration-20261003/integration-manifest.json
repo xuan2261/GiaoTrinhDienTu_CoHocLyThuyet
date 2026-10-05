@@ -1,0 +1,1123 @@
+{
+  "upstreamBase": "36e92895a69a82f9744c544cd166fc06e7e45c3c",
+  "runtimeSource": "70ba017b3d9156d19c1676e6a3babe478aa5b7e0",
+  "testOnlySource": "3adb06550659d621eda4d28c688e75795bee2007",
+  "integrationCommit": "887b3181db99aa5d1c5ad6e10ab2f633f740897d",
+  "integrationTree": "4c56de0bbd05b2001d7530f16071a9aefaa4a926",
+  "trackedFiles": 3170,
+  "changes": {
+    "added": 107,
+    "modified": 114,
+    "deleted": 0
+  },
+  "productFiles": 498,
+  "productSourceHash": "887e06b655981f2a4d3285f68a548b011440352d6e8c4167fb4455d889cdca9d",
+  "collectorHash": "36a93e2bb90517cca487da21af6bd07cc0e06fa8d0ad6a066fd5c12b0652191a",
+  "files": [
+    {
+      "path": "HUONG_DAN_BAN_SUA.txt",
+      "bytes": 1626,
+      "sha256": "1077689c809579475baa282bb8b8db9303000148d1b1699364263121636e068a"
+    },
+    {
+      "path": "chapters/ch1/muc-I-2.html",
+      "bytes": 1169,
+      "sha256": "f86af3437f3c8ec1dc254bc5f24e946998761062a29556c838482da104a5bc1a"
+    },
+    {
+      "path": "chapters/ch1/muc-I-4.html",
+      "bytes": 8236,
+      "sha256": "c6377a3ed5f4f7a9c912dd299acbb06de34c44c6e1e95d6110ca05ab1a49917a"
+    },
+    {
+      "path": "chapters/ch1/muc-IV-2.html",
+      "bytes": 24186,
+      "sha256": "07f9dbbeab829a99a9d63577d5624f9296f96c712e6edb3fac28795eabcace52"
+    },
+    {
+      "path": "chapters/ch1/muc-IV-3.html",
+      "bytes": 28502,
+      "sha256": "610885b2f87ef5acd2418d71c2edf2d39fedb34284ed023e2af67259e7851203"
+    },
+    {
+      "path": "chapters/ch1/muc-V-3.html",
+      "bytes": 38074,
+      "sha256": "7822a73607a7e3d96da0d2100c60815d60c2df88056a34ec224c54806917ec2f"
+    },
+    {
+      "path": "chapters/ch1/muc-V-4.html",
+      "bytes": 3618,
+      "sha256": "9225dbfe0f89a26919e7ce5d9a60cc5589cb82c514fbdf043cd86ac322e59fe1"
+    },
+    {
+      "path": "chapters/ch1/muc-VI-2.html",
+      "bytes": 30627,
+      "sha256": "32a4c021dfcd4de615afac6a344f2a16a141011e70152af1b4aefd76e8b657e7"
+    },
+    {
+      "path": "chapters/ch1/muc-VII-1.html",
+      "bytes": 50438,
+      "sha256": "7311feeb8352036a68af7f4ce6d541c8130a2c8029e668d9c8d313c4c4f9fba7"
+    },
+    {
+      "path": "chapters/ch1/muc-VII-2.html",
+      "bytes": 3302,
+      "sha256": "40d29ae85af2296b33c800d8868e944c8598cdb995a44dac0efa1197aedf4812"
+    },
+    {
+      "path": "chapters/ch2/muc-I-1.html",
+      "bytes": 22784,
+      "sha256": "a6be796bc9f099e2b5a6eaea6b960e6b93f8aae0e9b42982c3a8da8d23c096f4"
+    },
+    {
+      "path": "chapters/ch2/muc-I-2.html",
+      "bytes": 33789,
+      "sha256": "f4218924d60429aadeebe006e9de458d0303d5249480eae0a66e36bd4529cd5c"
+    },
+    {
+      "path": "chapters/ch2/muc-I-3.html",
+      "bytes": 9449,
+      "sha256": "6e5bd7150ce92e199f9a7638c45f2e03255716f4f1e169ea83cc2a4cbe19aefb"
+    },
+    {
+      "path": "chapters/ch2/muc-I-4.html",
+      "bytes": 8016,
+      "sha256": "16b583ade39bdb740c00c60a4c1996a200586594559c7666d81c608a682a4a8a"
+    },
+    {
+      "path": "chapters/ch2/muc-II-2.html",
+      "bytes": 36935,
+      "sha256": "f93f602591541a3703da336bded31a37d7b948ac3c577730c67fcecd261027e0"
+    },
+    {
+      "path": "chapters/ch2/muc-III-2.html",
+      "bytes": 14807,
+      "sha256": "61d9b6b68c12291e1fc85c8a93b0da7e62124d4937e14925c2ced9fb36de04b6"
+    },
+    {
+      "path": "chapters/ch2/muc-IV-4.html",
+      "bytes": 23322,
+      "sha256": "5612ea2a821dc31da949c5e40e14634a2f3f1e16e6030c7a923a285399bcb8ab"
+    },
+    {
+      "path": "chapters/ch2/muc-V-3.html",
+      "bytes": 24217,
+      "sha256": "d58ec6ddada1e07aaf0be669257af3e9c1156f72de0f5fafdf07238cae4f8664"
+    },
+    {
+      "path": "chapters/ch2/muc-VII-1.html",
+      "bytes": 51628,
+      "sha256": "f0e7576c459430fc26ab1ee460746ef9ad8e79b68681573bc926e5385f821653"
+    },
+    {
+      "path": "chapters/ch3/muc-II-2.html",
+      "bytes": 5113,
+      "sha256": "962a731917ed288ab497c80b6797335da47787ac079e334797a7e10643d71fd8"
+    },
+    {
+      "path": "chapters/ch3/muc-III-1.html",
+      "bytes": 12389,
+      "sha256": "908fd01bc9415149429fd37fe3ad67dde0ec9855436bcc4f6a1010605728c3aa"
+    },
+    {
+      "path": "chapters/ch3/muc-IV-1.html",
+      "bytes": 17653,
+      "sha256": "a5cfb394fb4ae7ea0e907c1c2bb4fc051da85a7355da94e9dca2a111ab602f81"
+    },
+    {
+      "path": "chapters/ch3/muc-V-1.html",
+      "bytes": 12646,
+      "sha256": "53b06858302ab24e9e4bf546f63d3249fcc2fefdbe901c0f072d8c91dc67a4f8"
+    },
+    {
+      "path": "chapters/ch3/muc-V-2.html",
+      "bytes": 51068,
+      "sha256": "0afd64eaa9fdd6ad5892fd341442d84a680dd6f7340b2d1890b6a779623f3ad9"
+    },
+    {
+      "path": "chapters/ch3/muc-V-3.html",
+      "bytes": 31558,
+      "sha256": "8d7507e1ef03929ed664cfebdd6eef5996d8003b85f7d641210cf566ccb4c8bf"
+    },
+    {
+      "path": "chapters/ch3/muc-VI-3.html",
+      "bytes": 48466,
+      "sha256": "8a7ae042dee0762d7c26ab68f676844662f07167a28ab8712a30aaa74cc40ed6"
+    },
+    {
+      "path": "chapters/ch3/muc-VII-1.html",
+      "bytes": 52378,
+      "sha256": "b3e06daad80a49ffc849409f157473b67e7f583304d5e1d086fd60bcb1253654"
+    },
+    {
+      "path": "chapters/ch3/muc-VII-2.html",
+      "bytes": 28607,
+      "sha256": "24715be409cc25126ea2216be8e91824b50be665aacf64a4d14ccea5fff3c111"
+    },
+    {
+      "path": "css/equations-and-figure-styling-mathml-katex-font-sync-figure-figcaption.css",
+      "bytes": 1311,
+      "sha256": "3257e29453cb8ad89a3ef6f7eb6f638b389e2647426570f0ce82e29d64de4c51"
+    },
+    {
+      "path": "css/style.css",
+      "bytes": 77022,
+      "sha256": "e7cad1903aab6a9f6a331dcbfe551e072b658d825d93978e01be034faea79b8c"
+    },
+    {
+      "path": "data/academic_review_ledger.json",
+      "bytes": 821765,
+      "sha256": "7feb8a6f6724e96c41f4614fc25a1b0b24f58ba8a1b61bf787de82f1b2f08413"
+    },
+    {
+      "path": "data/content-errata-20261002.json",
+      "bytes": 267214,
+      "sha256": "931ae9e5d936cb7b83bf216203607b4db6f19cb661206748ef6ab8294afcfcd5"
+    },
+    {
+      "path": "data/content-manifest.json",
+      "bytes": 89620,
+      "sha256": "8d380b681fcb3bb68a7681a605b2076e4a144a635f0b9609974a06689d167093"
+    },
+    {
+      "path": "data/media-manifest.json",
+      "bytes": 20591,
+      "sha256": "b7510dd8a4dcac712008b5d362faa84bb3e60da0218112dbc007c0d4df503782"
+    },
+    {
+      "path": "data/media-pilot-manifest.json",
+      "bytes": 1640,
+      "sha256": "a36b35204184d4f1d531b140c5d2e36bf2fe9df60d1920f6a37d6ff6dcd5f72b"
+    },
+    {
+      "path": "data/multimedia-content-contracts.json",
+      "bytes": 6786,
+      "sha256": "9e149341c6dc4a45e1eb1b1a25887f66edcdb346370a002e9129db64b3fbbbb1"
+    },
+    {
+      "path": "data/multimedia-gap-analysis.json",
+      "bytes": 7254,
+      "sha256": "a2b1d7204211ac4103bd289487197524aa45b3e05324e0ed7cbe919253de698d"
+    },
+    {
+      "path": "data/multimedia-learning-map.json",
+      "bytes": 2254,
+      "sha256": "43e35c29e4d85b658c1d389c34cf06d226fc94be2e42b52436252e8f382e6761"
+    },
+    {
+      "path": "data/qa-gates.json",
+      "bytes": 13508,
+      "sha256": "d511acced77b85fed67104e8466b1d4c102c1b39fa3d16e101cb5c21c4137a43"
+    },
+    {
+      "path": "data/quiz-ch1.json",
+      "bytes": 86443,
+      "sha256": "7aafd31d06c727677be597377c91606972600bdc1e893a7d6f797561213ca84a"
+    },
+    {
+      "path": "data/quiz-ch2.json",
+      "bytes": 86035,
+      "sha256": "d169e1ea4d9831c723af0bd108717449b2953ac6e2f43e604446fc8aa2ebe2f2"
+    },
+    {
+      "path": "data/quiz-ch3.json",
+      "bytes": 78751,
+      "sha256": "b5fa3511954377aa1e7bdca916e7f2d49f8039c769f2219740d8f3a572d63976"
+    },
+    {
+      "path": "data/quiz-learning-map.json",
+      "bytes": 88039,
+      "sha256": "815b73e00301d482cce843abd368c8108df01575fa286ba8baec0313457b02fd"
+    },
+    {
+      "path": "data/review-history/7feb8a6f6724e96c41f4614fc25a1b0b24f58ba8a1b61bf787de82f1b2f08413-academic_review_ledger.json",
+      "bytes": 821765,
+      "sha256": "7feb8a6f6724e96c41f4614fc25a1b0b24f58ba8a1b61bf787de82f1b2f08413"
+    },
+    {
+      "path": "data/review-history/97994592ffa2ae0fbfb668a5b2bcfa80a59cdedd8c1321b364728776e83e73f1-sim3-pedagogical-reviews.json",
+      "bytes": 19205,
+      "sha256": "97994592ffa2ae0fbfb668a5b2bcfa80a59cdedd8c1321b364728776e83e73f1"
+    },
+    {
+      "path": "data/review-history/a5ecf141498e5388121ff0f654bcee0b4e59a93fbb8f931761c9afb73eee4ac7-simulation-specifications.json",
+      "bytes": 91015,
+      "sha256": "a5ecf141498e5388121ff0f654bcee0b4e59a93fbb8f931761c9afb73eee4ac7"
+    },
+    {
+      "path": "data/review-history/dba69206afedd9fc7700aa658039441ce3bfe2b2abe7bbe0f3a3c7607dcab671-academic_review_ledger.json",
+      "bytes": 821765,
+      "sha256": "dba69206afedd9fc7700aa658039441ce3bfe2b2abe7bbe0f3a3c7607dcab671"
+    },
+    {
+      "path": "data/search-index.json",
+      "bytes": 1056410,
+      "sha256": "85e6fa6ed6a01ed62beb07d64096f0a1567d6687fb6f367a22becfc41fa721df"
+    },
+    {
+      "path": "data/sim3-pedagogical-reviews.json",
+      "bytes": 21661,
+      "sha256": "83593445ac9e7b03534c530f9c005bfeb9359d19a6735834e1626a4265622ed1"
+    },
+    {
+      "path": "data/simulation-current-revalidation.json",
+      "bytes": 443,
+      "sha256": "538b98bd5f071380ed509f2a2f68093ee84607346f1e2c0dbdfdcec933152e6f"
+    },
+    {
+      "path": "data/simulation-specifications.json",
+      "bytes": 152856,
+      "sha256": "72cc457291fbafb911ea8e0eb5fe11819c57a73fc6cd8c3e65de8feac5bb0607"
+    },
+    {
+      "path": "docs/content-errata-20261002.md",
+      "bytes": 3903,
+      "sha256": "f548aae687f8d52433a3b89e8f7f3bbc97bf92796702ff522607ec4007376e5f"
+    },
+    {
+      "path": "docs/quality-gate-currentness.md",
+      "bytes": 6673,
+      "sha256": "ec3718a76880478ef757ecb799b658b10c91033ca71b28923a481c5d36ef0c0b"
+    },
+    {
+      "path": "docs/simulation-nextsteps-independent-review.md",
+      "bytes": 9816,
+      "sha256": "9cc66331b6672c4e5076e901d788c3aeb4e39cdd24f0ca18dd17354ffa55b419"
+    },
+    {
+      "path": "docs/simulation-nextsteps-outcome-vi.md",
+      "bytes": 6499,
+      "sha256": "c4a8a907a8b92e602e6d22d6abaaa815cb4466fd65121cd63d4afc950841ae59"
+    },
+    {
+      "path": "docs/simulation-production-controls-verification.md",
+      "bytes": 2579,
+      "sha256": "5e06a33a2a9bd76342ee3ee9dd1881fcd509a7da6876cccee7463f7f5dbfa439"
+    },
+    {
+      "path": "docs/simulation-teaching-technical-review.md",
+      "bytes": 13939,
+      "sha256": "04e9d9d606696bfc148a771c1e585e69ff064f4ac6181c6793c18dc7fe4de13d"
+    },
+    {
+      "path": "docs/simulation-upgrade-independent-review.md",
+      "bytes": 11397,
+      "sha256": "d1760af029a4b5b39fc80420213302ecb733a679a7623fae9217ea261d56a0cf"
+    },
+    {
+      "path": "docs/simulation-upgrade-qualification.md",
+      "bytes": 16751,
+      "sha256": "ea4310bf267c2c0dd914f5d47186fdb8986bf9d53e9071b06880eac2f24a6d47"
+    },
+    {
+      "path": "docs/simulation-upgrades-ch1.md",
+      "bytes": 15932,
+      "sha256": "1fa59cd0107dbf1e5754e6e962bff18654cbc8085d1a9a1aa6c50811385863d0"
+    },
+    {
+      "path": "docs/simulation-upgrades-ch2.md",
+      "bytes": 14629,
+      "sha256": "1e8aa13a256552b35454473708e6b10655e7c5bd8c90121303d2eb138e5a8719"
+    },
+    {
+      "path": "docs/simulation-upgrades-ch3.md",
+      "bytes": 11558,
+      "sha256": "7f7247f84cd052b19b99f4b256ee3e60b2bb3817cc721fd160ba46bca7cbbd99"
+    },
+    {
+      "path": "docs/simulation-upgrades-core.md",
+      "bytes": 4329,
+      "sha256": "e52e516dc4d3d2a49b157ecadaba5494c98dcdd21056669fc73e3a0c3969b793"
+    },
+    {
+      "path": "docs/simulation-upgrades-outcome-vi.md",
+      "bytes": 7616,
+      "sha256": "0524929293f0f8dfcb39738498d0d94d2765810d35d0930a3a42b7d1c8b87f5b"
+    },
+    {
+      "path": "docs/simulation-velocity-signed-u2.md",
+      "bytes": 7518,
+      "sha256": "1276f73202ee11d2df965872c7ceb580d8a7483aafcedc1c91c96b850b0a4b13"
+    },
+    {
+      "path": "index.html",
+      "bytes": 32139,
+      "sha256": "ba08733cc5cd1349bcabf81725256081d13863741bd2bd4d84711ca4ef926788"
+    },
+    {
+      "path": "js/notes.js",
+      "bytes": 7228,
+      "sha256": "5acc52d13635a7b7e5c1ad8bd3a3987d9533811da9001778e9dc3f0783560ecb"
+    },
+    {
+      "path": "js/pages.js",
+      "bytes": 1401241,
+      "sha256": "d962937d8b01feb6ae1a45f439f3c048a6620385eec9d442a3eeed1dfd8dc79a"
+    },
+    {
+      "path": "js/search-index.js",
+      "bytes": 1056432,
+      "sha256": "55e6fc8406382b71f508a052719c64c4807d220d69c1c642dd65bc27584975ce"
+    },
+    {
+      "path": "js/sim2/core/animation-clock.js",
+      "bytes": 2447,
+      "sha256": "13336e22c6dbf89a9b4bb54d807653e62d5263fbc845c422032568b8c3f56003"
+    },
+    {
+      "path": "js/sim2/core/controls.js",
+      "bytes": 10184,
+      "sha256": "49985d5d0408d70263fd210141fa1ffc8bc899def3f698a07ee4642b62b14cae"
+    },
+    {
+      "path": "js/sim2/core/overlay.js",
+      "bytes": 5967,
+      "sha256": "e24d1c9844e0513f55ee12b07722eb3f3d7e86b07ae3e7f23458c3566d6e7956"
+    },
+    {
+      "path": "js/sim2/core/panel.js",
+      "bytes": 6987,
+      "sha256": "e43c670f0b9c7d70ef6ce6d51fabf5360859cb7a2a963f61b0d40fefc42ad41a"
+    },
+    {
+      "path": "js/sim2/core/sim-shell.js",
+      "bytes": 19033,
+      "sha256": "81b59ec69598935503a3cca59e803f5760e53950f637705200b5949dcecbafa1"
+    },
+    {
+      "path": "js/sim2/physics/kinematics.js",
+      "bytes": 6001,
+      "sha256": "66798efe41ed5c4f07909c69a63784658bbd3c6624da9530ddd8abc0ada35b2c"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-1-3.js",
+      "bytes": 5149,
+      "sha256": "379df88d254330667c9a6a95a77be3e6dfc31fd06b2a715d61ccc997a28ef144"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-1-4.js",
+      "bytes": 5627,
+      "sha256": "87f690a65ea58c4ab43271af0ba12e326738dde5b3176178d77dc88a6cee0e86"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-1-5.js",
+      "bytes": 7576,
+      "sha256": "8f4a19a1371728c1775e69141d0ac3102842acb7856d199180fe23721bbdb706"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-1-6.js",
+      "bytes": 4780,
+      "sha256": "d2448e0602f161bb033e29e28c7b01cc29ff25992b78d54b5b740bbffa03cf6e"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-1-8.js",
+      "bytes": 5432,
+      "sha256": "6c1595a3a1c41d509bc50c1734389d38d5e9d01cf7b44d0f6ac4ae2a6b69243c"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-2-3.js",
+      "bytes": 6370,
+      "sha256": "dbf2b499d8c9c4bc8fe658155396501139e194b46a49b06c346713c8d02970eb"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-3-2.js",
+      "bytes": 6869,
+      "sha256": "b90e5d6475c2e27fcc08a8789ecd170c0e01196bf5ed3d5e153f4cdbda867551"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-3-6.js",
+      "bytes": 5930,
+      "sha256": "fee6a18f9b4f6ed245df6b617e9a4ea209b38c00ec8a59695d54933d6e385b13"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-5-3.js",
+      "bytes": 11532,
+      "sha256": "7eca89b737565a1284d4aaebe34114647f2c40df595b8ec735944c2220b3e670"
+    },
+    {
+      "path": "js/sim2/sims/ch1/ch1-6-3.js",
+      "bytes": 6237,
+      "sha256": "41fcb059177fd8ec6e247a925268971055f966053d69909beaa8f2d755018ce7"
+    },
+    {
+      "path": "js/sim2/sims/ch2/ch2-1-1.js",
+      "bytes": 8000,
+      "sha256": "e722189e4a248ee3f8555abc79bd79fdbb6e26b77531271d1bea9450c3d602ff"
+    },
+    {
+      "path": "js/sim2/sims/ch2/ch2-1-3.js",
+      "bytes": 7815,
+      "sha256": "789110b9173e2db983b75b7c05eff67221c365e91c717b5d0f6da46547504b8f"
+    },
+    {
+      "path": "js/sim2/sims/ch2/ch2-2-2.js",
+      "bytes": 8506,
+      "sha256": "05c04510c3d058dab9ca822ad0e14718cba7ada0cd7625a8cc7877750743a10c"
+    },
+    {
+      "path": "js/sim2/sims/ch2/ch2-3-2.js",
+      "bytes": 11509,
+      "sha256": "6f8491aed52c6a9eeb3048a1f640010c44ce134ad81fb6569bc146ae2ff91368"
+    },
+    {
+      "path": "js/sim2/sims/ch2/ch2-4-4.js",
+      "bytes": 9071,
+      "sha256": "1f0d13f581d0b488b615a10e5a506167278443c0fdb9505fe5170ff58b998587"
+    },
+    {
+      "path": "js/sim2/sims/ch2/ch2-5-2.js",
+      "bytes": 6989,
+      "sha256": "4c3c51c752053a898be6c89801c35c7f04dd5e91af6cefa6ca71e6cd3da1c0e2"
+    },
+    {
+      "path": "js/sim2/sims/ch2/ch2-5-3.js",
+      "bytes": 9624,
+      "sha256": "e2fb39cc46e676832f1a3e369a0b8d197290260fa97927deb4245d2b16c91e85"
+    },
+    {
+      "path": "js/sim2/sims/ch3/ch3-1-3.js",
+      "bytes": 8668,
+      "sha256": "37c3c8aa410015e1a18eb030a618e77cfb5110a98359b12bfefb9edf0bfad805"
+    },
+    {
+      "path": "js/sim2/sims/ch3/ch3-2-2.js",
+      "bytes": 8051,
+      "sha256": "dff383cd76ca69ae8637bc9b0c5feeeb76a1f3f88392703e8534c68c771c1b3d"
+    },
+    {
+      "path": "js/sim2/sims/ch3/ch3-2-3.js",
+      "bytes": 6345,
+      "sha256": "a7773cf1ee34aa95396b3612130106ca6d298214fbddae5f8250828809c9e621"
+    },
+    {
+      "path": "js/sim2/sims/ch3/ch3-3-1.js",
+      "bytes": 7793,
+      "sha256": "464629f88fedb134a2897ef86bd90fc4286fc890246a8137d678af35228ba57d"
+    },
+    {
+      "path": "js/sim2/sims/ch3/ch3-5-2.js",
+      "bytes": 7062,
+      "sha256": "3e9c63060e05b4c1ebe7cfe19481f951589dac836d4d3b3f3ba8971fb08337e2"
+    },
+    {
+      "path": "js/sim2/sims/ch3/ch3-5-3.js",
+      "bytes": 7304,
+      "sha256": "5d1dee1704519df23d69df5c4e093d0062f310402478d4036b635be184383075"
+    },
+    {
+      "path": "js/sim2/sims/ch3/ch3-5-4.js",
+      "bytes": 6357,
+      "sha256": "61c0894306321ab6fd19f42e59554f88b40cdf0f2a23479136c080f03f693e06"
+    },
+    {
+      "path": "js/sim2/sims/ch3/ch3-6-2.js",
+      "bytes": 14105,
+      "sha256": "b6859e7361bc208cf0b0c6b12f5013225777b1c0988dc86639eadbd35e5219c0"
+    },
+    {
+      "path": "js/sim3/core/mode-toggle.js",
+      "bytes": 5454,
+      "sha256": "2aa64008d59ef2dd62b899bc6aacd98b45efca881f2dc29c2893ef37c2c14890"
+    },
+    {
+      "path": "js/sim3/core/three-primitives.js",
+      "bytes": 5177,
+      "sha256": "46b69b566a86140a9dd9a43d59a41ad63f6b291c874da2eff50f700020c65f33"
+    },
+    {
+      "path": "js/sim3/core/three-shell.js",
+      "bytes": 6954,
+      "sha256": "db6fd0df7e088002676e63746fb87b43e518ad9afab287fec20f50f2869c53d2"
+    },
+    {
+      "path": "js/sim3/core/visual-kit.js",
+      "bytes": 5116,
+      "sha256": "94643c87a6bbb642a8969eeec29748e150e234b1e61ef07f30323150ee7e47f5"
+    },
+    {
+      "path": "js/sim3/sims/ch1-1-5-3d.js",
+      "bytes": 8585,
+      "sha256": "f438a3100fa537137a5199d9c6d4a7d2324787f3d2c6bf427ae25c16c738e16c"
+    },
+    {
+      "path": "js/sim3/sims/ch1-5-3-3d.js",
+      "bytes": 8894,
+      "sha256": "7d43944d14fa1dbe50685eed9c42e4b4c714ebb3d787a11c3270fe95a215001e"
+    },
+    {
+      "path": "js/sim3/sims/ch2-1-3-3d.js",
+      "bytes": 5415,
+      "sha256": "95751f63d5ecce9a2fded8414d09073e3b2eac43d4d1247c5743b40230e275ed"
+    },
+    {
+      "path": "js/sim3/sims/ch2-2-2-3d.js",
+      "bytes": 6355,
+      "sha256": "258aa13badc68645c37456f514c903c2039fddf7761a7e93917fc94af998e538"
+    },
+    {
+      "path": "js/sim3/sims/ch2-3-2-3d.js",
+      "bytes": 11679,
+      "sha256": "82b6e6bad3bdf2e0ca6e58a3cac7affde0987f34955173d65c691cf05cb48b4c"
+    },
+    {
+      "path": "js/sim3/sims/ch2-4-4-3d.js",
+      "bytes": 5268,
+      "sha256": "249d2bb5b38e3c0d149e376bec72d52a51dc8e3d21171894b0a444ee364ed1e9"
+    },
+    {
+      "path": "js/sim3/sims/ch2-5-3-3d.js",
+      "bytes": 6607,
+      "sha256": "2d6a2ecd6d7352728bae408c34799ca8165b89f0eb0c5b910609bbaa82dbe688"
+    },
+    {
+      "path": "js/sim3/sims/ch3-1-3-3d.js",
+      "bytes": 8706,
+      "sha256": "f760e9041ed07becf075e54cb25183453b83112ed1a4837345de472fb6e118eb"
+    },
+    {
+      "path": "js/sim3/sims/ch3-5-3-3d.js",
+      "bytes": 6012,
+      "sha256": "4ee5f2822f3f6d088d5d865a5d0fd0d21faa566dfde16f8a8960468d3a5b0f35"
+    },
+    {
+      "path": "js/sim3/sims/ch3-6-2-3d.js",
+      "bytes": 8473,
+      "sha256": "e0ddd96bb207c888caa4a3b8b8dff722b070301b4b2b48d634fa865ed61d8bc8"
+    },
+    {
+      "path": "lib/katex/LICENSE",
+      "bytes": 1107,
+      "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_AMS-Regular.ttf",
+      "bytes": 63632,
+      "sha256": "68534840bcfdd2bffb6f0e8deb48684dd01e7f04ea2813267577afb906de1d13"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_AMS-Regular.woff",
+      "bytes": 33516,
+      "sha256": "30da91e84c893f875e252689faebdc590b2871145e8adc7f9a9d4dbd8ce0b251"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Caligraphic-Bold.ttf",
+      "bytes": 12368,
+      "sha256": "07d8e303ce4fc12b4bb54f1004170dd190a1f3db45d400fe68060df3e0897268"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Caligraphic-Bold.woff",
+      "bytes": 7716,
+      "sha256": "1ae6bd7475590e97e7f145a89e09ccde322f7a6bc0b91607b1c8b8ee28290fed"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Caligraphic-Regular.ttf",
+      "bytes": 12344,
+      "sha256": "ed0b74372feefcbb9c0666b2e210da37b7e49fa7fbbf3eeb11db5f693dacfbb7"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Caligraphic-Regular.woff",
+      "bytes": 7656,
+      "sha256": "3398dd02302557a793f2863f88e02d96ce10df2abffa07c8e9fa90775116e65c"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Fraktur-Bold.ttf",
+      "bytes": 19584,
+      "sha256": "9163df9c7122432e6495b4229fa9071cf9ae86a758ae5efc4924ec2e1a6dbce1"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Fraktur-Bold.woff",
+      "bytes": 13296,
+      "sha256": "9be7ceb88004ab8ad124082246fbfcca4091e36385d4ec6ed1df67375dad50fb"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Fraktur-Regular.ttf",
+      "bytes": 19572,
+      "sha256": "1e6f9579e90e2cac37f8f60a597c436e075c114385652b7cbeb0dec0421291b3"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Fraktur-Regular.woff",
+      "bytes": 13208,
+      "sha256": "5e28753be717dac97f559f49bc10be9cf3c124ddcabda6659d11cb68febc6463"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Main-Bold.ttf",
+      "bytes": 51336,
+      "sha256": "138ac28d1663b3037e9c5f52371fa5c63d8324f4a38d22cd573e6ea3a3fd0cf8"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Main-Bold.woff",
+      "bytes": 29912,
+      "sha256": "c76c5d696297d51b9cb1639c7da4334f0e7dec81b42b11213b5e25ef671bb822"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Main-BoldItalic.ttf",
+      "bytes": 32968,
+      "sha256": "70ee1f64a20f2048c21940ef46d0144fd215baa953ca69afd1e31e98544f708f"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Main-BoldItalic.woff",
+      "bytes": 19412,
+      "sha256": "a6f7ec0d846ac7ad975adb8959c37ed49b94acbc4ae436db9ce9e20287e4a64c"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Main-Italic.ttf",
+      "bytes": 33580,
+      "sha256": "0d85ae7cc30f23790a7f1a58c4a112fdca8aae769b6ba11429af1d98b1b6cb3a"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Main-Italic.woff",
+      "bytes": 19676,
+      "sha256": "f1d6ef86f3b11a528bd5185199bd2443ecb2b0dead96d88674b5a2c12be24bdf"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Main-Regular.ttf",
+      "bytes": 53580,
+      "sha256": "d0332f52868370fd83ae7fa46470f90c8f2eab2fcf12bc4f88080b340c95a830"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Main-Regular.woff",
+      "bytes": 30772,
+      "sha256": "c6368d87e8a1a3a5d337623d83d8dc4b868f242a9ad476237d6f8d1e0f168cdc"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Math-BoldItalic.ttf",
+      "bytes": 31196,
+      "sha256": "f9377ab0271cda59af24bcffbd46a4d0c8a3572ffafdbb38de2ad5ea7b0d5ee5"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Math-BoldItalic.woff",
+      "bytes": 18668,
+      "sha256": "850c0af5c2238497febaf5e461d880bf458c341f42f4f330f1b1ab5698b1998e"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Math-Italic.ttf",
+      "bytes": 31308,
+      "sha256": "08ce98e51b04d58945a301e639e02b6998af29fdfd61a7b8afdd07bbfc479d4a"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Math-Italic.woff",
+      "bytes": 18748,
+      "sha256": "8a8d244581371912b8f3f5a23e2437cb2a59cd9bcaebb0346e722c05737a2571"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_SansSerif-Bold.ttf",
+      "bytes": 24504,
+      "sha256": "1ece03f79f95277d57dc7f6b435a74e1379b0d46104a8530286b60ff49369ea0"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_SansSerif-Bold.woff",
+      "bytes": 14408,
+      "sha256": "ece03cfd83e22c212cdef66feb8442d25a083beb988db3f1883f3f9738d750ba"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_SansSerif-Italic.ttf",
+      "bytes": 22364,
+      "sha256": "3931dd81faed86ba021bb2bbdc36f5bed9a38d6b4f4077aca59b265aa1b02083"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_SansSerif-Italic.woff",
+      "bytes": 14112,
+      "sha256": "91ee67500cc0129aa0ace3ac5c61ff1692102f0f31d02b69347fba35dcb75bf2"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_SansSerif-Regular.ttf",
+      "bytes": 19436,
+      "sha256": "f36ea897e19f4a2e571d1e900e4e3710e438deb05a842486045ba0a3e616a4ad"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_SansSerif-Regular.woff",
+      "bytes": 12316,
+      "sha256": "11e4dc8a6471ff6d6ee561d53d10fde8f7489e798257ff449c5d37c197435605"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Script-Regular.ttf",
+      "bytes": 16648,
+      "sha256": "1c67f068fea8bb09bf099c088b1cf64bd27516a6e07f4684344873564bb66a67"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Script-Regular.woff",
+      "bytes": 10588,
+      "sha256": "d96cdf2b3bdd4d64a8fd5f74a4c467f123a8a73931cd435889f08ffaf9bf947a"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Size1-Regular.ttf",
+      "bytes": 12228,
+      "sha256": "95b6d2f1a50173bfedb8c63e1d1c99b10427d0a4df4201cb44513b226951a22b"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Size1-Regular.woff",
+      "bytes": 6496,
+      "sha256": "c943cc986384f59e86bea5fd7dc50a9c4dfe567a7c05eb40d6790720dead97c9"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Size2-Regular.ttf",
+      "bytes": 11508,
+      "sha256": "a6b2099fb555c60e3a0db3a08842ebf1d732c6eb4e4bf44913613bed4fc4e39b"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Size2-Regular.woff",
+      "bytes": 6188,
+      "sha256": "2014c523c3210bcc166648c4d4cc57f05b747df07a24277bf71c51e67dc79e3d"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Size3-Regular.ttf",
+      "bytes": 7588,
+      "sha256": "500e04d54f0d51666332c9d2089aa803be22aa878eca539e59fa53c6e522b082"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Size3-Regular.woff",
+      "bytes": 4420,
+      "sha256": "6ab6b62e9b62dae2c00dd90f791bd10950be0ecc3490d7d6045f51c2e8fe0949"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Size4-Regular.ttf",
+      "bytes": 10364,
+      "sha256": "c647367d1dd4e162468717d020e1fc0f1dc5c26ebfdffbe55261713bf88c5877"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Size4-Regular.woff",
+      "bytes": 5980,
+      "sha256": "99f9c6750b489c9462bf04900bd3f939df9b829339daaaaa99ef5495cdddea58"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Typewriter-Regular.ttf",
+      "bytes": 27556,
+      "sha256": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa"
+    },
+    {
+      "path": "lib/katex/fonts/KaTeX_Typewriter-Regular.woff",
+      "bytes": 16028,
+      "sha256": "e14fed02b1aba7ce9f5afd5844b5d0321b22351febc720e0de8b8723527609f7"
+    },
+    {
+      "path": "media/pilot/media-ch1-centroid-steps/authoring-packet.json",
+      "bytes": 4305,
+      "sha256": "f407803afc2c123c1b8c4417478220cb81e93b9737206d651575e5472d9cef2f"
+    },
+    {
+      "path": "media/pilot/media-ch1-force-sliding/authoring-packet.json",
+      "bytes": 3837,
+      "sha256": "fb381e0a32e5b18554f1d908c4b06ce54c044615469812d7ae0e0efd1b655345"
+    },
+    {
+      "path": "media/pilot/media-ch1-friction-cone/authoring-packet.json",
+      "bytes": 3853,
+      "sha256": "27c7a37f078813bb29a95a0d48691c4f7f36d9dd9edf996caa397abdb90cc62c"
+    },
+    {
+      "path": "media/pilot/media-ch1-resultant-angle/authoring-packet.json",
+      "bytes": 3723,
+      "sha256": "b1e6d5f412c5bac59ccef4d9dc9a1bdd2112cc6b76ba75049a5db794316ad072"
+    },
+    {
+      "path": "package.json",
+      "bytes": 10802,
+      "sha256": "217bf825f8925202d3a593f377bdac7f54902f7ecf625d72aa985a6f5b2fa9ed"
+    },
+    {
+      "path": "plans/20261003-simulation-roadmap/phase-02-validation-first.md",
+      "bytes": 1986,
+      "sha256": "929c5ea46228f2ab45b6cc487718bbc2083abf10cd543e4861ab63a071af2f73"
+    },
+    {
+      "path": "plans/20261003-simulation-roadmap/plan.md",
+      "bytes": 2997,
+      "sha256": "b9b448edacd8d7b0fbcdc568ec35617a5835ca37cd7dcebf01cf6d053ec77e86"
+    },
+    {
+      "path": "plans/reports/formula-as-image-comprehensive-audit.json",
+      "bytes": 56810,
+      "sha256": "5a82d5154b6a0b84eaac330de166ad43284ed614262331566dc8a360390c0db9"
+    },
+    {
+      "path": "scripts/dedupe-mathml-and-katex-render-pairs-keep-mathml.py",
+      "bytes": 6347,
+      "sha256": "ca943949ce03801cdc243f017cc234366e14e1055d58450ddfc7a1f6a61565e3"
+    },
+    {
+      "path": "scripts/test-phase-03-no-duplicate-mathml-katex-render-pairs-in-html.py",
+      "bytes": 1615,
+      "sha256": "f3e27fdf3fa5686b266563e2e5ce493bf2ddb3bb6351d33dedb0554c544757eb"
+    },
+    {
+      "path": "tests/content-math-render-audit.test.js",
+      "bytes": 1164,
+      "sha256": "d42233a0fe39c878e743ccf947d9cf1abb771bf8e242d1506f9a2f51cd845d1f"
+    },
+    {
+      "path": "tests/helpers/production-sim2-dom.cjs",
+      "bytes": 4980,
+      "sha256": "9dfc9d4fd8f2a5e9919845b1e4debf94942fbe4f58b601f3b9bd6c3f18cb2ca0"
+    },
+    {
+      "path": "tests/helpers/production-sim2-three-dom.cjs",
+      "bytes": 11172,
+      "sha256": "8b2d384efe3800265e6715627344d121ecbdb6d1afc422ee24aa8d6a42300ec6"
+    },
+    {
+      "path": "tests/helpers/sim2-route-harness.cjs",
+      "bytes": 5338,
+      "sha256": "decc5f5af7a67ef9d49bebcc4e68fcf818ddedb7af60ec48f6c1c7f65d73c107"
+    },
+    {
+      "path": "tests/notes-security-audit.test.js",
+      "bytes": 2820,
+      "sha256": "820a4e8aa43cc65fdf42b648b768bb723ed57c087e4178dc9c8a63b032f8a35b"
+    },
+    {
+      "path": "tests/presentation-deck-contract.test.js",
+      "bytes": 33980,
+      "sha256": "0d79066ce4e597ad462da56797e595d288172c5f5c713c621c9fcbc149993320"
+    },
+    {
+      "path": "tests/quiz-bank-schema.test.js",
+      "bytes": 7117,
+      "sha256": "d4aa8d54268e59b73a894db2a269eebab07ad770576e0d01da1a549003790192"
+    },
+    {
+      "path": "tests/sim-preparation-oracles.test.js",
+      "bytes": 8816,
+      "sha256": "6d357622e1197d8c567119658ae21d4a4747523995a8690cbdcc18e3554ab542"
+    },
+    {
+      "path": "tests/sim-production-controls.test.js",
+      "bytes": 5058,
+      "sha256": "b7394664d0a1f507264e559c8c3f5a8cc53e8a9fe72acd63cf407e6c0dcc6986"
+    },
+    {
+      "path": "tests/sim-production-three-chains.test.js",
+      "bytes": 42127,
+      "sha256": "d9e5f127b8213b0259c5b115b4c7185fba88090c2d3b41f55f6a58c2ad620ab7"
+    },
+    {
+      "path": "tests/sim-upgrade-qualification.test.js",
+      "bytes": 31450,
+      "sha256": "26a1ff1897cde209bec9e4b70a92c7207c6fe00fd9402aee1abd699ce6cb5bc2"
+    },
+    {
+      "path": "tests/sim-upgrades-ch1.test.js",
+      "bytes": 12571,
+      "sha256": "e6a287a9a7b90ab35f2143de3bbeea836967747c54b920c26d94806255e03857"
+    },
+    {
+      "path": "tests/sim-upgrades-ch2.test.js",
+      "bytes": 19109,
+      "sha256": "9d969650060dda82827e9084c4d31e8f7738b810968306fb7e3b8605d8586593"
+    },
+    {
+      "path": "tests/sim-upgrades-ch3.test.js",
+      "bytes": 13066,
+      "sha256": "e3cc7ce980e9c70e06531aa9e420edb72e85fa8ca34f21f7c37aa9af88678976"
+    },
+    {
+      "path": "tests/sim-upgrades-core.test.js",
+      "bytes": 10022,
+      "sha256": "d690901f6d686fee85107c24a7d6bb25b13ad2b73f8f16b6835ccba31440aaa2"
+    },
+    {
+      "path": "tests/sim-upgrades-metadata.test.js",
+      "bytes": 1037,
+      "sha256": "978437e44cdf69f30bf4706fcea792055dcf948248cc0278a9e26ab8a26ec034"
+    },
+    {
+      "path": "tests/sim-velocity-signed-u2.test.js",
+      "bytes": 18496,
+      "sha256": "73aa6ce0fcfed498238a44104f10b0a83135d5ab3e6a470e0b58e705fd8d8b8b"
+    },
+    {
+      "path": "tests/sim2-audit-domain-sweep.test.js",
+      "bytes": 871,
+      "sha256": "c9f035e3f995d94908b8b20de005957715f9cce922855d9eb7b62a33e0ef9b3d"
+    },
+    {
+      "path": "tests/sim2-audit-repairs.spec.js",
+      "bytes": 4196,
+      "sha256": "6e188838caddaeff27933f51bd4ba4e7b33ef69f1022042f8021af31751d3ae4"
+    },
+    {
+      "path": "tests/sim2-audit-repairs.test.js",
+      "bytes": 11074,
+      "sha256": "e61c83adbecdea0d42f547034d6a68e0af1e5eef8a6683f21b0dd71adc0ca6f0"
+    },
+    {
+      "path": "tests/sim2-ch1-mount.spec.js",
+      "bytes": 17196,
+      "sha256": "f3d0474cad81f1ee5d1ebd9e4296374477524c904c1260971d72f8edcb68f851"
+    },
+    {
+      "path": "tests/sim2-route-domain.spec.js",
+      "bytes": 9634,
+      "sha256": "dff1445a199ab948bef089f8e862a1ad0d35d82ea4d9a40a33e8435ca534025b"
+    },
+    {
+      "path": "tests/sim2-visual-physics-regression.test.js",
+      "bytes": 7263,
+      "sha256": "c0a623597cc4905d8d2a8fa73b6f7464ef37d2174bc7ee4697fdc8af5b7738c7"
+    },
+    {
+      "path": "tests/sim3-audit-regression.test.js",
+      "bytes": 24388,
+      "sha256": "93c1f23d56e9fbce8b2ecad7efddda512cf033fd959aabb7dfb51d86028d65c0"
+    },
+    {
+      "path": "tests/sim3-pedagogical-review-contract.test.js",
+      "bytes": 3369,
+      "sha256": "65a3fe2754a184c804140082f00168c42df449a1bf19b1c58e14d99fefa8dfd1"
+    },
+    {
+      "path": "tests/simulation-current-revalidation.test.js",
+      "bytes": 1674,
+      "sha256": "892fcc7d21d47ce5a6671ba477133d5e54b4748c93c667a63eea4d3a9813e803"
+    },
+    {
+      "path": "tests/simulation-drift-validation.test.js",
+      "bytes": 23493,
+      "sha256": "32972201ac1dfc059802dee3e176e46e3b4e5242f30a9eed1270b328b03cabd4"
+    },
+    {
+      "path": "tests/simulation-specification-contract.test.js",
+      "bytes": 3685,
+      "sha256": "459ab64777d690ee8d12e01e342c21492047b20e781ce26418c1b6b3689dea24"
+    },
+    {
+      "path": "tests/simulation-teaching-contracts.test.js",
+      "bytes": 21257,
+      "sha256": "264a5307e570ebaf4df8a6c0c2523a3cc4c82b15296768c4189d7313aaf09d66"
+    },
+    {
+      "path": "tests/statics-content-render.test.js",
+      "bytes": 1345,
+      "sha256": "4ae89cd651cc3864da5844c42a45ebc7c739da91e9153579cabb9aa25ff6f0e2"
+    },
+    {
+      "path": "tests/test_audit_ch23_content.py",
+      "bytes": 19500,
+      "sha256": "60804b1797921961281795c308a2455e18fa4a6e0a0951715703877a33546221"
+    },
+    {
+      "path": "tests/test_audit_ch23_quiz_generators.py",
+      "bytes": 1411,
+      "sha256": "c2e35d9b2a2d452ce4f06efa24565616546ed82ce568d83f4ba7d9ed4a5b9046"
+    },
+    {
+      "path": "tests/test_audit_ui_regressions.py",
+      "bytes": 2951,
+      "sha256": "f4f5ca06f9590dfc97ca2262c71cd6f7cc31e23e8937de68f9865011cc9e6eb3"
+    },
+    {
+      "path": "tests/test_content_errata.py",
+      "bytes": 3879,
+      "sha256": "fb0399c177ef4c04392ae5ef4434878e0b0a8a860e7cc4c2c6e7900d01bee89d"
+    },
+    {
+      "path": "tests/test_quality_metadata_refresh.py",
+      "bytes": 6469,
+      "sha256": "2a6ad47a5b7018286f0aa0c629fafda0592720659855172ff04c826e86328e64"
+    },
+    {
+      "path": "tests/test_statics_content_regression.py",
+      "bytes": 9044,
+      "sha256": "d14bf57917e9b4d03c401448aeff0a387cebad2256514bee1106afd8108b4422"
+    },
+    {
+      "path": "tests/test_statics_quiz_export.py",
+      "bytes": 2007,
+      "sha256": "ac326a74a58259ed9777bd25c1c6a8d9d6c1171806ce5b5a6d9adb17e4fab76f"
+    },
+    {
+      "path": "tests/test_symbol_font_extraction.py",
+      "bytes": 1183,
+      "sha256": "9ed1352371d36d65d137e7e172cd4768f9357d6b6b1d50fa77d2f664e31dbf51"
+    },
+    {
+      "path": "tools/apply_content_errata.py",
+      "bytes": 4235,
+      "sha256": "9df44e0040c8f9b10028dffdc6354fc35dd3b9e948c388b3e054b616885d0917"
+    },
+    {
+      "path": "tools/extract_docx.py",
+      "bytes": 50562,
+      "sha256": "783a91c213c21de0e68ef795c32b4da19e8ee271006143a9502833fa89bc9d90"
+    },
+    {
+      "path": "tools/extract_tex_for_validation.py",
+      "bytes": 1529,
+      "sha256": "2a3e78c0e01e0ddaa1a8372cc61a161b29d57c3bb32b007587e97747b3a8f143"
+    },
+    {
+      "path": "tools/gen_quiz_ch1.py",
+      "bytes": 2725,
+      "sha256": "43e3087e353d0955c9f22ae73ce98147553f1a2ac89aa65e94c26fdd8f359762"
+    },
+    {
+      "path": "tools/gen_quiz_ch2.py",
+      "bytes": 2725,
+      "sha256": "cae6204dd806784a4bb2f8faa8f19ca02143cc0b46bcc79efd0e39fa6891e17d"
+    },
+    {
+      "path": "tools/gen_quiz_ch3.py",
+      "bytes": 2725,
+      "sha256": "f3b3dc79bd4d78c1049d7fac194694a51112f61bcd0451f32ec78b81dab828d9"
+    },
+    {
+      "path": "tools/refresh_media_fingerprints.py",
+      "bytes": 1907,
+      "sha256": "3a52d92b35bb4002c9ed4d2a22ee476355e0c2d25a37aa6bdfd82d8b9101ce91"
+    },
+    {
+      "path": "tools/refresh_quality_metadata.py",
+      "bytes": 7021,
+      "sha256": "31661ea6033ff614501692a7b544ff8d648d107b8eb925a5518ed30e77bc18d5"
+    },
+    {
+      "path": "tools/run_audit_regressions.py",
+      "bytes": 1196,
+      "sha256": "90504b91ecce06dc62ca58a1ad9f9a13610fd0baec1257d8b3e5aa6f9b18b380"
+    },
+    {
+      "path": "tools/run_equation_tests.py",
+      "bytes": 494,
+      "sha256": "a5161fb1c70981ac8f12eae73aeed8bc5e0cb385cfc391c1645757590f9c1825"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/actions.js",
+      "bytes": 25269,
+      "sha256": "85524fb592dcb7cc6abc1d0e5c7902bc773cce7157b68f2447ee7ba01c91f26b"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/browser.js",
+      "bytes": 9110,
+      "sha256": "61daed807da8cabe3850f5d66ac6ee7cdb67d1e6ee985ec8492352d893db0c78"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/core.js",
+      "bytes": 11709,
+      "sha256": "b5d2a29121721d107beb0928c05673eb0a7fb66fa94f9bfeb600f6327fdeaf5d"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/run.js",
+      "bytes": 24267,
+      "sha256": "9b3b6ae64fe4655c878d295f7890371a85e7d6a988b5a227ab90b28c1f75e34c"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/runtime-blocker.json",
+      "bytes": 1524,
+      "sha256": "d704667970be69594bb630f4ebad5af330101811028f2b5900ca0cb6d39ec2aa"
+    },
+    {
+      "path": "tools/sim-upgrade-qualification/server.js",
+      "bytes": 2416,
+      "sha256": "0b79bcce858b4092b5dfbb81862371bf8d9405d13caac3eb3d589ba1ce632648"
+    },
+    {
+      "path": "tools/sim-validation/source-snapshot.js",
+      "bytes": 2197,
+      "sha256": "3f9eb792e735b255f2a0b5231dac4a18dc1d8e844a4235c3c68b42537b276133"
+    },
+    {
+      "path": "tools/sim-validation/validate-simulation-drift.js",
+      "bytes": 26580,
+      "sha256": "d35fde44cbf4d15b5597ef517d4346078db4b25d53c805b28eea7f813210e41a"
+    }
+  ]
+}

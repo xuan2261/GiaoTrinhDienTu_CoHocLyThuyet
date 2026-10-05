@@ -94,6 +94,8 @@
     function render() {
       if (disposed) return false;
       try {
+        // Refit optional content after both state changes and host resizes.
+        if (cfg.beforeRender) cfg.beforeRender(api);
         renderer.render(scene, camera);
         labels.update();
         return true;
