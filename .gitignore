@@ -34,6 +34,8 @@ playwright-report/
 
 # Generated local reports and archives
 repomix-output.xml
+# Chỉ mục đồ thị mã nguồn cục bộ do JeikCode sinh khi rà soát
+.jeikcode/codegraph/
 backups/
 *.rar
 *.zip
