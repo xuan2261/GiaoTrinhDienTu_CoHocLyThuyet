@@ -358,17 +358,17 @@ function qr(scene, data, root) {
   rect(scene, CONTENT.x, CONTENT.y, 708, CONTENT.h, C.white, C.line, 10);
   addText(scene, 'Quét mã để mở giáo trình', { x: 86, y: 258, w: 660, h: 48 },
     { fontSize: 26, bold: true, color: C.navy, role: 'QR instruction' });
-  addText(scene, '1. Mở camera hoặc ứng dụng quét QR.\n2. Quét mã bên phải.\n3. Mở liên kết và trải nghiệm học liệu.',
+  addText(scene, '1. Mở máy ảnh trên điện thoại.\n2. Quét mã bên phải.\n3. Mở liên kết để xem giáo trình.',
     { x: 86, y: 330, w: 660, h: 138 }, { fontSize: 20, role: 'QR steps' });
   addText(scene, data.url, { x: 86, y: 505, w: 650, h: 75 },
-    { fontSize: 17, color: C.secondary, role: 'online textbook URL' });
+    { fontSize: 15, color: C.secondary, role: 'online textbook URL' });
   const file = path.resolve(root, data.image);
   const dimensions = imageDimensions(file);
   const scale = Math.min(368 / dimensions.width, CONTENT.h / dimensions.height);
   const w = dimensions.width * scale, h = dimensions.height * scale;
   scene.objects.push({ kind: 'image', file, repoPath: data.image,
     x: 848 + (368 - w) / 2, y: CONTENT.y + (CONTENT.h - h) / 2, w, h,
-    alt: `QR mở giáo trình trực tuyến: ${data.url}` });
+    alt: `Mã truy cập giáo trình trực tuyến: ${data.url}` });
 }
 
 
@@ -383,16 +383,15 @@ function routes(scene, data) {
     const rowH = 330 / column.items.length;
     column.items.forEach((item, itemIndex) => {
       const y = 272 + rowH * itemIndex;
-      const is3D = /\b3D\b/i.test(item);
-      // Remove only the explicit marker; retain every character of the route name.
-      const label = item.replace(/\s*[[(]3D[\])]\s*/gi, ' ').trim();
+      const is3D = /\[không gian\]/i.test(item);
+      const label = item.replace(/\s*\[không gian\]\s*/gi, ' ').trim();
       if (itemIndex % 2 === 1) rect(scene, x + 1, y, width - 2, rowH, C.paper);
-      addText(scene, label, { x: x + 14, y: y + 2, w: width - (is3D ? 66 : 28), h: rowH - 4 },
+      addText(scene, label, { x: x + 14, y: y + 0.5, w: width - (is3D ? 99 : 28), h: rowH - 1 },
         { fontSize: 11.5, minFontSize: 10.5, color: C.ink, valign: 'middle', role: 'full route name' });
       if (is3D) {
-        rect(scene, x + width - 45, y + (rowH - 22) / 2, 33, 22, C.paleOrange, null, 4);
-        addText(scene, '3D', { x: x + width - 44, y: y + (rowH - 22) / 2 + 3, w: 31, h: 18 },
-          { fontSize: 10, bold: true, color: C.orange, align: 'center', role: '3D mark' });
+        rect(scene, x + width - 78, y + (rowH - 22) / 2, 66, 22, C.paleOrange, null, 4);
+        addText(scene, 'Không gian', { x: x + width - 77, y: y + (rowH - 22) / 2 + 3, w: 64, h: 18 },
+          { fontSize: 8, bold: true, color: C.orange, align: 'center', role: 'spatial simulation mark' });
       }
     });
   });

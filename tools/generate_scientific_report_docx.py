@@ -249,20 +249,22 @@ def decision_profile(acceptance, candidate_evidence_current):
         "accepted": False,
         "cover": (
             f"DỰ THẢO — {gate_summary['pass']} CỔNG ĐẠT, "
-            f"CHỜ {gate_summary['blocked']} ĐÁNH GIÁ ĐỘC LẬP"
+            f"{gate_summary['blocked']} BLOCKED, {gate_summary['notRun']} CHƯA CHẠY"
         ),
-        "header": "DỰ THẢO — CHỜ NGHIỆM THU ĐỘC LẬP",
+        "header": "DỰ THẢO — CÒN ĐIỀU KIỆN BẮT BUỘC CHƯA HOÀN TẤT",
         "summary": (
-            f"{gate_summary['pass']} cổng kỹ thuật đã pass, không có cổng fail; "
-            f"{gate_summary['blocked']} đánh giá độc lập chưa hoàn tất nên candidate "
-            "chưa đủ điều kiện phát hành chính thức."
+            f"Sổ ghi {gate_summary['total']} cổng: {gate_summary['pass']} pass, "
+            f"{gate_summary['fail']} fail, {gate_summary['blocked']} blocked và "
+            f"{gate_summary['notRun']} not-run; quyết định blocked. Các điều kiện chưa "
+            "hoàn tất không đồng nghĩa đều là review độc lập."
         ),
         "conclusion": (
-            f"Candidate đã có hiện vật kỹ thuật khóa hash và {gate_summary['pass']} cổng pass "
-            f"nhưng vẫn thiếu {gate_summary['blocked']} điều kiện bắt buộc độc lập. Hồ sơ phù hợp "
+            f"Candidate có {gate_summary['pass']} cổng pass nhưng còn "
+            f"{gate_summary['blocked']} blocked và {gate_summary['notRun']} not-run. Hồ sơ phù hợp "
             "để ghi nhận hiện vật kỹ thuật và cho phép nhóm tác giả tiếp tục hoàn thiện hồ sơ; "
             "chưa có cơ sở để tuyên bố nghiệm thu học thuật, tuân thủ WCAG toàn hệ thống, tương thích "
-            "LMS thực tế hoặc đưa vào giảng dạy chính thức trước khi các đánh giá độc lập được đóng."
+            "LMS thực tế hoặc đưa vào giảng dạy chính thức trước khi các điều kiện bắt buộc hoàn tất "
+            "và đơn vị có thẩm quyền phê duyệt."
         ),
     }
 
@@ -548,6 +550,62 @@ def load_evidence():
     }
 
 
+def presentation_snapshot(evidence):
+    specification = load_json("data/presentation-specification.json")
+    acceptance = evidence["acceptance"]
+    summary = acceptance["gateSummary"]
+    targets = evidence["lmsTargets"]
+    stages = targets["stages"]
+    video_suffixes = {".mp4", ".webm", ".mov", ".avi", ".m4v", ".mkv", ".mpeg", ".mpg", ".ogv"}
+    audio_suffixes = {".mp3", ".wav", ".ogg", ".m4a", ".aac", ".flac", ".opus", ".aiff", ".aif", ".wma"}
+    video_count = 0
+    audio_count = 0
+    for record in evidence["releaseManifest"]["files"]:
+        suffix = Path(record["path"]).suffix.lower()
+        video_count += suffix in video_suffixes
+        audio_count += suffix in audio_suffixes
+    checked_suffixes = ", ".join(sorted(video_suffixes | audio_suffixes))
+    media_inventory = (
+        f"Danh mục tệp gói ứng viên ghi nhận {video_count} tệp video và {audio_count} tệp âm thanh "
+        f"theo các đuôi được kiểm kê ({checked_suffixes}); không suy ra đã duyệt nội dung hoặc khả năng phát."
+        if video_count or audio_count
+        else f"Không thấy tệp video/âm thanh theo các đuôi được kiểm kê ({checked_suffixes}) "
+        "trong danh mục gói ứng viên; kết luận chỉ giới hạn ở danh mục và định dạng này."
+    )
+    context = {
+        "candidateVersion": evidence["releaseCandidate"]["releaseVersion"],
+        "snapshotTime": acceptance["generatedAt"],
+        "candidateBinding": "current" if evidence["candidateEvidence"]["current"] else "mismatch",
+        "gifCount": len(GIF_ROWS),
+        "sim2Count": len(evidence["simulationSpecs"]),
+        "sim3Count": len(evidence["sim3Reviews"]),
+        "quizCount": sum(evidence["quizCounts"].values()),
+        "gatePass": summary["pass"],
+        "gateFail": summary["fail"],
+        "gateBlocked": summary["blocked"],
+        "gateNotRun": summary["notRun"],
+        "gateTotal": summary["total"],
+        "overallStatus": acceptance["overallStatus"],
+        "releaseDecision": acceptance["releaseDecision"]["decision"],
+        "qtiReadiness": stages["qti3"]["readiness"],
+        "ccReadiness": stages["commonCartridge"]["readiness"],
+        "scormReadiness": stages["scorm"]["readiness"],
+        "xapiReadiness": stages["xapiCmi5"]["readiness"],
+        "qtiMaxItems": stages["qti3"]["maximumValidationItems"],
+        "lmsStatus": targets["status"],
+        "mediaInventory": media_inventory,
+    }
+    return {
+        "basis": specification["basis"].format_map(context),
+        "headers": [value.format_map(context) for value in specification["headers"]],
+        "rows": [[value.format_map(context) for value in row] for row in specification["rows"]],
+        "workflowHeaders": [value.format_map(context) for value in specification["workflowHeaders"]],
+        "workflowRows": [
+            [value.format_map(context) for value in row] for row in specification["workflowRows"]
+        ],
+    }
+
+
 def set_cell_background(cell, fill_hex):
     tc_pr = cell._tc.get_or_add_tcPr()
     shd = parse_xml(f'<w:shd {nsdecls("w")} w:val="clear" w:color="auto" w:fill="{fill_hex}"/>')
@@ -728,7 +786,7 @@ def add_caption(doc, label, sequence_name, text):
     doc._report_sequence_counts = counts
     paragraph = doc.add_paragraph(style="Caption")
     paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    paragraph.paragraph_format.keep_with_next = False
+    paragraph.paragraph_format.keep_with_next = sequence_name == "Table"
     paragraph.paragraph_format.keep_together = True
     prefix = paragraph.add_run(f"{label} ")
     set_run_font(prefix, size=9, color=COLOR_MUTED, italic=True)
@@ -751,6 +809,7 @@ def add_callout(doc, items, title, border_color="1F3864", fill_color="F4F6F9"):
     table = doc.add_table(rows=1, cols=1)
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
     table.autofit = False
+    table.rows[0]._tr.get_or_add_trPr().append(OxmlElement("w:cantSplit"))
     cell = table.cell(0, 0)
     cell.width = Cm(16.0)
     tc_pr = cell._tc.get_or_add_tcPr()
@@ -821,6 +880,7 @@ def add_data_table(doc, headers, rows, widths, font_size=8.5):
         set_cell_margins(cell, top=90, bottom=90, left=90, right=90)
         paragraph = cell.paragraphs[0]
         paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        paragraph.paragraph_format.keep_with_next = True
         run = paragraph.add_run(str(heading))
         set_run_font(run, size=9, color=RGBColor(0xFF, 0xFF, 0xFF), bold=True)
     for row_index, values in enumerate(rows):
@@ -843,6 +903,8 @@ def add_data_table(doc, headers, rows, widths, font_size=8.5):
             else:
                 run = paragraph.add_run(str(value))
                 set_run_font(run, size=font_size)
+    for row in table.rows:
+        row._tr.get_or_add_trPr().append(OxmlElement("w:cantSplit"))
     return table
 
 
@@ -858,6 +920,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     release_candidate = evidence["releaseCandidate"]
     accessibility = evidence["accessibility"]
     lms_targets = evidence["lmsTargets"]
+    presentation = presentation_snapshot(evidence)
     profile = decision_profile(
         acceptance,
         evidence["candidateEvidence"]["current"],
@@ -963,6 +1026,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
         paragraph.paragraph_format.space_before = Pt(6)
         paragraph.paragraph_format.space_after = Pt(2)
+        paragraph.paragraph_format.keep_with_next = True
         shape = paragraph.add_run().add_picture(str(image_path), width=Cm(width_cm))
         set_image_alt(shape, alt_text)
         add_caption(
@@ -1097,13 +1161,22 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         ' TOC \\o "1-3" \\h \\z \\u ',
         "Mục lục sẽ được cập nhật khi mở tài liệu trong Microsoft Word.",
     )
+    table_list_title = doc.add_paragraph(style="Title")
+    table_list_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    table_list_run = table_list_title.add_run("DANH MỤC BẢNG")
+    set_run_font(table_list_run, size=16, color=COLOR_NAVY, bold=True)
+    add_field(
+        doc.add_paragraph(), ' TOC \\h \\z \\c "Table" ',
+        "Danh mục bảng được cập nhật từ các trường SEQ Table trong Microsoft Word.",
+    )
+    doc.add_page_break()
 
     # Executive summary and method
     add_h1("TÓM TẮT KHOA HỌC")
     add_body(profile["summary"])
     add_body(
         "Cơ sở bằng chứng gồm manifest nội dung, registry mô phỏng, ma trận câu hỏi, "
-        "snapshot 24 cổng QA và gói candidate đã khóa hash. Kết quả phân biệt rõ "
+        f"snapshot {gate_summary['total']} cổng QA và gói candidate đã khóa hash. Kết quả phân biệt rõ "
         "giữa kiểm chứng kỹ thuật, thẩm định khoa học và đánh giá người dùng."
     )
     add_body(
@@ -1252,6 +1325,148 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     add_caption(doc, "Bảng", "Table", "Phân bố route theo chương.")
     add_data_table(doc, ["Phần", "Phạm vi", "Số route"], route_rows, [Cm(3.0), Cm(10.0), Cm(3.0)])
 
+    method_heading = add_h2("1.3. Phương pháp xây dựng giáo trình điện tử")
+    method_heading.paragraph_format.page_break_before = True
+    method_heading.paragraph_format.space_before = Pt(0)
+    method_paragraphs = [
+        (
+            "Nội dung và thiết kế sư phạm. ",
+            "Nguồn Word được tổ chức theo chương, mục, mục tiêu, lý thuyết, ví dụ và bài tập. "
+            "Số hóa trích xuất văn bản, hình và công thức thành nội dung web, rồi đối chiếu ký hiệu, "
+            "đơn vị, số hình và liên kết với nguồn. Câu hỏi và mô phỏng được biên soạn riêng, "
+            "không mặc nhiên sinh từ Word; mục tiêu provisional chưa phải chuẩn đầu ra đã duyệt.",
+        ),
+        (
+            "Hình tĩnh và hình ảnh động. ",
+            f"Hình có chú thích và văn bản thay thế. {len(GIF_ROWS)} GIF trong gói ứng viên được "
+            "dựng bằng mã Python theo hình học và quan hệ cơ học, tạo chuỗi khung hình rồi xuất GIF. "
+            "Người học có thể chuyển về PNG. Trước khi publish, cần duyệt vật lý, nhãn, trình tự "
+            "chuyển động và dung lượng, không chỉ hiệu ứng thị giác.",
+        ),
+        (
+            "Mô phỏng 2D, 3D và thời gian. ",
+            "Mỗi bài xác định giả thiết, phương trình, hệ quy chiếu, tham số và miền áp dụng; "
+            "phần tính toán nối với hình và điều khiển. "
+            f"Có {len(evidence['simulationSpecs'])} vị trí 2D, trong đó {len(evidence['sim3Reviews'])} "
+            "vị trí có bản 3D thử nghiệm Three.js/WebGL và dự phòng 2D. Hình học, vật thể và véc tơ "
+            "gắn với state, không chỉ xoay hình tĩnh. Hồ sơ chỉnh sửa dùng 4D theo nghĩa 3D+t "
+            "khi có diễn biến thời gian; đổi tham số tĩnh học không tự động là 4D.",
+        ),
+        (
+            "Video và âm thanh — phương án bổ sung. ",
+            "Hiện trạng được kiểm kê riêng tại mục 1.4; không tính prototype media thành video. "
+            "Nếu được duyệt: chọn mục tiêu → kịch bản/lời đọc → quay hoặc ghi màn hình → thu âm "
+            "→ dựng, đồng bộ → duyệt chuyên môn → xuất MP4/H.264 và AAC. Cần phụ đề, bản chép lời "
+            "và mô tả tương đương; phát theo yêu cầu, không tự phát âm thanh, đóng gói tệp cục bộ.",
+        ),
+        (
+            "Tìm kiếm và tự đánh giá. ",
+            "Chỉ mục từ nội dung bài hỗ trợ tiếng Việt có dấu/không dấu và dẫn tới đoạn liên quan, "
+            "không phải tìm công thức theo ngữ nghĩa. "
+            f"Ngân hàng {sum(evidence['quizCounts'].values())} câu có phản hồi đúng/sai và giải thích. "
+            "Kết quả, tiến độ lưu trên trình duyệt, chưa gắn danh tính hoặc sổ điểm LMS. Đánh giá "
+            "chính thức cần ma trận mục tiêu, quy tắc chấm, rubric và tổ chức kiểm tra được duyệt.",
+        ),
+        (
+            "Đóng gói và bàn giao. ",
+            "Sản phẩm chính là web tĩnh HTML/CSS/JavaScript, ZIP kèm thư viện/tài nguyên cục bộ, "
+            "danh mục tệp, phiên bản, SHA-256 và giấy phép; giải nén mở index.html hoặc dùng máy chủ web. "
+            "QTI 3/CC 1.4 chỉ có phạm vi kiểm cục bộ giới hạn; chưa chứng minh LMS đích, "
+            "SCORM hay xAPI/cmi5. Mức chuẩn bị adapter không thay kết quả gate trong snapshot.",
+        ),
+        (
+            "Quy trình tổng thể và trách nhiệm. ",
+            "Biên soạn → thiết kế kịch bản → số hóa/sản xuất → tích hợp → kiểm chuyên môn/kỹ thuật "
+            "→ thử người học theo kế hoạch → chỉnh sửa → đóng gói, phê duyệt, bàn giao. Chủ biên "
+            "chốt phạm vi; chuyên gia duyệt mô hình; kỹ thuật giữ nguồn và phiên bản; QA lưu minh chứng "
+            "đúng gói. Review độc lập và quyết định của đơn vị có thẩm quyền là bước riêng; "
+            "gói ứng viên hoặc kiểm kỹ thuật không thay nghiệm thu.",
+        ),
+    ]
+    for prefix, text in method_paragraphs:
+        paragraph = add_body(text, bold_prefix=prefix)
+        paragraph.paragraph_format.first_line_indent = Cm(0)
+        paragraph.paragraph_format.line_spacing = 1.05
+        paragraph.paragraph_format.space_before = Pt(0)
+        paragraph.paragraph_format.space_after = Pt(5)
+        paragraph.paragraph_format.keep_together = True
+        for run in paragraph.runs:
+            run.font.size = Pt(11)
+
+    scope_heading = add_h2("1.4. Hiện trạng và phạm vi cam kết")
+    scope_heading.paragraph_format.page_break_before = True
+    add_body(presentation["basis"])
+    add_caption(doc, "Bảng", "Table", "Hiện trạng và phạm vi cam kết thống nhất với đề cương chỉnh sửa.")
+    add_data_table(
+        doc, presentation["headers"], presentation["rows"],
+        [Cm(3.0), Cm(6.6), Cm(6.4)], font_size=8.5,
+    )
+    add_body(
+        "Bốn pilot đa phương tiện Chương 1 gồm hình động, biểu đồ, mô phỏng và tương tác từng bước; "
+        "không phải bốn video. Bảng trên là đối chiếu thuyết minh, không tạo kết quả QA mới. "
+        "Các snapshot cũ được giữ làm lịch sử của đúng phiên bản và phạm vi, không tự đóng finding cũ."
+    )
+
+    add_h2("1.5. Quy trình tổ chức và pipeline xây dựng")
+    add_body(
+        "Workflow là luồng tổ chức, duyệt và bàn giao; pipeline là chuỗi biến đổi kỹ thuật từ "
+        "nguồn sang hiện vật. Trách nhiệm dưới đây là phương án tổ chức, không ghi nhận đã hoàn tất "
+        "mọi bước, đặc biệt thử nghiệm người học và phê duyệt độc lập."
+    )
+    add_caption(doc, "Bảng", "Table", "Workflow, đầu ra và trách nhiệm đề xuất.")
+    add_data_table(
+        doc, presentation["workflowHeaders"], presentation["workflowRows"],
+        [Cm(2.6), Cm(6.6), Cm(6.8)], font_size=8.5,
+    )
+    pipeline_rows = [
+        (
+            "Nội dung — hiện có",
+            "DOCX, ánh xạ công thức và dữ liệu tham chiếu; quiz biên soạn riêng",
+            "analyze_docx.py → extract_docx.py → chapters/images → update_nav.py → bundle_pages.py "
+            "→ build_content_manifest.py/validate_content_manifest.py → build_search_index.py → audit.py; "
+            "quiz qua gen_quiz_pages.py → trang câu hỏi",
+            "Chủ biên đối chiếu nguồn; kỹ thuật tái tạo; QA kiểm liên kết, ký hiệu và công thức",
+        ),
+        (
+            "GIF — hiện có",
+            "PNG tham chiếu, ý nghĩa vật lý và kịch bản chuyển động",
+            "generate-gifs.py dựng hình học/chuỗi frame → GIF và contact sheet → duyệt/kiểm "
+            "→ publish-gifs.py → assets/gifs và ánh xạ GIF/PNG",
+            "Người biên soạn/chuyên gia duyệt vật lý; kỹ thuật sinh/publish; QA kiểm tệp và fallback",
+        ),
+        (
+            "Mô phỏng — hiện có",
+            "Bài toán, phương trình, giả thiết, hệ quy chiếu và đặc tả",
+            "Hàm tính/state → hình 2D hoặc hình học Three.js → control/readout/thời gian khi có "
+            "→ đối chiếu nghiệm chuẩn và biên → tích hợp bài, bằng chứng",
+            "Chuyên gia xác nhận mô hình; kỹ thuật giữ ngữ nghĩa 2D/3D; QA kiểm tương đương và fallback",
+        ),
+        (
+            "Video/âm thanh — đề xuất",
+            "Mục tiêu được duyệt, kịch bản/lời đọc, mô hình hoặc thí nghiệm và quyền sử dụng",
+            "Ghi hình/thu âm → dựng/đồng bộ → phụ đề/chép lời/mô tả → duyệt → mã hóa "
+            "→ tệp cục bộ/player và kiểm ngoại tuyến",
+            "Chủ biên duyệt phạm vi; chuyên gia duyệt nội dung; kỹ thuật sản xuất; QA kiểm phát/a11y",
+        ),
+        (
+            "Đóng gói — hiện có",
+            "Nội dung đồng bộ và policy/danh sách tệp cho phép",
+            "tools/release/release.py: staging → manifest/SHA-256/thông tin thư viện "
+            "→ kiểm staging → ZIP → kiểm ZIP → gói ứng viên; review/phê duyệt là bước riêng",
+            "Kỹ thuật khóa gói; QA tạo bằng chứng đúng phiên bản; đơn vị có thẩm quyền quyết định bàn giao",
+        ),
+    ]
+    add_caption(doc, "Bảng", "Table", "Pipeline: đầu vào, biến đổi, đầu ra và trách nhiệm.")
+    add_data_table(
+        doc, ["Pipeline", "Đầu vào", "Biến đổi và đầu ra", "Trách nhiệm/kiểm soát"],
+        pipeline_rows, [Cm(2.4), Cm(3.4), Cm(6.2), Cm(4.0)], font_size=8.2,
+    )
+    add_body(
+        "Sửa nguồn hoặc dữ liệu có thẩm quyền rồi tái tạo phần bị ảnh hưởng; không vá rời HTML, "
+        "bundle hay manifest đã sinh. Các công cụ hiện có chứng minh đường sản xuất, không tự "
+        "chứng minh các cổng của gói đang pass hoặc học liệu đã được nghiệm thu."
+    )
+
     # Chapter 2
     add_h1("Chương 2: Quy cách trình bày và chuẩn tiêu chí", new_page=True)
     add_h2("2.1. Toán học ngữ nghĩa")
@@ -1281,8 +1496,15 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
 
     add_h2("2.2. Ảnh động và phương án giảm chuyển động")
     add_body(
-        f"{len(GIF_ROWS)} GIF phát hành được ánh xạ sang ảnh PNG canonical. Runtime chuyển "
+        f"{len(GIF_ROWS)} GIF trong gói ứng viên được ánh xạ sang ảnh PNG canonical. Runtime chuyển "
         "về PNG khi người dùng bật prefers-reduced-motion hoặc khi GIF không tải được."
+    )
+    add_body(
+        "Chọn hình theo mục tiêu và ý nghĩa vật lý, dùng PNG làm tham chiếu rồi dựng lại hình học "
+        "và chuyển động bằng gif-conversion-workspace/generate-gifs.py. Bộ sinh tạo chuỗi frame, "
+        "GIF và contact sheet để đối chiếu nhãn, hệ quy chiếu, chiều chuyển động và tính liên tục. "
+        "Sau duyệt chuyên môn, publish-gifs.py kiểm tệp và đưa vào assets/gifs; js/gif-figures.js "
+        "sở hữu ánh xạ và lựa chọn GIF/PNG. Kiểm sinh/publish không phải duyệt vật lý độc lập."
     )
     add_caption(
         doc,
@@ -1322,6 +1544,20 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
     )
     add_body(
         f"Kho câu hỏi có {quiz_total} mục ({quiz_distribution}). {lms_result}"
+    )
+    add_body(
+        "Đây là tự đánh giá trực tiếp trên giáo trình: trả lời nhận phản hồi đúng/sai và giải thích; "
+        "attempt, kết quả và tiến độ lưu cục bộ trên trình duyệt qua js/quiz-state.js và js/quiz.js. "
+        "Chưa có danh tính người học, sổ điểm tập trung hoặc đồng bộ LMS. Số câu không tự chứng minh "
+        "độ phủ chuẩn đầu ra hay độ đúng học thuật của toàn bộ ngân hàng."
+    )
+    add_body(
+        "Phương án biên soạn/đánh giá: lập ma trận mục tiêu–nội dung–mức độ → viết câu hỏi, đáp án "
+        "và phản hồi → phản biện chuyên môn → kiểm quy tắc chấm → thử người học → phân tích, chỉnh sửa. "
+        "Ngưỡng 70% trong dữ liệu chỉ là quy tắc kỹ thuật tự đánh giá, không phải chuẩn đạt học phần. "
+        "Hoạt động mô phỏng có thể dùng dự đoán → đổi tham số → quan sát → giải thích với rubric "
+        "giảng viên duyệt nếu cho điểm; chưa có chức năng tự chấm thao tác mô phỏng. Đánh giá chính "
+        "thức cần quy trình danh tính, kết quả đáng tin cậy, phân quyền và bảo vệ dữ liệu được phê duyệt."
     )
     add_bullet(
         "Không có target LMS hoặc execution evidence; chưa tuyên bố nhập thành công vào "
@@ -1370,20 +1606,103 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         6.5,
     )
 
+    add_h2("2.5. Video và âm thanh")
+    add_body(
+        "Hiện trạng video/âm thanh giới hạn ở danh mục tệp và các đuôi đã kiểm kê trong bảng tại mục 1.4, "
+        "không suy từ số prototype. Bốn pilot Chương 1 không được tính thành bốn video. Các yêu cầu "
+        "dưới đây là phương án bổ sung khi mục tiêu và phạm vi được chủ biên duyệt, chưa phải kết quả đã làm."
+    )
+    add_body(
+        "Chọn mục tiêu → viết kịch bản/bảng phân cảnh và lời đọc → chuẩn bị mô hình hoặc thí nghiệm "
+        "→ quay/ghi màn hình và thu âm → dựng, đồng bộ → bổ sung phụ đề, bản chép lời, mô tả tương đương "
+        "→ duyệt cơ học và quyền sử dụng → mã hóa → tích hợp, thử ngoại tuyến/thiết bị đích. Có thể chọn "
+        "OBS và FFmpeg để ghi hình/mã hóa; đây là lựa chọn đề xuất, không xác nhận dự án đã sử dụng. "
+        "Video ghi một diễn biến lựa chọn, không thay tương tác đổi tham số của mô phỏng."
+    )
+    add_body(
+        "Đề xuất phân phối MP4 với H.264 và AAC; âm thanh riêng có thể dùng MP3/AAC, cần thử "
+        "trên thiết bị đích. Có điều khiển phát/dừng/âm lượng, không tự phát âm thanh; tệp bắt buộc "
+        "đóng gói cục bộ. Mỗi học liệu lưu mã, bài/mục, mục tiêu, tác giả/nguồn, quyền sử dụng, phiên bản, "
+        "tệp nguồn/xuất bản, nội dung thay thế và trạng thái duyệt. Phụ đề tự sinh hoặc AI hỗ trợ "
+        "phải được người biên soạn kiểm, nhất là tên đại lượng, đơn vị và quan hệ vật lý."
+    )
+
+    add_h2("2.6. Điều hướng và tìm kiếm")
+    add_body(
+        "Mục lục phân cấp, breadcrumb và điều hướng trước/sau dẫn tới bài học và học liệu liên quan. "
+        "tools/build_search_index.py sở hữu chỉ mục nội dung cục bộ; js/search.js sở hữu xử lý "
+        "tiếng Việt có dấu/không dấu, trích đoạn và route/anchor kết quả. Khi chỉ mục không khả dụng, "
+        "runtime thông báo chế độ tìm theo mục lục. Sau sửa nội dung phải tái tạo chỉ mục và kiểm liên kết."
+    )
+    add_body(
+        "Phạm vi là văn bản đã lập chỉ mục, không mặc nhiên là tìm công thức theo ngữ nghĩa hoặc "
+        "tìm trong trình đọc PDF. Quan sát cây làm việc chỉ chứng minh luồng đã thao tác; không "
+        "thay QA toàn bộ gói đóng băng hoặc tự xóa finding của snapshot lịch sử."
+    )
+
+    add_h2("2.7. Cấu trúc, văn bản, bảng và hình")
+    add_body(
+        "Quy cách biên soạn đề xuất giữ chương/mục thống nhất đề cương, mục tiêu, lý thuyết, ví dụ, "
+        "câu hỏi ôn tập, bài tập và tham khảo phù hợp. Dùng Unicode tiếng Việt, tiêu đề có phân cấp, "
+        "thuật ngữ/ký hiệu/đơn vị nhất quán; đối chiếu véc tơ, chỉ số, phân số và số công thức với nguồn. "
+        "Nguồn narrative và đường đồng bộ thuộc CoHocLyThuyet_Full_New.docx và tools/extract_docx.py; "
+        "dữ liệu tham chiếu và ánh xạ toán học có owner riêng, không suy mọi học liệu tự sinh từ Word."
+    )
+    add_body(
+        "Hình/bảng cần số, tên, chú thích, nguồn/quyền sử dụng; alt phải diễn đạt ý nghĩa thay vì tên tệp. "
+        "Chữ trong hình không mất nét hoặc quá nhỏ khi phóng to; PNG/JPEG/SVG chọn theo nguồn. "
+        "Bản điện tử cho phép điều chỉnh chữ và bố cục màn hình hẹp, không áp một cỡ pixel cho mọi "
+        "thiết bị. Word/PDF theo mẫu cơ sở duyệt; đối chiếu nguồn, khả năng tiếp cận và chuyên môn "
+        "là điều kiện kiểm riêng, không tuyên bố mọi hình/bảng đã đạt chỉ vì xuất được tài liệu."
+    )
+
+    add_h2("2.8. Đóng gói và quản lý phiên bản")
+    add_body(
+        "Gói chính là web tĩnh HTML/CSS/JavaScript với thư viện và tài nguyên cục bộ, phân phối ZIP; "
+        "giải nén mở index.html hoặc triển khai máy chủ web. tools/release/release.py và policy/schema "
+        "phát hành sở hữu staging, danh mục tệp, phiên bản, SHA-256 và thông tin thư viện/giấy phép. "
+        "ZIP là cách phân phối, HTML là nền tảng nội dung, không đồng nghĩa SCORM hay nghiệm thu cuối."
+    )
+    add_body(
+        f"Theo data/lms-targets.json: QTI 3={lms_targets['stages']['qti3']['readiness']}, "
+        f"Common Cartridge 1.4={lms_targets['stages']['commonCartridge']['readiness']}; "
+        f"QTI kiểm câu một lựa chọn, tối đa {lms_targets['stages']['qti3']['maximumValidationItems']} mục, "
+        "không chứng minh đã chuyển đủ ngân hàng câu hỏi. CC chỉ là static webcontent. "
+        f"Trạng thái liên thông={lms_targets['status']}; mức chuẩn bị không thay kết quả gate LMS "
+        "trong snapshot và chưa chứng minh nhập/chạy, lưu điểm trên hệ thống đích."
+    )
+    add_body(
+        f"SCORM={lms_targets['stages']['scorm']['readiness']}; "
+        f"xAPI/cmi5={lms_targets['stages']['xapiCmi5']['readiness']}, chưa triển khai trong phạm vi hiện tại. "
+        "Chỉ chọn edition/profile sau khi biết LMS/LRS, mục đích, danh tính và quyền riêng tư. "
+        "Nếu có yêu cầu SCORM, phải xây manifest/gói/runtime API, ánh xạ completion/score/resume "
+        "và kiểm nhập–mở–học–lưu–mở lại; tải ZIP lên LMS không đủ. xAPI là trao đổi sự kiện, cmi5 "
+        "là cách sử dụng trong bối cảnh LMS, không gọi xAPI riêng là định dạng ZIP thay SCORM. "
+        "Không bắt buộc đồng thời mọi chuẩn khi nhu cầu không yêu cầu."
+    )
+    add_body(
+        "Khi cập nhật, sửa nguồn, tái tạo và khóa phiên bản; bằng chứng phải gắn đúng gói/hash. "
+        "Giữ gói và snapshot cũ làm lịch sử, không sửa riêng dòng kết luận để nâng trạng thái. "
+        "Tạo gói, kiểm kỹ thuật, review độc lập và quyết định sử dụng/công bố là các bước khác nhau."
+    )
+
     # Chapter 3
     add_h1("Chương 3: Phương pháp luận và kiến trúc mô phỏng", new_page=True)
     add_h2("3.1. Giới hạn khái niệm 4D")
     add_body(
-        "Trong dự án, 4D là khung mô tả học tập, không phải chiều không gian thứ tư hoặc "
-        "một runtime độc lập. Khung gồm ba thành phần đồng thời:"
+        "Hồ sơ chỉnh sửa chuẩn hóa 4D theo nghĩa quy ước 3D+t: ba chiều không gian và diễn biến "
+        "theo thời gian khi phù hợp. Đây không phải bốn chiều không gian, chuẩn tệp hoặc runtime riêng. "
+        "Ưu tiên tên ‘mô phỏng 3D tương tác, có diễn biến theo thời gian khi phù hợp’; không yêu cầu "
+        "mọi bài có 3D/4D và không coi thay đổi tham số của bài tĩnh học là 4D."
     )
     add_bullet(
         "Biểu diễn 3D khi chiều sâu làm rõ quan hệ cơ học mà 2D khó phân biệt.",
         "Không gian: ",
     )
     add_bullet(
-        "Tiến triển theo thời gian hoặc trạng thái qua tham số, bước mô phỏng và reset.",
-        "Thời gian/trạng thái: ",
+        "Chỉ dùng nhãn 3D+t khi có bài toán, chuỗi trạng thái theo thời gian, thao tác và tiêu chí "
+        "kiểm chứng tương ứng; nhịp vẽ hình không chứng minh độ chính xác phép tính.",
+        "Điều kiện dùng 3D+t: ",
     )
     add_bullet(
         "Điều khiển, drag handle hoặc chuyển giữa Sim2 và Sim3.",
@@ -1416,9 +1735,19 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         else f"Gate Sim3 pilot có trạng thái {sim3_gate_status}; không tuyên bố đã đạt."
     )
     add_body(
-        f"Registry Sim3 có {len(evidence['sim3Reviews'])} adapter pilot. "
+        f"Registry có {len(evidence['simulationSpecs'])} vị trí Sim2 cơ sở; "
+        f"{len(evidence['sim3Reviews'])} vị trí trong số đó có adapter Sim3 pilot, không phải "
+        f"{len(evidence['simulationSpecs']) + len(evidence['sim3Reviews'])} bài độc lập. "
         f"{sim3_evidence_text} Đây là lớp tùy chọn; Sim2 vẫn là đường chạy canonical. "
         "Technical review không phải phê duyệt sư phạm độc lập."
+    )
+    add_body(
+        "Phương pháp dựng 3D hiện có sử dụng hình học Three.js: trục, vật thể, đường/quỹ đạo và "
+        "véc tơ trong js/sim3/sims, với primitives và hệ quy chiếu tại js/sim3/core. Adapter ánh xạ "
+        "trạng thái tính toán sang vị trí, góc quay và hướng/độ lớn véc tơ; control và readout giữ "
+        "ngữ nghĩa bài toán với lớp Sim2. Không chỉ xoay hình tĩnh, không có căn cứ tuyên bố "
+        "đã dùng Blender, Unity, Unreal hay nguồn glTF. Cần đối chiếu nghiệm chuẩn, đơn vị/dấu, "
+        "miền biên và tương đương 2D/3D trước duyệt giá trị sư phạm."
     )
     add_bullet("Hệ tọa độ tay phải: +X phải, +Y lên, +Z hướng về người xem.", "Tọa độ: ")
     add_bullet("Render theo nhu cầu, cap DPR và giải phóng tài nguyên GPU.", "Hiệu năng: ")
@@ -1657,8 +1986,21 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         f"Hiện vật cho thấy độ phủ nội dung và tính truy vết kỹ thuật đã hình thành: "
         f"{len(evidence['routes'])} tuyến nội dung, {evidence['equationOccurrenceCount']} lần xuất hiện công thức, "
         f"{quiz_total} câu hỏi, {len(evidence['simulationSpecs'])} mô phỏng Sim2 và "
-        f"{gate_summary['pass']} cổng kỹ thuật đạt. Tuy nhiên, trạng thái tổng thể vẫn là "
-        f"{acceptance['overallStatus']} vì {gate_summary['blocked']} bằng chứng độc lập chưa hoàn tất."
+        f"{gate_summary['pass']} cổng pass trong snapshot. Sổ kiểm tra {acceptance['generatedAt']} "
+        f"ghi {gate_summary['total']} cổng: {gate_summary['pass']} pass, {gate_summary['fail']} fail, "
+        f"{gate_summary['blocked']} blocked và {gate_summary['notRun']} not-run; trạng thái tổng thể "
+        f"{acceptance['overallStatus']}, quyết định {acceptance['releaseDecision']['decision']}."
+    )
+    add_body(
+        "Có cổng bắt buộc fail thì candidate bị từ chối; blocked là điều kiện chưa hoàn tất, "
+        "not-run là chưa chạy, không đồng nhất với fail hoặc đều là review độc lập. Không có fail "
+        "nhưng còn blocked/not-run thì chưa đủ cổng; chỉ khi mọi cổng bắt buộc pass mới chuyển "
+        "sang quyết định theo thẩm quyền. Kết quả chỉ phản ánh thời điểm và phạm vi bộ bằng chứng. "
+        + (
+            "Ràng buộc candidate–snapshot hiện current; đây không phải lần QA hoặc nghiệm thu mới."
+            if binding["current"]
+            else "Binding mismatch: không quy trạng thái snapshot cũ cho candidate mới; cần bằng chứng đúng gói."
+        )
     )
     add_h2("Đánh giá khoa học theo chuẩn đầu ra")
     outcome_assessment_rows = [
@@ -1670,17 +2012,17 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         (
             "lo-ch1-statics",
             f"{evidence['chapterCounts'][1]} tuyến; {evidence['quizCounts'][1]} câu; ca ch1-6-3",
-            "Đủ mẫu kiểm chứng; cần SME xác nhận mô hình và tiêu chí",
+            "Có một ca kiểm chứng đại diện; cần SME xác nhận mô hình và tiêu chí",
         ),
         (
             "lo-ch2-kinematics",
             f"{evidence['chapterCounts'][2]} tuyến; {evidence['quizCounts'][2]} câu; ca ch2-4-4",
-            "Đủ mẫu kiểm chứng; cần SME xác nhận hệ quy chiếu và dấu",
+            "Có một ca kiểm chứng đại diện; cần SME xác nhận hệ quy chiếu và dấu",
         ),
         (
             "lo-ch3-dynamics",
             f"{evidence['chapterCounts'][3]} tuyến; {evidence['quizCounts'][3]} câu; ca ch3-6-2",
-            "Đủ mẫu kiểm chứng; cần SME xác nhận giả thiết va chạm",
+            "Có một ca kiểm chứng đại diện; cần SME xác nhận giả thiết va chạm",
         ),
     ]
     add_caption(
@@ -1769,24 +2111,32 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         "Thứ tự xử lý phải đóng bằng chứng trước khi mở rộng tính năng:"
     )
     add_bullet(
-        "Hoàn tất academic signoff, accessibility review, independent smoke và Word round-trip.",
-        "P0 — Nghiệm thu: ",
+        "Sửa nguyên nhân các cổng fail tại nguồn có thẩm quyền; tái tạo nội dung, tạo đúng gói "
+        "ứng viên và bằng chứng gắn phiên bản/hash; xử lý chênh lệch binding trước kết luận.",
+        "Ưu tiên 1 — Khắc phục và tạo bằng chứng: ",
     )
     add_bullet(
-        "Chạy lại toàn bộ ma trận, rebuild acceptance report và tái sinh tài liệu từ generator.",
-        "P1 — Đồng bộ: ",
+        "Chạy ma trận phù hợp trên cùng gói, cập nhật acceptance qua công cụ sở hữu và tái sinh "
+        "thuyết minh; giữ snapshot cũ là lịch sử, không sửa tay trạng thái bằng chứng.",
+        "Ưu tiên 2 — Đồng bộ hồ sơ: ",
+    )
+    add_bullet(
+        "Hoàn tất review học thuật/tiếp cận độc lập, smoke độc lập và Word round-trip theo "
+        "điều kiện từng gate. Pass kỹ thuật không tự tạo thẩm quyền; đơn vị có thẩm quyền "
+        "quyết định sử dụng, công bố hoặc nghiệm thu.",
+        "Ưu tiên 3 — Review và phê duyệt: ",
     )
     add_bullet(
         "Thử import trên LMS được chỉ định nếu cần tuyên bố liên thông thực tế.",
-        "P2 — LMS: ",
+        "Khi có yêu cầu — LMS: ",
     )
     add_bullet(
         "Thiết kế nghiên cứu hiệu quả học tập trước mọi tuyên bố sư phạm.",
-        "P3 — Đánh giá giáo dục: ",
+        "Khi cần tuyên bố hiệu quả — Đánh giá giáo dục: ",
     )
     add_bullet(
         "Không mở rộng thêm Sim3 nếu chưa chứng minh giá trị 3D vượt 2D và kiểm soát tải nhận thức.",
-        "P4 — Mô phỏng: ",
+        "Trước mở rộng — Mô phỏng: ",
     )
 
     add_h2("6.5. Kết luận")
@@ -1835,7 +2185,7 @@ def build_report(output_path=DEFAULT_OUTPUT, evidence=None):
         ("Khả năng tiếp cận", "data/accessibility-baseline.json", accessibility["manualReview"]["status"]),
         ("LMS", "data/lms-targets.json", lms_targets["status"]),
         ("Học thuật", "docs/academic-certification.md", "provisional"),
-        ("Mô phỏng 4D", "docs/simulation-4d.md", "technical-review verified"),
+        ("Khung khái niệm và đặc tả mô phỏng", "docs/simulation-4d.md; data/simulation-specifications.json", "Nguồn khái niệm/đặc tả; kết quả gate ở snapshot QA, không phải nghiệm thu 4D"),
         ("Ma trận QA", "docs/qa-gate-matrix.md", "canonical definitions"),
         ("Chuẩn đầu ra", "data/learning-outcomes.json", evidence["learningOutcomes"]["status"]),
     ]

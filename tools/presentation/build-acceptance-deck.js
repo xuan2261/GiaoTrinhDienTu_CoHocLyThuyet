@@ -350,6 +350,30 @@ function processFlow(slide, data) {
   bullets(slide, data.facts, 1.0, 4.38, 11.6, 18, C.ink, 0.72);
 }
 
+function methodology(slide, data) {
+  addCommon(slide, pptx, data);
+  data.nodes.forEach((node, i) => {
+    const x = 0.72 + i * 2.46;
+    const final = i === data.nodes.length - 1;
+    addPanel(slide, pptx, { x, y: 2.18, w: 2.1, h: 0.74, fill: final ? C.navy950 : C.white, line: C.navy700 });
+    addText(slide, node, { x: x + 0.12, y: 2.25, w: 1.86, h: 0.6, fontSize: 16.5, bold: true, color: final ? C.white : C.navy950, align: 'center', valign: 'mid' });
+    if (!final) slide.addShape(pptx.ShapeType.line, {
+      x: x + 2.17, y: 2.55, w: 0.22, h: 0,
+      line: { color: C.gold, pt: 1.8, endArrowType: 'triangle' },
+    });
+  });
+  data.cards.forEach(([title, body], i) => {
+    const x = 0.72 + (i % 2) * 6.1;
+    const y = 3.12 + Math.floor(i / 2) * 1.64;
+    const accent = [C.blue, C.green, C.purple, C.gold][i];
+    addPanel(slide, pptx, { x, y, w: 5.8, h: 1.46, fill: C.white, line: accent, linePt: 1.1 });
+    addText(slide, title, { x: x + 0.22, y: y + 0.13, w: 5.36, h: 0.3, fontFace: F.heading, fontSize: 18, bold: true, color: C.navy950 });
+    addText(slide, body, { x: x + 0.22, y: y + 0.52, w: 5.36, h: 0.81, fontSize: 16, color: C.ink, valign: 'top' });
+  });
+  addPanel(slide, pptx, { x: 0.72, y: 6.4, w: 11.9, h: 0.4, fill: 'FFF4E8', line: C.warning });
+  addText(slide, data.notice, { x: 0.94, y: 6.48, w: 11.46, h: 0.24, fontSize: 14, bold: true, color: C.warning, align: 'center' });
+}
+
 function artifact(slide, data) {
   addCommon(slide, pptx, data);
   data.metrics.forEach((metric, i) => addMetric(slide, pptx, metric[0], metric[1], 0.72 + i * 2.18, 2.22, 1.9, i === 2 ? C.success : C.navy800));
@@ -414,6 +438,7 @@ const renderers = {
   conditions,
   authors,
   process: processFlow,
+  methodology,
   artifact,
   simulation,
 };

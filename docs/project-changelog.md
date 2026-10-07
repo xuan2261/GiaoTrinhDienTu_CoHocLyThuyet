@@ -1,5 +1,30 @@
 # Project Changelog
 
+## 2026-10-05 — Rà soát báo cáo SAFE_FINAL 28 slide
+
+### Thay đổi
+- Tạo bản `BaoCao_CoHocLyThuyet_MaQuet_VietHoa_SAFE_FINAL_DA_RA_SOAT.pptx`, giữ nguyên tệp gốc và thứ tự 28 slide; thống nhất Arial, tăng cỡ chữ, mở rộng khung và biên tập lời báo cáo.
+- Thay ảnh cũ bị cắt sai bằng ảnh chụp trực tiếp ứng dụng hiện tại: trang chủ, bài học/công thức, mô phỏng 2D và 3D, PDF đã kết xuất và trắc nghiệm có phản hồi. Sửa slide PDF từng dùng nhầm ảnh mô phỏng; giữ mã QR gốc.
+- Phân biệt QR trực tuyến với sử dụng ngoại tuyến, số tuyến 2D với 3D thí điểm, tính năng với hiệu quả học tập; đổi bảng so sánh sang mô tả có điều kiện. Cập nhật 413 tệp theo hồ sơ `2026.10.05-candidate`, không coi đây là kiểm đếm phát hành mới.
+
+### Kiểm tra trực tiếp
+- Microsoft PowerPoint mở và xuất bản đã sửa thành PDF 28 trang cùng ảnh xem trước; đo các khung chữ và ô bảng không còn vượt kích thước khung theo ngưỡng 0,8 pt. Đã xem bảng ảnh 4 cột của toàn bộ slide.
+- Ảnh gốc và thông tin thao tác nằm trong `assets/designs/bao-cao-safe-final-review/current-ui/manifest.json`; không sửa ứng dụng, không chạy lại kiểm thử sản phẩm và không thay đổi trạng thái nghiệm thu.
+
+## 2026-10-05 — Ảnh giao diện hiện tại và lời trình chiếu dễ hiểu
+
+### Thay đổi
+- Bản chỉnh sửa [báo cáo hội đồng nâng cao](../assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/presentation-slides.html) dùng 7 ảnh vừa chụp từ trang trực tuyến: trang chủ, tìm kiếm, câu hỏi tự kiểm tra, trình đọc tài liệu gốc, giao diện điện thoại, mô phỏng phẳng và mô phỏng không gian.
+- Thay tiếng Anh và chữ viết tắt trong phần chiếu bằng tiếng Việt dễ hiểu; giữ nguyên tham chiếu nguồn trong ghi chú thuyết trình.
+- Giữ 34 trang trình chiếu, [bản in 12 trang A4](../assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/handout-in-an-hoi-dong.pdf), mã QR ở trang đầu và không có dòng nguồn ở chân trang; đường dẫn bàn giao không đổi.
+
+### Giới hạn bằng chứng
+- Ảnh chỉ minh họa giao diện hiện tại, không chứng minh sản phẩm đã được nghiệm thu hay mọi kiểm tra đều đạt. Không chạy bộ kiểm thử sản phẩm theo yêu cầu; giữ nguyên trạng thái nghiệm thu và thẩm định.
+
+### Kiểm tra trực tiếp
+- Dựng lại 34 trang; kiểm trực tiếp 413 khung chữ trên trình chiếu web, không còn tràn chữ; 8 ảnh tải thành công. Điều hướng bàn phím, ghi chú tiếng Việt và khung nhìn rộng 390 điểm ảnh đã được thử. Sửa hai ảnh mô phỏng bị cắt nhầm và tiêu đề trang 6 trước khi dựng bản cuối.
+- Microsoft PowerPoint đã xuất bản PDF mới 34 trang. Bản in mới từ trình duyệt có 12 trang A4, không tràn trang. Tham chiếu nguồn vẫn nằm trong ghi chú, không ở chân trang chiếu.
+
 ## 2026-10-05 — QR-first council report and PDF notice cleanup
 
 ### Changed
@@ -25,6 +50,33 @@
 - Exported the handout through Chromium: eleven A4 pages, with all thirty-three slides and the final route appendix present. The PPTX contains thirty-three speaker-note parts.
 - Microsoft PowerPoint 16 opened the final thirty-three-slide PPTX and exported the matching PDF and slide previews. Inspected the four-column contact sheet, corrected methodology/PDF panels and complete route appendix; exported PDF glyphs stayed within page bounds. Native frame inspection retains end-marker overhang observations on right-aligned institution/page labels, not hidden body-text clipping.
 - The delivery ZIP contains seven portable artifacts and passed ZIP integrity inspection. Close PDF readers before re-exporting the same target PDF to avoid Windows file-lock stalls.
+
+## 2026-10-03 — Source-bound presentation refresh
+
+### Changed
+- Rebuilt the council presentation as 13 timed slides and 10 reference appendices; retained the 12-minute main report and 3-minute discussion budget.
+- Replaced Slide 10 with the construction workflow and added appendices 20–23 for simulation modeling, GIF/proposed audiovisual production, packaging/LMS limits, and search/local self-assessment.
+- Bound slide notes to the revised scientific report and outline. Kept 3D pilots, proposed video/audio and unimplemented LMS standards separate from implemented assets; acceptance/release records were not upgraded.
+- Synchronized the delivered speaker/operation guides and replaced the stale guide under `plans/reports/` with a reference to the current guide. Removed obsolete tests that treated legitimate source filenames as audience claims.
+
+### Verified
+- `node --test tests/presentation-deck-contract.test.js`: 22/22 pass, including source-derived scope, scientific conditions, reproducible PPTX/HTML generation and browser overflow checks.
+- Microsoft PowerPoint 16 opened the final PPTX and exported a 23-page PDF. Inspected the four-column contact sheet and the five new methodology pages; their measured text bounds fit the final text boxes.
+- Exercised HTML presentation mode, next/Home/End/Escape, all image loading, 390-pixel reflow and print visibility of all 23 slides. These are presentation checks, not new product acceptance or academic approval.
+
+## 2026-10-02 — Presentation-specification document revision
+
+### Changed
+- Extended the scientific-report generator with a dedicated methodology page, presentation requirements, production workflows and pipelines; kept proposed video/audio and LMS work distinct from implemented assets.
+- Added `data/presentation-specification.json` as the shared status/workflow source for the report and outline, bound to registered evidence rather than a new QA decision.
+- Added `tools/update_outline_presentation_docx.py` to create a revised outline without overwriting originals; retained the August appendix as historical evidence and clarified the separate approval authority.
+- Corrected the report's fail/blocked explanation, narrowed learning-outcome claims to representative cases, and standardized the document terminology for 3D+t.
+
+### Verified
+- The scientific-report suite passed all 13 tests, including approval/rejection, evidence mismatch, stale-evidence and reproducibility cases.
+- Both document generators ran successfully. Before Word finalization, the outline changed only `word/document.xml` and `word/styles.xml`; original pre-appendix content, tables and 71 media parts were preserved. The two original DOCX files and protected QA/evidence/LMS records remained byte-identical.
+- Microsoft Word updated fields/contents, saved and reopened both copies, and exported the final 29-page report and 45-page outline. Report section 1.3 occupies PDF page 7; tables no longer split short rows and figures stay with their captions.
+- Final copies retain the original outline's main text, historical text/tables and every referenced image; Word removed only unreferenced image parts during package normalization. Internal bookmarks/PDF links resolve, and extracted text stays within page bounds. Product acceptance evidence was not regenerated or upgraded.
 
 ## 2026-08-29 — Deterministic candidate refresh
 

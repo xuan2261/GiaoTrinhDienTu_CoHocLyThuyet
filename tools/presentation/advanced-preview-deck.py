@@ -118,7 +118,7 @@ def render_contact_sheet(pdf: Path, target: Path, font_path: Path, width: int, e
             drawing = ImageDraw.Draw(sheet)
             drawing.rectangle((0, 0, sheet_width, header_height), fill=NAVY)
             drawing.rectangle((0, header_height - 4, sheet_width, header_height), fill=ORANGE)
-            drawing.text((padding, 21), f"BÁO CÁO HỘI ĐỒNG  |  {count} SLIDE", font=title_font, fill=WHITE)
+            drawing.text((padding, 21), f"BÁO CÁO HỘI ĐỒNG  |  {count} TRANG", font=title_font, fill=WHITE)
             for index, page in enumerate(document):
                 column = index % COLUMNS
                 row = index // COLUMNS
@@ -133,7 +133,7 @@ def render_contact_sheet(pdf: Path, target: Path, font_path: Path, width: int, e
                         image_top = top + (image_height - thumbnail.height) // 2
                         sheet.paste(thumbnail, (left, image_top))
                 drawing.line((left, top + image_height, left + width - 1, top + image_height), fill=PAPER, width=1)
-                drawing.text((left + 10, top + image_height + 6), f"Slide {index + 1:02d}", font=label_font, fill=NAVY)
+                drawing.text((left + 10, top + image_height + 6), f"Trang {index + 1:02d}", font=label_font, fill=NAVY)
             sheet.save(target, format="PNG", optimize=True)
     return count
 

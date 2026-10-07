@@ -1,0 +1,29 @@
+{
+  "captureDate": "2026-10-05",
+  "source": "Real managed Chromium; application UI navigated normally; no DOM/text injections",
+  "baseUrl": "http://localhost:8765/",
+  "requestedUrlIssue": "http://127.0.0.1:8765/ returned JSON unauthorised; localhost alias served the actual application with HTTP 200",
+  "viewportCss": {"width":1600,"height":1000},
+  "deviceScaleFactor": 1.25,
+  "captures": [
+    {"filename":"01-overview.png","route":"/","width":2000,"height":1250,"theme":"dark","controlsUsed":[],"surface":"Overview with open sidebar and visible progress panel, confirmed by parent visual inspection"},
+    {"filename":"02-pdf-rendered.png","route":"/ (PDF overlay)","width":2000,"height":1250,"theme":"dark","controlsUsed":["Xem bản PDF","Đi đến trang: 13","Enter"],"surface":"Actual rendered PDF page 13/139 with moment diagram and equations","renderEvidence":{"canvasWidth":745,"canvasHeight":1053,"pageStatus":"Trang 13 trên 139","visibleText":"4. Mô men; Hình 1.1; equations (1.1) and (1.2)"}},
+    {"filename":"03-quiz-answer.png","route":"/#ch1-quiz","width":2000,"height":1250,"theme":"dark","controlsUsed":["Chương 1. Tĩnh học","Ôn tập trắc nghiệm","Question 1 answer A: Vật không bị biến dạng dưới tác dụng của lực"],"surface":"Actual selected correct answer and feedback; 1 correct, 0 wrong"},
+    {"filename":"04-lesson-equation.png","route":"/#ch1-1-4","width":2000,"height":1250,"theme":"dark","controlsUsed":["I. KHÁI NIỆM CƠ BẢN","4. Mô men"],"surface":"Reader with sidebar, moment diagram and rendered equation"},
+    {"filename":"05-simulation-2d.png","route":"/#ch1-1-4","width":2000,"height":1250,"theme":"dark","controlsUsed":["Scroll to 2D simulation"],"surface":"2D moment simulation scene, derived outputs and controls","state":{"F_N":50,"d_m":4,"M_Nm":200}},
+    {"filename":"05b-simulation-2d-focused.png","route":"/#ch1-1-4","width":1013,"height":776,"theme":"dark","controlsUsed":["Scroll to 2D simulation"],"region":".sim-mount","surface":"Focused native simulation panel including scene, outputs and controls"},
+    {"filename":"06-simulation-3d.png","route":"/#ch1-1-5","width":2000,"height":1250,"theme":"dark","controlsUsed":["5. Hệ lực","Chế độ mô phỏng 3D","Scroll simulation into view; scroll up 110 CSS px"],"surface":"Real enabled 3D pilot, force scene and key controls","renderEvidence":{"canvasWidth":542,"canvasHeight":275,"modePressed":"3D"},"state":{"F1x_N":40,"F1y_N":20,"F2x_N":-20,"F2y_N":40,"Rx_N":20,"Ry_N":60,"R_N":63.2,"Mo_Nm":-20}},
+    {"filename":"06b-simulation-3d-focused.png","route":"/#ch1-1-5","width":1013,"height":1284,"theme":"dark","controlsUsed":["Chế độ mô phỏng 3D"],"region":".sim-mount","surface":"Focused enabled 3D panel including mode selector, scene, derived outputs and controls"},
+    {"filename":"07-lesson-light.png","route":"/#ch1-1-4","width":2000,"height":1250,"theme":"light","controlsUsed":["4. Mô men","Chuyển sang giao diện sáng"],"surface":"Optional light reader with sidebar, moment diagram and equation"},
+    {"filename":"08-quiz-light-answer.png","route":"/#ch1-quiz","width":2000,"height":1250,"theme":"light","controlsUsed":["Ôn tập trắc nghiệm"],"surface":"Optional light quiz; genuine prior answer A retained with correct feedback"},
+    {"filename":"09-overview-light.png","route":"/","width":2000,"height":1250,"theme":"light","controlsUsed":["Trang chủ"],"surface":"Optional light overview with open sidebar and actual progress panel"}
+  ],
+  "derivedCrops": [
+    {"filename":"overview-progress-detail.png","source":"01-overview.png","pixelBox":[660,435,1700,875]},
+    {"filename":"quiz-feedback-detail.png","source":"03-quiz-answer.png","pixelBox":[700,517,1665,1030]},
+    {"filename":"lesson-formula-detail.png","source":"04-lesson-equation.png","pixelBox":[655,95,1680,875]},
+    {"filename":"simulation-3d-panel.png","source":"06b-simulation-3d-focused.png","pixelBox":[0,0,1013,840]}
+  ],
+  "missingSurfaces": [{"surface":"Notes","reason":"No visible note button or textarea in current lesson UI; parent requested finalization without further notes capture"}],
+  "tabDisposition":"Managed capture tab closed after manifest saved"
+}

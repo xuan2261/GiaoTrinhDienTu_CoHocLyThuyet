@@ -136,11 +136,26 @@ Bộ canvas `.sim-lab` 52 route là lịch sử, đã gỡ khỏi master và ch�
 - State browser giữ trong `localStorage`: `theme`, `fontZoom`, `contentWidth` (`standard|wide`), `gifMotionEnabled`, `chlyt_quiz_attempts` (đọc/migrate aggregate `quizScores` cũ; lưu scope quiz cuối cùng theo chương), `chlyt_progress`, `chlyt_bookmarks`, `chlyt_notes`.
 - Không sửa trực tiếp `assets/gifs/`; tái tạo trong `gif-conversion-workspace/`, kiểm tra nội dung vật lý, rồi chạy `python gif-conversion-workspace/publish-gifs.py`.
 
+## Biên tập hồ sơ quy cách
+
+- [Nguồn sinh báo cáo](tools/generate_scientific_report_docx.py): dùng `--output` trỏ tới bản mới khi cần giữ nguyên báo cáo gốc; không chạy mặc định trong luồng chỉnh sửa bản sao.
+- [Công cụ chỉnh đề cương](tools/update_outline_presentation_docx.py): tạo bản mới từ đề cương gốc, giữ phụ lục cũ như hồ sơ lịch sử.
+- [Nguồn bảng hiện trạng và workflow dùng chung](data/presentation-specification.json) được kết hợp với bằng chứng đã đăng ký; sửa thuyết minh không thay đổi trạng thái QA hoặc quyền phê duyệt.
+- Sau khi tái tạo DOCX, mở bằng Microsoft Word để cập nhật mục lục, danh mục bảng và trường số trang; kiểm phân trang trước khi xuất PDF. Không dùng số trang của bản cũ cho bảng tiếp thu góp ý.
+
+## Bộ slide báo cáo kết quả
+
+- [PowerPoint](assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pptx), [PDF](assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pdf) và [trình chiếu web](assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/presentation-slides.html): 13 slide chính trong 12 phút, 10 phụ lục tra cứu và 3 phút hỏi–đáp.
+- [Hướng dẫn thuyết trình](assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/huong-dan-thuyet-trinh.md) là nguồn hiện hành cho lời thoại, phân công và giới hạn kết luận. Slide 10 trình bày workflow; phụ lục 20–23 giải thích cách xây dựng từng loại học liệu.
+- Dựng bằng `node tools/presentation/build-acceptance-deck.js`; kiểm bằng `node --test tests/presentation-deck-contract.test.js`. Xuất PDF từ PowerPoint sau khi dựng, rồi kiểm bố cục; không dùng PDF cũ cho PPTX mới.
+- Sửa slide không thay trạng thái QA hoặc quyết định phát hành; bộ này xin ghi nhận việc xây dựng hiện vật và góp ý hoàn thiện, không xin nghiệm thu cuối cùng.
+
 ## Bộ slide hội đồng nâng cao
 
 - [PowerPoint 34 slide](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/bao-cao-hoi-dong-nang-cao.pptx), [PDF](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/bao-cao-hoi-dong-nang-cao.pdf) và [gói ZIP bàn giao](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/bao-cao-hoi-dong-nang-cao-33-slides.zip): slide đầu chứa QR tới [giáo trình trực tuyến](https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/), tiếp theo là 33 chủ đề theo `NghienCuuLamSlideMoi.txt`. Giữ nguyên bộ báo cáo kết quả ở trên và tên thư mục/ZIP chứa `33-slides` để bảo toàn đường dẫn bàn giao.
 - [Trình chiếu ngoại tuyến](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/presentation-slides.html), [lời thuyết trình và Q&A](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/huong-dan-thuyet-trinh.md), [handout 12 trang A4, tối đa ba slide/trang](assets/designs/bao-cao-hoi-dong-nang-cao-33-slides/handout-in-an-hoi-dong.pdf).
-- Tham chiếu nguồn được giữ trong Speaker Notes và hướng dẫn thuyết trình; không còn dòng `Nguồn:` ở chân slide hiển thị.
+- Bộ báo cáo dùng 7 ảnh chụp giao diện thật từ trang trực tuyến, gồm cả mô phỏng phẳng và không gian; phần chiếu được viết bằng tiếng Việt dễ hiểu thay cho tiếng Anh và chữ viết tắt.
+- Tham chiếu nguồn được giữ trong ghi chú thuyết trình và hướng dẫn; không còn dòng `Nguồn:` ở chân slide hiển thị.
 - Nội dung do [module báo cáo nâng cao](tools/presentation/advanced-deck-content.js) sở hữu; dựng bằng `node tools/presentation/advanced-build-deck.js`, xuất PDF bằng `powershell -NoProfile -ExecutionPolicy Bypass -File tools/presentation/advanced-export-deck.ps1` khi PowerPoint đã đóng, tạo ảnh tổng quan và ZIP bằng `python tools/presentation/advanced-preview-deck.py`.
 - Bộ này phân biệt số liệu phạm vi, snapshot QA lịch sử và mục tiêu đề xuất; không nâng trạng thái phát hành hoặc thẩm định nguồn mô phỏng hiện tại.
 

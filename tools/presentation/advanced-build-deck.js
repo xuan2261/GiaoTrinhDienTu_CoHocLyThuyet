@@ -47,12 +47,12 @@ function sourcesFor(data, scene) {
 
 function notesFor(data, scene) {
   return [
-    `SLIDE ${data.id}/${slides.length} — ${flatTitle(data.title)}`,
+    `TRANG ${data.id}/${slides.length} — ${flatTitle(data.title)}`,
     `Phần: ${data.section}`,
     ...(data.subtitle ? [data.subtitle] : []),
     '', ...data.notes, '',
     `Thông điệp chính: ${data.takeaway}`, '',
-    'NGUỒN ĐẦY ĐỦ (đường dẫn tương đối từ gốc kho mã hoặc URL nguyên vẹn):',
+    'NGUỒN ĐẦY ĐỦ (đường dẫn tương đối từ gốc kho mã hoặc địa chỉ mạng nguyên vẹn):',
     ...sourcesFor(data, scene).map(source => `- ${source}`),
     `Kho mã: ${meta.repository}`,
     ...(data.id === 1 ? ['', 'LƯU Ý BIÊN TẬP:', ...meta.editorialNotes.map(note => `- ${note}`)] : []),
@@ -108,7 +108,7 @@ function renderObject(object, sceneId, index) {
 }
 
 function renderScene(scene) {
-  return `<section class="stage" id="slide-${scene.id}" aria-label="Slide ${scene.id}: ${escapeHtml(flatTitle(scene.title))}" style="background:${color(scene.background)}">${scene.objects.map((object, index) => renderObject(object, scene.id, index)).join('')}</section>`;
+  return `<section class="stage" id="slide-${scene.id}" aria-label="Trang ${scene.id}: ${escapeHtml(flatTitle(scene.title))}" style="background:${color(scene.background)}">${scene.objects.map((object, index) => renderObject(object, scene.id, index)).join('')}</section>`;
 }
 
 const sceneStyles = `
@@ -126,12 +126,12 @@ const sceneStyles = `
 `;
 
 function renderNotes(data, scene) {
-  return `<article class="slide-notes" data-slide="${data.id}"${data.id === 1 ? '' : ' hidden'}><h2>Slide ${data.id} — ${escapeHtml(flatTitle(data.title))}</h2>${data.notes.map(note => `<p>${escapeHtml(note)}</p>`).join('')}<p><strong>Thông điệp chính:</strong> ${escapeHtml(data.takeaway)}</p><h3>Nguồn đầy đủ</h3><ul>${sourcesFor(data, scene).map(source => `<li>${escapeHtml(source)}</li>`).join('')}</ul></article>`;
+  return `<article class="slide-notes" data-slide="${data.id}"${data.id === 1 ? '' : ' hidden'}><h2>Trang ${data.id} — ${escapeHtml(flatTitle(data.title))}</h2>${data.notes.map(note => `<p>${escapeHtml(note)}</p>`).join('')}<p><strong>Thông điệp chính:</strong> ${escapeHtml(data.takeaway)}</p><h3>Nguồn đầy đủ</h3><ul>${sourcesFor(data, scene).map(source => `<li>${escapeHtml(source)}</li>`).join('')}</ul></article>`;
 }
 
 function presentationHtml(sceneHtml, scenes) {
   return `<!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(meta.title)} — Báo cáo hội đồng ${slides.length} slide</title><style>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(meta.title)} — Báo cáo hội đồng ${slides.length} trang</title><style>
 ${sceneStyles}
 html,body{margin:0;height:100%;background:#081c34;color:#fff;font-family:${F.body},sans-serif}
 body{display:flex;flex-direction:column}
@@ -157,8 +157,8 @@ html,body{height:auto;display:block;background:#fff;margin:0!important;padding:0
 .stage:last-child{break-after:auto;page-break-after:auto}
 }
 </style></head><body>
-<header class="controls" aria-label="Điều khiển trình chiếu"><button id="previous" type="button" aria-label="Slide trước">Trước</button><span id="slide-status" role="status" aria-live="polite">1 / ${slides.length}</span><button id="next" type="button" aria-label="Slide sau">Tiếp</button><button id="notes-toggle" type="button" aria-expanded="false" aria-controls="notes-panel">Ghi chú</button><span class="key-help">← / → · Home / End · N: ghi chú · Ctrl+P: in ${slides.length} trang</span></header>
-<noscript><p class="no-script">Bật JavaScript để trình chiếu và chuyển slide. Bản in vẫn chứa đầy đủ ${slides.length} trang.</p></noscript>
+<header class="controls" aria-label="Điều khiển trình chiếu"><button id="previous" type="button" aria-label="Trang trước">Trước</button><span id="slide-status" role="status" aria-live="polite">1 / ${slides.length}</span><button id="next" type="button" aria-label="Trang sau">Tiếp</button><button id="notes-toggle" type="button" aria-expanded="false" aria-controls="notes-panel">Ghi chú thuyết trình</button><span class="key-help">← / →: chuyển trang · Home / End: đầu / cuối · N: ghi chú · Ctrl+P: in ${slides.length} trang</span></header>
+<noscript><p class="no-script">Bật JavaScript để trình chiếu và chuyển trang. Bản in vẫn chứa đầy đủ ${slides.length} trang.</p></noscript>
 <main class="workspace"><div class="slide-viewport"><div class="slide-shell">${sceneHtml.map((html, index) => index === 0 ? html.replace('class="stage"', 'class="stage active"') : html).join('\n')}</div></div><aside id="notes-panel" class="notes-panel" aria-label="Ghi chú thuyết trình và nguồn" hidden>${slides.map((data, index) => renderNotes(data, scenes[index])).join('\n')}</aside></main>
 <script>
 (function () {
@@ -253,18 +253,18 @@ figcaption{margin:1.5mm 0 0;font-size:8pt;line-height:1.3}
 .handout-sheet>footer{height:5mm;margin-top:3mm;border-top:1px solid ${color(C.line)};padding-top:1.5mm;font-size:7pt;text-align:right}
 @page{size:A4 portrait;margin:0}
 @media print{html,body{background:#fff}.handout-help{display:none}.handout-sheet{margin:0;box-shadow:none}}
-</style></head><body><p class="handout-help">Bản in gồm đủ ${slides.length} slide, 3 slide trên một tờ A4 dọc (${sheets.length} tờ). Chọn in A4, tỷ lệ 100%, tắt header/footer của trình duyệt và bật đồ họa nền. Ghi chú, nguồn và câu hỏi dự kiến nằm trong huong-dan-thuyet-trinh.md.</p>${sheets.join('\n')}</body></html>\n`;
+</style></head><body><p class="handout-help">Bản in gồm đủ ${slides.length} trang trình chiếu, 3 trang trên một tờ A4 dọc (${sheets.length} tờ). Chọn in A4, tỷ lệ 100%, tắt đầu trang và chân trang của trình duyệt và bật đồ họa nền. Ghi chú thuyết trình, nguồn và câu hỏi dự kiến nằm trong huong-dan-thuyet-trinh.md.</p>${sheets.join('\n')}</body></html>\n`;
 }
 
 function speakingGuide(scenes) {
   const questions = [
     [12, 'Vì sao chọn ngoại tuyến và cần chứng minh điều gì trên máy đích?'],
-    [13, 'Có 25 hay 35 bài mô phỏng? Các bản 3D có vai trò gì?'],
-    [10, 'Giáo trình có thay thế LMS và sổ điểm chính thức không?'],
-    [18, 'Tám nhóm QA có nghĩa tám cổng đã đạt hay không?'],
-    [19, 'Ledger và số bản ký có đủ chứng minh đã nghiệm thu học thuật không?'],
-    [20, 'SHA-256 của gói chứng minh điều gì và không chứng minh điều gì?'],
-    [17, 'Có thể tuyên bố đáp ứng hoặc được chứng nhận WCAG 2.2 AA chưa?'],
+    [13, 'Có 25 hay 35 bài mô phỏng? Các bản mô phỏng ba chiều có vai trò gì?'],
+    [10, 'Giáo trình có thay thế hệ thống quản lý học tập và sổ điểm chính thức không?'],
+    [18, 'Tám nhóm kiểm tra chất lượng có nghĩa tám điều kiện kiểm tra đã đạt hay không?'],
+    [19, 'Sổ theo dõi minh chứng và số bản ký có đủ chứng minh đã nghiệm thu học thuật không?'],
+    [20, 'Mã kiểm tra toàn vẹn của gói, tính bằng thuật toán băm an toàn 256 bit, chứng minh điều gì và không chứng minh điều gì?'],
+    [17, 'Có thể tuyên bố đáp ứng hoặc được chứng nhận theo hướng dẫn về khả năng tiếp cận nội dung web phiên bản 2.2, mức đáp ứng trung gian, chưa?'],
     [22, 'Moodle và Google Classroom có khả năng ngoại tuyến không?'],
     [26, 'Đã chứng minh tác động học tập hoặc tiết kiệm chi phí chưa?'],
     [30, 'Hội đồng được đề nghị quyết định gì trong lần báo cáo này?'],
@@ -276,28 +276,28 @@ function speakingGuide(scenes) {
     `**Tác giả:** ${meta.authors.map(markdownText).join('; ')}  `,
     `**Kho mã:** ${meta.repository}`, '',
     '## Cách dùng bộ báo cáo', '',
-    '- Mở bao-cao-hoi-dong-nang-cao.pptx để chỉnh sửa các đối tượng và đọc Speaker Notes.',
+    '- Mở bao-cao-hoi-dong-nang-cao.pptx để chỉnh sửa các đối tượng và đọc ghi chú thuyết trình.',
     '- Mở presentation-slides.html bằng trình duyệt, kể cả qua file://. Ảnh đã nhúng trong tệp, không cần truy cập mạng.',
-    '- Dùng phím mũi tên, Home/End hoặc nút Trước/Tiếp. Phím N hoặc nút Ghi chú mở phần thuyết minh; URL #slide-N mở trực tiếp trang N.',
-    `- In presentation-slides.html để lấy đủ ${slides.length} trang 16:9. In handout-in-an-hoi-dong.html theo A4 dọc, 100%, không thêm header/footer trình duyệt để lấy ${Math.ceil(slides.length / 3)} tờ, tối đa 3 slide mỗi tờ.`,
-    '- Không sửa riêng số liệu trên slide. Cập nhật nguồn có thẩm quyền và dựng lại từ advanced-deck-content.js cùng advanced-deck-theme.js.', '',
+    '- Dùng phím mũi tên, Home/End (về trang đầu/cuối) hoặc nút Trước/Tiếp. Phím N hoặc nút Ghi chú thuyết trình mở phần thuyết minh; địa chỉ #slide-N mở trực tiếp trang N.',
+    `- In presentation-slides.html để lấy đủ ${slides.length} trang 16:9. In handout-in-an-hoi-dong.html theo A4 dọc, 100%, không thêm đầu trang và chân trang của trình duyệt để lấy ${Math.ceil(slides.length / 3)} tờ, tối đa 3 trang trình chiếu mỗi tờ.`,
+    '- Không sửa riêng số liệu trên trang trình chiếu. Cập nhật nguồn có thẩm quyền và dựng lại từ advanced-deck-content.js cùng advanced-deck-theme.js.', '',
     '## Lưu ý biên tập', '',
     ...meta.editorialNotes.map(note => `- ${markdownText(note)}`), '',
-    '## Checklist trước báo cáo', '',
-    '- [ ] Chốt phiên bản kho mã và gói candidate được trích; phân biệt hồ sơ lịch sử với nguồn hiện tại.',
-    '- [ ] Đối chiếu QA với đúng snapshot; giữ nguyên fail, blocked và trạng thái revalidation pending nếu chưa có bằng chứng mới.',
-    '- [ ] Đối chiếu hash ZIP với hồ sơ; không dùng hash như chứng nhận học thuật hay hiệu quả học tập.',
+    '## Danh sách kiểm tra trước báo cáo', '',
+    '- [ ] Chốt phiên bản kho mã và gói đề nghị xét duyệt được trích; phân biệt hồ sơ lịch sử với nguồn hiện tại.',
+    '- [ ] Đối chiếu kết quả kiểm tra chất lượng với đúng bản chụp trạng thái; giữ nguyên trạng thái chưa đạt, chưa thể đánh giá và đang chờ kiểm tra lại nếu chưa có bằng chứng mới.',
+    '- [ ] Đối chiếu mã kiểm tra toàn vẹn của tệp nén với hồ sơ; không dùng mã này như chứng nhận học thuật hay hiệu quả học tập.',
     '- [ ] Kiểm tên đơn vị, tác giả, ngày và quyền sử dụng hình; không dùng biểu trưng tự dựng.',
-    `- [ ] Mở PPTX trên máy trình chiếu, kiểm Arial, dấu tiếng Việt, bảng, hình và Speaker Notes của đủ ${slides.length} slide.`,
-    `- [ ] Mở HTML ngoại tuyến; thử Trước/Tiếp, mũi tên, Home/End, ghi chú và liên kết #slide-${slides.length}.`,
-    `- [ ] Xem trước bản in đủ ${slides.length} trang 16:9 và handout đủ ${Math.ceil(slides.length / 3)} tờ A4; bật đồ họa nền, tắt header/footer trình duyệt.`,
+    `- [ ] Mở bao-cao-hoi-dong-nang-cao.pptx trên máy trình chiếu, kiểm phông chữ Arial, dấu tiếng Việt, bảng, hình và ghi chú thuyết trình của đủ ${slides.length} trang.`,
+    `- [ ] Mở bản trình chiếu trên trình duyệt khi không có mạng; thử Trước/Tiếp, mũi tên, Home/End, ghi chú thuyết trình và liên kết #slide-${slides.length}.`,
+    `- [ ] Xem trước bản in đủ ${slides.length} trang 16:9 và bản phát tay đủ ${Math.ceil(slides.length / 3)} tờ A4; bật đồ họa nền, tắt đầu trang và chân trang của trình duyệt.`,
     '- [ ] Chuẩn bị các nguồn và bằng chứng để tra cứu; ảnh lịch sử không được dùng xác nhận mã mới.',
-    '- [ ] Quét QR ở slide 1; tập phần báo cáo chính theo phân bổ ở slide 4; dành 5–10 phút hỏi–đáp và chỉ mở slide 33–34 khi cần.',
+    '- [ ] Quét mã truy cập ở trang 1; tập phần báo cáo chính theo phân bổ ở trang 4; dành 5–10 phút hỏi–đáp và chỉ mở trang 33–34 khi cần.',
     '- [ ] Ghi nhận câu hỏi thiếu dữ liệu để kiểm chứng sau; không trả lời bằng tỷ lệ, điểm số hoặc hiệu quả chưa đo.', '',
-    `## Thuyết minh và nguồn của toàn bộ ${slides.length} slide`, '',
+    `## Thuyết minh và nguồn của toàn bộ ${slides.length} trang`, '',
   ];
   slides.forEach((data, index) => {
-    lines.push(`### Slide ${data.id} — ${markdownText(flatTitle(data.title))}`, '',
+    lines.push(`### Trang ${data.id} — ${markdownText(flatTitle(data.title))}`, '',
       `**Phần:** ${markdownText(data.section)}`, '',
       ...(data.subtitle ? [`**Dẫn nhập:** ${markdownText(data.subtitle)}`, ''] : []),
       ...data.notes.flatMap(note => [markdownText(note), '']),
@@ -306,12 +306,12 @@ function speakingGuide(scenes) {
       ...sourcesFor(data, scenes[index]).map(source => `- ${markdownText(source)}`), '');
   });
   lines.push('## 10 câu hỏi dự kiến và trả lời có căn cứ', '',
-    'Các trả lời dưới đây lấy nguyên nội dung ghi chú từ module báo cáo, không tạo một bộ số liệu song song.', '');
+    'Các trả lời dưới đây lấy nguyên nội dung ghi chú từ phần dữ liệu báo cáo, không tạo một bộ số liệu song song.', '');
   questions.forEach(([id, question], index) => {
     const data = slides[id - 1];
     lines.push(`### ${index + 1}. ${question}`, '',
       ...data.notes.flatMap(note => [markdownText(note), '']),
-      `**Đối chiếu:** Slide ${id} — ${markdownText(flatTitle(data.title))}.`, '',
+      `**Đối chiếu:** Trang ${id} — ${markdownText(flatTitle(data.title))}.`, '',
       ...sourcesFor(data, scenes[id - 1]).map(source => `- ${markdownText(source)}`), '');
   });
   return `${lines.join('\n')}\n`;

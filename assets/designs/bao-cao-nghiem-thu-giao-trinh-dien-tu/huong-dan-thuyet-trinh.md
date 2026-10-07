@@ -12,43 +12,43 @@
 | Dự phòng | PDF slide | `assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/bao-cao-nghiem-thu-giao-trinh-dien-tu.pdf` | Mở khi PowerPoint không dùng được |
 | Dự phòng | Web Slides offline | `assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/presentation-slides.html` | Mở trong trình duyệt |
 | Phát tay | Handout A4 | `assets/designs/bao-cao-nghiem-thu-giao-trinh-dien-tu/handout-in-an-hoi-dong.html` | In hoặc xuất PDF trước phiên họp |
-| Tham khảo | Báo cáo khoa học | `BaoCao_KhoaHoc_GiaoTrinhDienTu_CoHocLyThuyet.pdf` | Tra cứu nội dung kèm theo |
+| Tham khảo | Báo cáo khoa học đã chỉnh sửa | `BaoCao_KhoaHoc_GiaoTrinhDienTu_CoHocLyThuyet_DaChinhSua.pdf` | Tra cứu mục 1.3–1.5, 2.5–2.8 và 3.1–3.3 |
 | Dự phòng | Gói cục bộ | `release/2026.09.02-candidate/package/index.html` | Chỉ mở qua `file://` khi cần thay cho bản web để trình diễn |
 
 ### Cách dẫn người xem qua sơ đồ
 
 - Slide 01 đặt ảnh giao diện cạnh ba hình nguyên lý để định hướng phạm vi học phần. Ba hình không phải kết quả thẩm định.
 - Slide 04 đọc theo mũi tên của vòng học. Nhấn đường quay về nội dung sau phản hồi, thay vì đọc từng ô như danh sách.
-- Slide 10 dùng liên kết để chỉ đường truy vết từ dữ liệu nguồn tới phần Hội đồng đối chiếu. Liên kết không biểu thị việc đã được phê duyệt.
+- Slide 10 phân biệt workflow tổ chức công việc với pipeline biến đổi kỹ thuật. Nêu người chịu trách nhiệm, đầu ra và bước duyệt; không đọc các bước như thành tích đã hoàn tất.
 - Slide 15 phân biệt phần có thể quan sát với kết luận cần thẩm định độc lập. Không suy rộng ba ca thành toàn bộ học liệu.
 
 Cách đặt lời giải thích gần hình tham khảo nguyên tắc contiguity trong [Kumaraguru và cộng sự, mục 3.1](https://www.cs.cmu.edu/~jasonh/publications/acm-tois-teaching-johnny-not-to-fall-for-phish-final.pdf). Nghiên cứu này thuộc đào tạo an toàn thông tin; chỉ dùng làm căn cứ thiết kế trình bày, không chứng minh hiệu quả học tập của giáo trình Cơ học lý thuyết.
 
 ### Trình chiếu bằng trình duyệt
 
-Mở `presentation-slides.html`, chọn **Bắt đầu trình chiếu**. Dùng nút **Trước**, **Tiếp** hoặc phím mũi tên trái/phải để chuyển slide. **Home** mở slide đầu, **End** mở slide cuối, **Esc** trở về tổng quan. Trình chiếu không tự chuyển trang. Khi in từ trình duyệt, toàn bộ 19 slide vẫn được đưa vào bản in, kể cả khi đang xem một slide. Dùng PDF đã xuất từ PowerPoint nếu cần bố cục 16:9 cố định.
+Mở `presentation-slides.html`, chọn **Bắt đầu trình chiếu**. Dùng nút **Trước**, **Tiếp** hoặc phím mũi tên trái/phải để chuyển slide. **Home** mở slide đầu, **End** mở slide cuối, **Esc** trở về tổng quan. Trình chiếu không tự chuyển trang. Khi in từ trình duyệt, toàn bộ 23 slide vẫn được đưa vào bản in, kể cả khi đang xem một slide. Dùng PDF đã xuất từ PowerPoint nếu cần bố cục 16:9 cố định.
 
 ## 2. Nhịp trình bày
 
 - **13 slide chính:** 12:00.
-- **Phụ lục Slide 14–19 và hỏi–đáp:** 3:00.
+- **Phụ lục Slide 14–23 và hỏi–đáp:** 3:00; chỉ mở trang liên quan, không đọc hết mười trang.
 - **Tổng thời lượng:** 15:00.
 
 ```text
 00:00–00:45  Nguyễn Lê Văn   S01  Kết quả xây dựng Giáo trình điện tử Cơ học lý thuyết
-00:45–01:40  Nguyễn Lê Văn   S02  Nhu cầu dạy–học mà sản phẩm hướng tới
-01:40–02:35  Nguyễn Lê Văn   S03  Kết quả tổng thể: học liệu số cho ba mạch kiến thức
+00:45–01:40  Nguyễn Lê Văn   S02  Từ kiến thức trừu tượng đến thao tác tự học
+01:40–02:35  Nguyễn Lê Văn   S03  Một học liệu số cho ba mạch kiến thức
 02:35–03:35  Nguyễn Lê Văn   S04  Vòng học hỗ trợ tự học
 03:35–04:20  Nguyễn Lê Văn   S05  Trải nghiệm hiện vật
 04:20–05:00  Đinh Văn Tứ     S06  Ca đối chiếu khoa học 1 · Trọng tâm diện tích
 05:00–05:40  Đinh Văn Tứ     S07  Ca đối chiếu khoa học 2 · Gia tốc Coriolis
 05:40–06:20  Đinh Văn Tứ     S08  Ca đối chiếu khoa học 3 · Va chạm thẳng một chiều
 06:20–07:50  Bùi Thanh Xuân  S09  Minh họa thao tác · Mô men của lực
-07:50–08:45  Bùi Thanh Xuân  S10  Căn cứ Hội đồng có thể kiểm tra
+07:50–08:45  Bùi Thanh Xuân  S10  Từ nguồn chuẩn đến gói có thể kiểm tra
 08:45–09:45  Bùi Thanh Xuân  S11  Kết quả đã có và giới hạn còn lại
 09:45–10:45  Bùi Thanh Xuân  S12  Bốn nội dung xin ý kiến góp ý
 10:45–12:00  Nguyễn Lê Văn   S13  Đề nghị ghi nhận việc xây dựng hiện vật
-12:00–15:00  Cả nhóm         Hỏi–đáp; mở Slide 14–19 khi cần
+12:00–15:00  Cả nhóm         Hỏi–đáp; mở Slide 14–23 khi cần
 ```
 
 ## 3. Lời thoại chính theo slide
@@ -57,11 +57,11 @@ Mở `presentation-slides.html`, chọn **Bắt đầu trình chiếu**. Dùng n
 
 > Kính thưa Hội đồng, nhóm xin báo cáo hiện vật Giáo trình điện tử Cơ học lý thuyết đã được xây dựng ở mức ứng viên. Hiện vật có bài học, hình minh họa, mô phỏng và câu hỏi tự kiểm tra. Trong 12 phút, nhóm trình bày phạm vi đã xây dựng, ba ca đối chiếu khoa học và một thao tác trực tiếp.
 
-### Slide 02 — Nhu cầu dạy–học mà sản phẩm hướng tới — 0:55
+### Slide 02 — Từ kiến thức trừu tượng đến thao tác tự học — 0:55
 
 > Sản phẩm hướng tới những khó khăn quen thuộc: công thức trừu tượng, hình tĩnh khó quan sát, ít cơ hội tự thao tác và thiếu phản hồi ngay khi tự học. Vì vậy, nhóm thiết kế bài học để người học có thể đọc, quan sát, thao tác và tự kiểm tra trong cùng một nơi.
 
-### Slide 03 — Kết quả tổng thể: học liệu số cho ba mạch kiến thức — 0:55
+### Slide 03 — Một học liệu số cho ba mạch kiến thức — 0:55
 
 > Hiện vật gồm 108 mục/trang hiển thị trong manifest: 45 mục/trang tĩnh học, 29 mục/trang động học, 31 mục/trang động lực học và 3 mục/trang hỗ trợ. Con số 108 không phải là 108 mục nội dung học tập. Phạm vi đã xây dựng là học liệu số cho ba mạch kiến thức; hiệu quả với người học cần được đánh giá riêng.
 
@@ -95,9 +95,9 @@ Mở `presentation-slides.html`, chọn **Bắt đầu trình chiếu**. Dùng n
 
 > Nếu phần minh họa gián đoạn, chuyển sang ảnh đã chuẩn bị trên Slide 09. Nêu rõ đó là phần minh họa bị gián đoạn và không suy diễn thêm từ sự cố.
 
-### Slide 10 — Căn cứ Hội đồng có thể kiểm tra — 0:55
+### Slide 10 — Từ nguồn chuẩn đến gói có thể kiểm tra — 0:55
 
-> Hội đồng có thể kiểm tra manifest có 108 mục/trang hiển thị: 45 tĩnh học, 29 động học, 31 động lực học và 3 mục/trang hỗ trợ. Đây không phải là 108 mục nội dung học tập. Hội đồng cũng có thể đối chiếu bài học, hình vẽ, công thức, mô phỏng, câu hỏi tự kiểm tra và liên kết với DOCX nguồn. Các căn cứ này cho thấy phạm vi công việc đã thực hiện, không tự thay cho nhận xét chuyên môn.
+> Workflow xác định ai biên soạn, ai duyệt chuyên môn, ai tích hợp và ai quyết định bàn giao. Pipeline là chuỗi kỹ thuật từ nguồn Word sang nội dung web, chỉ mục và gói ứng viên. Câu hỏi, GIF và mô phỏng được biên soạn riêng; không phải mọi học liệu tự sinh từ Word. Mỗi bước có đầu ra để kiểm và truy vết. Chỉ tạo được ZIP chưa có nghĩa đã nghiệm thu. Các phụ lục 20–23 giải thích cách làm từng loại học liệu và giới hạn hiện tại.
 
 ### Slide 11 — Kết quả đã có và giới hạn còn lại — 1:00
 
@@ -140,6 +140,24 @@ Mở `presentation-slides.html`, chọn **Bắt đầu trình chiếu**. Dùng n
 > Kết luận học thuật chỉ được cập nhật khi có chứng cứ được ủy quyền. Quyết định phát hành chỉ được cập nhật sau khi chạy lại đủ 24 kiểm tra và không còn kết quả nào là “không đạt”, “chưa thể thực hiện” hoặc “chưa chạy”.
 
 Chỉ Slide 17–18 trình bày tình trạng phát hành.
+
+### Slide 20 — Mô phỏng 2D, 3D và thời gian
+
+> Bắt đầu từ bài toán, giả thiết và phương trình; nối trạng thái tính toán với hình, điều khiển và số đo. Có 25 vị trí 2D; 10 vị trí trong số đó có bản 3D thử nghiệm, không cộng thành 35 bài. Three.js/WebGL dựng hình học từ trạng thái; khi lỗi cần trở về 2D. Chỉ dùng 3D+t khi thực sự có diễn biến thời gian; thay đổi tham số tĩnh học không tự thành 4D. Kiểm dấu, đơn vị, nghiệm chuẩn và biên trước khi kết luận.
+
+### Slide 21 — GIF, video và âm thanh
+
+> 20 GIF được dựng bằng mã Python từ hình học và quan hệ cơ học, có PNG thay thế. GIF không phải video. Không thấy tệp video/âm thanh trong danh mục gói ứng viên theo các đuôi đã kiểm kê; không suy rộng kết luận ra mọi nguồn. Quy trình video/âm thanh là phương án bổ sung: kịch bản, ghi hình/thu âm, dựng, phụ đề/bản chép lời, duyệt rồi mã hóa và thử ngoại tuyến. MP4/H.264 + AAC là đề xuất, không phải hiện vật đã có.
+
+### Slide 22 — Đóng gói và liên thông
+
+> Sản phẩm chính là web tĩnh, thư viện cục bộ, ZIP có phiên bản, danh mục và SHA-256. ZIP không đồng nghĩa SCORM. QTI 3 mới kiểm câu một lựa chọn, tối đa 10 mục; Common Cartridge 1.4 ở phạm vi nội dung web tĩnh. Kiểm adapter không chứng minh nhập, chạy hay lưu điểm trên LMS đích. SCORM và xAPI/cmi5 chưa triển khai; chỉ chọn khi đơn vị xác định hệ thống đích và yêu cầu theo dõi.
+
+### Slide 23 — Tìm kiếm và đánh giá người học
+
+> Chỉ mục cục bộ hỗ trợ tiếng Việt có dấu/không dấu, không mặc nhiên tìm công thức theo ngữ nghĩa hoặc trong PDF. 300 câu hỏi phục vụ tự kiểm tra và phản hồi; kết quả lưu trên trình duyệt, chưa phải sổ điểm có danh tính. Đánh giá chính thức cần ma trận mục tiêu, quy tắc chấm, rubric, danh tính và hệ thống lưu kết quả được duyệt. Số trang đã đọc không chứng minh nắm vững kiến thức.
+
+**Đối chiếu hồ sơ:** Báo cáo chỉnh sửa mục 1.3–1.5, 2.5–2.8, 3.1–3.3; đề cương chỉnh sửa QC.1–QC.9. Không dùng phụ lục lịch sử RC2026.08.25 làm trạng thái hiện hành.
 
 ## 5. Trả lời ngắn, đúng phạm vi
 

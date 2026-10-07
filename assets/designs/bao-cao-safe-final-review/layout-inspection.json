@@ -1,0 +1,2384 @@
+{
+  "slideCount": 28,
+  "nativeApplication": "Microsoft PowerPoint",
+  "frames": [
+    {
+      "slide": 1,
+      "shape": 3,
+      "text": "BÁO CÁO GIÁO TRÌNH ĐIỆN TỬ",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 1,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 1,
+      "shape": 5,
+      "text": "Học liệu số sử dụng ngoại tuyến, tích hợp mô phỏng tương tác và quy trình kiểm chứng chất lượng.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 1,
+      "shape": 7,
+      "text": "Bản trình bày trước hội đồng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 1,
+      "shape": 9,
+      "text": "Bản trực tuyến\rCần Internet",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 1,
+      "shape": 10,
+      "text": "Bản báo cáo kỹ thuật • Chưa thay thế nghiệm thu học thuật độc lập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 1,
+      "shape": 11,
+      "text": "01 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 2,
+      "shape": 3,
+      "text": "Mở giáo trình",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 2,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 2,
+      "shape": 5,
+      "text": "Quét mã mở giáo trình trực tuyến",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 2,
+      "shape": 6,
+      "text": "Truy cập bản trực tuyến để theo dõi phần minh họa",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 2,
+      "shape": 9,
+      "text": "Quét mã để mở bản trực tuyến",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 2,
+      "shape": 11,
+      "text": "Quét mã bằng điện thoại để mở bản trực tuyến.\rKhi không có Internet, mở bản đã tải trên máy tính hoặc USB.\rBản ngoại tuyến không cần máy chủ.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 2,
+      "shape": 12,
+      "text": "Kiểm tra liên kết và mã QR trên màn chiếu trước buổi báo cáo.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 2,
+      "shape": 13,
+      "text": "02 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 3,
+      "text": "Tóm tắt",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 5,
+      "text": "Ba đặc điểm chính của sản phẩm",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 6,
+      "text": "Một sản phẩm học liệu số có thể kiểm chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 8,
+      "text": "01",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 9,
+      "text": "Chạy không cần mạng và không cần máy chủ",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 11,
+      "text": "02",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 12,
+      "text": "25 tuyến mô phỏng 2D;\r10 tuyến 3D thí điểm",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 14,
+      "text": "03",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 15,
+      "text": "Có quy trình kiểm thử, truy vết và gói phát hành",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 16,
+      "text": "Đã triển khai sản phẩm kỹ thuật.\rCần rà soát độc lập trước khi áp dụng chính thức.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 3,
+      "shape": 17,
+      "text": "03 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 4,
+      "shape": 3,
+      "text": "Bối cảnh",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 4,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 4,
+      "shape": 5,
+      "text": "Vì sao cần giáo trình điện tử",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 4,
+      "shape": 6,
+      "text": "Từ tài liệu tĩnh sang học liệu có tương tác",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 4,
+      "shape": 8,
+      "text": "Tài liệu tĩnh khó thể hiện diễn biến cơ học.\rNgười học cần đọc lại và quan sát mô phỏng.\rNội dung cần được cập nhật có kiểm soát.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 4,
+      "shape": 10,
+      "text": "Giữ nguồn nội dung chuẩn từ tệp Word.\rTạo bản web chạy cục bộ.\rTheo dõi thay đổi bằng dữ liệu và kiểm thử.",
+      "font": "",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 4,
+      "shape": 11,
+      "text": "04 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 3,
+      "text": "Mục tiêu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 5,
+      "text": "Mục tiêu của sản phẩm",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 6,
+      "text": "Hỗ trợ sử dụng trong hoạt động dạy và học",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 8,
+      "text": "A",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 9,
+      "text": "Dễ truy cập\rTrình duyệt, máy tính hoặc USB",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 11,
+      "text": "B",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 12,
+      "text": "Hỗ trợ tự học\rHình, câu hỏi và ghi chú",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 14,
+      "text": "C",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 15,
+      "text": "Có thể kiểm chứng\rBằng chứng và gói phát hành",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 5,
+      "shape": 16,
+      "text": "05 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 6,
+      "shape": 3,
+      "text": "Phạm vi",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 6,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 6,
+      "shape": 5,
+      "text": "Phạm vi triển khai",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 6,
+      "shape": 6,
+      "text": "Phân biệt chức năng đã triển khai với điều kiện nghiệm thu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 6,
+      "shape": 8,
+      "text": "Đã có",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 6,
+      "shape": 9,
+      "text": "Học liệu web hỗ trợ ngoại tuyến.\rMô phỏng 2D; thí điểm 3D.\rTrình đọc bản PDF.\rẢnh động có bản tĩnh dự phòng.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 6,
+      "shape": 11,
+      "text": "Cần xác nhận độc lập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 6,
+      "shape": 12,
+      "text": "Nghiệm thu học thuật và khả năng tiếp cận độc lập.\rKiểm thử nhập gói vào hệ quản lý học tập.\rRà soát gói ứng viên và kiểm tra lại tệp Word.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 6,
+      "shape": 13,
+      "text": "06 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 3,
+      "text": "Phương pháp",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 5,
+      "text": "Phương pháp xây dựng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 6,
+      "text": "Tách rõ nội dung, giao diện và kiểm chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 8,
+      "text": "1",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 9,
+      "text": "Nội dung gốc",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 10,
+      "text": "Từ tệp Word chuẩn",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 12,
+      "text": "2",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 13,
+      "text": "Tạo bản học liệu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 14,
+      "text": "Sinh trang, mục lục, tìm kiếm",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 16,
+      "text": "3",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 17,
+      "text": "Bổ sung tương tác",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 18,
+      "text": "Câu hỏi, mô phỏng, ảnh động",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 20,
+      "text": "4",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 21,
+      "text": "Kiểm chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 22,
+      "text": "Tự động kiểm tra và lưu bằng chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0.4,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 7,
+      "shape": 23,
+      "text": "07 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 3,
+      "text": "Kiến trúc",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 5,
+      "text": "Kiến trúc hệ thống",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 6,
+      "text": "Năm nhóm thành phần: nội dung, tải trang, tương tác, mô phỏng và kiểm chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 8,
+      "text": "Nội dung",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 9,
+      "text": "Chương, hình, công thức",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 11,
+      "text": "Bộ tải trang",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 12,
+      "text": "Nạp bài học và hiển thị công thức",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 14,
+      "text": "Tương tác",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 15,
+      "text": "Câu hỏi, ghi chú, tiến độ",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 17,
+      "text": "Mô phỏng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 18,
+      "text": "Hai chiều, ba chiều, dự phòng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 20,
+      "text": "Kiểm chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 21,
+      "text": "Kiểm thử, bằng chứng, gói phát hành",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 8,
+      "shape": 22,
+      "text": "08 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 3,
+      "text": "Nội dung",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 5,
+      "text": "Quy trình cập nhật nội dung",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 6,
+      "text": "Từ tài liệu gốc đến bản học liệu chạy được",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 8,
+      "text": "1",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 9,
+      "text": "Tệp Word chuẩn",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 10,
+      "text": ">",
+      "font": "Arial",
+      "overflowWidthPt": 0.77,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 12,
+      "text": "2",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 13,
+      "text": "Tách chương và hình",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 14,
+      "text": ">",
+      "font": "Arial",
+      "overflowWidthPt": 0.77,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 16,
+      "text": "3",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 17,
+      "text": "Tạo dữ liệu tìm kiếm",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 18,
+      "text": ">",
+      "font": "Arial",
+      "overflowWidthPt": 0.77,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 20,
+      "text": "4",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 21,
+      "text": "Đóng gói học liệu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 22,
+      "text": "Nguồn dữ liệu: mô tả quy trình trong tài liệu dự án.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 9,
+      "shape": 23,
+      "text": "09 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 10,
+      "shape": 3,
+      "text": "Trải nghiệm học tập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 10,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 10,
+      "shape": 5,
+      "text": "Trải nghiệm học tập trên trình duyệt",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 10,
+      "shape": 6,
+      "text": "Không chỉ đọc, mà còn tương tác và theo dõi tiến độ",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 10,
+      "shape": 7,
+      "text": "Điều hướng theo chương.\rTìm kiếm nội dung.\rTheo dõi tiến độ cục bộ.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 10,
+      "shape": 8,
+      "text": "10 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 11,
+      "shape": 3,
+      "text": "Học liệu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 11,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 11,
+      "shape": 5,
+      "text": "Đọc bài học và quan sát hình minh họa",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 11,
+      "shape": 6,
+      "text": "Ưu tiên đọc dễ, điều hướng nhanh",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 11,
+      "shape": 8,
+      "text": "Mục lục theo chương\rCông thức cơ học\rHình minh họa\rĐiều chỉnh vùng đọc",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 11,
+      "shape": 9,
+      "text": "11 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 12,
+      "shape": 3,
+      "text": "Mô phỏng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 12,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 12,
+      "shape": 5,
+      "text": "Mô phỏng hai chiều và ba chiều",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 12,
+      "shape": 6,
+      "text": "25 mô phỏng 2D chính thức trong runtime; 10 tuyến có thí điểm 3D",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 12,
+      "shape": 7,
+      "text": "2D: chế độ mặc định của bài học",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 12,
+      "shape": 8,
+      "text": "3D: minh họa thí điểm, có dự phòng 2D",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 12,
+      "shape": 9,
+      "text": "12 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 3,
+      "text": "Ảnh động",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 5,
+      "text": "Ảnh động có phương án dự phòng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 6,
+      "text": "Cho phép bật/tắt chuyển động và trở về hình tĩnh khi cần",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 8,
+      "text": "20",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 9,
+      "text": "hình cơ học có bản ảnh động",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 11,
+      "text": "Bản tĩnh",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 12,
+      "text": "có sẵn khi tải ảnh động thất bại",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 14,
+      "text": "Tự động",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 15,
+      "text": "ưu tiên khi bật giảm chuyển động",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 16,
+      "text": "Người học có thể bật hoặc tắt ảnh động.\rMặc định dùng bản tĩnh khi hệ điều hành bật tùy chọn giảm chuyển động.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 13,
+      "shape": 17,
+      "text": "13 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 14,
+      "shape": 3,
+      "text": "Tài liệu gốc",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 14,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 14,
+      "shape": 5,
+      "text": "Đọc bản PDF ngay trong giáo trình",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 14,
+      "shape": 6,
+      "text": "Mở bản tài liệu đầy đủ mà không rời bài học",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 14,
+      "shape": 8,
+      "text": "Chuyển hoặc nhập số trang.\rPhóng to, vừa chiều rộng.\rTải bản PDF.\rQuay lại bài đang học.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 14,
+      "shape": 9,
+      "text": "14 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 15,
+      "shape": 3,
+      "text": "Dữ liệu cục bộ",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 15,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 15,
+      "shape": 5,
+      "text": "Dữ liệu học tập lưu cục bộ trong trình duyệt",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 15,
+      "shape": 6,
+      "text": "Không đồng bộ giữa các thiết bị; không cần máy chủ để lưu tiến độ cơ bản",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 15,
+      "shape": 7,
+      "text": "15 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 15,
+      "shape": 9,
+      "text": "Tùy chọn đọc\rCỡ chữ, độ rộng, sáng/tối\r\rTiến độ và câu trả lời\rLưu trong trình duyệt\r\rLựa chọn ảnh động\rCó thể bật hoặc tắt",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 16,
+      "shape": 3,
+      "text": "Khả năng tiếp cận",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 16,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 16,
+      "shape": 5,
+      "text": "Thiết kế cho nhiều cách sử dụng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 16,
+      "shape": 6,
+      "text": "Kiểm tra tự động không thay thế đánh giá thủ công độc lập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 16,
+      "shape": 8,
+      "text": "Đã có",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 16,
+      "shape": 9,
+      "text": "Vùng điều hướng có nhãn.\rHỗ trợ thao tác bằng bàn phím.\rTôn trọng tùy chọn giảm chuyển động.\rCó kiểm tra tương phản tự động.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 16,
+      "shape": 11,
+      "text": "Cần bổ sung",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 16,
+      "shape": 12,
+      "text": "Đánh giá thủ công độc lập theo từng tiêu chí.\rChưa có cơ sở kết luận tuân thủ WCAG.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 16,
+      "shape": 13,
+      "text": "16 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 3,
+      "text": "Kiểm thử chất lượng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 5,
+      "text": "Các nhóm kiểm tra chất lượng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 6,
+      "text": "Kết quả kiểm tra được gắn với dữ liệu và bằng chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 8,
+      "text": "Nội dung",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 10,
+      "text": "Học thuật",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 12,
+      "text": "Mô phỏng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 14,
+      "text": "Tiếp cận",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 16,
+      "text": "Ảnh và tư liệu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 18,
+      "text": "Gói học tập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 20,
+      "text": "Tài liệu gốc",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 22,
+      "text": "Gói phát hành",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 23,
+      "text": "Mục tiêu: phát hiện lỗi trước khi đưa sản phẩm vào trình bày hoặc phát hành.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 17,
+      "shape": 24,
+      "text": "17 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 3,
+      "text": "Rà soát học thuật",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 5,
+      "text": "Rà soát học thuật cần độc lập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 6,
+      "text": "Minh bạch giữa bản kỹ thuật và bản nghiệm thu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 8,
+      "text": "Yêu cầu đào tạo",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 9,
+      "text": ">",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 10,
+      "text": "Chuẩn đầu ra dự kiến",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 11,
+      "text": ">",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 12,
+      "text": "Nội dung và bằng chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 13,
+      "text": "Có dữ liệu truy vết yêu cầu, chuẩn đầu ra dự kiến và bằng chứng.\rChưa hoàn tất xác nhận nghiệm thu học thuật độc lập.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 18,
+      "shape": 14,
+      "text": "18 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 3,
+      "text": "Gói phát hành",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 5,
+      "text": "Gói phát hành có thể kiểm chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 6,
+      "text": "Danh mục tệp, mã kiểm tra toàn vẹn và tài liệu đi kèm",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 8,
+      "text": "413",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 9,
+      "text": "tệp theo hồ sơ gói ứng viên 2026.10.05",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 11,
+      "text": "Mã kiểm tra",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 12,
+      "text": "đối chiếu toàn vẹn gói phát hành",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 14,
+      "text": "USB / máy tính",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 15,
+      "text": "có thể chạy cục bộ",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 16,
+      "text": "Số liệu theo hồ sơ bản 2026.10.05-candidate.\rGói vẫn là bản ứng viên, chưa đồng nghĩa với nghiệm thu cuối cùng.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 19,
+      "shape": 17,
+      "text": "19 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 3,
+      "text": "Bằng chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 5,
+      "text": "Nguồn kiểm chứng cho các tuyên bố chính",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 6,
+      "text": "Đối chiếu số liệu và trạng thái với dữ liệu dự án",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 8,
+      "text": "Số mô phỏng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 9,
+      "text": "Danh mục tuyến bài học có mô phỏng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 11,
+      "text": "Ảnh động",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 12,
+      "text": "Tệp danh mục ảnh động",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 14,
+      "text": "Gói phát hành",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 15,
+      "text": "Danh mục gói và mã kiểm tra",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 17,
+      "text": "Rà soát học thuật",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 18,
+      "text": "Hồ sơ rà soát và trạng thái xác nhận",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 20,
+      "text": "Khả năng tiếp cận",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 21,
+      "text": "Kết quả kiểm tra tự động",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 20,
+      "shape": 22,
+      "text": "20 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": 3,
+      "text": "So sánh",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": 5,
+      "text": "Khác biệt về cách triển khai và sử dụng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": 6,
+      "text": "So sánh định tính; tính năng của từng nền tảng phụ thuộc cấu hình",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": 7,
+      "text": "21 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[1,1]",
+      "text": "Tiêu chí",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[1,2]",
+      "text": "Giáo trình này",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[1,3]",
+      "text": "LMS / lớp trực tuyến",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[1,4]",
+      "text": "PDF / bản in",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[2,1]",
+      "text": "Sử dụng ngoại tuyến",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[2,2]",
+      "text": "Có, từ bản đã tải",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[2,3]",
+      "text": "Tùy nền tảng và cấu hình",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[2,4]",
+      "text": "Có, nếu đã tải / in",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[3,1]",
+      "text": "Mô phỏng tương tác",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[3,2]",
+      "text": "2D tích hợp;\r3D thí điểm",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[3,3]",
+      "text": "Tùy nội dung tích hợp",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[3,4]",
+      "text": "Không tương tác trực tiếp",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[4,1]",
+      "text": "Dữ liệu học tập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[4,2]",
+      "text": "Lưu cục bộ trên trình duyệt",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[4,3]",
+      "text": "Thường quản lý tập trung",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[4,4]",
+      "text": "Không có sẵn",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[5,1]",
+      "text": "Hạ tầng vận hành",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[5,2]",
+      "text": "Không bắt buộc máy chủ",
+      "font": "Arial",
+      "overflowWidthPt": 0.24,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[5,3]",
+      "text": "Thường cần dịch vụ / máy chủ",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": "8/cell[5,4]",
+      "text": "Không cần khi đọc cục bộ",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 21,
+      "shape": 9,
+      "text": "Không dùng bảng này để xếp hạng chất lượng hoặc kết luận về mọi nền tảng.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 3,
+      "text": "Điểm mạnh",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 5,
+      "text": "Điểm mạnh nổi bật",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 6,
+      "text": "Tổ chức kỹ thuật, quản lý nội dung và hỗ trợ người học",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 8,
+      "text": "Kỹ thuật",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 9,
+      "text": "Chạy cục bộ, kiến trúc rõ, có mô phỏng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 11,
+      "text": "Học thuật",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 12,
+      "text": "Truy vết yêu cầu, chuẩn đầu ra dự kiến và bằng chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 14,
+      "text": "Người dùng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 15,
+      "text": "Dễ mở, dễ đọc, có phương án dự phòng",
+      "font": "Arial",
+      "overflowWidthPt": 0.48,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 16,
+      "text": "Tách bạch kết quả kỹ thuật và kết luận nghiệm thu.\rMọi tuyên bố cần phù hợp với bằng chứng hiện có.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 22,
+      "shape": 17,
+      "text": "22 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 23,
+      "shape": 3,
+      "text": "Hạn chế",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 23,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 23,
+      "shape": 5,
+      "text": "Giới hạn và điều kiện áp dụng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 23,
+      "shape": 6,
+      "text": "Những nội dung cần hoàn tất trước khi triển khai chính thức",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 23,
+      "shape": 7,
+      "text": "Chưa hoàn tất nghiệm thu học thuật và đánh giá khả năng tiếp cận độc lập.\rChưa có bằng chứng nhập gói vào hệ quản lý học tập thực tế.\rMô phỏng 3D đang ở mức thí điểm.\rCòn rà soát gói ứng viên và kiểm tra lại tệp Word.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 23,
+      "shape": 9,
+      "text": "Chưa có bằng chứng thực nghiệm về hiệu quả học tập.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 23,
+      "shape": 10,
+      "text": "23 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 3,
+      "text": "Rủi ro",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 5,
+      "text": "Rủi ro và cách giảm thiểu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 6,
+      "text": "Tập trung vào rủi ro có ảnh hưởng đến sử dụng thật",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 8,
+      "text": "Tài liệu gốc thay đổi",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 9,
+      "text": "Dùng quy trình sinh lại và kiểm tra nội dung",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 11,
+      "text": "Hạn chế thiết bị / WebGL",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 12,
+      "text": "Dùng bản tĩnh hoặc mô phỏng hai chiều",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 14,
+      "text": "Nội dung lỗi thời",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 15,
+      "text": "Rà soát chuyên môn và cập nhật bằng chứng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 17,
+      "text": "Gói quá lớn",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 18,
+      "text": "Đề xuất tối ưu dung lượng và tải theo nhu cầu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 24,
+      "shape": 19,
+      "text": "24 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 3,
+      "text": "Tác động",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 5,
+      "text": "Giá trị sử dụng dự kiến",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 6,
+      "text": "Khả năng hỗ trợ dạy và học; chưa phải kết quả đo hiệu quả học tập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 8,
+      "text": "Học viên",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 9,
+      "text": "Học lại bài, xem mô phỏng, tự kiểm tra",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 11,
+      "text": "Giảng viên",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 12,
+      "text": "Cập nhật nội dung theo quy trình có kiểm soát",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 14,
+      "text": "Nhà trường",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 15,
+      "text": "Cơ sở tham khảo cho học phần khác",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 25,
+      "shape": 16,
+      "text": "25 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 3,
+      "text": "Lộ trình",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 5,
+      "text": "Lộ trình đề xuất",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 6,
+      "text": "Các mốc tính từ thời điểm kế hoạch được phê duyệt",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 8,
+      "text": "0 đến 3 tháng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 9,
+      "text": "Rà soát học thuật và khả năng tiếp cận độc lập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 11,
+      "text": "3 đến 6 tháng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 12,
+      "text": "Mở rộng mô phỏng và thử nhập vào hệ quản lý học tập",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 14,
+      "text": "6 đến 12 tháng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 15,
+      "text": "Tối ưu gói, bổ sung tìm kiếm trong tài liệu gốc và nhân rộng",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 26,
+      "shape": 16,
+      "text": "26 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 27,
+      "shape": 3,
+      "text": "Kết luận",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 27,
+      "shape": 4,
+      "text": "Cơ học lý thuyết",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 27,
+      "shape": 5,
+      "text": "Kết luận",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 27,
+      "shape": 6,
+      "text": "Đã có sản phẩm kỹ thuật; cần hoàn thiện hồ sơ nghiệm thu",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 27,
+      "shape": 7,
+      "text": "Học liệu hỗ trợ ngoại tuyến, tích hợp mô phỏng và ảnh động có dự phòng.\rKết quả kỹ thuật không thay thế nghiệm thu học thuật và đánh giá khả năng tiếp cận.\rHiệu quả học tập và khả năng nhân rộng cần được đánh giá riêng.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 27,
+      "shape": 9,
+      "text": "Đề xuất: hoàn tất các điều kiện đánh giá trước khi áp dụng chính thức.",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 27,
+      "shape": 10,
+      "text": "27 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 28,
+      "shape": 3,
+      "text": "CẢM ƠN HỘI ĐỒNG ĐÃ LẮNG NGHE",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 28,
+      "shape": 4,
+      "text": "Trao đổi và góp ý",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    },
+    {
+      "slide": 28,
+      "shape": 7,
+      "text": "28 / 28",
+      "font": "Arial",
+      "overflowWidthPt": 0,
+      "overflowHeightPt": 0
+    }
+  ],
+  "overflows": [],
+  "pdf": "C:\\Work\\GiaoTrinhDienTu_CoHocLyThuyet\\assets\\designs\\bao-cao-safe-final-review\\BaoCao_CoHocLyThuyet_MaQuet_VietHoa_SAFE_FINAL_DA_RA_SOAT.pdf"
+}

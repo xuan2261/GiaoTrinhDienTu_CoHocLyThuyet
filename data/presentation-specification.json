@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "editorialRevision": "2026-10-02",
+  "title": "Hiện trạng và phạm vi cam kết thống nhất",
+  "basis": "Gói đối chiếu: {candidateVersion}; sổ kiểm tra: {snapshotTime}; ràng buộc bộ bằng chứng–gói: {candidateBinding}. Số lượng học liệu được đối chiếu với dữ liệu nguồn và danh mục đã đăng ký. Đây là bản chỉnh sửa thuyết minh, không phải lần kiểm tra QA hoặc quyết định nghiệm thu mới.",
+  "headers": ["Hạng mục", "Hiện trạng được ghi nhận", "Giới hạn và phạm vi cam kết"],
+  "rows": [
+    ["Web và gói độc lập", "Có gói ứng viên {candidateVersion}; nội dung HTML/CSS/JavaScript và tài nguyên cục bộ, mở từ index.html hoặc máy chủ web.", "ZIP là cách phân phối, không đồng nghĩa SCORM hoặc nghiệm thu bản cuối."],
+    ["Hình ảnh động", "Danh mục gồm {gifCount} GIF, có ánh xạ sang PNG và điều khiển chuyển ảnh động/ảnh tĩnh.", "GIF không phải video; sự hiện diện của tài nguyên không có nghĩa cổng kiểm tra đã đạt."],
+    ["Mô phỏng 2D và 3D", "Có {sim2Count} vị trí Sim2; {sim3Count} vị trí trong số đó có bản Sim3 thử nghiệm bằng Three.js/WebGL.", "Không cộng thành các bài độc lập. Sim2 là lớp cơ sở; 3D cần giá trị sư phạm, kiểm mô hình và phương án dự phòng."],
+    ["Thuật ngữ 4D", "Trong hồ sơ chỉnh sửa, chỉ dùng 4D theo nghĩa quy ước 3D+t khi có diễn biến thời gian.", "Không phải chuẩn tệp hoặc mô-đun đã nghiệm thu. Thay đổi tham số tĩnh học không tự động là 4D."],
+    ["Video và âm thanh", "{mediaInventory}", "Quy trình quay/ghi màn hình, thu âm, dựng, phụ đề và bản chép lời là phương án bổ sung theo phạm vi được duyệt."],
+    ["Tìm kiếm", "Có chỉ mục văn bản cục bộ và xử lý tiếng Việt có dấu/không dấu; kết quả dẫn đến bài hoặc đoạn liên quan.", "Không mặc nhiên có tìm kiếm công thức theo ngữ nghĩa hoặc tìm trong PDF. Quan sát cây làm việc không tự đóng finding của gói lịch sử."],
+    ["Đánh giá người học", "Ngân hàng có {quizCount} câu; phản hồi, kết quả và tiến độ phục vụ tự học được lưu cục bộ trên trình duyệt.", "Chưa phải đánh giá có danh tính, sổ điểm hoặc đồng bộ LMS. Số câu và lượt đọc không chứng minh đạt chuẩn đầu ra."],
+    ["QTI 3 / Common Cartridge 1.4", "Mức chuẩn bị QTI 3: {qtiReadiness}; CC 1.4: {ccReadiness}. QTI giới hạn câu một lựa chọn, tối đa {qtiMaxItems} mục trong kiểm tra; CC là static webcontent.", "Trạng thái liên thông: {lmsStatus}. Chưa có bằng chứng nhập/chạy và ghi kết quả trên LMS đích; không tuyên bố chuyển đủ ngân hàng câu hỏi."],
+    ["SCORM / xAPI / cmi5", "SCORM: {scormReadiness}; xAPI/cmi5: {xapiReadiness} theo ma trận liên thông.", "Chưa triển khai trong phạm vi hiện tại. Chỉ chọn chuẩn/profile khi xác định mục đích, LMS/LRS, danh tính và quyền riêng tư."],
+    ["QA và phê duyệt", "Sổ ghi {gateTotal} cổng: {gatePass} pass, {gateFail} fail, {gateBlocked} blocked, {gateNotRun} not-run; tổng thể {overallStatus}; quyết định {releaseDecision}.", "Không thay đổi trạng thái bằng sửa tài liệu. Phê duyệt học thuật, khả năng tiếp cận và sử dụng thuộc thẩm quyền riêng; không suy ra từ gói ZIP hoặc demo." ]
+  ],
+  "workflowHeaders": ["Bước", "Đầu ra và công việc", "Trách nhiệm và điều kiện chuyển bước"],
+  "workflowRows": [
+    ["1. Chốt mục tiêu", "Đề cương, bản Word nguồn và ma trận mục tiêu–nội dung–đánh giá; lựa chọn chỗ cần đa phương tiện.", "Chủ biên và giảng viên chuyên môn xác nhận phạm vi; mục tiêu provisional chưa phải chuẩn đầu ra đã duyệt."],
+    ["2. Thiết kế", "Kịch bản, bảng phân cảnh, đặc tả mô hình, câu hỏi và phản hồi; đầu vào/đầu ra, giả thiết, giới hạn.", "Người biên soạn và chuyên gia cơ học duyệt trước sản xuất."],
+    ["3. Số hóa và sản xuất", "HTML, hình, công thức; GIF; mô phỏng; dữ liệu quiz; video/âm thanh nếu được duyệt bổ sung.", "Kỹ thuật lưu tệp nguồn, phiên bản, quyền sử dụng và nội dung thay thế; không khai tính năng dự kiến thành kết quả đã có."],
+    ["4. Tích hợp", "Gắn học liệu vào bài; tạo mục lục, bundle ngoại tuyến, chỉ mục tìm kiếm và danh mục nội dung.", "Nhóm nội dung–kỹ thuật kiểm liên kết, công thức, truy vấn và phương án dự phòng."],
+    ["5. Kiểm tra và thử nghiệm", "Đối chiếu lý thuyết/nghiệm chuẩn, chấm câu hỏi; kiểm thao tác, thiết bị, ngoại tuyến và tiếp cận; ghi lỗi.", "Chuyên gia và QA có trách nhiệm riêng; thử nghiệm người học theo kế hoạch, không suy diễn hiệu quả từ demo."],
+    ["6. Chỉnh sửa và đóng gói", "Sửa nguồn, tái tạo; tạo staging, ZIP, danh mục, SHA-256, thông tin giấy phép và hướng dẫn.", "Kỹ thuật khóa phiên bản; mọi minh chứng phải gắn đúng gói, không dùng ảnh bản cũ để kết luận bản mới."],
+    ["7. Phê duyệt, bàn giao", "Review độc lập, hồ sơ nghiệm thu, gói sử dụng và nguồn bảo trì.", "Hội đồng/đơn vị có thẩm quyền quyết định; pass kỹ thuật không thay phê duyệt học thuật."],
+    ["8. Cập nhật", "Ghi yêu cầu sửa; cập nhật nguồn, tái tạo và kiểm phần ảnh hưởng; lưu phiên bản trước.", "Chủ biên và đầu mối kỹ thuật quản lý thay đổi, không sửa riêng đầu ra sinh tự động."]
+  ]
+}

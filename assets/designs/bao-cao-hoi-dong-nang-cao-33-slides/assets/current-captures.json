@@ -1,0 +1,45 @@
+{
+  "capturedDate": "2026-10-05",
+  "siteUrl": "https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/",
+  "purpose": "Ảnh chụp trực tiếp giao diện đang chạy để minh họa báo cáo; không phải hồ sơ nghiệm thu chất lượng.",
+  "method": "Mở trang trực tuyến, thao tác thật và chụp màn hình; không sửa nội dung giao diện trong ảnh.",
+  "captures": [
+    {
+      "file": "current-home.png",
+      "url": "https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/",
+      "sha256": "8fc30c3a339c7aa6733af68fc88d7ea073927bb57cf849eb5cd34c2d8d71eea7"
+    },
+    {
+      "file": "current-search.png",
+      "url": "https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/",
+      "sha256": "6b2192c235c2b8fb0b05d411f482db64557834e935ce46ab1f3a14e3e0553ba3"
+    },
+    {
+      "file": "current-quiz.png",
+      "url": "https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/#ch1-quiz",
+      "sha256": "d49ecab3a02bb3ba2b21d074cc1d41f8cde405382b5dbdb336f5f67f2c4e926a"
+    },
+    {
+      "file": "current-pdf.png",
+      "url": "https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/#ch1-quiz",
+      "sha256": "2360e83d244135a2883000ececb1c66693799d17a46004e0771b9ee634bedd3e"
+    },
+    {
+      "file": "current-mobile.png",
+      "url": "https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/",
+      "sha256": "6f60d0bd5c1eeed3ac4880dc5532138a25cd8299c1437ea7fa7f44a0d5f8ca42"
+    },
+    {
+      "file": "current-simulation.png",
+      "url": "https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/#ch3-6-2",
+      "sha256": "4bdd3a407b702f9e63986296f2d565cfe9eb169ca67419105b9bba7f902d2823",
+      "method": "Ảnh chụp trực tiếp phần tử .sim2-viewport-host của mô phỏng đang chạy; giữ nguyên cảnh thật."
+    },
+    {
+      "file": "current-simulation-space.png",
+      "url": "https://xuan2261.github.io/GiaoTrinhDienTu_CoHocLyThuyet/#ch3-6-2",
+      "sha256": "55e4f71c232700c8ef565151c1f0c2a3b73d1bfecd8a856f7c9ea02149c5c1ed",
+      "method": "Ảnh chụp trực tiếp phần tử .sim2-viewport-host của mô phỏng đang chạy; giữ nguyên cảnh thật."
+    }
+  ]
+}
