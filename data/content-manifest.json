@@ -3,7 +3,7 @@
   "source": {
     "logicalPath": "CoHocLyThuyet_Full_New.docx",
     "sha256": "6396a72512613f867f93332968fc876daccb1d65ed3b6d52efaa74d44bf4b79a",
-    "docxManifestSha256": "1e8282fda95afba058e6c4f7c3ace6bd0d41e4aedd758549bd3c941eeb4ea57d",
+    "docxManifestSha256": "a49f6fb6adaf5413d4cd9f2ed507cbaf7fcc5c059b8914d76089dcafa7bed29e",
     "chapterReference": {
       "logicalPath": "data/chapter-reference.json",
       "sha256": "0b2272d54d6a3d3152562eab58b6cbf241860971e4a0932c79bb05c142fb1187"
@@ -3247,5 +3247,5 @@
       "hasSimulation": false
     }
   ],
-  "contentHash": "0ba8360b8f3d5d7eb99dc2e1f20f0c56ab2de77dc160867e604aa3996718d531"
+  "contentHash": "451b3f952f63356c3dcae9837458d3b858353cfd866f147c2f9f34f8ebb95604"
 }
